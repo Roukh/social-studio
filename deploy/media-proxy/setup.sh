@@ -29,7 +29,17 @@ else
 fi
 
 ref() { printf '%s=${{%s.%s}}' "$1" "$BUCKET_NAME" "$1"; }
-CREDS=$(railway bucket credentials --bucket "$BUCKET_NAME" --json)
+# A new bucket deploys in the background; its credentials exist only once it is deployed.
+printf 'waiting for bucket %s to deploy' "$BUCKET_NAME"
+CREDS=
+for _ in $(seq 36); do
+  CREDS=$(railway bucket credentials --bucket "$BUCKET_NAME" --json 2>/dev/null) &&
+    jq -e '.accessKeyId and .secretAccessKey and .bucketName' >/dev/null <<<"$CREDS" && break
+  CREDS=; printf '.'; sleep 5
+done
+echo
+[ -n "$CREDS" ] || { echo "bucket $BUCKET_NAME is still not deployed after 3 minutes: open the Railway canvas" \
+  "(railway open), deploy any staged changes, then run this again" >&2; exit 1; }
 STYLE=$(jq -r '.urlStyle // "virtual"' <<<"$CREDS")
 railway variable set --service "$SERVICE" "$(ref ENDPOINT)" "$(ref BUCKET)" "$(ref ACCESS_KEY_ID)" \
   "$(ref SECRET_ACCESS_KEY)" "$(ref REGION)" "ADDRESSING=$STYLE" >/dev/null
