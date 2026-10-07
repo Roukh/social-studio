@@ -16,7 +16,7 @@ Part of [[index]]. The only entry point for humans, agents and the timer.
 | Field | Value |
 |---|---|
 | Purpose | Parse commands, build `Ctx`, call the other boxes, print human text or `--json` |
-| Owned paths | `src/social_studio/cli.py` (812 lines), `__main__.py`, `data/SKILL.md` (the agent's guide to the CLI) |
+| Owned paths | `src/social_studio/cli.py` (817 lines), `__main__.py`, `data/SKILL.md` (the agent's guide to the CLI) |
 | In | argv; `--project` or `$SOCIAL_STUDIO_PROJECT` or the current folder; a TTY for human-only commands |
 | Out | calls into [[core]], [[runner]], [[library]], [[review]], [[schedule-publish]]; stdout text or JSON |
 
@@ -25,7 +25,7 @@ Part of [[index]]. The only entry point for humans, agents and the timer.
 | Command | What | Gate |
 |---|---|---|
 | `init [DIR]` (`setup`) | config, `.env`, folders, database, approval key, engine | key creation human-only |
-| `doctor` | python 3.11+, node 22+, npm, ffmpeg, ffprobe, ssh-keygen, bwrap, backends, project, `.env` mode | exit 1 on a failed required check |
+| `doctor` | python 3.11+, node 22+, npm, ffmpeg, ffprobe, ssh-keygen, bwrap, backends, project, `.env` mode; the buffer and media accounts (optional) | exit 1 on a failed required check |
 | `config get|set|list|path` | `social-studio.toml` | `GUARDED_CONFIG` keys human-only; `paths.library` refused (use `library dir`) |
 | `model list|set|key` | backends and models; `key` stores an API key into `.env` | `key` human-only |
 | `preset list|show|validate|new` | presets | — |
@@ -33,9 +33,9 @@ Part of [[index]]. The only entry point for humans, agents and the timer.
 | `make` | one session per video: `-n`, `--parallel`, `--preset`, `--backend`, `--model`, `--set`, `--title/--subject/--topic/--pillar/--notes`, `--effort`, `--review-effort`, `--pacing`, `--motion`, `--aspect`, `--fps`, `--duration`, `--sound`, `--rounds`, `--revise ID`, `--[no-]review` | `--no-sandbox` and guarded `--set` keys human-only |
 | `library list|show|path|open|dir` | browse; `dir` moves the library inside the boundary | `--all` human-only |
 | `review walk|list|approve|reject|revise|rescore` | human review; `rescore ID --times N --effort` re-runs the reviewer | approve signs at a TTY |
-| `schedule add|list|cancel`; `agent status|videos|topics|calendar|schedule` | calendar; agent views hide scheduled, posted and failed videos | `--videos` human-only |
-| `post [pick]`, `post schedule ID --at 'YYYY-MM-DD HH:MM'|now [-c instagram|facebook|x] [--yes] [--dry-run]`, `post list|sync|cancel ID` | Buffer route (rule R14): pick an approved post, channels and time, then upload and createPost; sync reads back what Buffer did | pick, schedule, list, cancel human-only |
-| `post run`, `channel list|connect|test|disconnect` (`buffer`, `media`, platforms), `timer install|remove|status` | timer publishing (direct adapters, then a Buffer sync), accounts, systemd user timer | connect, `publish.buffer.*`, `publish.media.*` and timer human-only |
+| `agent status|videos|topics|calendar` | read-only agent surface: `status` gives approval_needed, ready_to_post and next_post; `calendar` gives when and where, never which video; agent views hide scheduled, posted and failed videos | — (agents never schedule) |
+| `post [pick]`, `post schedule ID --at 'YYYY-MM-DD HH:MM'|now [-c instagram|facebook|x] [--yes] [--dry-run]`, `post list|sync|cancel ID` | the only posting route (rule R14): pick an approved post, channels and time, then upload and createPost; sync reads back what Buffer did | pick, schedule, list, cancel human-only |
+| `channel list|connect|test|disconnect buffer|media`, `timer install|remove|status` | accounts; systemd user timer that runs `post sync` | connect, `publish.buffer.*`, `publish.media.*` and timer human-only |
 | `completion bash|zsh`, `skill install|show`, `version` | shell completion (zsh wraps bash), install the agent skill into a harness | out-of-repo installs human-only |
 
 ## Invariants

@@ -43,7 +43,7 @@ social-studio channel connect buffer        # your Buffer personal API key (huma
 social-studio channel connect media         # a public S3-compatible bucket Buffer fetches videos from
 social-studio post                          # pick an approved post, channels, a time; confirm
 social-studio post list                     # what is queued or sent, with post URLs
-social-studio timer install                 # systemd user timer: `post run` every 10 minutes syncs Buffer's results
+social-studio timer install                 # systemd user timer: `post sync` every 10 minutes records Buffer's results
 ```
 
 ## Concepts
@@ -54,13 +54,12 @@ A project is any folder holding `social-studio.toml`. Commands find it from the 
 | Thing | Where (inside the project) | Notes |
 |---|---|---|
 | Config | `social-studio.toml` | `social-studio config get/set` |
-| Secrets | `.env` (0600) | model keys, platform apps and tokens |
+| Secrets | `.env` (0600) | model keys, the Buffer API key, the media bucket keys |
 | Presets | `presets/<name>/preset.toml`, then `preset_paths`, then built-ins | `extends = "other"` to inherit |
 | Library | `library/<date>-<slug>-<id>/` | `social-studio library dir <folder>` moves it, inside the repo only |
 | State | `.studio/`: `library.db`, `approval/`, `sessions/`, `engine/`, `cache/` | SQLite in WAL mode; engine, Chrome and npm cache included |
-| Drafts | `drafts/` | LinkedIn and TikTok export folders |
 
-`init` writes a `.gitignore` that keeps `.env`, `.studio/`, `library/` and `drafts/` out of git;
+`init` writes a `.gitignore` that keeps `.env`, `.studio/` and `library/` out of git;
 config and presets can be committed.
 
 A finished session is trimmed to what explains it (task, brief, metadata, contact sheet, gzipped
@@ -94,21 +93,9 @@ so `post` first uploads the file to an S3-compatible bucket with public read (Cl
 AWS S3, Backblaze B2, MinIO) under its sha256, signed with SigV4, and checks the public URL answers.
 
 Before anything leaves, `post` re-checks the approval signature, re-hashes the file, checks that the
-post text is the one approved, and checks each network's length limit. `post sync` (and every
-`post run`) reads back what Buffer did: the post URL, or Buffer's error. `post cancel ID` removes
-queued posts from Buffer. Buffer's API does not read or reply to comments.
-
-## Platforms directly (your own developer apps)
-
-| Platform | How | Notes |
-|---|---|---|
-| Instagram | Graph API (Facebook Login), local resumable upload | needs a Page linked to an Instagram professional account; App Review for other accounts |
-| Facebook Page | Reels API, resumable upload | same connection as Instagram |
-| YouTube | Data API, resumable upload | projects created after 2020-07-28 upload private until YouTube's compliance audit passes |
-| X | API v2, chunked media upload | pay per post |
-| Bluesky | app password | free |
-| LinkedIn | draft folder | LinkedIn's API terms forbid automated posting |
-| TikTok | draft folder | TikTok's audit rejects in-house upload tools; unaudited apps post private only |
+post text is the one approved, and checks each network's length limit. `post sync` (the timer runs
+it) reads back what Buffer did: the post URL, or Buffer's error. `post cancel ID` removes queued
+posts from Buffer. Buffer is the only posting route; Buffer's API does not read or reply to comments.
 
 ## Security model
 
@@ -120,12 +107,12 @@ queued posts from Buffer. Buffer's API does not read or reply to comments.
   sandbox (by flag or config), installing the timer, and installing a skill outside the repo
   are human-only.
 - Network inside the sandbox is open (the harness needs its API). Domain allowlisting is planned.
-- Human-only commands (approve, reject, revise, reveal scheduled videos, connect accounts) need an
-  interactive terminal, and approval also needs the passphrase. Never add the approval key to
-  ssh-agent.
-- The publisher re-verifies the signature and re-hashes the file before every upload; the Buffer
-  route also checks the signed post text. Scheduling, listing and cancelling Buffer posts, and the
-  `publish.buffer` and `publish.media` settings, are human-only.
+- Human-only commands (approve, reject, revise, schedule, list or cancel posts, reveal scheduled
+  videos, connect accounts) need an interactive terminal, and approval also needs the passphrase.
+  Never add the approval key to ssh-agent.
+- `post` re-verifies the signature, re-hashes the file and checks the signed post text before every
+  upload. The `publish.buffer` and `publish.media` settings are human-only, and no agent command
+  schedules or sends a post.
 
 ## For agents
 

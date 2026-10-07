@@ -347,10 +347,6 @@ class Ctx:
         return self.studio_dir / "approval"
 
     @property
-    def drafts_dir(self) -> Path:
-        return self.need() / "drafts"
-
-    @property
     def env_path(self) -> Path:
         return self.need() / ".env"
 
@@ -408,7 +404,7 @@ def path_problem(ctx: Ctx, path: Path) -> str | None:
         return "is outside the repo"
     if q == project or q in project.parents:
         return "holds the whole project, its .env and database included"
-    for private in (ctx.env_path, ctx.studio_dir, ctx.library_dir, ctx.drafts_dir):
+    for private in (ctx.env_path, ctx.studio_dir, ctx.library_dir):
         if q == private.resolve() or private.resolve() in q.parents:
             return "is the project's private state"
     if q.name.startswith(".env"):

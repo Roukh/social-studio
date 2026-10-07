@@ -30,8 +30,8 @@ v2 (2026-10-06, feature F6) only adds three `post_targets` columns, so a process
 | `videos` | the library; status review, approved, rejected, revision, superseded, scheduled, posted, failed; identity is the file's sha256 |
 | `video_events` | append-only status history with the actor from `ss_actor()` |
 | `approvals` | video_id, sha256, payload, ssh signature |
-| `posts` | slot at (UTC), `video_id UNIQUE`; status open, scheduled, posting, posted, partial, failed, cancelled, missed |
-| `post_targets` | per platform: status, `platform_post_id` (unique per platform; the Buffer post id on the Buffer route), url, attempts, next_try_at; v2: `via` (direct or buffer), `channel_id` (Buffer channel), `text` (exactly what was sent) |
+| `posts` | when (UTC), `video_id UNIQUE`; status scheduled, posting, posted, partial, failed, cancelled (`open` and `missed` were the removed calendar's and are no longer written) |
+| `post_targets` | per platform: status, `platform_post_id` (unique per platform; the Buffer post id), url, attempts, next_try_at; v2: `via` (always buffer now; `direct` was the removed route), `channel_id` (Buffer channel), `text` (exactly what was sent). Status `draft` belonged to the removed draft folders and is no longer written |
 
 | From | Allowed to |
 |---|---|
@@ -42,7 +42,7 @@ v2 (2026-10-06, feature F6) only adds three `post_targets` columns, so a process
 | scheduled | posted, failed, approved |
 | failed | approved, scheduled, rejected |
 
-Views for the agent surface: `agent_videos` (only review, approved, rejected, revision), `agent_topics` (topic, angle, pillar, day; no superseded), `agent_calendar` (slots and platforms, never which video).
+Views for the agent surface: `agent_videos` (only review, approved, rejected, revision), `agent_topics` (topic, angle, pillar, day; no superseded), `agent_calendar` (Buffer posts: when, status and platforms, never which video).
 
 ## Invariants
 

@@ -177,10 +177,9 @@ def delete_post(ctx: Ctx, post_id: str) -> None:
 class BufferAdapter(Adapter):
     """`channel connect buffer`: store the personal API key and pick the organization."""
     name = "buffer"
-    kind = "scheduler"
     keys = (KEY,)
 
-    def connect(self, ctx, paste=False):
+    def connect(self, ctx):
         key = ask("Buffer API key (publish.buffer.com/settings/api)", secret=True)
         self.save(ctx, {KEY: key})
         orgs = organizations(ctx)
@@ -199,6 +198,3 @@ class BufferAdapter(Adapter):
         found = channels(ctx)
         names = ", ".join(c["label"] for c in found) or "no Instagram, Facebook or X channel connected in Buffer"
         return f"Buffer organization {organization(ctx)}: {names}"
-
-    def publish(self, ctx, video, caption, post_id):
-        raise ConfigError("Buffer posts are scheduled with `social-studio post`, not by the timer")

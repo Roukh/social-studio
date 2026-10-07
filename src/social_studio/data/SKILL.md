@@ -26,25 +26,22 @@ everything is.
 | Remake a video a human sent back | `social-studio --json make --revise <id>` (the new version replaces the old one's files) |
 | Find a video's file to show the operator | `social-studio --json library path <id>` |
 | Show or move the library (inside the repo) | `social-studio --json library dir [folder]` |
-| List videos not yet on the calendar | `social-studio --json agent videos` |
+| List videos not yet posted | `social-studio --json agent videos` |
 | Topics already covered (avoid repeats) | `social-studio --json agent topics` |
-| See the calendar (when, not which video) | `social-studio --json agent calendar` |
-| Calendar slots for the direct route (the operator's own developer apps, not Buffer) | `social-studio --json agent schedule 2026-10-05 09:00 -p instagram --every 2d --count 5` |
+| See what goes out when (read-only; when and where, not which video) | `social-studio --json agent calendar` |
 
 Posting through Buffer (Instagram, Facebook, X) is the operator's: `social-studio post` at their
-terminal picks an approved post, its channels and a time. When approved videos are waiting, tell the
-operator to run it. The direct-route calendar takes `YYYY-MM-DD` and `HH:MM` 24-hour in the
-operator's time zone; use it only when the operator asks for it.
+terminal picks an approved post, its channels and a time. When `agent status` shows
+`ready_to_post` above zero, tell the operator to run it.
 
 ## What you cannot do, by design
 
 - Approve, reject or mark videos for revision. Only the human can, in their own terminal
   (`social-studio review`). Approval is a passphrase signature; it cannot be done for them.
-- Choose which video goes into a slot. The scheduler fills each slot with the oldest approved
-  video, and a filled slot's video disappears from everything you can list. A slot with no
-  approved video stays open and fills when the next video is approved.
-- Schedule, list or cancel Buffer posts (`social-studio post`), change where posts and videos go
-  (`publish.buffer`, `publish.media`), see or change scheduled and posted videos, or connect accounts.
+- Schedule, post, list or cancel posts (`social-studio post`), or pick which video goes out or
+  when. A scheduled video disappears from everything you can list.
+- Change where posts and videos go (`publish.buffer`, `publish.media`), see or change scheduled and
+  posted videos, or connect accounts.
 - Write outside the repo that holds the project. Running without the sandbox, installing the
   timer, and installing a skill outside the repo are human-only.
 
@@ -52,7 +49,7 @@ If a command answers `denied` (exit 77), it is human-only: tell the operator whi
 
 ## Typical flow
 
-1. `agent status` to see how many videos wait for review and how many slots are open.
+1. `agent status` to see how many videos wait for review and how many are ready to post.
 2. `make -n <count>` if the library is short of approved or pending videos.
 3. Tell the operator to run `social-studio review` to approve them (the video and its post text).
 4. Tell the operator to run `social-studio post` to schedule approved ones through Buffer.

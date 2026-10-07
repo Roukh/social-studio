@@ -2,8 +2,7 @@
 
 `approve` signs "video id + exact file sha256 + post text hash" with an ed25519 key protected by a
 passphrase only the human knows (OpenSSH `ssh-keygen -Y sign`, which reads the passphrase from the
-terminal). The scheduler and the publisher verify that signature with the public key before they touch a
-video, so editing the database by hand, swapping the file, or rewriting the caption after approval gets
+terminal). `post` verifies that signature with the public key before it uploads or schedules a video, so editing the database by hand, swapping the file, or rewriting the caption after approval gets
 nothing posted.
 """
 from __future__ import annotations

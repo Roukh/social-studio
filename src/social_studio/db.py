@@ -1,4 +1,4 @@
-"""SQLite library: videos, sessions, approvals, the posting calendar.
+"""SQLite library: videos, sessions, approvals, and the posts sent through Buffer.
 
 Invariants the schema enforces (not just the code):
 - status values are an enum, and only legal transitions pass (trigger);
@@ -6,8 +6,9 @@ Invariants the schema enforces (not just the code):
 - every status change writes an append-only event row, attributed through ss_actor(), a function
   only this tool registers, so raw edits from the sqlite3 shell fail instead of slipping through;
 - a video is used by at most one post, and a platform has at most one live post per minute;
-- a platform post id is stored once, so a retried publish becomes a lookup, not a duplicate;
-- a target says how it leaves (direct adapter or Buffer), so the timer never re-sends a Buffer post.
+- a platform post id (the Buffer post id) is stored once per platform, never twice.
+Earlier schema entries are never edited; v1 still carries the removed calendar's statuses (open, missed,
+draft), which nothing writes any more.
 """
 from __future__ import annotations
 
@@ -164,7 +165,7 @@ SCHEMA = [
           WHERE t.post_id = p.id AND t.status <> 'cancelled') AS platforms
       FROM posts p WHERE p.status <> 'cancelled';
     """,
-    # v2: targets that go out through Buffer. `via` keeps them away from `post run`'s direct adapters,
+    # v2: targets that go out through Buffer (`via`; `direct` was the adapter route removed on 2026-10-06),
     # `channel_id` is the Buffer channel and `text` is exactly what was sent.
     """
     ALTER TABLE post_targets ADD COLUMN via TEXT NOT NULL DEFAULT 'direct' CHECK (via IN ('direct', 'buffer'));

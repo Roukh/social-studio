@@ -11,6 +11,8 @@ status: active
 
 # social-platform-apis — posting constraints per platform
 
+The direct posting route this research informed (social-studio's own platform adapters) was removed on 2026-10-06; social-studio now posts only through Buffer ([[buffer-api-coverage]]). Kept as reference.
+
 Reference for social-studio's own posting pipeline (it posts approved videos itself, no third-party scheduler). Gathered 2026-10-01 against each platform's live docs.
 
 ## Question

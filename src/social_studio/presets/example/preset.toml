@@ -110,6 +110,6 @@ min_score = 8
 # effort = "high"       # the reviewer's own; it never inherits agent.effort
 
 [publish]
-platforms = ["instagram", "youtube"]
+platforms = ["instagram", "facebook", "x"]   # Buffer's networks; the maker writes a caption for each
 link = ""               # added (with utm tags) to captions on platforms that allow links
 bio_note = "Link in bio."

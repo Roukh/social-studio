@@ -1,8 +1,8 @@
 """social-studio command line. Nouns first, `--json` everywhere, sysexits exit codes.
 
-Humans and agents share one binary. Human-only actions (approve, reject, revise, reveal scheduled
-videos, connect accounts, anything that writes outside the repo) need an interactive terminal;
-agents in a harness never have one.
+Humans and agents share one binary. Human-only actions (approve, reject, revise, schedule or cancel
+posts, reveal scheduled videos, connect accounts, anything that writes outside the repo) need an
+interactive terminal; agents in a harness never have one.
 """
 from __future__ import annotations
 
@@ -14,12 +14,14 @@ import shutil
 import subprocess
 import sys
 import textwrap
+from datetime import timedelta
 from pathlib import Path
 
-from . import __version__, approval, db, engine, platforms, publish, review, schedule
+from . import __version__, approval, db, engine, platforms, posting, review
 from .core import (EFFORTS, FORMATS, GUARDED_CONFIG, PKG_DIR, PROJECT_FILE, SOUNDS, ConfigError, Ctx, DataError,
                    StudioError, UsageError, dget, dset, emit, format_sets, guarded, is_tty, iso, list_presets, load_preset,
-                   load_toml, log, make_ctx, parse_sets, parse_value, require_human, save_env, validate_preset)
+                   load_toml, log, make_ctx, now_utc, parse_sets, parse_value, require_human, save_env,
+                   validate_preset)
 
 DEFAULT_CONFIG = {
     "default_preset": "",
@@ -31,8 +33,7 @@ DEFAULT_CONFIG = {
                 "opencode": {"model": ""},
                 "codex": {"model": "", "auth": ""}},
     "sandbox": {"enabled": True},
-    "publish": {"default_platforms": [], "youtube": {"privacy": "private"},
-                "buffer": {"organization": "", "channels": [], "ai_label": False},
+    "publish": {"buffer": {"organization": "", "channels": [], "ai_label": False},
                 "media": {"endpoint": "", "bucket": "", "region": "auto", "public_url": "", "prefix": "social-studio/"}},
 }
 
@@ -88,7 +89,7 @@ def cmd_init(ctx: Ctx, a) -> int:
         notes.append(f"wrote {ctx.env_path} (0600)")
     if not (root / ".gitignore").exists():
         shutil.copyfile(PKG_DIR / "data" / "project.gitignore", root / ".gitignore")
-        notes.append("wrote .gitignore (.env, .studio/, library/, drafts/)")
+        notes.append("wrote .gitignore (.env, .studio/, library/)")
     db.connect(ctx).close()
     notes.append(f"project {root} (writes stay inside {ctx.boundary})")
     if approval.is_ready(ctx):
@@ -166,7 +167,8 @@ def _checks(ctx: Ctx) -> list[dict]:
         add("default preset", False, "not set", "social-studio config set default_preset <name>", required=False)
     from . import platforms
     for pname, ad in platforms.registry().items():
-        add(f"platform {pname}", ad.connected(ctx), ad.kind, f"social-studio channel connect {pname}", required=False)
+        add(f"account {pname}", ad.connected(ctx), "connected" if ad.connected(ctx) else "not connected",
+            f"social-studio channel connect {pname}", required=False)
     return out
 
 
@@ -403,8 +405,7 @@ def _approve(ctx: Ctx, ids: list[int]) -> dict:
                 db.set_status(con, v["id"], "approved", "approved by a human")
     finally:
         con.close()
-    filled = schedule.fill_open(ctx, actor="human")
-    return {"approved": ids, "filled_slots": filled}
+    return {"approved": ids}
 
 
 def _decide(ctx: Ctx, vid: int, status: str, notes: str) -> None:
@@ -445,7 +446,7 @@ def cmd_review(ctx: Ctx, a) -> int:
         if not a.ids:
             raise UsageError("review approve needs video ids")
         res = _approve(ctx, a.ids)
-        emit(ctx, res, f"approved {res['approved']}; filled {res['filled_slots']} open slot(s)")
+        emit(ctx, res, f"approved {res['approved']}; schedule them with `social-studio post`")
         return 0
     if a.action in ("reject", "revise"):
         require_human(f"marking videos for {a.action}")
@@ -474,7 +475,7 @@ def cmd_review(ctx: Ctx, a) -> int:
                 print(f"    - {issue}")
         # Approving signs this text with the video: show it exactly as each network will get it.
         caps = meta.get("video", {}).get("captions") or {"default": ""}
-        pub = publish._preset_publish(ctx, r["preset"])
+        pub = posting.preset_publish(ctx, r["preset"])
         for k in [c for c in caps if c != "default"] or ["default"]:
             print(f"  post text [{k}]:\n" + textwrap.indent(platforms.caption_for(k, r, pub), "    "))
         while True:
@@ -497,46 +498,22 @@ def cmd_review(ctx: Ctx, a) -> int:
         print(f"\nSigning {len(to_approve)} approval(s), each covering the video and its post text. "
               "Enter your approval passphrase.")
         res = _approve(ctx, to_approve)
-        emit(ctx, res, f"approved {res['approved']}; filled {res['filled_slots']} open slot(s)")
-    return 0
-
-
-def cmd_schedule(ctx: Ctx, a, actor: str = "cli") -> int:
-    if a.action == "add":
-        if not (a.date and a.time):
-            raise UsageError("schedule add needs DATE and TIME", "e.g. social-studio schedule add 2026-10-05 09:00 -p instagram")
-        res = schedule.add(ctx, a.date, a.time, a.platform or [], a.every, a.count, actor=actor,
-                           dry_run=bool(getattr(a, "dry_run", False)))
-        human = ("(dry run, nothing saved)\n" if res and res[0].get("dry_run") else "") + "\n".join(
-            f"post {r['post_id']}  {r['local']}  {','.join(r['platforms'])}  "
-            f"{'filled' if r['filled'] else 'open (waits for the next approved video)'}" for r in res)
-        emit(ctx, res, human)
-    elif a.action == "list":
-        reveal = bool(getattr(a, "videos", False))
-        if reveal:
-            require_human("seeing which video sits in which slot")
-        rows = schedule.listing(ctx, reveal, include_past=a.past, limit=a.limit)
-        cols = ["post_id", "local", "status", "title", "targets"] if reveal else ["post_id", "local", "status", "filled", "platforms"]
-        emit(ctx, rows, table(rows, cols))
-    else:
-        if a.post_id is None:
-            raise UsageError("schedule cancel needs a post id")
-        emit(ctx, schedule.cancel(ctx, a.post_id, actor=actor), f"post {a.post_id} cancelled")
+        emit(ctx, res, f"approved {res['approved']}; schedule them with `social-studio post`")
     return 0
 
 
 def cmd_agent(ctx: Ctx, a) -> int:
-    """Everything an agent needs, nothing it should not see."""
+    """Everything an agent needs, nothing it should not see. Agents read; they never schedule or post."""
     con = db.connect(ctx, actor="agent")
     try:
         if a.action == "status":
             counts = dict(con.execute("SELECT status, count(*) FROM agent_videos GROUP BY status").fetchall())
-            open_slots = con.execute("SELECT count(*) FROM agent_calendar WHERE status = 'open'").fetchone()[0]
             nxt = con.execute("SELECT at FROM agent_calendar WHERE status = 'scheduled' AND at > ? ORDER BY at LIMIT 1",
                               (iso(),)).fetchone()
-            data = {"videos": counts, "open_slots": open_slots,
-                    "next_post": schedule.local_str(ctx, nxt[0]) if nxt else None,
-                    "approval_needed": counts.get("review", 0) + counts.get("revision", 0)}
+            data = {"videos": counts,
+                    "approval_needed": counts.get("review", 0) + counts.get("revision", 0),
+                    "ready_to_post": counts.get("approved", 0),  # approved and not on a live post
+                    "next_post": posting.local_str(ctx, nxt[0]) if nxt else None}
             emit(ctx, data, json.dumps(data, indent=2))
         elif a.action == "videos":
             rows = db.rows(con.execute("SELECT id, status, title, pillar, topic, created_at FROM agent_videos "
@@ -546,12 +523,13 @@ def cmd_agent(ctx: Ctx, a) -> int:
             rows = db.rows(con.execute("SELECT day, pillar, topic, angle FROM agent_topics ORDER BY day DESC LIMIT ?",
                                        (a.limit,)))
             emit(ctx, rows, table(rows, ["day", "pillar", "topic", "angle"]))
-        elif a.action == "calendar":
-            rows = schedule.listing(ctx, reveal=False, limit=a.limit)
-            emit(ctx, rows, table(rows, ["post_id", "local", "status", "filled", "platforms"]))
-        else:  # schedule: same calendar, attributed to the agent, never reveals which video
-            a.action = "add"
-            return cmd_schedule(ctx, a, actor="agent")
+        else:  # calendar: when posts go out and where, never which video
+            rows = db.rows(con.execute("SELECT id AS post_id, at, status, platforms FROM agent_calendar "
+                                       "WHERE at >= ? ORDER BY at LIMIT ?",
+                                       (iso(now_utc() - timedelta(days=1)), a.limit)))
+            for r in rows:
+                r["local"] = posting.local_str(ctx, r["at"])
+            emit(ctx, rows, table(rows, ["post_id", "local", "status", "platforms"]))
     finally:
         con.close()
     return 0
@@ -570,11 +548,6 @@ def _scheduled(ctx: Ctx, res: dict | None) -> int:
 
 
 def cmd_post(ctx: Ctx, a) -> int:
-    from . import posting
-    if a.action == "run":
-        res = publish.run(ctx, dry_run=a.dry_run, only=a.post)
-        emit(ctx, res, table(res, ["post_id", "platform", "status", "url", "error"]) if res else "nothing due")
-        return 1 if any(r.get("status") in ("error", "blocked") for r in res) else 0
     if a.action == "sync":
         res = posting.sync(ctx)
         emit(ctx, res, table(res, ["post_id", "platform", "status", "url", "error"]) if res else "nothing due")
@@ -604,24 +577,23 @@ def cmd_post(ctx: Ctx, a) -> int:
 
 
 def cmd_channel(ctx: Ctx, a) -> int:
-    from . import platforms
     if a.action == "list":
-        rows = [{"platform": n, "kind": ad.kind, "connected": ad.connected(ctx)} for n, ad in platforms.registry().items()]
-        emit(ctx, rows, table(rows, ["platform", "kind", "connected"]))
+        rows = [{"account": n, "connected": ad.connected(ctx)} for n, ad in platforms.registry().items()]
+        emit(ctx, rows, table(rows, ["account", "connected"]))
         return 0
     if not a.platform:
-        raise UsageError(f"channel {a.action} needs a platform")
+        raise UsageError(f"channel {a.action} needs an account: buffer or media")
     ad = platforms.get(a.platform)
     if a.action == "connect":
-        ad.connect(ctx, paste=a.paste)
+        ad.connect(ctx)
         emit(ctx, {"platform": a.platform, "connected": True, "as": ad.whoami(ctx)}, f"connected: {ad.whoami(ctx)}")
     elif a.action == "test":
         who = ad.whoami(ctx)
         emit(ctx, {"platform": a.platform, "ok": True, "as": who}, f"ok: {who}")
     else:
         require_human("disconnecting an account")
-        save_env(ctx.env_path, {k: None for k in ad.keys if "CLIENT" not in k and "APP_" not in k})
-        emit(ctx, {"platform": a.platform, "disconnected": True}, f"removed {a.platform} tokens from .env")
+        save_env(ctx.env_path, {k: None for k in ad.keys})
+        emit(ctx, {"platform": a.platform, "disconnected": True}, f"removed {a.platform} keys from .env")
     return 0
 
 
@@ -634,10 +606,10 @@ def cmd_timer(ctx: Ctx, a) -> int:
         exe = shutil.which("social-studio") or f"{sys.executable} -m social_studio"
         unit_dir.mkdir(parents=True, exist_ok=True)
         (unit_dir / f"{name}.service").write_text(
-            f"[Unit]\nDescription=social-studio: publish due posts\n\n[Service]\nType=oneshot\n"
-            f"ExecStart={exe} --project {ctx.need()} post run\n")
+            f"[Unit]\nDescription=social-studio: record what Buffer did with due posts\n\n[Service]\nType=oneshot\n"
+            f"ExecStart={exe} --project {ctx.need()} post sync\n")
         (unit_dir / f"{name}.timer").write_text(
-            f"[Unit]\nDescription=social-studio: publish due posts every {a.every} minutes\n\n[Timer]\n"
+            f"[Unit]\nDescription=social-studio: sync Buffer posts every {a.every} minutes\n\n[Timer]\n"
             f"OnCalendar=*:0/{a.every}\nPersistent=true\n\n[Install]\nWantedBy=timers.target\n")
         subprocess.run(["systemctl", "--user", "daemon-reload"], check=True)
         subprocess.run(["systemctl", "--user", "enable", "--now", f"{name}.timer"], check=True)
@@ -791,48 +763,28 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--times", type=int, default=2, help="rescore: reviewer runs on the same video (default 2)")
     p.add_argument("--effort", choices=EFFORTS, help="rescore: the reviewer's effort (review.effort)")
 
-    p = cmd("schedule", cmd_schedule, "the posting calendar: you pick when, the code picks which approved video")
-    p.add_argument("action", choices=["add", "list", "cancel"])
-    p.add_argument("date", nargs="?", help="YYYY-MM-DD (add) or post id (cancel)")
-    p.add_argument("time", nargs="?", help="HH:MM, local time")
-    p.add_argument("-p", "--platform", action="append", help="repeatable; default publish.default_platforms")
-    p.add_argument("--every", help="repeat interval for --count, e.g. 2d, 12h, 1w")
-    p.add_argument("--count", type=int, default=1)
-    p.add_argument("--videos", action="store_true", help="show which video fills each slot (human only)")
-    p.add_argument("--past", action="store_true")
-    p.add_argument("--dry-run", action="store_true", help="show what add would create, save nothing")
-    p.add_argument("--limit", type=int, default=50)
-
-    p = cmd("agent", cmd_agent, "the agent surface: status, unassigned videos, topics, calendar, schedule")
-    p.add_argument("action", choices=["status", "videos", "topics", "calendar", "schedule"])
-    p.add_argument("--dry-run", action="store_true", help="schedule: show what would be created, save nothing")
-    p.add_argument("date", nargs="?")
-    p.add_argument("time", nargs="?")
-    p.add_argument("-p", "--platform", action="append")
-    p.add_argument("--every")
-    p.add_argument("--count", type=int, default=1)
+    p = cmd("agent", cmd_agent, "the agent surface (read-only): status, unassigned videos, topics, calendar")
+    p.add_argument("action", choices=["status", "videos", "topics", "calendar"])
     p.add_argument("--limit", type=int, default=50)
 
     p = cmd("post", cmd_post, "post approved videos through Buffer: with no action, pick one, its channels and a "
-            "time at a terminal; schedule does the same from flags; list, sync and cancel follow them; "
-            "run is the timer's job (direct adapters, then a Buffer sync)")
-    p.add_argument("action", nargs="?", choices=["pick", "schedule", "list", "sync", "cancel", "run"], default="pick")
+            "time at a terminal; schedule does the same from flags; list and cancel follow them; "
+            "sync records what Buffer did (the timer runs it)")
+    p.add_argument("action", nargs="?", choices=["pick", "schedule", "list", "sync", "cancel"], default="pick")
     p.add_argument("target", nargs="?", type=int, help="schedule: a video id; cancel: a post id")
     p.add_argument("--at", metavar="'YYYY-MM-DD HH:MM'|now", help="schedule: local time, or now")
     p.add_argument("-c", "--channel", action="append",
                    help="schedule: instagram, facebook, x, or a Buffer channel id (repeatable; default all)")
     p.add_argument("--yes", action="store_true", help="schedule: skip the confirmation question")
     p.add_argument("--dry-run", action="store_true", help="show what would happen; upload and schedule nothing")
-    p.add_argument("--post", type=int, help="run: only this post id")
     p.add_argument("--past", action="store_true", help="list: include posts older than a day")
     p.add_argument("--limit", type=int, default=50)
 
-    p = cmd("channel", cmd_channel, "connect and test social accounts")
+    p = cmd("channel", cmd_channel, "connect and test the accounts posting uses: buffer (posts) and media (video hosting)")
     p.add_argument("action", choices=["list", "connect", "test", "disconnect"])
-    p.add_argument("platform", nargs="?")
-    p.add_argument("--paste", action="store_true", help="paste the redirect URL instead of a local callback")
+    p.add_argument("platform", nargs="?", metavar="account", help="buffer or media")
 
-    p = cmd("timer", cmd_timer, "systemd user timer that runs `post run`")
+    p = cmd("timer", cmd_timer, "systemd user timer that runs `post sync`")
     p.add_argument("action", choices=["install", "remove", "status"])
     p.add_argument("--every", type=int, default=10, help="minutes (default 10)")
 
@@ -850,8 +802,6 @@ def main(argv: list[str] | None = None) -> int:
     a = ap.parse_args(argv)
     ctx = make_ctx(a.project, a.json)
     try:
-        if a.cmd == "schedule" and a.action == "cancel":
-            a.post_id = int(a.date) if a.date else None
         return a.fn(ctx, a) or 0
     except StudioError as e:
         if ctx.json:

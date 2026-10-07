@@ -1,24 +1,91 @@
-"""Approved posts out through Buffer.
+"""Approved posts out through Buffer, the only posting route.
 
 The operator picks the post, the channels and the time at a terminal. Code then checks the signed
 approval (file and post text), uploads the file to public storage, creates one Buffer post per channel
-and records each one. Buffer publishes at that time; `post sync` (also run by every `post run`) reads
-back what happened. No agent-facing command reaches any of this.
+and records each one. Buffer publishes at that time; `post sync` (run by the timer) reads back what
+happened. No agent-facing command reaches any of this.
 """
 from __future__ import annotations
 
+import fcntl
+import os
 import sqlite3
 import textwrap
-from datetime import timedelta
+from contextlib import contextmanager
+from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 from . import approval, db, platforms
-from .core import ConfigError, Ctx, DataError, Denied, StudioError, UsageError, iso, now_utc, parse_iso, require_human
+from .core import (ConfigError, Ctx, DataError, Denied, StudioError, Unavailable, UsageError, iso, load_preset,
+                   now_utc, parse_iso, require_human)
 from .platforms import buffer, media
-from .publish import _preset_publish, _settle_post, post_lock
-from .schedule import local_str, parse_when
 
 SCHEDULABLE = ("approved", "failed")  # failed: Buffer or the network refused it; the operator may try again
 MIN_LEAD = timedelta(minutes=2)
+
+
+# --- time, locking, settling --------------------------------------------------------------------------
+
+def tz(ctx: Ctx):
+    name = ctx.cfg("timezone") or os.environ.get("TZ")
+    if name:
+        try:
+            return ZoneInfo(name)
+        except Exception as e:
+            raise UsageError(f"unknown timezone {name!r}", "use an IANA name such as America/New_York") from e
+    return datetime.now().astimezone().tzinfo
+
+
+def parse_when(ctx: Ctx, date: str, time: str) -> datetime:
+    try:
+        local = datetime.strptime(f"{date} {time}", "%Y-%m-%d %H:%M")
+    except ValueError as e:
+        raise UsageError(f"bad date/time {date} {time}", "use YYYY-MM-DD and HH:MM (24h), local time") from e
+    return local.replace(tzinfo=tz(ctx)).astimezone(timezone.utc)
+
+
+def local_str(ctx: Ctx, at: str) -> str:
+    return parse_iso(at).astimezone(tz(ctx)).strftime("%Y-%m-%d %H:%M %Z")
+
+
+@contextmanager
+def post_lock(ctx: Ctx, wait: bool = False, held: bool = False):
+    """One posting process at a time: sync, scheduling and cancelling share post.lock."""
+    if held:
+        yield
+        return
+    ctx.studio_dir.mkdir(parents=True, exist_ok=True)
+    with open(ctx.studio_dir / "post.lock", "w") as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | (0 if wait else fcntl.LOCK_NB))
+        except BlockingIOError:
+            raise Unavailable("another posting command is in progress; try again in a minute") from None
+        yield
+
+
+def settle_post(con, post_id: int) -> None:
+    """Once no target is pending: the post becomes posted, partial or failed, and its video follows."""
+    states = [r[0] for r in con.execute("SELECT status FROM post_targets WHERE post_id = ? AND status <> 'cancelled'",
+                                        (post_id,))]
+    if "pending" in states:
+        return
+    done = sum(s in ("posted", "draft") for s in states)
+    status = "posted" if done == len(states) else ("partial" if done else "failed")
+    con.execute("UPDATE posts SET status = ? WHERE id = ?", (status, post_id))
+    vid = con.execute("SELECT video_id FROM posts WHERE id = ?", (post_id,)).fetchone()[0]
+    if vid:
+        db.set_status(con, vid, "posted" if done else "failed", f"post {post_id} {status}")
+
+
+def preset_publish(ctx: Ctx, name: str) -> dict:
+    """The preset's [publish] table (caption link, bio note); empty when the preset is gone."""
+    try:
+        return load_preset(ctx, name).get("publish", {}) or {}
+    except StudioError:
+        return {}
+
+
+# --- the Buffer route ---------------------------------------------------------------------------------
 
 
 def approved_posts(ctx: Ctx) -> list[dict]:
@@ -85,7 +152,7 @@ def plan(ctx: Ctx, video_id: int, channel_keys: list[str] | None, when: str) -> 
     chans = select_channels(ctx, buffer.channels(ctx), channel_keys)
     if not chans:
         raise ConfigError("no Instagram, Facebook or X channel is connected in Buffer", "connect them at buffer.com")
-    pub = _preset_publish(ctx, video["preset"])
+    pub = preset_publish(ctx, video["preset"])
     targets = []
     for c in chans:
         text = platforms.caption_for(c["platform"], video, pub)
@@ -239,7 +306,7 @@ def sync(ctx: Ctx, locked: bool = False) -> list[dict]:
                     remote = buffer.get_post(ctx, t["platform_post_id"]) if t["platform_post_id"] else None
                     with db.tx(con):
                         _apply(con, t, remote, entry)
-                        _settle_post(con, t["post_id"])
+                        settle_post(con, t["post_id"])
                 except (StudioError, OSError) as e:
                     entry.update(status="error", error=str(e)[:300])
                 out.append(entry)
@@ -258,7 +325,7 @@ def cancel(ctx: Ctx, post_id: int) -> dict:
                 raise DataError(f"no post {post_id}")
             targets = db.rows(con.execute("SELECT * FROM post_targets WHERE post_id = ?", (post_id,)))
             if not any(t["via"] == "buffer" for t in targets):
-                raise UsageError(f"post {post_id} does not go through Buffer", "use `social-studio schedule cancel`")
+                raise UsageError(f"post {post_id} was not made through Buffer", "only Buffer posts can be cancelled")
             if post["status"] not in ("scheduled", "partial") or any(t["status"] == "posted" for t in targets):
                 raise DataError(f"post {post_id} is {post['status']}; a post that went out cannot be cancelled here")
             for t in targets:

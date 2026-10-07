@@ -9,7 +9,7 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 
-from social_studio import approval, cli, db, platforms, posting, publish
+from social_studio import approval, cli, db, posting
 from social_studio.core import (PROJECT_FILE, ConfigError, DataError, Denied, UsageError, dump_toml, make_ctx,
                                 sha256_file)
 from social_studio.platforms import HttpError, buffer, media
@@ -368,15 +368,18 @@ def test_post_sync_records_what_buffer_did(ctx, net, human):
     assert row(ctx, "SELECT url FROM post_targets WHERE platform = 'instagram'")[0]["url"] == "https://instagram.com/reel/abc"
 
 
-def test_post_run_leaves_buffer_posts_to_buffer(ctx, net, human, monkeypatch):
+def test_post_sync_from_the_timer_only_reads(ctx, net, human, capsys):
+    """The timer runs `post sync`: no terminal needed, it only reads Buffer, and it never creates a post."""
     vid = add_video(ctx)
     cli._approve(ctx, [vid])
     schedule(ctx, vid, ["instagram"])
     db.connect(ctx).execute("UPDATE post_targets SET at = '2000-01-01T00:00:00Z'")
-    monkeypatch.setattr(platforms, "get", lambda name: pytest.fail("a direct adapter was called"))
-    res = publish.run(ctx)
+    assert cli.main(["--json", "post", "sync"]) == 0
+    res = json.loads(capsys.readouterr().out)
     assert [(r["platform"], r["status"]) for r in res] == [("instagram", "scheduled")]
-    assert len(net.ops("createPost")) == 1
+    assert len(net.ops("createPost")) == 1 and len(net.ops("post(input")) == 1
+    with pytest.raises(SystemExit):  # the direct publisher it used to run is gone
+        cli.main(["post", "run"])
 
 
 def test_post_cancel_removes_it_from_buffer(ctx, net, human):

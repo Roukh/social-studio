@@ -117,6 +117,6 @@ criteria = ["hook in the first 2 seconds", "readability on a phone", "compositio
 min_score = 8
 
 [publish]
-platforms = ["youtube", "x"]
+platforms = ["instagram", "facebook", "x"]
 link = ""
 bio_note = ""
