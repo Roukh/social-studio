@@ -1,0 +1,5 @@
+# social-studio: secrets, internal state and media stay out of git.
+.env
+.studio/
+library/
+drafts/

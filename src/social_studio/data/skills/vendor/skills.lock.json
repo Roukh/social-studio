@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "packs": [
+    {
+      "name": "claude-animation-skill",
+      "repo": "buildwithhanif/claude-animation-skill",
+      "sha": "4ddb8c80fdec96dc9f55d4b9bdee60bde6f0134b",
+      "path_in_repo": "plugins/claude-animation/skills/claude-animation",
+      "licence": "MIT",
+      "skills": [
+        "claude-animation-skill"
+      ],
+      "tree_sha256": "8a1f8881e850cac71742adee53b3bd3c1187c73a94520ff44ca7d0ff68fa0d19",
+      "fetched": "2026-10-06",
+      "what": "Procedural 2D character/creature animation rigs (napi-rs/canvas) plus synthesized audio scripts (sound.mjs, music.mjs, chiptune.mjs) for scoring clips without samples."
+    },
+    {
+      "name": "director-skill",
+      "repo": "wuwangzhang1216/DirectorSKILL",
+      "sha": "c65ae0d14457053efb1e354c7e7f7e120d97fad1",
+      "path_in_repo": ".",
+      "licence": "MIT",
+      "skills": [
+        "director-skill"
+      ],
+      "tree_sha256": "4c4693e32f09e9c528b42d2582efcd36cd05f19767c4dbbf6d5ebd95f05ede97",
+      "fetched": "2026-10-06",
+      "what": "Cinematography/shot-planning doctrine (framing, pacing, camera language, beat mapping) aimed at directing generative video models."
+    },
+    {
+      "name": "gsap-skills",
+      "repo": "greensock/gsap-skills",
+      "sha": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "path_in_repo": "skills (gsap-core, gsap-frameworks, gsap-performance, gsap-plugins, gsap-react, gsap-scrolltrigger, gsap-timeline, gsap-utils)",
+      "licence": "MIT",
+      "skills": [
+        "gsap-skills/gsap-core",
+        "gsap-skills/gsap-frameworks",
+        "gsap-skills/gsap-performance",
+        "gsap-skills/gsap-plugins",
+        "gsap-skills/gsap-react",
+        "gsap-skills/gsap-scrolltrigger",
+        "gsap-skills/gsap-timeline",
+        "gsap-skills/gsap-utils"
+      ],
+      "tree_sha256": "ec72847a678097987efcee0908aeb7644d1e3bcc3790ce8498d3851fccfb9b26",
+      "fetched": "2026-10-06",
+      "what": "Official GreenSock reference: Timeline, Tweens, ScrollTrigger, Flip, MotionPath, easing/stagger, performance and plugin usage for GSAP 3."
+    },
+    {
+      "name": "ui-sound-design-skill",
+      "repo": "dannyjpwilliams/ui-sound-design-skill",
+      "sha": "6cb4be41a19a5556ffd94f04e641e18b623ac483",
+      "path_in_repo": "skills/ui-sound-design",
+      "licence": "MIT",
+      "skills": [
+        "ui-sound-design-skill/ui-sound-design"
+      ],
+      "tree_sha256": "1d77837708d31b9219abda60214e746d9d73a549387a59fe5bbb9d09ba94fbbf",
+      "fetched": "2026-10-06",
+      "what": "Translates plain-English sound descriptions into Web Audio API / Tone.js code, iterative describe-generate-listen-refine loop."
+    },
+    {
+      "name": "anthropic-algorithmic-art",
+      "repo": "anthropics/skills",
+      "sha": "683bc88e56f3e09ba94f7055977f3d3aa499f202",
+      "path_in_repo": "skills/algorithmic-art",
+      "licence": "Apache-2.0",
+      "skills": [
+        "anthropic-algorithmic-art"
+      ],
+      "tree_sha256": "cbe33f772131d0b7399aba4be832c1960f6e4ed3f7c953a90ed9403dab34f08d",
+      "fetched": "2026-10-06",
+      "what": "Generative/procedural art techniques - noise fields, particle systems, flow fields, seeded randomness patterns."
+    },
+    {
+      "name": "anthropic-canvas-design",
+      "repo": "anthropics/skills",
+      "sha": "683bc88e56f3e09ba94f7055977f3d3aa499f202",
+      "path_in_repo": "skills/canvas-design",
+      "licence": "Apache-2.0",
+      "skills": [
+        "anthropic-canvas-design"
+      ],
+      "tree_sha256": "e07b26cc94b1342cccf1f94c3251d4a19eb688a76f176df5c5c4b4a8ba062eaa",
+      "fetched": "2026-10-06",
+      "what": "Canvas2D layout/typography/composition patterns plus a bundled font set (canvas-fonts/*.ttf, each well under 2MB)."
+    },
+    {
+      "name": "anthropic-frontend-design",
+      "repo": "anthropics/skills",
+      "sha": "683bc88e56f3e09ba94f7055977f3d3aa499f202",
+      "path_in_repo": "skills/frontend-design",
+      "licence": "Apache-2.0",
+      "skills": [
+        "anthropic-frontend-design"
+      ],
+      "tree_sha256": "f862db8e67aa8d2ca1dce359d7ce9121c741db46db83d7372a49c3b65fb1bba3",
+      "fetched": "2026-10-06",
+      "what": "General visual-design judgment for distinctive, non-templated UI aesthetics and typography choices."
+    },
+    {
+      "name": "impeccable",
+      "repo": "pbakaus/impeccable",
+      "sha": "2a26f1c50b9c4f86d10c0fec8f74cf523a2236e7",
+      "path_in_repo": "plugin/skills/impeccable",
+      "licence": "Apache-2.0",
+      "skills": [
+        "impeccable"
+      ],
+      "tree_sha256": "738bb62420625786559c0619c00f95d155a262b92cb9fab1a40c14943e7de60f",
+      "fetched": "2026-10-06",
+      "what": "Frontend polish/critique CLI skill: design-token/antipattern detection, font index, surface briefs for iterative UI refinement.",
+      "modified": "scripts/ removed: its launcher downloads a binary on first run"
+    },
+    {
+      "name": "webgl-animation-skills",
+      "repo": "iart-ai/webgl-animation-skills",
+      "sha": "50697d659fbf70152f48f9f8aadf1efe78bbdde1",
+      "path_in_repo": "skills (particle-system, shader-glsl, threejs-animation)",
+      "licence": "MIT",
+      "skills": [
+        "webgl-animation-skills/particle-system",
+        "webgl-animation-skills/shader-glsl",
+        "webgl-animation-skills/threejs-animation"
+      ],
+      "tree_sha256": "ce85da4b50681da612510fcbcba7cd09575d8e5b6018d3f594d0686f3fb6e392",
+      "fetched": "2026-10-06",
+      "what": "GLSL/Three.js cookbook: curl-noise flow fields, particle systems, shader materials, scene/camera rigging for WebGL motion graphics."
+    },
+    {
+      "name": "kinetic-typography-skills",
+      "repo": "iart-ai/kinetic-typography-skills",
+      "sha": "fccc94bd325d824235ee9e715e65abde57b6513a",
+      "path_in_repo": "skills/kinetic-typography",
+      "licence": "MIT",
+      "skills": [
+        "kinetic-typography-skills/kinetic-typography"
+      ],
+      "tree_sha256": "ba70e56071bb96d1df5b9ddde5569013fac0f275e869fcdc0c3ab0734d3b431f",
+      "fetched": "2026-10-06",
+      "what": "Kinetic-type animation techniques: variable font-weight waves, letter staggering, text-reveal choreography."
+    },
+    {
+      "name": "data-animation-skills",
+      "repo": "iart-ai/data-animation-skills",
+      "sha": "8ce2709c3992490251e8a991535b1945f01c6865",
+      "path_in_repo": "skills (animated-infographic, chart-animation, presentation-video)",
+      "licence": "MIT",
+      "skills": [
+        "data-animation-skills/animated-infographic",
+        "data-animation-skills/chart-animation",
+        "data-animation-skills/presentation-video"
+      ],
+      "tree_sha256": "a90c376bae6c02bb297623fb662c69fd72a2bb6b3fb194c52b143175dccce061",
+      "fetched": "2026-10-06",
+      "what": "Counter/donut/bar/race-chart animation patterns, infographic cascades, slide-deck video structure."
+    },
+    {
+      "name": "javascript-animation-skills",
+      "repo": "iart-ai/javascript-animation-skills",
+      "sha": "f7d0882a313249cbd43f0e4e9e209b1622870253",
+      "path_in_repo": "skills (javascript-animation, soundtrack)",
+      "licence": "MIT",
+      "skills": [
+        "javascript-animation-skills/javascript-animation",
+        "javascript-animation-skills/soundtrack"
+      ],
+      "tree_sha256": "027c3e693a7dc54fdc37b04ca39d1868fdb7bd75ee3142394597759586420cbc",
+      "fetched": "2026-10-06",
+      "what": "General vanilla-JS animation reference plus a 'soundtrack' skill for sourcing/generating a music bed and explicitly NOT interrupting the user for source choice."
+    },
+    {
+      "name": "manim-skills",
+      "repo": "iart-ai/manim-skills",
+      "sha": "a15833c44de5108a3ee68f178a1fca126aa7c6d8",
+      "path_in_repo": "skills/manim",
+      "licence": "MIT",
+      "skills": [
+        "manim-skills/manim"
+      ],
+      "tree_sha256": "efb8ef394dbb2b66d4803541ac6713c0507e73bd422ca7732f29a64d01975594",
+      "fetched": "2026-10-06",
+      "what": "Manim (Python) mathematical-animation patterns: precise geometric motion, equation reveals, camera moves."
+    },
+    {
+      "name": "claudedesignskills-threejs-webgl",
+      "repo": "freshtechbro/claudedesignskills",
+      "sha": "1da73febff0c3e1dfefc07f8a5ef8f7d1dfdb6cd",
+      "path_in_repo": "plugins/individual/threejs-webgl/skills/threejs-webgl",
+      "licence": "MIT",
+      "skills": [
+        "claudedesignskills-threejs-webgl"
+      ],
+      "tree_sha256": "2a3fb4eaaeda5dbec68b2f9bf71b0314061d82cbbc4b99b5928f38e2cfacde47",
+      "fetched": "2026-10-06",
+      "what": "Vanilla Three.js scene/camera/lighting/geometry/shader setup patterns (no React dependency)."
+    },
+    {
+      "name": "claudedesignskills-lottie-animations",
+      "repo": "freshtechbro/claudedesignskills",
+      "sha": "1da73febff0c3e1dfefc07f8a5ef8f7d1dfdb6cd",
+      "path_in_repo": "plugins/individual/lottie-animations/skills/lottie-animations",
+      "licence": "MIT",
+      "skills": [
+        "claudedesignskills-lottie-animations"
+      ],
+      "tree_sha256": "6be9c49399439c98059ee5d901cc5abe5c9c8d9d46214d1e820b675a07572ddb",
+      "fetched": "2026-10-06",
+      "what": "Lottie/After-Effects-JSON integration and optimization patterns."
+    },
+    {
+      "name": "claudedesignskills-rive-interactive",
+      "repo": "freshtechbro/claudedesignskills",
+      "sha": "1da73febff0c3e1dfefc07f8a5ef8f7d1dfdb6cd",
+      "path_in_repo": "plugins/individual/rive-interactive/skills/rive-interactive",
+      "licence": "MIT",
+      "skills": [
+        "claudedesignskills-rive-interactive"
+      ],
+      "tree_sha256": "70f5c20c97ae6fd63719c8b88deaadc8a4c51838c58a6a7955ae7a3b173d2d24",
+      "fetched": "2026-10-06",
+      "what": "Rive state-machine/ViewModel runtime integration patterns for interactive vector assets."
+    }
+  ]
+}

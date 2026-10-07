@@ -1,0 +1,115 @@
+# A starter preset. Copy it with `social-studio preset new <name>`, then make it yours.
+# Relative paths resolve from this folder. Secrets never go here: use ${VAR} and the .env.
+
+[preset]
+name = "example"
+description = "Neutral starter: black on white, one accent, 9:16, 10 to 20 seconds"
+
+[brand]
+name = "Example Co."
+wordmark = "example."
+tagline = "Made with care."
+voice = "plain, direct, warm"
+# Extra CSS appended to the composition's <style>. Good for easing curves and shared classes.
+css = """
+:root { --ease-out: cubic-bezier(0.23, 1, 0.32, 1); }
+"""
+
+[brand.colors]          # becomes CSS custom properties: --ink, --paper, --accent ...
+ink = "#111111"
+paper = "#ffffff"
+muted = "#6b6b6b"
+accent = "#2b66f5"      # 4.86:1 on white; #2f6bff was 4.499:1, a hair under WCAG AA for the call to action
+
+# role = "sans" sets the base font of the composition. Embed real files under a family name of your
+# own: the renderer swaps common names (Helvetica, Arial, Helvetica Neue...) for Inter from Google Fonts.
+# Each entry is a path, or { file = "...", weight = 700, style = "italic" }.
+[brand.fonts.sans]
+role = "sans"
+family = "Brand Sans"
+stack = "sans-serif"
+files = []
+
+[video]
+width = 1080
+height = 1920
+fps = 30
+duration = [10, 20]     # seconds, [min, max]
+background = "#ffffff"
+safe_zone = { top = 0.12, bottom = 0.25, left = 0.06, right = 0.10 }
+end_card_max = 0.2      # the wordmark and call to action take at most this share of the runtime
+# pacing = "calm: one change at a time, long holds"   # optional, shown to the maker as written (make --pacing)
+# motion = "per-word ink and blur-up"   # optional signature; it wins over skills/motion-doctrine (make --motion)
+
+[content]
+language = "en"
+pillars = [
+  { name = "how-it-works", idea = "one step of how the product works" },
+  { name = "principle", idea = "one rule we follow, shown not told" },
+  { name = "offer", idea = "the offer, in the exact words below" },
+]
+no_repeat_days = 30
+cta = "Learn more"
+rules = [
+  "One idea per video. If it needs two, it is two videos.",
+  "The idea lands in the first 1 to 3 seconds.",
+  "Works with the sound off: every spoken idea is also on screen.",
+  "At most one big title and three objects per frame.",
+  "Never invent clients, results, reviews, prices or numbers.",
+  "End on the wordmark, then the call to action.",
+]
+banned = ["game-changer", "revolutionary", "unlock"]
+
+[content.exact_lines]
+offer = "Try it free for 14 days."
+
+[assets]
+files = []              # images, logos, textures copied into composition/assets/
+
+[render]
+engine = "hyperframes"
+version = "0.8.106"     # pinned: same engine, same Chrome, same skills on every run
+libraries = ["gsap@3.14.2"]
+vendor = { "gsap.min.js" = "gsap/dist/gsap.min.js" }
+
+[encode]                # one H.264 encode; see render research for the reasoning
+crf = 20
+preset = "slow"
+tune = "animation"
+maxrate = "8M"
+bufsize = "16M"
+audio_bitrate = "192k"
+loudness = -14
+
+[agent]
+backend = "claude"
+model = "sonnet"
+# effort = "high"       # low, medium, high, xhigh, max; unset leaves the harness default (medium for claude)
+rounds = 2              # draft render, look, fix: exactly this many times
+timeout_min = 45
+max_turns = 80
+allow_web = false
+# Engine skills for this preset; skills/motion-doctrine and skills/motion-canon are always mounted beside them.
+engine_skills = ["hyperframes-core", "hyperframes-cli", "hyperframes-animation", "hyperframes-audio", "media-use"]
+# Vendored third-party skills by name (data/skills/vendor/skills.lock.json), e.g. ["gsap-core", "threejs-webgl"].
+# package_skills = []
+# MCP servers for the session (stdio or url). Values like ${HIGGSFIELD_API_KEY} come from the .env.
+# [agent.mcp.images]
+# url = "https://example.com/mcp"
+# headers = { Authorization = "Bearer ${IMAGES_API_KEY}" }
+# Skills: inline text, or { path = "skills/my-skill" } for a folder with SKILL.md.
+# [agent.skills]
+# house-style = "Short paragraphs of house rules the agent must follow."
+# Claude Code plugins (folders), loaded with --plugin-dir.
+# plugins = []
+
+[review]
+independent = false     # true runs a second, fresh reviewer session after each video
+criteria = ["hook in the first 2 seconds", "readability on a phone", "composition", "variety", "brand accuracy", "motion quality"]
+min_score = 8
+# effort = "high"       # the reviewer's own; it never inherits agent.effort
+
+[publish]
+platforms = ["instagram", "youtube"]
+link = ""               # added (with utm tags) to captions on platforms that allow links
+bio_note = "Link in bio."

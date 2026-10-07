@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #ffffff; }
+      #root { position: relative; width: 100%; height: 100%; font-family: sans-serif; }
+      .reveal { position: absolute; left: 120px; top: 840px; color: #111111; font-weight: 700; font-size: 96px; }
+      .wipe { position: absolute; left: 90px; top: 800px; width: 900px; height: 180px; background: #ffffff; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="2.3" data-width="1080" data-height="1920"
+         data-fps="30">
+      <div class="reveal clip" data-start="0" data-duration="2.3" data-track-index="0">Unveiled</div>
+      <div class="wipe clip" data-start="0" data-duration="1.0" data-track-index="1"></div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.to(".wipe", { x: 1000, duration: 1.0, ease: "power2.inOut" }, 0);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

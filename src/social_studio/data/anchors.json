@@ -1,0 +1,54 @@
+{
+  "hook in the first 2 seconds": {
+    "on": "frame-0.png, the strips and the settled frames of the first 3 s",
+    "10": "the first second stops the scroll with a striking image, word or move, and by 2 s the viewer knows what kind of film this is",
+    "7": "the opening is clear by 2 to 3 s, or the first second is calm but sets up a payoff that lands by 2 s",
+    "4": "nothing grabs attention until after 3 s, or the opening is a static logo or wordmark",
+    "1": "nothing in the first 3 s gives a reason to keep watching"
+  },
+  "readability on a phone": {
+    "on": "the settled frames",
+    "10": "every word the viewer must read reads at phone size: at least {{min_text_px}} px tall in this frame (11 pt on a phone), clear against what is behind it, and on screen long enough for its purpose (a one-word beat may hold a single beat)",
+    "7": "one element is smaller than that, low in contrast, or not still long enough to read",
+    "4": "several elements are hard to read, or one main line is",
+    "1": "the main message cannot be read",
+    "note": "HUD labels, counters, timecodes and texture type are design elements, not reading text: judge them only if they block or confuse the main message."
+  },
+  "composition": {
+    "on": "the settled frames",
+    "10": "each settled frame has one clear focal point, uses the frame, and nothing collides, clips or overlaps by accident",
+    "7": "one frame is crowded, lopsided or mostly empty (for example, everything in the top half)",
+    "4": "several frames are crowded or empty, or elements collide or clip",
+    "1": "the layout is broken: overlapping or cut-off text"
+  },
+  "variety": {
+    "on": "the strips and the settled frames, inside this video only",
+    "10": "each beat changes something different: new content, a new layout or a new kind of move, and nothing repeats back to back",
+    "7": "one move or layout repeats back to back",
+    "4": "most beats reuse the same move or layout",
+    "1": "one move or layout throughout",
+    "note": "Earlier videos never count here: a repeat of one goes in `repeat`."
+  },
+  "brand accuracy": {
+    "on": "the settled frames, preset.json and composition.css",
+    "10": "only the preset's fonts and colours appear, and every brand rule holds",
+    "7": "one slip a careful viewer would notice (name the rule and the sample)",
+    "4": "a brand rule any viewer would notice is broken",
+    "1": "off-brand throughout",
+    "note": "Check fonts, sizes and shadows in composition.css before calling them wrong from the pixels."
+  },
+  "motion quality": {
+    "on": "the strips",
+    "10": "no visible defect in any move: no flash frame, flicker, stutter, jump or jolt, and every move ends cleanly",
+    "7": "one move has a visible defect",
+    "4": "several moves have visible defects, or a move hides content the viewer needs",
+    "1": "the motion is broken: flashes, flicker or jumping elements throughout"
+  },
+  "*": {
+    "on": "the samples",
+    "10": "no problem a viewer would notice",
+    "7": "one problem a viewer would notice (name it and the sample)",
+    "4": "several such problems",
+    "1": "fails throughout"
+  }
+}

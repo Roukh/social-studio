@@ -1,0 +1,122 @@
+# The reel preset: a 15-second motion-designer showreel, 16:9 at 60 fps, with a synthesized bed and effects.
+# Its look is skills/reel-look (grammar studied from the strongest Opus 5.5 showreels of September 2026; see
+# .shapa/research/reference-leonabboud-showreel.md). Fonts are OFL (assets/fonts/*-OFL.txt).
+
+[preset]
+name = "reel"
+description = "Motion-designer showreel: 16:9, 60 fps, 15 s, a new technique every bar, synthesized bed and effects"
+
+[brand]
+name = "social-studio"
+wordmark = "social—studio"
+tagline = "Motion, written in code."
+voice = "confident, precise, playful in motion, terse in words"
+rules = [
+  "Palette roles are fixed: ink is the ground, cream the light ground and the type on ink, signal the one accent, blue the lines and radial fields (skills/reel-look).",
+  "Three faces with fixed roles: Reel Sans (variable 100-900) for display and numbers, Reel Serif italic for one emotional phrase per scene, Reel Mono for every label and the HUD.",
+  "A HUD frame sits on every scene: corner marks, studio label, scene counter, section name, progress squares and a running timecode.",
+]
+css = """
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
+}
+.mono { font-family: "Reel Mono", monospace; text-transform: uppercase; letter-spacing: 0.22em; }
+.serif { font-family: "Reel Serif", serif; font-style: italic; }
+"""
+
+[brand.colors]
+ink = "#070711"
+cream = "#F0EFE6"
+signal = "#FD4920"
+blue = "#2E49F0"
+blue-deep = "#2A3DDB"
+violet = "#7B3FE4"
+muted = "#8B8A96"
+
+[brand.fonts.sans]
+role = "sans"
+family = "Reel Sans"
+files = [{ file = "assets/fonts/Inter-Variable.ttf", weight = "100 900" }]
+
+[brand.fonts.serif]
+family = "Reel Serif"
+files = [
+  { file = "assets/fonts/InstrumentSerif-Regular.ttf", weight = 400 },
+  { file = "assets/fonts/InstrumentSerif-Italic.ttf", weight = 400, style = "italic" },
+]
+
+[brand.fonts.mono]
+family = "Reel Mono"
+files = [{ file = "assets/fonts/JetBrainsMono-Variable.ttf", weight = "100 800" }]
+
+[video]
+width = 1920
+height = 1080
+fps = 60
+duration = [14, 16]
+background = "#070711"
+safe_zone = { top = 0.05, bottom = 0.05, left = 0.05, right = 0.05 }
+end_card_max = 0.15
+sound = "bed+sfx"
+
+[content]
+language = "en"
+pillars = [
+  { name = "showreel", idea = "A dynamic 15-second motion graphics video that shows what an incredible motion designer this studio is, like its showreel for a résumé. A new technique every bar. Go all out." },
+]
+no_repeat_days = 30
+rules = [
+  "Every number, chart, metric and interface is a fictional sample made for the reel. Never name a real client, brand, product or person.",
+  "Words are few and earned: a title, one-word beats, labels. No sentences on screen except the end card's two lines.",
+  "Never copy another reel's words or marks; the grammar in skills/reel-look is a study, not a script.",
+]
+banned = ["game-changer", "revolutionary", "unlock", "next-level", "cutting-edge"]
+
+[assets]
+files = ["assets/reel-kit.js"]
+
+[render]
+engine = "hyperframes"
+version = "0.8.106"
+libraries = ["gsap@3.14.2", "three@0.181.2"]
+vendor = { "gsap.min.js" = "gsap/dist/gsap.min.js" }
+esm = { three = ["three/build/three.module.min.js", "three/build/three.core.min.js"] }
+scripts = ["assets/reel-kit.js"]
+
+[encode]
+crf = 18
+preset = "slow"
+tune = "animation"
+maxrate = "12M"
+bufsize = "24M"
+audio_bitrate = "192k"
+loudness = -14
+
+[agent]
+backend = "claude"
+model = "opus"
+effort = "xhigh"          # every viral one-shot of the course ran at xhigh or max (motion-course-article L91)
+rounds = 3
+timeout_min = 90
+max_turns = 300
+allow_web = false
+engine_skills = ["hyperframes-core", "hyperframes-cli", "hyperframes-animation", "hyperframes-audio", "media-use",
+                 "music-to-video", "product-launch-video"]
+package_skills = ["gsap-core", "gsap-timeline", "gsap-plugins", "gsap-utils", "threejs-webgl", "threejs-animation",
+                  "particle-system", "shader-glsl", "kinetic-typography", "algorithmic-art", "ui-sound-design"]
+
+[agent.skills.reel-look]
+path = "skills/reel-look"
+
+[review]
+independent = true
+backend = "claude"
+model = "sonnet"
+criteria = ["hook in the first 2 seconds", "readability on a phone", "composition", "variety", "brand accuracy", "motion quality"]
+min_score = 8
+
+[publish]
+platforms = ["youtube", "x"]
+link = ""
+bio_note = ""
