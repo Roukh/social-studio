@@ -54,8 +54,8 @@ New decisions and revisions go below this table as dated rows: `| # | Decision |
 |---|---|---|---|
 | 2026-10-06 | video 4, the first reel (15 s, 143 BPM, about 1.6 s per scene) | "Its a major improvement. MAJOR. its a little too fast, can be slowed to liek 20-25s." | reel preset `video.duration` [20, 25] and `video.pacing`; reel-look shot grammar retimed to 120 BPM, about 2.5 s a scene, a hold on the last kinetic word; motion-canon default scene length 2.5 s. The ghobz preset gets the same pace. |
 
-| 2026-10-06 | the ghobz preset, before its first make | "bg music and sound effects" | ghobz `video.sound` = bed+sfx (the social SOP's "no music" is overruled; still no voice) |
-| 2026-10-06 | video 4 again | "The test video in the library was about social-studio with a seamingly random theme and story." | the reel preset is a showreel by design; ghobz makes take their story from a ghobz pillar, and the first test runs `--pillar the-path` |
+| 2026-10-06 | the ghobz preset, before its first make | "bg music and sound effects" | ghobz sound = music bed + effects, no voice |
+| 2026-10-06 | video 4 again | "The test video in the library was about social-studio with a seamingly random theme and story." | ghobz makes take their story from a ghobz pillar; first test `--pillar the-path` |
 | 2026-10-06 | the ghobz preset | "I care about the design. Ui should match the theme of ghobz.com, same components, fonts, styles, vivid cards, gradients, blurs, spacing, grids, etc" | the ghobz-ui kit ([[brand-site-design-kit]]) |
 
 The operator called the reel as a whole a major improvement and flagged only its speed, so everything else from iteration 1 stays.
