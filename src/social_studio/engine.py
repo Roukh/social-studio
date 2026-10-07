@@ -24,6 +24,41 @@ QUIET_ENV = {
 
 # --- engine install -------------------------------------------------------------------------------
 
+# Every composition gets GSAP and three.js (with the motion kit, runner.KIT_JS), so any technique in the library
+# is open to any preset (operator, 2026-10-07). A preset that pins its own version of a package keeps it.
+KIT_LIBRARIES = {"gsap": "gsap@3.14.2", "three": "three@0.181.2"}
+KIT_VENDOR = {"gsap.min.js": "gsap/dist/gsap.min.js"}
+KIT_ESM = {"three": ["three/build/three.module.min.js", "three/build/three.core.min.js"]}
+
+
+def _package(spec: str) -> str:
+    """npm package name of `name@1.2.3` or `@scope/name@1.2.3`, or of a path inside node_modules."""
+    if "/" in spec and not spec.startswith("@"):
+        return spec.split("/")[0]
+    at = spec.rfind("@")
+    name = spec[:at] if at > 0 else spec
+    return "/".join(name.split("/")[:2]) if name.startswith("@") else name.split("/")[0]
+
+
+def libraries(p) -> list[str]:
+    """The preset's render.libraries plus the kit's packages it does not pin itself."""
+    own = list(p.get("render.libraries", []))
+    pinned = {_package(s) for s in own}
+    return own + [spec for name, spec in KIT_LIBRARIES.items() if name not in pinned]
+
+
+def vendor(p) -> dict[str, str]:
+    """render.vendor plus the kit's classic scripts for packages the preset does not vendor itself."""
+    own = dict(p.get("render.vendor", {}))
+    mine = {_package(rel) for rel in own.values()}
+    return {**own, **{n: rel for n, rel in KIT_VENDOR.items() if _package(rel) not in mine and n not in own}}
+
+
+def esm(p) -> dict[str, list[str]]:
+    """render.esm plus the kit's modules; a preset's own entry for a module name wins."""
+    return {**KIT_ESM, **p.get("render.esm", {})}
+
+
 def engine_root(ctx: Ctx, version: str) -> Path:
     return ctx.engine_dir / f"hyperframes-{version}"
 

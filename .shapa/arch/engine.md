@@ -17,7 +17,7 @@ Part of [[index]]. Everything that touches the renderer, ffmpeg and the sandbox 
 |---|---|
 | Purpose | Install and pin the render engine, build the bubblewrap command, render the master, encode the delivery file |
 | Owned paths | `src/social_studio/engine.py` (276 lines); `<project>/.studio/engine/hyperframes-<version>/` (engine, libraries, skills), `<project>/.studio/cache/` (Chrome, npm cache; HOME redirected there) |
-| In | `render.version`, `render.libraries` (for example `gsap@3.14.2`), `render.vendor`, `render.esm`, `encode.*` from the preset; paths from [[runner]] |
+| In | `render.version`, `render.libraries` (for example `gsap@3.14.2`), `render.vendor`, `render.esm`, `encode.*` from the preset, merged with the kit's defaults (`KIT_LIBRARIES` gsap and three, `KIT_VENDOR`, `KIT_ESM`; a preset's own pin wins), so every composition has GSAP, three.js and the motion kit (operator 2026-10-07); paths from [[runner]] |
 | Out | `bwrap_argv`, `master.mp4`, the delivery `video.mp4` with `probe` info and sha256, `poster.jpg`, `contact.jpg` |
 
 ## Contracts

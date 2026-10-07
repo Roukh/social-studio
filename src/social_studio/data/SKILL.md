@@ -21,7 +21,7 @@ everything is.
 | Goal | Command |
 |---|---|
 | See the state of things | `social-studio --json agent status` |
-| Make videos | `social-studio --json make -n 3` (add `--title`, `--subject`, `--topic`, `--pillar`, `--notes`, `--preset`, `--set key=value`) |
+| Make videos | `social-studio --json make -n 3` (add `--title`, `--subject`, `--topic`, `--pillar`, `--notes`, `--preset`, `--set key=value`); each film picks its techniques from the shipped technique library and lists them in its `video.json` |
 | Pick the format for this batch | `make --aspect 16:9 --fps 60 --duration 15 --sound bed+sfx` (aspect 9:16, 4:5, 1:1 or 16:9; sound none, sfx, bed+sfx, sfx+voice or bed+sfx+voice) |
 | Make a showreel in the house reel look | `social-studio --json make --preset reel` (16:9, 60 fps, 20-25 s, synthesized bed and effects) |
 | Remake a video a human sent back | `social-studio --json make --revise <id>` (the new version replaces the old one's files) |

@@ -6,7 +6,7 @@ consequence: 7
 locus: output
 summary: Per-platform auth/token, upload limits, scheduling, metadata, ToS-automation and review/cost facts behind social-studio's posting adapters.
 scope: repo
-status: active
+status: superseded
 ---
 
 # social-platform-apis — posting constraints per platform

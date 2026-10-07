@@ -27,9 +27,12 @@ from .core import (FORMATS, MCP_FILE, PKG_DIR, SLUG, ConfigError, Ctx, DataError
 
 DEFAULT_SKILLS = ["hyperframes-core", "hyperframes-cli", "hyperframes-animation", "hyperframes-audio", "media-use"]
 # Shipped with the tool and mounted in every maker session: the motion doctrine distilled from the engine's
-# product-launch-video and hyperframes-keyframes skills (Apache-2.0, see its NOTICE.md), and motion-canon, the
-# working method of non-AI motion design (rulings 16 and 19).
-PACKAGE_SKILLS = ["motion-doctrine", "motion-canon"]
+# product-launch-video and hyperframes-keyframes skills (Apache-2.0, see its NOTICE.md), motion-canon, the
+# working method of non-AI motion design (rulings 16 and 19), and the technique library every film picks its
+# techniques and shots from (operator, 2026-10-07).
+PACKAGE_SKILLS = ["motion-doctrine", "motion-canon", "technique-library"]
+# The motion kit every composition gets (`window.kit`), next to GSAP and three.js (engine.KIT_*).
+KIT_JS = PKG_DIR / "data" / "kit" / "motion-kit.js"
 # Third-party skills vendored at pinned commits (data/skills/vendor/skills.lock.json); a preset mounts them by name
 # through agent.package_skills.
 VENDOR_DIR = PKG_DIR / "data" / "skills" / "vendor"
@@ -211,7 +214,7 @@ def _scaffold(p: Preset, s: Session, eng_root: Path) -> None:
         dst = comp / "assets" / src.name
         shutil.copytree(src, dst, dirs_exist_ok=True, ignore=NO_SECRETS) if src.is_dir() else shutil.copy2(src, dst)
     scripts = []
-    for name, rel in p.get("render.vendor", {}).items():
+    for name, rel in engine.vendor(p).items():
         src = eng_root / "node_modules" / rel
         if not src.is_file():
             raise ConfigError(f"render.vendor.{name}: {src} not found", "add the package to render.libraries")
@@ -219,7 +222,7 @@ def _scaffold(p: Preset, s: Session, eng_root: Path) -> None:
         if name.endswith(".js"):
             scripts.append(f'<script src="vendor/{name}"></script>')
     imports = {}
-    for spec, files in p.get("render.esm", {}).items():  # ES modules, importable by bare name: `import * from "three"`
+    for spec, files in engine.esm(p).items():  # ES modules, importable by bare name: `import * from "three"`
         for rel in files:
             src = eng_root / "node_modules" / rel
             if not src.is_file():
@@ -228,7 +231,9 @@ def _scaffold(p: Preset, s: Session, eng_root: Path) -> None:
         imports[spec] = f"./vendor/{Path(files[0]).name}"
     if imports:
         scripts.append(f'<script type="importmap">{json.dumps({"imports": imports})}</script>')
-    for rel in p.get("render.scripts", []):  # preset helpers, after the libraries they use
+    shutil.copy2(KIT_JS, comp / "assets" / KIT_JS.name)
+    scripts.append(f'<script src="assets/{KIT_JS.name}"></script>')
+    for rel in p.get("render.scripts", []):  # preset helpers, after the libraries and the kit they use
         if not (comp / "assets" / Path(rel).name).is_file():
             raise ConfigError(f"render.scripts: {rel} must also be listed in assets.files")
         scripts.append(f'<script src="assets/{Path(rel).name}"></script>')
@@ -317,13 +322,20 @@ def _skills(ctx: Ctx, p: Preset, s: Session, version: str) -> list[str]:
 
 
 def _history(ctx: Ctx, days: int = 120) -> list[dict]:
+    """Recent videos' pillar, topic, angle and the technique set each one used, so the next film differs."""
     con = db.connect(ctx, actor="make")
     try:
-        return db.rows(con.execute(
-            "SELECT day, pillar, topic, angle FROM agent_topics WHERE day >= date('now', ?) ORDER BY day DESC",
+        rows = db.rows(con.execute(
+            "SELECT substr(created_at, 1, 10) AS day, pillar, topic, angle, "
+            "json_extract(meta, '$.video.techniques') AS techniques FROM videos "
+            "WHERE status <> 'superseded' AND created_at >= date('now', ?) ORDER BY created_at DESC",
             (f"-{days} days",)))
     finally:
         con.close()
+    for r in rows:
+        found = json.loads(r["techniques"]) if r["techniques"] else []
+        r["techniques"] = [str(x) for x in found] if isinstance(found, list) else []
+    return rows
 
 
 def _pillar_plan(p: Preset, history: list[dict], count: int) -> list[str | None]:
@@ -877,7 +889,7 @@ def make(ctx: Ctx, opts: MakeOpts) -> list[dict]:
     if problems:
         raise ConfigError(f"preset {p.name} is not usable: " + "; ".join(problems), "fix the preset, then retry")
     version = engine.require_version(p.get("render.version"))
-    engine.ensure_engine(ctx, version, p.get("render.libraries", []))
+    engine.ensure_engine(ctx, version, engine.libraries(p))
     engine.ensure_skills(ctx, version)
     b = resolve_backend(ctx, p, opts.backend, opts.model, opts.sandbox)
     revise = None

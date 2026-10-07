@@ -33,13 +33,14 @@ def ctx(tmp_path, monkeypatch):
 
 @pytest.fixture
 def engine_stub(tmp_path, monkeypatch):
-    """Just enough of an installed engine for prepare(): two engine skills and the vendored GSAP file."""
+    """Just enough of an installed engine for prepare(): the engine skills and the kit's GSAP and three.js files."""
     root = tmp_path / "engine"
     for name in runner.DEFAULT_SKILLS:
         (root / "skills" / name).mkdir(parents=True)
         (root / "skills" / name / "SKILL.md").write_text(f"# {name}\n")
-    (root / "node_modules" / "gsap" / "dist").mkdir(parents=True)
-    (root / "node_modules" / "gsap" / "dist" / "gsap.min.js").write_text("/* gsap */")
+    for rel in ("gsap/dist/gsap.min.js", "three/build/three.module.min.js", "three/build/three.core.min.js"):
+        (root / "node_modules" / rel).parent.mkdir(parents=True, exist_ok=True)
+        (root / "node_modules" / rel).write_text(f"/* {rel} */")
     monkeypatch.setattr(engine, "skills_root", lambda ctx, version: root / "skills")
     return root
 
@@ -217,3 +218,59 @@ def test_sampler_runs_standalone_with_the_safe_zone_and_poster(tmp_path):
     plain = sampler.write_samples(video, sampler.pick_samples(sampler.motion_curve(video), 30), tmp_path / "plain",
                                   sampler.probe(video))
     assert "poster" not in plain
+
+
+# --- the technique library and the motion kit (operator, 2026-10-07) ---------------------------------------------
+
+def test_technique_library_ships_with_every_make_and_indexes_every_entry(ctx, engine_stub):
+    p, s = prepared(ctx, engine_stub)
+    lib = s.work / "skills" / "technique-library"
+    index = (lib / "SKILL.md").read_text()
+    entries = {f.stem for f in (lib / "techniques").glob("*.md")}
+    linked = set(re.findall(r"\(techniques/([a-z0-9-]+)\.md\)", index))
+    assert entries and entries == linked                                  # every entry indexed, every link real
+    assert (lib / "principles.md").is_file() and (lib / "examples" / "reel-2026-10-06.html").is_file()
+    for f in (lib / "techniques").glob("*.md"):
+        text = f.read_text()
+        assert text.startswith(f"# {f.stem}\n") and "**Source:**" in text, f.name
+    task = (s.work / "TASK.md").read_text()
+    assert "skills/technique-library/SKILL.md" in task and '"techniques": [' in task
+
+
+def test_kit_every_composition_gets_gsap_three_and_the_motion_kit(ctx, engine_stub):
+    p, s = prepared(ctx, engine_stub)                                     # the example preset names none of them
+    assert {"gsap", "three"} <= {engine._package(x) for x in engine.libraries(p)}
+    html = (s.comp / "index.html").read_text()
+    imports = json.loads(re.search(r'<script type="importmap">(.*?)</script>', html).group(1))
+    assert imports == {"imports": {"three": "./vendor/three.module.min.js"}}
+    assert (s.comp / "vendor" / "gsap.min.js").is_file() and (s.comp / "vendor" / "three.core.min.js").is_file()
+    assert (s.comp / "assets" / "motion-kit.js").read_bytes() == runner.KIT_JS.read_bytes()
+    assert html.index("vendor/gsap.min.js") < html.index("assets/motion-kit.js")
+
+
+def test_kit_leaves_a_preset_its_own_pins():
+    class P:
+        def __init__(self, data):
+            self.data = data
+
+        def get(self, key, default=None):
+            return core.dget(self.data, key, default)
+    own = P({"render": {"libraries": ["gsap@3.12.5", "@scope/thing@1.0.0"],
+                        "vendor": {"gsap.js": "gsap/dist/gsap.js"}, "esm": {"three": ["x/three.js"]}}})
+    assert engine.libraries(own) == ["gsap@3.12.5", "@scope/thing@1.0.0", "three@0.181.2"]
+    assert engine.vendor(own) == {"gsap.js": "gsap/dist/gsap.js"}             # no second copy of GSAP
+    assert engine.esm(own) == {"three": ["x/three.js"]}
+
+
+def test_history_carries_each_videos_technique_set(ctx):
+    from social_studio import db
+    con = db.connect(ctx, actor="test")
+    now = core.iso()
+    for i, techs in enumerate((["voxel-ripple-3d", "kinetic-word-run"], None)):
+        meta = {"video": {"techniques": techs}} if techs else {"video": {}}
+        con.execute("INSERT INTO videos (slug, title, preset, dir, file, sha256, bytes, duration, width, height, "
+                    "created_at, updated_at, pillar, meta) VALUES (?, 't', 'example', 'd', 'f', ?, 1, 20, 1080, 1920, "
+                    "?, ?, 'p', ?)", (f"v{i}", f"h{i}", now, now, json.dumps(meta)))
+    con.close()
+    got = sorted((r["techniques"] for r in runner._history(ctx)), key=len)
+    assert got == [[], ["voxel-ripple-3d", "kinetic-word-run"]]

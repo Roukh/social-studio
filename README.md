@@ -7,6 +7,10 @@ draft, where you approve, edit or delete it.
 - **One isolated session per video.** Each try runs your harness (Claude Code, OpenCode or Codex)
   headless, in a fresh throwaway home, inside a bubblewrap sandbox that cannot see your library,
   your database or your keys.
+- **A library of techniques.** Every film picks its shots from a shipped technique library (a 3D voxel
+  field, a particle flow, a kinetic word run, a morph, wipes and more, each with a proven implementation)
+  and applies shared principles; the maker records which set it used, so the next film differs. Every
+  composition has GSAP, three.js and a small motion kit. The library grows from reference films.
 - **Presets make it consistent.** One TOML file pins the brand (colours, fonts, assets, easing),
   the content rules, the agent (backend, model, MCP servers, skills, plugins), the render engine
   version and the encode settings. Override any value per run with `--set key=value`.
