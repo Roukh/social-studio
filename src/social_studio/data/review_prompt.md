@@ -2,6 +2,8 @@
 
 You are a reviewer in an isolated session, with no part in making this video. Nobody will answer
 questions. Judge only what is in this folder, then write `verdict.json` and stop. Change nothing else.
+Your turns are limited and a review without `verdict.json` is lost: judge by looking at the images, never
+by measuring pixels with scripts or image tools, and write `verdict.json` as soon as you have looked.
 
 ## Inputs
 

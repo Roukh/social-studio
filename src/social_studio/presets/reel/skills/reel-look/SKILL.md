@@ -40,19 +40,22 @@ Each scene owns one full-bleed field, and the fields rotate: ink, signal flood, 
 
 Fine film grain over everything, at 3-6 % opacity, animated by a seeded offset per frame. A radial vignette on every flat field. A soft glow (box-shadow or a blurred duplicate) only on the signal dot. Ghost outline type (1 px stroke, 6-10 % opacity) as background walls behind kinetic words.
 
-## Shot grammar (15 s, 60 fps, ~143 BPM: beat 0.42 s, sixteenth 0.105 s)
+## Shot grammar (20-25 s, 60 fps, ~120 BPM: beat 0.5 s, sixteenth 0.125 s)
 
-1. **Open (0-1.6 s).** A dot-grid on ink. A signal dot drops in and squashes on a sub thump. A mono caption types. The dot stretches into a line, then a travelling sine wave on a riser. The line thickens into a band that floods the frame signal-orange on the downbeat.
-2. **Identity (about 1.6 s).** The wordmark drops in letter by letter with a blur that clears. An italic serif phrase slides under it, a mono kicker sets in, and a weight wave runs across the letters. Leave on a blurred circle wipe.
-3. **3D (about 1.6 s).** A Three.js voxel grid on a tilted camera. A ripple lifts the blocks in a signal-to-violet gradient, a chrome or glossy sphere with an orbit ring bounces at the centre, and the camera orbits slowly. Render it from `hf-seek` time; seeded heights only.
-4. **Kinetic words (about 1.5 s).** One word per beat: four hard cuts, each with its own field and treatment. Use dark on cream, signal on ink over an outline-word wall, cream on blue skewed with motion blur inside viewfinder brackets, and an italic phrase on signal. These are the only hard cuts in the film.
-5. **Data (about 1.7 s).** On cream: a big percentage rolls up with blurred digits, a donut fills to its value, 12 bars grow on a stagger with the last bar in signal, and a blue spline draws with a travelling dot and a value pill. Every number is a labelled sample. Leave on a staircase pixel-block wipe.
-6. **Particles (about 1.5 s).** A flow field of white, signal and blue streaks converges into a sphere of sticks, collapses into concentric dotted rings with x/y readouts, then bursts radially around a blue dot.
-7. **UI (about 1.5 s).** A blue radial field with a dot grid and glass cards stacking. A render-queue card springs up and a cursor flips a toggle and picks an option. A button becomes a signal progress fill and then "Done", and a toast slides in. Leave on a soft-edged signal circle wipe from the centre.
-8. **Morph (about 1.7 s).** A metaball splits into 8 blobs inside a thin cream outline. The outline morphs circle, triangle, star, blob, and the blobs merge back into one dot that grows into a wipe to ink.
-9. **End card (about 1.8 s).** The signal dot pulses with a glow ring. The wordmark decodes in with a seeded letter scramble, followed by the italic serif line, a hairline, the tagline in signal mono and a small credit line ("made in code" style). The audio fades out.
+The reference runs this in 15 s at 143 BPM, and the operator found that too fast (2026-10-06). Keep every
+scene, but give each about five beats (2.5 s) so it lands, settles and holds before it leaves.
 
-Shot lengths follow the music, not a template: shorten or merge scenes when the bed calls for it. You may swap a technique for a stronger one. Keep the rhythm of one new idea per bar.
+1. **Open (0-2.5 s).** A dot-grid on ink. A signal dot drops in and squashes on a sub thump. A mono caption types. The dot stretches into a line, then a travelling sine wave on a riser. The line thickens into a band that floods the frame signal-orange on the downbeat.
+2. **Identity (about 2.5 s).** The wordmark drops in letter by letter with a blur that clears. An italic serif phrase slides under it, a mono kicker sets in, and a weight wave runs across the letters. Leave on a blurred circle wipe.
+3. **3D (about 2.5 s).** A Three.js voxel grid on a tilted camera. A ripple lifts the blocks in a signal-to-violet gradient, a chrome or glossy sphere with an orbit ring bounces at the centre, and the camera orbits slowly. Render it from `hf-seek` time; seeded heights only.
+4. **Kinetic words (about 2.5 s).** One word per beat, then a one-beat hold on the last: four hard cuts, each with its own field and treatment. Use dark on cream, signal on ink over an outline-word wall, cream on blue skewed with motion blur inside viewfinder brackets, and an italic phrase on signal. These are the only hard cuts in the film.
+5. **Data (about 2.5 s).** On cream: a big percentage rolls up with blurred digits, a donut fills to its value, 12 bars grow on a stagger with the last bar in signal, and a blue spline draws with a travelling dot and a value pill. Every number is a labelled sample. Leave on a staircase pixel-block wipe.
+6. **Particles (about 2.5 s).** A flow field of white, signal and blue streaks converges into a sphere of sticks, collapses into concentric dotted rings with x/y readouts, then bursts radially around a blue dot.
+7. **UI (about 2.5 s).** A blue radial field with a dot grid and glass cards stacking. A render-queue card springs up and a cursor flips a toggle and picks an option. A button becomes a signal progress fill and then "Done", and a toast slides in. Leave on a soft-edged signal circle wipe from the centre.
+8. **Morph (about 2.5 s).** A metaball splits into 8 blobs inside a thin cream outline. The outline morphs circle, triangle, star, blob, and the blobs merge back into one dot that grows into a wipe to ink.
+9. **End card (about 3 s).** The signal dot pulses with a glow ring. The wordmark decodes in with a seeded letter scramble, followed by the italic serif line, a hairline, the tagline in signal mono and a small credit line ("made in code" style). The audio fades out.
+
+Shot lengths follow the music, not a template: shorten or merge scenes when the bed calls for it. You may swap a technique for a stronger one. Keep the rhythm of one new idea every five beats or so, and never let a scene leave before it has settled.
 
 ## Transitions
 
