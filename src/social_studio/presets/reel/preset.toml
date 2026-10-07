@@ -4,7 +4,7 @@
 
 [preset]
 name = "reel"
-description = "Motion-designer showreel: 16:9, 60 fps, 15 s, a new technique every bar, synthesized bed and effects"
+description = "Motion-designer showreel: 16:9, 60 fps, 20-25 s, a new technique every 2.5 s, synthesized bed and effects"
 
 [brand]
 name = "social-studio"
@@ -54,7 +54,9 @@ files = [{ file = "assets/fonts/JetBrainsMono-Variable.ttf", weight = "100 800" 
 width = 1920
 height = 1080
 fps = 60
-duration = [14, 16]
+duration = [20, 25]
+# Operator 2026-10-06 on the first reel: "a little too fast, can be slowed to like 20-25s".
+pacing = "unhurried for a showreel: about 120 BPM, a new scene every five beats (about 2.5 s), kinetic words one beat each with a hold on the last, and every scene lands, settles and holds before it leaves"
 background = "#070711"
 safe_zone = { top = 0.05, bottom = 0.05, left = 0.05, right = 0.05 }
 end_card_max = 0.15
@@ -63,7 +65,7 @@ sound = "bed+sfx"
 [content]
 language = "en"
 pillars = [
-  { name = "showreel", idea = "A dynamic 15-second motion graphics video that shows what an incredible motion designer this studio is, like its showreel for a résumé. A new technique every bar. Go all out." },
+  { name = "showreel", idea = "A dynamic 20 to 25 second motion graphics video that shows what an incredible motion designer this studio is, like its showreel for a résumé. A new technique every couple of seconds, each given time to land. Go all out." },
 ]
 no_repeat_days = 30
 rules = [
@@ -117,6 +119,6 @@ criteria = ["hook in the first 2 seconds", "readability on a phone", "compositio
 min_score = 8
 
 [publish]
-platforms = ["youtube", "x"]
+platforms = ["instagram", "facebook", "x"]
 link = ""
 bio_note = ""

@@ -30,7 +30,7 @@ NPM_PIN = re.compile(r"(?:@[a-z0-9][a-z0-9._-]*/)?[a-z0-9][a-z0-9._-]*@" + SEMVE
 # file from outside the presets folders: only a human at a terminal can (R0).
 GUARDED_PRESET = ("agent.mcp", "agent.plugins", "agent.skills", "agent.engine_skills", "assets", "brand.fonts", "render")
 # Config keys that pick the harness binary and the credentials it gets, the sandbox, or where presets come from.
-GUARDED_CONFIG = ("preset_paths", "sandbox",
+GUARDED_CONFIG = ("preset_paths", "sandbox", "publish.buffer", "publish.media",  # where posts and videos go
                   *(f"backend.{b}.{k}" for b in ("claude", "opencode", "codex") for k in ("bin", "auth", "env")))
 MCP_FILE = "mcp.toml"
 # `make --aspect`: frame size on a 1080 px short side. Only 9:16 keeps the preset's safe zone, which is sized for the
@@ -347,10 +347,6 @@ class Ctx:
         return self.studio_dir / "approval"
 
     @property
-    def drafts_dir(self) -> Path:
-        return self.need() / "drafts"
-
-    @property
     def env_path(self) -> Path:
         return self.need() / ".env"
 
@@ -408,7 +404,7 @@ def path_problem(ctx: Ctx, path: Path) -> str | None:
         return "is outside the repo"
     if q == project or q in project.parents:
         return "holds the whole project, its .env and database included"
-    for private in (ctx.env_path, ctx.studio_dir, ctx.library_dir, ctx.drafts_dir):
+    for private in (ctx.env_path, ctx.studio_dir, ctx.library_dir):
         if q == private.resolve() or private.resolve() in q.parents:
             return "is the project's private state"
     if q.name.startswith(".env"):

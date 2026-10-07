@@ -503,7 +503,7 @@ def backend_command(ctx: Ctx, p: Preset, b: Backend, s: Session, prompt: str, sk
     ro: list[Path] = [_install_root(b.bin, ctx)]
     rw: list[Path] = []
     mcp = _mcp(ctx, p) if not review else {}
-    max_turns = str(p.get(f"{role}.max_turns", 20 if review else 80))
+    max_turns = str(p.get(f"{role}.max_turns", 40 if review else 80))  # 20 ran a 60 fps reel's review out of turns
     allow_web = bool(p.get(f"{role}.allow_web", False))
     effort = p.get(f"{role}.effort")
     house = s.home / HOUSE_FILE if not review and (s.home / HOUSE_FILE).is_file() else None

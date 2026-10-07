@@ -1,19 +1,18 @@
 """Core guarantees: config precedence, the status machine, unforgeable approval, the agent's
-blind spot for scheduled videos, slot uniqueness, idempotent publishing, the repo write boundary,
-and revisions that leave no old copies behind."""
+blind spot for scheduled videos, the repo write boundary, and revisions that leave no old copies
+behind. Posting through Buffer is covered in test_buffer.py."""
 from __future__ import annotations
 
 import json
 import sqlite3
 import subprocess
 import time
-from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pytest
 
-from social_studio import approval, cli, core, db, engine, platforms, publish, runner, schedule
-from social_studio.core import (PROJECT_FILE, ConfigError, DataError, Denied, Unavailable, UsageError, dump_toml,
+from social_studio import approval, cli, core, db, engine, runner
+from social_studio.core import (PROJECT_FILE, ConfigError, DataError, Denied, Unavailable, dump_toml,
                                 find_project, load_env, load_preset, load_toml, make_ctx, parse_value, save_env,
                                 sha256_file, validate_preset)
 
@@ -24,8 +23,7 @@ def ctx(tmp_path, monkeypatch):
     (tmp_path / "repo" / ".git").mkdir(parents=True)
     proj = tmp_path / "repo" / "social"
     proj.mkdir()
-    (proj / PROJECT_FILE).write_text(dump_toml({"timezone": "UTC", "paths": {"library": "library"},
-                                                "publish": {"default_platforms": ["bluesky"]}}))
+    (proj / PROJECT_FILE).write_text(dump_toml({"timezone": "UTC", "paths": {"library": "library"}}))
     monkeypatch.setenv("SOCIAL_STUDIO_PROJECT", str(proj))
     monkeypatch.setenv("TZ", "UTC")
     monkeypatch.delenv("SOCIAL_STUDIO_ROLE", raising=False)
@@ -66,11 +64,6 @@ def add_video(ctx, title="A video", session_id=None) -> dict:
 
 def approve(ctx, vid):
     return cli._approve(ctx, [vid])
-
-
-def future(days=1, hour=9):
-    d = datetime.now(timezone.utc) + timedelta(days=days)
-    return d.strftime("%Y-%m-%d"), f"{hour:02d}:00"
 
 
 # --- config -------------------------------------------------------------------------------------------
@@ -151,100 +144,36 @@ def test_file_swapped_after_approval_is_blocked(ctx, signer):
     assert approval.check_video(ctx, con, db.get_video(con, v["id"])) == "video file changed after approval"
 
 
-# --- calendar --------------------------------------------------------------------------------------------
+# --- the agent's blind spot -----------------------------------------------------------------------------
 
-def test_schedule_fills_with_oldest_approved_and_hides_it(ctx, signer):
+def test_scheduled_videos_vanish_from_agent_views(ctx, signer, capsys):
     a, b = add_video(ctx, "First"), add_video(ctx, "Second")
     approve(ctx, a["id"])
     approve(ctx, b["id"])
-    date, time = future()
-    res = schedule.add(ctx, date, time, ["bluesky"], actor="agent")
-    assert res[0]["filled"] is True
     con = db.connect(ctx)
+    con.execute("INSERT INTO posts (at, video_id, status, created_by, created_at) "
+                "VALUES ('2999-01-01T09:00:00Z', ?, 'scheduled', 'human', '2026-10-06T00:00:00Z')", (a["id"],))
+    con.execute("INSERT INTO post_targets (post_id, platform, at, via) VALUES (1, 'instagram', '2999-01-01T09:00:00Z', "
+                "'buffer')")
+    db.set_status(con, a["id"], "scheduled", "test")
     visible = {r["id"] for r in con.execute("SELECT id FROM agent_videos")}
     assert a["id"] not in visible and b["id"] in visible
-    cal = con.execute("SELECT * FROM agent_calendar").fetchone()
-    assert "video_id" not in cal.keys()
+    assert "video_id" not in con.execute("SELECT * FROM agent_calendar").fetchone().keys()
+    assert cli.main(["--json", "agent", "calendar"]) == 0
+    cal = json.loads(capsys.readouterr().out)
+    assert [(r["post_id"], r["platforms"]) for r in cal] == [(1, "instagram")] and "video_id" not in cal[0]
+    assert cli.main(["--json", "agent", "status"]) == 0
+    status = json.loads(capsys.readouterr().out)
+    assert status["ready_to_post"] == 1 and status["next_post"].startswith("2999-01-01 09:00")
 
 
-def test_open_slot_fills_on_approval(ctx, signer):
-    v = add_video(ctx)
-    date, time = future()
-    assert schedule.add(ctx, date, time, ["bluesky"])[0]["filled"] is False
-    assert approve(ctx, v["id"])["filled_slots"] == 1
-
-
-def test_slot_clash_and_past_and_cadence(ctx):
-    date, time = future()
-    schedule.add(ctx, date, time, ["bluesky"])
-    with pytest.raises(DataError):
-        schedule.add(ctx, date, time, ["bluesky"])
-    with pytest.raises(UsageError):
-        schedule.add(ctx, "2020-01-01", "09:00", ["bluesky"])
-    d2, _ = future(days=3)
-    res = schedule.add(ctx, d2, "10:00", ["bluesky", "linkedin"], every="2d", count=3)
-    assert [r["at"][:10] for r in res] == [
-        (datetime.strptime(d2, "%Y-%m-%d") + timedelta(days=2 * i)).strftime("%Y-%m-%d") for i in range(3)]
-
-
-def test_cancel_returns_video_to_approved(ctx, signer):
-    v = add_video(ctx)
-    approve(ctx, v["id"])
-    date, time = future()
-    pid = schedule.add(ctx, date, time, ["bluesky"])[0]["post_id"]
-    schedule.cancel(ctx, pid)
-    con = db.connect(ctx)
-    assert db.get_video(con, v["id"])["status"] == "approved"
-
-
-# --- publishing ------------------------------------------------------------------------------------------
-
-class FakeAdapter(platforms.Adapter):
-    name, keys = "bluesky", ()
-    calls = 0
-
-    def publish(self, ctx, video, caption, post_id):
-        FakeAdapter.calls += 1
-        return f"at://fake/{post_id}", f"https://example.test/{post_id}"
-
-
-def test_publish_due_post_once(ctx, signer, monkeypatch):
-    v = add_video(ctx)
-    approve(ctx, v["id"])
-    date, time = future()
-    pid = schedule.add(ctx, date, time, ["bluesky"])[0]["post_id"]
-    con = db.connect(ctx)
-    con.execute("UPDATE post_targets SET at = '2000-01-01T00:00:00Z'")
-    monkeypatch.setattr(platforms, "get", lambda name: FakeAdapter())
-    first = publish.run(ctx)
-    second = publish.run(ctx)
-    assert [r["status"] for r in first] == ["posted"] and second == [] and FakeAdapter.calls == 1
-    assert db.get_video(con, v["id"])["status"] == "posted"
-    assert con.execute("SELECT status FROM posts WHERE id = ?", (pid,)).fetchone()[0] == "posted"
-
-
-def test_publish_blocks_tampered_video(ctx, signer, monkeypatch):
-    v = add_video(ctx)
-    approve(ctx, v["id"])
-    date, time = future()
-    schedule.add(ctx, date, time, ["bluesky"])
-    con = db.connect(ctx)
-    con.execute("UPDATE post_targets SET at = '2000-01-01T00:00:00Z'")
-    v["file"].write_bytes(b"tampered")
-    monkeypatch.setattr(platforms, "get", lambda name: FakeAdapter())
-    res = publish.run(ctx)
-    assert res[0]["status"] == "blocked" and "changed" in res[0]["error"]
-
-
-def test_draft_adapter_exports_folder(ctx, signer):
-    v = add_video(ctx)
-    approve(ctx, v["id"])
-    date, time = future()
-    schedule.add(ctx, date, time, ["linkedin"])
-    con = db.connect(ctx)
-    con.execute("UPDATE post_targets SET at = '2000-01-01T00:00:00Z'")
-    res = publish.run(ctx)
-    assert res[0]["status"] == "draft" and (Path(res[0]["url"]) / "video.mp4").is_file()
+def test_agents_cannot_schedule_and_post_run_is_gone(ctx, capsys):
+    with pytest.raises(SystemExit):
+        cli.main(["agent", "schedule", "2026-10-05", "09:00"])
+    with pytest.raises(SystemExit):
+        cli.main(["schedule", "add", "2026-10-05", "09:00"])
+    with pytest.raises(SystemExit):
+        cli.main(["post", "run"])
 
 
 # --- cli ---------------------------------------------------------------------------------------------------
@@ -269,13 +198,6 @@ def test_font_files_accept_paths_and_tables():
     from social_studio.runner import font_files
     font = {"family": "X", "weight": 400, "files": ["a.woff2", {"file": "b.ttf", "weight": 700, "style": "italic"}]}
     assert font_files(font) == [("a.woff2", 400, "normal"), ("b.ttf", 700, "italic")]
-
-
-def test_schedule_dry_run_saves_nothing(ctx):
-    date, time = future()
-    res = schedule.add(ctx, date, time, ["bluesky"], dry_run=True)
-    assert res[0]["dry_run"] is True
-    assert db.connect(ctx).execute("SELECT count(*) FROM posts").fetchone()[0] == 0
 
 
 def test_revision_brief_keeps_the_idea(ctx):

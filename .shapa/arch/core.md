@@ -22,7 +22,7 @@ Part of [[index]]. Deterministic plumbing every other box uses; no LLM.
 
 ## Contracts
 
-- Project folder: `social-studio.toml`, `.env` (rewritten 0600), `presets/`, `library/`, `drafts/`, `.studio/` (`library.db`, `approval/`, `sessions/`, `engine/`, `cache/`). `init` writes a `.gitignore` for `.env`, `.studio/`, `library/`, `drafts/`.
+- Project folder: `social-studio.toml`, `.env` (rewritten 0600), `presets/`, `library/`, `.studio/` (`library.db`, `approval/`, `sessions/`, `engine/`, `cache/`). `init` writes a `.gitignore` for `.env`, `.studio/`, `library/`.
 - Presets: searched in the project's `presets/`, configured `preset_paths` and the built-in `presets/`; `extends` merges; `--set` overrides by dotted key.
 - `mcp.toml`: `[servers.NAME]` entries, edited only by a human; each entry's `secrets` lists the only `${VAR}` names it may fill.
 - `FORMATS`: 9:16 1080x1920, 4:5 1080x1350, 1:1 1080x1080, 16:9 1920x1080. Only 9:16 keeps the preset's safe zone; the others get 5 % title-safe on every edge. `SOUNDS`: none, sfx, bed+sfx, sfx+voice, bed+sfx+voice. `EFFORTS`: low to max.
@@ -30,8 +30,8 @@ Part of [[index]]. Deterministic plumbing every other box uses; no LLM.
 ## Invariants
 
 - Writes stay inside the git work tree that holds the project (`Ctx.boundary`); paths in the database are project-relative (rule R5).
-- `path_problem` refuses anything outside the repo, the project folder itself, its `.env`, `.studio/`, `library/`, `drafts/` and any `.env*` file. Files shipped inside a built-in preset are always allowed, `.env*` never.
-- `GUARDED_PRESET` keys (`agent.mcp`, `agent.plugins`, `agent.skills`, `agent.engine_skills`, `assets`, `brand.fonts`, `render`) and `GUARDED_CONFIG` keys (`preset_paths`, `sandbox`, `backend.*.bin|auth|env`) change only by a human (issue I1, R0 tests).
+- `path_problem` refuses anything outside the repo, the project folder itself, its `.env`, `.studio/`, `library/` and any `.env*` file. Files shipped inside a built-in preset are always allowed, `.env*` never.
+- `GUARDED_PRESET` keys (`agent.mcp`, `agent.plugins`, `agent.skills`, `agent.engine_skills`, `assets`, `brand.fonts`, `render`) and `GUARDED_CONFIG` keys (`preset_paths`, `sandbox`, `publish.buffer`, `publish.media`, `backend.*.bin|auth|env`) change only by a human (issue I1, R0 tests).
 - `require_human` needs a TTY and `SOCIAL_STUDIO_ROLE != agent`.
 - `validate_preset` rejects aliased font families (`ALIASED_FONTS`, issue I4), missing font and asset files, `agent.rounds` outside 1-5, unknown efforts and sounds, unknown `agent.package_skills`, `video.end_card_max` outside (0, 1), and every R0 problem (registry-only MCP, slug skill names, paths inside the repo).
 - The tool stays brand-neutral: no brand tokens in `data/` or built-in presets other than their own.

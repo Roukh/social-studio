@@ -1,7 +1,8 @@
 # social-studio
 
-A local command-line tool that makes short motion-graphics videos with an LLM agent, keeps them in
-a library, and posts the ones a human approved on the dates you set.
+A local command-line tool that makes short motion-graphics videos with an LLM agent, keeps each one
+in a library with its full post text, and posts the ones a human approved through
+[Buffer](https://buffer.com) at the times you pick.
 
 - **One isolated session per video.** Each try runs your harness (Claude Code, OpenCode or Codex)
   headless, in a fresh throwaway home, inside a bubblewrap sandbox that cannot see your library,
@@ -12,9 +13,9 @@ a library, and posts the ones a human approved on the dates you set.
 - **Deterministic renders.** Compositions are HTML rendered frame by frame by
   [HyperFrames](https://github.com/heygen-com/hyperframes) (Apache-2.0) at a pinned version with its
   own pinned Chrome to a near-lossless master, then encoded to H.264 sized for social platforms.
-- **A human approves; code schedules.** Approval is a passphrase-protected signature over the exact
-  file. You (or your agent) choose dates and times; the scheduler fills each slot with the oldest
-  approved video, and a scheduled video disappears from everything an agent can list.
+- **A human approves and posts; agents never do.** Approval is a passphrase-protected signature over
+  the exact file and its post text. `social-studio post` at your terminal picks an approved post,
+  its channels and a time; code uploads the file and schedules it through Buffer's GraphQL API.
 - **Two ways in.** Run it yourself, or let an agent in any harness drive it through the CLI
   (`--json` everywhere, a shipped `SKILL.md`).
 - **One folder, no sprawl.** A project folder holds config, keys, presets, the library and all
@@ -38,9 +39,12 @@ social-studio preset new mybrand            # then edit presets/mybrand/preset.t
 social-studio make -n 3 --preset mybrand    # three videos, three isolated sessions
 social-studio review                        # watch, then approve / reject / send back with notes
 social-studio review rescore 4 --times 2    # re-run the independent reviewer to see how much its scores move
-social-studio channel connect youtube       # bring your own developer app (see below)
-social-studio schedule add 2026-10-05 09:00 -p youtube --every 2d --count 3
-social-studio timer install                 # systemd user timer runs `post run` every 10 minutes (human only)
+social-studio channel connect buffer        # your Buffer personal API key (human only)
+deploy/media-proxy/setup.sh social          # Railway bucket + read-only proxy Buffer fetches videos from
+                                            # (or `channel connect media` for any S3-compatible bucket)
+social-studio post                          # pick an approved post, channels, a time; confirm
+social-studio post list                     # what is queued or sent, with post URLs
+social-studio timer install                 # systemd user timer: `post sync` every 10 minutes records Buffer's results
 ```
 
 ## Concepts
@@ -51,13 +55,12 @@ A project is any folder holding `social-studio.toml`. Commands find it from the 
 | Thing | Where (inside the project) | Notes |
 |---|---|---|
 | Config | `social-studio.toml` | `social-studio config get/set` |
-| Secrets | `.env` (0600) | model keys, platform apps and tokens |
+| Secrets | `.env` (0600) | model keys, the Buffer API key, the media bucket keys |
 | Presets | `presets/<name>/preset.toml`, then `preset_paths`, then built-ins | `extends = "other"` to inherit |
 | Library | `library/<date>-<slug>-<id>/` | `social-studio library dir <folder>` moves it, inside the repo only |
 | State | `.studio/`: `library.db`, `approval/`, `sessions/`, `engine/`, `cache/` | SQLite in WAL mode; engine, Chrome and npm cache included |
-| Drafts | `drafts/` | LinkedIn and TikTok export folders |
 
-`init` writes a `.gitignore` that keeps `.env`, `.studio/`, `library/` and `drafts/` out of git;
+`init` writes a `.gitignore` that keeps `.env`, `.studio/` and `library/` out of git;
 config and presets can be committed.
 
 A finished session is trimmed to what explains it (task, brief, metadata, contact sheet, gzipped
@@ -82,17 +85,25 @@ event log.
 human at a terminal can run it. Anthropic allows a Claude
 subscription only through the unmodified `claude` binary, which is exactly how this tool uses it.
 
-## Platforms
+## Posting through Buffer
 
-| Platform | How | Notes |
-|---|---|---|
-| Instagram | Graph API (Facebook Login), local resumable upload | needs a Page linked to an Instagram professional account; App Review for other accounts |
-| Facebook Page | Reels API, resumable upload | same connection as Instagram |
-| YouTube | Data API, resumable upload | projects created after 2020-07-28 upload private until YouTube's compliance audit passes |
-| X | API v2, chunked media upload | pay per post |
-| Bluesky | app password | free |
-| LinkedIn | draft folder | LinkedIn's API terms forbid automated posting |
-| TikTok | draft folder | TikTok's audit rejects in-house upload tools; unaudited apps post private only |
+Instagram (as a Reel), Facebook (Reel when vertical and 90 s or less, else a video post) and X go
+out through [Buffer's GraphQL API](https://developers.buffer.com) with a personal API key, on any
+Buffer plan. Buffer has no upload endpoint and fetches the video from a URL when the post goes out,
+so `post` first uploads the file to an S3-compatible bucket under its sha256, signed with SigV4, and
+checks the public URL answers.
+
+Railway buckets are private, so `deploy/media-proxy` is a small standard-library service that streams
+only those video keys from a Railway bucket to a public URL (GET and HEAD, ranges passed through;
+everything else is a 404). `deploy/media-proxy/setup.sh <project>` creates the bucket in the Railway
+project its folder is linked to, points the proxy at it, and connects the project, passing the bucket
+keys through environment variables only. A bucket that is public on its own (Cloudflare R2, AWS S3)
+needs no proxy: run `social-studio channel connect media` instead.
+
+Before anything leaves, `post` re-checks the approval signature, re-hashes the file, checks that the
+post text is the one approved, and checks each network's length limit. `post sync` (the timer runs
+it) reads back what Buffer did: the post URL, or Buffer's error. `post cancel ID` removes queued
+posts from Buffer. Buffer is the only posting route; Buffer's API does not read or reply to comments.
 
 ## Security model
 
@@ -104,12 +115,15 @@ subscription only through the unmodified `claude` binary, which is exactly how t
   sandbox (by flag or config), installing the timer, and installing a skill outside the repo
   are human-only.
 - Network inside the sandbox is open (the harness needs its API). Domain allowlisting is planned.
-- Human-only commands (approve, reject, revise, reveal scheduled videos, connect accounts) need an
-  interactive terminal, and approval also needs the passphrase. Never add the approval key to
-  ssh-agent.
-- The publisher re-verifies the signature and re-hashes the file before every upload.
+- Human-only commands (approve, reject, revise, schedule, list or cancel posts, reveal scheduled
+  videos, connect accounts) need an interactive terminal, and approval also needs the passphrase.
+  Never add the approval key to ssh-agent.
+- `post` re-verifies the signature, re-hashes the file and checks the signed post text before every
+  upload. The `publish.buffer` and `publish.media` settings are human-only, and no agent command
+  schedules or sends a post.
 
 ## For agents
 
 `social-studio skill install --target claude` (or `opencode`, `codex`, a folder) installs the agent
-guide. Agents use `social-studio --json agent status|videos|topics|calendar|schedule` and `make`.
+guide. Agents use `social-studio --json agent status|videos|topics|calendar` and `make`; posting
+stays with the human.
