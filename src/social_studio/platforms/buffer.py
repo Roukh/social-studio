@@ -17,11 +17,15 @@ from . import Adapter, HttpError, ask, http
 API = "https://api.buffer.com"
 KEY = "BUFFER_API_KEY"
 # Buffer service -> the caption key the maker writes in video.json (and the platform name in post_targets).
+# These three are the networks the terminal route schedules; drafts go to any service, named as Buffer names it.
 SERVICES = {"instagram": "instagram", "facebook": "facebook", "twitter": "x"}
-# Post text limits Buffer enforces, in UTF-16 units (developers.buffer.com/guides/character-limits).
-# X on a free account is 280; set publish.buffer.limits.x for Premium.
-LIMITS = {"instagram": 2196, "facebook": 5000, "x": 280}
-X_URL_WEIGHT = 23
+# Post text limits Buffer enforces, in UTF-16 units (developers.buffer.com/guides/character-limits, read
+# 2026-10-07). X on a free account is 280; set publish.buffer.limits.x for Premium. Mastodon is the server
+# default. Start Page, Substack and WhatsApp have no published limit: Buffer decides.
+LIMITS = {"instagram": 2196, "facebook": 5000, "x": 280, "linkedin": 3000, "pinterest": 500, "tiktok": 2200,
+          "threads": 500, "bluesky": 300, "youtube": 5000, "googlebusiness": 4000, "mastodon": 500}
+URL_WEIGHT = {"x": 23, "linkedin": 24}  # a link counts as this many, whatever its length
+TITLE_MAX = 100  # YouTube, TikTok and Pinterest titles
 # Post statuses that still wait for someone to schedule them in Buffer (PostStatus, read 2026-10-07).
 WAITING = ("draft", "needs_approval")
 
@@ -103,10 +107,12 @@ def organization(ctx: Ctx) -> str:
 
 
 def channels(ctx: Ctx, supported_only: bool = True) -> list[dict]:
-    """Connected, unlocked channels, sorted by service then name; `platform` is the caption key."""
+    """Connected, unlocked channels, sorted by service then name; `platform` is the caption key.
+
+    `supported_only` keeps Instagram, Facebook and X (the terminal route); drafts take every service."""
     out = []
     for c in gql(ctx, Q_CHANNELS, {"input": {"organizationId": organization(ctx)}})["channels"]:
-        if supported_only and (c["service"] not in SERVICES or c["isDisconnected"] or c["isLocked"]):
+        if c["isDisconnected"] or c["isLocked"] or (supported_only and c["service"] not in SERVICES):
             continue
         out.append({**c, "platform": SERVICES.get(c["service"], c["service"]),
                     "label": f"{SERVICES.get(c['service'], c['service'])} {c.get('displayName') or c['name']}"})
@@ -114,14 +120,18 @@ def channels(ctx: Ctx, supported_only: bool = True) -> list[dict]:
 
 
 def text_length(platform: str, text: str) -> int:
-    """Length the way Buffer counts it: UTF-16 units; on X a link counts as 23."""
-    if platform == "x":
-        text = re.sub(r"https?://\S+", "x" * X_URL_WEIGHT, text)
-    return len(text.encode("utf-16-le")) // 2
+    """Length the way Buffer counts it: UTF-16 units; a link counts as 23 on X and 24 on LinkedIn; an
+    Instagram line break counts as 2."""
+    if platform in URL_WEIGHT:
+        text = re.sub(r"https?://\S+", "x" * URL_WEIGHT[platform], text)
+    n = len(text.encode("utf-16-le")) // 2
+    return n + text.count("\n") if platform == "instagram" else n
 
 
-def limit(ctx: Ctx, platform: str) -> int:
-    return int(ctx.cfg(f"publish.buffer.limits.{platform}") or LIMITS[platform])
+def limit(ctx: Ctx, platform: str) -> int | None:
+    """The network's post text limit, or None where Buffer publishes none."""
+    found = ctx.cfg(f"publish.buffer.limits.{platform}") or LIMITS.get(platform)
+    return int(found) if found else None
 
 
 def post_input(channel: dict, text: str, video_url: str, video: dict, due_at: str | None,
@@ -142,6 +152,12 @@ def post_input(channel: dict, text: str, video_url: str, video: dict, due_at: st
         meta["facebook"] = {"type": "reel" if vertical else "post"}
     elif service == "twitter" and ai_label:
         meta["twitter"] = {"isAiGenerated": True}
+    elif service in ("youtube", "tiktok", "pinterest"):
+        meta[service] = {"title": video["title"][:TITLE_MAX]}
+        if ai_label and service != "pinterest":
+            meta[service]["isAiGenerated"] = True
+    elif service == "googlebusiness":
+        meta["google"] = {"type": "whats_new"}  # the only required field; offers and events need details
     out = {"channelId": channel["id"], "text": text, "schedulingType": "automatic",
            "assets": [{"video": asset}], "metadata": meta or None}
     if draft:

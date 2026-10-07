@@ -103,8 +103,11 @@ keys through environment variables only. A bucket that is public on its own (Clo
 needs no proxy: run `social-studio channel connect media` instead.
 
 **Approval in Buffer** (the default once Buffer is connected; `publish.buffer.drafts = false` turns
-it off). After a make, code uploads each new video and creates one Buffer draft per connected
-channel (`saveToDraft`), with that network's post text; a text over the network's limit is skipped.
+it off). After a make, code uploads each new video and creates one Buffer draft (`saveToDraft`) for
+every channel connected in Buffer: any network Buffer serves (Instagram, Facebook, X, LinkedIn,
+TikTok, YouTube, Threads, Bluesky, Pinterest and the rest) and every account on it, so a channel you
+connect later gets the next video. `publish.buffer.channels` narrows the list. Each draft carries that
+network's caption (or the default one); a text over the network's limit is skipped.
 Drafts publish nothing. In Buffer you approve a draft by scheduling or queueing it, edit it, or delete
 it. `post sync` (the timer runs it) follows each draft: approved becomes scheduled, sent records the
 post URL and marks the video posted, and a video whose drafts were all deleted is rejected.

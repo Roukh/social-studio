@@ -7,7 +7,8 @@ Invariants the schema enforces (not just the code):
   (a post created by `drafts`), where the operator approves it in Buffer instead (v3);
 - every status change writes an append-only event row, attributed through ss_actor(), a function
   only this tool registers, so raw edits from the sqlite3 shell fail instead of slipping through;
-- a video is used by at most one post, and a platform has at most one live post per minute;
+- a video is used by at most one post, a post has one target per Buffer channel (several accounts on one
+  network are several channels, v4), and a channel has at most one live post per second;
 - a platform post id (the Buffer post id) is stored once per platform, never twice.
 Earlier schema entries are never edited; v1 still carries the removed calendar's statuses (open, missed,
 draft), which nothing writes any more.
@@ -196,6 +197,46 @@ SCHEMA = [
     BEGIN
       SELECT RAISE(ABORT, 'invalid status transition');
     END;
+    """,
+    # v4 (2026-10-07): drafts go to every channel connected in Buffer, several accounts on one network
+    # included, so a post's targets are unique per channel, not per platform. SQLite cannot drop a table
+    # constraint, so post_targets is rebuilt with the same columns; the view that reads it is recreated as in
+    # v1, and the slot index now holds one live post per channel and second.
+    """
+    DROP VIEW agent_calendar;
+    CREATE TABLE post_targets_v4 (
+      id INTEGER PRIMARY KEY,
+      post_id INTEGER NOT NULL REFERENCES posts(id),
+      platform TEXT NOT NULL,
+      at TEXT NOT NULL,
+      status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN
+        ('pending', 'posted', 'failed', 'draft', 'cancelled')),
+      platform_post_id TEXT,
+      url TEXT,
+      error TEXT,
+      attempts INTEGER NOT NULL DEFAULT 0,
+      next_try_at TEXT,
+      posted_at TEXT,
+      via TEXT NOT NULL DEFAULT 'direct' CHECK (via IN ('direct', 'buffer')),
+      channel_id TEXT,
+      text TEXT,
+      UNIQUE (post_id, channel_id)
+    );
+    INSERT INTO post_targets_v4 (id, post_id, platform, at, status, platform_post_id, url, error, attempts,
+                                 next_try_at, posted_at, via, channel_id, text)
+      SELECT id, post_id, platform, at, status, platform_post_id, url, error, attempts, next_try_at, posted_at,
+             via, channel_id, text FROM post_targets;
+    DROP TABLE post_targets;
+    ALTER TABLE post_targets_v4 RENAME TO post_targets;
+    CREATE UNIQUE INDEX post_targets_slot ON post_targets(ifnull(channel_id, platform), at)
+      WHERE status IN ('pending', 'posted');
+    CREATE UNIQUE INDEX post_targets_remote ON post_targets(platform, platform_post_id)
+      WHERE platform_post_id IS NOT NULL;
+    CREATE VIEW agent_calendar AS
+      SELECT p.id, p.at, p.status, p.video_id IS NOT NULL AS filled,
+        (SELECT group_concat(t.platform, ',') FROM post_targets t
+          WHERE t.post_id = p.id AND t.status <> 'cancelled') AS platforms
+      FROM posts p WHERE p.status <> 'cancelled';
     """,
 ]
 

@@ -301,8 +301,9 @@ def drafts_post(con, video_id: int) -> int | None:
 def draft(ctx: Ctx, video_id: int) -> dict:
     """Put a video that waits for review into Buffer as a draft on every connected channel.
 
-    Called by code after a make, or by `post draft`. One channel per network for now: a second account on
-    the same network is skipped (several accounts is a later feature). Nothing reached Buffer -> undone."""
+    Called by code after a make, or by `post draft`. Every channel counts, on any network Buffer serves and
+    every account on it, so a channel connected later gets the next video (`publish.buffer.channels`
+    narrows it). A text over its network's limit is skipped. Nothing reached Buffer -> undone."""
     with post_lock(ctx, wait=True):
         con = db.connect(ctx, actor=DRAFTS)
         try:
@@ -315,19 +316,17 @@ def draft(ctx: Ctx, video_id: int) -> dict:
                 raise DataError(f"video {video_id} is already on post {live[0]}", "see `social-studio post list`")
         finally:
             con.close()
-        chans = select_channels(ctx, buffer.channels(ctx), None)
+        chans = select_channels(ctx, buffer.channels(ctx, supported_only=False), None)
         if not chans:
-            raise ConfigError("no Instagram, Facebook or X channel is connected in Buffer", "connect them at buffer.com")
+            raise ConfigError("no channel is connected in Buffer", "connect one at buffer.com")
         pub = preset_publish(ctx, v["preset"])
-        targets, out, seen = [], [], set()
+        targets, out = [], []
         for c in chans:
             text = platforms.caption_for(c["platform"], v, pub)
             n, cap = buffer.text_length(c["platform"], text), buffer.limit(ctx, c["platform"])
-            why = (f"a second {c['platform']} channel; one per network for now" if c["platform"] in seen else
-                   f"post text {n}/{cap} is over the limit" if n > cap else "")
-            seen.add(c["platform"])
-            if why:
-                out.append({"platform": c["platform"], "channel": c["label"], "status": "skipped", "error": why})
+            if cap is not None and n > cap:
+                out.append({"platform": c["platform"], "channel": c["label"], "status": "skipped",
+                            "error": f"post text {n}/{cap} is over the limit"})
             else:
                 targets.append({"channel": c, "text": text})
         if not targets:
