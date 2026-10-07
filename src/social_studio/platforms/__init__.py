@@ -1,6 +1,8 @@
 """Platform adapters, plus the small HTTP and OAuth helpers they share (stdlib only).
 
-Bring your own developer app: every platform's client id/secret and tokens live in the .env.
+Buffer (buffer.py) is the posting route for Instagram, Facebook and X; media.py hosts the video it fetches.
+The direct adapters below remain for a developer app of your own: every platform's client id/secret and
+tokens live in the .env.
 LinkedIn's API terms forbid automated posting and TikTok rejects in-house upload tools in audit,
 so those two export ready-to-post drafts instead of calling an API.
 """
@@ -208,10 +210,13 @@ class Draft(Adapter):
 
 def registry() -> dict[str, Adapter]:
     from .bluesky import Bluesky
+    from .buffer import BufferAdapter
+    from .media import MediaAdapter
     from .meta import Facebook, Instagram
     from .x import X
     from .youtube import YouTube
     return {a.name: a for a in (
+        BufferAdapter(), MediaAdapter(),
         Instagram(), Facebook(), YouTube(), X(), Bluesky(),
         Draft("linkedin", "LinkedIn API Terms 3.1 forbid automated posting"),
         Draft("tiktok", "TikTok's audit rejects in-house upload tools; unaudited apps post private only"),
