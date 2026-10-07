@@ -40,7 +40,8 @@ social-studio make -n 3 --preset mybrand    # three videos, three isolated sessi
 social-studio review                        # watch, then approve / reject / send back with notes
 social-studio review rescore 4 --times 2    # re-run the independent reviewer to see how much its scores move
 social-studio channel connect buffer        # your Buffer personal API key (human only)
-social-studio channel connect media         # a public S3-compatible bucket Buffer fetches videos from
+deploy/media-proxy/setup.sh social          # Railway bucket + read-only proxy Buffer fetches videos from
+                                            # (or `channel connect media` for any S3-compatible bucket)
 social-studio post                          # pick an approved post, channels, a time; confirm
 social-studio post list                     # what is queued or sent, with post URLs
 social-studio timer install                 # systemd user timer: `post sync` every 10 minutes records Buffer's results
@@ -89,8 +90,15 @@ subscription only through the unmodified `claude` binary, which is exactly how t
 Instagram (as a Reel), Facebook (Reel when vertical and 90 s or less, else a video post) and X go
 out through [Buffer's GraphQL API](https://developers.buffer.com) with a personal API key, on any
 Buffer plan. Buffer has no upload endpoint and fetches the video from a URL when the post goes out,
-so `post` first uploads the file to an S3-compatible bucket with public read (Cloudflare R2,
-AWS S3, Backblaze B2, MinIO) under its sha256, signed with SigV4, and checks the public URL answers.
+so `post` first uploads the file to an S3-compatible bucket under its sha256, signed with SigV4, and
+checks the public URL answers.
+
+Railway buckets are private, so `deploy/media-proxy` is a small standard-library service that streams
+only those video keys from a Railway bucket to a public URL (GET and HEAD, ranges passed through;
+everything else is a 404). `deploy/media-proxy/setup.sh <project>` creates the bucket in the Railway
+project its folder is linked to, points the proxy at it, and connects the project, passing the bucket
+keys through environment variables only. A bucket that is public on its own (Cloudflare R2, AWS S3)
+needs no proxy: run `social-studio channel connect media` instead.
 
 Before anything leaves, `post` re-checks the approval signature, re-hashes the file, checks that the
 post text is the one approved, and checks each network's length limit. `post sync` (the timer runs

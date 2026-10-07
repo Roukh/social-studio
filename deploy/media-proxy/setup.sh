@@ -12,7 +12,7 @@
 #    reads it back through the public URL.
 set -euo pipefail
 
-PROJECT=${1:?usage: setup.sh <social-studio project folder>}
+PROJECT=$(cd "${1:?usage: setup.sh <social-studio project folder>}" && pwd)
 BUCKET_NAME=${BUCKET_NAME:-social-studio-videos}
 SERVICE=${SERVICE:-social-studio-media}
 REGION=${REGION:-iad}

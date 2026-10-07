@@ -81,7 +81,8 @@ def ctx(tmp_path, monkeypatch):
     proj.mkdir()
     (proj / PROJECT_FILE).write_text(dump_toml({
         "timezone": "UTC", "paths": {"library": "library"},
-        "publish": {"media": {"endpoint": ENDPOINT, "bucket": "bkt", "public_url": PUBLIC, "prefix": "ss/"}}}))
+        "publish": {"media": {"endpoint": ENDPOINT, "bucket": "bkt", "public_url": PUBLIC, "prefix": "ss/",
+                              "addressing": "path"}}}))
     monkeypatch.setenv("SOCIAL_STUDIO_PROJECT", str(proj))
     monkeypatch.setenv("TZ", "UTC")
     monkeypatch.setenv("BUFFER_API_KEY", "buf-test")

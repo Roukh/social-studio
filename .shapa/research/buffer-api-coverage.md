@@ -45,7 +45,7 @@ Pricing, from third-party sources: Free; Essentials about $5-6 per channel per m
 
 ## Decision and build (2026-10-06)
 
-The operator chose Buffer for posting and scheduling only, over GraphQL, with the operator picking each post at a terminal (rule R14). Comments and engagement are out for now. As built (feature F6): `platforms/buffer.py`, `platforms/media.py` (S3-compatible, SigV4) and `posting.py`; see [[schedule-publish]].
+The operator chose Buffer for posting and scheduling only, over GraphQL, with the operator picking each post at a terminal (rule R14). Comments and engagement are out for now. The direct platform route was removed the same day. Hosting: a Railway bucket on the ghobz-projects project, which is private (Railway does not support public buckets; docs.railway.com/storage-buckets), read through a streaming proxy service, because Buffer wants a direct URL and not a redirect to a presigned link. As built (feature F6): `platforms/buffer.py`, `platforms/media.py` (S3-compatible, SigV4), `posting.py` and `deploy/media-proxy/`; see [[schedule-publish]].
 
 ## Sources
 

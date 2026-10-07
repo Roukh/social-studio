@@ -57,13 +57,13 @@ A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos fo
 | runner | review | maker session plus video -> `verdict.json` |
 | runner | library | `sessions` rows, video row as `review`, parent `superseded` |
 | library | schedule-publish | approved videos with verifiable signatures; post and target rows |
-| schedule-publish | Buffer, media bucket (external) | GraphQL createPost/post/deletePost; signed S3 PUT and public HEAD |
+| schedule-publish | Buffer, Railway bucket and media proxy (external) | GraphQL createPost/post/deletePost; signed S3 PUT to the bucket; public HEAD/GET through the proxy (`deploy/media-proxy`) |
 
 ## Flows
 
 - **make:** cli -> core (load, validate) -> engine (ensure engine, skills) -> runner per try: prepare session -> harness in bubblewrap -> `video.json` -> master render -> encode -> poster and sheet -> qa -> optional reviewer -> library row `review` -> trim sessions; a revision purges its parent's files.
 - **approve:** `review` walk at a TTY shows each network's full post text -> `ssh-keygen -Y sign` over id, sha256 and post-text hash (one passphrase per batch) -> approvals row -> `approved`.
-- **post (the only route, rule R14):** `post` at a TTY -> pick an approved video, channels, a time -> re-verify signature, file and post text -> check text limits -> upload to the public bucket under its sha256 -> post and targets (`via buffer`) -> GraphQL createPost per channel -> Buffer publishes.
+- **post (the only route, rule R14):** `post` at a TTY -> pick an approved video, channels, a time -> re-verify signature, file and post text -> check text limits -> upload to the Railway bucket under its sha256 (read publicly through the media proxy) -> post and targets (`via buffer`) -> GraphQL createPost per channel -> Buffer publishes.
 - **sync:** timer -> `post sync` -> under `post.lock`, ask Buffer about due targets -> record sent (URL), error or deleted -> settle post and video.
 
 ## Elsewhere
