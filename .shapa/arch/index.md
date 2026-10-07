@@ -11,14 +11,14 @@ status: active
 
 # social-studio: system diagram
 
-A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos for social media, one isolated LLM harness session per video, keeps them in a SQLite library with their post text, and posts the ones a human approved through Buffer at the times the human picks. Brand-neutral tool; the operator's brand preset lives in the project folder.
+A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos for social media, one isolated LLM harness session per video, keeps them in a SQLite library with their post text, and hands each new video to Buffer as drafts that a human approves there (or posts ones a human signed at the terminal, at the times the human picks). Brand-neutral tool; the operator's brand preset lives in the project folder.
 
 ## System
 
 | Field | Value |
 |---|---|
 | Goal now | Made videos look the way the operator wants (memory M17, feature F1); target [[reference-leonabboud-showreel]]; decisions in [[reference-look-decisions]] |
-| Goals | brand-true videos from presets; any LLM through the operator's harness; isolation per try; unforgeable human approval; only the human schedules and sends posts, through Buffer; usable by humans and agents |
+| Goals | brand-true videos from presets; any LLM through the operator's harness; isolation per try; human approval agents cannot fake (in Buffer, or a signature at the terminal); only the human schedules and sends posts, through Buffer; usable by humans and agents |
 | Non-goals | hosted SaaS or multi-user; engagement automation (likes, follows, comments, DMs); posting straight to each platform's API (Buffer does it); AI people |
 | Code | `src/social_studio/` (package), `tests/`, `pyproject.toml` (no runtime dependencies, hatchling build). Python over Rust: faster to build, less code, fewer files; Rust's smaller binary is dwarfed by the renderer's Node and Chrome |
 | Run | `uv run social-studio ...` or `.venv/bin/social-studio ...` (editable install in `.venv`); `uv tool install --editable .` puts it on PATH |
@@ -40,7 +40,7 @@ A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos fo
 | [[presets]] | `presets/example`, `presets/reel`, preset keys | brand, fonts, assets, video, content, agent, review, render, encode, publish settings |
 | [[review]] | `review.py`, `sampler.py`, `data/anchors.json`, `data/review_prompt.md` | independent reviewer session, settled-frame sampler, verdict validation, rescore |
 | [[qa]] | `qa.py`, `data/qa-probe.mjs`, `tests/fixtures/qa/` | report-only quality gates written to `qa.json` |
-| [[schedule-publish]] | `posting.py`, `platforms/` | Buffer posting: pick, upload, createPost, sync, cancel; account registry (buffer, media) |
+| [[schedule-publish]] | `posting.py`, `platforms/` | Buffer posting: drafts approved in Buffer, or pick, upload, createPost; sync, cancel, withdraw; account registry (buffer, media) |
 
 ## Edges
 
@@ -49,7 +49,7 @@ A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos fo
 | cli | core | `Ctx` (project, config, `.env`, boundary), presets, `require_human` |
 | cli | runner | `make` options (`MakeOpts`: count, parallel, preset, `--set`, format flags, effort, revise) |
 | cli | library | review walk, approve (signs), reject, revise, `library dir` |
-| cli | schedule-publish | `post` (pick, schedule, list, sync, cancel), `channel connect|test buffer|media`, `timer` (runs `post sync`) |
+| cli | schedule-publish | drafts after `make`; `post` (draft, pick, schedule, list, sync, cancel), withdraw on reject or revise, `channel connect|test buffer|media`, `timer` (runs `post sync`) |
 | core | runner | frozen `Preset`, `format_sets`, vetted `mcp_registry` |
 | runner | maker-kit | fills `house.md` and `TASK.md`; mounts skills and `tools/` into the session |
 | runner | engine | `bwrap_argv`, `render_master`, `encode`, `poster_and_sheet` |
@@ -62,9 +62,10 @@ A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos fo
 ## Flows
 
 - **make:** cli -> core (load, validate) -> engine (ensure engine, skills) -> runner per try: prepare session -> harness in bubblewrap -> `video.json` -> master render -> encode -> poster and sheet -> qa -> optional reviewer -> library row `review` -> trim sessions; a revision purges its parent's files.
-- **approve:** `review` walk at a TTY shows each network's full post text -> `ssh-keygen -Y sign` over id, sha256 and post-text hash (one passphrase per batch) -> approvals row -> `approved`.
-- **post (the only route, rule R14):** `post` at a TTY -> pick an approved video, channels, a time -> re-verify signature, file and post text -> check text limits -> upload to the Railway bucket under its sha256 (read publicly through the media proxy) -> post and targets (`via buffer`) -> GraphQL createPost per channel -> Buffer publishes.
-- **sync:** timer -> `post sync` -> under `post.lock`, ask Buffer about due targets -> record sent (URL), error or deleted -> settle post and video.
+- **approve in Buffer (default, rule R14):** `make` ends -> the CLI uploads each new video -> a `drafts` post and one draft per connected channel -> GraphQL createPost with `saveToDraft` -> the operator schedules, edits or deletes the drafts in Buffer.
+- **approve at the terminal:** `review` walk at a TTY shows each network's full post text -> `ssh-keygen -Y sign` over id, sha256 and post-text hash (one passphrase per batch) -> approvals row -> `approved`.
+- **post a terminal-approved video:** `post` at a TTY -> pick an approved video, channels, a time -> re-verify signature, file and post text -> check text limits -> upload to the Railway bucket under its sha256 (read publicly through the media proxy) -> post and targets (`via buffer`) -> GraphQL createPost per channel -> Buffer publishes.
+- **sync:** timer -> `post sync` -> under `post.lock`, ask Buffer about due targets and every draft -> record approved (scheduled), sent (URL), error, deleted (failed, or turned down for a draft) -> settle post and video (`review -> posted` for a drafts post).
 
 ## Elsewhere
 

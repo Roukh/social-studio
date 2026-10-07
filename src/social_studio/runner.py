@@ -22,8 +22,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from . import db, engine
-from .core import (FORMATS, MCP_FILE, PKG_DIR, SLUG, ConfigError, Ctx, DataError, Preset, Unavailable, iso, load_preset,
-                   log, mcp_registry, new_id, require_human, slugify, validate_preset)
+from .core import (FORMATS, MCP_FILE, PKG_DIR, SLUG, ConfigError, Ctx, DataError, Preset, StudioError, Unavailable, iso,
+                   load_preset, log, mcp_registry, new_id, require_human, slugify, validate_preset)
 
 DEFAULT_SKILLS = ["hyperframes-core", "hyperframes-cli", "hyperframes-animation", "hyperframes-audio", "media-use"]
 # Shipped with the tool and mounted in every maker session: the motion doctrine distilled from the engine's
@@ -825,6 +825,12 @@ def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pilla
         mov.unlink(missing_ok=True)
         meta_all = {"video": meta, "verdict": verdict, "session": s.id, "backend": f"{b.name}:{b.model or 'default'}",
                     "effort": p.get("agent.effort") or "default", "qa": qa_report.get("gates"), "preset_hash": p.hash}
+        if revise:  # the version this replaces leaves Buffer before it is superseded
+            from . import posting
+            try:
+                posting.withdraw(ctx, revise["id"], "superseded by a revision")
+            except (StudioError, OSError) as e:
+                log(f"[{s.id}] warning: drafts of video {revise['id']} are still in Buffer; delete them there: {e}")
         con = db.connect(ctx, actor="make")
         try:
             with db.tx(con):

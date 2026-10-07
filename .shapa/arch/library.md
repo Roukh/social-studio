@@ -20,9 +20,9 @@ Part of [[index]]. The source of truth for every video, session, approval and po
 | In | session and video rows from [[runner]]; status changes from `review` commands in [[cli]]; post rows from [[schedule-publish]] |
 | Out | approved videos with a verifiable signature; agent views; `check_video` verdicts for fill and publish |
 
-## Data model (schema v2, `PRAGMA user_version`, WAL, foreign keys on)
+## Data model (schema v3, `PRAGMA user_version`, WAL, foreign keys on)
 
-v2 (2026-10-06, feature F6) only adds three `post_targets` columns, so a process still running v1 code keeps working against a v2 file.
+v2 (2026-10-06, feature F6) only adds three `post_targets` columns, so a process still running v1 code keeps working against a v2 file. v3 (2026-10-07, feature F9) replaces two schema objects so approval can happen in Buffer: the transition trigger, and the slot index, which no longer covers drafts.
 
 | Table | Holds |
 |---|---|
@@ -30,12 +30,12 @@ v2 (2026-10-06, feature F6) only adds three `post_targets` columns, so a process
 | `videos` | the library; status review, approved, rejected, revision, superseded, scheduled, posted, failed; identity is the file's sha256 |
 | `video_events` | append-only status history with the actor from `ss_actor()` |
 | `approvals` | video_id, sha256, payload, ssh signature |
-| `posts` | when (UTC), `video_id UNIQUE`; status scheduled, posting, posted, partial, failed, cancelled (`open` and `missed` were the removed calendar's and are no longer written) |
-| `post_targets` | per platform: status, `platform_post_id` (unique per platform; the Buffer post id), url, attempts, next_try_at; v2: `via` (always buffer now; `direct` was the removed route), `channel_id` (Buffer channel), `text` (exactly what was sent). Status `draft` belonged to the removed draft folders and is no longer written |
+| `posts` | when (UTC), `video_id UNIQUE`, `created_by` (`drafts` for a video sent to Buffer as drafts); status `open` (drafts waiting in Buffer), scheduled, posting, posted, partial, failed, cancelled (`missed` was the removed calendar's and is no longer written) |
+| `post_targets` | per platform: status (`draft` waits for approval in Buffer, pending, posted, failed, cancelled), `platform_post_id` (unique per platform; the Buffer post id), url, attempts, next_try_at; v2: `via` (always buffer now; `direct` was the removed route), `channel_id` (Buffer channel), `text` (exactly what was sent) |
 
 | From | Allowed to |
 |---|---|
-| review | approved, rejected, revision, superseded |
+| review | approved, rejected, revision, superseded; posted or failed only while on a `drafts` post (v3) |
 | revision | approved, rejected, superseded, review |
 | rejected | review |
 | approved | scheduled, rejected, revision |
@@ -46,7 +46,7 @@ Views for the agent surface: `agent_videos` (only review, approved, rejected, re
 
 ## Invariants
 
-- Triggers enforce legal transitions; `approved` and `scheduled` need an approvals row with the same sha256 (rule R4).
+- Triggers enforce legal transitions; `approved` and `scheduled` need an approvals row with the same sha256 (rule R4). A video approved in Buffer has no approvals row: Buffer's own app is that gate, and only `post sync` reading a sent draft moves it to posted.
 - `video_events` cannot be updated or deleted; `ss_actor()` is registered only by the tool, so a raw `sqlite3` edit of status fails.
 - Approval: an ed25519 key with a passphrase, created by `init` at a terminal; `ssh-keygen -Y sign` under namespace `social-studio-approval` over `social-studio approval v2 / video:ID / sha256:HASH / post:HASH / approved_at:TIME`, where the post hash covers title, description and the captions, hashtags and `poster_at` from `video.json`; `check_video` verifies the signature, the sha256 and an on-disk re-hash, and with `post=True` (the Buffer route) the post hash too. A v1 approval must be approved again before it can go through Buffer.
 - A board approval (feature F2) must use a separate namespace or TTY gate and never count as a video approval.
