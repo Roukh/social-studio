@@ -107,7 +107,7 @@ def cmd_init(ctx: Ctx, a) -> int:
     if not a.no_engine and ctx.cfg("default_preset"):
         p = load_preset(ctx, ctx.cfg("default_preset"))
         v = engine.require_version(p.get("render.version"))
-        engine.ensure_engine(ctx, v, p.get("render.libraries", []))
+        engine.ensure_engine(ctx, v, engine.libraries(p))
         engine.ensure_skills(ctx, v)
         notes.append(f"engine hyperframes {v} ready in {ctx.engine_dir}")
     emit(ctx, {"init": notes}, "\n".join(notes))
@@ -264,7 +264,7 @@ def cmd_engine(ctx: Ctx, a) -> int:
     p = load_preset(ctx, pick_preset(ctx, a.preset))
     v = engine.require_version(a.version or p.get("render.version"))
     if a.action == "install":
-        engine.ensure_engine(ctx, v, p.get("render.libraries", []))
+        engine.ensure_engine(ctx, v, engine.libraries(p))
         engine.ensure_skills(ctx, v)
     info = {"version": v, "root": str(engine.engine_root(ctx, v)), "installed": engine.hf_bin(ctx, v).exists(),
             "skills": sorted(x.name for x in engine.skills_root(ctx, v).iterdir()) if engine.skills_root(ctx, v).is_dir() else []}

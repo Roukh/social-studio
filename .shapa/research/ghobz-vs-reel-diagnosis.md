@@ -59,6 +59,26 @@ Causes, in the order the data supports them:
 
 The options combine: for example, A or B for the look, D and E for the content, and F to hold the bar.
 
+## Decision and build (2026-10-07)
+
+The operator answered:
+
+> "the things that need to be from ghobz are colors and fonts, basically nothing else. and not to be limited by anything else. thise techniques should probably be used in all videos, and then more techniques, the agent can pick a set of techniques and shot to use from a linrary of them. Ill give you reference videos to grow more techniques and general principles to apply to each video."
+
+Built as feature F11:
+
+- **The technique library**, `data/skills/technique-library/`, mounted in every make:
+  - `principles.md` applies to every film;
+  - fourteen entries: nine shot techniques from the reel, plus transitions, through-line, HUD frame, grain and vignette, and the master-clock build pattern;
+  - the reel's composition is the worked example that every entry points into.
+- **The maker** picks a set of techniques for each film, names each shot's technique in `brief.json`, and records the set in `video.json` `techniques`. `history.json` carries recent sets, so the next film differs.
+- **Every composition** gets GSAP, three.js and the motion kit (`window.kit`) unless its preset pins its own.
+- **ghobz** keeps its colours, its fonts, its name and tagline, the offer lines as facts, and two truth rules: nothing invented about ghobz, and no prices.
+  - It drops the site kit, the motion helpers, the design and motion rules, the pacing line and the copy rules.
+  - The intro brief no longer points at the site. It asks for a showreel-grade film with few words.
+
+This is options A, B and C folded into one library, and option E for the intro. New references from the operator become new entries.
+
 ## Sources
 
 - Library rows, sessions and compositions in `ghobz_projects/social/library/` for video 4 (`...one-dot-nine-bars-0e92`) and video 5 (`...most-businesses-...-08fe`), measured 2026-10-07 with `.local/tmp/<session>/compare.py`.

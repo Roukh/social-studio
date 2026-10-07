@@ -1,0 +1,1262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="vendor/gsap.min.js"></script>
+    <script type="importmap">{"imports": {"three": "./vendor/three.module.min.js"}}</script>
+    <script src="assets/reel-kit.js"></script>
+    <style>
+      @font-face { font-family: "Reel Sans"; src: url("assets/Inter-Variable.ttf") format("truetype"); font-weight: 100 900; font-style: normal; font-display: block; }
+      @font-face { font-family: "Reel Serif"; src: url("assets/InstrumentSerif-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: block; }
+      @font-face { font-family: "Reel Serif"; src: url("assets/InstrumentSerif-Italic.ttf") format("truetype"); font-weight: 400; font-style: italic; font-display: block; }
+      @font-face { font-family: "Reel Mono"; src: url("assets/JetBrainsMono-Variable.ttf") format("truetype"); font-weight: 100 800; font-style: normal; font-display: block; }
+      :root {
+        --ink: #070711;
+        --cream: #F0EFE6;
+        --signal: #FD4920;
+        --blue: #2E49F0;
+        --blue-deep: #2A3DDB;
+        --violet: #7B3FE4;
+        --muted: #8B8A96;
+      }
+      :root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
+}
+.mono { font-family: "Reel Mono", monospace; text-transform: uppercase; letter-spacing: 0.22em; }
+.serif { font-family: "Reel Serif", serif; font-style: italic; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #070711; }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Reel Sans", sans-serif; }
+
+      .scene { position: absolute; inset: 0; overflow: hidden; }
+      .layer { position: absolute; inset: 0; }
+      .full { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; display: block; }
+      .col { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+      .ch { display: inline-block; }
+      .word { font-family: "Reel Sans"; font-weight: 900; white-space: nowrap; line-height: 0.9; }
+      .ink { color: var(--ink); }
+      .cream { color: var(--cream); }
+
+      /* ---------- HUD ---------- */
+      #hud { position: absolute; inset: 0; color: var(--cream); }
+      #hudIn { position: absolute; inset: 0; }
+      .hud-t { position: absolute; font-family: "Reel Mono"; font-size: 18px; font-weight: 500; letter-spacing: 0.22em;
+               text-transform: uppercase; white-space: nowrap; display: flex; align-items: center; gap: 14px; line-height: 1; }
+      .hud-t .dim { opacity: 0.5; }
+      #hudTL { left: 77px; top: 34px; }
+      #hudTR { right: 77px; top: 34px; }
+      #hudBL { left: 77px; bottom: 34px; }
+      #hudBR { right: 77px; bottom: 34px; }
+      .hud-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 10px 2px rgba(253, 73, 32, 0.65); }
+      #squares { display: flex; gap: 6px; }
+      .sq { width: 10px; height: 10px; border: 1.5px solid currentColor; opacity: 0.45; }
+      .sq.on { opacity: 1; }
+      #corners path { stroke: currentColor; stroke-width: 2; fill: none; }
+
+      /* ---------- FX ---------- */
+      #grain { position: absolute; inset: -2px; opacity: 0.075; mix-blend-mode: overlay; background-repeat: repeat; }
+      #vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 85% 85% at 50% 50%, rgba(7, 7, 17, 0) 30%, rgba(7, 7, 17, 0.02) 42%, rgba(7, 7, 17, 0.06) 54%, rgba(7, 7, 17, 0.12) 66%, rgba(7, 7, 17, 0.2) 78%, rgba(7, 7, 17, 0.3) 90%, rgba(7, 7, 17, 0.38) 100%); }
+
+      /* ---------- S1 ---------- */
+      .ann { position: absolute; font-family: "Reel Mono"; font-size: 22px; font-weight: 500; letter-spacing: 0.2em; color: var(--cream); white-space: nowrap; line-height: 1; }
+      #ann1 { left: 1192px; top: 409px; }
+      #ann2 { left: 380px; width: 348px; text-align: right; top: 649px; }
+      #s1lines path { fill: none; stroke: var(--cream); stroke-width: 1.5; stroke-dasharray: 260; }
+
+      /* ---------- S2 ---------- */
+      #s2 { background: var(--signal); }
+      #s2kick { font-size: 22px; font-weight: 600; color: var(--ink); height: 28px; margin-bottom: 26px; letter-spacing: 0.3em; }
+      #wm { font-size: 196px; letter-spacing: -0.05em; color: var(--ink); line-height: 0.95; }
+      #wm .ch { font-variation-settings: "wght" 900; }
+      #s2serif { font-size: 100px; color: var(--ink); line-height: 1.05; padding: 0 30px; margin-top: 4px; }
+
+      /* ---------- S3 ---------- */
+      #s3m { position: absolute; inset: 0; --r: 0px; background: var(--ink);
+             -webkit-mask-image: radial-gradient(circle at 960px 524px, #000 calc(var(--r) - 110px), transparent var(--r));
+             mask-image: radial-gradient(circle at 960px 524px, #000 calc(var(--r) - 110px), transparent var(--r)); }
+      #s3lab { position: absolute; left: 120px; top: 452px; font-size: 20px; color: var(--cream); line-height: 1.9; border-left: 2px solid var(--blue); padding-left: 18px; }
+      #s3lab b { font-weight: 700; color: var(--cream); }
+      #s3lab .k { opacity: 0.6; }
+
+      /* ---------- S4 ---------- */
+      #s4a { background: var(--cream); }
+      #easeWord { font-size: 340px; letter-spacing: -0.05em; color: var(--ink); }
+      #easeWord .ch { font-variation-settings: "wght" 900; }
+      #easeGraphWrap { position: relative; width: 900px; height: 170px; margin-top: 36px; }
+      #easeLab { position: absolute; right: -6px; top: -6px; font-size: 20px; color: var(--ink); }
+      #s4b { background: var(--ink); }
+      #snapWord { font-size: 420px; letter-spacing: -0.05em; color: var(--signal); }
+      #s4c { background: radial-gradient(ellipse 80% 80% at 50% 50%, var(--blue) 0%, var(--blue) 35%, var(--blue-deep) 100%); }
+      #blurWord { font-size: 330px; letter-spacing: -0.04em; color: var(--cream); filter: url(#mblur); }
+      #vf path { stroke: var(--cream); stroke-width: 3; fill: none; }
+      #rec { position: absolute; left: 412px; top: 296px; font-size: 22px; color: var(--cream); display: flex; align-items: center; gap: 12px; }
+      #recDot { width: 14px; height: 14px; border-radius: 50%; background: var(--signal); }
+      #s4d { background: var(--signal); }
+      #feelWord { font-size: 236px; color: var(--ink); line-height: 1.1; padding: 0 40px; white-space: nowrap; }
+
+      /* ---------- S5 ---------- */
+      .shut { position: absolute; top: 0; width: 242px; height: 1080px; background: var(--cream); }
+      .lab5 { position: absolute; font-size: 21px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+      #donutWrap { position: absolute; left: 300px; top: 318px; width: 520px; height: 520px; }
+      #numRow { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+      #numIn { display: flex; align-items: flex-start; margin-top: -20px; }
+      .reel { position: relative; width: 112px; height: 168px; overflow: hidden; }
+      .dg { position: absolute; left: 0; right: 0; top: 0; height: 168px; font-family: "Reel Sans"; font-weight: 800; font-size: 168px; line-height: 168px;
+            color: var(--ink); font-variant-numeric: tabular-nums; text-align: center; }
+      #pct { font-family: "Reel Sans"; font-weight: 800; font-size: 84px; color: var(--ink); margin-top: 22px; margin-left: 6px; overflow: hidden; height: 88px; }
+      #pctIn { display: block; line-height: 1; }
+      #sampleTag { position: absolute; left: 0; right: 0; top: 362px; text-align: center; font-size: 18px; color: var(--ink); opacity: 0.55; }
+      #chart { position: absolute; left: 990px; top: 318px; overflow: visible; }
+
+      /* ---------- S6 ---------- */
+      .blk { position: absolute; width: 121px; height: 121px; background: var(--ink); }
+      .ro { position: absolute; font-size: 20px; color: var(--cream); white-space: nowrap; }
+      #roWrap { position: absolute; left: 1360px; top: 486px; line-height: 1.8; border-left: 2px solid var(--blue); padding-left: 16px; }
+
+      /* ---------- S7 ---------- */
+      #s7bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 80% at 50% 50%, var(--blue) 0%, var(--blue) 30%, var(--blue-deep) 100%); }
+      #s7grid { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(240, 239, 230, 0.26) 1.6px, transparent 2.3px); background-size: 44px 44px; }
+      .card { position: absolute; border-radius: 28px; background: rgba(240, 239, 230, 0.06); border: 1px solid rgba(240, 239, 230, 0.30);
+              box-shadow: 0 40px 90px rgba(7, 7, 17, 0.32); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+      #cardB2, #cardB1, #cardM { left: 580px; top: 300px; width: 760px; height: 480px; }
+      #cardM { color: var(--cream); }
+      .ui-title { position: absolute; left: 48px; top: 40px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+      .ui-q { position: absolute; right: 48px; top: 56px; font-size: 20px; font-weight: 600; }
+      .ui-div { position: absolute; left: 48px; right: 48px; top: 120px; height: 1px; background: rgba(240, 239, 230, 0.22); }
+      .ui-row { position: absolute; left: 48px; right: 48px; height: 52px; display: flex; align-items: center; justify-content: space-between; }
+      .ui-row .lbl { font-size: 34px; font-weight: 500; letter-spacing: -0.01em; }
+      #row1 { top: 144px; }
+      #row2 { top: 234px; }
+      #tg { position: relative; width: 96px; height: 52px; border-radius: 26px; background: rgba(240, 239, 230, 0.2); }
+      #tgOn { position: absolute; inset: 0; border-radius: 26px; background: var(--signal); }
+      #tgk { position: absolute; left: 4px; top: 4px; width: 44px; height: 44px; border-radius: 50%; background: var(--cream); box-shadow: 0 2px 6px rgba(7, 7, 17, 0.3); }
+      #seg { position: relative; width: 184px; height: 52px; border-radius: 26px; border: 1.5px solid rgba(240, 239, 230, 0.35); }
+      #segH { position: absolute; left: 2px; top: 2px; width: 88px; height: 45px; border-radius: 23px; background: var(--cream); }
+      .segL { position: absolute; top: 0; width: 92px; height: 49px; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 600; }
+      #seg30 { left: 0; color: var(--ink); }
+      #seg60 { left: 90px; color: var(--cream); }
+      #btn { position: absolute; left: 48px; right: 48px; top: 352px; height: 80px; border-radius: 40px; background: var(--cream); overflow: hidden; }
+      #btnFill { position: absolute; inset: 0; background: var(--signal); }
+      .btnL { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--ink); font-size: 34px; font-weight: 700; letter-spacing: -0.01em; }
+      #btnPct { font-family: "Reel Mono"; font-size: 28px; font-weight: 600; letter-spacing: 0.12em; }
+      #toast { position: absolute; left: 1336px; top: 150px; width: 470px; height: 92px; border-radius: 22px; display: flex; align-items: center; gap: 18px; padding: 0 28px; color: var(--cream); }
+      #toast .td { width: 14px; height: 14px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 10px 2px rgba(253, 73, 32, 0.6); }
+      #toast .tt { font-size: 30px; font-weight: 500; letter-spacing: -0.01em; white-space: nowrap; }
+      #cursor { position: absolute; left: 0; top: 0; width: 40px; height: 52px; }
+
+      /* ---------- S8 ---------- */
+      #s8m { position: absolute; inset: 0; --r: 0px;
+             -webkit-mask-image: radial-gradient(circle at 960px 692px, #000 calc(var(--r) - 140px), transparent var(--r));
+             mask-image: radial-gradient(circle at 960px 692px, #000 calc(var(--r) - 140px), transparent var(--r)); }
+      #s8bg { position: absolute; inset: 0; background: var(--signal); }
+      #stepper { position: absolute; left: 0; right: 0; top: 862px; height: 60px; display: flex; justify-content: center; gap: 40px; }
+      .stp { width: 230px; text-align: center; font-size: 24px; font-weight: 600; color: var(--ink); opacity: 0.5; line-height: 1; }
+      #stpBar { position: absolute; left: 0; top: 44px; width: 130px; height: 4px; background: var(--ink); }
+      #s8dot { position: absolute; left: 938px; top: 518px; width: 44px; height: 44px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 26px 6px rgba(253, 73, 32, 0.55); }
+
+      /* ---------- S9 ---------- */
+      #s9 { background: var(--ink); }
+      #endDotWrap { position: absolute; left: 938px; top: 518px; width: 44px; height: 44px; }
+      #endDot { position: absolute; inset: 0; border-radius: 50%; background: var(--signal); box-shadow: 0 0 28px 8px rgba(253, 73, 32, 0.55); }
+      .endRing { position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--signal); }
+      #endStack { position: absolute; left: 0; right: 0; top: 404px; display: flex; flex-direction: column; align-items: center; }
+      #endWord { font-size: 150px; font-weight: 800; letter-spacing: -0.045em; color: var(--cream); line-height: 1; }
+      .dl { position: relative; display: inline-block; }
+      .dl .sc { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-family: "Reel Mono"; font-weight: 700; color: var(--cream); }
+      #endTag { font-size: 70px; color: var(--cream); line-height: 1.1; margin-top: 14px; padding: 0 30px; }
+      #endLine { width: 440px; height: 2px; background: var(--blue); margin-top: 30px; }
+      #endCta { margin-top: 26px; font-size: 30px; font-weight: 600; color: var(--cream); display: flex; align-items: center; gap: 16px; height: 30px; }
+      #ctaSq { width: 14px; height: 14px; background: var(--signal); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="15.43"
+         data-width="1920" data-height="1080" data-fps="60">
+
+      <!-- S1 · IMPACT / PHYSICS -->
+      <div id="s1" class="clip scene" data-start="0" data-duration="1.714" data-track-index="1">
+        <canvas id="c1" class="full" width="1920" height="1080"></canvas>
+        <div id="s1ann" class="layer">
+          <svg id="s1lines" class="full" viewBox="0 0 1920 1080">
+            <path id="lead1" d="M 1010 560 L 1112 422 L 1180 422" />
+            <path id="lead2" d="M 910 568 L 812 660 L 740 660" />
+          </svg>
+          <div id="ann1" class="ann"></div>
+          <div id="vlab" class="ann" style="left: 0; top: 0"></div>
+          <div id="ann2" class="ann"></div>
+        </div>
+      </div>
+
+      <!-- S2 · IDENTITY -->
+      <div id="s2" class="clip scene" data-start="1.714" data-duration="1.286" data-track-index="2">
+        <div class="layer col">
+          <div id="s2kick" class="mono"></div>
+          <div id="wm" class="word">social—studio</div>
+          <div id="s2serif" class="serif">made to move</div>
+        </div>
+      </div>
+
+      <!-- S3 · 3D -->
+      <div id="s3" class="clip scene" data-start="2.7" data-duration="2.014" data-track-index="3">
+        <div id="s3m">
+          <canvas id="c3" class="full" width="1920" height="1080"></canvas>
+          <div id="s3lab" class="mono">
+            <div><span class="k">VOXELS</span> <b>576</b></div>
+            <div><span class="k">RIPPLE</span> <b id="ripN">00</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S4a · EASE -->
+      <div id="s4a" class="clip scene" data-start="4.714" data-duration="0.429" data-track-index="4">
+        <div class="layer col">
+          <div id="easeWord" class="word">EASE</div>
+          <div id="easeGraphWrap">
+            <svg width="900" height="170" viewBox="0 0 900 170" style="overflow: visible">
+              <path d="M 0 160 H 900" stroke="#070711" stroke-opacity="0.22" stroke-width="2" fill="none" />
+              <path d="M 0 10 V 160" stroke="#070711" stroke-opacity="0.22" stroke-width="2" fill="none" />
+              <path id="easeCurve" d="M 0 160" stroke="#2E49F0" stroke-width="6" stroke-linecap="round" fill="none" />
+              <circle id="easeDot" cx="0" cy="160" r="11" fill="#FD4920" />
+            </svg>
+            <div id="easeLab" class="mono">EXPO.OUT</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S4b · SNAP -->
+      <div id="s4b" class="clip scene" data-start="5.143" data-duration="0.428" data-track-index="5">
+        <canvas id="c4b" class="full" width="1920" height="1080"></canvas>
+        <div id="snapShake" class="layer col">
+          <div id="snapWord" class="word">SNAP</div>
+        </div>
+      </div>
+
+      <!-- S4c · BLUR -->
+      <div id="s4c" class="clip scene" data-start="5.571" data-duration="0.429" data-track-index="6">
+        <svg width="0" height="0" style="position: absolute">
+          <filter id="mblur" x="-60%" y="-10%" width="220%" height="120%"><feGaussianBlur id="mblurG" stdDeviation="0 0" /></filter>
+        </svg>
+        <svg id="vf" class="full" viewBox="0 0 1920 1080">
+          <path d="M 370 330 V 260 H 440" /><path d="M 1480 260 H 1550 V 330" />
+          <path d="M 1550 750 V 820 H 1480" /><path d="M 440 820 H 370 V 750" />
+        </svg>
+        <div id="rec" class="mono"><span id="recDot"></span>REC</div>
+        <div class="layer col">
+          <div id="blurWord" class="word">BLUR</div>
+        </div>
+      </div>
+
+      <!-- S4d · with feeling. -->
+      <div id="s4d" class="clip scene" data-start="6.0" data-duration="0.857" data-track-index="7">
+        <div class="layer col">
+          <div id="feelWord" class="serif">with feeling.</div>
+        </div>
+      </div>
+
+      <!-- S5 · DATA -->
+      <div id="s5" class="clip scene" data-start="6.6" data-duration="2.4" data-track-index="8">
+        <div id="shutters" class="layer"></div>
+        <div id="s5c" class="layer">
+          <div id="lab5a" class="lab5 mono" style="left: 300px; top: 262px">WATCH-THROUGH · SAMPLE</div>
+          <div id="lab5b" class="lab5 mono" style="left: 990px; top: 262px">WEEKLY LOOPS · SAMPLE DATA</div>
+          <div id="donutWrap">
+            <svg width="520" height="520" viewBox="0 0 520 520">
+              <g transform="rotate(-90 260 260)">
+                <circle id="dTrack" cx="260" cy="260" r="224" fill="none" stroke="#070711" stroke-opacity="0.1" stroke-width="38" />
+                <circle id="dFill" cx="260" cy="260" r="224" fill="none" stroke="#FD4920" stroke-width="38" />
+              </g>
+            </svg>
+            <div id="numRow"><div id="numIn">
+              <div class="reel" id="reelA"><span class="dg" id="dA0">0</span><span class="dg" id="dA1">1</span></div>
+              <div class="reel" id="reelB"><span class="dg" id="dB0">0</span><span class="dg" id="dB1">1</span></div>
+              <div id="pct"><span id="pctIn">%</span></div>
+            </div></div>
+            <div id="sampleTag" class="mono">SAMPLE</div>
+          </div>
+          <svg width="0" height="0" style="position: absolute">
+            <filter id="vbA" x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur id="vbAg" stdDeviation="0 0" /></filter>
+            <filter id="vbB" x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur id="vbBg" stdDeviation="0 0" /></filter>
+          </svg>
+          <svg id="chart" width="780" height="560" viewBox="0 0 780 560">
+            <g id="bars"></g>
+            <path id="baseLine" d="M 0 500 H 772" stroke="#070711" stroke-opacity="0.4" stroke-width="2" fill="none" />
+            <path id="spl" d="" stroke="#2E49F0" stroke-width="5" stroke-linecap="round" fill="none" />
+            <circle id="splDot" cx="0" cy="0" r="11" fill="#2E49F0" stroke="#F0EFE6" stroke-width="4" />
+            <g id="pill">
+              <rect x="-74" y="-30" width="148" height="60" rx="30" fill="#070711" />
+              <path d="M -10 29 L 0 42 L 10 29 Z" fill="#070711" />
+              <text x="0" y="11" text-anchor="middle" font-family="Reel Sans" font-weight="700" font-size="32" fill="#F0EFE6">+24%</text>
+            </g>
+            <text id="w01" x="23" y="540" text-anchor="middle" font-family="Reel Mono" font-weight="600" font-size="18" letter-spacing="2" fill="#070711">W01</text>
+            <text id="w12" x="749" y="540" text-anchor="middle" font-family="Reel Mono" font-weight="600" font-size="18" letter-spacing="2" fill="#070711">W12</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- S6 · PARTICLES -->
+      <div id="s6" class="clip scene" data-start="8.75" data-duration="1.536" data-track-index="9">
+        <canvas id="c6" class="full" width="1920" height="1080"></canvas>
+        <div id="roWrap" class="mono">
+          <div class="ro" style="position: relative">X <span id="rx">+0.000</span></div>
+          <div class="ro" style="position: relative">Y <span id="ry">+0.000</span></div>
+        </div>
+      </div>
+
+      <!-- S7 · INTERFACE -->
+      <div id="s7" class="clip scene" data-start="10.286" data-duration="1.714" data-track-index="10">
+        <div id="s7bg"></div>
+        <div id="s7grid"></div>
+        <div id="cardB2" class="card"></div>
+        <div id="cardB1" class="card"></div>
+        <div id="cardM" class="card">
+          <div class="ui-title">Render</div>
+          <div class="ui-q mono">QUEUE · SAMPLE</div>
+          <div class="ui-div"></div>
+          <div id="row1" class="ui-row"><span class="lbl">Motion blur</span>
+            <div id="tg"><div id="tgOn"></div><div id="tgk"></div></div></div>
+          <div id="row2" class="ui-row"><span class="lbl">Frame rate</span>
+            <div id="seg"><div id="segH"></div><div id="seg30" class="segL">30</div><div id="seg60" class="segL">60</div></div></div>
+          <div id="btn">
+            <div id="btnFill"></div>
+            <div id="btnL1" class="btnL">Render</div>
+            <div id="btnL2" class="btnL"><span id="btnPct">000%</span></div>
+            <div id="btnL3" class="btnL">Done
+              <svg width="34" height="34" viewBox="0 0 34 34"><path id="chk" d="M 6 18 L 14 26 L 28 9" stroke="#070711" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+          </div>
+        </div>
+        <div id="toast" class="card"><span class="td"></span><span class="tt">Exported · 15.4 s</span></div>
+        <svg id="cursor" viewBox="0 0 40 52"><path d="M 3 3 L 3 41 L 13 32 L 20 48 L 27 45 L 20 29 L 34 29 Z" fill="#F0EFE6" stroke="#070711" stroke-width="2.5" stroke-linejoin="round" /></svg>
+      </div>
+
+      <!-- S8 · MORPH -->
+      <div id="s8" class="clip scene" data-start="11.75" data-duration="1.964" data-track-index="11">
+        <div id="s8m">
+          <div id="s8bg"></div>
+          <svg id="morphSvg" class="full" viewBox="0 0 1920 1080">
+            <defs>
+              <filter id="goo" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="b" />
+                <feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 28 -12" />
+              </filter>
+            </defs>
+            <g id="blobs" filter="url(#goo)" fill="#070711"></g>
+            <path id="outline" d="" fill="none" stroke="#F0EFE6" stroke-width="3" stroke-linejoin="round" />
+            <g id="handles"></g>
+            <circle id="growDot" cx="960" cy="540" r="0" fill="#070711" />
+          </svg>
+          <div id="stepper" class="mono">
+            <div class="stp" id="stp0">CIRCLE</div><div class="stp" id="stp1">TRIANGLE</div><div class="stp" id="stp2">STAR</div><div class="stp" id="stp3">BLOB</div>
+          </div>
+          <div id="s8dot"></div>
+        </div>
+      </div>
+
+      <!-- S9 · END CARD -->
+      <div id="s9" class="clip scene" data-start="13.714" data-duration="1.716" data-track-index="12">
+        <div id="endStack">
+          <div id="endWord" class="word">social—studio</div>
+          <div id="endTag" class="serif">Motion, written in code.</div>
+          <div id="endLine"></div>
+          <div id="endCta" class="mono"><span id="ctaSq"></span><span id="ctaT"></span></div>
+        </div>
+        <div id="endDotWrap">
+          <div class="endRing" id="ring1"></div>
+          <div class="endRing" id="ring2"></div>
+          <div id="endDot"></div>
+        </div>
+      </div>
+
+      <!-- FX: grain + vignette -->
+      <div id="fx" class="clip" data-start="0" data-duration="15.43" data-track-index="20" style="position: absolute; inset: 0">
+        <div id="vignette"></div>
+        <div id="grain"></div>
+      </div>
+
+      <!-- HUD -->
+      <div id="hud" class="clip" data-start="0" data-duration="15.43" data-track-index="21">
+        <div id="hudIn">
+          <svg id="corners" class="full" viewBox="0 0 1920 1080">
+            <path d="M 36 64 V 36 H 64" /><path d="M 1856 36 H 1884 V 64" />
+            <path d="M 1884 1016 V 1044 H 1856" /><path d="M 64 1044 H 36 V 1016" />
+          </svg>
+          <div id="hudTL" class="hud-t"><span class="hud-dot" id="hudDot"></span><span>SOCIAL—STUDIO</span><span class="dim">MOTION REEL 2026</span></div>
+          <div id="hudTR" class="hud-t"><span>SCENE</span><span id="sceneNum">01</span><span class="dim">/ 09</span></div>
+          <div id="hudBL" class="hud-t"><span id="secName">IMPACT / PHYSICS</span></div>
+          <div id="hudBR" class="hud-t"><span id="squares"></span><span id="tc">00:00:00:00</span></div>
+        </div>
+      </div>
+
+      <audio id="soundtrack" src="assets/soundtrack.wav" data-start="0" data-duration="15.43" data-track-index="40"></audio>
+    </div>
+
+    <script>
+      (function () {
+        const DUR = 15.43, BPM = 140, B = 60 / BPM, W = 1920, H = 1080;
+        const COL = { ink: "#070711", cream: "#F0EFE6", signal: "#FD4920", blue: "#2E49F0", blueDeep: "#2A3DDB", violet: "#7B3FE4" };
+        const { clamp, lerp, rng, timecode } = window.reel;
+        const seg = (t, a, b) => clamp((t - a) / (b - a));
+        const E = {
+          p2i: (u) => u * u,
+          p2o: (u) => 1 - (1 - u) * (1 - u),
+          p3i: (u) => u * u * u,
+          p3o: (u) => 1 - Math.pow(1 - u, 3),
+          p4o: (u) => 1 - Math.pow(1 - u, 4),
+          p2io: (u) => (u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2),
+          p3io: (u) => (u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2),
+          expo: (u) => (u >= 1 ? 1 : 1 - Math.pow(2, -10 * u)),
+        };
+        const $ = (id) => document.getElementById(id);
+        const beat = (n) => n * B;
+
+        // springEase (motion-doctrine §4): closed-form damped spring as a GSAP ease.
+        function springEase({ response = 0.5, dampingFraction = 1 } = {}) {
+          const w = (2 * Math.PI) / response, z = dampingFraction;
+          let pos;
+          if (z < 1) {
+            const wd = w * Math.sqrt(1 - z * z);
+            pos = (t) => 1 - Math.exp(-z * w * t) * (Math.cos(wd * t) + ((z * w) / wd) * Math.sin(wd * t));
+          } else {
+            pos = (t) => 1 - Math.exp(-w * t) * (1 + w * t);
+          }
+          const EPS = 0.001, rate = z <= 1 ? z * w : w, SCAN = 12 / rate, N = 4800;
+          let T = SCAN;
+          for (let i = N; i >= 0; i--) {
+            const t = (i / N) * SCAN;
+            if (Math.abs(1 - pos(t)) > EPS) { T = ((i + 1) / N) * SCAN; break; }
+          }
+          const xT = pos(T);
+          return { duration: T, ease: (p) => pos(p * T) + p * (1 - xT) };
+        }
+
+        function split(el) {
+          const txt = el.textContent;
+          el.textContent = "";
+          return [...txt].map((ch) => {
+            const s = document.createElement("span");
+            s.className = "ch";
+            s.textContent = ch === " " ? " " : ch;
+            el.appendChild(s);
+            return s;
+          });
+        }
+        function typeOn(el, text, t, t0, cps) {
+          const n = clamp(Math.floor((t - t0) * cps), 0, text.length);
+          const s = text.slice(0, n);
+          if (el.__s !== s) { el.textContent = s; el.__s = s; }
+        }
+        function setText(el, s) { if (el.__s !== s) { el.textContent = s; el.__s = s; } }
+
+        // ================= HUD =================
+        const SCENES = [[0, "IMPACT / PHYSICS"], [1.714, "IDENTITY / TYPE"], [3.0, "3D / REALTIME"], [4.714, "KINETIC TYPOGRAPHY"],
+          [6.857, "DATA / INFOGRAPHICS"], [9.0, "PARTICLES / FIELDS"], [10.286, "INTERFACE / UI"], [12.0, "SHAPE / MORPH"], [13.714, "END CARD"]];
+        const FIELDS = [[0, "ink"], [1.7, "signal"], [2.93, "ink"], [4.714, "cream"], [5.143, "ink"], [5.571, "blue"], [6.0, "signal"],
+          [6.83, "cream"], [8.88, "ink"], [10.25, "blue"], [11.93, "signal"], [13.66, "ink"]];
+        const sqWrap = $("squares");
+        const SQ = SCENES.map(() => { const s = document.createElement("span"); s.className = "sq"; sqWrap.appendChild(s); return s; });
+        let hudState = "";
+        function renderHud(t) {
+          let si = 0; SCENES.forEach(([s], i) => { if (t >= s - 1e-6) si = i; });
+          let f = "ink"; FIELDS.forEach(([s, v]) => { if (t >= s - 1e-6) f = v; });
+          const fg = f === "cream" || f === "signal" ? COL.ink : COL.cream;
+          const acc = f === "signal" ? COL.ink : COL.signal;
+          const key = si + f;
+          if (key !== hudState) {
+            hudState = key;
+            $("hud").style.color = fg;
+            $("vignette").style.opacity = f === "signal" ? 0.3 : f === "cream" ? 0.7 : 1;
+            $("hudDot").style.background = acc;
+            $("hudDot").style.boxShadow = f === "signal" ? "none" : "0 0 10px 2px rgba(253,73,32,0.65)";
+            setText($("sceneNum"), String(si + 1).padStart(2, "0"));
+            setText($("secName"), SCENES[si][1]);
+            SQ.forEach((s, i) => {
+              s.className = i === si ? "sq on" : "sq";
+              s.style.background = i === si ? acc : i < si ? fg : "transparent";
+              s.style.borderColor = i === si ? acc : fg;
+              s.style.opacity = i === si ? 1 : i < si ? 0.55 : 0.4;
+            });
+          }
+          setText($("tc"), timecode(t, 60));
+        }
+
+        // ================= grain =================
+        const gcv = document.createElement("canvas");
+        gcv.width = gcv.height = 256;
+        const gctx = gcv.getContext("2d"), gimg = gctx.createImageData(256, 256), grng = rng(7);
+        for (let i = 0; i < 256 * 256; i++) {
+          const v = Math.floor(grng() * 255);
+          gimg.data[i * 4] = v; gimg.data[i * 4 + 1] = v; gimg.data[i * 4 + 2] = v; gimg.data[i * 4 + 3] = 255;
+        }
+        gctx.putImageData(gimg, 0, 0);
+        $("grain").style.backgroundImage = "url(" + gcv.toDataURL() + ")";
+        function renderGrain(t) {
+          const f = Math.floor(t * 60 + 1e-6), r = rng(1000 + f);
+          $("grain").style.backgroundPosition = Math.floor(r() * 256) + "px " + Math.floor(r() * 256) + "px";
+        }
+
+        // ================= S1 · drop, shockwave, line, wave, band =================
+        const c1 = $("c1"), x1 = c1.getContext("2d");
+        // perspective dot floor: y = HZ + (CAM_H - lift) * FX / z, x = 960 + X * FX / z
+        const HZ = 372, FX = 1000, CAM_H = 1.24;
+        const FLOOR = [];
+        for (let z = 1.9; z < 27; z += 0.42) for (let X = -26; X <= 26.01; X += 0.42) {
+          if (Math.abs(X * FX / z) < 1010) FLOOR.push([X, z]);
+        }
+        const GROUND = 586, DR = 46, CX = 960, IMP = 0.214, Y0 = 170, V0 = 880;
+        const Z0 = (CAM_H * FX) / (GROUND - HZ);
+        const GRAV = (GROUND - DR - Y0 - V0 * IMP) / (0.5 * IMP * IMP);
+        const VIMP = V0 + GRAV * IMP;
+        const REB = 0.5;
+        function dotAt(t) {
+          if (t < IMP) {
+            const y = Y0 + V0 * t + 0.5 * GRAV * t * t, v = V0 + GRAV * t;
+            const sy = 1 + 0.42 * (v / VIMP), sx = 1 / Math.sqrt(sy);
+            return { y, sx, sy };
+          }
+          if (t < IMP + 0.075) {
+            const u = E.p3io(seg(t, IMP, IMP + 0.075));
+            const sx = lerp(1.48, 0.9, u), sy = lerp(0.62, 1.2, u);
+            return { y: GROUND - DR * sy, sx, sy };
+          }
+          if (t < REB) {
+            const u = seg(t, IMP + 0.075, REB), h = 4 * 96 * u * (1 - u);
+            const sy = 1 + 0.2 * Math.abs(1 - 2 * u), sx = 1 / Math.sqrt(sy);
+            return { y: GROUND - DR * sy - h, sx, sy };
+          }
+          const dt = t - REB, q = Math.exp(-dt * 13) * Math.cos(dt * 2 * Math.PI * 5.5);
+          let sx = 1 + 0.17 * q, sy = 1 - 0.14 * q;
+          const a = E.p2io(seg(t, 0.74, 0.857));
+          sx = lerp(sx, 0.84, a); sy = lerp(sy, 1.16, a);
+          return { y: GROUND - DR * sy, sx, sy };
+        }
+        function waveParams(t) {
+          const A = 170 * E.p2i(seg(t, 1.02, 1.5));
+          const ph = (t - 1.0) * Math.PI * 2 * 2.3;
+          return { A, ph, k: (Math.PI * 2) / 560 };
+        }
+        function lineW(t) { return 68 + (1640 - 68) * E.expo(seg(t, 0.857, 1.1)); }
+        function drawS1(t) {
+          const c = x1;
+          c.globalCompositeOperation = "source-over";
+          c.shadowBlur = 0;
+          if (t >= 1.7) { c.fillStyle = COL.signal; c.fillRect(0, 0, W, H); return; }
+          c.fillStyle = COL.ink; c.fillRect(0, 0, W, H);
+          // shockwaves across the floor, in world units (impact and the small second contact)
+          const waves = [];
+          if (t > IMP) waves.push({ R: 17 * (1 - Math.exp(-2.4 * (t - IMP))), a: Math.exp(-1.5 * (t - IMP)), w: 0.75, push: 0.34, lift: 0.5 });
+          if (t > REB) waves.push({ R: 8 * (1 - Math.exp(-3.2 * (t - REB))), a: 0.35 * Math.exp(-3 * (t - REB)), w: 0.5, push: 0.16, lift: 0.2 });
+          const wp = waveParams(t), wOn = t > 1.0;
+          const fade = 1 - 0.55 * seg(t, 1.25, 1.6);
+          for (let i = 0; i < FLOOR.length; i++) {
+            let [X, z] = FLOOR[i];
+            const dz = z - Z0, r = Math.hypot(X, dz) || 1;
+            let g = 0, push = 0, lift = 0;
+            for (const wv of waves) {
+              const gg = wv.a * Math.exp(-Math.pow((r - wv.R) / wv.w, 2));
+              g += gg; push += wv.push * gg; lift += wv.lift * gg;
+            }
+            X += (X / r) * push; z += (dz / r) * push;
+            if (z < 1.2) continue;
+            let gx = CX + (X * FX) / z, gy = HZ + ((CAM_H - lift) * FX) / z;
+            if (gx < -10 || gx > W + 10 || gy > H + 10) continue;
+            if (wOn) {
+              const yw = GROUND - DR + wp.A * Math.sin(wp.k * (gx - CX) - wp.ph);
+              const d = gy - yw, gw = Math.exp(-Math.pow(d / 70, 2)) * (wp.A / 170);
+              gy += Math.sign(d) * 24 * gw; g += 0.6 * gw;
+            }
+            const near = Math.min(1, 6 / z), far = clamp((27 - z) / 14);
+            const rad = Math.max(0.7, (1.2 + 2.2 * near) * (1 + 0.9 * Math.min(1, g)));
+            const al = Math.min(0.95, (0.12 + 0.36 * near) * far * fade + 0.7 * g);
+            c.fillStyle = "rgba(240,239,230," + al.toFixed(3) + ")";
+            c.beginPath(); c.arc(gx, gy, rad, 0, Math.PI * 2); c.fill();
+          }
+          for (const wv of waves) {
+            if (wv.a < 0.02) continue;
+            c.strokeStyle = "rgba(46,73,240," + Math.min(1, wv.a * 1.1).toFixed(3) + ")";
+            c.lineWidth = 1 + 2.5 * wv.a;
+            c.beginPath();
+            for (let k = 0; k <= 160; k++) {
+              const a = (k / 160) * Math.PI * 2, X = Math.cos(a) * wv.R, z = Z0 + Math.sin(a) * wv.R;
+              if (z < 1.3) { c.moveTo(CX + (X * FX) / 1.3, H + 400); continue; }
+              const x = CX + (X * FX) / z, y = HZ + (CAM_H * FX) / z;
+              if (k === 0) c.moveTo(x, y); else c.lineTo(x, y);
+            }
+            c.stroke();
+          }
+          // drop guide + ground hairline
+          const gRet = E.p3io(seg(t, 0.36, 0.62));
+          if (gRet < 1) {
+            c.setLineDash([6, 8]); c.strokeStyle = "rgba(46,73,240,0.9)"; c.lineWidth = 2;
+            const yTop = lerp(120, GROUND, gRet);
+            c.beginPath(); c.moveTo(CX, yTop); c.lineTo(CX, GROUND); c.stroke(); c.setLineDash([]);
+          }
+          // the dot / line / wave / band
+          c.fillStyle = COL.signal; c.strokeStyle = COL.signal;
+          if (t < 0.857) {
+            // contact shadow: a blue ellipse on the ground that tightens as the dot nears it
+            const d0 = dotAt(t), hgt = Math.max(0, GROUND - (d0.y + DR * d0.sy));
+            const sh = 1 - Math.min(1, hgt / 420);
+            c.fillStyle = "rgba(46,73,240," + (0.25 + 0.5 * sh).toFixed(3) + ")";
+            c.beginPath(); c.ellipse(CX, GROUND + 4, DR * (0.7 + 0.9 * sh) * d0.sx, 7 + 5 * sh, 0, 0, Math.PI * 2); c.fill();
+            c.fillStyle = COL.signal;
+            if (t < IMP) {
+              for (let k = 8; k >= 1; k--) {
+                const tt = t - k * 0.016, d = dotAt(tt);
+                c.globalAlpha = 0.34 * (1 - k / 9);
+                c.beginPath(); c.ellipse(CX, d.y, DR * d.sx, DR * d.sy, 0, 0, Math.PI * 2); c.fill();
+              }
+              c.globalAlpha = 1;
+            }
+            const d = dotAt(t);
+            c.shadowColor = "rgba(253,73,32,0.85)"; c.shadowBlur = 34;
+            c.beginPath(); c.ellipse(CX, d.y, DR * d.sx, DR * d.sy, 0, 0, Math.PI * 2); c.fill();
+            c.shadowBlur = 0;
+            return;
+          }
+          const cy = GROUND - DR;
+          if (t < 1.0) {
+            const w = lineW(t), h = lerp(68 * 1.16, 8, E.p3o(seg(t, 0.857, 1.0)));
+            c.shadowColor = "rgba(253,73,32,0.7)"; c.shadowBlur = 26 * (1 - seg(t, 0.857, 1.0));
+            c.beginPath(); c.roundRect(CX - w / 2, cy - h / 2, w, h, h / 2); c.fill();
+            c.shadowBlur = 0;
+            return;
+          }
+          const hw = lerp(lineW(t) / 2, 1120, E.p3io(seg(t, 1.1, 1.4)));
+          const lw = 8 + 1700 * Math.pow(seg(t, 1.36, 1.7), 3.2);
+          const flat = seg(t, 1.25, 1.5);
+          c.lineWidth = lw; c.lineCap = "round"; c.lineJoin = "round";
+          c.beginPath();
+          const n = 180;
+          for (let i = 0; i <= n; i++) {
+            const x = CX - hw + (2 * hw * i) / n;
+            const taper = Math.sin((Math.PI * i) / n);
+            const env = Math.pow(taper, 0.6 * (1 - flat));
+            const y = cy + wp.A * env * Math.sin(wp.k * (x - CX) - wp.ph);
+            if (i === 0) c.moveTo(x, y); else c.lineTo(x, y);
+          }
+          c.stroke();
+        }
+
+        // ================= S5 · bars and spline geometry =================
+        const BARH = [0.28, 0.36, 0.31, 0.43, 0.48, 0.44, 0.56, 0.62, 0.58, 0.71, 0.79, 0.94];
+        const BAR_MAX = 380, BASE = 500;
+        const barsG = $("bars"), barEls = [], splPts = [];
+        BARH.forEach((f, i) => {
+          const x = i * 66, h = f * BAR_MAX;
+          const r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+          r.setAttribute("x", x); r.setAttribute("y", BASE - h); r.setAttribute("width", 46); r.setAttribute("height", h);
+          r.setAttribute("rx", 4); r.setAttribute("fill", i === 11 ? COL.signal : COL.ink);
+          barsG.appendChild(r); barEls.push(r);
+          splPts.push([x + 23, BASE - h - 34]);
+        });
+        (function () {
+          let d = "M " + splPts[0][0] + " " + splPts[0][1];
+          for (let i = 0; i < splPts.length - 1; i++) {
+            const p0 = splPts[Math.max(0, i - 1)], p1 = splPts[i], p2 = splPts[i + 1], p3 = splPts[Math.min(splPts.length - 1, i + 2)];
+            const c1x = p1[0] + (p2[0] - p0[0]) / 6, c1y = p1[1] + (p2[1] - p0[1]) / 6;
+            const c2x = p2[0] - (p3[0] - p1[0]) / 6, c2y = p2[1] - (p3[1] - p1[1]) / 6;
+            d += " C " + c1x.toFixed(1) + " " + c1y.toFixed(1) + " " + c2x.toFixed(1) + " " + c2y.toFixed(1) + " " + p2[0] + " " + p2[1];
+          }
+          $("spl").setAttribute("d", d);
+        })();
+        const SPL = $("spl"), SPL_L = SPL.getTotalLength();
+        SPL.style.strokeDasharray = SPL_L + " " + SPL_L;
+        const lastPt = splPts[11];
+        $("pill").setAttribute("transform", "translate(" + (lastPt[0] - 34) + " " + (lastPt[1] - 66) + ")");
+        // shutters
+        const SHUT_D = [0, 0.03, 0.012, 0.045, 0.02, 0.05, 0.008, 0.038];
+        const shutEls = SHUT_D.map((d, i) => {
+          const s = document.createElement("div"); s.className = "shut"; s.style.left = i * 240 + "px";
+          $("shutters").appendChild(s); return s;
+        });
+        const REELS = [{ a: $("dA0"), b: $("dA1"), f: $("vbAg"), target: 8, loops: 2, d: 0 }, { a: $("dB0"), b: $("dB1"), f: $("vbBg"), target: 7, loops: 3, d: 0.05 }];
+        $("reelA").style.filter = "url(#vbA)"; $("reelB").style.filter = "url(#vbB)";
+        const rollP = (t, r) => E.p4o(seg(t, 6.93 + r.d, 7.66 + r.d)) * (r.loops * 10 + r.target);
+        function renderS5(t) {
+          for (const r of REELS) {
+            const p = rollP(t, r), sp = Math.abs(p - rollP(t - 1 / 60, r)) * 60;
+            const fl = Math.floor(p + 1e-6), fr = Math.max(0, p - fl), d0 = fl % 10;
+            setText(r.a, String(d0)); setText(r.b, String((d0 + 1) % 10));
+            r.a.style.transform = "translateY(" + (-fr * 168).toFixed(2) + "px)";
+            r.b.style.transform = "translateY(" + ((1 - fr) * 168).toFixed(2) + "px)";
+            r.b.style.visibility = fr > 0.002 ? "inherit" : "hidden";
+            r.f.setAttribute("stdDeviation", "0 " + Math.min(14, sp * 0.22).toFixed(2));
+          }
+          const u = E.p2io(seg(t, 7.3, 7.86)), L = SPL_L * u;
+          SPL.style.strokeDashoffset = (SPL_L - L).toFixed(2);
+          const pt = SPL.getPointAtLength(Math.max(0.01, L));
+          $("splDot").setAttribute("cx", pt.x.toFixed(2)); $("splDot").setAttribute("cy", pt.y.toFixed(2));
+          $("splDot").setAttribute("r", u > 0 ? 11 : 0);
+        }
+
+        // ================= S6 · particles =================
+        const c6 = $("c6"), x6 = c6.getContext("2d");
+        const PN = 1800, STEPS = 66, P0 = 8.79, WIPE0 = 8.786;
+        const prng = rng(606);
+        const flow = new Float32Array(PN * (STEPS + 1) * 2), pDel = new Float32Array(PN), pCol = new Uint8Array(PN);
+        const sph = new Float32Array(PN * 3), rR = new Float32Array(PN), rA = new Float32Array(PN), rD = new Float32Array(PN);
+        const vel = (x, y) => [330 + 170 * Math.sin(y * 0.0042 + 1.3) + 90 * Math.cos(x * 0.0031 - y * 0.002),
+          200 * Math.sin(x * 0.0036 + y * 0.0019) + 110 * Math.cos(x * 0.0021 - 0.7 + y * 0.003)];
+        const GA = Math.PI * (3 - Math.sqrt(5));
+        for (let i = 0; i < PN; i++) {
+          let x = -380 + prng() * 2200, y = -80 + prng() * 1240;
+          for (let s = 0; s <= STEPS; s++) {
+            const b = (i * (STEPS + 1) + s) * 2; flow[b] = x; flow[b + 1] = y;
+            const v = vel(x, y); x += v[0] / 60; y += v[1] / 60;
+          }
+          const yy = 1 - (i / (PN - 1)) * 2, rad = Math.sqrt(1 - yy * yy), th = GA * i;
+          sph[i * 3] = Math.cos(th) * rad; sph[i * 3 + 1] = yy; sph[i * 3 + 2] = Math.sin(th) * rad;
+          const ring = i % 5;
+          rR[i] = 64 + ring * 64; rA[i] = (Math.floor(i / 5) / (PN / 5)) * Math.PI * 2 + ring * 0.3; rD[i] = ring % 2 ? 1 : -1;
+          pDel[i] = prng() * 0.12;
+          const c = prng(); pCol[i] = c < 0.17 ? 1 : c < 0.3 ? 2 : 0;
+        }
+        function flowPos(i, t) {
+          const f = clamp((t - P0) * 60, 0, STEPS), f0 = Math.floor(f), fr = f - f0, f1 = Math.min(STEPS, f0 + 1);
+          const b0 = (i * (STEPS + 1) + f0) * 2, b1 = (i * (STEPS + 1) + f1) * 2;
+          return [lerp(flow[b0], flow[b1], fr), lerp(flow[b0 + 1], flow[b1 + 1], fr)];
+        }
+        function sphPos(i, t) {
+          const a = (t - P0) * 1.9 + 0.4, tilt = 0.42, s = 300 * (1 + 0.06 * Math.sin((t - P0) * 9));
+          const x = sph[i * 3] * s, y = sph[i * 3 + 1] * s, z = sph[i * 3 + 2] * s;
+          const x1 = x * Math.cos(a) + z * Math.sin(a), z1 = -x * Math.sin(a) + z * Math.cos(a);
+          const y2 = y * Math.cos(tilt) - z1 * Math.sin(tilt), z2 = y * Math.sin(tilt) + z1 * Math.cos(tilt);
+          const p = 900 / (900 + z2);
+          return [960 + x1 * p, 540 + y2 * p];
+        }
+        function ringPos(i, t) {
+          const a = rA[i] + rD[i] * (t - P0) * 1.1;
+          return [960 + Math.cos(a) * rR[i], 540 + Math.sin(a) * rR[i]];
+        }
+        function pPos(i, t) {
+          const d = pDel[i];
+          let p = flowPos(i, t);
+          const u1 = E.p3io(seg(t, 9.26 + d, 9.6 + d));
+          if (u1 > 0) { const s = sphPos(i, t); p = [lerp(p[0], s[0], u1), lerp(p[1], s[1], u1)]; }
+          const u2 = E.p3io(seg(t, 9.78 + d * 0.6, 9.98 + d * 0.6));
+          if (u2 > 0) { const r = ringPos(i, t); p = [lerp(p[0], r[0], u2), lerp(p[1], r[1], u2)]; }
+          const u3 = seg(t, 10.04 + d * 0.35, 10.3 + d * 0.35);
+          if (u3 > 0) {
+            const r = ringPos(i, t), dx = r[0] - 960, dy = r[1] - 540, L = Math.hypot(dx, dy) || 1, k = 1500 * u3 * u3;
+            p = [p[0] + (dx / L) * k, p[1] + (dy / L) * k];
+          }
+          return [p, u1, u2];
+        }
+        const PCOL = ["rgba(240,239,230,0.88)", "rgba(253,73,32,0.95)", "rgba(46,73,240,1)"];
+        function blockScale(bc, br, t) {
+          const d = WIPE0 + ((bc + br * 1.6) / (15 + 8 * 1.6)) * 0.165, u = seg(t, d, d + 0.05);
+          return u <= 0 ? 0 : u < 1 ? (u < 0.5 ? 0 : 0.5) : 1;
+        }
+        function drawS6(t) {
+          const c = x6;
+          c.clearRect(0, 0, W, H);
+          if (t < WIPE0) return;
+          c.save();
+          if (t < WIPE0 + 0.22) {
+            c.beginPath();
+            for (let br = 0; br < 9; br++) for (let bc = 0; bc < 16; bc++) {
+              const sc = blockScale(bc, br, t);
+              if (sc <= 0) continue;
+              const w = 121 * sc; c.rect(bc * 120 + (121 - w) / 2, br * 120 + (121 - w) / 2, w, w);
+            }
+            c.clip();
+          }
+          c.fillStyle = COL.ink; c.fillRect(0, 0, W, H);
+          // blue dot under the burst, growing into the next ground
+          const br = 36 * E.p3o(seg(t, 9.98, 10.08)) + 1260 * Math.pow(seg(t, 10.1, 10.286), 3);
+          // crosshair while the rings hold
+          const ch = seg(t, 9.8, 9.9) * (1 - seg(t, 10.04, 10.1));
+          if (ch > 0) {
+            c.strokeStyle = "rgba(46,73,240," + (0.8 * ch).toFixed(3) + ")"; c.lineWidth = 1.5;
+            c.beginPath(); c.moveTo(960 - 420 * ch, 540); c.lineTo(960 + 420 * ch, 540); c.moveTo(960, 540 - 420 * ch); c.lineTo(960, 540 + 420 * ch); c.stroke();
+          }
+          const sDt = t < 9.3 ? 0.07 : 0.045;
+          for (let pass = 0; pass < 3; pass++) {
+            c.strokeStyle = PCOL[pass]; c.lineWidth = pass === 0 ? 2.5 : 3.0; c.lineCap = "round";
+            c.beginPath();
+            for (let i = 0; i < PN; i++) {
+              if (pCol[i] !== pass) continue;
+              const [a, u1, u2] = pPos(i, t), [b] = pPos(i, t - sDt);
+              let bx = b[0], by = b[1];
+              const stick = u1 * (1 - u2);
+              if (stick > 0) {
+                const dx = a[0] - 960, dy = a[1] - 540, L = Math.hypot(dx, dy) || 1;
+                bx = lerp(bx, a[0] - (dx / L) * 16, stick); by = lerp(by, a[1] - (dy / L) * 16, stick);
+              }
+              const sx = a[0] - bx, sy = a[1] - by, sl = Math.hypot(sx, sy), maxL = t >= 10.04 ? 150 : 28;
+              if (sl > maxL) { bx = a[0] - (sx / sl) * maxL; by = a[1] - (sy / sl) * maxL; }
+              c.moveTo(bx, by); c.lineTo(a[0] + 0.01, a[1]);
+            }
+            c.stroke();
+          }
+          if (br > 0) {
+            const g = c.createRadialGradient(960, 540, 0, 960, 540, Math.max(br, 1));
+            g.addColorStop(0, COL.blue); g.addColorStop(0.4, COL.blue); g.addColorStop(1, COL.blueDeep);
+            c.fillStyle = br > 900 ? COL.blue : g;
+            if (br > 900) {
+              const g2 = c.createRadialGradient(960, 540, 0, 960, 540, 1100);
+              g2.addColorStop(0, COL.blue); g2.addColorStop(0.35, COL.blue); g2.addColorStop(1, COL.blueDeep);
+              c.fillStyle = g2;
+            }
+            c.shadowColor = "rgba(46,73,240,0.9)"; c.shadowBlur = br < 200 ? 30 : 0;
+            c.beginPath(); c.arc(960, 540, br, 0, Math.PI * 2); c.fill();
+            c.shadowBlur = 0;
+          }
+          // readouts follow one particle on the rings
+          const [tp] = pPos(3, t);
+          const fx = (v) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(3);
+          setText($("rx"), fx((tp[0] - 960) / 320)); setText($("ry"), fx(-(tp[1] - 540) / 320));
+          c.restore();
+        }
+
+        // ================= S8 · morph =================
+        const NM = 160, MC = [960, 540], MR = 270;
+        function resample(poly, n) {
+          const segs = []; let tot = 0;
+          for (let i = 0; i < poly.length; i++) {
+            const a = poly[i], b = poly[(i + 1) % poly.length], l = Math.hypot(b[0] - a[0], b[1] - a[1]);
+            segs.push([a, b, l]); tot += l;
+          }
+          const out = []; let si = 0, acc = 0;
+          for (let k = 0; k < n; k++) {
+            const d = (k / n) * tot;
+            while (acc + segs[si][2] < d) { acc += segs[si][2]; si++; }
+            const [a, b, l] = segs[si], u = (d - acc) / l;
+            out.push([lerp(a[0], b[0], u), lerp(a[1], b[1], u)]);
+          }
+          return out;
+        }
+        const angPts = (n, rf) => Array.from({ length: n }, (_, k) => {
+          const a = -Math.PI / 2 + (k / n) * Math.PI * 2, r = rf(k, a);
+          return [Math.cos(a) * r, Math.sin(a) * r];
+        });
+        const SH = {
+          circle: angPts(NM, () => 1),
+          tri: resample(angPts(3, () => 1.22), NM),
+          star: resample(angPts(10, (k) => (k % 2 ? 0.5 : 1.17)), NM),
+          blob: angPts(NM, (k, a) => 1 + 0.13 * Math.sin(3 * a + 0.6) + 0.08 * Math.sin(5 * a - 1.1) + 0.05 * Math.sin(7 * a + 2)),
+        };
+        const MORPHS = [["circle", "tri", 12.2, beat(29)], ["tri", "star", 12.63, beat(30)], ["star", "blob", 13.06, beat(31)]];
+        function shapeAt(t) {
+          let pts = SH.circle;
+          for (const [a, b, t0, t1] of MORPHS) {
+            if (t >= t1) { pts = SH[b]; continue; }
+            if (t > t0) { const u = E.p3io(seg(t, t0, t1)); pts = SH[a].map((p, k) => [lerp(p[0], SH[b][k][0], u), lerp(p[1], SH[b][k][1], u)]); }
+            break;
+          }
+          return pts;
+        }
+        const blobsG = $("blobs"), handlesG = $("handles"), blobEls = [], handleEls = [];
+        for (let k = 0; k < 9; k++) {
+          const c = document.createElementNS("http://www.w3.org/2000/svg", "circle"); blobsG.appendChild(c); blobEls.push(c);
+        }
+        for (let k = 0; k < 8; k++) {
+          const r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+          r.setAttribute("width", 12); r.setAttribute("height", 12); r.setAttribute("fill", COL.cream);
+          r.setAttribute("stroke", COL.ink); r.setAttribute("stroke-width", 2); handlesG.appendChild(r); handleEls.push(r);
+        }
+        function renderS8(t) {
+          const rot = (t - 12.0) * 0.55, cr = Math.cos(rot), sr = Math.sin(rot);
+          const merge = E.p3i(seg(t, 13.29, 13.46));
+          const scl = MR * (1 - 0.62 * E.p3io(seg(t, 13.29, 13.5))) * (0.82 + 0.18 * E.p3o(seg(t, 11.9, 12.2)));
+          const pts = shapeAt(t).map(([x, y]) => [MC[0] + (x * cr - y * sr) * scl, MC[1] + (x * sr + y * cr) * scl]);
+          const oAl = 1 - seg(t, 13.4, 13.5);
+          let d = "M " + pts[0][0].toFixed(1) + " " + pts[0][1].toFixed(1);
+          for (let k = 1; k < pts.length; k++) d += " L " + pts[k][0].toFixed(1) + " " + pts[k][1].toFixed(1);
+          $("outline").setAttribute("d", d + " Z");
+          $("outline").setAttribute("stroke-opacity", oAl.toFixed(3));
+          const split = E.p3o(seg(t, 12.04, 12.4));
+          const grow = seg(t, 13.46, 13.714);
+          blobsG.style.display = grow > 0 ? "none" : "";
+          for (let k = 0; k < 8; k++) {
+            const p = pts[(k * NM) / 8];
+            const tx = lerp(MC[0], lerp(MC[0], p[0], 0.62), split), ty = lerp(MC[1], lerp(MC[1], p[1], 0.62), split);
+            blobEls[k].setAttribute("cx", lerp(tx, MC[0], merge).toFixed(1));
+            blobEls[k].setAttribute("cy", lerp(ty, MC[1], merge).toFixed(1));
+            blobEls[k].setAttribute("r", (lerp(30, 48, split) * (1 - 0.4 * merge)).toFixed(1));
+            handleEls[k].setAttribute("x", (p[0] - 6).toFixed(1)); handleEls[k].setAttribute("y", (p[1] - 6).toFixed(1));
+            handleEls[k].setAttribute("opacity", (seg(t, 12.1, 12.2) * oAl).toFixed(3));
+          }
+          const cR = lerp(lerp(118, 52, split), 122, merge);
+          blobEls[8].setAttribute("cx", MC[0]); blobEls[8].setAttribute("cy", MC[1]); blobEls[8].setAttribute("r", cR.toFixed(1));
+          $("growDot").setAttribute("r", grow > 0 ? (122 + 1180 * Math.pow(grow, 2.6)).toFixed(1) : 0);
+        }
+
+        // ================= S9 · decode =================
+        const endChars = [];
+        (function () {
+          const el = $("endWord"), txt = el.textContent; el.textContent = "";
+          [...txt].forEach((ch) => {
+            const s = document.createElement("span"); s.className = "dl";
+            const f = document.createElement("span"); f.className = "fin"; f.textContent = ch;
+            const sc = document.createElement("span"); sc.className = "sc";
+            s.appendChild(f); s.appendChild(sc); el.appendChild(s);
+            endChars.push({ s, f, sc, ch });
+          });
+        })();
+        const GLY = "#%&*+/<>=?01X_";
+        function renderS9(t) {
+          endChars.forEach((o, i) => {
+            const t0 = 13.76 + i * 0.022, lock = 13.98 + ((i * 7) % 13) * 0.026;
+            if (t < t0) { o.f.style.visibility = "hidden"; setText(o.sc, ""); return; }
+            if (t >= lock) { o.f.style.visibility = "inherit"; setText(o.sc, ""); return; }
+            const fr = Math.floor(t * 30), r = rng(fr * 31 + i * 7)();
+            o.f.style.visibility = "hidden";
+            setText(o.sc, GLY[Math.floor(r * GLY.length)]);
+            o.sc.style.color = (fr + i) % 5 === 0 ? COL.signal : COL.cream;
+          });
+          typeOn($("ctaT"), "NOW BOOKING 2027", t, 14.5, 44);
+        }
+
+        // ================= master render =================
+        let lastT = -1;
+        function render(t) {
+          if (Math.abs(t - lastT) < 1e-7) return;
+          lastT = t; window.__lastT = t;
+          renderHud(t); renderGrain(t);
+          if (t < 1.72) {
+            drawS1(t);
+            typeOn($("ann1"), "IMPACT", t, 0.25, 40);
+            if (t < IMP) {
+              const d = dotAt(t), v = V0 + GRAV * t;
+              setText($("vlab"), "V " + String(Math.round(v)).padStart(4, "0") + " PX/S");
+              $("vlab").style.transform = "translate(" + (CX + DR + 34) + "px," + (d.y - 11).toFixed(1) + "px)";
+            } else setText($("vlab"), "");
+            typeOn($("ann2"), "SQUASH 1.48 / 0.62", t, 0.31, 46);
+          }
+          if (t >= 1.7 && t < 3.01) typeOn($("s2kick"), "MOTION REEL — 2026", t, 1.79, 60);
+          if (t >= 2.68 && t < 4.73 && window.__s3render) window.__s3render(t);
+          if (t >= 2.68 && t < 4.73) {
+            let n = 0; [3.214, 3.857, 4.286].forEach((ti) => { if (t >= ti) n++; });
+            setText($("ripN"), "0" + n);
+          }
+          if (t >= 4.7 && t < 5.15) {
+            const u = seg(t, 4.73, 5.06);
+            let d = "M 0 160";
+            const n = Math.max(1, Math.round(60 * u));
+            for (let k = 1; k <= n; k++) { const uu = (k / 60); d += " L " + (900 * uu).toFixed(1) + " " + (160 - 150 * E.expo(uu)).toFixed(1); }
+            $("easeCurve").setAttribute("d", u > 0 ? d : "M 0 160");
+            $("easeDot").setAttribute("cx", (900 * u).toFixed(1)); $("easeDot").setAttribute("cy", (160 - 150 * E.expo(u)).toFixed(1));
+          }
+          if (t >= 5.14 && t < 5.58) {
+            const c = $("c4b").getContext("2d"), u = seg(t, beat(12), beat(13));
+            c.clearRect(0, 0, W, H);
+            c.font = '900 230px "Reel Sans"'; c.lineWidth = 1.5; c.strokeStyle = "rgba(240,239,230,0.13)"; c.textBaseline = "top";
+            for (let i = 0; i < 5; i++) {
+              const x = -260 + (i % 2 ? lerp(-150, 0, u) : lerp(0, -150, u));
+              c.strokeText("SNAP SNAP SNAP SNAP SNAP SNAP", x, -24 + i * 216);
+            }
+            const dt = t - 5.143, a = dt > 0 ? 22 * Math.exp(-dt * 18) : 0;
+            $("snapShake").style.transform = "translate(" + (a * Math.sin(dt * 95)).toFixed(2) + "px," + (a * 0.7 * Math.cos(dt * 120)).toFixed(2) + "px)";
+          }
+          if (t >= 5.56 && t < 6.01) {
+            const u0 = seg(t - 1 / 60, 5.571, 5.911), u1 = seg(t, 5.571, 5.911);
+            const sp = Math.abs(1150 * (E.p4o(u1) - E.p4o(u0))) * 60;
+            $("mblurG").setAttribute("stdDeviation", Math.min(70, sp * 0.0065).toFixed(2) + " 0");
+            $("recDot").style.opacity = t > 5.78 && t < 5.9 ? 0.25 : 1;
+          }
+          if (t >= 6.6 && t < 9.01) renderS5(t);
+          if (t >= 8.74 && t < 10.3) drawS6(t);
+          if (t >= 11.1 && t < 11.6) {
+            setText($("btnPct"), String(Math.round(100 * E.p2io(seg(t, 11.16, 11.43)))).padStart(3, "0") + "%");
+          }
+          if (t >= 11.74 && t < 13.72) renderS8(t);
+          if (t >= 13.7) renderS9(t);
+        }
+        window.__render = render;
+
+        // ================= timeline =================
+        const tl = gsap.timeline({ paused: true });
+        const clock = { t: 0 };
+        tl.to(clock, { t: DUR, duration: DUR, ease: "none", onUpdate: () => render(clock.t) }, 0);
+
+        // S1 annotations: leaders draw on, labels type, then the group collapses into the dot
+        tl.fromTo("#lead1", { strokeDashoffset: 260 }, { strokeDashoffset: 0, duration: 0.2, ease: "power3.out" }, 0.23);
+        tl.fromTo("#lead2", { strokeDashoffset: 260 }, { strokeDashoffset: 0, duration: 0.22, ease: "power3.out" }, 0.28);
+        tl.fromTo("#s1ann", { clipPath: "inset(0% 0% 0% 0%)" }, { clipPath: "inset(0% 50% 0% 50%)", duration: 0.16, ease: "power3.in" }, 0.72);
+
+        // S2 identity: letters drop from the centre out, blur clearing; serif wipes in; weight wave
+        const wm = split($("wm"));
+        wm.forEach((el, i) => {
+          const dist = Math.abs(i - 6), d = beat(4) + 0.015 + dist * 0.032 + (i % 2) * 0.012;
+          tl.fromTo(el, { y: -(200 + dist * 22), filter: "blur(18px)" }, { y: 0, filter: "blur(0px)", duration: 0.36, ease: "power3.out" }, d);
+          tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.07, ease: "none" }, d);
+        });
+        tl.fromTo("#s2serif", { clipPath: "inset(0% 100% 0% 0%)", x: -50 }, { clipPath: "inset(0% 0% 0% 0%)", x: 0, duration: 0.42, ease: "power3.out" }, beat(5));
+        wm.forEach((el, i) => {
+          const d = 2.2 + i * 0.03;
+          tl.to(el, { fontVariationSettings: '"wght" 300', duration: 0.15, ease: "power2.inOut" }, d);
+          tl.to(el, { fontVariationSettings: '"wght" 900', duration: 0.24, ease: "power3.out" }, d + 0.15);
+        });
+        // soft circle wipe from the em dash into 3D
+        tl.fromTo("#s3m", { "--r": "0px" }, { "--r": "1420px", duration: 0.3, ease: "power2.in" }, 2.7);
+        tl.fromTo("#s3lab", { x: -40, clipPath: "inset(0% 100% 0% 0%)" }, { x: 0, clipPath: "inset(0% 0% 0% 0%)", duration: 0.36, ease: "power3.out" }, 3.08);
+
+        // S4a EASE: letters glide on expo.out, weight rising as they settle
+        tl.fromTo("#easeWord", { x: -820 }, { x: 0, duration: 0.42, ease: "expo.out" }, beat(11));
+        split($("easeWord")).forEach((el, i) => {
+          tl.fromTo(el, { x: i * 110 }, { x: 0, duration: 0.46, ease: "expo.out" }, beat(11));
+          tl.fromTo(el, { fontVariationSettings: '"wght" 200' }, { fontVariationSettings: '"wght" 900', duration: 0.3, ease: "power3.out" }, beat(11) + 0.04 + i * 0.035);
+        });
+        tl.fromTo("#easeLab", { y: 18, clipPath: "inset(0% 0% 100% 0%)" }, { y: 0, clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 4.86);
+
+        // S4b SNAP: slam with overshoot over a drifting outline wall
+        tl.fromTo("#snapWord", { scale: 1.8, rotation: -7 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.4)" }, beat(12));
+        tl.fromTo("#snapWord", { opacity: 0 }, { opacity: 1, duration: 0.035, ease: "none" }, beat(12));
+
+        // S4c BLUR: whip in with directional blur inside the viewfinder
+        tl.fromTo("#blurWord", { x: 1150, skewX: -32 }, { x: 0, skewX: -12, duration: 0.34, ease: "power4.out" }, beat(13));
+        tl.fromTo("#vf", { scale: 1.14 }, { scale: 1, duration: 0.24, ease: "power3.out" }, beat(13));
+        tl.fromTo("#rec", { x: 30 }, { x: 0, duration: 0.24, ease: "power3.out" }, beat(13));
+
+        // S4d with feeling.: waterfall cascade, the gaps shrinking along the line
+        (function () {
+          let d = beat(14) + 0.01, gap = 0.05;
+          split($("feelWord")).forEach((el) => {
+            tl.fromTo(el, { y: 150, rotation: 14 }, { y: 0, rotation: 0, duration: 0.5, ease: "power4.out" }, d);
+            tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "none" }, d);
+            d += gap; gap *= 0.86;
+          });
+        })();
+
+        // S5 data: shutters rise into the cream ground, then the infographic builds
+        shutEls.forEach((el, i) => {
+          tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.165, ease: "power2.in" }, 6.643 + SHUT_D[i]);
+        });
+        tl.fromTo("#s5c", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.001, ease: "none" }, 6.852);
+        tl.fromTo("#numIn", { scale: 0.62, y: 40 }, { scale: 1, y: 0, duration: 0.5, ease: "power3.out" }, 6.857);
+        tl.fromTo("#lab5a", { x: -30, clipPath: "inset(0% 100% 0% 0%)" }, { x: 0, clipPath: "inset(0% 0% 0% 0%)", duration: 0.34, ease: "power3.out" }, 6.88);
+        tl.fromTo("#lab5b", { x: -30, clipPath: "inset(0% 100% 0% 0%)" }, { x: 0, clipPath: "inset(0% 0% 0% 0%)", duration: 0.34, ease: "power3.out" }, 6.94);
+        const DC = 2 * Math.PI * 224;
+        gsap.set(["#dTrack", "#dFill"], { strokeDasharray: DC + " " + DC });
+        tl.fromTo("#dTrack", { strokeDashoffset: DC }, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 6.86);
+        tl.fromTo("#dFill", { strokeDashoffset: DC }, { strokeDashoffset: DC * (1 - 0.87), duration: 0.72, ease: "power3.out" }, 6.95);
+        tl.fromTo("#donutWrap", { scale: 0.86, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.5, ease: "power3.out" }, 6.857);
+        tl.fromTo("#pctIn", { y: 100 }, { y: 0, duration: 0.3, ease: "power3.out" }, 7.0);
+        tl.fromTo("#sampleTag", { y: 14, clipPath: "inset(0% 0% 100% 0%)" }, { y: 0, clipPath: "inset(0% 0% 0% 0%)", duration: 0.25, ease: "power3.out" }, 7.1);
+        tl.fromTo("#baseLine", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.32, ease: "power3.out" }, 6.9);
+        barEls.forEach((el, i) => {
+          const d = 7.0 + i * 0.042 * (1 + 0.3 * Math.sin(i * 2.1));
+          tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.4, ease: "power3.out" }, d);
+        });
+        ["#w01", "#w12"].forEach((s, i) => tl.fromTo(s, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 7.05 + i * 0.4));
+        const pillS = springEase({ response: 0.36, dampingFraction: 0.78 });
+        tl.fromTo("#pill", { scale: 0, transformOrigin: "50% 100%" }, { scale: 1, duration: pillS.duration, ease: pillS.ease }, 7.9);
+
+        // S6: the staircase pixel-block wipe is drawn in the particle canvas (drawS6)
+        tl.fromTo("#roWrap", { x: -30, clipPath: "inset(0% 100% 0% 0%)" }, { x: 0, clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 9.82);
+        tl.to("#roWrap", { x: 60, clipPath: "inset(0% 0% 0% 100%)", duration: 0.14, ease: "power3.in" }, 10.06);
+
+        // S7 interface: glass cards spring up, cursor works the controls
+        const cardS = springEase({ response: 0.42, dampingFraction: 0.82 });
+        tl.fromTo("#cardB2", { y: 300, scale: 0.86, rotation: -4 }, { y: -56, scale: 0.9, rotation: 0, duration: cardS.duration, ease: cardS.ease }, 10.3);
+        tl.fromTo("#cardB1", { y: 300, scale: 0.9, rotation: 3 }, { y: -28, scale: 0.95, rotation: 0, duration: cardS.duration, ease: cardS.ease }, 10.35);
+        tl.fromTo("#cardM", { y: 340, scale: 0.92, rotation: -2 }, { y: 0, scale: 1, rotation: 0, duration: cardS.duration, ease: cardS.ease }, 10.41);
+        tl.fromTo("#cursor", { x: 1560, y: 900 }, { x: 1246, y: 470, duration: 0.22, ease: "power3.inOut" }, 10.5);
+        tl.to("#cursor", { scale: 0.82, duration: 0.045, ease: "power2.in", transformOrigin: "0% 0%" }, 10.72);
+        tl.to("#cursor", { scale: 1, duration: 0.14, ease: "power3.out" }, 10.77);
+        const tgS = springEase({ response: 0.3, dampingFraction: 0.85 });
+        tl.fromTo("#tgk", { x: 0 }, { x: 44, duration: tgS.duration, ease: tgS.ease }, 10.75);
+        tl.fromTo("#tgOn", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.18, ease: "power3.out" }, 10.75);
+        tl.to("#cursor", { x: 1250, y: 562, duration: 0.18, ease: "power3.inOut" }, 10.79);
+        tl.to("#cursor", { scale: 0.82, duration: 0.05, ease: "power2.in" }, 10.95);
+        tl.to("#cursor", { scale: 1, duration: 0.09, ease: "power3.out" }, 11.0);
+        tl.fromTo("#segH", { x: 0 }, { x: 90, duration: 0.2, ease: "power3.out" }, 10.98);
+        tl.fromTo("#seg30", { color: COL.ink }, { color: COL.cream, duration: 0.1, ease: "none" }, 11.0);
+        tl.fromTo("#seg60", { color: COL.cream }, { color: COL.ink, duration: 0.1, ease: "none" }, 11.0);
+        tl.to("#cursor", { x: 1010, y: 686, duration: 0.13, ease: "power3.inOut" }, 11.01);
+        tl.to("#cursor", { scale: 0.82, duration: 0.05, ease: "power2.in" }, 11.1);
+        tl.to("#cursor", { scale: 1, duration: 0.14, ease: "power3.out" }, 11.15);
+        tl.to("#cursor", { x: 1120, y: 800, duration: 0.4, ease: "power2.inOut" }, 11.3);
+        tl.fromTo("#btn", { scale: 1 }, { scale: 0.965, duration: 0.05, ease: "power2.in" }, 11.1);
+        tl.to("#btn", { scale: 1, duration: 0.22, ease: "power3.out" }, 11.15);
+        tl.fromTo("#btnFill", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.27, ease: "power2.inOut" }, 11.16);
+        tl.fromTo("#btnL1", { y: 0 }, { y: -80, duration: 0.14, ease: "power3.in" }, 11.15);
+        tl.set("#btnL2", { visibility: "hidden" }, 0);
+        tl.set("#btnL2", { visibility: "inherit" }, 11.2);
+        tl.set("#btnL2", { visibility: "hidden" }, 11.53);
+        tl.set("#btnL3", { visibility: "hidden" }, 0);
+        tl.set("#btnL3", { visibility: "inherit" }, 11.45);
+        tl.set("#cursor", { visibility: "hidden" }, 0);
+        tl.set("#cursor", { visibility: "inherit" }, 10.5);
+        tl.set("#toast", { visibility: "hidden" }, 0);
+        tl.set("#toast", { visibility: "inherit" }, 11.5);
+        tl.fromTo("#btnL2", { y: 80 }, { y: 0, duration: 0.16, ease: "power3.out" }, 11.2);
+        tl.to("#btnL2", { y: -80, duration: 0.12, ease: "power3.in" }, 11.4);
+        tl.fromTo("#btnL3", { y: 80 }, { y: 0, duration: 0.2, ease: "power3.out" }, 11.45);
+        tl.fromTo("#chk", { strokeDasharray: 40, strokeDashoffset: 40 }, { strokeDashoffset: 0, duration: 0.2, ease: "power2.out" }, 11.52);
+        const toastS = springEase({ response: 0.38, dampingFraction: 0.85 });
+        tl.fromTo("#toast", { x: 340 }, { x: 0, duration: toastS.duration, ease: toastS.ease }, 11.5);
+        tl.fromTo("#toast", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "none" }, 11.5);
+
+        // S8 morph: signal circle opens from the button
+        tl.fromTo("#s8m", { "--r": "0px" }, { "--r": "1500px", duration: 0.27, ease: "power2.in" }, 11.73);
+        tl.fromTo("#stepper", { y: 40, clipPath: "inset(0% 0% 100% 0%)" }, { y: 0, clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.out" }, 12.04);
+        const stpEls = [0, 1, 2, 3].map((i) => $("stp" + i));
+        const stpBar = document.createElement("div"); stpBar.id = "stpBar"; $("stepper").appendChild(stpBar);
+        const stepX = (i) => 960 - (4 * 230 + 3 * 40) / 2 + i * 270 + 50;
+        tl.fromTo(stpBar, { x: stepX(0), scaleX: 0 }, { x: stepX(0), scaleX: 1, duration: 0.25, ease: "power3.out" }, 12.1);
+        tl.fromTo(stpEls[0], { opacity: 0.5 }, { opacity: 1, duration: 0.08, ease: "none" }, 12.08);
+        [beat(29), beat(30), beat(31)].forEach((bt, k) => {
+          tl.to(stpBar, { x: stepX(k + 1), duration: 0.2, ease: "power3.out" }, bt - 0.04);
+          tl.to(stpEls[k], { opacity: 0.5, duration: 0.08, ease: "none" }, bt);
+          tl.to(stpEls[k + 1], { opacity: 1, duration: 0.08, ease: "none" }, bt);
+        });
+        tl.to("#stepper", { y: 30, clipPath: "inset(100% 0% 0% 0%)", duration: 0.2, ease: "power3.in" }, 13.36);
+        tl.fromTo("#s8dot", { scale: 0 }, { scale: 1, duration: 0.16, ease: "power3.out" }, 13.5);
+
+        // S9 end card: the dot springs up, rings pulse, wordmark decodes, tagline and CTA set in
+        const dotS = springEase({ response: 0.46, dampingFraction: 0.8 });
+        tl.fromTo("#endDotWrap", { y: 0 }, { y: -232, duration: dotS.duration, ease: dotS.ease }, 13.74);
+        tl.fromTo("#ring1", { scale: 1, opacity: 0.9 }, { scale: 4.2, opacity: 0, duration: 0.6, ease: "power2.out" }, beat(33));
+        tl.fromTo("#ring2", { scale: 1, opacity: 0.7 }, { scale: 3.2, opacity: 0, duration: 0.55, ease: "power2.out" }, beat(34));
+        endChars.forEach((o, i) => {
+          tl.fromTo(o.s, { y: 36 }, { y: 0, duration: 0.34, ease: "power3.out" }, 13.76 + i * 0.022);
+        });
+        tl.fromTo("#endTag", { x: -40, clipPath: "inset(0% 100% 0% 0%)" }, { x: 0, clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power3.out" }, 14.16);
+        tl.fromTo("#endLine", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.inOut" }, 14.32);
+        tl.fromTo("#ctaSq", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.3, ease: "power3.out" }, 14.46);
+
+        window.addEventListener("hf-seek", (e) => render(Number(e.detail && e.detail.time) || 0));
+        window.__timelines["main"] = tl;
+        tl.seek(0);
+        render(0);
+      })();
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+      const { clamp, lerp, rng } = window.reel;
+      const seg = (t, a, b) => clamp((t - a) / (b - a));
+      const canvas = document.getElementById("c3");
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+      renderer.setPixelRatio(1);
+      renderer.setSize(1920, 1080, false);
+      renderer.setClearColor(0x070711, 1);
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.toneMapping = THREE.NeutralToneMapping;
+      renderer.toneMappingExposure = 1.0;
+
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.Fog(0x070711, 15, 31);
+      const camera = new THREE.PerspectiveCamera(30, 1920 / 1080, 0.1, 100);
+
+      // studio environment for reflections: cream softbox, signal and blue flags
+      const pmrem = new THREE.PMREMGenerator(renderer);
+      const envScene = new THREE.Scene();
+      envScene.background = new THREE.Color(0x1d1640);
+      const panel = (hex, k, pos, size) => {
+        const m = new THREE.Mesh(new THREE.PlaneGeometry(size[0], size[1]),
+          new THREE.MeshBasicMaterial({ color: new THREE.Color(hex).multiplyScalar(k), side: THREE.DoubleSide }));
+        m.position.set(pos[0], pos[1], pos[2]); m.lookAt(0, 0, 0); envScene.add(m);
+      };
+      panel(0xF0EFE6, 3.4, [0, 9, 0], [14, 14]);
+      panel(0xFD4920, 3.2, [9, 1.5, -2], [4, 9]);
+      panel(0x2E49F0, 3.6, [-9, 1.5, 3], [4, 9]);
+      panel(0xF0EFE6, 1.1, [0, 2, 10], [10, 2.5]);
+      panel(0x7B3FE4, 2.4, [0, -7, 0], [30, 30]);
+      const envTex = pmrem.fromScene(envScene, 0.02).texture;
+      scene.environment = envTex;
+
+      // voxel field
+      const NG = 24, SP = 0.62, NV = NG * NG;
+      const geo = new THREE.BoxGeometry(0.54, 1, 0.54); geo.translate(0, 0.5, 0);
+      const mat = new THREE.MeshStandardMaterial({ roughness: 0.38, metalness: 0.12, envMapIntensity: 0.2 });
+      const vox = new THREE.InstancedMesh(geo, mat, NV);
+      vox.castShadow = true; vox.receiveShadow = true;
+      scene.add(vox);
+      const r3 = rng(303), ph = Array.from({ length: 4 }, () => r3() * Math.PI * 2);
+      const baseH = new Float32Array(NV);
+      for (let i = 0; i < NG; i++) for (let j = 0; j < NG; j++) {
+        const x = i - (NG - 1) / 2, z = j - (NG - 1) / 2;
+        let v = Math.sin(x * 0.42 + ph[0]) * Math.cos(z * 0.37 + ph[1]) + 0.5 * Math.sin((x + z) * 0.6 + ph[2]) + 0.35 * (r3() * 2 - 1);
+        baseH[i * NG + j] = Math.max(0.12, 0.46 + 0.22 * v);
+      }
+      const IMPACTS = [3.214, 3.857, 4.286];
+      const cLow = new THREE.Color(0x070711).lerp(new THREE.Color(0x7B3FE4), 0.12);
+      const cMid = new THREE.Color(0x7B3FE4), cHigh = new THREE.Color(0xFD4920), tmpC = new THREE.Color();
+      const dummy = new THREE.Object3D();
+      for (let k = 0; k < NV; k++) vox.setColorAt(k, cMid);
+
+      // glossy sphere + orbit ring + satellite
+      const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.82, 96, 64),
+        new THREE.MeshPhysicalMaterial({ color: 0xF0EFE6, metalness: 1.0, roughness: 0.07, clearcoat: 1, clearcoatRoughness: 0.04, envMapIntensity: 1.6 }));
+      sphere.castShadow = true; scene.add(sphere);
+      const ringGrp = new THREE.Group(); scene.add(ringGrp);
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(1.42, 0.016, 8, 200), new THREE.MeshBasicMaterial({ color: 0x2E49F0 }));
+      ringGrp.add(ring);
+      const sat = new THREE.Mesh(new THREE.SphereGeometry(0.075, 24, 16), new THREE.MeshBasicMaterial({ color: 0xFD4920 }));
+      ringGrp.add(sat);
+
+      // lights
+      scene.add(new THREE.HemisphereLight(0xF0EFE6, 0x070711, 0.5));
+      const key = new THREE.DirectionalLight(0xFFF3E6, 2.6);
+      key.position.set(6, 11, 5); key.castShadow = true;
+      key.shadow.mapSize.set(2048, 2048);
+      Object.assign(key.shadow.camera, { left: -10, right: 10, top: 10, bottom: -10, near: 1, far: 40 });
+      key.shadow.bias = -0.0004; key.shadow.normalBias = 0.02;
+      scene.add(key);
+      const rim = new THREE.DirectionalLight(0x2E49F0, 1.6); rim.position.set(-8, 4, -6); scene.add(rim);
+      const warm = new THREE.PointLight(0xFD4920, 9, 6, 2); scene.add(warm);
+
+      const YC = 1.3, G = 36;
+      function sphereY(t) {
+        if (t < IMPACTS[0]) { const d = IMPACTS[0] - t; return YC + 0.5 * G * d * d; }
+        for (let k = 0; k < IMPACTS.length; k++) {
+          const a = IMPACTS[k], b = IMPACTS[k + 1] ?? a + 0.5;
+          if (t < b) { const u = t - a; return YC + 0.5 * G * u * (b - a - u); }
+        }
+        return YC;
+      }
+      function heightAt(x, z, base, t) {
+        const r = Math.hypot(x, z);
+        let h = base + 0.12 * Math.sin(0.9 * x + 1.7 * t) * Math.cos(0.8 * z - 1.3 * t);
+        for (const ti of IMPACTS) {
+          const dt = t - ti; if (dt <= 0) continue;
+          const f = 6.4 * dt, a = Math.exp(-1.7 * dt);
+          h += 1.9 * a * (Math.exp(-Math.pow((r - f) / 0.75, 2)) - 0.4 * Math.exp(-Math.pow((r - f + 1.4) / 0.6, 2)));
+          h -= 0.42 * Math.exp(-9 * dt) * Math.exp(-Math.pow(r / 0.95, 2));
+        }
+        return Math.max(0.08, h);
+      }
+      const camT = new THREE.Vector3();
+      window.__s3render = function (t) {
+        // voxels
+        for (let i = 0; i < NG; i++) for (let j = 0; j < NG; j++) {
+          const k = i * NG + j, x = (i - (NG - 1) / 2) * SP, z = (j - (NG - 1) / 2) * SP;
+          const h = heightAt(x, z, baseH[k], t);
+          dummy.position.set(x, 0, z); dummy.scale.set(1, h, 1); dummy.updateMatrix();
+          vox.setMatrixAt(k, dummy.matrix);
+          const u = clamp((h - 0.3) / 1.45);
+          if (u < 0.5) tmpC.copy(cLow).lerp(cMid, Math.pow(u * 2, 1.5)); else tmpC.copy(cMid).lerp(cHigh, (u - 0.5) * 2);
+          vox.setColorAt(k, tmpC);
+        }
+        vox.instanceMatrix.needsUpdate = true; vox.instanceColor.needsUpdate = true;
+        // sphere, squash on contact
+        const sy = sphereY(t);
+        let sq = 0;
+        for (const ti of IMPACTS) { const dt = t - ti; if (dt >= 0 && dt < 0.3) sq += Math.exp(-dt * 20) * Math.cos(dt * 38); }
+        sphere.position.set(0, sy - 0.82 * 0.25 * Math.max(0, sq), 0);
+        sphere.scale.set(1 + 0.15 * sq, 1 - 0.25 * sq, 1 + 0.15 * sq);
+        sphere.rotation.y = t * 0.8;
+        ringGrp.position.copy(sphere.position);
+        ringGrp.rotation.set(1.18, 0.0, 0.32 + t * 0.25);
+        const sa = t * 4.2; sat.position.set(Math.cos(sa) * 1.42, Math.sin(sa) * 1.42, 0);
+        warm.position.set(0, sy - 0.6, 0);
+        // camera: slow orbit, then a push into the sphere at the end of the bar
+        const th = -0.78 + (t - 2.7) * 0.3, phi = 0.56;
+        const push = Math.pow(seg(t, 4.46, 4.714), 3);
+        camT.set(0, 0.95, 0).lerp(sphere.position, Math.min(1, seg(t, 4.36, 4.62) * 1.0));
+        const d = lerp(15.2, 2.0, push);
+        camera.fov = lerp(30, 50, push); camera.updateProjectionMatrix();
+        camera.position.set(camT.x + d * Math.cos(phi) * Math.sin(th), camT.y + d * Math.sin(phi), camT.z + d * Math.cos(phi) * Math.cos(th));
+        camera.lookAt(camT);
+        canvas.style.filter = push > 0.01 ? "blur(" + (16 * push).toFixed(2) + "px)" : "none";
+        renderer.render(scene, camera);
+      };
+      if (typeof window.__lastT === "number" && window.__lastT >= 2.68 && window.__lastT < 4.73) window.__s3render(window.__lastT);
+    </script>
+  </body>
+</html>

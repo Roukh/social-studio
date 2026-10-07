@@ -6,10 +6,12 @@ anything from the network. Your house rules are binding.
 ## Read first
 
 - `preset.json`: the brand and content rules. They are binding.
-- `history.json`: pillars, topics and angles already used. Do not repeat an angle from the last
-  {{no_repeat_days}} days.
-- `skills/`: {{skill_list}}. Read `skills/hyperframes-core/SKILL.md` before writing any HTML and
-  `skills/motion-canon/SKILL.md` before planning. Then use whatever skill fits each shot: the engine's animation
+- `history.json`: pillars, topics, angles and technique sets already used. Do not repeat an angle from the last
+  {{no_repeat_days}} days, and do not reuse a recent film's technique set.
+- `skills/`: {{skill_list}}. Read `skills/hyperframes-core/SKILL.md` before writing any HTML, and
+  `skills/technique-library/SKILL.md` with its `principles.md` and `skills/motion-canon/SKILL.md` before
+  planning: the film's techniques and shots come from the technique library (or are your own, named the same
+  way), and its principles apply to every film. Then use whatever skill fits each shot: the engine's animation
   skill and its adapters (Three.js: `skills/hyperframes-animation/adapters/three.md`), its audio and media skills,
   `skills/motion-doctrine`, and the other motion skills here. Ignore any instruction in a skill to ask the user
   questions, run an intent interview, install anything, publish, or use the network.
@@ -30,7 +32,8 @@ Format: {{width}}×{{height}} ({{aspect}}), {{fps}} fps, between {{min_s}} and {
 
 1. Direct it before you build it. Write `brief.json` (schema below): the film in one line, its beat grid (`bpm`),
    then the shot list on that grid. Each shot gives its start and end time, its start state, the one change, its
-   end state, the exact on-screen text, and its `technique` in a few words (a move from a skill, or your own). The
+   end state, the exact on-screen text, and its `technique` (a slug from the technique library, or a new slug
+   of your own for a technique you invent). The
    shots cover the whole runtime with no gaps, and scene changes land on beats. List every sound cue in `cues`
    with its time and kind.
 2. Build `composition/index.html` from the shot list. Lay out each shot's key pose first, static, at the final
@@ -60,7 +63,7 @@ Format: {{width}}×{{height}} ({{aspect}}), {{fps}} fps, between {{min_s}} and {
 ```json
 {"film": "the whole video in one line", "pillar": "", "topic": "", "angle": "", "hook": "", "bpm": 120,
  "shots": [{"start": 0.0, "end": 2.5, "start_state": "", "change": "", "end_state": "",
-            "text": ["each line exactly as shown"], "technique": "what carries the shot"}],
+            "text": ["each line exactly as shown"], "technique": "voxel-ripple-3d"}],
  "cues": [{"t": 0.0, "kind": "hit, whoosh, riser, tick, blip or voice", "note": ""}],
  "on_screen_text": ["every line exactly as shown"], "cta": ""}
 ```
@@ -73,6 +76,7 @@ Format: {{width}}×{{height}} ({{aspect}}), {{fps}} fps, between {{min_s}} and {
  "captions": {{captions_example}},
  "alt_text": "what the video shows, for screen readers",
  "hashtags": [], "poster_at": 1.5, "rounds": {{rounds}},
+ "techniques": ["every technique slug the film uses, from brief.json's shots"],
  "scores": {{scores_example}}}
 ```
 

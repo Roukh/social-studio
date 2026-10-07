@@ -16,13 +16,13 @@ Part of [[index]]. The prompts, skills and tools that decide how a made video lo
 | Field | Value |
 |---|---|
 | Purpose | Tell the maker how to work (house rules, task) and give it skills and tools inside the session |
-| Owned paths | `data/house.md` (house rules template), `data/session_prompt.md` (TASK.md template with the `brief.json` and `video.json` schemas), `data/SKILL.md` (agent guide to the CLI), `data/skills/motion-doctrine/` (13 blueprints, Apache-2.0 NOTICE), `data/skills/motion-canon/` (non-AI canon), `data/skills/vendor/` (16 packs, 28 skills, `skills.lock.json`, `NOTICE.md`), `data/tools/sound.mjs` |
+| Owned paths | `data/house.md` (house rules template), `data/session_prompt.md` (TASK.md template with the `brief.json` and `video.json` schemas), `data/SKILL.md` (agent guide to the CLI), `data/skills/motion-doctrine/` (13 blueprints, Apache-2.0 NOTICE), `data/skills/motion-canon/` (non-AI canon), `data/skills/technique-library/` (principles, one entry per technique, the reel's composition as the worked example), `data/kit/motion-kit.js` (helpers in every composition as `window.kit`), `data/skills/vendor/` (16 packs, 28 skills, `skills.lock.json`, `NOTICE.md`), `data/tools/sound.mjs` |
 | In | preset values filled into `{{...}}` by [[runner]] (`min_text_px`, `width`, `height`, `format_note`, `motion_rule`, `end_card_pct`, `rules`, `skill_list`, `brief_block`, `revision_block`); `agent.engine_skills`, `agent.package_skills`, `agent.skills` |
 | Out | `home/house.md` (system channel), `work/TASK.md`, `work/skills/*`, `work/tools/*` in each session |
 
 ## Mounting order (`runner._skills`)
 
-1. Shipped: `motion-doctrine`, `motion-canon` (names reserved).
+1. Shipped: `motion-doctrine`, `motion-canon`, `technique-library` (names reserved).
 2. Vendored packs named in `agent.package_skills`, from `skills.lock.json`.
 3. Engine skills from the pinned tag: `agent.engine_skills`, default `hyperframes-core`, `hyperframes-cli`, `hyperframes-animation`, `hyperframes-audio`, `media-use`.
 4. Preset skills in `agent.skills` (inline text or a folder inside the repo; never `.env` files).
@@ -35,6 +35,11 @@ Part of [[index]]. The prompts, skills and tools that decide how a made video lo
 - Sound: `brief.json` lists `cues`; `tools/sound.mjs` synthesizes bed and effects in code (deterministic, ~0.3 s for 15 s); `skills/media-use/audio/assets/sfx/` has 19 Pixabay effects; `hyperframes tts` speaks offline. An `<audio>` without an `id` renders silent (rule R8).
 - Vendored skills: each pack pinned to a commit with licence and `tree_sha256` in `skills.lock.json`; no-licence sources are never vendored (rule R7). Doctor does not verify the hashes yet (job J3).
 - Templates stay brand-neutral; brand values come only from the preset.
+- The technique library (operator, 2026-10-07): every film picks its set of techniques and shots from it, applies its `principles.md`, names each shot's technique by slug in `brief.json`, and lists the set in `video.json` `techniques`. `history.json` carries recent sets so the next film differs. A brand gives colours and fonts; the library gives everything else.
+  - Entries are grown from reference films the operator shares, studied shot by shot.
+  - Each entry has a slug, its family, what it looks like, how long it wants, how to build it, its sound and its source.
+  - Each entry points into the worked example, `examples/reel-2026-10-06.html`.
+  - A technique the operator rejects is removed.
 
 ## Rules and open work
 
