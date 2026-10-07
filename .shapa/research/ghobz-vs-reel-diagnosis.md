@@ -4,7 +4,7 @@ type: reference
 created: "2026-10-07T21:30:00Z"
 consequence: 8
 locus: output
-summary: Why the ghobz intro (video 5) looks far weaker than the social-studio reel (video 4) - same model and rounds, different preset - measured, with the options to close the gap.
+summary: Why the ghobz intro (video 5) is far weaker than the reel (video 4) - same model and rounds, different preset - measured, with options to close the gap.
 scope: repo
 status: active
 ---
