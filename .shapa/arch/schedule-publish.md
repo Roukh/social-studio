@@ -23,7 +23,10 @@ Part of [[index]]. One route, Buffer, with two places to approve (rule R14). In 
 ## Flow: approval in Buffer (drafts)
 
 1. On when Buffer is connected, unless `publish.buffer.drafts = false`. After `make` returns, the CLI (not the agent, whose session has ended and never held the Buffer key) calls `draft` for each new video; `post draft ID` does the same by hand. Only a video in `review` that is on no post goes.
-2. Channels are Buffer's connected Instagram, Facebook and X ones (or `publish.buffer.channels`). A second channel on the same network is skipped, since several accounts is a later feature (F8). A text over the network's limit is skipped.
+2. Channels are every connected, unlocked Buffer channel on any network Buffer serves, with every account on it (operator 2026-10-07: a channel connected later gets the next video). `publish.buffer.channels` narrows the list. Buffer's services on 2026-10-07 were bluesky, facebook, googlebusiness, instagram, linkedin, mastodon, pinterest, startPage, substack, threads, tiktok, twitter, whatsapp and youtube.
+   - Text: the maker's caption for that network, else the default caption or the description.
+   - Text limits: Instagram 2,196 (a line break counts 2), Facebook 5,000, X 280 (a link counts 23), LinkedIn 3,000 (a link counts 24), Pinterest 500, TikTok 2,200, Threads 500, Bluesky 300, YouTube 5,000, Google Business 4,000 and Mastodon 500. A text over its limit is skipped. Start Page, Substack and WhatsApp have no published limit.
+   - Metadata: YouTube, TikTok and Pinterest get the title (100 at most), and Google Business gets type `whats_new` (its one required field).
 3. `media.ensure_hosted` uploads the file, then one `posts` row (`created_by drafts`, status `open`) and one `draft` target per channel are written. Then `createPost` runs with `saveToDraft: true` and `mode: addToQueue`, with the same per-network shape as below. The video stays `review`. When no channel accepted a draft, the post is cancelled and the video is free to try again.
 4. In Buffer the operator schedules or queues a draft (approves it), edits it, or deletes it. Buffer reports `draft` or `needs_approval` while it waits.
 5. `post sync` reads every draft target on each run. `scheduled` or `sending` turns the target `pending` at Buffer's time and the post `scheduled`. `sent` records the URL. `error` records Buffer's message. A deleted draft turns that channel down (`cancelled`). Once nothing is a draft or pending, the post settles. With any channel posted, the video goes `review → posted`. With all failed, it becomes `failed`. With every draft deleted, the post is cancelled and the video `rejected`.
@@ -67,7 +70,8 @@ Railway buckets cannot be public (docs.railway.com/storage-buckets). Buffer want
 - Drafts publish nothing. Only a human scheduling them in Buffer makes them posts.
 - `post sync` only reads Buffer.
 - The database allows `review → posted|failed` only for a video on a `drafts` post (schema v3 trigger).
-- Drafts hold no time slot: the one-post-per-second-per-network index covers `pending` and `posted` only.
+- Drafts hold no time slot. The slot index allows one live post per channel and second, and covers `pending` and `posted` only. A post has one target per Buffer channel (schema v4), so several accounts on one network fit in one post.
+- The terminal route still offers Instagram, Facebook and X only. Drafts take every connected channel.
 - Mutations are never retried, because createPost has no idempotency key.
   - A network error during createPost fails that target with "check Buffer's queue/drafts".
   - The next sync fails a target that has no id, with the same note.
@@ -84,7 +88,8 @@ Railway buckets cannot be public (docs.railway.com/storage-buckets). Buffer want
 
 - Rules: R14 (who approves and how posts leave), R4 (signed approval, post text included).
 - Ledger:
-  - F9: approval in Buffer (J27 drafts, J28 sync and withdraw);
+  - F9: approval in Buffer (merged 2026-10-07);
+  - F10: drafts to every connected channel (J29);
   - J26: the intro video's live post (operator task T5);
   - F7: terminal UI;
   - F8: several accounts;

@@ -20,9 +20,9 @@ Part of [[index]]. The source of truth for every video, session, approval and po
 | In | session and video rows from [[runner]]; status changes from `review` commands in [[cli]]; post rows from [[schedule-publish]] |
 | Out | approved videos with a verifiable signature; agent views; `check_video` verdicts for fill and publish |
 
-## Data model (schema v3, `PRAGMA user_version`, WAL, foreign keys on)
+## Data model (schema v4, `PRAGMA user_version`, WAL, foreign keys on)
 
-v2 (2026-10-06, feature F6) only adds three `post_targets` columns, so a process still running v1 code keeps working against a v2 file. v3 (2026-10-07, feature F9) replaces two schema objects so approval can happen in Buffer: the transition trigger, and the slot index, which no longer covers drafts.
+v2 (2026-10-06, feature F6) only adds three `post_targets` columns, so a process still running v1 code keeps working against a v2 file. v3 (2026-10-07, feature F9) replaces two schema objects so approval can happen in Buffer: the transition trigger, and the slot index, which no longer covers drafts. v4 (2026-10-07, feature F10) rebuilds `post_targets` with the same columns. Targets become unique per (post, Buffer channel) instead of per (post, platform), so several accounts on one network fit in one post. The slot index becomes one live post per channel and second. The `agent_calendar` view is recreated unchanged. A v2 copy of the ghobz library upgraded to v4 with every row kept and a clean integrity check.
 
 | Table | Holds |
 |---|---|
@@ -31,7 +31,7 @@ v2 (2026-10-06, feature F6) only adds three `post_targets` columns, so a process
 | `video_events` | append-only status history with the actor from `ss_actor()` |
 | `approvals` | video_id, sha256, payload, ssh signature |
 | `posts` | when (UTC), `video_id UNIQUE`, `created_by` (`drafts` for a video sent to Buffer as drafts); status `open` (drafts waiting in Buffer), scheduled, posting, posted, partial, failed, cancelled (`missed` was the removed calendar's and is no longer written) |
-| `post_targets` | per platform: status (`draft` waits for approval in Buffer, pending, posted, failed, cancelled), `platform_post_id` (unique per platform; the Buffer post id), url, attempts, next_try_at; v2: `via` (always buffer now; `direct` was the removed route), `channel_id` (Buffer channel), `text` (exactly what was sent) |
+| `post_targets` | per Buffer channel (v4; per platform before): status (`draft` waits for approval in Buffer, pending, posted, failed, cancelled), `platform_post_id` (unique per platform; the Buffer post id), url, attempts, next_try_at; v2: `via` (always buffer now; `direct` was the removed route), `channel_id` (Buffer channel), `text` (exactly what was sent) |
 
 | From | Allowed to |
 |---|---|

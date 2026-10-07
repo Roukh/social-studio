@@ -47,8 +47,44 @@ Pricing, from third-party sources: Free; Essentials about $5-6 per channel per m
 
 The operator chose Buffer for posting and scheduling only, over GraphQL, with the operator picking each post at a terminal (rule R14). Comments and engagement are out for now. The direct platform route was removed the same day. Hosting: a Railway bucket on the ghobz-projects project, which is private (Railway does not support public buckets; docs.railway.com/storage-buckets), read through a streaming proxy service, because Buffer wants a direct URL and not a redirect to a presigned link. As built (feature F6): `platforms/buffer.py`, `platforms/media.py` (S3-compatible, SigV4), `posting.py` and `deploy/media-proxy/`; see [[schedule-publish]].
 
+## Drafts and every network (2026-10-07)
+
+On 2026-10-07 the operator moved approval into Buffer: every finished video goes to Buffer as a draft on every connected channel, on any network and any account. A schema introspection of the live API that day, with the operator's key, found the following.
+
+- **CreatePostInput** has `saveToDraft` and `needsApproval`.
+  - `saveToDraft`: the post's status is `draft`, posting limits are not checked, and nothing publishes until someone schedules it.
+  - `needsApproval`: always a draft; valid only when the channel's posting policy requires approval.
+- **PostStatus** values: `draft`, `error`, `needs_approval`, `scheduled`, `sending`, `sent`.
+- **Services**: bluesky, facebook, googlebusiness, instagram, linkedin, mastodon, pinterest, startPage, substack, threads, tiktok, twitter, whatsapp, youtube.
+- **Metadata**: only three networks have required fields.
+  - Facebook needs `type`.
+  - Google Business (`google`) needs `type`: `event`, `offer` or `whats_new`.
+  - Instagram needs `type` and `shouldShareToFeed`.
+  - YouTube, TikTok and Pinterest take an optional `title`.
+- **Text limits** (developers.buffer.com/guides/character-limits), counted in UTF-16 units; Bluesky counts graphemes.
+
+  | Network | Limit | Counting note |
+  |---|---|---|
+  | Instagram | 2,196 | a line break counts 2 |
+  | Facebook | 5,000 | |
+  | X | 280 | 25,000 on paid tiers |
+  | LinkedIn | 3,000 | a URL counts 24 |
+  | Pinterest | 500 | title 100 |
+  | TikTok | 2,200 | with video |
+  | Threads | 500 | |
+  | Bluesky | 300 | |
+  | YouTube | 5,000 | title 100 |
+  | Google Business | 4,000 | |
+  | Mastodon | 500 | server default |
+
+  Start Page, Substack and WhatsApp are not listed.
+
+As built: feature F9 (drafts, sync, withdraw) and F10 (every channel; schema v4 keys targets by channel); see [[schedule-publish]].
+
 ## Sources
 
+- https://developers.buffer.com/examples/create-draft-post.md and the live schema (introspection, 2026-10-07)
+- https://developers.buffer.com/guides/character-limits.md
 - https://buffer.com/resources/buffer-api-is-here/
 - https://developers.buffer.com/reference.html (no comment query or mutation, no upload mutation)
 - https://developers.buffer.com/guides/post-metrics.html (metric list, insightsRead scope, personal key only, daily cadence)
@@ -60,4 +96,4 @@ The operator chose Buffer for posting and scheduling only, over GraphQL, with th
 
 ## Date
 
-Gathered 2026-10-06.
+Gathered 2026-10-06; drafts and networks added 2026-10-07.
