@@ -62,10 +62,17 @@ def settings(ctx: Ctx) -> dict:
         if not s[k].startswith("https://"):
             raise ConfigError(f"publish.media.{k} must be an https:// URL")
     s["region"] = s["region"] or "auto"
-    s["addressing"] = s["addressing"] or "virtual"
-    if s["addressing"] not in ("virtual", "path"):
-        raise ConfigError("publish.media.addressing must be virtual or path")
+    s["addressing"] = url_style(s["addressing"])
     return s
+
+
+def url_style(text: str) -> str:
+    """virtual or path; providers spell them differently (Railway says virtual-host, others path-style)."""
+    style = (text or "virtual").strip().lower()
+    for name in ("virtual", "path"):
+        if style.startswith(name):
+            return name
+    raise ConfigError(f"publish.media.addressing {text!r} must be virtual or path")
 
 
 def object_url(s: dict, key: str) -> str:
@@ -132,7 +139,7 @@ class MediaAdapter(Adapter):
         given = {k: os.environ.get(v, "").strip() for k, v in ENV_SETTINGS.items()}
         if given["endpoint"] and given["bucket"] and given["public_url"] and all(os.environ.get(k) for k in KEYS):
             print("using the media settings and keys from the environment")
-            values = {**given, "region": given["region"] or "auto", "addressing": given["addressing"] or "virtual",
+            values = {**given, "region": given["region"] or "auto", "addressing": url_style(given["addressing"]),
                       "prefix": given["prefix"] or "social-studio/"}
             keys = {k: os.environ[k] for k in KEYS}
         else:
@@ -142,7 +149,7 @@ class MediaAdapter(Adapter):
                 "endpoint": ask("S3 API endpoint (Railway: https://t3.storageapi.dev)"),
                 "bucket": ask("bucket name for the S3 API (Railway: the name with its hash)"),
                 "region": input("region [auto]: ").strip() or "auto",
-                "addressing": input("URL style, virtual (Railway, AWS) or path (MinIO) [virtual]: ").strip() or "virtual",
+                "addressing": url_style(input("URL style, virtual (Railway, AWS) or path (MinIO) [virtual]: ")),
                 "public_url": ask("public base URL the videos are read from (the media proxy's https:// domain)"),
                 "prefix": input("key prefix [social-studio/]: ").strip() or "social-studio/",
             }

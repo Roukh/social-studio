@@ -40,7 +40,7 @@ done
 echo
 [ -n "$CREDS" ] || { echo "bucket $BUCKET_NAME is still not deployed after 3 minutes: open the Railway canvas" \
   "(railway open), deploy any staged changes, then run this again" >&2; exit 1; }
-STYLE=$(jq -r '.urlStyle // "virtual"' <<<"$CREDS")
+case $(jq -r '.urlStyle // "virtual"' <<<"$CREDS") in path*) STYLE=path ;; *) STYLE=virtual ;; esac
 railway variable set --service "$SERVICE" "$(ref ENDPOINT)" "$(ref BUCKET)" "$(ref ACCESS_KEY_ID)" \
   "$(ref SECRET_ACCESS_KEY)" "$(ref REGION)" "ADDRESSING=$STYLE" >/dev/null
 echo "proxy $SERVICE now reads bucket $BUCKET_NAME ($STYLE-hosted URLs)"

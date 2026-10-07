@@ -56,7 +56,7 @@ def sign(method: str, url: str, headers: dict, payload_hash: str, *, access: str
 
 def object_url(env: dict, key: str) -> str:
     endpoint = urlsplit(env["ENDPOINT"])
-    if env.get("ADDRESSING", "virtual") == "path":
+    if env.get("ADDRESSING", "virtual").lower().startswith("path"):
         return f"{endpoint.scheme}://{endpoint.netloc}/{quote(env['BUCKET'])}/{quote(key)}"
     return f"{endpoint.scheme}://{env['BUCKET']}.{endpoint.netloc}/{quote(key)}"
 

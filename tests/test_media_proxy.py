@@ -145,7 +145,7 @@ def test_media_connect_takes_settings_and_keys_from_the_environment(tmp_path, mo
     (tmp_path / PROJECT_FILE).write_text("")
     for k, v in {"MEDIA_ENDPOINT": "https://t3.storageapi.dev", "MEDIA_BUCKET": "videos-x1",
                  "MEDIA_PUBLIC_URL": "https://media.example.app", "MEDIA_ACCESS_KEY_ID": "AK",
-                 "MEDIA_SECRET_ACCESS_KEY": "SK"}.items():
+                 "MEDIA_SECRET_ACCESS_KEY": "SK", "MEDIA_ADDRESSING": "virtual-host"}.items():
         monkeypatch.setenv(k, v)
     monkeypatch.setattr(media, "require_human", lambda action: None)
     ctx = make_ctx(str(tmp_path))
@@ -155,6 +155,18 @@ def test_media_connect_takes_settings_and_keys_from_the_environment(tmp_path, mo
                      "addressing": "virtual", "public_url": "https://media.example.app", "prefix": "social-studio/"}
     assert {k: load_env(ctx.env_path)[k] for k in media.KEYS} == {"MEDIA_ACCESS_KEY_ID": "AK",
                                                                   "MEDIA_SECRET_ACCESS_KEY": "SK"}
+
+
+@pytest.mark.parametrize("given,style", [("virtual-host", "virtual"), ("Virtual", "virtual"), ("", "virtual"),
+                                         ("path-style", "path"), ("path", "path")])
+def test_media_reads_each_providers_url_style(given, style):
+    assert media.url_style(given) == style
+
+
+def test_media_refuses_an_unknown_url_style():
+    from social_studio.core import ConfigError
+    with pytest.raises(ConfigError):
+        media.url_style("dns")
 
 
 def test_media_connect_is_human_only(tmp_path, monkeypatch):
