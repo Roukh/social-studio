@@ -48,10 +48,10 @@ Part of [[index]]. Two routes. Buffer is the one in use (rule R14): the operator
 - Buffer HTTP reads happen outside database write transactions; one posting process at a time through `post.lock`.
 - `posts.video_id UNIQUE`: one live post per video; a failed post releases its video when the operator tries again.
 - Agent views never show which video sits in a post.
-- Not run against live Buffer yet (task T3); the client follows developers.buffer.com as of 2026-10-06, and SigV4 matches the AWS get-vanilla test vector.
+- Not run against live Buffer yet (job J22, operator task T4); the client follows developers.buffer.com as of 2026-10-06, and SigV4 matches the AWS get-vanilla test vector.
 
 ## Rules and open work
 
 - Rules: R14 (operator picks Buffer posts), R4 (signed approval, post text included), R3 (direct route only).
-- Ledger: F6 (Buffer: J18-J21, operator task T3), F7 (terminal UI), F4 (direct-route live tests J10-J12; duplicate window J13), T1 (approval key), J15 (launchd and schtasks timers).
+- Ledger: F6 (Buffer: J18-J21 done; live test J22 with operator task T4), F7 (terminal UI), F4 (direct-route live tests J10-J12; duplicate window J13), T1 (approval key), J15 (launchd and schtasks timers).
 - Research: [[buffer-api-coverage]], [[social-platform-apis]].
