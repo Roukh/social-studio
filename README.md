@@ -1,7 +1,8 @@
 # social-studio
 
-A local command-line tool that makes short motion-graphics videos with an LLM agent, keeps them in
-a library, and posts the ones a human approved on the dates you set.
+A local command-line tool that makes short motion-graphics videos with an LLM agent, keeps each one
+in a library with its full post text, and posts the ones a human approved through
+[Buffer](https://buffer.com) at the times you pick.
 
 - **One isolated session per video.** Each try runs your harness (Claude Code, OpenCode or Codex)
   headless, in a fresh throwaway home, inside a bubblewrap sandbox that cannot see your library,
@@ -12,9 +13,9 @@ a library, and posts the ones a human approved on the dates you set.
 - **Deterministic renders.** Compositions are HTML rendered frame by frame by
   [HyperFrames](https://github.com/heygen-com/hyperframes) (Apache-2.0) at a pinned version with its
   own pinned Chrome to a near-lossless master, then encoded to H.264 sized for social platforms.
-- **A human approves; code schedules.** Approval is a passphrase-protected signature over the exact
-  file. You (or your agent) choose dates and times; the scheduler fills each slot with the oldest
-  approved video, and a scheduled video disappears from everything an agent can list.
+- **A human approves and posts; agents never do.** Approval is a passphrase-protected signature over
+  the exact file and its post text. `social-studio post` at your terminal picks an approved post,
+  its channels and a time; code uploads the file and schedules it through Buffer's GraphQL API.
 - **Two ways in.** Run it yourself, or let an agent in any harness drive it through the CLI
   (`--json` everywhere, a shipped `SKILL.md`).
 - **One folder, no sprawl.** A project folder holds config, keys, presets, the library and all
@@ -38,9 +39,11 @@ social-studio preset new mybrand            # then edit presets/mybrand/preset.t
 social-studio make -n 3 --preset mybrand    # three videos, three isolated sessions
 social-studio review                        # watch, then approve / reject / send back with notes
 social-studio review rescore 4 --times 2    # re-run the independent reviewer to see how much its scores move
-social-studio channel connect youtube       # bring your own developer app (see below)
-social-studio schedule add 2026-10-05 09:00 -p youtube --every 2d --count 3
-social-studio timer install                 # systemd user timer runs `post run` every 10 minutes (human only)
+social-studio channel connect buffer        # your Buffer personal API key (human only)
+social-studio channel connect media         # a public S3-compatible bucket Buffer fetches videos from
+social-studio post                          # pick an approved post, channels, a time; confirm
+social-studio post list                     # what is queued or sent, with post URLs
+social-studio timer install                 # systemd user timer: `post run` every 10 minutes syncs Buffer's results
 ```
 
 ## Concepts
@@ -82,7 +85,20 @@ event log.
 human at a terminal can run it. Anthropic allows a Claude
 subscription only through the unmodified `claude` binary, which is exactly how this tool uses it.
 
-## Platforms
+## Posting through Buffer
+
+Instagram (as a Reel), Facebook (Reel when vertical and 90 s or less, else a video post) and X go
+out through [Buffer's GraphQL API](https://developers.buffer.com) with a personal API key, on any
+Buffer plan. Buffer has no upload endpoint and fetches the video from a URL when the post goes out,
+so `post` first uploads the file to an S3-compatible bucket with public read (Cloudflare R2,
+AWS S3, Backblaze B2, MinIO) under its sha256, signed with SigV4, and checks the public URL answers.
+
+Before anything leaves, `post` re-checks the approval signature, re-hashes the file, checks that the
+post text is the one approved, and checks each network's length limit. `post sync` (and every
+`post run`) reads back what Buffer did: the post URL, or Buffer's error. `post cancel ID` removes
+queued posts from Buffer. Buffer's API does not read or reply to comments.
+
+## Platforms directly (your own developer apps)
 
 | Platform | How | Notes |
 |---|---|---|
@@ -107,9 +123,12 @@ subscription only through the unmodified `claude` binary, which is exactly how t
 - Human-only commands (approve, reject, revise, reveal scheduled videos, connect accounts) need an
   interactive terminal, and approval also needs the passphrase. Never add the approval key to
   ssh-agent.
-- The publisher re-verifies the signature and re-hashes the file before every upload.
+- The publisher re-verifies the signature and re-hashes the file before every upload; the Buffer
+  route also checks the signed post text. Scheduling, listing and cancelling Buffer posts, and the
+  `publish.buffer` and `publish.media` settings, are human-only.
 
 ## For agents
 
 `social-studio skill install --target claude` (or `opencode`, `codex`, a folder) installs the agent
-guide. Agents use `social-studio --json agent status|videos|topics|calendar|schedule` and `make`.
+guide. Agents use `social-studio --json agent status|videos|topics|calendar` and `make`; posting
+stays with the human.

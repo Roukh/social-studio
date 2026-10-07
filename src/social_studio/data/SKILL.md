@@ -1,12 +1,14 @@
 ---
 name: social-studio
-description: Make short motion-graphics videos for social media and put approved ones on the posting calendar, with the social-studio CLI. Use when asked to create social videos, check what is waiting for review, or schedule posts for given dates and times.
+description: Make short motion-graphics videos for social media, each with its full post text, with the social-studio CLI; the operator approves them and posts them through Buffer. Use when asked to create social videos, check what is waiting for review, or what is ready to post.
 ---
 
 # social-studio (agent guide)
 
-`social-studio` makes videos in isolated, sandboxed agent sessions, keeps them in a library, and
-posts the ones a human approved. Add `--json` to any command for machine-readable output.
+`social-studio` makes videos in isolated, sandboxed agent sessions and keeps each one in a library
+with its full post: title, description, captions per network, hashtags. A human approves the video
+and its text together, then posts it through Buffer with `social-studio post`. Agents never post.
+Add `--json` to any command for machine-readable output.
 Errors come back as `{"error": {"code", "message", "hint"}}` with a non-zero exit code.
 
 Run it from the project folder (it holds `social-studio.toml`), from a folder with a `social/`
@@ -27,13 +29,12 @@ everything is.
 | List videos not yet on the calendar | `social-studio --json agent videos` |
 | Topics already covered (avoid repeats) | `social-studio --json agent topics` |
 | See the calendar (when, not which video) | `social-studio --json agent calendar` |
-| Put posts on the calendar | `social-studio --json agent schedule 2026-10-05 09:00 -p instagram -p youtube` |
-| Several posts on a cadence | `social-studio --json agent schedule 2026-10-05 09:00 -p instagram --every 2d --count 5` |
+| Calendar slots for the direct route (the operator's own developer apps, not Buffer) | `social-studio --json agent schedule 2026-10-05 09:00 -p instagram --every 2d --count 5` |
 
-Dates are `YYYY-MM-DD`, times are `HH:MM` 24-hour in the operator's time zone. You decide the
-dates and times from the operator's request ("every other day at 9", "spread 6 posts over two
-weeks"): work the dates out yourself and call `agent schedule` once per post, or once with
-`--every` and `--count` for a fixed cadence.
+Posting through Buffer (Instagram, Facebook, X) is the operator's: `social-studio post` at their
+terminal picks an approved post, its channels and a time. When approved videos are waiting, tell the
+operator to run it. The direct-route calendar takes `YYYY-MM-DD` and `HH:MM` 24-hour in the
+operator's time zone; use it only when the operator asks for it.
 
 ## What you cannot do, by design
 
@@ -42,7 +43,8 @@ weeks"): work the dates out yourself and call `agent schedule` once per post, or
 - Choose which video goes into a slot. The scheduler fills each slot with the oldest approved
   video, and a filled slot's video disappears from everything you can list. A slot with no
   approved video stays open and fills when the next video is approved.
-- See or change scheduled and posted videos, or connect social accounts.
+- Schedule, list or cancel Buffer posts (`social-studio post`), change where posts and videos go
+  (`publish.buffer`, `publish.media`), see or change scheduled and posted videos, or connect accounts.
 - Write outside the repo that holds the project. Running without the sandbox, installing the
   timer, and installing a skill outside the repo are human-only.
 
@@ -52,5 +54,5 @@ If a command answers `denied` (exit 77), it is human-only: tell the operator whi
 
 1. `agent status` to see how many videos wait for review and how many slots are open.
 2. `make -n <count>` if the library is short of approved or pending videos.
-3. Tell the operator to run `social-studio review` to approve them.
-4. `agent schedule` the dates and times they asked for.
+3. Tell the operator to run `social-studio review` to approve them (the video and its post text).
+4. Tell the operator to run `social-studio post` to schedule approved ones through Buffer.

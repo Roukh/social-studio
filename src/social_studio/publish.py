@@ -1,4 +1,5 @@
-"""`post run`: publish every due target whose video carries a valid human approval signature.
+"""`post run`: publish every due direct-adapter target whose video carries a valid human approval
+signature, then read back the due Buffer posts (Buffer publishes those itself).
 
 Safe to run from a timer every few minutes: a lock stops overlapping runs, a stored platform post
 id makes a retry a no-op, failures back off (5 min, 30 min, 2 h) and then stop.
@@ -6,6 +7,7 @@ id makes a retry a no-op, failures back off (5 min, 30 min, 2 h) and then stop.
 from __future__ import annotations
 
 import fcntl
+from contextlib import contextmanager
 from datetime import timedelta
 
 from . import approval, db, platforms
@@ -19,6 +21,21 @@ def _preset_publish(ctx: Ctx, name: str) -> dict:
         return load_preset(ctx, name).get("publish", {}) or {}
     except StudioError:
         return {}
+
+
+@contextmanager
+def post_lock(ctx: Ctx, wait: bool = False, held: bool = False):
+    """One posting process at a time: `post run`, `post sync`, scheduling and cancelling share post.lock."""
+    if held:
+        yield
+        return
+    ctx.studio_dir.mkdir(parents=True, exist_ok=True)
+    with open(ctx.studio_dir / "post.lock", "w") as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | (0 if wait else fcntl.LOCK_NB))
+        except BlockingIOError:
+            raise Unavailable("another posting command is in progress; try again in a minute") from None
+        yield
 
 
 def _settle_post(con, post_id: int) -> None:
@@ -35,12 +52,15 @@ def _settle_post(con, post_id: int) -> None:
 
 
 def run(ctx: Ctx, dry_run: bool = False, only: int | None = None) -> list[dict]:
-    ctx.studio_dir.mkdir(parents=True, exist_ok=True)
-    lock = open(ctx.studio_dir / "post.lock", "w")
-    try:
-        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-    except BlockingIOError:
-        raise Unavailable("another `post run` is in progress") from None
+    with post_lock(ctx):
+        results = _run(ctx, dry_run, only)
+        if not dry_run and only is None:
+            from . import posting
+            results += posting.sync(ctx, locked=True)
+    return results
+
+
+def _run(ctx: Ctx, dry_run: bool, only: int | None) -> list[dict]:
     from .schedule import fill_open
     fill_open(ctx, actor="post")
     con = db.connect(ctx, actor="post")
@@ -54,7 +74,8 @@ def run(ctx: Ctx, dry_run: bool = False, only: int | None = None) -> list[dict]:
                 con.execute("UPDATE post_targets SET status = 'cancelled' WHERE post_id = ?", (m["id"],))
                 results.append({"post_id": m["id"], "status": "missed", "reason": "no approved video was available"})
         q = ("SELECT t.*, p.video_id FROM post_targets t JOIN posts p ON p.id = t.post_id "
-             "WHERE t.status = 'pending' AND p.status IN ('scheduled', 'posting', 'partial') AND t.at <= ? "
+             "WHERE t.via = 'direct' AND t.status = 'pending' AND p.status IN ('scheduled', 'posting', 'partial') "
+             "AND t.at <= ? "
              "AND (t.next_try_at IS NULL OR t.next_try_at <= ?)")
         args: tuple = (now, now)
         if only is not None:
@@ -105,5 +126,4 @@ def run(ctx: Ctx, dry_run: bool = False, only: int | None = None) -> list[dict]:
             results.append(entry)
     finally:
         con.close()
-        lock.close()
     return results

@@ -34,7 +34,8 @@ Part of [[index]]. The only entry point for humans, agents and the timer.
 | `library list|show|path|open|dir` | browse; `dir` moves the library inside the boundary | `--all` human-only |
 | `review walk|list|approve|reject|revise|rescore` | human review; `rescore ID --times N --effort` re-runs the reviewer | approve signs at a TTY |
 | `schedule add|list|cancel`; `agent status|videos|topics|calendar|schedule` | calendar; agent views hide scheduled, posted and failed videos | `--videos` human-only |
-| `post run`, `channel list|connect|test|disconnect`, `timer install|remove|status` | publishing, accounts, systemd user timer | timer human-only |
+| `post [pick]`, `post schedule ID --at 'YYYY-MM-DD HH:MM'|now [-c instagram|facebook|x] [--yes] [--dry-run]`, `post list|sync|cancel ID` | Buffer route (rule R14): pick an approved post, channels and time, then upload and createPost; sync reads back what Buffer did | pick, schedule, list, cancel human-only |
+| `post run`, `channel list|connect|test|disconnect` (`buffer`, `media`, platforms), `timer install|remove|status` | timer publishing (direct adapters, then a Buffer sync), accounts, systemd user timer | connect, `publish.buffer.*`, `publish.media.*` and timer human-only |
 | `completion bash|zsh`, `skill install|show`, `version` | shell completion (zsh wraps bash), install the agent skill into a harness | out-of-repo installs human-only |
 
 ## Invariants

@@ -13,9 +13,10 @@ import os
 import shutil
 import subprocess
 import sys
+import textwrap
 from pathlib import Path
 
-from . import __version__, approval, db, engine, review, schedule
+from . import __version__, approval, db, engine, platforms, publish, review, schedule
 from .core import (EFFORTS, FORMATS, GUARDED_CONFIG, PKG_DIR, PROJECT_FILE, SOUNDS, ConfigError, Ctx, DataError,
                    StudioError, UsageError, dget, dset, emit, format_sets, guarded, is_tty, iso, list_presets, load_preset,
                    load_toml, log, make_ctx, parse_sets, parse_value, require_human, save_env, validate_preset)
@@ -30,7 +31,9 @@ DEFAULT_CONFIG = {
                 "opencode": {"model": ""},
                 "codex": {"model": "", "auth": ""}},
     "sandbox": {"enabled": True},
-    "publish": {"default_platforms": [], "youtube": {"privacy": "private"}},
+    "publish": {"default_platforms": [], "youtube": {"privacy": "private"},
+                "buffer": {"organization": "", "channels": [], "ai_label": False},
+                "media": {"endpoint": "", "bucket": "", "region": "auto", "public_url": "", "prefix": "social-studio/"}},
 }
 
 
@@ -194,7 +197,7 @@ def cmd_config(ctx: Ctx, a) -> int:
         if a.key == "paths.library":
             raise UsageError("move the library with `social-studio library dir <folder>`",
                              "it moves the videos and keeps the database pointing at them")
-        if guarded(a.key, GUARDED_CONFIG):  # the harness binary, its credentials, the sandbox, preset folders
+        if guarded(a.key, GUARDED_CONFIG):  # harness binary and credentials, sandbox, preset folders, post routes
             require_human(f"setting {a.key}")
         dset(ctx.config, a.key, parse_value(a.value))
         ctx.save_config()
@@ -287,7 +290,8 @@ def cmd_make(ctx: Ctx, a) -> int:
         (f"video {r['video_id']}: {r['title']}  ({r['bytes'] / 1e6:.1f} MB, {r['duration']:.1f}s)  -> {r['file']}"
          if r["ok"] else f"FAILED session {r['session']}: {r['error']}") for r in results)
     if ok:
-        human += "\n\nNext: a human reviews them in a terminal with `social-studio review`."
+        human += ("\n\nNext: a human reviews them in a terminal with `social-studio review`, "
+                  "then schedules approved ones with `social-studio post`.")
     emit(ctx, {"made": len(ok), "failed": len(results) - len(ok), "results": results}, human)
     return 0 if ok else 1
 
@@ -379,8 +383,8 @@ def cmd_library(ctx: Ctx, a) -> int:
 
 
 def _review_rows(con) -> list[dict]:
-    return db.rows(con.execute("SELECT id, status, title, description, dir, file, meta, sha256 FROM videos "
-                               "WHERE status IN ('review', 'revision') ORDER BY id"))
+    return db.rows(con.execute("SELECT id, status, title, description, dir, file, meta, sha256, slug, pillar, preset "
+                               "FROM videos WHERE status IN ('review', 'revision') ORDER BY id"))
 
 
 def _approve(ctx: Ctx, ids: list[int]) -> dict:
@@ -468,9 +472,11 @@ def cmd_review(ctx: Ctx, a) -> int:
             print(f"  reviewer ({verdict.get('model')}): pass={verdict.get('pass')}  {verdict.get('summary', '')}")
             for issue in verdict.get("issues", [])[:5]:
                 print(f"    - {issue}")
-        caps = meta.get("video", {}).get("captions", {})
-        for k, v in list(caps.items())[:3]:
-            print(f"  caption[{k}]: {v[:200]}")
+        # Approving signs this text with the video: show it exactly as each network will get it.
+        caps = meta.get("video", {}).get("captions") or {"default": ""}
+        pub = publish._preset_publish(ctx, r["preset"])
+        for k in [c for c in caps if c != "default"] or ["default"]:
+            print(f"  post text [{k}]:\n" + textwrap.indent(platforms.caption_for(k, r, pub), "    "))
         while True:
             ans = input("  [a]pprove [r]eject re[v]ise [o]pen [s]kip [q]uit > ").strip().lower()
             if ans == "o":
@@ -488,7 +494,8 @@ def cmd_review(ctx: Ctx, a) -> int:
         elif ans == "v":
             _decide(ctx, r["id"], "revision", input("  what should change: ").strip())
     if to_approve:
-        print(f"\nSigning {len(to_approve)} approval(s). Enter your approval passphrase.")
+        print(f"\nSigning {len(to_approve)} approval(s), each covering the video and its post text. "
+              "Enter your approval passphrase.")
         res = _approve(ctx, to_approve)
         emit(ctx, res, f"approved {res['approved']}; filled {res['filled_slots']} open slot(s)")
     return 0
@@ -550,11 +557,50 @@ def cmd_agent(ctx: Ctx, a) -> int:
     return 0
 
 
+def _scheduled(ctx: Ctx, res: dict | None) -> int:
+    if res is None:
+        return 0
+    if res.get("dry_run"):
+        emit(ctx, res, "(dry run: nothing uploaded or scheduled)")
+        return 0
+    human = (f"post {res['post_id']}  {res['local']}  video {res['video_id']}\n" +
+             table(res["targets"], ["platform", "channel", "status", "buffer_id", "error"]))
+    emit(ctx, res, human)
+    return 0 if any(t["status"] == "scheduled" for t in res["targets"]) else 1
+
+
 def cmd_post(ctx: Ctx, a) -> int:
-    from . import publish
-    res = publish.run(ctx, dry_run=a.dry_run, only=a.post)
-    emit(ctx, res, table(res, ["post_id", "platform", "status", "url", "error"]) if res else "nothing due")
-    return 1 if any(r.get("status") in ("error", "blocked") for r in res) else 0
+    from . import posting
+    if a.action == "run":
+        res = publish.run(ctx, dry_run=a.dry_run, only=a.post)
+        emit(ctx, res, table(res, ["post_id", "platform", "status", "url", "error"]) if res else "nothing due")
+        return 1 if any(r.get("status") in ("error", "blocked") for r in res) else 0
+    if a.action == "sync":
+        res = posting.sync(ctx)
+        emit(ctx, res, table(res, ["post_id", "platform", "status", "url", "error"]) if res else "nothing due")
+        return 1 if any(r.get("status") == "error" for r in res) else 0
+    if a.action == "list":
+        rows = posting.listing(ctx, include_past=a.past, limit=a.limit)
+        emit(ctx, rows, table(rows, ["post_id", "local", "status", "video_id", "title", "targets", "urls"]))
+        return 0
+    if a.action == "cancel":
+        if a.target is None:
+            raise UsageError("post cancel needs a post id", "see `social-studio post list`")
+        emit(ctx, posting.cancel(ctx, a.target), f"post {a.target} cancelled and removed from Buffer")
+        return 0
+    if a.action == "schedule":
+        if a.target is None or not a.at:
+            raise UsageError("post schedule needs a video id and --at",
+                             "e.g. social-studio post schedule 12 --at '2026-10-08 09:00' -c instagram -c x")
+        p = posting.plan(ctx, a.target, a.channel, a.at)
+        log(posting.describe(p) + "\n")
+        if a.dry_run:
+            return _scheduled(ctx, {"dry_run": True, "video_id": a.target, "local": p["local"]})
+        if not a.yes and input("schedule it? [y/N] ").strip().lower() != "y":
+            log("nothing scheduled")
+            return 0
+        return _scheduled(ctx, posting.execute(ctx, p))
+    return _scheduled(ctx, posting.pick(ctx, dry_run=a.dry_run))
 
 
 def cmd_channel(ctx: Ctx, a) -> int:
@@ -661,7 +707,7 @@ def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(
         prog="social-studio",
         description="Make motion-graphics videos in isolated LLM sessions, keep them in a library, post approved ones.",
-        epilog="Typical day: social-studio make -n 3  ->  social-studio review  ->  social-studio schedule add 2026-10-05 09:00 -p instagram",
+        epilog="Typical day: social-studio make -n 3  ->  social-studio review  ->  social-studio post",
         formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--json", action="store_true", help="machine-readable output on stdout")
     ap.add_argument("--project", help=f"project folder (default: found from the current folder: {PROJECT_FILE}, or social/{PROJECT_FILE})")
@@ -767,10 +813,19 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--count", type=int, default=1)
     p.add_argument("--limit", type=int, default=50)
 
-    p = cmd("post", cmd_post, "publish due posts (run by the timer)")
-    p.add_argument("action", choices=["run"])
-    p.add_argument("--dry-run", action="store_true")
-    p.add_argument("--post", type=int, help="only this post id")
+    p = cmd("post", cmd_post, "post approved videos through Buffer: with no action, pick one, its channels and a "
+            "time at a terminal; schedule does the same from flags; list, sync and cancel follow them; "
+            "run is the timer's job (direct adapters, then a Buffer sync)")
+    p.add_argument("action", nargs="?", choices=["pick", "schedule", "list", "sync", "cancel", "run"], default="pick")
+    p.add_argument("target", nargs="?", type=int, help="schedule: a video id; cancel: a post id")
+    p.add_argument("--at", metavar="'YYYY-MM-DD HH:MM'|now", help="schedule: local time, or now")
+    p.add_argument("-c", "--channel", action="append",
+                   help="schedule: instagram, facebook, x, or a Buffer channel id (repeatable; default all)")
+    p.add_argument("--yes", action="store_true", help="schedule: skip the confirmation question")
+    p.add_argument("--dry-run", action="store_true", help="show what would happen; upload and schedule nothing")
+    p.add_argument("--post", type=int, help="run: only this post id")
+    p.add_argument("--past", action="store_true", help="list: include posts older than a day")
+    p.add_argument("--limit", type=int, default=50)
 
     p = cmd("channel", cmd_channel, "connect and test social accounts")
     p.add_argument("action", choices=["list", "connect", "test", "disconnect"])
