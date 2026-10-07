@@ -3,6 +3,8 @@
 Invariants the schema enforces (not just the code):
 - status values are an enum, and only legal transitions pass (trigger);
 - a video can only become `approved` when an approval row for its exact sha256 exists;
+- a video goes from `review` straight to `posted` or `failed` only through drafts it was sent to Buffer as
+  (a post created by `drafts`), where the operator approves it in Buffer instead (v3);
 - every status change writes an append-only event row, attributed through ss_actor(), a function
   only this tool registers, so raw edits from the sqlite3 shell fail instead of slipping through;
 - a video is used by at most one post, and a platform has at most one live post per minute;
@@ -171,6 +173,29 @@ SCHEMA = [
     ALTER TABLE post_targets ADD COLUMN via TEXT NOT NULL DEFAULT 'direct' CHECK (via IN ('direct', 'buffer'));
     ALTER TABLE post_targets ADD COLUMN channel_id TEXT;
     ALTER TABLE post_targets ADD COLUMN text TEXT;
+    """,
+    # v3 (2026-10-07): approval can happen in Buffer. A finished video goes there as drafts (posts.created_by
+    # 'drafts', status 'open', targets 'draft'); once the operator acts on them in Buffer, the video moves from
+    # review to posted or failed without a local signature. Every other transition is unchanged from v1. A
+    # draft holds no time slot until it is approved, so the one-post-per-minute index leaves drafts out.
+    """
+    DROP INDEX post_targets_slot;
+    CREATE UNIQUE INDEX post_targets_slot ON post_targets(platform, at) WHERE status IN ('pending', 'posted');
+    DROP TRIGGER videos_transition;
+    CREATE TRIGGER videos_transition BEFORE UPDATE OF status ON videos
+    WHEN NEW.status <> OLD.status AND NOT (
+         (OLD.status = 'review'    AND NEW.status IN ('approved', 'rejected', 'revision', 'superseded'))
+      OR (OLD.status = 'review'    AND NEW.status IN ('posted', 'failed') AND EXISTS
+           (SELECT 1 FROM posts p WHERE p.video_id = NEW.id AND p.created_by = 'drafts'))
+      OR (OLD.status = 'revision'  AND NEW.status IN ('approved', 'rejected', 'superseded', 'review'))
+      OR (OLD.status = 'rejected'  AND NEW.status IN ('review'))
+      OR (OLD.status = 'approved'  AND NEW.status IN ('scheduled', 'rejected', 'revision'))
+      OR (OLD.status = 'scheduled' AND NEW.status IN ('posted', 'failed', 'approved'))
+      OR (OLD.status = 'failed'    AND NEW.status IN ('approved', 'scheduled', 'rejected'))
+    )
+    BEGIN
+      SELECT RAISE(ABORT, 'invalid status transition');
+    END;
     """,
 ]
 

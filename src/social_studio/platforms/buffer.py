@@ -1,8 +1,9 @@
-"""Buffer's GraphQL API (api.buffer.com): the route approved posts leave by.
+"""Buffer's GraphQL API (api.buffer.com): the route posts leave by.
 
 A personal API key (BUFFER_API_KEY in the .env) acts for the operator's whole Buffer account. Buffer
-publishes at the scheduled time; social-studio only creates, reads and deletes the queued posts.
-Mutations are never retried here: createPost has no idempotency key, so a blind retry could double-post.
+publishes at the scheduled time; social-studio only creates, reads and deletes posts: drafts the operator
+approves in Buffer, or posts already approved at the terminal. Mutations are never retried here:
+createPost has no idempotency key, so a blind retry could double-post.
 """
 from __future__ import annotations
 
@@ -21,6 +22,8 @@ SERVICES = {"instagram": "instagram", "facebook": "facebook", "twitter": "x"}
 # X on a free account is 280; set publish.buffer.limits.x for Premium.
 LIMITS = {"instagram": 2196, "facebook": 5000, "x": 280}
 X_URL_WEIGHT = 23
+# Post statuses that still wait for someone to schedule them in Buffer (PostStatus, read 2026-10-07).
+WAITING = ("draft", "needs_approval")
 
 Q_ORGS = "query { account { organizations { id name } } }"
 Q_CHANNELS = """query Channels($input: ChannelsInput!) {
@@ -122,8 +125,10 @@ def limit(ctx: Ctx, platform: str) -> int:
 
 
 def post_input(channel: dict, text: str, video_url: str, video: dict, due_at: str | None,
-               ai_label: bool = False) -> dict:
-    """CreatePostInput for one channel: a video post, Reel-shaped where the network has one."""
+               ai_label: bool = False, draft: bool = False) -> dict:
+    """CreatePostInput for one channel: a video post, Reel-shaped where the network has one.
+
+    A draft (`saveToDraft`) publishes nothing: Buffer holds it until someone schedules it in Buffer."""
     service = channel["service"]
     asset: dict = {"url": video_url}
     meta: dict = {}
@@ -139,7 +144,9 @@ def post_input(channel: dict, text: str, video_url: str, video: dict, due_at: st
         meta["twitter"] = {"isAiGenerated": True}
     out = {"channelId": channel["id"], "text": text, "schedulingType": "automatic",
            "assets": [{"video": asset}], "metadata": meta or None}
-    if due_at:
+    if draft:
+        out.update(mode="addToQueue", saveToDraft=True)
+    elif due_at:
         out.update(mode="customScheduled", dueAt=due_at)
     else:
         out["mode"] = "shareNow"

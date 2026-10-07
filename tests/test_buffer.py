@@ -33,6 +33,7 @@ class FakeNet:
         self.hosted: dict[str, bytes] = {}
         self.remote: dict[str, dict] = {}
         self.refuse: set[str] = set()
+        self.issued: list[str] = []
 
     def ops(self, word: str) -> list[dict]:
         return [c[3] for c in self.calls if c[1] == buffer.API and word in c[3]["query"]]
@@ -52,8 +53,11 @@ class FakeNet:
                 if inp["channelId"] in self.refuse:
                     return 200, {}, {"data": {"createPost": {"__typename": "InvalidInputError", "message": "nope"}}}
                 pid = f"b-{inp['channelId']}"
-                self.remote[pid] = {"id": pid, "status": "scheduled", "dueAt": inp.get("dueAt"), "sentAt": None,
-                                    "externalLink": None, "error": None}
+                self.issued.append(pid)
+                if self.issued.count(pid) > 1:  # Buffer never reuses a post id
+                    pid = f"{pid}-{self.issued.count(pid)}"
+                self.remote[pid] = {"id": pid, "status": "draft" if inp.get("saveToDraft") else "scheduled",
+                                    "dueAt": inp.get("dueAt"), "sentAt": None, "externalLink": None, "error": None}
                 return 200, {}, {"data": {"createPost": {"__typename": "PostActionSuccess", "post": self.remote[pid]}}}
             if "deletePost" in q:
                 self.remote.pop(v["input"]["id"], None)
@@ -200,6 +204,8 @@ def test_client_builds_video_posts_per_network():
     assert fb_wide["metadata"] == {"facebook": {"type": "post"}} and fb_wide["mode"] == "shareNow"
     x = buffer.post_input({"id": "t", "service": "twitter"}, "t", "u", wide, None)
     assert "metadata" not in x and x["assets"] == [{"video": {"url": "u"}}]
+    draft = buffer.post_input({"id": "t", "service": "twitter"}, "t", "u", wide, "2026-10-08T13:00:00Z", draft=True)
+    assert draft["saveToDraft"] is True and draft["mode"] == "addToQueue" and "dueAt" not in draft
 
 
 def test_client_counts_text_like_buffer():
@@ -415,6 +421,122 @@ def test_post_schema_v2_upgrades_a_v1_library(tmp_path):
     class Ctx:
         studio_dir, db_path = tmp_path, path
     con = db.connect(Ctx())
-    assert con.execute("PRAGMA user_version").fetchone()[0] == len(db.SCHEMA) == 2
+    assert con.execute("PRAGMA user_version").fetchone()[0] == len(db.SCHEMA) == 3
     assert dict(con.execute("SELECT via, channel_id, text FROM post_targets").fetchone()) == {
         "via": "direct", "channel_id": None, "text": None}
+
+
+# --- approval in Buffer: drafts ------------------------------------------------------------------------
+
+def drafts(ctx, net, **kw) -> tuple[int, dict]:
+    vid = add_video(ctx, **kw)
+    return vid, posting.draft(ctx, vid)
+
+
+def test_draft_puts_a_new_video_in_buffer_on_every_channel(ctx, net):
+    """No terminal and no signature: drafts publish nothing, the operator approves them in Buffer."""
+    vid, res = drafts(ctx, net)
+    sent = [c["variables"]["input"] for c in net.ops("createPost")]
+    assert sorted(i["channelId"] for i in sent) == ["fb1", "ig1", "tw1"]
+    assert all(i["saveToDraft"] is True and i["mode"] == "addToQueue" and "dueAt" not in i for i in sent)
+    assert {t["platform"]: t["status"] for t in res["targets"]} == {"facebook": "draft", "instagram": "draft",
+                                                                   "x": "draft"}
+    assert res["media_url"] in net.hosted
+    assert row(ctx, "SELECT status, created_by, video_id FROM posts")[0] == {
+        "status": "open", "created_by": "drafts", "video_id": vid}
+    assert {r["status"] for r in row(ctx, "SELECT status FROM post_targets")} == {"draft"}
+    assert db.get_video(db.connect(ctx), vid)["status"] == "review"
+
+
+def test_draft_needs_a_video_waiting_for_review_and_not_in_buffer_yet(ctx, net, human):
+    vid, _ = drafts(ctx, net)
+    with pytest.raises(DataError, match="already on post"):
+        posting.draft(ctx, vid)
+    other = add_video(ctx, title="Other")
+    cli._approve(ctx, [other])
+    with pytest.raises(DataError, match="only a video waiting for review"):
+        posting.draft(ctx, other)
+
+
+def test_draft_skips_text_over_the_limit_and_undoes_a_draft_buffer_refused(ctx, net):
+    vid, res = drafts(ctx, net, captions={"instagram": "ig", "facebook": "fb", "x": "x" * 300})
+    assert {t["platform"]: t["status"] for t in res["targets"]}["x"] == "skipped"
+    other = add_video(ctx, title="Other")
+    net.refuse.update({"ig1", "fb1", "tw1"})
+    assert {t["status"] for t in posting.draft(ctx, other)["targets"]} == {"failed"}
+    assert row(ctx, "SELECT status, video_id FROM posts WHERE id = 2")[0] == {"status": "cancelled", "video_id": None}
+    net.refuse.clear()
+    assert {t["status"] for t in posting.draft(ctx, other)["targets"]} == {"draft"}
+
+
+def test_draft_blocks_a_local_approval_and_a_bare_review_to_posted(ctx, net, human):
+    vid, _ = drafts(ctx, net)
+    with pytest.raises(DataError, match="approve it there"):
+        cli._approve(ctx, [vid])
+    loose = add_video(ctx, title="Loose")
+    con = db.connect(ctx)
+    with pytest.raises(DataError, match="refused"):
+        db.set_status(con, loose, "posted")  # review -> posted needs a drafts post
+
+
+def test_make_sends_each_new_video_to_buffer_as_drafts(ctx, net, monkeypatch, capsys):
+    from social_studio import runner
+    vid = add_video(ctx)
+    made = {"ok": True, "video_id": vid, "title": "A video", "bytes": 1000, "duration": 12.0, "file": "v.mp4"}
+    monkeypatch.setattr(runner, "make", lambda ctx, opts: [made])
+    assert cli.main(["make", "--preset", "example"]) == 0
+    out = capsys.readouterr().out
+    assert f"video {vid} in Buffer as drafts" in out and "approve, edit or delete the drafts in Buffer" in out
+    assert len(net.ops("createPost")) == 3
+    ctx.config.setdefault("publish", {}).setdefault("buffer", {})["drafts"] = False
+    ctx.save_config()
+    assert not posting.drafts_on(make_ctx())
+
+
+def test_sync_follows_drafts_approved_in_buffer_to_their_posts(ctx, net):
+    vid, res = drafts(ctx, net)
+    assert {r["status"] for r in posting.sync(ctx)} == {"draft"}  # still waiting in Buffer
+    past = "2026-10-01T09:00:00.000Z"
+    for pid in ("b-ig1", "b-tw1"):
+        net.remote[pid].update(status="scheduled", dueAt=past)
+    net.remote.pop("b-fb1")  # the operator deleted the Facebook draft
+    got = {r["platform"]: r["status"] for r in posting.sync(ctx)}
+    assert got == {"instagram": "approved", "x": "approved", "facebook": "turned down"}
+    assert row(ctx, "SELECT status FROM posts")[0]["status"] == "scheduled"
+    net.remote["b-ig1"].update(status="sent", sentAt=past, externalLink="https://instagram.com/reel/abc")
+    net.remote["b-tw1"].update(status="sent", sentAt=past, externalLink="https://x.com/g/status/1")
+    assert {r["status"] for r in posting.sync(ctx)} == {"posted"}
+    con = db.connect(ctx)
+    assert db.get_video(con, vid)["status"] == "posted"
+    assert row(ctx, "SELECT status FROM posts")[0]["status"] == "posted"
+    assert posting.sync(ctx) == []
+
+
+def test_sync_rejects_a_video_whose_drafts_were_all_deleted_in_buffer(ctx, net):
+    vid, _ = drafts(ctx, net)
+    net.remote.clear()
+    assert {r["status"] for r in posting.sync(ctx)} == {"turned down"}
+    assert db.get_video(db.connect(ctx), vid)["status"] == "rejected"
+    assert row(ctx, "SELECT status, video_id FROM posts")[0] == {"status": "cancelled", "video_id": None}
+
+
+def test_withdraw_takes_drafts_out_of_buffer_when_rejected_or_revised_here(ctx, net, human):
+    vid, _ = drafts(ctx, net)
+    cli._decide(ctx, vid, "revision", "warmer colours")
+    assert not net.remote and len(net.ops("deletePost")) == 3
+    assert db.get_video(db.connect(ctx), vid)["status"] == "revision"
+    assert row(ctx, "SELECT status, video_id FROM posts")[0] == {"status": "cancelled", "video_id": None}
+    other, res = drafts(ctx, net, title="Other")
+    ig = next(t["buffer_id"] for t in res["targets"] if t["platform"] == "instagram")
+    net.remote[ig].update(status="sent", sentAt="2026-10-01T09:00:00Z", externalLink="https://instagram.com/r/1")
+    posting.withdraw(ctx, other, "superseded by a revision")  # Instagram went out first: that record stays
+    assert db.get_video(db.connect(ctx), other)["status"] == "posted"
+    assert {r["platform"]: r["status"] for r in row(ctx, "SELECT platform, status FROM post_targets WHERE post_id = 2")
+            } == {"instagram": "posted", "facebook": "cancelled", "x": "cancelled"}
+
+
+def test_withdraw_by_post_cancel_leaves_the_video_waiting_for_review(ctx, net, human):
+    vid, res = drafts(ctx, net)
+    assert posting.cancel(ctx, res["post_id"]) == {"post_id": res["post_id"], "status": "cancelled"}
+    assert not net.remote and db.get_video(db.connect(ctx), vid)["status"] == "review"
+    assert {t["status"] for t in posting.draft(ctx, vid)["targets"]} == {"draft"}  # it can go back

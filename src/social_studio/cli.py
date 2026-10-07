@@ -291,11 +291,27 @@ def cmd_make(ctx: Ctx, a) -> int:
     human = "\n".join(
         (f"video {r['video_id']}: {r['title']}  ({r['bytes'] / 1e6:.1f} MB, {r['duration']:.1f}s)  -> {r['file']}"
          if r["ok"] else f"FAILED session {r['session']}: {r['error']}") for r in results)
-    if ok:
+    if ok and posting.drafts_on(ctx):  # approval happens in Buffer: each new video goes there as drafts
+        for r in ok:
+            try:
+                r["buffer"] = posting.draft(ctx, r["video_id"])
+                human += f"\n{_drafted(r['buffer'])}"
+            except (StudioError, OSError) as e:
+                r["buffer"] = {"error": str(e)}
+                human += (f"\nvideo {r['video_id']} did not reach Buffer: {e}. "
+                          f"Retry: social-studio post draft {r['video_id']}")
+        human += ("\n\nNext: approve, edit or delete the drafts in Buffer. `social-studio post sync` (the timer runs "
+                  "it) records what you decide there.")
+    elif ok:
         human += ("\n\nNext: a human reviews them in a terminal with `social-studio review`, "
                   "then schedules approved ones with `social-studio post`.")
     emit(ctx, {"made": len(ok), "failed": len(results) - len(ok), "results": results}, human)
     return 0 if ok else 1
+
+
+def _drafted(res: dict) -> str:
+    parts = [f"{t['channel']} {t['status']}" + (f" ({t['error']})" if t.get("error") else "") for t in res["targets"]]
+    return f"video {res['video_id']} in Buffer as drafts: {', '.join(parts)}"
 
 
 HIDDEN = ("scheduled", "posted", "failed")
@@ -396,6 +412,10 @@ def _approve(ctx: Ctx, ids: list[int]) -> dict:
         for v in videos:
             if v["status"] not in ("review", "revision", "failed"):
                 raise DataError(f"video {v['id']} is {v['status']}; only review or revision videos can be approved")
+            pid = posting.drafts_post(con, v["id"])
+            if pid:
+                raise DataError(f"video {v['id']} waits in Buffer as drafts; approve it there",
+                                f"or take it back out first: social-studio post cancel {pid}")
         signed = approval.sign(ctx, videos)
         with db.tx(con):
             for v, payload, sig in signed:
@@ -409,6 +429,8 @@ def _approve(ctx: Ctx, ids: list[int]) -> dict:
 
 
 def _decide(ctx: Ctx, vid: int, status: str, notes: str) -> None:
+    """Reject or revise; drafts of the video still in Buffer are taken out first."""
+    posting.withdraw(ctx, vid, f"{status} at the terminal")
     con = db.connect(ctx, actor="human")
     try:
         with db.tx(con):
@@ -465,10 +487,18 @@ def cmd_review(ctx: Ctx, a) -> int:
         emit(ctx, {"pending": 0}, "nothing to review")
         return 0
     to_approve: list[int] = []
+    con = db.connect(ctx)
+    try:
+        in_buffer = {r["id"]: posting.drafts_post(con, r["id"]) for r in rows}
+    finally:
+        con.close()
     for r in rows:
         meta = json.loads(r["meta"])
         verdict = meta.get("verdict") or {}
         print(f"\n#{r['id']}  {r['title']}  [{r['status']}]\n  {r['description']}\n  {r['file']}")
+        if in_buffer[r["id"]]:
+            print(f"  in Buffer as drafts (post {in_buffer[r['id']]}): approve it there; reject or revise here "
+                  "takes the drafts back out")
         if verdict:
             print(f"  reviewer ({verdict.get('model')}): pass={verdict.get('pass')}  {verdict.get('summary', '')}")
             for issue in verdict.get("issues", [])[:5]:
@@ -484,6 +514,9 @@ def cmd_review(ctx: Ctx, a) -> int:
                 opener = shutil.which("xdg-open") or shutil.which("open")
                 if opener:
                     subprocess.Popen([opener, str(ctx.abs(r["file"]))], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                continue
+            if ans == "a" and in_buffer[r["id"]]:
+                print("  this one is approved in Buffer")
                 continue
             break
         if ans == "q":
@@ -561,6 +594,13 @@ def cmd_post(ctx: Ctx, a) -> int:
             raise UsageError("post cancel needs a post id", "see `social-studio post list`")
         emit(ctx, posting.cancel(ctx, a.target), f"post {a.target} cancelled and removed from Buffer")
         return 0
+    if a.action == "draft":  # by hand; after a make the CLI does this itself
+        require_human("sending a video to Buffer as drafts by hand")
+        if a.target is None:
+            raise UsageError("post draft needs a video id", "see `social-studio review list`")
+        res = posting.draft(ctx, a.target)
+        emit(ctx, res, _drafted(res) + "\nApprove, edit or delete them in Buffer.")
+        return 0 if any(t["status"] == "draft" for t in res["targets"]) else 1
     if a.action == "schedule":
         if a.target is None or not a.at:
             raise UsageError("post schedule needs a video id and --at",
@@ -767,11 +807,13 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("action", choices=["status", "videos", "topics", "calendar"])
     p.add_argument("--limit", type=int, default=50)
 
-    p = cmd("post", cmd_post, "post approved videos through Buffer: with no action, pick one, its channels and a "
-            "time at a terminal; schedule does the same from flags; list and cancel follow them; "
+    p = cmd("post", cmd_post, "post videos through Buffer: draft sends a video there as drafts to approve in Buffer "
+            "(make does this by itself); with no action, pick a signed-approved one, its channels and a time at a "
+            "terminal; schedule does the same from flags; list and cancel follow them; "
             "sync records what Buffer did (the timer runs it)")
-    p.add_argument("action", nargs="?", choices=["pick", "schedule", "list", "sync", "cancel"], default="pick")
-    p.add_argument("target", nargs="?", type=int, help="schedule: a video id; cancel: a post id")
+    p.add_argument("action", nargs="?", choices=["pick", "draft", "schedule", "list", "sync", "cancel"],
+                   default="pick")
+    p.add_argument("target", nargs="?", type=int, help="draft, schedule: a video id; cancel: a post id")
     p.add_argument("--at", metavar="'YYYY-MM-DD HH:MM'|now", help="schedule: local time, or now")
     p.add_argument("-c", "--channel", action="append",
                    help="schedule: instagram, facebook, x, or a Buffer channel id (repeatable; default all)")

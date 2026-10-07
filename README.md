@@ -1,8 +1,8 @@
 # social-studio
 
 A local command-line tool that makes short motion-graphics videos with an LLM agent, keeps each one
-in a library with its full post text, and posts the ones a human approved through
-[Buffer](https://buffer.com) at the times you pick.
+in a library with its full post text, and hands each new video to [Buffer](https://buffer.com) as a
+draft, where you approve, edit or delete it.
 
 - **One isolated session per video.** Each try runs your harness (Claude Code, OpenCode or Codex)
   headless, in a fresh throwaway home, inside a bubblewrap sandbox that cannot see your library,
@@ -13,9 +13,10 @@ in a library with its full post text, and posts the ones a human approved throug
 - **Deterministic renders.** Compositions are HTML rendered frame by frame by
   [HyperFrames](https://github.com/heygen-com/hyperframes) (Apache-2.0) at a pinned version with its
   own pinned Chrome to a near-lossless master, then encoded to H.264 sized for social platforms.
-- **A human approves and posts; agents never do.** Approval is a passphrase-protected signature over
-  the exact file and its post text. `social-studio post` at your terminal picks an approved post,
-  its channels and a time; code uploads the file and schedules it through Buffer's GraphQL API.
+- **A human approves; agents never post.** Once Buffer is connected, code puts each finished video
+  into Buffer as a draft on every connected channel, and you approve it there. Drafts publish
+  nothing. You can also approve at the terminal instead: a passphrase-protected signature over the
+  exact file and its post text, then `social-studio post` picks the post, its channels and a time.
 - **Two ways in.** Run it yourself, or let an agent in any harness drive it through the CLI
   (`--json` everywhere, a shipped `SKILL.md`).
 - **One folder, no sprawl.** A project folder holds config, keys, presets, the library and all
@@ -36,15 +37,15 @@ cd social && social-studio doctor
 
 ```sh
 social-studio preset new mybrand            # then edit presets/mybrand/preset.toml
-social-studio make -n 3 --preset mybrand    # three videos, three isolated sessions
-social-studio review                        # watch, then approve / reject / send back with notes
-social-studio review rescore 4 --times 2    # re-run the independent reviewer to see how much its scores move
 social-studio channel connect buffer        # your Buffer personal API key (human only)
 deploy/media-proxy/setup.sh social          # Railway bucket + read-only proxy Buffer fetches videos from
                                             # (or `channel connect media` for any S3-compatible bucket)
-social-studio post                          # pick an approved post, channels, a time; confirm
-social-studio post list                     # what is queued or sent, with post URLs
 social-studio timer install                 # systemd user timer: `post sync` every 10 minutes records Buffer's results
+social-studio make -n 3 --preset mybrand    # three videos, three isolated sessions, each one a Buffer draft
+                                            # then approve, edit or delete the drafts in Buffer
+social-studio post list                     # drafts, queued and sent posts, with post URLs
+social-studio review                        # watch here; reject or send back with notes (takes the drafts out)
+social-studio review rescore 4 --times 2    # re-run the independent reviewer to see how much its scores move
 ```
 
 ## Concepts
@@ -67,10 +68,11 @@ A finished session is trimmed to what explains it (task, brief, metadata, contac
 logs); a failed one also keeps its composition. A successful `make --revise <id>` deletes the
 previous version's files and sessions and keeps its row as history (`superseded`).
 
-Video statuses: `review → approved → scheduled → posted`, with `rejected`, `revision` (a human's
-notes, then `make --revise <id>`), `superseded` and `failed`. The database enforces the legal
-transitions, refuses `approved` without an approval for the exact file, and keeps an append-only
-event log.
+Video statuses: `review → posted` when approved in Buffer, or `review → approved → scheduled → posted`
+when approved at the terminal, with `rejected`, `revision` (a human's notes, then
+`make --revise <id>`), `superseded` and `failed`. The database enforces the legal transitions,
+refuses `approved` without an approval for the exact file, allows `review → posted` only for a video
+that went to Buffer as drafts, and keeps an append-only event log.
 
 ## LLM backends
 
@@ -100,10 +102,20 @@ project its folder is linked to, points the proxy at it, and connects the projec
 keys through environment variables only. A bucket that is public on its own (Cloudflare R2, AWS S3)
 needs no proxy: run `social-studio channel connect media` instead.
 
-Before anything leaves, `post` re-checks the approval signature, re-hashes the file, checks that the
-post text is the one approved, and checks each network's length limit. `post sync` (the timer runs
-it) reads back what Buffer did: the post URL, or Buffer's error. `post cancel ID` removes queued
-posts from Buffer. Buffer is the only posting route; Buffer's API does not read or reply to comments.
+**Approval in Buffer** (the default once Buffer is connected; `publish.buffer.drafts = false` turns
+it off). After a make, code uploads each new video and creates one Buffer draft per connected
+channel (`saveToDraft`), with that network's post text; a text over the network's limit is skipped.
+Drafts publish nothing. In Buffer you approve a draft by scheduling or queueing it, edit it, or delete
+it. `post sync` (the timer runs it) follows each draft: approved becomes scheduled, sent records the
+post URL and marks the video posted, and a video whose drafts were all deleted is rejected.
+Rejecting, revising or superseding a video here, or `post cancel ID`, takes its drafts back out of
+Buffer. `post draft ID` sends a video that waits for review by hand, for example after a failed upload.
+
+**Approval at the terminal.** Before anything leaves, `post` re-checks the approval signature,
+re-hashes the file, checks that the post text is the one approved, and checks each network's length
+limit. `post sync` reads back what Buffer did: the post URL, or Buffer's error. `post cancel ID`
+removes queued posts from Buffer. Buffer is the only posting route; Buffer's API does not read or
+reply to comments.
 
 ## Security model
 
@@ -120,7 +132,9 @@ posts from Buffer. Buffer is the only posting route; Buffer's API does not read 
   Never add the approval key to ssh-agent.
 - `post` re-verifies the signature, re-hashes the file and checks the signed post text before every
   upload. The `publish.buffer` and `publish.media` settings are human-only, and no agent command
-  schedules or sends a post.
+  schedules or sends a post. The maker agent never sees the Buffer key: drafts are created by the
+  CLI after the agent's session has ended, and a draft goes out only when a human schedules it in
+  Buffer.
 
 ## For agents
 
