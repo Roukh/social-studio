@@ -47,11 +47,30 @@ layout) comes from here and from your own direction, and is yours to push as far
 | [hud-frame](techniques/hud-frame.md) | frame | corner brackets, scene counter, section label, progress squares, a running timecode | the whole film |
 | [grain-vignette](techniques/grain-vignette.md) | texture | seeded per-frame grain, a radial vignette per field, ghost outline type walls | the whole film |
 | [master-clock](techniques/master-clock.md) | build pattern | one clock on the timeline drives every canvas and 3D scene as a pure function of time | the whole film |
+| [annotated-diagram-overlay](techniques/annotated-diagram-overlay.md) | type, annotation | a hand-drawn label and arrow name the mechanism on the element itself, on the beat | 0.8-2.5 s per label |
+| [easing-graph-draw](techniques/easing-graph-draw.md) | data, annotation | a graph draws linear, then eased; boxes below march to the same curve | 2.5-3 s |
+| [squash-stretch-ball-demo](techniques/squash-stretch-ball-demo.md) | physics, annotation | a falling ball leaves ghost circles that show spacing, squashes, stretches, labelled | 1.5-2 s |
+| [particle-flow-comet](techniques/particle-flow-comet.md) | particles, generative | a comet of dots loops a figure-8 over a faint flow field | 2-2.5 s |
+| [radial-progress-anticipation](techniques/radial-progress-anticipation.md) | data, interface | a ring fills and counts up; each step pulls back before it advances | 1.5-2 s |
+| [timeline-scrubber-hud](techniques/timeline-scrubber-hud.md) | frame, structure | an editor's timeline bar with a playhead and keyframe diamonds per scene | the whole film |
+| [ui-tilt-card](techniques/ui-tilt-card.md) | interface, 3D | an interface panel on a shallow two-axis 3D tilt, its content swapping in place | 2-2.5 s |
+| [provenance-glow-stroke](techniques/provenance-glow-stroke.md) | texture, through-line | one accent glow marks only the live element and moves with the action | the whole film |
+| [dual-voice-type](techniques/dual-voice-type.md) | type | a human note in a hand or italic face beside the brand's sans; the faces never mix | 1.5-2.5 s per note |
+| [variant-stack-reveal](techniques/variant-stack-reveal.md) | data, interface | three or four near-identical panels fan out with seeded offsets to show scale | 2-2.5 s |
+| [command-chip-cycle](techniques/command-chip-cycle.md) | type, interface | a glowing pill types in, cycles names on the beat, lands bright on the last | 1.7-2.5 s |
+| [aurora-gradient-photo](techniques/aurora-gradient-photo.md) | texture | a drifting duotone wash stands in for a photo inside a mock-up | its whole shot |
+| [gallery-zoom-tour](techniques/gallery-zoom-tour.md) | structure, transition | pull back from a tile to a live grid, whip into another tile, match-cut into it | 4-8 s |
+| [mecha-cut-reveal](techniques/mecha-cut-reveal.md) | type, reveal | a hard cut per unit with a label chip, ending in a flash and a burst title | 1.5-2.5 s per unit |
+| [noise-dissolve-logomark](techniques/noise-dissolve-logomark.md) | identity, particles | a mark condenses from scattered seeded points into a solid shape | 1-1.5 s |
+| [live-readout-hud](techniques/live-readout-hud.md) | data, texture | a corner readout keeps counting through a story beat | its whole shot |
+| [bounce-path-draw](techniques/bounce-path-draw.md) | data, physics | a thin line draws itself behind a moving object, recording its path | 2-3 s |
+| [cinematic-atmosphere-hold](techniques/cinematic-atmosphere-hold.md) | texture, establishing | a near-still frame carried by parallax motes, a grade and one flare | 2-3 s |
 
 ## The worked example
 
 `examples/reel-2026-10-06.html` is the composition of the first film built this way (a 15 s, 16:9 showreel
-judged "a major improvement" by the operator on 2026-10-06). It uses every technique above. Each entry points to
+judged "a major improvement" by the operator on 2026-10-06). It uses the first fourteen techniques above; the
+rest come from the 2026-10-07 references and have build recipes but no worked example yet. Each first-fourteen entry points to
 its section there: search for the `<!-- S1 · ...` markup comment or the `// ===== S1 · ...` code comment. It
 reads `assets/reel-kit.js` as `window.reel`; in your composition the same helpers are `window.kit` (also
 `window.reel`), from `assets/motion-kit.js`.
