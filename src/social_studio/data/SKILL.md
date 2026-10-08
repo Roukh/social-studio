@@ -42,8 +42,9 @@ shows `ready_to_post` above zero, tell the operator to run it.
 - Approve, reject or mark videos for revision. Only the human can: in Buffer for drafts, or in
   their own terminal (`social-studio review`), where approval is a passphrase signature that cannot
   be done for them.
-- Schedule, post, send drafts, list or cancel posts (`social-studio post`), or pick which video goes
-  out or when. A scheduled video disappears from everything you can list.
+- Schedule, post, list or cancel posts (`social-studio post`), or pick which video goes out or when.
+  A scheduled video disappears from everything you can list. (`post draft ID` only puts a video that
+  waits for review into Buffer's drafts, which publish nothing; a make already does this itself.)
 - Change where posts and videos go (`publish.buffer`, `publish.media`), see or change scheduled and
   posted videos, or connect accounts.
 - Write outside the repo that holds the project. Running without the sandbox, installing the

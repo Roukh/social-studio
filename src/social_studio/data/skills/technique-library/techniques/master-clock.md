@@ -35,3 +35,10 @@ tl.seek(0); render(0);
   after classic scripts (`if (window.__lastT >= a && window.__lastT < b) window.__s3render(window.__lastT)`).
 - Randomness comes from `kit.rng(seed)` only, and anything frame-dependent is seeded by the frame number.
 - DOM motion stays as ordinary tweens on `tl`. The clock is for what tweens cannot reach.
+
+## Check
+
+Prove it: seek to one time twice, in a different order (for example 7.5 s, then 2.0 s, then 7.5 s), capture
+the frame both times, and compare. The two must match exactly. A difference means something reads outside time
+(an unseeded random, a cached state, a frame counter). This check comes from an explainer-film prompt shared by
+@0xMovez (x.com/0xMovez/status/2107515767986217026), studied 2026-10-07.

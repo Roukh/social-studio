@@ -73,7 +73,7 @@ Built as feature F11:
   - the reel's composition is the worked example that every entry points into.
 - **The maker** picks a set of techniques for each film, names each shot's technique in `brief.json`, and records the set in `video.json` `techniques`. `history.json` carries recent sets, so the next film differs.
 - **Every composition** gets GSAP, three.js and the motion kit (`window.kit`) unless its preset pins its own.
-- **ghobz** keeps its colours, its fonts, its name and tagline, the offer lines as facts, and two truth rules: nothing invented about ghobz, and no prices.
+- **ghobz** keeps its colours, its fonts, its name and tagline, the offer lines as facts, and one rule: no prices. The operator dropped the "nothing invented" rule ("just keep no prices", 2026-10-07).
   - It drops the site kit, the motion helpers, the design and motion rules, the pacing line and the copy rules.
   - The intro brief no longer points at the site. It asks for a showreel-grade film with few words.
 

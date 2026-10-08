@@ -6,7 +6,7 @@ consequence: 6
 locus: output
 summary: 2026-10-06 sweep of 49 MCPs, APIs and skills (sound, voice, music, image, video, 3D, UI, fonts) - auth, licence, terms, price, flags.
 scope: repo
-status: active
+status: superseded
 ---
 
 # MCP/API/skill candidates for the jail

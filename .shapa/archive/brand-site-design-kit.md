@@ -6,7 +6,7 @@ consequence: 7
 locus: output
 summary: How a brand's own website becomes a video's design system - the ghobz-ui kit (site CSS in phone layout, section markup, phone screens), proven in HyperFrames.
 scope: repo
-status: active
+status: superseded
 ---
 
 # Brand site as design kit (the ghobz-ui kit)

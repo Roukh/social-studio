@@ -6,7 +6,7 @@ consequence: 7
 locus: output
 summary: HyperFrames render stack, rejected alternatives, ffmpeg encode/loudness/poster recipe, sound-sourcing licence findings.
 scope: repo
-status: active
+status: superseded
 ---
 
 # Render and encoding

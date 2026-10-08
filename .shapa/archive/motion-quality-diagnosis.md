@@ -6,7 +6,7 @@ consequence: 8
 locus: output
 summary: Why the 2026-10-02 videos were "fine but not great" - 8 harness findings, options A-J for the maker pipeline, which were built, and what stayed open.
 scope: repo
-status: active
+status: superseded
 ---
 
 # Motion quality diagnosis (2026-10-02)

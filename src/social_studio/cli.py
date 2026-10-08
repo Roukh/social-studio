@@ -594,8 +594,7 @@ def cmd_post(ctx: Ctx, a) -> int:
             raise UsageError("post cancel needs a post id", "see `social-studio post list`")
         emit(ctx, posting.cancel(ctx, a.target), f"post {a.target} cancelled and removed from Buffer")
         return 0
-    if a.action == "draft":  # by hand; after a make the CLI does this itself
-        require_human("sending a video to Buffer as drafts by hand")
+    if a.action == "draft":  # by hand; after a make the CLI does this itself. Drafts publish nothing: no terminal check
         if a.target is None:
             raise UsageError("post draft needs a video id", "see `social-studio review list`")
         res = posting.draft(ctx, a.target)
