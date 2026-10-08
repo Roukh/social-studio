@@ -315,7 +315,7 @@ class Ctx:
     def need(self) -> Path:
         if self.project is None:
             raise ConfigError("no social-studio project found",
-                              "run `social-studio init <dir>`, pass --project <dir>, or run inside the project")
+                              "run `sclstdio init <dir>`, pass --project <dir>, or run inside the project")
         return self.project
 
     @property
@@ -461,7 +461,7 @@ def _preset_file(ctx: Ctx, name: str) -> tuple[Path, bool]:
                      None)
     if found is None:
         raise ConfigError(f"preset not found: {name}",
-                          "run `social-studio preset list`; presets live in the project's presets/ folder")
+                          "run `sclstdio preset list`; presets live in the project's presets/ folder")
     if (PKG_DIR / "presets").resolve() not in found.parents:
         ctx.inside(found, "a preset file")
     return found, any(d in found.parents for d in dirs)

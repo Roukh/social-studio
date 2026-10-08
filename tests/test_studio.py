@@ -187,6 +187,29 @@ def test_cli_agent_cannot_reveal_or_approve(ctx, capsys):
     assert '"code": "denied"' in out
 
 
+def test_sclstdio_bare_opens_the_menu(capsys):
+    assert cli.main([]) == 0
+    out = capsys.readouterr().out
+    assert out.startswith("usage: sclstdio") and "build (make)" in out and "help" in out
+
+
+def test_sclstdio_build_is_make_and_help_shows_one_command(ctx, capsys):
+    parse = cli.build_parser().parse_args
+    assert parse(["build", "--topic", "t"]).fn is cli.cmd_make and parse(["make"]).fn is cli.cmd_make
+    assert cli.main(["help", "build"]) == 0
+    assert capsys.readouterr().out.startswith("usage: sclstdio build")
+    assert cli.main(["help", "nope"]) == 64
+
+
+def test_sclstdio_is_installed_with_its_alias_and_completes(capsys):
+    import tomllib
+    scripts = tomllib.loads((Path(__file__).parents[1] / "pyproject.toml").read_text())["project"]["scripts"]
+    assert scripts["sclstdio"] == scripts["social-studio"] == "social_studio.cli:main"
+    assert cli.main(["completion", "bash"]) == 0
+    out = capsys.readouterr().out
+    assert "complete -F _social_studio sclstdio social-studio" in out and "    build) " in out
+
+
 def test_aliased_font_family_is_rejected(ctx):
     d = ctx.project / "presets" / "helv"
     d.mkdir(parents=True)

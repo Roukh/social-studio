@@ -82,7 +82,7 @@ def sign(ctx: Ctx, videos: list[dict]) -> list[tuple[dict, str, str]]:
     require_human("approving videos")
     key, _, _ = key_paths(ctx)
     if not key.is_file():
-        raise ConfigError("no approval key", "run `social-studio init` yourself, in a terminal")
+        raise ConfigError("no approval key", "run `sclstdio init` yourself, in a terminal")
     stamp = iso()
     with tempfile.TemporaryDirectory(dir=_tmp_root(ctx)) as tmp:
         files = []

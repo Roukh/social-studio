@@ -274,7 +274,7 @@ def rows(cur) -> list[dict]:
 def get_video(con: sqlite3.Connection, vid: int) -> dict:
     r = con.execute("SELECT * FROM videos WHERE id = ?", (vid,)).fetchone()
     if r is None:
-        raise DataError(f"no video with id {vid}", "run `social-studio library list`")
+        raise DataError(f"no video with id {vid}", "run `sclstdio library list`")
     return dict(r)
 
 
@@ -288,4 +288,4 @@ def set_status(con: sqlite3.Connection, vid: int, status: str, note: str = "") -
     except sqlite3.IntegrityError as e:
         v = get_video(con, vid)
         raise DataError(f"video {vid}: {v['status']} -> {status} refused ({e})",
-                        "check `social-studio library show <id>` for its current status") from e
+                        "check `sclstdio library show <id>` for its current status") from e

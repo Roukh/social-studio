@@ -59,7 +59,7 @@ def ask(prompt: str, secret: bool = False) -> str:
 def need(ctx: Ctx, *keys: str) -> list[str]:
     missing = [k for k in keys if not ctx.env(k)]
     if missing:
-        raise ConfigError(f"missing in .env: {', '.join(missing)}", "run `social-studio channel connect <name>`")
+        raise ConfigError(f"missing in .env: {', '.join(missing)}", "run `sclstdio channel connect <name>`")
     return [ctx.env(k) for k in keys]
 
 
