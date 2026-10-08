@@ -132,7 +132,7 @@ def chrome_path(ctx: Ctx, version: str) -> Path:
                          env=engine_env(ctx))
     p = Path(out.stdout.strip().splitlines()[-1]) if out.stdout.strip() else None
     if not p or not p.exists():
-        raise Unavailable("pinned Chrome not found", "run `social-studio engine install`")
+        raise Unavailable("pinned Chrome not found", "run `sclstdio engine install`")
     return p
 
 

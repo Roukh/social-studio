@@ -16,7 +16,8 @@ Part of [[index]]. The only entry point for humans, agents and the timer.
 | Field | Value |
 |---|---|
 | Purpose | Parse commands, build `Ctx`, call the other boxes, print human text or `--json` |
-| Owned paths | `src/social_studio/cli.py` (817 lines), `__main__.py`, `data/SKILL.md` (the agent's guide to the CLI) |
+| Owned paths | `src/social_studio/cli.py` (895 lines), `__main__.py`, `data/SKILL.md` (the agent's guide to the CLI) |
+| Command | `sclstdio`, with `social-studio` kept as an alias (both console scripts in `pyproject.toml`) |
 | In | argv; `--project` or `$SOCIAL_STUDIO_PROJECT` or the current folder; a TTY for human-only commands |
 | Out | calls into [[core]], [[runner]], [[library]], [[review]], [[schedule-publish]]; stdout text or JSON |
 
@@ -30,13 +31,15 @@ Part of [[index]]. The only entry point for humans, agents and the timer.
 | `model list|set|key` | backends and models; `key` stores an API key into `.env` | `key` human-only |
 | `preset list|show|validate|new` | presets | — |
 | `engine install|status` | pinned HyperFrames | — |
-| `make` | one session per video: `-n`, `--parallel`, `--preset`, `--backend`, `--model`, `--set`, `--title/--subject/--topic/--pillar/--notes`, `--effort`, `--review-effort`, `--pacing`, `--motion`, `--aspect`, `--fps`, `--duration`, `--sound`, `--rounds`, `--revise ID`, `--[no-]review` | `--no-sandbox` and guarded `--set` keys human-only |
+| `build` (`make`) | one session per video: `-n`, `--parallel`, `--preset`, `--backend`, `--model`, `--set`, `--title/--subject/--topic/--pillar/--notes`, `--effort`, `--review-effort`, `--pacing`, `--motion`, `--aspect`, `--fps`, `--duration`, `--sound`, `--rounds`, `--revise ID`, `--[no-]review` | `--no-sandbox` and guarded `--set` keys human-only |
 | `library list|show|path|open|dir` | browse; `dir` moves the library inside the boundary | `--all` human-only |
 | `review walk|list|approve|reject|revise|rescore` | human review; reject and revise first withdraw the video's Buffer drafts; approve refuses a video with live drafts (approve it in Buffer); `rescore ID --times N --effort` re-runs the reviewer | approve signs at a TTY |
 | `agent status|videos|topics|calendar` | read-only agent surface: `status` gives approval_needed, ready_to_post and next_post; `calendar` gives when and where, never which video; agent views hide scheduled, posted and failed videos | — (agents never schedule) |
 | `post draft ID`, `post [pick]`, `post schedule ID --at 'YYYY-MM-DD HH:MM'|now [-c instagram|facebook|x] [--yes] [--dry-run]`, `post list|sync|cancel ID` | the only posting route (rule R14): `make` sends each new video to Buffer as drafts by itself (`post draft` by hand); or pick an approved post, channels and time, then upload and createPost; sync reads back what Buffer did and follows drafts; cancel withdraws drafts | pick, schedule, list, cancel human-only; draft is not, and neither are the drafts a make sends (drafts publish nothing; operator 2026-10-07, while Buffer is the temporary route) |
 | `channel list|connect|test|disconnect buffer|media`, `timer install|remove|status` | accounts; systemd user timer that runs `post sync` | connect, `publish.buffer.*`, `publish.media.*` and timer human-only |
-| `completion bash|zsh`, `skill install|show`, `version` | shell completion (zsh wraps bash), install the agent skill into a harness | out-of-repo installs human-only |
+| `completion bash|zsh`, `skill install|show`, `help [COMMAND]`, `version` | shell completion for both names (zsh wraps bash), install the agent skill into a harness, the menu or one command's options | out-of-repo installs human-only |
+
+A bare `sclstdio` prints the menu (exit 0): commands in workflow order (make and judge, post, set up, agents and the shell), one line each; `<command> -h` gives the long description. Menu ordering and one-line help live in `build_parser`.
 
 ## Invariants
 

@@ -20,7 +20,7 @@ draft, where you approve, edit or delete it.
 - **A human approves; agents never post.** Once Buffer is connected, code puts each finished video
   into Buffer as a draft on every connected channel, and you approve it there. Drafts publish
   nothing. You can also approve at the terminal instead: a passphrase-protected signature over the
-  exact file and its post text, then `social-studio post` picks the post, its channels and a time.
+  exact file and its post text, then `sclstdio post` picks the post, its channels and a time.
 - **Two ways in.** Run it yourself, or let an agent in any harness drive it through the CLI
   (`--json` everywhere, a shipped `SKILL.md`).
 - **One folder, no sprawl.** A project folder holds config, keys, presets, the library and all
@@ -33,23 +33,26 @@ Needs Python 3.11+, Node.js 22+, ffmpeg, OpenSSH (`ssh-keygen`), and bubblewrap 
 
 ```sh
 uv tool install social-studio        # or: pipx install social-studio
-social-studio init social             # a project folder: config, .env, presets/, library/, .studio/
-cd social && social-studio doctor
+sclstdio init social                 # a project folder: config, .env, presets/, library/, .studio/
+cd social && sclstdio doctor
 ```
+
+The command is `sclstdio` (`social-studio` still works as an alias). A bare `sclstdio` prints the menu of
+commands, and `sclstdio help <command>` prints that command's options.
 
 ## Quick start
 
 ```sh
-social-studio preset new mybrand            # then edit presets/mybrand/preset.toml
-social-studio channel connect buffer        # your Buffer personal API key (human only)
+sclstdio preset new mybrand                 # then edit presets/mybrand/preset.toml
+sclstdio channel connect buffer             # your Buffer personal API key (human only)
 deploy/media-proxy/setup.sh social          # Railway bucket + read-only proxy Buffer fetches videos from
                                             # (or `channel connect media` for any S3-compatible bucket)
-social-studio timer install                 # systemd user timer: `post sync` every 10 minutes records Buffer's results
-social-studio make -n 3 --preset mybrand    # three videos, three isolated sessions, each one a Buffer draft
+sclstdio timer install                      # systemd user timer: `post sync` every 10 minutes records Buffer's results
+sclstdio build -n 3 --preset mybrand        # three videos, three isolated sessions, each one a Buffer draft
                                             # then approve, edit or delete the drafts in Buffer
-social-studio post list                     # drafts, queued and sent posts, with post URLs
-social-studio review                        # watch here; reject or send back with notes (takes the drafts out)
-social-studio review rescore 4 --times 2    # re-run the independent reviewer to see how much its scores move
+sclstdio post list                          # drafts, queued and sent posts, with post URLs
+sclstdio review                             # watch here; reject or send back with notes (takes the drafts out)
+sclstdio review rescore 4 --times 2         # re-run the independent reviewer to see how much its scores move
 ```
 
 ## Concepts
@@ -59,10 +62,10 @@ A project is any folder holding `social-studio.toml`. Commands find it from the 
 
 | Thing | Where (inside the project) | Notes |
 |---|---|---|
-| Config | `social-studio.toml` | `social-studio config get/set` |
+| Config | `social-studio.toml` | `sclstdio config get/set` |
 | Secrets | `.env` (0600) | model keys, the Buffer API key, the media bucket keys |
 | Presets | `presets/<name>/preset.toml`, then `preset_paths`, then built-ins | `extends = "other"` to inherit |
-| Library | `library/<date>-<slug>-<id>/` | `social-studio library dir <folder>` moves it, inside the repo only |
+| Library | `library/<date>-<slug>-<id>/` | `sclstdio library dir <folder>` moves it, inside the repo only |
 | State | `.studio/`: `library.db`, `approval/`, `sessions/`, `engine/`, `cache/` | SQLite in WAL mode; engine, Chrome and npm cache included |
 
 `init` writes a `.gitignore` that keeps `.env`, `.studio/` and `library/` out of git;
@@ -86,8 +89,8 @@ that went to Buffer as drafts, and keeps an append-only event log.
 | `opencode` | any provider OpenCode supports: xAI Grok, DeepSeek, OpenAI, Gemini, OpenRouter, Ollama ... | the provider's API key from the .env |
 | `codex` | Codex CLI | `OPENAI_API_KEY`, or a private copy of your Codex login inside the sandbox |
 
-`social-studio model set opencode xai/grok-4` switches the default, and
-`social-studio model key XAI_API_KEY` stores a provider key in the .env. It prompts, so only a
+`sclstdio model set opencode xai/grok-4` switches the default, and
+`sclstdio model key XAI_API_KEY` stores a provider key in the .env. It prompts, so only a
 human at a terminal can run it. Anthropic allows a Claude
 subscription only through the unmodified `claude` binary, which is exactly how this tool uses it.
 
@@ -104,7 +107,7 @@ only those video keys from a Railway bucket to a public URL (GET and HEAD, range
 everything else is a 404). `deploy/media-proxy/setup.sh <project>` creates the bucket in the Railway
 project its folder is linked to, points the proxy at it, and connects the project, passing the bucket
 keys through environment variables only. A bucket that is public on its own (Cloudflare R2, AWS S3)
-needs no proxy: run `social-studio channel connect media` instead.
+needs no proxy: run `sclstdio channel connect media` instead.
 
 **Approval in Buffer** (the default once Buffer is connected; `publish.buffer.drafts = false` turns
 it off). After a make, code uploads each new video and creates one Buffer draft (`saveToDraft`) for
@@ -145,6 +148,6 @@ reply to comments.
 
 ## For agents
 
-`social-studio skill install --target claude` (or `opencode`, `codex`, a folder) installs the agent
-guide. Agents use `social-studio --json agent status|videos|topics|calendar` and `make`; posting
+`sclstdio skill install --target claude` (or `opencode`, `codex`, a folder) installs the agent
+guide. Agents use `sclstdio --json agent status|videos|topics|calendar` and `build`; posting
 stays with the human.

@@ -46,7 +46,7 @@ M_DELETE = """mutation Delete($input: DeletePostInput!) {
 class BufferError(Unavailable):
     def __init__(self, message: str, code: str = ""):
         super().__init__(f"Buffer: {message}" + (f" ({code})" if code else ""),
-                         "run `social-studio channel test buffer`" if code in ("UNAUTHORIZED", "FORBIDDEN") else "")
+                         "run `sclstdio channel test buffer`" if code in ("UNAUTHORIZED", "FORBIDDEN") else "")
         self.buffer_code = code
 
 
@@ -54,7 +54,7 @@ def gql(ctx: Ctx, query: str, variables: dict | None = None, *, mutation: bool =
     """One GraphQL call. Errors come back with HTTP 200 in `errors`; a read is retried once on UNEXPECTED."""
     key = ctx.env(KEY)
     if not key:
-        raise ConfigError(f"missing {KEY} in .env", "run `social-studio channel connect buffer` yourself")
+        raise ConfigError(f"missing {KEY} in .env", "run `sclstdio channel connect buffer` yourself")
     for attempt in (0, 1):
         try:
             _, _, body = http("POST", API, headers={"Authorization": f"Bearer {key}"},
@@ -103,7 +103,7 @@ def organization(ctx: Ctx) -> str:
     if len(orgs) == 1:
         return orgs[0]["id"]
     raise ConfigError(f"the Buffer account has {len(orgs)} organizations",
-                      "run `social-studio channel connect buffer` to pick one")
+                      "run `sclstdio channel connect buffer` to pick one")
 
 
 def channels(ctx: Ctx, supported_only: bool = True) -> list[dict]:

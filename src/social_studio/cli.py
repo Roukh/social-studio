@@ -1,4 +1,4 @@
-"""social-studio command line. Nouns first, `--json` everywhere, sysexits exit codes.
+"""sclstdio, the social-studio command line (`social-studio` is an alias). Nouns first, `--json` everywhere, sysexits exit codes.
 
 Humans and agents share one binary. Human-only actions (approve, reject, revise, schedule or cancel
 posts, reveal scheduled videos, connect accounts, anything that writes outside the repo) need an
@@ -57,7 +57,7 @@ def pick_preset(ctx: Ctx, given: str | None) -> str:
         return ctx.cfg("default_preset")
     found = list_presets(ctx)
     if not found:
-        raise ConfigError("no presets found", "run `social-studio preset new <name>`")
+        raise ConfigError("no presets found", "run `sclstdio preset new <name>`")
     if not is_tty():
         raise UsageError("no preset given", f"pass --preset, or set default_preset in {PROJECT_FILE}")
     for i, p in enumerate(found):
@@ -98,7 +98,7 @@ def cmd_init(ctx: Ctx, a) -> int:
         log("Create the approval key. Choose a passphrase only you know: it is what lets you, and only you, approve videos.")
         notes.append(f"approval key {approval.init_key(ctx)}")
     else:
-        notes.append("approval key NOT created (needs a terminal): run `social-studio init` yourself")
+        notes.append("approval key NOT created (needs a terminal): run `sclstdio init` yourself")
     if is_tty() and not ctx.cfg("default_preset") and list_presets(ctx):
         name = pick_preset(ctx, None)
         dset(ctx.config, "default_preset", name)
@@ -131,15 +131,15 @@ def _checks(ctx: Ctx) -> list[dict]:
     for b in ("claude", "opencode", "codex"):
         add(f"backend {b}", shutil.which(b), shutil.which(b) or "not installed", "", required=(b == ctx.cfg("backend.default", "claude")))
     add("project", ctx.project is not None, str(ctx.project or "none found"),
-        "run `social-studio init <dir>`, pass --project, or cd into the project")
+        "run `sclstdio init <dir>`, pass --project, or cd into the project")
     if ctx.project is None:
         return out
-    add(PROJECT_FILE, ctx.config_path.exists(), str(ctx.config_path), "run `social-studio init`")
+    add(PROJECT_FILE, ctx.config_path.exists(), str(ctx.config_path), "run `sclstdio init`")
     if ctx.env_path.exists():
         mode = oct(ctx.env_path.stat().st_mode & 0o777)
         add(".env is 0600", mode == "0o600", mode, f"chmod 600 {ctx.env_path}")
     else:
-        add(".env", False, "missing", "run `social-studio init`")
+        add(".env", False, "missing", "run `sclstdio init`")
     try:
         con = db.connect(ctx)
         add("database", True, f"{ctx.db_path} (schema v{con.execute('PRAGMA user_version').fetchone()[0]})")
@@ -151,7 +151,7 @@ def _checks(ctx: Ctx) -> list[dict]:
         probe = subprocess.run(["ssh-keygen", "-y", "-P", "", "-f", str(key)], capture_output=True)
         add("approval key has a passphrase", probe.returncode != 0, str(key), "recreate it with a passphrase")
     else:
-        add("approval key", False, "missing", "run `social-studio init` yourself, in a terminal")
+        add("approval key", False, "missing", "run `sclstdio init` yourself, in a terminal")
     name = ctx.cfg("default_preset")
     if name:
         try:
@@ -160,15 +160,15 @@ def _checks(ctx: Ctx) -> list[dict]:
             add(f"preset {name}", not problems, "; ".join(problems) or str(p.dir))
             v = p.get("render.version", "?")
             add(f"engine hyperframes {v}", engine.hf_bin(ctx, v).exists() and engine.skills_root(ctx, v).is_dir(),
-                str(engine.engine_root(ctx, v)), "run `social-studio engine install`")
+                str(engine.engine_root(ctx, v)), "run `sclstdio engine install`")
         except StudioError as e:
             add(f"preset {name}", False, str(e), e.hint)
     else:
-        add("default preset", False, "not set", "social-studio config set default_preset <name>", required=False)
+        add("default preset", False, "not set", "sclstdio config set default_preset <name>", required=False)
     from . import platforms
     for pname, ad in platforms.registry().items():
         add(f"account {pname}", ad.connected(ctx), "connected" if ad.connected(ctx) else "not connected",
-            f"social-studio channel connect {pname}", required=False)
+            f"sclstdio channel connect {pname}", required=False)
     return out
 
 
@@ -197,7 +197,7 @@ def cmd_config(ctx: Ctx, a) -> int:
         if not a.key or a.value is None:
             raise UsageError("config set needs a key and a value")
         if a.key == "paths.library":
-            raise UsageError("move the library with `social-studio library dir <folder>`",
+            raise UsageError("move the library with `sclstdio library dir <folder>`",
                              "it moves the videos and keeps the database pointing at them")
         if guarded(a.key, GUARDED_CONFIG):  # harness binary and credentials, sandbox, preset folders, post routes
             require_human(f"setting {a.key}")
@@ -212,7 +212,7 @@ def cmd_model(ctx: Ctx, a) -> int:
         require_human("storing an API key")
         name = (a.backend or "").upper()
         if not name.endswith(("_API_KEY", "_TOKEN")):
-            raise UsageError("model key needs the variable name", "e.g. social-studio model key XAI_API_KEY")
+            raise UsageError("model key needs the variable name", "e.g. sclstdio model key XAI_API_KEY")
         import getpass
         value = getpass.getpass(f"{name}: ").strip()
         if not value:
@@ -247,7 +247,7 @@ def cmd_preset(ctx: Ctx, a) -> int:
         if dest.exists():
             raise DataError(f"{dest} already exists")
         shutil.copytree(PKG_DIR / "presets" / "example", dest)
-        emit(ctx, {"created": str(dest)}, f"created {dest}/preset.toml; edit it, then `social-studio preset validate {a.name}`")
+        emit(ctx, {"created": str(dest)}, f"created {dest}/preset.toml; edit it, then `sclstdio preset validate {a.name}`")
         return 0
     name = pick_preset(ctx, a.name)
     p = load_preset(ctx, name, parse_sets(a.set or []))
@@ -299,12 +299,12 @@ def cmd_make(ctx: Ctx, a) -> int:
             except (StudioError, OSError) as e:
                 r["buffer"] = {"error": str(e)}
                 human += (f"\nvideo {r['video_id']} did not reach Buffer: {e}. "
-                          f"Retry: social-studio post draft {r['video_id']}")
-        human += ("\n\nNext: approve, edit or delete the drafts in Buffer. `social-studio post sync` (the timer runs "
+                          f"Retry: sclstdio post draft {r['video_id']}")
+        human += ("\n\nNext: approve, edit or delete the drafts in Buffer. `sclstdio post sync` (the timer runs "
                   "it) records what you decide there.")
     elif ok:
-        human += ("\n\nNext: a human reviews them in a terminal with `social-studio review`, "
-                  "then schedules approved ones with `social-studio post`.")
+        human += ("\n\nNext: a human reviews them in a terminal with `sclstdio review`, "
+                  "then schedules approved ones with `sclstdio post`.")
     emit(ctx, {"made": len(ok), "failed": len(results) - len(ok), "results": results}, human)
     return 0 if ok else 1
 
@@ -415,7 +415,7 @@ def _approve(ctx: Ctx, ids: list[int]) -> dict:
             pid = posting.drafts_post(con, v["id"])
             if pid:
                 raise DataError(f"video {v['id']} waits in Buffer as drafts; approve it there",
-                                f"or take it back out first: social-studio post cancel {pid}")
+                                f"or take it back out first: sclstdio post cancel {pid}")
         signed = approval.sign(ctx, videos)
         with db.tx(con):
             for v, payload, sig in signed:
@@ -468,7 +468,7 @@ def cmd_review(ctx: Ctx, a) -> int:
         if not a.ids:
             raise UsageError("review approve needs video ids")
         res = _approve(ctx, a.ids)
-        emit(ctx, res, f"approved {res['approved']}; schedule them with `social-studio post`")
+        emit(ctx, res, f"approved {res['approved']}; schedule them with `sclstdio post`")
         return 0
     if a.action in ("reject", "revise"):
         require_human(f"marking videos for {a.action}")
@@ -479,7 +479,7 @@ def cmd_review(ctx: Ctx, a) -> int:
         for vid in a.ids:
             _decide(ctx, vid, "rejected" if a.action == "reject" else "revision", a.notes or "")
         emit(ctx, {a.action: a.ids}, f"{a.action}: {a.ids}" + (
-            "\nThen: social-studio make --revise <id>" if a.action == "revise" else ""))
+            "\nThen: sclstdio build --revise <id>" if a.action == "revise" else ""))
         return 0
     # interactive walk-through
     require_human("reviewing videos")
@@ -531,7 +531,7 @@ def cmd_review(ctx: Ctx, a) -> int:
         print(f"\nSigning {len(to_approve)} approval(s), each covering the video and its post text. "
               "Enter your approval passphrase.")
         res = _approve(ctx, to_approve)
-        emit(ctx, res, f"approved {res['approved']}; schedule them with `social-studio post`")
+        emit(ctx, res, f"approved {res['approved']}; schedule them with `sclstdio post`")
     return 0
 
 
@@ -591,19 +591,19 @@ def cmd_post(ctx: Ctx, a) -> int:
         return 0
     if a.action == "cancel":
         if a.target is None:
-            raise UsageError("post cancel needs a post id", "see `social-studio post list`")
+            raise UsageError("post cancel needs a post id", "see `sclstdio post list`")
         emit(ctx, posting.cancel(ctx, a.target), f"post {a.target} cancelled and removed from Buffer")
         return 0
     if a.action == "draft":  # by hand; after a make the CLI does this itself. Drafts publish nothing: no terminal check
         if a.target is None:
-            raise UsageError("post draft needs a video id", "see `social-studio review list`")
+            raise UsageError("post draft needs a video id", "see `sclstdio review list`")
         res = posting.draft(ctx, a.target)
         emit(ctx, res, _drafted(res) + "\nApprove, edit or delete them in Buffer.")
         return 0 if any(t["status"] == "draft" for t in res["targets"]) else 1
     if a.action == "schedule":
         if a.target is None or not a.at:
             raise UsageError("post schedule needs a video id and --at",
-                             "e.g. social-studio post schedule 12 --at '2026-10-08 09:00' -c instagram -c x")
+                             "e.g. sclstdio post schedule 12 --at '2026-10-08 09:00' -c instagram -c x")
         p = posting.plan(ctx, a.target, a.channel, a.at)
         log(posting.describe(p) + "\n")
         if a.dry_run:
@@ -642,7 +642,7 @@ def cmd_timer(ctx: Ctx, a) -> int:
     if a.action in ("install", "remove"):
         require_human(f"{a.action} the systemd timer (it writes to {unit_dir}, outside the repo)")
     if a.action == "install":
-        exe = shutil.which("social-studio") or f"{sys.executable} -m social_studio"
+        exe = shutil.which("sclstdio") or shutil.which("social-studio") or f"{sys.executable} -m social_studio"
         unit_dir.mkdir(parents=True, exist_ok=True)
         (unit_dir / f"{name}.service").write_text(
             f"[Unit]\nDescription=social-studio: record what Buffer did with due posts\n\n[Service]\nType=oneshot\n"
@@ -685,7 +685,7 @@ def cmd_skill(ctx: Ctx, a) -> int:
 def cmd_completion(ctx: Ctx, a) -> int:
     """Shell completion generated from the parser itself, so it never drifts from the commands."""
     ap = build_parser()
-    sub = next(x for x in ap._actions if isinstance(x, argparse._SubParsersAction))
+    sub = _commands(ap)
     top = sorted(sub.choices) + [o for x in ap._actions for o in x.option_strings if o.startswith("--")]
     cases = []
     for name, p in sub.choices.items():
@@ -700,7 +700,7 @@ def cmd_completion(ctx: Ctx, a) -> int:
         '  local cur="${COMP_WORDS[COMP_CWORD]}" cmd="" w',
         '  for w in "${COMP_WORDS[@]:1:COMP_CWORD-1}"; do case "$w" in -*) ;; *) cmd="$w"; break ;; esac; done',
         '  if [ -z "$cmd" ]; then COMPREPLY=( $(compgen -W "' + " ".join(top) + '" -- "$cur") ); return; fi',
-        '  case "$cmd" in', *cases, "  esac", "}", "complete -F _social_studio social-studio"])
+        '  case "$cmd" in', *cases, "  esac", "}", "complete -F _social_studio sclstdio social-studio"])
     if a.shell == "zsh":
         script = "autoload -U +X bashcompinit && bashcompinit\n" + script
     print(script)
@@ -712,52 +712,47 @@ def cmd_version(ctx: Ctx, a) -> int:
     return 0
 
 
+def _commands(ap: argparse.ArgumentParser) -> argparse._SubParsersAction:
+    return next(x for x in ap._actions if isinstance(x, argparse._SubParsersAction))
+
+
+def cmd_help(ctx: Ctx, a) -> int:
+    """The menu (what a bare sclstdio prints), or one command's options."""
+    ap = build_parser()
+    if not a.topic:
+        ap.print_help()
+        return 0
+    commands = _commands(ap).choices
+    if a.topic not in commands:
+        raise UsageError(f"no command {a.topic!r}", "run `sclstdio` for the menu")
+    commands[a.topic].print_help()
+    return 0
+
+
 # --- parser ------------------------------------------------------------------------------------------
 
 def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(
-        prog="social-studio",
+        prog="sclstdio",
         description="Make motion-graphics videos in isolated LLM sessions, keep them in a library, post approved ones.",
-        epilog="Typical day: social-studio make -n 3  ->  social-studio review  ->  social-studio post",
-        formatter_class=argparse.RawDescriptionHelpFormatter)
+        epilog="A bare `sclstdio` shows this menu; `sclstdio help <command>` (or `<command> -h`) shows its options.\n"
+               "Typical day: sclstdio build  ->  approve the drafts in Buffer (or sclstdio review)  ->  sclstdio post list",
+        formatter_class=lambda prog: argparse.RawDescriptionHelpFormatter(prog, max_help_position=26))
     ap.add_argument("--json", action="store_true", help="machine-readable output on stdout")
     ap.add_argument("--project", help=f"project folder (default: found from the current folder: {PROJECT_FILE}, or social/{PROJECT_FILE})")
-    ap.add_argument("--version", action="version", version=f"social-studio {__version__}")
-    sub = ap.add_subparsers(dest="cmd", required=True, metavar="command")
+    ap.add_argument("--version", action="version", version=f"sclstdio {__version__}")
+    sub = ap.add_subparsers(dest="cmd", metavar="command", title="commands")
 
-    def cmd(name, fn, help_, aliases=()):
-        p = sub.add_parser(name, help=help_, description=help_, aliases=list(aliases))
+    def cmd(name, fn, help_, aliases=(), about=None):
+        """`help_` is the menu's one line; `about` is the longer text `<command> -h` opens with."""
+        p = sub.add_parser(name, help=help_, description=about or help_, aliases=list(aliases))
         p.set_defaults(fn=fn)
         return p
 
-    p = cmd("init", cmd_init, "create or finish a project: config, .env, folders, database, approval key, engine",
-            aliases=["setup"])
-    p.add_argument("dir", nargs="?", help="project folder (default: the current project, or this folder)")
-    p.add_argument("--no-engine", action="store_true", help="skip installing the render engine")
-    cmd("doctor", cmd_doctor, "check everything a run needs; exit 1 if a required check fails")
-    cmd("version", cmd_version, "print the version")
-
-    p = cmd("config", cmd_config, f"read or change {PROJECT_FILE} (comments are not kept on write)")
-    p.add_argument("action", choices=["get", "set", "list", "path"])
-    p.add_argument("key", nargs="?")
-    p.add_argument("value", nargs="?")
-
-    p = cmd("model", cmd_model, "list LLM backends, or pick the default backend and model")
-    p.add_argument("action", nargs="?", choices=["list", "set", "key"], default="list")
-    p.add_argument("backend", nargs="?", help="set: claude, opencode or codex. key: the .env name, e.g. XAI_API_KEY")
-    p.add_argument("model", nargs="?", help="e.g. opus, sonnet, xai/grok-4, deepseek/deepseek-chat")
-
-    p = cmd("preset", cmd_preset, "list, show, validate or create presets")
-    p.add_argument("action", choices=["list", "show", "validate", "new"])
-    p.add_argument("name", nargs="?")
-    p.add_argument("--set", action="append", metavar="KEY=VALUE", help="override a preset value")
-
-    p = cmd("engine", cmd_engine, "install or inspect the pinned render engine")
-    p.add_argument("action", nargs="?", choices=["install", "status"], default="status")
-    p.add_argument("--preset")
-    p.add_argument("--version", dest="version")
-
-    p = cmd("make", cmd_make, "generate videos: one isolated agent session per video")
+    # Make and judge
+    p = cmd("build", cmd_make, "make videos: one isolated agent session each, then drafts in Buffer",
+            aliases=["make"], about="generate videos: one isolated agent session per video; each finished video goes "
+            "to every connected Buffer channel as drafts to approve there")
     p.add_argument("-n", "--count", type=int, default=1, help="how many videos (default 1)")
     p.add_argument("--parallel", type=int, default=1, help="sessions at once (default 1)")
     p.add_argument("--preset", help="preset name or path (default: config default_preset, or a picker)")
@@ -786,14 +781,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--review", dest="review", action="store_true", default=None, help="force the independent reviewer")
     p.add_argument("--no-review", dest="review", action="store_false", help="skip the independent reviewer")
 
-    p = cmd("library", cmd_library, "browse the library, or move it with `library dir <folder>` (inside the repo)")
-    p.add_argument("action", choices=["list", "show", "path", "open", "dir"])
-    p.add_argument("target", nargs="?", help="a video id; for `dir`, the new folder")
-    p.add_argument("--status", action="append")
-    p.add_argument("--all", action="store_true", help="include scheduled and posted (human only)")
-    p.add_argument("--limit", type=int, default=25)
-
-    p = cmd("review", cmd_review, "human review: walk the queue, or approve / reject / revise by id; "
+    p = cmd("review", cmd_review, "walk the review queue, or approve, reject, revise or rescore by id",
+            about="human review: walk the queue, or approve / reject / revise by id; "
             "rescore ID re-runs the independent reviewer to measure its noise")
     p.add_argument("action", nargs="?", choices=["walk", "list", "approve", "reject", "revise", "rescore"],
                    default="walk")
@@ -802,12 +791,18 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--times", type=int, default=2, help="rescore: reviewer runs on the same video (default 2)")
     p.add_argument("--effort", choices=EFFORTS, help="rescore: the reviewer's effort (review.effort)")
 
-    p = cmd("agent", cmd_agent, "the agent surface (read-only): status, unassigned videos, topics, calendar")
-    p.add_argument("action", choices=["status", "videos", "topics", "calendar"])
-    p.add_argument("--limit", type=int, default=50)
+    p = cmd("library", cmd_library, "browse the videos, or move the library folder",
+            about="browse the library, or move it with `library dir <folder>` (inside the repo)")
+    p.add_argument("action", choices=["list", "show", "path", "open", "dir"])
+    p.add_argument("target", nargs="?", help="a video id; for `dir`, the new folder")
+    p.add_argument("--status", action="append")
+    p.add_argument("--all", action="store_true", help="include scheduled and posted (human only)")
+    p.add_argument("--limit", type=int, default=25)
 
-    p = cmd("post", cmd_post, "post videos through Buffer: draft sends a video there as drafts to approve in Buffer "
-            "(make does this by itself); with no action, pick a signed-approved one, its channels and a time at a "
+    # Post
+    p = cmd("post", cmd_post, "post through Buffer: draft, pick, schedule, list, sync, cancel",
+            about="post videos through Buffer: draft sends a video there as drafts to approve in Buffer "
+            "(build does this by itself); with no action, pick a signed-approved one, its channels and a time at a "
             "terminal; schedule does the same from flags; list and cancel follow them; "
             "sync records what Buffer did (the timer runs it)")
     p.add_argument("action", nargs="?", choices=["pick", "draft", "schedule", "list", "sync", "cancel"],
@@ -821,26 +816,68 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--past", action="store_true", help="list: include posts older than a day")
     p.add_argument("--limit", type=int, default=50)
 
-    p = cmd("channel", cmd_channel, "connect and test the accounts posting uses: buffer (posts) and media (video hosting)")
+    p = cmd("channel", cmd_channel, "connect and test the posting accounts: buffer and media",
+            about="connect and test the accounts posting uses: buffer (posts) and media (video hosting)")
     p.add_argument("action", choices=["list", "connect", "test", "disconnect"])
     p.add_argument("platform", nargs="?", metavar="account", help="buffer or media")
 
-    p = cmd("timer", cmd_timer, "systemd user timer that runs `post sync`")
+    p = cmd("timer", cmd_timer, "the systemd user timer that runs `post sync`")
     p.add_argument("action", choices=["install", "remove", "status"])
     p.add_argument("--every", type=int, default=10, help="minutes (default 10)")
 
-    p = cmd("completion", cmd_completion, "print shell completion: eval \"$(social-studio completion bash)\"")
-    p.add_argument("shell", choices=["bash", "zsh"])
+    # Set up
+    p = cmd("preset", cmd_preset, "list, show, validate or create presets")
+    p.add_argument("action", choices=["list", "show", "validate", "new"])
+    p.add_argument("name", nargs="?")
+    p.add_argument("--set", action="append", metavar="KEY=VALUE", help="override a preset value")
+
+    p = cmd("model", cmd_model, "list LLM backends, or set the default backend and model")
+    p.add_argument("action", nargs="?", choices=["list", "set", "key"], default="list")
+    p.add_argument("backend", nargs="?", help="set: claude, opencode or codex. key: the .env name, e.g. XAI_API_KEY")
+    p.add_argument("model", nargs="?", help="e.g. opus, sonnet, xai/grok-4, deepseek/deepseek-chat")
+
+    p = cmd("engine", cmd_engine, "install or inspect the pinned render engine")
+    p.add_argument("action", nargs="?", choices=["install", "status"], default="status")
+    p.add_argument("--preset")
+    p.add_argument("--version", dest="version")
+
+    p = cmd("config", cmd_config, f"read or change {PROJECT_FILE}",
+            about=f"read or change {PROJECT_FILE} (comments are not kept on write)")
+    p.add_argument("action", choices=["get", "set", "list", "path"])
+    p.add_argument("key", nargs="?")
+    p.add_argument("value", nargs="?")
+
+    p = cmd("init", cmd_init, "create or finish a project: config, .env, folders, database, approval key, engine",
+            aliases=["setup"])
+    p.add_argument("dir", nargs="?", help="project folder (default: the current project, or this folder)")
+    p.add_argument("--no-engine", action="store_true", help="skip installing the render engine")
+    cmd("doctor", cmd_doctor, "check everything a run needs; exit 1 if a required check fails")
+
+    # Agents and the shell
+    p = cmd("agent", cmd_agent, "the read-only agent surface: status, videos, topics, calendar",
+            about="the agent surface (read-only): status, unassigned videos, topics, calendar")
+    p.add_argument("action", choices=["status", "videos", "topics", "calendar"])
+    p.add_argument("--limit", type=int, default=50)
 
     p = cmd("skill", cmd_skill, "install the agent skill into a harness (claude, opencode, codex, or a folder)")
     p.add_argument("action", choices=["install", "show"])
     p.add_argument("--target", default="claude")
+
+    p = cmd("completion", cmd_completion, "print shell completion: eval \"$(sclstdio completion bash)\"")
+    p.add_argument("shell", choices=["bash", "zsh"])
+
+    p = cmd("help", cmd_help, "show this menu, or one command's options: sclstdio help build")
+    p.add_argument("topic", nargs="?", metavar="command")
+    cmd("version", cmd_version, "print the version")
     return ap
 
 
 def main(argv: list[str] | None = None) -> int:
     ap = build_parser()
     a = ap.parse_args(argv)
+    if a.cmd is None:  # a bare sclstdio opens the menu
+        ap.print_help()
+        return 0
     ctx = make_ctx(a.project, a.json)
     try:
         return a.fn(ctx, a) or 0

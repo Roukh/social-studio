@@ -57,7 +57,7 @@ def settings(ctx: Ctx) -> dict:
     missing = [k for k in ("endpoint", "bucket", "public_url") if not s[k]]
     if missing:
         raise ConfigError(f"media hosting is not set up (publish.media.{', '.join(missing)})",
-                          "run `social-studio channel connect media` yourself")
+                          "run `sclstdio channel connect media` yourself")
     for k in ("endpoint", "public_url"):
         if not s[k].startswith("https://"):
             raise ConfigError(f"publish.media.{k} must be an https:// URL")

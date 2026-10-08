@@ -305,7 +305,7 @@ def _skills(ctx: Ctx, p: Preset, s: Session, version: str) -> list[str]:
     for name in p.get("agent.engine_skills", DEFAULT_SKILLS):
         src = src_root / name
         if not src.is_dir():
-            raise ConfigError(f"engine skill not found: {name}", "run `social-studio engine install`")
+            raise ConfigError(f"engine skill not found: {name}", "run `sclstdio engine install`")
         shutil.copytree(src, out / name, dirs_exist_ok=True)
         names.append(name)
     for name, spec in p.get("agent.skills", {}).items():

@@ -156,10 +156,10 @@ def plan(ctx: Ctx, video_id: int, channel_keys: list[str] | None, when: str) -> 
         video = db.get_video(con, video_id)
         if video["status"] not in SCHEDULABLE:
             raise DataError(f"video {video_id} is {video['status']}; only approved videos can be scheduled",
-                            "approve it first with `social-studio review`")
+                            "approve it first with `sclstdio review`")
         live = con.execute("SELECT id FROM posts WHERE video_id = ? AND status <> 'failed'", (video_id,)).fetchone()
         if live:
-            raise DataError(f"video {video_id} is already on post {live[0]}", "see `social-studio post list`")
+            raise DataError(f"video {video_id} is already on post {live[0]}", "see `sclstdio post list`")
         problem = approval.check_video(ctx, con, video, post=True)
         if problem:
             raise Denied(f"video {video_id} is not cleared to post: {problem}")
@@ -202,7 +202,7 @@ def execute(ctx: Ctx, p: dict) -> dict:
             same = (now["status"], now["sha256"], approval.post_hash(now)) == (v["status"], v["sha256"],
                                                                                approval.post_hash(v))
             if not same:
-                raise DataError(f"video {v['id']} changed while you were confirming; run `social-studio post` again")
+                raise DataError(f"video {v['id']} changed while you were confirming; run `sclstdio post` again")
             problem = approval.check_video(ctx, con, now, post=True)
             if problem:
                 raise Denied(f"video {v['id']} is not cleared to post: {problem}")
@@ -259,7 +259,7 @@ def pick(ctx: Ctx, dry_run: bool = False) -> dict | None:
     require_human("scheduling a post")
     vids = approved_posts(ctx)
     if not vids:
-        print("No approved post is waiting. Approve some with `social-studio review`.")
+        print("No approved post is waiting. Approve some with `sclstdio review`.")
         return None
     for i, v in enumerate(vids, 1):
         again = "  (failed before)" if v["status"] == "failed" else ""
@@ -313,7 +313,7 @@ def draft(ctx: Ctx, video_id: int) -> dict:
                                 "as drafts")
             live = con.execute("SELECT id FROM posts WHERE video_id = ?", (video_id,)).fetchone()
             if live:
-                raise DataError(f"video {video_id} is already on post {live[0]}", "see `social-studio post list`")
+                raise DataError(f"video {video_id} is already on post {live[0]}", "see `sclstdio post list`")
         finally:
             con.close()
         chans = select_channels(ctx, buffer.channels(ctx, supported_only=False), None)
