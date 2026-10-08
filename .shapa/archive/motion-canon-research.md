@@ -6,7 +6,7 @@ consequence: 7
 locus: output
 summary: The non-AI motion design canon, cited - leaders, hubs, libraries, principles with numbers, landmark pieces; source of the motion-canon skill.
 scope: repo
-status: active
+status: superseded
 ---
 
 # Non-AI Motion Graphics Canon
