@@ -53,8 +53,16 @@ def scenes(times: list[float], start: float, end: float, min_len: float, every: 
 
 
 def frame(film: Path, t: float, dst: Path, width: int) -> None:
-    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{t:.3f}", "-i", str(film),
-                    "-frames:v", "1", "-vf", f"scale={width}:-2", "-q:v", "3", str(dst)], check=True)
+    """One JPEG at t. A container whose duration runs past its last video frame yields nothing at the very end,
+    so step back until a frame comes out; yuvj420p because some sources' pixel formats will not encode to JPEG."""
+    for back in (0.0, 0.25, 0.5, 1.0):
+        dst.unlink(missing_ok=True)
+        subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{max(t - back, 0):.3f}",
+                        "-i", str(film), "-frames:v", "1", "-vf", f"scale={width}:-2,format=yuvj420p", "-q:v", "3",
+                        str(dst)], capture_output=True)
+        if dst.is_file() and dst.stat().st_size:
+            return
+    raise RuntimeError(f"no frame near {t:.2f} s in {film}")
 
 
 def stack(images: list[Path], dst: Path, per_row: int) -> None:
