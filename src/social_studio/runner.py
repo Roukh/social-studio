@@ -395,9 +395,13 @@ def prepare(ctx: Ctx, p: Preset, s: Session, version: str, eng_root: Path, pilla
         if tool.is_file() and not tool.name.startswith("."):
             shutil.copy2(tool, s.work / "tools" / tool.name)
     try:
-        store.save(store.open_store(), s.work / STORE_DB)
+        con = store.open_store()
     except store.StoreError as e:
         raise DataError(str(e), "fix the store's files: python -m social_studio.store check") from e
+    try:
+        store.save(con, s.work / STORE_DB)
+    finally:
+        con.close()
     registry = engine.registry_root(ctx, version)
     if registry.is_dir():  # read-only in the jail with the rest of the engine; the trim unlinks the link
         (s.work / "registry").symlink_to(registry, target_is_directory=True)

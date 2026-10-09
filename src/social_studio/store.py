@@ -19,6 +19,7 @@ import json
 import re
 import sqlite3
 import sys
+import threading
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -213,19 +214,24 @@ def build(items: list[dict], path: str = ":memory:") -> sqlite3.Connection:
     return con
 
 
-_CACHE: dict[str, sqlite3.Connection] = {}
+_CHECKED: dict[str, list[dict]] = {}
+_LOCK = threading.Lock()
 
 
 def open_store(root: Path = STORE_DIR) -> sqlite3.Connection:
-    """The checked, built store for `root`, once per process. A broken store raises StoreError, never half-loads."""
+    """A new connection to the checked store for `root`. The files are read and checked once per process; each
+    caller gets its own in-memory database (a few ms to build), since a SQLite connection serves one thread and
+    `build --parallel` prepares sessions on several. A broken store raises StoreError, never half-loads."""
     key = str(root)
-    if key not in _CACHE:
-        items = load(root)
-        found = problems(items, vocab(root))
-        if found:
-            raise StoreError(f"the reference store at {root} has {len(found)} problem(s): " + "; ".join(found[:10]))
-        _CACHE[key] = build(items)
-    return _CACHE[key]
+    with _LOCK:
+        if key not in _CHECKED:
+            items = load(root)
+            found = problems(items, vocab(root))
+            if found:
+                raise StoreError(f"the reference store at {root} has {len(found)} problem(s): "
+                                 + "; ".join(found[:10]))
+            _CHECKED[key] = items
+    return build(_CHECKED[key])
 
 
 def save(con: sqlite3.Connection, path: Path) -> None:

@@ -162,6 +162,14 @@ def designer_brief(story: dict, plan: dict, refs: list[dict], voiced: bool) -> s
 def tell(ctx: Ctx, p: Preset, s: Session, b: Backend, version: str, history: list[dict], pillar: str | None) -> dict:
     """Run the storyteller, check its story, retrieve each beat's techniques, and return the designer brief."""
     con = store.open_store()
+    try:
+        return _tell(ctx, p, s, b, version, history, pillar, con)
+    finally:
+        con.close()
+
+
+def _tell(ctx: Ctx, p: Preset, s: Session, b: Backend, version: str, history: list[dict], pillar: str | None,
+          con) -> dict:
     refs = prepare(p, s, pillar, con)
     prompt = (f"Read {TASK} in the current folder and complete it. Work autonomously; nobody will answer questions. "
               f"Finish by writing {STORY}.")

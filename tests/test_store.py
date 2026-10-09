@@ -77,6 +77,25 @@ def test_the_shipped_store_passes_its_own_check():
     assert {i["kind"] for i in items} >= {"technique"}
 
 
+def test_parallel_sessions_each_get_a_store_they_can_use(root):
+    """`build --parallel` prepares sessions on several threads at once: none may get another thread's connection."""
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+    both = threading.Barrier(2)
+    warm = store.open_store(root)                                         # an earlier caller, on another thread
+
+    def session(_):
+        con = store.open_store(root)
+        both.wait(timeout=10)                                             # both threads hold a connection at once
+        try:
+            return store.search(con, kind="scene", facets={"role": "demo"})[0]["id"]
+        finally:
+            con.close()
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        assert list(pool.map(session, range(2))) == ["cards-demo", "cards-demo"]
+    warm.close()
+
+
 def test_check_lists_every_problem_by_file(root):
     bad = technique("glass-ui-flow", purpose=["vibes"])
     bad["prompt"] = "x" * (store.PROMPT_MAX + 1)

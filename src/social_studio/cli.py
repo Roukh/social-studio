@@ -132,7 +132,9 @@ def _checks(ctx: Ctx) -> list[dict]:
     for b in ("claude", "opencode", "codex"):
         add(f"backend {b}", shutil.which(b), shutil.which(b) or "not installed", "", required=(b == ctx.cfg("backend.default", "claude")))
     try:
-        counts = store.stats(store.open_store())["items"]
+        con = store.open_store()
+        counts = store.stats(con)["items"]
+        con.close()
         add("reference store", True, ", ".join(f"{n} {k}s" for k, n in sorted(counts.items())))
     except store.StoreError as e:
         add("reference store", False, str(e)[:300], "python -m social_studio.store check")
