@@ -4,7 +4,7 @@ type: reference
 created: "2026-10-09T06:00:00Z"
 consequence: 9
 locus: output
-summary: Box story - the pitch round (no operator brief), the storyteller session that runs before the designer in the same sandbox, and the tagged SQLite reference store (techniques, film scenes, brand story posts) both draw from.
+summary: Box story - the pitch round, the storyteller session before the designer, and the tagged SQLite store (techniques, scenes, story posts) both draw from.
 scope: repo
 status: active
 ---

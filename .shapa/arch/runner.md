@@ -4,7 +4,7 @@ type: reference
 created: "2026-10-06T23:59:00Z"
 consequence: 9
 locus: output
-summary: Box runner - one jailed harness session per video (or per keyframe board) - session folder, backends and logins, prepare, rounds, render, QA, review, filing, trim and revision purge.
+summary: Box runner - one jailed session per video or board - session folder, backends, logins, prepare, render, QA, review, filing, trim, revision purge.
 scope: repo
 status: active
 ---
