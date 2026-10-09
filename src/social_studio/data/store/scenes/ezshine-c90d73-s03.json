@@ -1,0 +1,21 @@
+{
+  "id": "ezshine-c90d73-s03",
+  "kind": "scene",
+  "name": "One input, fair fan-out to every model",
+  "looks": "A dark code panel holding one shared dataset and prompt sits on the left. Thin coloured lines draw from it out to a column of model-name chips on the right, each arriving in its own colour. Beneath it a short checklist settles: a few green checks for what is kept fair and constant, and one red cross for the single thing never done.",
+  "build": "fan-out-branch-diagram: bezier lines reveal via strokeDashoffset from the panel to each chip, staggered 0.08-0.12s; the checklist rows fade in beneath after the last line lands.",
+  "sound": "A soft whoosh per line, a tick on each chip, and a lower tone on the checklist's cross item.",
+  "duration": [2.5, 3.5],
+  "prompt": "Make a fairness claim visible: show one shared input branching out as drawn lines to every competitor or recipient under test, each landing in its own colour, then close on a short checklist of what stays constant and the one thing that is never allowed to happen.",
+  "techniques": ["fan-out-branch-diagram"],
+  "source": {"film": "ezshine-c90d73", "url": "https://prompt-motion.com/ezshine-c90d73", "creator": "@ezshine", "start": 15.0, "end": 21.0},
+  "tags": {
+    "role": ["solution", "proof"],
+    "purpose": ["explain-mechanism", "show-contrast"],
+    "content": ["data", "code"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "structure"],
+    "complexity": "medium"
+  }
+}

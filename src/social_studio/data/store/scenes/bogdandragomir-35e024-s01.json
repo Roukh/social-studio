@@ -1,0 +1,21 @@
+{
+  "id": "bogdandragomir-35e024-s01",
+  "kind": "scene",
+  "name": "a macro sphere holds under a figure caption",
+  "looks": "A glass sphere filled with fine textured grains sits centred and nearly still against a soft-focus dark background of large out-of-focus circles, lit from one side, with a small italic figure caption beneath it like a page from a textbook.",
+  "build": "cinematic-atmosphere-hold: a near-static camera, a shallow-depth background of blurred circular shapes drifting faintly, one warm rim light, a fine grain pass over the whole frame; the caption types on in a small italic serif with a figure-number prefix.",
+  "sound": "A low, quiet ambient tone, almost silent.",
+  "duration": [2.3, 2.7],
+  "prompt": "Hold a near-still macro shot of a small textured object in a glass or transparent vessel, lit from one side against a soft blurred background, with a small italic figure caption typing on beneath it like a textbook illustration. Use it to open on craft and material rather than on the product's interface.",
+  "techniques": ["cinematic-atmosphere-hold"],
+  "source": {"film": "bogdandragomir-35e024", "url": "https://prompt-motion.com/bogdandragomir-35e024", "creator": "@BogdanDragomir", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["set-mood", "show-craft"],
+    "content": ["photo", "3d-object"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["establishing", "texture"],
+    "complexity": "medium"
+  }
+}

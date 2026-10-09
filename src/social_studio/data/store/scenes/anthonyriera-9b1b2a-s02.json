@@ -1,0 +1,21 @@
+{
+  "id": "anthonyriera-9b1b2a-s02",
+  "kind": "scene",
+  "name": "a coarse pixel portrait sharpens as it warms up",
+  "looks": "A heavily pixelated, blurred portrait sits under the word \"Warm up\", its blocks visibly large. As a chat-style question and an answer bubble pop in beside it, the portrait steps down through two or three sharper pixel levels until it reads clearly.",
+  "build": "pixelate-resolve: the portrait is rendered at a coarse block size on a canvas with image-rendering:pixelated, then stepped to finer block sizes at two or three discrete intervals; the chat bubbles pop in during the coarsest steps.",
+  "sound": "A soft digital static that clears as the image sharpens, a blip per bubble.",
+  "duration": [2.3, 2.7],
+  "prompt": "Show a profile or scene starting as a coarse, blocky, barely legible image under a \"warming up\" label. Let a question-and-answer exchange pop in beside it while the image is still coarse, then step the image through two or three sharper levels until it resolves, so the content arrives before the picture does.",
+  "techniques": ["pixelate-resolve"],
+  "source": {"film": "anthonyriera-9b1b2a", "url": "https://prompt-motion.com/anthonyriera-9b1b2a", "creator": "@anthonyriera", "start": 10.0, "end": 15.0},
+  "tags": {
+    "role": ["intro", "demo"],
+    "purpose": ["show-transformation", "build-tension"],
+    "content": ["photo", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["reveal", "texture"],
+    "complexity": "medium"
+  }
+}

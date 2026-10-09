@@ -1,0 +1,21 @@
+{
+  "id": "jayscambler-3f8889-s01",
+  "kind": "scene",
+  "name": "Glitch name decodes beside a pixel-heart mark",
+  "looks": "On a dark, faintly gridded field, a small pixel-art heart mark glows above a line of scrambled characters that flicker through random glyphs, some flashing the accent colour, before locking letter by letter into the product's real name.",
+  "build": "end-card-decode's scramble mechanic: each letter renders a seeded random glyph until its own staggered lock time, then holds its final character; the mark's glow is a slow independent pulse, unrelated to the decode's timing.",
+  "sound": "Glitch ticks under the decode, resolving into a single soft confirm hit on the last letter's lock.",
+  "duration": [1.5, 2.0],
+  "prompt": "Open on a glowing brand mark with its name still glitching, each letter flickering through random characters before locking into place one at a time, so the name itself feels like it is resolving out of noise.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "jayscambler-3f8889", "url": "https://prompt-motion.com/jayscambler-3f8889", "creator": "@JayScambler", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "identity"],
+    "complexity": "medium"
+  }
+}

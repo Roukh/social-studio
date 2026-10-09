@@ -1,0 +1,21 @@
+{
+  "id": "steventey-2103625902211088880-s03",
+  "kind": "scene",
+  "name": "Dashboard stats climb as live sale toasts arrive",
+  "looks": "A dark analytics card shows three stat columns (clicks, leads, sales) that roll up together from empty to their current values, a line chart beneath them drawing left to right with a travelling end-point. As the numbers finish, small toast cards slide in from the right naming individual new leads and sales as they happen.",
+  "build": "data-infographic drives the three stat tiles and the chart's progressive draw; the toasts slide/fade in on their own short stagger after the chart finishes, each holding a beat before the next arrives, so the dashboard reads as alive rather than a static report.",
+  "sound": "A rising tone under the stat roll-ups, a soft whoosh under the chart draw, and a light chime per toast.",
+  "duration": [2.5, 3.5],
+  "prompt": "Show an analytics dashboard as alive, not static: roll up a row of headline numbers together, draw a chart beneath them left to right, then let small toast notifications slide in naming individual real events as they happen, proving the numbers above are still moving.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "steventey-2103625902211088880", "url": "https://x.com/steventey/status/2103625902211088880", "creator": "@steventey", "start": 4.0, "end": 7.5},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-data", "reveal-product"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

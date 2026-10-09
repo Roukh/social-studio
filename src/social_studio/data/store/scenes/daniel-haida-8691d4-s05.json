@@ -1,0 +1,21 @@
+{
+  "id": "daniel-haida-8691d4-s05",
+  "kind": "scene",
+  "name": "wordmark closes with a plain-spoken tagline",
+  "looks": "On a near-black field, the bold wordmark settles centred, a short plain-spoken two-part tagline fading in beneath it a beat later.",
+  "build": "wordmark-assemble's settle stage: the wordmark fades and rises on one slow spring, the tagline revealing with a simple fade a beat behind, no further motion.",
+  "sound": "A quiet resolving tone.",
+  "duration": [1.0, 1.4],
+  "prompt": "Close on a bold wordmark settling centred on a near-black field, with a short, plain-spoken tagline in two parts fading in beneath it a beat later. Keep the close simple and unhurried, with nothing else competing for attention.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "daniel-haida-8691d4", "url": "https://prompt-motion.com/daniel-haida-8691d4", "creator": "@daniel_haida", "start": 12.5, "end": 13.9},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "macrohou-33959d-s02",
+  "kind": "scene",
+  "name": "Protocol rows set the rules, then log a tap",
+  "looks": "Under a headline about setting rules up front, a short stack of labelled rows types in, each with a small icon, a variable and its value (a dose, a metric, a target). A beat later a single daily check-in line appears with a rounded button that fills solid and relabels itself \"Taken\" the instant it's tapped.",
+  "build": "Rows fade/slide in top to bottom, 120-150ms apart, icon first then label then value. The check-in button's fill sweeps from outline to solid colour on tap (`200ms, power2.out`) while its label cross-fades to the confirmed word.",
+  "sound": "A light tick per row landing, a satisfying soft thud on the button's fill-and-confirm.",
+  "duration": [2.5, 3.2],
+  "prompt": "List a short protocol as labelled rows typing in top to bottom, each pairing an icon with a variable and its value, then show a single daily check-in action where a button fills solid and relabels itself confirmed the instant it's tapped, so the whole beat reads as rigour followed by one simple daily habit.",
+  "techniques": ["command-chip-cycle"],
+  "source": {"film": "macrohou-33959d", "url": "https://prompt-motion.com/macrohou-33959d", "creator": "@macrohou", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "type"],
+    "complexity": "low"
+  }
+}

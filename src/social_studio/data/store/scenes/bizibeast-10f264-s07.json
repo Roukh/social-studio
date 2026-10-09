@@ -1,0 +1,21 @@
+{
+  "id": "bizibeast-10f264-s07",
+  "kind": "scene",
+  "name": "a typed instruction becomes a checklist of done tasks",
+  "looks": "A dark chat panel holds a single typed instruction bubble covering several tasks at once; a reply panel beneath fills in with a short plan and a checklist that ticks off one item at a time as each task completes.",
+  "build": "glass-ui-flow: the instruction types on at a steady rate; the reply card fades up with its checklist items ticking on back.out one after another, each a fraction of a second apart.",
+  "sound": "A soft typing clack, a tick per checklist item.",
+  "duration": [2.3, 2.7],
+  "prompt": "Show a single typed instruction in a chat panel that bundles several small tasks together, then a reply panel filling in with a checklist that ticks off one task at a time. Use it to show one instruction turning into several pieces of real, finished work.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "bizibeast-10f264", "url": "https://prompt-motion.com/bizibeast-10f264", "creator": "@bizibeast", "start": 30.0, "end": 35.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

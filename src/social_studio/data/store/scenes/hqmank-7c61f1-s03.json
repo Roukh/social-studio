@@ -1,0 +1,21 @@
+{
+  "id": "hqmank-7c61f1-s03",
+  "kind": "scene",
+  "name": "Three-step pipeline, site to goal to run",
+  "looks": "The full wordmark holds at the top. Below it, three small pill cards sit left to right, each numbered and labelled (a URL, a plain-language goal, a run command), thin connecting lines drawing between them left to right as each one lands.",
+  "build": "fan-out-branch-diagram run as a straight left-to-right chain instead of a fan: each connector is a short strokeDashoffset line between adjacent pills, landing just before the next pill fades in, numbered badges popping in with each.",
+  "sound": "A tick per pill landing and a soft whoosh per connecting line.",
+  "duration": [2.0, 2.5],
+  "prompt": "Show a three-step pipeline as a left-to-right chain of small numbered, labelled cards, each connected to the next by a drawn line that lands just before the following card appears, so the whole flow reads as one continuous hand-off.",
+  "techniques": ["fan-out-branch-diagram", "hud-frame"],
+  "source": {"film": "hqmank-7c61f1", "url": "https://prompt-motion.com/hqmank-7c61f1", "creator": "@hqmank", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["solution", "intro"],
+    "purpose": ["explain-mechanism"],
+    "content": ["data", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "structure"],
+    "complexity": "medium"
+  }
+}

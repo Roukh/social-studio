@@ -1,0 +1,21 @@
+{
+  "id": "viktoroddy-98c1d8-s05",
+  "kind": "scene",
+  "name": "a live counter spins up to a round milestone",
+  "looks": "A small live label sits above a big number whose digits spin like an odometer, some settling while others keep rolling, climbing fast across several hard cuts until it lands exactly on a clean round number. A thin rising line with a soft glow draws in behind it, and a short line of support text settles underneath once it stops.",
+  "build": "Each digit is its own column tweening through values on a loop until it locks on its target frame, independent per digit so some settle before others; the line chart draws with strokeDashoffset on power3.out behind the number; the support text fades/rises in once the last digit locks.",
+  "sound": "A fast mechanical whir under the spinning digits, slowing and landing on a solid confirm tone when it locks.",
+  "duration": [5.0, 7.5],
+  "prompt": "Spin a big number's digits like an odometer, independently settling one at a time, climbing fast across hard cuts until it lands exactly on a clean round milestone, with a thin glowing line rising behind it and a short support line settling underneath once it locks.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "viktoroddy-98c1d8", "url": "https://prompt-motion.com/viktoroddy-98c1d8", "creator": "@viktoroddy", "start": 17.5, "end": 25.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

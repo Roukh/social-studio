@@ -1,0 +1,21 @@
+{
+  "id": "palashbagchi11-0a4b6b-s06",
+  "kind": "scene",
+  "name": "a command headline gets its old habit struck through",
+  "looks": "On a black card, a two-line command appears, its second line briefly doubled as if stuttering into place before settling. A beat later, a thick hand-drawn line strikes through the old habit named in that line, cancelling it on screen.",
+  "build": "The headline settles with a quick double-exposure jitter (a ghost copy offset a few px, fading out as the real line locks). The strike is an SVG path stroked on with strokeDashoffset over 0.2-0.3s, power2.out, angled slightly off horizontal for a hand-drawn feel.",
+  "sound": "A short stutter tick as the headline settles, one firm scratch hit as the strike line lands.",
+  "duration": [1.6, 2.2],
+  "prompt": "State the old, wasteful habit as a bold two-line command on a dark card, letting it settle with a brief stutter. A beat later, draw a thick hand-made strike through the habit itself, cancelling it in front of the viewer rather than cutting to a new line.",
+  "techniques": ["ghost-glyph-headline-card", "bounce-path-draw"],
+  "source": {"film": "palashbagchi11-0a4b6b", "url": "https://prompt-motion.com/palashbagchi11-0a4b6b", "creator": "@PalashBagchi11", "start": 20.6, "end": 23.2},
+  "tags": {
+    "role": ["problem", "transition"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["type", "annotation"],
+    "complexity": "low"
+  }
+}

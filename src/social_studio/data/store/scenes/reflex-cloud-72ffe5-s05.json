@@ -1,0 +1,21 @@
+{
+  "id": "reflex-cloud-72ffe5-s05",
+  "kind": "scene",
+  "name": "glitch scan into ring-drawn logomark",
+  "looks": "A beat of near-black holds on a single small accent dot, then a horizontal scan-line glitch streaks across the dark. Out of the glitch, a set of concentric rings draws outward and resolves into the clean outline of a single lower-case letter, glowing, before crossfading into the crisp brand mark.",
+  "build": "A black field holds a single pulsing DOM dot; the glitch is a thin horizontal band jittering position and opacity for a few frames. The ring reveal is concentric SVG circles, each tracing an arc of the letterform's outline on strokeDashoffset, staggered outward-in and fading to a flat glow (the noise-dissolve-logomark mechanic, with rings standing in for scattered points); it crossfades to the crisp DOM mark in the last 0.1 s.",
+  "sound": "A short digital glitch burst, a shimmer as the rings resolve into a soft hit as the mark completes.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold a beat of near-black around one small glowing point, let a scan-line glitch streak through, then have a set of concentric rings draw outward out of the glitch until they resolve into a glowing outline of the brand's mark, crossfading to its crisp final form.",
+  "techniques": ["noise-dissolve-logomark"],
+  "source": {"film": "reflex-cloud-72ffe5", "url": "https://prompt-motion.com/reflex-cloud-72ffe5", "creator": "@reflex_cloud", "start": 10.8, "end": 13.133},
+  "tags": {
+    "role": ["transition", "cta"],
+    "purpose": ["establish-brand", "tease"],
+    "content": ["logo", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["identity", "transition"],
+    "complexity": "medium"
+  }
+}

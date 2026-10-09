@@ -1,0 +1,50 @@
+{
+  "id": "aistocksavvy-3fb9f5-s06",
+  "kind": "scene",
+  "name": "watchlist list over a brand close",
+  "looks": "A claim and a two-column list of ticker rows (icon, name, a small sparkline control) sit over a dark field; the frame then cross-fades to a wall of softly blurred overlapping UI panels in gentle 3D depth behind the centred logo, a beta tag, a tagline, and the same section labels as a thin nav row beneath.",
+  "build": "The list rows stagger in on a short fade-and-rise; the close reuses wordmark-assemble's settle stage, with a cinematic-atmosphere-hold-style blurred parallax wall of UI panels drifting slowly behind it for depth.",
+  "sound": "A soft tick per row, a quiet pad swell under the close.",
+  "duration": [
+    3.5,
+    4.0
+  ],
+  "prompt": "Show a two-column list of tracked items staggering into place, each with a small live indicator. Wipe to a closing card: the logo and tagline centred over a wall of softly blurred, overlapping interface panels drifting slowly behind them for depth, with a thin row of the film's section labels beneath as a final nav strip.",
+  "techniques": [
+    "wordmark-assemble",
+    "cinematic-atmosphere-hold"
+  ],
+  "source": {
+    "film": "aistocksavvy-3fb9f5",
+    "url": "https://prompt-motion.com/aistocksavvy-3fb9f5",
+    "creator": "@AIStockSavvy",
+    "start": 10.833,
+    "end": 14.9
+  },
+  "tags": {
+    "role": [
+      "cta",
+      "proof"
+    ],
+    "purpose": [
+      "establish-brand",
+      "land-cta"
+    ],
+    "content": [
+      "product-ui",
+      "logo"
+    ],
+    "energy": [
+      "calm"
+    ],
+    "format": [
+      "16:9"
+    ],
+    "family": [
+      "close",
+      "identity",
+      "texture"
+    ],
+    "complexity": "medium"
+  }
+}

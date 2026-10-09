@@ -1,0 +1,21 @@
+{
+  "id": "listudio-820c7b-s07",
+  "kind": "scene",
+  "name": "Closing lockup over a dimmed product wall",
+  "looks": "A row of finished product photographs dims and recedes, and the brand's wordmark settles centred over it on the darkened ground, a short tagline fading in underneath, then a rounded CTA pill with the site address.",
+  "build": "Product images drop in brightness/contrast as the lockup group fades in over them (`y:10px -> 0`, power2.out, ~350ms); tagline fades in 180ms later, CTA pill last with a small scale overshoot (0.95 -> 1.02 -> 1).",
+  "sound": "A low swell fading the ambient mix down as the lockup lands, a light pop on the CTA pill.",
+  "duration": [2.0, 2.8],
+  "prompt": "Dim a row of finished example outputs behind the brand's wordmark as it settles centred over them, fade in a short tagline underneath, and land a CTA pill with the site address last, closing the film on a calm, confident card.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "listudio-820c7b", "url": "https://prompt-motion.com/listudio-820c7b", "creator": "@listudio", "start": 36.0, "end": 39.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "photo"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

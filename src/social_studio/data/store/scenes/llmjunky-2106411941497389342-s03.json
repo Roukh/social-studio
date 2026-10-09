@@ -1,0 +1,21 @@
+{
+  "id": "llmjunky-2106411941497389342-s03",
+  "kind": "scene",
+  "name": "a silhouette's crystal bends a ray while a graph draws its maths",
+  "looks": "A silhouetted figure holds up a small crystal. A thin bright ray travels in from off-frame and bends through it, tracing a sharp angle, while two plain labels sit fixed in the corners naming the two ideas in tension. Low in the frame a small sine-wave graph draws itself in sync with the ray's own progress.",
+  "build": "The ray reveals with strokeDashoffset from source to crystal (power2.inOut); the bend triggers the instant the reveal reaches the crystal; the corner labels are static, low-contrast, present the whole beat; the graph's curve draws in lockstep with the ray's own timeline, same mechanic as physics-ray-diagram.",
+  "sound": "A thin rising tone as the ray travels, a soft chime the instant it bends through the crystal.",
+  "duration": [5.0, 8.0],
+  "prompt": "Have a silhouetted figure hold up a small prop while a thin ray travels in and bends sharply through it, two one-word labels fixed in the corners naming the idea in tension, and a small graph drawing itself low in the frame exactly in step with the ray, so the demonstration and its maths read as one continuous move.",
+  "techniques": ["physics-ray-diagram"],
+  "source": {"film": "llmjunky-2106411941497389342", "url": "https://x.com/LLMJunky/status/2106411941497389342", "creator": "@LLMJunky", "start": 900.0, "end": 915.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "show-data"],
+    "content": ["character", "data", "abstract"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["data", "annotation"],
+    "complexity": "high"
+  }
+}

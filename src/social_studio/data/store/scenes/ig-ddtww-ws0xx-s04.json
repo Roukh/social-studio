@@ -1,0 +1,21 @@
+{
+  "id": "ig-ddtww-ws0xx-s04",
+  "kind": "scene",
+  "name": "the chat reply lands as a live change in the page",
+  "looks": "A short reply appears beside a live page preview, and the exact moment it lands, the preview's own headline swaps to new, more specific copy right there in the layout -- no cursor, no click, the page simply updates itself a beat behind the conversation.",
+  "build": "Two fixed panels, chat narrower than the preview; the chat's reply line triggers one content swap in the preview (a clip-path text reveal) cued to that reply's landing time, inside the preview's existing layout bounds so nothing reflows.",
+  "sound": "A soft low pad under the chat, a light chime exactly as the preview's headline changes.",
+  "duration": [2, 3],
+  "prompt": "Sit a short exchange beside a live document or page preview, and let the preview's own headline update itself the instant the reply lands, with no cursor or click shown -- the change should read as the conversation directly writing into the finished page, one beat behind.",
+  "techniques": ["chat-updates-preview"],
+  "source": {"film": "ig-ddtww-ws0xx", "url": "https://www.instagram.com/p/DdtwW_Ws0Xx/", "creator": "Framer", "start": 15.0, "end": 17.5},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["product-ui", "type"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

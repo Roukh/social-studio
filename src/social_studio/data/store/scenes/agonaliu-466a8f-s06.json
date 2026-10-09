@@ -1,0 +1,21 @@
+{
+  "id": "agonaliu-466a8f-s06",
+  "kind": "scene",
+  "name": "wordmark assembles into end card with CTA",
+  "looks": "A small ribbon-shaped mark floats alone on a light field, then the full wordmark builds out beside it, a tagline with one italic accent word settles underneath, and a rounded CTA button fades up with the destination URL, with a row of small platform labels below.",
+  "build": "wordmark-assemble: the mark settles first on a short spring, then letters build in from a tight cluster around it; the tagline reveals with a clipPath wipe; the CTA button scales up from 0.9 to 1 on back.out with its label types on.",
+  "sound": "A soft chime as the mark settles, a swell under the wordmark build, a soft click on the CTA's arrival.",
+  "duration": [2.3, 2.6],
+  "prompt": "Close on a small brand mark settling alone, then build the full name out from it, with a short tagline underneath carrying one accent word in italic. Fade up a rounded call-to-action button with the destination, and list the platforms it is available on in a thin row beneath.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "agonaliu-466a8f", "url": "https://prompt-motion.com/agonaliu-466a8f", "creator": "@agonaliu_", "start": 12.5, "end": 15.061},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

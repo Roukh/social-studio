@@ -1,0 +1,21 @@
+{
+  "id": "ddryo-loos-300829-s03",
+  "kind": "scene",
+  "name": "Primitive swatches into a labelled component outline",
+  "looks": "A grid of eight flat colour cards at different tints and heights pops in on a stagger. It cuts to a small cluster of pill-shaped UI rows, boxed by a dashed outline with a small class-name label naming the pattern that arranges them.",
+  "build": "The swatch grid reuses variant-stack-reveal's panel offsets (seeded x/y/scale, 10-30% uneven stagger) for the colour cards. The dashed box and label reuse annotated-diagram-overlay's leader-and-label mechanic, anchored to the cluster's bounding box.",
+  "sound": "A soft cluster of hits as the swatches land, one tick on the dashed outline's draw-on.",
+  "duration": [2.0, 2.5],
+  "prompt": "Show a set of raw design primitives as a staggered grid of flat colour cards, then cut to a small real component built from the same system, boxed by a dashed outline and labelled with the one class name that produces it.",
+  "techniques": ["variant-stack-reveal", "annotated-diagram-overlay"],
+  "source": {"film": "ddryo-loos-300829", "url": "https://prompt-motion.com/ddryo-loos-300829", "creator": "@ddryo_loos", "start": 10.0, "end": 15.0},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["show-scale", "explain-mechanism"],
+    "content": ["product-ui", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "annotation"],
+    "complexity": "low"
+  }
+}

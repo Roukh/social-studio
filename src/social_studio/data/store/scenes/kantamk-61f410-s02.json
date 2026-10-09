@@ -1,0 +1,21 @@
+{
+  "id": "kantamk-61f410-s02",
+  "kind": "scene",
+  "name": "Last ring opens and the ball escapes",
+  "looks": "The final ring, now just a single thin arc, opens fully as the ball sails through and off into open space; the moment it clears, a short bold word lands alone on the dark field, settled and still, closing the countdown on a clean payoff beat.",
+  "build": "Final ring's gap widens to the point the arc reads as nearly a full circle breaking open; the ball's exit trajectory is a straight tween continuing past the frame edge with a light trailing glow. The payoff word fades/rises in (`y:10px -> 0`, power2.out, ~300ms) the instant the ball clears, timed to the music's resolving beat.",
+  "sound": "The highest, brightest note of the ascending run on the final pass, then a clean resolving chord under the payoff word.",
+  "duration": [1.2, 1.8],
+  "prompt": "On the last step of a countdown or unlock sequence, let the final barrier open fully and the subject sail cleanly through and offscreen; the instant it clears, land one short word alone on the field to name the payoff, timed to the music's resolving beat.",
+  "techniques": ["ring-breakout-orbit"],
+  "source": {"film": "kantamk-61f410", "url": "https://prompt-motion.com/kantamk-61f410", "creator": "@kantamk", "start": 27.0, "end": 28.7},
+  "tags": {
+    "role": ["proof", "cta"],
+    "purpose": ["show-transformation", "land-cta"],
+    "content": ["abstract", "type"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["physics", "close"],
+    "complexity": "low"
+  }
+}

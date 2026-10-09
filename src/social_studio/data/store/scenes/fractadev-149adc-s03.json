@@ -1,0 +1,21 @@
+{
+  "id": "fractadev-149adc-s03",
+  "kind": "scene",
+  "name": "Calendar fills live with a booking toast",
+  "looks": "An empty week-view calendar populates with small coloured appointment blocks across several days and times, landing on a stagger. A toast slides in from the corner announcing a new booking by the voice agent, and a counter beside it ticks up to its total.",
+  "build": "variant-stack-reveal for the appointment blocks, each a tiny seeded offset settling into its exact grid cell; the toast slides/fades in on its own beat, and the counter uses live-readout-hud's no-ease text-set, counting to its final value as the toast lands.",
+  "sound": "A soft cluster of ticks as blocks land, one confirm chime on the toast, and a rising tick under the counter.",
+  "duration": [2.5, 3.5],
+  "prompt": "Show the calendar filling itself: a grid of empty days gains appointment blocks one after another until the week looks genuinely busy, capped by a toast confirming a new booking and a running counter proving the total.",
+  "techniques": ["variant-stack-reveal", "live-readout-hud"],
+  "source": {"film": "fractadev-149adc", "url": "https://prompt-motion.com/fractadev-149adc", "creator": "@FractaDev", "start": 10.0, "end": 17.5},
+  "tags": {
+    "role": ["solution", "proof"],
+    "purpose": ["show-scale", "show-ease"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

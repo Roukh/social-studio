@@ -1,0 +1,21 @@
+{
+  "id": "ndhabarde11-f155b4-s01",
+  "kind": "scene",
+  "name": "name-and-role intro card",
+  "looks": "On a near-black field, an italic serif greeting line fades in above a big bold name, with a small round accent bead sitting beside the last letter. A thin underline draws beneath it, and a short mono kicker line (role, one-word specialty, a founding year) settles in under that.",
+  "build": "A DOM lockup: the italic greeting fades/rises in first (power2.out, ~300ms), the bold name follows close behind with a touch more weight, the bead pops in with a small scale overshoot, then the underline scales in from one end (scaleX 0 to 1) and the kicker line fades in last.",
+  "sound": "A soft low swell as the lockup settles, with a light tick on the bead and the underline draw.",
+  "duration": [1.5, 2.0],
+  "prompt": "Open on a simple, confident name card: a soft italic greeting line above a bold display name, a small round accent mark beside it, a thin underline that draws on, and a short kicker line of role and specialty settling in beneath, all on a plain dark field.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "ndhabarde11-f155b4", "url": "https://prompt-motion.com/ndhabarde11-f155b4", "creator": "@ndhabarde11", "start": 0.0, "end": 2.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "tease"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["identity", "open"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "majorbaguette-fb11d7-s02",
+  "kind": "scene",
+  "name": "A chat request ticks off tasks into a shareable link",
+  "looks": "A small numbered step tag (\"01 - ASK IN CHAT\") sits above a chat window; a plain-language request types on, then two task lines tick from pending to checked one after another beneath it, each labelled with the exact action taken. The chat closes with a short confirmation line and a result link in its own highlighted box.",
+  "build": "Step tag is a fixed small pill in the corner, swapping only between scenes, not within this one. Chat message types on 20-30ms per character; each task line's checkbox fills and ticks on its own beat, 300-400ms apart, label appearing with the check. The result link box fades/lifts in last, in a contrasting highlight colour.",
+  "sound": "A soft typewriter patter under the request, a clean tick on each task completing, a brighter confirm chime on the result link's arrival.",
+  "duration": [3.0, 4.0],
+  "prompt": "Under a small numbered step tag, type a plain-language request into a chat window, then tick off a couple of task lines one after another beneath it as the system completes each part of the job, closing with a short confirmation and a shareable result link highlighted in its own box.",
+  "techniques": ["stage-numeral-marker", "chat-updates-preview"],
+  "source": {"film": "majorbaguette-fb11d7", "url": "https://prompt-motion.com/majorbaguette-fb11d7", "creator": "@MajorBaguette", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "structure"],
+    "complexity": "medium"
+  }
+}

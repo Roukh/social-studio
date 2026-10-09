@@ -1,0 +1,21 @@
+{
+  "id": "lexnlin-6161a6-s02",
+  "kind": "scene",
+  "name": "Dim claim list sharpens into focus",
+  "looks": "A short vertical list of phrases sits stacked on screen, most of them pale and out of focus; one by one, each line sharpens into full contrast and weight as the voice-over or beat reaches it, the others staying soft in the background, so the eye always knows which line is live.",
+  "build": "All lines render at once at low opacity/blur; the active line animates to full opacity and a slight blur-to-sharp clear (`filter: blur(4px) -> blur(0)`) over 200-250ms, then dims back as the next line sharpens. A thin vertical caret-like bar can sit beside the active line as a secondary cue.",
+  "sound": "A soft focus-pull whoosh as each line sharpens, nothing under the dimmed lines.",
+  "duration": [2.0, 2.8],
+  "prompt": "Stack a short list of phrases on screen, all of them pale and soft, and sharpen each one into full focus and weight in turn as the beat reaches it, letting the rest stay dim in the background so the eye always knows which line is live.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "lexnlin-6161a6", "url": "https://prompt-motion.com/lexnlin-6161a6", "creator": "@LexnLin", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["intro", "transition"],
+    "purpose": ["explain-mechanism", "set-mood"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

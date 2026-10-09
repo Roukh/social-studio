@@ -1,0 +1,20 @@
+{
+  "id": "responsive-breakpoint-scrub",
+  "kind": "technique",
+  "name": "Responsive breakpoint scrub",
+  "looks": "A ruler along the top of a UI sample extends from a narrow width to a wide one, with small pill markers popping in at each breakpoint it crosses. As the ruler passes each marker, the sample reflows live: a stacked column springs apart into a row, each element settling into its new slot.",
+  "build": "The ruler's width tweens on the clock; breakpoint ticks sit at percentages of its max width and fade/scale in as the ruler reaches them. The sample's elements interpolate x and width between narrow- and wide-layout slots, power2.inOut, in lockstep with the ruler. The active marker uses the accent colour; passed markers dim.",
+  "sound": "A tick on each breakpoint crossed, pitched slightly higher each time.",
+  "duration": [2.0, 3.0],
+  "prompt": "Show a layout adapting to its container: a width ruler extends and crosses labelled breakpoints, and the sample beneath reflows live from a single stacked column into a row, in lockstep with the ruler. Make the reflow a real, legible layout change.",
+  "source": "a Lism CSS release video in prompt-motion.com's gallery (prompt-motion.com/ddryo-loos-300829), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "explain-mechanism", "introduce-feature"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["data", "interface"],
+    "complexity": "medium"
+  }
+}

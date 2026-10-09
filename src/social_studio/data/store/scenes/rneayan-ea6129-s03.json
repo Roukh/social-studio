@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-ea6129-s03",
+  "kind": "scene",
+  "name": "pulse-pair diagram sets things in order",
+  "looks": "A woven double-line diagram for combined skill gives way to a flat line that suddenly spikes twice, each spike numbered 1 and 2, the word above it stating that everything now happens in the right order. The same thin green line style and scanline strip continue underneath.",
+  "build": "Canvas line draws a flat baseline then two sharp procedural spikes timed to the beat, each labelled with a small numeral directly beneath it; hard-cut word above, same HUD chrome as prior cards.",
+  "sound": "A tick on each spike, a soft blip on the word cut.",
+  "duration": [4, 5.5],
+  "prompt": "Follow a density of overlapping line-work with a cleaner beat: a flat instrument line that spikes twice in quick succession, each spike given a small number, under a word that states things now happen in the right sequence. Use it as the pivot from 'everything at once' to 'one clean order.'",
+  "techniques": ["oscillograph-word-card"],
+  "source": {"film": "rneayan-ea6129", "url": "https://prompt-motion.com/rneayan-ea6129", "creator": "@rneayan", "start": 15.0, "end": 20.0},
+  "tags": {
+    "role": ["solution"],
+    "purpose": ["explain-mechanism", "show-contrast"],
+    "content": ["type", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "data"],
+    "complexity": "medium"
+  }
+}

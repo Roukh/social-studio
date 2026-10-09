@@ -1,0 +1,21 @@
+{
+  "id": "steventey-0d20e4-s05",
+  "kind": "scene",
+  "name": "rapid feature-name montage with a corner progress HUD",
+  "looks": "A run of short feature names hard-cuts one per beat, each on its own field colour and its own kind of entrance: plain bold on white, an outline face on black, a motion-blurred slam on a bright colour, neon text with small particles falling behind it. A small counter and a category tag sit in the corners throughout, ticking up with each cut.",
+  "build": "One clip per word, cut exactly on the beat; each field gets its own treatment (solid colour, outline stroke, falling-particle backdrop); the corner HUD (scene counter top right, section tag bottom left) updates from the clock with no easing, same mechanic as hud-frame.",
+  "sound": "A hit on every cut, pitched slightly differently per field colour.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hard-cut through a short run of feature names, one per beat, giving each its own field colour and its own kind of entrance so the run shows range, while a small counter and category tag sit quietly in the corners the whole time, ticking with every cut.",
+  "techniques": ["kinetic-word-run", "hud-frame"],
+  "source": {"film": "steventey-0d20e4", "url": "https://prompt-motion.com/steventey-0d20e4", "creator": "@steventey", "start": 10.5, "end": 12.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-scale", "reveal-product"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9", "1:1"],
+    "family": ["type", "frame"],
+    "complexity": "medium"
+  }
+}

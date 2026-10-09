@@ -1,0 +1,21 @@
+{
+  "id": "cansincengiz-me-cf68dd-s04",
+  "kind": "scene",
+  "name": "a temperature gauge card proves the device stays cool",
+  "looks": "Beneath the floating closed device, a small card slides up showing a horizontal gauge bar coloured green to red with two threshold marks, a big current-temperature number, and three small status chips underneath.",
+  "build": "data-infographic's bar pattern turned into a threshold gauge: the coloured bar fills to a fixed width (not animated per se, a static gradient fill), a small marker ticks to its live position, the number rolling up to its value; the chips fade in staggered beneath.",
+  "sound": "A soft whoosh as the card slides up, a tick as the number settles.",
+  "duration": [2.0, 2.4],
+  "prompt": "Slide up a small stat card beneath a hero product shot showing a coloured threshold gauge bar with a marker at its current position, a big number rolling up beside it, and two or three small status chips underneath. Use it to make an invisible claim (stays cool, runs efficiently) visible as a real measurement.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "cansincengiz-me-cf68dd", "url": "https://prompt-motion.com/cansincengiz-me-cf68dd", "creator": "@cansincengiz_me", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "explain-mechanism"],
+    "content": ["data", "device"],
+    "energy": ["build"],
+    "format": ["1:1"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

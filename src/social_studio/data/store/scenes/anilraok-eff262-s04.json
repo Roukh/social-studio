@@ -1,0 +1,21 @@
+{
+  "id": "anilraok-eff262-s04",
+  "kind": "scene",
+  "name": "the finished puzzle holds under a closing line",
+  "looks": "A serif line states the film's idea, one word in italic, above the now-completed grid, every square filled, with a pencil resting beside it and small clue text beneath, held steady and warm.",
+  "build": "wordmark-assemble's settle stage for the caption (fade and rise on one spring, the italic word landing a beat behind the rest); the finished board is a static hero shot with the same warm key light as the opener, so open and close visually rhyme.",
+  "sound": "A quiet, warm resolving chord.",
+  "duration": [3.0, 4.0],
+  "prompt": "Close on a short serif line stating the film's idea, one word emphasised in italic, held above the finished result of the problem shown earlier, lit to match the opening shot so the two bookend each other. Let a small prop (a pencil, a tool) rest beside the result as a quiet human touch.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "anilraok-eff262", "url": "https://prompt-motion.com/anilraok-eff262", "creator": "@Anilraok", "start": 27.533, "end": 33.0},
+  "tags": {
+    "role": ["cta", "solution"],
+    "purpose": ["land-cta", "set-mood"],
+    "content": ["type", "illustration"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["close"],
+    "complexity": "low"
+  }
+}

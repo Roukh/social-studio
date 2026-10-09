@@ -1,0 +1,21 @@
+{
+  "id": "sachaarbonel-8f14f4-s08",
+  "kind": "scene",
+  "name": "closing wordmark with a waitlist button",
+  "looks": "The mark and wordmark return above centre, with the closing line fading up under them, a plain first line and an italic second line completing the pitch. A small dark pill button and a plain-text domain sit side by side beneath, and the frame holds.",
+  "build": "Logo static; lines fade/rise as in the opening card; the CTA button and domain line fade/rise in together after a short pause, holding at least 1s as the final frame.",
+  "sound": "A light rise under the lines landing, the bed fading out under the final hold.",
+  "duration": [2.5, 3.5],
+  "prompt": "Close on the mark and wordmark above centre with a two-line closing statement fading up beneath them, then bring in a small call-to-action button beside a plain domain line, and hold the finished card for at least a second.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "sachaarbonel-8f14f4", "url": "https://prompt-motion.com/sachaarbonel-8f14f4", "creator": "@sachaarbonel", "start": 52.5, "end": 58.986},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

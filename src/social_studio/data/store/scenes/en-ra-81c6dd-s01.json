@@ -1,0 +1,21 @@
+{
+  "id": "en-ra-81c6dd-s01",
+  "kind": "scene",
+  "name": "URL in, instant analysis card out",
+  "looks": "A cursor clicks into a plain pill-shaped URL field, a domain types in, and the cursor presses a bold accent 'Analyze' button. A dark pill reading a live scan status (which sources, how many found) holds briefly, then a clean result card pops up: an app icon and name, a one-line description, an audience line and a row of topic tags, with a cursor-clicked approve button in the corner.",
+  "build": "The field and button are plain white DOM cards on a cream ground; the cursor path is power3.inOut with a 0.045s press scale-down and 0.14s release (glass-ui-flow's cursor mechanic). The scan pill's thread count is a live readout (kit.setText, no easing). The result card's rows stagger in top to bottom, tags landing last on a short scale-pop.",
+  "sound": "A soft click on each cursor press, a light tick under the scan pill's counting, and a confirm chime as the result card settles.",
+  "duration": [2.5, 4.0],
+  "prompt": "Show a product turn one input into a finished answer in seconds: a cursor types a single value into a plain field and presses one button, a brief live-status pill shows real work happening, then a clean summary card pops up naming what was found, who it is for and a few tags, ready to approve.",
+  "techniques": ["glass-ui-flow", "command-chip-cycle"],
+  "source": {"film": "en-ra-81c6dd", "url": "https://prompt-motion.com/en-ra-81c6dd", "creator": "@en______ra", "start": 0.0, "end": 7.5},
+  "tags": {
+    "role": ["hook", "demo"],
+    "purpose": ["show-ease", "show-speed", "reveal-product"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["1:1", "4:5"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

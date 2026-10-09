@@ -1,0 +1,21 @@
+{
+  "id": "agonaliu-466a8f-s04",
+  "kind": "scene",
+  "name": "a result card connects to related items by leader lines",
+  "looks": "A headline (\"Saves that / find each other\") sits above a central result card. Thin dashed leader lines draw out from it to three or four small tag chips and related cards arranged around it, each with its own icon and short label, so the whole cluster reads as one connected set.",
+  "build": "annotated-diagram-overlay's leader-line build, generalised from a single label to many: each dashed SVG line draws with strokeDashoffset from the central card to a chip, staggered 0.08-0.12 s apart, the chip fading/sliding in right behind its line.",
+  "sound": "A soft tick per connection as each line completes.",
+  "duration": [2.2, 2.6],
+  "prompt": "Centre one result card and draw thin dashed lines out from it to three or four small related tag chips arranged around it, each line landing on its own beat. Let the cluster read as evidence that the system understands how things relate, not just where they are stored.",
+  "techniques": ["annotated-diagram-overlay"],
+  "source": {"film": "agonaliu-466a8f", "url": "https://prompt-motion.com/agonaliu-466a8f", "creator": "@agonaliu_", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "show-contrast"],
+    "content": ["product-ui", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["annotation", "structure"],
+    "complexity": "medium"
+  }
+}

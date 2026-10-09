@@ -1,0 +1,21 @@
+{
+  "id": "iammxfschr-d68f90-s02",
+  "kind": "scene",
+  "name": "Version number, then the UI retints live",
+  "looks": "The wordmark settles, then a big version number drops in above an 'out now' tag. It cuts to a headline about making it yours, beside a row of colour swatches with a ring marking the active one; as the ring steps to a new swatch, a real data-table interface beside it retints its accents to match, several times in a row.",
+  "build": "wordmark-assemble for the logo and version number landing together; command-chip-cycle for the swatch row, the active ring stepping swatch to swatch on the beat; the table UI's accent colour (header badges, selected row) crossfades in lockstep with the ring's position, power2.out.",
+  "sound": "A soft confirm chime on the version number, then a tick per swatch step with a light colour-shift whoosh on the UI.",
+  "duration": [3.0, 4.5],
+  "prompt": "Announce a version, then prove the product is themeable: cycle a row of colour swatches, an indicator ring stepping from one to the next, while a real interface beside it retints its accents to match each choice in lockstep, several times, before settling.",
+  "techniques": ["wordmark-assemble", "command-chip-cycle"],
+  "source": {"film": "iammxfschr-d68f90", "url": "https://prompt-motion.com/iammxfschr-d68f90", "creator": "@iamMXFSCHR", "start": 5.0, "end": 14.0},
+  "tags": {
+    "role": ["intro", "solution"],
+    "purpose": ["establish-brand", "introduce-feature"],
+    "content": ["logo", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["identity", "interface"],
+    "complexity": "medium"
+  }
+}

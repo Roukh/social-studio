@@ -1,0 +1,21 @@
+{
+  "id": "micheleharmonic-77628e-s04",
+  "kind": "scene",
+  "name": "kinetic word run states the film's core claim",
+  "looks": "A short sentence builds across a rapid run of hard cuts, one to three words per cut, each slamming onto a plain dark field in heavy white type with a soft radial glow pulsing behind it on every beat.",
+  "build": "One clip per word-group, cut exactly on the beat; a radial gradient behind the text pulses opacity on each cut to sell the impact, with a slight scale pop-in (1.05 to 1, power3.out, about 150ms) per group.",
+  "sound": "A hit on every cut, slightly louder on the sentence's final word.",
+  "duration": [1.2, 1.8],
+  "prompt": "State the film's one core claim as a fast run of hard-cut word groups, heavy sans type on a plain dark field, each cut landing with a soft radial pulse of light behind it so the sentence feels struck into place rather than read.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "micheleharmonic-77628e", "url": "https://prompt-motion.com/micheleharmonic-77628e", "creator": "@MicheleHarmonic", "start": 9.6, "end": 10.97},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "tease"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["9:16"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

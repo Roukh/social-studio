@@ -1,0 +1,21 @@
+{
+  "id": "jesscaroline7-1ff7cb-s04",
+  "kind": "scene",
+  "name": "Dust ring breaks down a score",
+  "looks": "A percentage sits at the centre of a ring made of hundreds of tiny dots rather than a stroke; the dots are coloured in two or three bands around the ring's circumference, each band's arc length matching its share. A short legend below lists each category with its colour swatch and raw count, settling a beat after the ring itself.",
+  "build": "Bucket dots by category and lay each bucket along its own arc, angle = category.count/total * 2*PI, with 1-2px radius jitter per dot so the ring reads as dust rather than a clean stroke. The centre percentage count-up ties to the same clock. Legend rows clip in from the left on a short stagger after the ring settles, swatch dot first, then label, then count.",
+  "sound": "A soft granular patter as the ring's dots settle into their bands, a rising tone under the centre percentage, a light tick per legend row.",
+  "duration": [2.5, 3.5],
+  "prompt": "Build a ring out of many small dots instead of a drawn stroke, colouring bands of the ring by category so each arc's length shows its share of the whole, with the overall score counting up in the centre. Settle a short legend underneath a beat later, one row per category with its colour and raw count.",
+  "techniques": ["dot-population-count"],
+  "source": {"film": "jesscaroline7-1ff7cb", "url": "https://prompt-motion.com/jesscaroline7-1ff7cb", "creator": "@jesscaroline7", "start": 20.3, "end": 23.6},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data", "show-contrast"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "particles"],
+    "complexity": "medium"
+  }
+}

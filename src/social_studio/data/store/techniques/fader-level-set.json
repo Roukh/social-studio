@@ -1,0 +1,20 @@
+{
+  "id": "fader-level-set",
+  "kind": "technique",
+  "name": "Fader level set",
+  "looks": "A row of vertical sliders, one per named control, animate their handles to new positions at different times, as if someone were mixing a board live, showing that each part of the process can be pushed up or down independently rather than left on an unseen default.",
+  "build": "DOM tracks with a handle positioned by translateY, each tweening to its target value on its own beat (power2.out, 0.3-0.4 s), staggered 0.1-0.2 s apart so they never move in unison. A short label sits under each track naming what it controls.",
+  "sound": "A soft mechanical slide per handle, landing on a faint click as each settles.",
+  "duration": [2.0, 3.0],
+  "prompt": "Show a row of vertical sliders, each labelled with one part of the process, moving to new, different heights one after another rather than together, so the shot reads as someone actively mixing the levers rather than a fixed, unseen default setting.",
+  "source": "rneayan-474bcf (prompt-motion.com/rneayan-474bcf), studied 2026-10-09",
+  "tags": {
+    "role": ["solution", "proof"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui", "abstract"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "data"],
+    "complexity": "low"
+  }
+}

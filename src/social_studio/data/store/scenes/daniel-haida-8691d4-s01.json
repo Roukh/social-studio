@@ -1,0 +1,21 @@
+{
+  "id": "daniel-haida-8691d4-s01",
+  "kind": "scene",
+  "name": "an overview dashboard with a big figure and a trend chart",
+  "looks": "A warm glow resolves into a dark dashboard card: a huge currency figure rolls up top-left, a small percentage change beside it, a filter row of pill tabs, a spline chart drawing across the middle, and a row of four small stat columns settling beneath it.",
+  "build": "data-infographic: the big figure rolls its digits up with a vertical blur during the count; the spline draws progressively with strokeDashoffset and a travelling dot; the four stat columns fade in staggered beneath, each with its own small trend arrow.",
+  "sound": "A rising tone under the big number, a soft tick as the spline's dot lands, a tick per stat column.",
+  "duration": [2.3, 2.7],
+  "prompt": "Resolve a warm glow into a dense dashboard card: a huge headline figure rolling up top-left with a small change badge beside it, a filter tab row, a spline chart drawing across the middle with a travelling dot, and a row of small supporting stats settling beneath. Use it to show a year's financial picture arriving all at once, in order.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "daniel-haida-8691d4", "url": "https://prompt-motion.com/daniel-haida-8691d4", "creator": "@daniel_haida", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "demo"],
+    "purpose": ["show-data", "reveal-product"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

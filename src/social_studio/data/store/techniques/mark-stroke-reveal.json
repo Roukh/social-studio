@@ -1,0 +1,20 @@
+{
+  "id": "mark-stroke-reveal",
+  "kind": "technique",
+  "name": "Mark stroke reveal",
+  "looks": "A lone accent dot sits still in a dark field, then a thick geometric stroke draws itself outward from that point until it completes the brand's mark; the wordmark types in beside it the instant the stroke lands, as one settled block.",
+  "build": "SVG path with stroke-dasharray set to its length, stroke-dashoffset tweened to 0 on power2.out over 0.5-0.7s. The anchor dot is a small filled circle at the path's start with a soft glow, never moving. The wordmark fades/rises in as one block the instant dashoffset hits 0.",
+  "sound": "A soft low swell under the draw, one clean hit exactly as the stroke completes.",
+  "duration": [1.5, 2.5],
+  "prompt": "Open on a lone accent dot in a dark field, then draw the brand's mark outward from that point in one continuous stroke; the instant it lands, type the wordmark in beside it as a single settled block, not letter by letter.",
+  "source": "prompt-motion.com's gallery (jesscaroline7-1ff7cb), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["identity", "open"],
+    "complexity": "low"
+  }
+}

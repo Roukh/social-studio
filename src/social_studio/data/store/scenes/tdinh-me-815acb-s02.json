@@ -1,0 +1,21 @@
+{
+  "id": "tdinh-me-815acb-s02",
+  "kind": "scene",
+  "name": "the mark settles into an icon frame and names itself",
+  "looks": "The finished faceted mark shrinks and crops into a small rounded square icon, sitting alone with a blinking cursor beside it. A moment later the product name types on next to the icon as one settled block, and a short tagline fades in underneath.",
+  "build": "The mark scales/crops into the icon frame (power2.inOut); the cursor blinks on the beat beside it; the wordmark reveals with kit.typeOn, mono-adjacent cursor advancing with it; the tagline fades/rises 4-6px in after a short pause, same payoff timing as terminal-type-on's status line.",
+  "sound": "A soft click as the icon settles, a light key tick per character, and a soft confirm tone under the tagline.",
+  "duration": [2.0, 2.5],
+  "prompt": "Crop the finished mark down into a small rounded icon with a blinking cursor beside it, then type the product's name on next to it as one settled block, and fade in a short tagline underneath to close the reveal.",
+  "techniques": ["terminal-type-on"],
+  "source": {"film": "tdinh-me-815acb", "url": "https://prompt-motion.com/tdinh-me-815acb", "creator": "@tdinh_me", "start": 15.0, "end": 21.056},
+  "tags": {
+    "role": ["cta", "intro"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "9:16"],
+    "family": ["identity", "type"],
+    "complexity": "low"
+  }
+}

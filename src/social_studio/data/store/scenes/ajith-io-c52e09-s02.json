@@ -1,0 +1,21 @@
+{
+  "id": "ajith-io-c52e09-s02",
+  "kind": "scene",
+  "name": "step tracker above a file upload card",
+  "looks": "A three-segment progress bar (each segment its own colour, labelled \"1 Add\", \"2 Edit\", \"3 Watch\") sits above a step headline and a drop-zone card. A file row slides in with its name and page count, and a green check confirms it as the first segment fills.",
+  "build": "timeline-scrubber-hud's bar, simplified to three discrete labelled segments instead of a continuous playhead, each filling and ticking its label on completion; the card is a glass-ui-flow drop zone with the file row sliding up and a check icon popping in on back.out.",
+  "sound": "A soft whoosh as the file row arrives, a chime on the check.",
+  "duration": [2.3, 2.7],
+  "prompt": "Show a short, labelled step tracker with three segments above a plain upload card. Let a file (or any single input) slide into the card and get confirmed with a check mark the moment the first segment fills, so progress and action read together.",
+  "techniques": ["timeline-scrubber-hud", "glass-ui-flow"],
+  "source": {"film": "ajith-io-c52e09", "url": "https://prompt-motion.com/ajith-io-c52e09", "creator": "@ajith_io", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["demo", "intro"],
+    "purpose": ["introduce-feature", "show-ease"],
+    "content": ["product-ui"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface", "structure"],
+    "complexity": "low"
+  }
+}

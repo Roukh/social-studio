@@ -1,0 +1,21 @@
+{
+  "id": "rammanq-f5a90f-s01",
+  "kind": "scene",
+  "name": "asset-class logos swap and clear to a dot",
+  "looks": "Small brand and asset icons float loosely across a pale field behind a bold single word. The word hard-cuts to a second word naming a sibling asset class, with the icon field holding underneath. The icons then drift apart toward the edges and fade, leaving a single blue dot and a small data pill on screen.",
+  "build": "Icon chips sit at seeded positions with a slow sine drift. The headline is one DOM block per word, hard-swapped on the beat with no crossfade. On the clearing beat each icon tweens to a far edge on power3.in, staggered 20-40ms, fading as it leaves; the last element held is a single accent dot.",
+  "sound": "A soft ambient hum under the drift, a hit on the word swap, a whoosh as the icons clear.",
+  "duration": [2.0, 2.5],
+  "prompt": "Open on small category icons scattered and drifting behind one bold centred word, hard-cutting to a second word naming a sibling category of the same kind of thing. Let the icons drift apart to the edges and clear away, leaving one small accent dot on screen as the film's through-line mark.",
+  "techniques": ["icon-field-word-swap"],
+  "source": {"film": "rammanq-f5a90f", "url": "https://prompt-motion.com/rammanq-f5a90f", "creator": "@rammanq", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["establish-brand", "tease"],
+    "content": ["logo", "abstract"],
+    "energy": ["build"],
+    "format": ["1:1"],
+    "family": ["open", "type"],
+    "complexity": "medium"
+  }
+}

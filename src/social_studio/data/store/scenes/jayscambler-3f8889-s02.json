@@ -1,0 +1,21 @@
+{
+  "id": "jayscambler-3f8889-s02",
+  "kind": "scene",
+  "name": "Many models converge into one router",
+  "looks": "A headline lands naming a single point of integration. A column of model-name rows sits on the right, each connected by a thin line converging into a small hub mark at the centre, which itself connects into one short code snippet on the left.",
+  "build": "fan-out-branch-diagram run in reverse, many sources into one hub: each model row's line draws with strokeDashoffset toward the hub on its own stagger, the hub pulsing once as the last line lands, then one more line extends from the hub into the code panel.",
+  "sound": "A soft whoosh per converging line and a confirm tone as the hub pulses.",
+  "duration": [2.5, 3.5],
+  "prompt": "Prove a single point of integration: show a column of several distinct options, each connected by a drawn line converging onto one small central hub, which itself feeds into one piece of real code, so many choices visibly become one simple call.",
+  "techniques": ["fan-out-branch-diagram"],
+  "source": {"film": "jayscambler-3f8889", "url": "https://prompt-motion.com/jayscambler-3f8889", "creator": "@JayScambler", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "show-scale"],
+    "content": ["code", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "structure"],
+    "complexity": "medium"
+  }
+}

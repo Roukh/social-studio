@@ -1,0 +1,21 @@
+{
+  "id": "jhylee95-e1152f-s02",
+  "kind": "scene",
+  "name": "Stat chips pop under a headline word",
+  "looks": "Under the headline word, three small stat cards pop up in a row, one beat apart: a label, a number that rolls up, and a small coloured delta badge beside it. Each card lands with a slight overshoot and settles square, so the row reads as live metrics rather than a static table.",
+  "build": "Three fixed-width chip cards, `scale 0.9 -> 1` with a light spring overshoot, staggered 120-150ms apart left to right. The number inside each rolls up from 0 on the same beat the card lands; the delta badge (a small pill, +/-%) fades in last, 100ms after the number settles.",
+  "sound": "A soft pop on each chip's arrival, a quick tick as its number rolls up.",
+  "duration": [1.5, 2.2],
+  "prompt": "Under a headline word, pop in a short row of small stat chips one beat apart, each with a label, a number rolling up, and a coloured delta badge that lands last. Give each chip a touch of overshoot as it settles so the row feels like live metrics arriving, not a static table.",
+  "techniques": ["data-infographic", "kinetic-word-run"],
+  "source": {"film": "jhylee95-e1152f", "url": "https://prompt-motion.com/jhylee95-e1152f", "creator": "@jhylee95", "start": 7.9, "end": 9.9},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

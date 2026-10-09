@@ -1,0 +1,21 @@
+{
+  "id": "majorbaguette-fb11d7-s01",
+  "kind": "scene",
+  "name": "Problem-then-promise headline",
+  "looks": "On a near-black ground, a dim one-line question fades up first, then a bold answer line lands beneath it in full brightness, the contrast between the two weights doing the work of a problem-then-solution pitch in under two seconds.",
+  "build": "Question line fades in at reduced opacity/weight (`opacity 0 -> 0.5`, ~200ms); the answer line arrives a beat later at full opacity and a heavier weight (`y:8px -> 0`, power2.out, ~300ms), clearly the dominant element in the frame.",
+  "sound": "A soft low swell under the question, a brighter hit as the bold answer lands.",
+  "duration": [1.5, 2.0],
+  "prompt": "Open on a dim, quiet question fading up, then land a bold, full-brightness answer beneath it a beat later, letting the contrast in weight between the two lines carry the problem-then-solution pitch on its own.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "majorbaguette-fb11d7", "url": "https://prompt-motion.com/majorbaguette-fb11d7", "creator": "@MajorBaguette", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "establish-brand"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["type", "open"],
+    "complexity": "low"
+  }
+}

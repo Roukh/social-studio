@@ -1,0 +1,21 @@
+{
+  "id": "rossaxbt-3085b7-s02",
+  "kind": "scene",
+  "name": "typewriter tagline over crossfading full-bleed photos",
+  "looks": "A short tagline types on word by word, one or two words added per beat, while the full-bleed photo behind it keeps crossfading to a new, unrelated image every beat: a portrait, a close-up of flowers, an aerial coastline, a fashion shot. The words accumulate into one finished line by the last photo.",
+  "build": "Full-bleed photo layers cross-dissolve on opacity every 0.5-0.6s, each a different seeded image; the tagline text is one DOM line revealed with kit.typeOn, timed so a new word or two lands with each photo swap rather than finishing early.",
+  "sound": "A soft whoosh under each photo crossfade and a light tick as each new word lands.",
+  "duration": [1.5, 2.0],
+  "prompt": "Type a short tagline on word by word while the full-bleed photo behind it keeps crossfading to a different, unrelated image on the same beat the words land, so the line finishes just as the photos stop changing. Keep every photo honestly generic stock, not a real campaign.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "rossaxbt-3085b7", "url": "https://prompt-motion.com/rossaxbt-3085b7", "creator": "@rossaxbt", "start": 3.4, "end": 5.13},
+  "tags": {
+    "role": ["intro", "transition"],
+    "purpose": ["set-mood", "tease"],
+    "content": ["type", "photo"],
+    "energy": ["build"],
+    "format": ["1:1", "4:5", "9:16"],
+    "family": ["type", "texture"],
+    "complexity": "low"
+  }
+}

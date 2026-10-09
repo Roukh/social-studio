@@ -1,0 +1,21 @@
+{
+  "id": "gautam-mer1-2ae354-s01",
+  "kind": "scene",
+  "name": "Intro push into live word-synced captions",
+  "looks": "On black, a small 'Introducing' label sits above a phone mockup showing a video editor, which the camera pushes toward. A headline lands in two colours. It cuts to the full-bleed source footage: a speaker talking, with a caption line beneath her where each word highlights in a bright box exactly as she says it.",
+  "build": "The push-in is a scale/translate on the phone frame, power2.in. The headline uses list-stack-reveal's two-line landing with the second line in the accent colour. The captions use karaoke-caption-sync: each word's highlight box scales in exactly at its spoken start time, word by word, no separate line easing.",
+  "sound": "A soft whoosh on the push-in, a tick on the headline's second line, then the real speech audio with a light tick per captioned word.",
+  "duration": [3.0, 4.0],
+  "prompt": "Introduce a transcription or captioning product by cutting straight from a title card into real talking footage, where the spoken words are captioned live, each word highlighting in a bright box exactly as it is said, so the product's core trick is the first thing proven.",
+  "techniques": ["list-stack-reveal", "karaoke-caption-sync"],
+  "source": {"film": "gautam-mer1-2ae354", "url": "https://prompt-motion.com/gautam-mer1-2ae354", "creator": "@gautam_mer1", "start": 0.0, "end": 9.0},
+  "tags": {
+    "role": ["hook", "demo"],
+    "purpose": ["reveal-product", "show-ease"],
+    "content": ["type", "photo"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["type", "reveal"],
+    "complexity": "medium"
+  }
+}

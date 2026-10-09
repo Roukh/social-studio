@@ -1,0 +1,21 @@
+{
+  "id": "rossaxbt-3085b7-s03",
+  "kind": "scene",
+  "name": "type a prompt, get an image, tagged with its style",
+  "looks": "A short headline types on, then a search-style prompt bar below it fills in with a two-word phrase and a round arrow button presses down. Just under the bar a generated photo pops into frame sharpening from a soft blur, with a small rounded chip underneath naming the style used, and a tiny matching icon drops in beside it a beat later.",
+  "build": "kit.typeOn for the headline and the prompt text at different rates; submit button scale 1 -> 0.88 -> 1 on power3.out; result image scale 0.92 -> 1, filter blur(6px) -> blur(0) over ~0.25s; style chip and icon fade/slide up 4-6px right after.",
+  "sound": "A soft key tick per character, a click on submit, and a light pop as the image resolves.",
+  "duration": [2.5, 3.0],
+  "prompt": "Type a short two or three word phrase into a minimal prompt bar, press submit, and let a generated result sharpen into view from a soft blur just below it, with a small chip naming the exact style or mode it used. Keep the phrase and the result generic and brand-neutral.",
+  "techniques": ["prompt-bar-generate"],
+  "source": {"film": "rossaxbt-3085b7", "url": "https://prompt-motion.com/rossaxbt-3085b7", "creator": "@rossaxbt", "start": 5.13, "end": 8.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-ease", "introduce-feature", "reveal-product"],
+    "content": ["product-ui", "type", "photo"],
+    "energy": ["calm"],
+    "format": ["1:1", "4:5", "9:16"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

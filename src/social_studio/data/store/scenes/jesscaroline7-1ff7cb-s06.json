@@ -1,0 +1,50 @@
+{
+  "id": "jesscaroline7-1ff7cb-s06",
+  "kind": "scene",
+  "name": "Phone row cross-fades through features",
+  "looks": "A row of near-identical phone mockups lines up across the frame, each showing a different screen of the same app (a dense pin map, a saved-lists feed, a route planner); as the camera drifts past, each phone's screen content cross-fades to the next feature while the device frame itself stays put, so the row reads as one continuous flip through capabilities.",
+  "build": "Fixed device frames at even spacing; only the screen content (an `<img>`/canvas layer inside the frame) cross-fades on opacity, 0.3-0.4s per swap, staggered so no two phones change at the same instant. A slow camera dolly (translateX, 15-20px/s) reads as motion even though the phones don't move relative to each other.",
+  "sound": "A soft whoosh under the camera drift, a light tick on each screen swap.",
+  "duration": [
+    2.5,
+    3.5
+  ],
+  "prompt": "Line up several identical device mockups across the frame, each running a different screen of the same product, and drift the camera past while each screen's content slides to a new feature on its own beat, so one slow move reads as a tour through several capabilities at once.",
+  "techniques": [
+    "device-row-screen-swap"
+  ],
+  "source": {
+    "film": "jesscaroline7-1ff7cb",
+    "url": "https://prompt-motion.com/jesscaroline7-1ff7cb",
+    "creator": "@jesscaroline7",
+    "start": 41.5,
+    "end": 44.5
+  },
+  "tags": {
+    "role": [
+      "demo"
+    ],
+    "purpose": [
+      "introduce-feature",
+      "show-ease"
+    ],
+    "content": [
+      "product-ui",
+      "device"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "9:16",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "interface",
+      "collage"
+    ],
+    "complexity": "medium"
+  }
+}

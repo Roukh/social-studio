@@ -1,0 +1,21 @@
+{
+  "id": "deifosv-04e4d3-s04",
+  "kind": "scene",
+  "name": "Venue hard-cut tour under a persistent tag",
+  "looks": "A small tag ('6 COURTS. 1 PLANET.') sits fixed top-left through a run of hard cuts. Each cut drops straight into a different court, live gameplay already in motion, with a bottom-left index ('COURT 01/06 · HARD COURT') and a huge venue name slamming in beneath it, one venue per cut, no crossfades.",
+  "build": "mecha-cut-reveal: one full-bleed gameplay clip per card, hard swap on a stepped index with no crossfade; the venue name is a kinetic-word-run-style slam (scale/weight pop) timed to the cut; the persistent tag and index labels reuse hud-frame's corner-label styling but update their count per cut.",
+  "sound": "A hit on every cut, faster toward the end as the courts run out.",
+  "duration": [3.0, 5.0],
+  "prompt": "Tour the product's variety as a run of hard cuts, one per venue or mode, each opening already in motion with a bold name slamming in and a small index counting through the set, while one small tag stays fixed in a corner the whole time to say how many there are.",
+  "techniques": ["mecha-cut-reveal"],
+  "source": {"film": "deifosv-04e4d3", "url": "https://prompt-motion.com/deifosv-04e4d3", "creator": "@deifosv", "start": 15.97, "end": 20.97},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-scale", "show-craft"],
+    "content": ["footage", "type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["reveal", "type"],
+    "complexity": "medium"
+  }
+}

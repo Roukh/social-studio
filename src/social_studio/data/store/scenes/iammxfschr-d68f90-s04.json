@@ -1,0 +1,21 @@
+{
+  "id": "iammxfschr-d68f90-s04",
+  "kind": "scene",
+  "name": "One-command update streams live",
+  "looks": "A headline lands with two words in italic colour. Beside it a terminal streams a real update log line by line: backing up, fetching a new version, validating config, rebuilding, finishing on a success line, with a small caption noting it rolls back automatically on failure.",
+  "build": "list-stack-reveal for the headline; terminal-type-on for the log, each line typing on in sequence rather than all appearing at once, the final success line getting a distinct colour.",
+  "sound": "A tick per headline word, a steady key tick under the streaming log, and a confirm chime on the success line.",
+  "duration": [2.5, 3.5],
+  "prompt": "Show maintenance made trivial: a short headline lands beside a terminal that streams a real update log line by line, each step named plainly, finishing on a clear success line, with a small note on what happens automatically if it fails.",
+  "techniques": ["list-stack-reveal", "terminal-type-on"],
+  "source": {"film": "iammxfschr-d68f90", "url": "https://prompt-motion.com/iammxfschr-d68f90", "creator": "@iamMXFSCHR", "start": 18.517, "end": 23.817},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["code", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "interface"],
+    "complexity": "medium"
+  }
+}

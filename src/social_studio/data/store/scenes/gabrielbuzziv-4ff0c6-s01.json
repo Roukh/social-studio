@@ -1,0 +1,21 @@
+{
+  "id": "gabrielbuzziv-4ff0c6-s01",
+  "kind": "scene",
+  "name": "Icon wallpaper converges into a category row",
+  "looks": "A dense tiled wallpaper of small line-icons (tiny garments and baby items) sits behind a bold headline naming the scale of the problem. It cuts to a light field where five of those same icons fly in from scattered positions and settle into a neat horizontal row of labelled category cards.",
+  "build": "The wallpaper is a repeating background pattern, static but filling the frame. The convergence tweens each icon's x/y from a seeded scattered start to its slot in the row, power3.out, staggered 0.05-0.08s apart, landing inside a small rounded card with its label fading in last.",
+  "sound": "A low textured hum under the wallpaper, then a soft tick per icon landing in its slot.",
+  "duration": [2.5, 3.5],
+  "prompt": "Show overwhelming variety resolving into order: hold on a dense wallpaper of small related icons behind a headline naming the scale, then let a handful of those icons fly in from scattered positions and settle into one neat labelled row.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "gabrielbuzziv-4ff0c6", "url": "https://prompt-motion.com/gabrielbuzziv-4ff0c6", "creator": "@gabrielbuzziv", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "show-contrast", "introduce-feature"],
+    "content": ["illustration"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["texture", "reveal"],
+    "complexity": "medium"
+  }
+}

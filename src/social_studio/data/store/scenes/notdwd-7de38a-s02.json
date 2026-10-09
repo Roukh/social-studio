@@ -1,0 +1,21 @@
+{
+  "id": "notdwd-7de38a-s02",
+  "kind": "scene",
+  "name": "a short request types into a floating prompt bar on a device screen",
+  "looks": "On a laptop's desktop, a rounded prompt bar fades in mid-screen. A short request types into it character by character with a blinking cursor, small attachment icons sitting quietly to its left and a round submit button waiting on the right.",
+  "build": "prompt-bar-generate: the prompt bar is a DOM pill with a soft ambient glow behind it, revealed with a scale/opacity pop; the request text types on per character at a steady rate with a blinking block cursor advancing with it; the submit button sits idle, ready for its press-and-release on the next beat.",
+  "sound": "A soft key tick per character, with a quiet ambient hum under the desktop scene.",
+  "duration": [1.3, 2.0],
+  "prompt": "On a clean desktop background, fade in a single rounded prompt bar and type a short, plain request into it character by character with a blinking cursor, small utility icons resting to one side and a round submit button waiting on the other, so the moment reads as asking a tool for exactly one thing.",
+  "techniques": ["prompt-bar-generate"],
+  "source": {"film": "notdwd-7de38a", "url": "https://prompt-motion.com/notdwd-7de38a", "creator": "@notdwd", "start": 3.353, "end": 5.289},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "reveal-product"],
+    "content": ["product-ui", "device"],
+    "energy": ["calm"],
+    "format": ["1:1"],
+    "family": ["interface", "type"],
+    "complexity": "low"
+  }
+}

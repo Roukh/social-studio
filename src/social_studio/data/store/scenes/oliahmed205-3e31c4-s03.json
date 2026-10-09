@@ -1,0 +1,21 @@
+{
+  "id": "oliahmed205-3e31c4-s03",
+  "kind": "scene",
+  "name": "a filmstrip of filters pans past one street photo",
+  "looks": "The same street photo repeats across a horizontal row of narrow panels, each one graded a different way, with a short mono label under each (a cool desaturated look, a warm look, a high-contrast black and white, a punchy saturated look). The camera pans across the row, then a bold two-line title stamps over the top naming the feature.",
+  "build": "One wide world of absolutely positioned panels, each a copy of the same source image under a different CSS filter/LUT stack; a translateX pan carries the camera across them at a steady rate. The title types in as one block, no per-letter stagger, cutting cleanly over the pan's last third.",
+  "sound": "A soft continuous whoosh under the pan, a light tick as each panel's label comes into view, a confirming hit under the title.",
+  "duration": [2.0, 2.6],
+  "prompt": "Show a set of style presets as one continuous pan across identically framed panels of the same source image, each graded differently and labelled in a small mono tag. Land on a short bold title naming the feature as the pan settles.",
+  "techniques": ["gallery-zoom-tour", "kinetic-word-run"],
+  "source": {"film": "oliahmed205-3e31c4", "url": "https://prompt-motion.com/oliahmed205-3e31c4", "creator": "@oliahmed205", "start": 4.9, "end": 7.2},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-scale", "show-ease"],
+    "content": ["photo", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["structure", "transition", "type"],
+    "complexity": "medium"
+  }
+}

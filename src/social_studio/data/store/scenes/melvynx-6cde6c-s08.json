@@ -1,0 +1,21 @@
+{
+  "id": "melvynx-6cde6c-s08",
+  "kind": "scene",
+  "name": "Lockup closes on a red CTA pill",
+  "looks": "The app's rounded-square mark settles beside its wordmark on a soft ground, a dark rounded CTA button in the accent colour arriving last with the site address inside it.",
+  "build": "Mark and wordmark arrive together (`y:10px -> 0`, power2.out, ~300ms); the CTA button lands with a small scale overshoot (0.95 -> 1.02 -> 1), its label already the full \"start free at ...\" phrase rather than a generic \"get started.\"",
+  "sound": "A soft low swell under the lockup's arrival, a confident pop on the CTA button.",
+  "duration": [1.8, 2.3],
+  "prompt": "Settle a mark beside its wordmark on a soft ground, then land a confident, accent-coloured CTA button last with the site address written directly into its label, closing the film on one clear, specific action.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "melvynx-6cde6c", "url": "https://prompt-motion.com/melvynx-6cde6c", "creator": "@melvynx", "start": 42.5, "end": 45.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

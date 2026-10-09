@@ -1,0 +1,21 @@
+{
+  "id": "himanshutwtxs-2103495232637882858-s05",
+  "kind": "scene",
+  "name": "Closing name card with an open-to-work note",
+  "looks": "A two-line title settles (\"MOTION DESIGNER\", bigger name beneath with an accent dot), a small hand-written line curling in underneath on its own thin connector stating availability, the HUD timeline bar running along the bottom with a final labelled marker.",
+  "build": "Title lines arrive together (`y:10px -> 0`, power2.out, ~300ms), the accent dot popping in last at the name's end. The hand-written availability line draws on with a short curling connector stroke from the dot, in a script face distinct from the display type. The timeline bar's final marker is labelled and sits furthest right.",
+  "sound": "A soft low swell under the title's arrival, a light pen-scratch sound under the hand-written line.",
+  "duration": [1.8, 2.3],
+  "prompt": "Close on a two-line name card, a role label above a bigger name with an accent dot at its end, then draw a short hand-written line curling in from that dot stating availability, with a labelled HUD timeline marker at the very end of the bar along the bottom to mark the reel's close.",
+  "techniques": ["wordmark-assemble", "timeline-scrubber-hud"],
+  "source": {"film": "himanshutwtxs-2103495232637882858", "url": "https://x.com/himanshutwtxs/status/2103495232637882858", "creator": "@himanshutwtxs", "start": 13.1, "end": 15.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

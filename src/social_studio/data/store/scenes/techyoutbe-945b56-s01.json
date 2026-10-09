@@ -1,0 +1,21 @@
+{
+  "id": "techyoutbe-945b56-s01",
+  "kind": "scene",
+  "name": "a dry topic meets a slow-to-learn complaint",
+  "looks": "A short bold label types on over a faint texture of grey document lines, naming a dry technical subject, then a second headline lands beside it stating how long it normally takes to learn.",
+  "build": "Headline revealed with kit.typeOn; the background is a low-opacity repeating line texture, static; the second line fades/rises 4-6px in on power2.out after a short pause.",
+  "sound": "A light typing clack per character and a soft rise under the second line's landing.",
+  "duration": [2.0, 2.5],
+  "prompt": "Type on a short bold label naming a dry, technical subject over a faint texture of document lines, then fade in a second line beside it stating how long that subject normally takes to learn, setting up the contrast the film is about to resolve.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "techyoutbe-945b56", "url": "https://prompt-motion.com/techyoutbe-945b56", "creator": "@techyoutbe", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "tease"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

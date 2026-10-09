@@ -1,0 +1,21 @@
+{
+  "id": "techyoutbe-945b56-s08",
+  "kind": "scene",
+  "name": "closing line with mark and URL",
+  "looks": "On a bold flat field the mark sits above a short closing headline. A URL in a small rounded pill sits beneath it, with the brand name in plain text at the very bottom.",
+  "build": "Mark fades/scales in first; the headline fades/rises 6-8px in beneath it; the URL pill and byline fade in last on a short stagger, holding at least 1s.",
+  "sound": "A soft confirm tone as the mark lands, the bed fading out under the hold.",
+  "duration": [2.0, 2.5],
+  "prompt": "Close on a bold flat field with the mark above a short closing line, a URL in a small rounded pill beneath it, and the brand name in plain text at the very bottom; hold the finished card for at least a second.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "techyoutbe-945b56", "url": "https://prompt-motion.com/techyoutbe-945b56", "creator": "@techyoutbe", "start": 35.0, "end": 37.5},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

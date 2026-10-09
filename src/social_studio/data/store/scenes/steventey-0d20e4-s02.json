@@ -1,0 +1,21 @@
+{
+  "id": "steventey-0d20e4-s02",
+  "kind": "scene",
+  "name": "a dot globe counts live clicks",
+  "looks": "A short link label sits above a glowing globe built from a scatter of small dots, a thin bright line running down through its centre to a big number that keeps climbing at speed, digits blurring as they roll.",
+  "build": "The globe is a dot field (kit.rng-seeded points on a sphere, projected); the centre number rolls up under a vertical blur whose strength follows its own speed, tied to the same clock as the dot field's gentle rotation.",
+  "sound": "A soft granular patter under the globe and a rising tone under the rolling number.",
+  "duration": [2.0, 2.5],
+  "prompt": "Build a glowing globe out of a scatter of small dots, with a bright line running down to a big number that rolls upward fast enough to blur its digits, to show one quantity climbing live under a short label.",
+  "techniques": ["dot-population-count"],
+  "source": {"film": "steventey-0d20e4", "url": "https://prompt-motion.com/steventey-0d20e4", "creator": "@steventey", "start": 1.517, "end": 5.0},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1"],
+    "family": ["data", "particles"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "terminal-type-on",
+  "kind": "technique",
+  "name": "Terminal type-on",
+  "looks": "A dark, rounded code or command panel types on character by character at a steady rate, mono face, with a blinking block cursor advancing with the text. The call completes, and a status line or result appears below a hairline rule as the payoff.",
+  "build": "DOM text revealed per character at a steady rate (kit.typeOn), monospace, one voice. The cursor is a blinking ::after block on the beat. The panel may pop in (0.9->1, power3.out) before typing starts. The status line reveals after a short pause: a coloured dot plus a word, fading and sliding up 4-6px.",
+  "sound": "A soft mechanical key tick per character, and a single confirm tone on the status line.",
+  "duration": [
+    1.5,
+    3.0
+  ],
+  "prompt": "Show the product's real call in a dark code or command panel, typing on character by character with a blinking cursor, then reveal a short status line or result as the payoff. Keep the command and result true to what the product actually does.",
+  "source": "a Lightspark social promo in prompt-motion.com's gallery (prompt-motion.com/davidmarcus-a28a60), studied 2026-10-09",
+  "tags": {
+    "role": [
+      "demo",
+      "solution",
+      "proof",
+      "intro"
+    ],
+    "purpose": [
+      "show-ease",
+      "explain-mechanism",
+      "reveal-product",
+      "show-speed",
+      "establish-brand",
+      "show-craft"
+    ],
+    "content": [
+      "code",
+      "product-ui",
+      "type"
+    ],
+    "energy": [
+      "calm",
+      "build"
+    ],
+    "format": [
+      "9:16",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "type",
+      "interface"
+    ],
+    "complexity": "low"
+  }
+}

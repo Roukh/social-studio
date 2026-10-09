@@ -1,0 +1,21 @@
+{
+  "id": "anilraok-eff262-s03",
+  "kind": "scene",
+  "name": "a lone character tips and falls into its place",
+  "looks": "A single small block character tips off balance against a dark, bokeh-lit background, its face anxious, then falls and tumbles down out of frame before the next shot picks it up settled into its spot.",
+  "build": "squash-stretch-ball-demo, applied to the character: the tip is a slow rotation past its balance point on power1.in, the fall uses real gravity, and a light motion blur sells the speed; the character squashes slightly on the implied landing in the next cut.",
+  "sound": "A rising whoosh through the fall, a soft thump as it lands off-screen.",
+  "duration": [1.3, 1.7],
+  "prompt": "Let a single small character lose its balance and tip over, then fall with real gravity and a touch of motion blur against a dark, softly lit background, its expression carrying the emotion of the moment. Use it as the turning point just before the piece finds where it belongs.",
+  "techniques": ["squash-stretch-ball-demo"],
+  "source": {"film": "anilraok-eff262", "url": "https://prompt-motion.com/anilraok-eff262", "creator": "@Anilraok", "start": 25.567, "end": 27.533},
+  "tags": {
+    "role": ["problem", "transition"],
+    "purpose": ["build-tension", "show-transformation"],
+    "content": ["character"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["physics"],
+    "complexity": "medium"
+  }
+}

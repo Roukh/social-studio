@@ -1,0 +1,21 @@
+{
+  "id": "anthonyriera-9b1b2a-s06",
+  "kind": "scene",
+  "name": "closing claim over a citation card and mascot mark",
+  "looks": "A bold two-line claim about being found by AI tools and search settles over a small citation-style card referencing the platform that made it possible, with the mascot mark appearing last, small and centred, as the final hold.",
+  "build": "wordmark-assemble's settle stage for the closing claim (fade and rise on one spring, the second line in the accent colour); the citation card and mark arrive a beat behind on their own shorter springs.",
+  "sound": "A quiet resolving chord as the mark settles.",
+  "duration": [2.5, 3.0],
+  "prompt": "Close on a bold two-line claim about being discovered through AI answers or search, its key phrase in the accent colour, with a small citation-style proof card and the brand mark settling in beneath it a beat later. Keep the whole close calm and confident rather than busy.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "anthonyriera-9b1b2a", "url": "https://prompt-motion.com/anthonyriera-9b1b2a", "creator": "@anthonyriera", "start": 45.0, "end": 52.7},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["type", "logo"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "ik-builds-b8bdcf-s01",
+  "kind": "scene",
+  "name": "Ball bounces down a dotted spiral into a problem line",
+  "looks": "A small teal ball bounces down a loose dotted spiral path on a light, paper-textured ground, each bounce leaving a faint ghost trail of the ball at earlier positions, tighter near the top of the arc and wider lower down. It lands and rolls to rest beside a handwritten-style headline that begins to type on.",
+  "build": "squash-stretch-ball-demo for the fall and bounce (trailing ghost copies from earlier positions at falling opacity, squash/stretch along velocity on each impact); bounce-path-draw's progressive line reveal traces the ball's spiral path behind it.",
+  "sound": "A soft thump per bounce, lighter each time, then a tick as the headline starts typing.",
+  "duration": [1.7, 2.2],
+  "prompt": "Open with real physics, not a generic entrance: a small ball bounces down a loose spiral, each bounce leaving a faint trail of its own ghost positions, before rolling to rest beside a handwritten-style problem statement that starts to type on.",
+  "techniques": ["squash-stretch-ball-demo", "bounce-path-draw"],
+  "source": {"film": "ik-builds-b8bdcf", "url": "https://prompt-motion.com/ik-builds-b8bdcf", "creator": "@ik_builds", "start": 0.0, "end": 2.0},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "set-mood"],
+    "content": ["abstract", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["physics", "type"],
+    "complexity": "medium"
+  }
+}

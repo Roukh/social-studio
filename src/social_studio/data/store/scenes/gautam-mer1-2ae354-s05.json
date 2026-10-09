@@ -1,0 +1,21 @@
+{
+  "id": "gautam-mer1-2ae354-s05",
+  "kind": "scene",
+  "name": "Export confirms, wordmark closes",
+  "looks": "A three-word punch headline lands, the last word in the accent colour. A phone screen shows an export-complete state: a checkmarked thumbnail, a small free-tier notice, and two buttons (share, download). It cuts to the app icon and wordmark on black, a short tagline, a small mascot character, and a store badge.",
+  "build": "kinetic-word-run for the three-word headline, hard cut per word. The export screen's checkmark scales in with a spring, and the two buttons get a quick press-scale as the cursor taps one (glass-ui-flow's press mechanic). The close is wordmark-assemble's letter-drop, with the mascot and store badge fading in last.",
+  "sound": "A hit per headline word, a confirm chime on the checkmark, and a soft tick per letter on the closing wordmark.",
+  "duration": [3.0, 4.0],
+  "prompt": "Close the demo by finishing the job: a short three-word punch line lands hard-cut, a real export-complete screen confirms the file is ready to share or save, then settle on the brand's icon, name, tagline and a small friendly mascot as the sign-off.",
+  "techniques": ["kinetic-word-run", "wordmark-assemble"],
+  "source": {"film": "gautam-mer1-2ae354", "url": "https://prompt-motion.com/gautam-mer1-2ae354", "creator": "@gautam_mer1", "start": 25.0, "end": 29.5},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["product-ui", "logo"],
+    "energy": ["punch"],
+    "format": ["9:16"],
+    "family": ["close", "identity"],
+    "complexity": "medium"
+  }
+}

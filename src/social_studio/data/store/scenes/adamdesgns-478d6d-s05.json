@@ -1,0 +1,21 @@
+{
+  "id": "adamdesgns-478d6d-s05",
+  "kind": "scene",
+  "name": "feature stat card beside a tilted phone mockup",
+  "looks": "A big stat (\"36 FITTING TAKEOUTS\") with a small radial progress arc sits beside a slightly tilted phone mockup showing the app's dark-mode screen, both lit against a warm amber field. The card then hard-cuts to a bold \"SEARCH\" wordmark with a magnifying glass icon, closing the beat.",
+  "build": "ui-tilt-card for the phone mockup (shallow rotateX/rotateY, soft offset shadow) beside a DOM stat block with an SVG radial-progress-anticipation arc; the exit is a hard cut to a centred word with an icon, no crossfade.",
+  "sound": "A soft whoosh as the card settles, a blip on the arc fill, a hit on the SEARCH cut.",
+  "duration": [1.8, 2.4],
+  "prompt": "Pair a short, specific stat with a small progress arc beside a tilted device mockup showing the product's own screen, lit in one warm accent colour. Hard-cut out to a single bold word with a small icon that names the next capability.",
+  "techniques": ["ui-tilt-card", "radial-progress-anticipation"],
+  "source": {"film": "adamdesgns-478d6d", "url": "https://prompt-motion.com/adamdesgns-478d6d", "creator": "@Adamdesgns", "start": 8.1, "end": 10.75},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["reveal-product", "show-data"],
+    "content": ["device", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

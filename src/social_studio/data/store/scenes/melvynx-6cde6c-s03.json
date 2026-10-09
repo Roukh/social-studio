@@ -1,0 +1,21 @@
+{
+  "id": "melvynx-6cde6c-s03",
+  "kind": "scene",
+  "name": "A legacy wizard grinds through its steps",
+  "looks": "A dated-looking import card holds a squiggly connector-line icon above a numbered checklist (upload, map columns, confirm, wait for review), two steps already marked done and a third spinning as pending, a thin progress bar reading \"Step 3 of 7, 99%\" beneath. A dry caption underneath notes how long this exact flow has existed.",
+  "build": "Checklist rows are static except the spinning pending icon (continuous rotation) and the progress bar's fill, held just short of 100% the whole shot so it visibly never quite finishes. The caption fades in last, its one editorialising word in the accent colour.",
+  "sound": "A slow, faintly tedious mechanical tick under the spinner, nothing else.",
+  "duration": [2.2, 2.8],
+  "prompt": "Show an old-fashioned multi-step import wizard, a couple of steps already done, one spinning as pending, a progress bar held just short of complete, with a dry caption underneath noting exactly how long this clunky flow has been unchanged.",
+  "techniques": ["stage-numeral-marker"],
+  "source": {"film": "melvynx-6cde6c", "url": "https://prompt-motion.com/melvynx-6cde6c", "creator": "@melvynx", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["problem"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["product-ui"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "structure"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "arjunsh1607-93005d-s05",
+  "kind": "scene",
+  "name": "studio wordmark closes over a dark field",
+  "looks": "On a near-black field with a faint glow rising from the bottom edge, a small geometric mark settles beside the bold studio name, with a one-line description fading in beneath.",
+  "build": "wordmark-assemble's settle stage: mark and name arrive together on one spring, the description reveals with a clipPath wipe a beat after; a soft radial glow breathes slowly behind them.",
+  "sound": "A low, warm pad swell, no hits.",
+  "duration": [1.8, 2.2],
+  "prompt": "Close on a small geometric mark settling beside the bold studio or brand name on a near-black field with a soft glow rising behind them, a one-line description fading in beneath a beat later. Keep the whole close quiet and confident.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "arjunsh1607-93005d", "url": "https://prompt-motion.com/arjunsh1607-93005d", "creator": "@arjunsh1607", "start": 13.0, "end": 15.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

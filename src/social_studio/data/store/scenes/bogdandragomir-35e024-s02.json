@@ -1,0 +1,21 @@
+{
+  "id": "bogdandragomir-35e024-s02",
+  "kind": "scene",
+  "name": "a serif headline sits above a building inbox list",
+  "looks": "On a near-black field with thin corner brackets, a serif headline fades up with its last word in italic, an email address types in above a short list that fills in one row at a time beneath it, with a QR-style noise square resolving in the corner.",
+  "build": "hud-frame's corner brackets persist over the shot; the address and list rows reveal with kit.typeOn and a staggered fade; the corner square is a noise-dissolve-logomark-style seeded-point resolve into a small textured mark.",
+  "sound": "A soft typing tick, a quiet chime per list row.",
+  "duration": [2.3, 2.7],
+  "prompt": "On a near-black field with thin corner frame marks, fade up a serif headline with its final word in italic, then type in an address above a short list that fills in one row at a time. Resolve a small textured mark in the corner from noise into a crisp icon as the beat settles.",
+  "techniques": ["hud-frame", "noise-dissolve-logomark"],
+  "source": {"film": "bogdandragomir-35e024", "url": "https://prompt-motion.com/bogdandragomir-35e024", "creator": "@BogdanDragomir", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["intro", "demo"],
+    "purpose": ["introduce-feature", "set-mood"],
+    "content": ["type", "data"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["frame", "type"],
+    "complexity": "medium"
+  }
+}

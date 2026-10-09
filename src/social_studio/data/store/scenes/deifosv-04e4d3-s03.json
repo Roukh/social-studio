@@ -1,0 +1,21 @@
+{
+  "id": "deifosv-04e4d3-s03",
+  "kind": "scene",
+  "name": "Mobile device tilt with pocket pitch",
+  "looks": "A phone, held at a fixed shallow 3D tilt against a near-black field, shows the live game full-screen with touch controls. Beside it a short two-line headline and a row of device-compatibility pills (iPhone, Android, Tablet, Laptop) sit in a clean column.",
+  "build": "ui-tilt-card for the phone: a DOM or textured plane under CSS/3D perspective, rotateX/rotateY fixed with a slow one-degree drift, soft blurred shadow beneath. The headline and pill row fade/slide in beside it on a short stagger.",
+  "sound": "A soft whoosh as the phone settles into its tilt.",
+  "duration": [2.0, 2.5],
+  "prompt": "Show the product running full-screen on a phone held at a fixed, shallow 3D tilt against a dark field, with a short headline and a row of compatible-device pills beside it, to prove the same experience travels to mobile.",
+  "techniques": ["ui-tilt-card"],
+  "source": {"film": "deifosv-04e4d3", "url": "https://prompt-motion.com/deifosv-04e4d3", "creator": "@deifosv", "start": 14.97, "end": 15.97},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["reveal-product", "show-ease"],
+    "content": ["device", "product-ui"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface", "3d"],
+    "complexity": "medium"
+  }
+}

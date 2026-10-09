@@ -1,0 +1,20 @@
+{
+  "id": "reticle-lock-decode",
+  "kind": "technique",
+  "name": "Reticle lock and decode",
+  "looks": "A macro subject fills the frame while a thin bracket reticle locks onto one point of interest and tightens as the camera pushes in. Beside the bracket a small mono label flickers through scrambled characters before locking into a real status word, with a live numeric readout ticking beside it.",
+  "build": "DOM bracket over the target point, its corner gap narrowing on power2.out as the plate scales up for the push-in. The label scrambles per frame (kit.rng(frame*31+i*7)) and locks each character on a staggered time, same mechanic as end-card-decode. The numeric readout is a pure function of time with no easing, same mechanic as live-readout-hud (kit.setText from floor(rate*t)).",
+  "sound": "A soft electronic chirp as the bracket tightens and locks, a few data ticks as the readout updates.",
+  "duration": [2.0, 3.0],
+  "prompt": "Open tight on a macro, textured subject with a thin bracket reticle that locks onto one point and tightens as the camera pushes in. Beside it, run a small status label through a quick character scramble before it locks to a real word, with a live number ticking under it, so the opening feels like something is actively sensing the subject.",
+  "source": "reflex-cloud-72ffe5 (prompt-motion.com/reflex-cloud-72ffe5), studied 2026-10-09",
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "establish-brand", "show-craft"],
+    "content": ["photo", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["frame", "annotation"],
+    "complexity": "medium"
+  }
+}

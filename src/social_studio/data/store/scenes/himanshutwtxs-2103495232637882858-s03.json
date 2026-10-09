@@ -1,0 +1,21 @@
+{
+  "id": "himanshutwtxs-2103495232637882858-s03",
+  "kind": "scene",
+  "name": "A linear graph is struck out for an S-curve",
+  "looks": "A position-over-time graph draws a straight diagonal line, a hand-drawn label and strike-through calling it out as the wrong way (\"linear = robotic\"); the line redraws as a soft S-curve, and a row of small boxes beneath marches along a timeline, bunching and spreading to match the curve's changing speed.",
+  "build": "Straight line draws on first (`strokeDashoffset`); the annotation label and its strike-through line draw on together just after, in a hand-wobbled stroke distinct from the graph's clean lines. The line then redraws as a cubic-bezier S-curve over the same path; the marching boxes' x-spacing is sampled from the curve's local slope so they visibly bunch where it's slow and spread where it's fast.",
+  "sound": "A dry tick as the straight line draws, a marker-pen scribble on the strike-through, a soft rising tone as the S-curve redraws, a patter of ticks under the marching boxes.",
+  "duration": [2.5, 3.2],
+  "prompt": "Draw a straight position-over-time line, label and strike it out by hand as the wrong, robotic way, then redraw the same line as a soft S-curve, and show a row of small boxes marching along a timeline beneath it, bunching and spreading to match the curve's changing speed so the effect of the easing is visible, not just the graph.",
+  "techniques": ["easing-graph-draw", "annotated-diagram-overlay"],
+  "source": {"film": "himanshutwtxs-2103495232637882858", "url": "https://x.com/himanshutwtxs/status/2103495232637882858", "creator": "@himanshutwtxs", "start": 5.2, "end": 8.4},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data", "annotation"],
+    "complexity": "medium"
+  }
+}

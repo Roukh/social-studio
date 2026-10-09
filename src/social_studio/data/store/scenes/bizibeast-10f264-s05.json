@@ -1,0 +1,21 @@
+{
+  "id": "bizibeast-10f264-s05",
+  "kind": "scene",
+  "name": "a comment connects to an automated reply and capture",
+  "looks": "On a bold colour field, one small comment card sits alone under a claim. A connector line draws out from it to a second card labelled as an automation running, then to a third card delivering a resource, with a small captured-status tag popping in at the end.",
+  "build": "annotated-diagram-overlay's leader-line build: each dashed or solid connector draws with strokeDashoffset between cards, the next card fading in right as its connector lands, ending with a small status chip (a check, a captured tag) popping on back.out.",
+  "sound": "A tick per connector landing, a soft confirm chime on the final status tag.",
+  "duration": [2.3, 2.7],
+  "prompt": "On a bold colour field, show one small trigger card (a comment, a click, a message) connecting by a drawn line to an automation card, then to an outcome card, each line landing before the next card appears. End on a small status tag confirming the result was captured, to make an automated funnel visible as one connected path.",
+  "techniques": ["annotated-diagram-overlay"],
+  "source": {"film": "bizibeast-10f264", "url": "https://prompt-motion.com/bizibeast-10f264", "creator": "@bizibeast", "start": 17.5, "end": 22.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["annotation", "structure"],
+    "complexity": "medium"
+  }
+}

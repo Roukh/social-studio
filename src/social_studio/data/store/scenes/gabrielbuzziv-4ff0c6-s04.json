@@ -1,0 +1,21 @@
+{
+  "id": "gabrielbuzziv-4ff0c6-s04",
+  "kind": "scene",
+  "name": "Isometric room with a completion ring, close on a soft mark",
+  "looks": "A small ring with a percentage sits beside a miniature isometric room diorama, furnished piece by piece in soft pastel tones. It settles into a calm closing beat: the frame fades to a glow around a simple, friendly mark alone on a light field.",
+  "build": "radial-progress-anticipation for the ring: strokeDashoffset fill with the counter text set from the clock. The diorama's furniture pieces can pop in on a light stagger if the shot needs motion, otherwise it holds static for the calm beat. The close is a simple opacity/scale settle on the mark with a soft glow pulsing behind it.",
+  "sound": "A gentle ambient pad, a tick on the ring's percentage, and a soft hum under the closing mark.",
+  "duration": [2.0, 3.0],
+  "prompt": "End on calm, not a sales push: a small completion ring ticks up beside a miniature, softly furnished diorama of the product's outcome, then settle the whole frame on the brand's simple mark alone, glowing gently, as the sign-off.",
+  "techniques": ["radial-progress-anticipation"],
+  "source": {"film": "gabrielbuzziv-4ff0c6", "url": "https://prompt-motion.com/gabrielbuzziv-4ff0c6", "creator": "@gabrielbuzziv", "start": 10.0, "end": 14.5},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["set-mood", "establish-brand", "land-cta"],
+    "content": ["3d-object", "logo"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "3d"],
+    "complexity": "medium"
+  }
+}

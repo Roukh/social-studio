@@ -1,0 +1,21 @@
+{
+  "id": "palashbagchi11-0a4b6b-s07",
+  "kind": "scene",
+  "name": "a one-line pitch lands beside three ways to start",
+  "looks": "A bold line states the new, cheap way in; a quieter grey line underneath promises no recurring cost. Below both, three small pill buttons fan in together, each naming a different way to begin (a file upload, a spreadsheet drop, a domain scan).",
+  "build": "The first line lands at full weight; the second, muted line arrives a beat after it without dimming the first (list-stack-reveal's rhythm, reversed emphasis). The three pills pop in with a 10-30% uneven stagger on a spring ease, each a slightly different size as its label demands.",
+  "sound": "A soft tick as each headline line lands, a light cluster of three clicks as the pills arrive.",
+  "duration": [2.0, 2.6],
+  "prompt": "Pair a confident one-line pitch with a quieter promise underneath it (no subscription, no catch), then fan in three small pill buttons beneath both, each naming a different, equally easy way to get started. Keep the pills' entrance staggered and uneven so it reads as a real set of options, not one template repeated.",
+  "techniques": ["list-stack-reveal", "variant-stack-reveal"],
+  "source": {"film": "palashbagchi11-0a4b6b", "url": "https://prompt-motion.com/palashbagchi11-0a4b6b", "creator": "@PalashBagchi11", "start": 23.2, "end": 26.6},
+  "tags": {
+    "role": ["solution"],
+    "purpose": ["show-ease", "introduce-feature"],
+    "content": ["type", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "interface"],
+    "complexity": "medium"
+  }
+}

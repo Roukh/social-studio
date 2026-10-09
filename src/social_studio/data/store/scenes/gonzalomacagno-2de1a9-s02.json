@@ -1,0 +1,21 @@
+{
+  "id": "gonzalomacagno-2de1a9-s02",
+  "kind": "scene",
+  "name": "Lineup card builds from headliner to full bill",
+  "looks": "Over the same ribbon ground, a date badge lands first, then a headliner name in the largest size, a second name just beneath it, and finally several rows of smaller names landing together in a dense block, each row shrinking the type scale as it goes further down the hierarchy. The whole card swaps once to a second day with a new headliner.",
+  "build": "list-stack-reveal driving the top-down build, but each tier also steps down in font size rather than only dimming, so the hierarchy reads in scale as well as order; the full day-to-day swap is a quick crossfade/slide on the whole card, power2.inOut.",
+  "sound": "A tick per tier landing, faster and lighter for the dense bottom rows, then a whoosh on the day swap.",
+  "duration": [2.5, 3.5],
+  "prompt": "Build a lineup or roster card in clear order of importance: a date or category lands first, then the single biggest name at full size, then supporting names at a smaller size, finishing on a dense block of the rest at the smallest size, then swap the whole card once to a second set.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "gonzalomacagno-2de1a9", "url": "https://prompt-motion.com/gonzalomacagno-2de1a9", "creator": "@GonzaloMacagno", "start": 2.5, "end": 7.5},
+  "tags": {
+    "role": ["solution", "proof"],
+    "purpose": ["show-scale", "reveal-product"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

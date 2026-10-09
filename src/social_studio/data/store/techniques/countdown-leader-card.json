@@ -1,0 +1,20 @@
+{
+  "id": "countdown-leader-card",
+  "kind": "technique",
+  "name": "Countdown leader card",
+  "looks": "A giant blocky numeral readout sits over a rough, textured ground (brick, concrete, grain), styled like an old cinema countdown leader rather than a clean digital display, with a thin build-log status line above it. It marks a section as in progress with physical, analogue weight.",
+  "build": "Numeral in a heavy slab/grotesk face filling most of the card over a full-saturation tiled texture. Ticks on a coarse whole-second interval, each tick a hard cut with no easing, reading as a worksite clock rather than an animated UI. A thin progress rule with a sliding marker places the card in a longer sequence.",
+  "sound": "A mechanical tick on each coarse step, a low ambient rumble under the hold.",
+  "duration": [1.5, 2.5],
+  "prompt": "Show a giant blocky countdown or timer numeral over a rough textured ground like brick or concrete, ticking in hard coarse steps rather than smooth animation, with a short build-log style status line above it, so the moment feels physical and unglamorous rather than a slick progress ring.",
+  "source": "prompt-motion.com's gallery (lexnlin-6161a6), studied 2026-10-09",
+  "tags": {
+    "role": ["transition", "demo"],
+    "purpose": ["build-tension", "show-craft"],
+    "content": ["type", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["texture", "type"],
+    "complexity": "low"
+  }
+}

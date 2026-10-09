@@ -1,0 +1,21 @@
+{
+  "id": "francoxavier33-d2dfd2-s05",
+  "kind": "scene",
+  "name": "Mark types on, cuts to black",
+  "looks": "A small hand-drawn squiggle mark settles above a short closing line that types on with a blinking cursor, the line ending mid-word in a cursive script as it hard-cuts to black.",
+  "build": "script-accent-underline's typing mechanic without the underline, holding on the mark; the hard cut to black lands exactly on the beat, leaving the line unfinished to pull the viewer into the next card or the CTA that follows.",
+  "sound": "A soft typewriter clack per character cutting to silence on the hard cut.",
+  "duration": [1.3, 2.0],
+  "prompt": "Close on a small hand-drawn mark above a warm closing line typing on with a blinking cursor, and hard-cut to black mid-word so the line feels like it continues just past the frame, pulling the viewer toward the next beat.",
+  "techniques": ["script-accent-underline"],
+  "source": {"film": "francoxavier33-d2dfd2", "url": "https://prompt-motion.com/francoxavier33-d2dfd2", "creator": "@francoxavier33", "start": 24.5, "end": 27.5},
+  "tags": {
+    "role": ["cta", "transition"],
+    "purpose": ["tease", "establish-brand"],
+    "content": ["type", "logo"],
+    "energy": ["calm"],
+    "format": ["9:16", "4:5"],
+    "family": ["type", "close"],
+    "complexity": "low"
+  }
+}

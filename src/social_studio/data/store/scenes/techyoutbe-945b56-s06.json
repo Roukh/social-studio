@@ -1,0 +1,21 @@
+{
+  "id": "techyoutbe-945b56-s06",
+  "kind": "scene",
+  "name": "a wall of topic pills drifts behind a held claim",
+  "looks": "Rows of small rounded tag pills, each naming a different topic, fill the frame and drift sideways at a slow, steady pace, different rows at slightly different speeds. A bold headline sits perfectly still on top of the drift.",
+  "build": "Pills are a looped, repeating row (x wraps modulo total width); each row's speed is a small uneven multiple of a base rate for parallax; the headline is a fixed layer above with a soft shadow to stay legible.",
+  "sound": "A soft, continuous low shimmer under the drift, no individual hits.",
+  "duration": [5.0, 5.0],
+  "prompt": "Fill the frame with rows of small topic pills drifting sideways at slightly different speeds, with a bold, perfectly still headline held over the top, to show the breadth of subjects covered behind one simple claim.",
+  "techniques": ["tag-wall-drift"],
+  "source": {"film": "techyoutbe-945b56", "url": "https://prompt-motion.com/techyoutbe-945b56", "creator": "@techyoutbe", "start": 25.0, "end": 30.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-scale", "show-data"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1"],
+    "family": ["data", "texture"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "fan-out-branch-diagram",
+  "kind": "technique",
+  "name": "Fan-out branch diagram",
+  "looks": "One source block sits on the left; thin curved lines draw out from it to a column of labelled endpoint chips on the right, each a different accent colour, arriving on a stagger. The shot closes on a short checklist: green checks for what stays fair or constant, a red cross for the one thing never done.",
+  "build": "The source is a DOM/code panel. Each branch is an SVG bezier path revealed with strokeDashoffset, staggered 0.08-0.12s apart; each endpoint chip fades/scales in as its line arrives, coloured to match. The checklist rows reveal beneath on their own short stagger after the last branch lands.",
+  "sound": "A soft whoosh per branch line, a tick on each chip's arrival, and one lower tone on the checklist's cross item.",
+  "duration": [
+    2.5,
+    3.5
+  ],
+  "prompt": "Show one input reaching several parallel recipients under the same rules: draw branching lines from a single source block out to a column of labelled endpoints, arriving on a stagger, then close on a short checklist proving what stayed fair and what was never done.",
+  "source": "an AI Arena product promo in prompt-motion.com's gallery (prompt-motion.com/ezshine-c90d73), studied 2026-10-09",
+  "tags": {
+    "role": [
+      "solution",
+      "proof",
+      "demo"
+    ],
+    "purpose": [
+      "explain-mechanism",
+      "show-contrast",
+      "establish-brand",
+      "show-craft"
+    ],
+    "content": [
+      "data",
+      "abstract"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9",
+      "1:1",
+      "9:16",
+      "4:5"
+    ],
+    "family": [
+      "data",
+      "structure"
+    ],
+    "complexity": "medium"
+  }
+}

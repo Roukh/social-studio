@@ -1,0 +1,21 @@
+{
+  "id": "arjunsh1607-93005d-s04",
+  "kind": "scene",
+  "name": "a highlighted claim lands beside a funding stat",
+  "looks": "A two-line claim settles with its last word boxed in a solid colour highlight, then beneath it a hairline divides to a large dollar figure with a short caption naming the round and the timeframe.",
+  "build": "The highlighted word's background box scales in from the left (scaleX on a colour block) a beat after the text; the stat beneath rolls its digits up with data-infographic's vertical-blur count, landing on power3.out.",
+  "sound": "A soft snap as the highlight lands, a rising tone under the number roll-up.",
+  "duration": [2.0, 2.4],
+  "prompt": "Land a short claim with its final word boxed in a solid colour highlight the instant it settles, then reveal a large number beneath it with a short caption giving it context (an amount, a timeframe). Let the highlight and the number be the only two accents in an otherwise plain layout.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "arjunsh1607-93005d", "url": "https://prompt-motion.com/arjunsh1607-93005d", "creator": "@arjunsh1607", "start": 8.517, "end": 13.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "build-tension"],
+    "content": ["type", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "data"],
+    "complexity": "low"
+  }
+}

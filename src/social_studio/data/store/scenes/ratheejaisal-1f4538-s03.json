@@ -1,0 +1,21 @@
+{
+  "id": "ratheejaisal-1f4538-s03",
+  "kind": "scene",
+  "name": "revenue counter over a heatmap grid, then a visitor counter",
+  "looks": "A headline sits beside a card where a big dollar figure counts up while a grid of small squares underneath fills in with varying shades, like a contribution calendar, with a short legend of sources at the bottom. It cuts to a plainer card: a smaller headline, a visitor count ticking up, and a thin rising sparkline beneath it.",
+  "build": "The dollar figure rolls up under a speed-tied blur; the grid is DOM cells at fixed positions, each tweening its fill shade in on a loose stagger tied to the same clock as the counter, with ±1-2px jitter so it never reads as a raster. The second card's counter and sparkline (strokeDashoffset draw) tie to a lighter, faster version of the same clock.",
+  "sound": "A rising tone under each counter, a soft granular patter while the grid cells settle, a lighter tick under the sparkline draw.",
+  "duration": [2.5, 3.5],
+  "prompt": "Pair a headline with a card where a big dollar total counts up over a grid of small cells filling in with varying shades like a contribution calendar, then cut to a plainer card with a smaller counter and a thin rising sparkline. Use real-feeling, specific numbers, not round ones.",
+  "techniques": ["dot-population-count"],
+  "source": {"film": "ratheejaisal-1f4538", "url": "https://prompt-motion.com/ratheejaisal-1f4538", "creator": "@RatheeJaisal", "start": 7.5, "end": 12.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

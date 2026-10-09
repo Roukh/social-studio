@@ -1,0 +1,21 @@
+{
+  "id": "ajith-io-c52e09-s05",
+  "kind": "scene",
+  "name": "a crossed-out claim gives way to a small time stat",
+  "looks": "A dim, struck-through word (\"not a week\") sits above a bold number-led claim (\"About 6 minutes\") with a small spinner-like icon beside it and a short caption underneath.",
+  "build": "The strike-through draws on as a short horizontal line over the dim word (scaleX 0 -> 1); the stat line fades and rises into place a beat later with its icon settling on a small spin-to-rest.",
+  "sound": "A short negation tick on the strike-through, a soft chime on the stat's arrival.",
+  "duration": [1.8, 2.2],
+  "prompt": "Strike a line through a dim, pessimistic expectation, then land a bold, specific, much smaller number as the real claim, with a small icon beside it. Let the contrast between the crossed-out expectation and the real number carry the beat.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "ajith-io-c52e09", "url": "https://prompt-motion.com/ajith-io-c52e09", "creator": "@ajith_io", "start": 22.5, "end": 25.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-contrast", "show-speed"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["type", "annotation"],
+    "complexity": "low"
+  }
+}

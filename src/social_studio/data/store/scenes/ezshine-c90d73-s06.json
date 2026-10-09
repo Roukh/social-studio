@@ -1,0 +1,21 @@
+{
+  "id": "ezshine-c90d73-s06",
+  "kind": "scene",
+  "name": "Pick a seat, human or all-AI table",
+  "looks": "A row of seats fills in: a human avatar first, then two model chips, with a panel on the right for pasting a custom API key and endpoint. A bold action button sits beneath, ready to start.",
+  "build": "The seats pop in left to right on a short stagger, each a rounded avatar chip; the custom-API panel's fields reveal with a quick fade/slide, and its 'connect' button gets a subtle glow once a value is present.",
+  "sound": "A soft pop per seat filling, a lighter tick on the API panel's fields.",
+  "duration": [1.7, 2.5],
+  "prompt": "Show the viewer they can take a seat at their own product: fill a row of seats with a human avatar and a couple of AI options, plus a panel to plug in a custom key or endpoint, ending on one clear button to start.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "ezshine-c90d73", "url": "https://prompt-motion.com/ezshine-c90d73", "creator": "@ezshine", "start": 38.0, "end": 44.0},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["show-ease", "introduce-feature"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

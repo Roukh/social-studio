@@ -1,0 +1,21 @@
+{
+  "id": "ddryo-loos-300829-s05",
+  "kind": "scene",
+  "name": "Cascade layers collapse to one shape",
+  "looks": "A short stack of translucent diamond planes hovers at a slight 3D tilt, each one labelled on a leader line naming its rule in order of precedence, with one unfilled, dashed plane near the top marked as the exception. The whole stack compresses straight down into one small, solid, dark rounded square.",
+  "build": "layer-stack-collapse: each plane offset by translateY/translateZ under a shared perspective with decreasing opacity toward the back; labels fade in top to bottom on the beat; the collapse tweens every plane's y/z to 0 and opacity to 1 on power3.in, finishing as one flat shape.",
+  "sound": "A soft layered hum while the stack is held, and a single solid thump on the collapse.",
+  "duration": [2.0, 2.5],
+  "prompt": "Show an invisible order of precedence as a small stack of translucent, labelled planes, one marked as an exception, then collapse the whole stack into a single solid shape to say the complexity resolves to one simple, predictable result.",
+  "techniques": ["layer-stack-collapse"],
+  "source": {"film": "ddryo-loos-300829", "url": "https://prompt-motion.com/ddryo-loos-300829", "creator": "@ddryo_loos", "start": 27.5, "end": 30.0},
+  "tags": {
+    "role": ["solution"],
+    "purpose": ["explain-mechanism", "show-transformation"],
+    "content": ["3d-object", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["structure", "3d"],
+    "complexity": "medium"
+  }
+}

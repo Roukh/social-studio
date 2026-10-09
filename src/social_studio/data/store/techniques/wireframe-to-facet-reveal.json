@@ -1,0 +1,20 @@
+{
+  "id": "wireframe-to-facet-reveal",
+  "kind": "technique",
+  "name": "Wireframe to facet reveal",
+  "looks": "A skeletal wireframe, dots joined by thin lines, grows node by node in the dark until it traces the full silhouette of the mark. Its triangular faces then fill in one by one with flat colour panels, in an uneven order, turning the skeleton solid and faceted, like cut glass, until every face is lit.",
+  "build": "Precompute the mark's low-poly mesh; edges draw with strokeDashoffset in a seeded order; each face fades/scales in from 0 opacity once its vertices connect, seeded per-face stagger so the fill reads organic. Hold on the completed mark at least 0.5s.",
+  "sound": "A faint high shimmer per node connecting, a soft glassy tick per face landing, building to a held chord on completion.",
+  "duration": [5.0, 15.0],
+  "prompt": "Grow a skeletal wireframe node by node in the dark until it traces a recognisable mark's silhouette, then fill its triangular faces in one by one with flat colour panels in an uneven order, so the skeleton turns solid and faceted like cut glass. Hold the finished mark before cutting away.",
+  "source": "prompt-motion.com's gallery (tdinh-me-815acb), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "intro", "whole-film"],
+    "purpose": ["establish-brand", "reveal-product", "show-craft"],
+    "content": ["abstract", "3d-object", "logo"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "9:16", "4:5"],
+    "family": ["identity", "3d"],
+    "complexity": "high"
+  }
+}

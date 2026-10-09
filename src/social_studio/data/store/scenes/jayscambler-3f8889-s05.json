@@ -1,0 +1,21 @@
+{
+  "id": "jayscambler-3f8889-s05",
+  "kind": "scene",
+  "name": "Closing card doubles as a shareable preview",
+  "looks": "The frame settles into a clean two-column card: the pixel-heart mark and wordmark with a short headline and one line of body copy on the left, a solid colour panel holding a larger version of the same mark on the right, a short closing line and the URL at the bottom.",
+  "build": "wordmark-assemble's finished-state settle for the mark and headline landing together; the right-hand colour panel and its larger mark fade/scale in on the same beat, so the whole card reads as a single social-preview-style graphic.",
+  "sound": "A soft confirm tone as the card settles, fading under the URL.",
+  "duration": [2.0, 2.5],
+  "prompt": "Close on a card built like a link preview: the brand's mark and a short headline on one side, a bold colour panel repeating the mark at a larger size on the other, with one closing line and the URL anchoring the bottom, so the sign-off doubles as something shareable on its own.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "jayscambler-3f8889", "url": "https://prompt-motion.com/jayscambler-3f8889", "creator": "@JayScambler", "start": 15.0, "end": 18.0},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

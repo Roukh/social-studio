@@ -1,0 +1,21 @@
+{
+  "id": "ezshine-c90d73-s01",
+  "kind": "scene",
+  "name": "App mark assembles into the full wordmark",
+  "looks": "A glowing app icon sits above two letters of the name, a soft ring pulsing behind it. The remaining letters drop in to complete the wordmark, and a short tagline and subline fade in beneath it.",
+  "build": "wordmark-assemble: letters land with blur clearing to sharp, delay growing with distance from the centre; the icon's ring is a looping low-opacity pulse independent of the letter stagger. The tagline reveals with a clipPath wipe after the last letter lands.",
+  "sound": "A soft tick per letter, a swell under the tagline.",
+  "duration": [2.0, 3.0],
+  "prompt": "Open on the product's icon alone with a soft pulsing glow behind it, then complete the name letter by letter beside it, and settle on a short one-line tagline that names what the product is for.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "ezshine-c90d73", "url": "https://prompt-motion.com/ezshine-c90d73", "creator": "@ezshine", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "tease"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["identity", "type"],
+    "complexity": "low"
+  }
+}

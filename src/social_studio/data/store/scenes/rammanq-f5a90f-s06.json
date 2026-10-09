@@ -1,0 +1,21 @@
+{
+  "id": "rammanq-f5a90f-s06",
+  "kind": "scene",
+  "name": "country tax-form chips check in two columns",
+  "looks": "Two columns of small flag-and-label chips build down the frame under a headline, each chip getting a checkmark as it lands. Every chip stays at full brightness once checked, so the list reads as a tally completing rather than a single line being highlighted.",
+  "build": "One DOM row per chip, grouped into two columns; each fades/slides in (opacity 0->1, y 8px->0, power2.out, ~0.3s) on its own beat with a checkmark icon popping in 0.1s after the row lands. Unlike a dimming list stack, every row keeps full contrast once checked, read as a tally.",
+  "sound": "A soft tick per chip landing, a slightly brighter chime per checkmark, building in density as columns fill.",
+  "duration": [2.0, 2.5],
+  "prompt": "Build a two-column list of small labelled chips (a flag or icon plus a short label) under a headline, each one landing in turn and getting a checkmark the instant it arrives, every chip staying fully bright once checked so the whole thing reads as a completing tally.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "rammanq-f5a90f", "url": "https://prompt-motion.com/rammanq-f5a90f", "creator": "@rammanq", "start": 29.7, "end": 33.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-scale", "show-ease"],
+    "content": ["type", "data"],
+    "energy": ["calm"],
+    "format": ["1:1"],
+    "family": ["type", "structure"],
+    "complexity": "low"
+  }
+}

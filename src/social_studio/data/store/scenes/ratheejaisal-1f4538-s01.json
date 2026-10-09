@@ -1,0 +1,21 @@
+{
+  "id": "ratheejaisal-1f4538-s01",
+  "kind": "scene",
+  "name": "icon pops, wordmark lands, handle types in",
+  "looks": "A small rounded app icon scales in alone, then the brand name snaps in beside it with a tagline fading up underneath. It cuts to a bold two-line headline next to a pill-shaped field that types on a short handle character by character, ending on a filled call-to-action button.",
+  "build": "The icon scales from 0.8 to 1 on back.out, the wordmark fades/slides in beside it, tagline fades up last. The headline is two DOM lines revealed with a short stagger. The input pill types the handle with kit.typeOn and a blinking ::after cursor; the button pops in at the end on back.out(1.6).",
+  "sound": "A soft pop as the icon lands, a light typing clack per character, a confirm tone on the button.",
+  "duration": [1.8, 2.3],
+  "prompt": "Open with a small app mark popping in, the wordmark and a short tagline landing beside it, then cut to a bold two-line headline next to an input field that types on a short handle with a blinking cursor, ending on a filled call-to-action button.",
+  "techniques": ["dual-voice-type"],
+  "source": {"film": "ratheejaisal-1f4538", "url": "https://prompt-motion.com/ratheejaisal-1f4538", "creator": "@RatheeJaisal", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "reveal-product"],
+    "content": ["logo", "type", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["open", "type"],
+    "complexity": "low"
+  }
+}

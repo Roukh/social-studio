@@ -1,0 +1,21 @@
+{
+  "id": "ultimaxbt-2ddf1e-s02",
+  "kind": "scene",
+  "name": "an abstract searching shape connects to a point",
+  "looks": "A short label reads that something is being found. Below it a soft abstract shape, half a rounded disc in a warm colour, sits under a thin line that runs out to a small dot, like a search sweeping toward an answer.",
+  "build": "The label's trailing dots pulse on a loop; the line draws from the shape to the dot with strokeDashoffset on power2.inOut, holding at the dot once it arrives.",
+  "sound": "A soft, searching shimmer that resolves into a single tick as the line reaches the dot.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold a short 'finding it' label with pulsing trailing dots over an abstract, softly coloured shape connected by a thin drawn line to a point off to the side, like a search sweeping toward its answer, as the connective beat between a question and its result.",
+  "techniques": ["transitions"],
+  "source": {"film": "ultimaxbt-2ddf1e", "url": "https://prompt-motion.com/ultimaxbt-2ddf1e", "creator": "@ultimaxbt", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["transition"],
+    "purpose": ["build-tension", "connect-scenes"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["transition"],
+    "complexity": "low"
+  }
+}

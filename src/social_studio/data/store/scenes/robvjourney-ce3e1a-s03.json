@@ -1,0 +1,21 @@
+{
+  "id": "robvjourney-ce3e1a-s03",
+  "kind": "scene",
+  "name": "a dot-matrix percentage proves the ratio",
+  "looks": "A big statistic builds from small square dots arranged into digit shapes, a short caption naming what it measures underneath, and a thin horizontal bar beneath that splits into two portions showing the same ratio as a share. A moment later the whole stat scatters back apart into loose drifting dots.",
+  "build": "Canvas: one dot per unit sampled into the digit shapes with a tiny per-dot jitter so it never reads as a raster grid; a horizontal bar fills to the stat's value with a labelled remainder portion; on the beat's end the dots release from their grid positions and relax into a soft scatter.",
+  "sound": "A soft granular patter while the dots settle into digits, a tick on the digit build, a quiet dissolve as they scatter apart.",
+  "duration": [1.5, 2.5],
+  "prompt": "Build a big percentage or ratio statistic out of a population of small dots rather than solid type, with a thin bar beneath splitting the same ratio into a share, then let the whole stat release back into a loose drift of dots as the beat ends -- the number should feel made of many small units, not just typeset.",
+  "techniques": ["dot-population-count"],
+  "source": {"film": "robvjourney-ce3e1a", "url": "https://prompt-motion.com/robvjourney-ce3e1a", "creator": "@robvjourney", "start": 5.0, "end": 7.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-contrast"],
+    "content": ["data", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "particles"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "robj3d3-b18fad-s03",
+  "kind": "scene",
+  "name": "the mark multiplies into a wall of app surfaces",
+  "looks": "The single glowing mark sits at left while, spreading rightward, dozens of small dark UI and content cards and device previews fade and scale in behind it, filling the frame densely -- far too many to read individually -- showing that the one symbol now spans many different surfaces and apps.",
+  "build": "A DOM/canvas grid of small fixed-size UI-card tiles, each a muted colour with faint placeholder content, scaling and fading in on a per-tile seeded delay so the build feels organic rather than a single wipe; the source mark stays lit at the edge of the grid throughout.",
+  "sound": "A fast, granular patter of soft ticks as the tiles land, building into a wash.",
+  "duration": [2, 3],
+  "prompt": "Show breadth, not a single feature: let dozens of small interface tiles and content previews fade and scale into a dense grid behind your mark or headline, deliberately too many to read individually, so the shot sells 'this is now everywhere' a beat before anything narrows back down.",
+  "techniques": ["category-tile-grid"],
+  "source": {"film": "robj3d3-b18fad", "url": "https://prompt-motion.com/robj3d3-b18fad", "creator": "@robj3d3", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-scale", "reveal-product"],
+    "content": ["product-ui", "device"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "collage"],
+    "complexity": "medium"
+  }
+}

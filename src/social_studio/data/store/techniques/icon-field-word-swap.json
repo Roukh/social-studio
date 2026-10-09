@@ -1,0 +1,20 @@
+{
+  "id": "icon-field-word-swap",
+  "kind": "technique",
+  "name": "Icon field word swap",
+  "looks": "Small brand or category icon bubbles sit scattered loosely across the frame, drifting gently, behind one bold word set large and centred. The word hard-cuts to a second word naming a sibling category while the icon field holds underneath. Then the icons drift apart to the frame's edges and fade, clearing down to a single small accent dot.",
+  "build": "Icon bubbles are DOM/SVG chips at seeded positions with a slow idle sine drift. The headline is one DOM block per word, hard-swapped on the beat, no crossfade. On the clearing beat, each bubble tweens to a far edge/corner on power3.in, staggered 20-40ms apart, fading as it leaves; the last element left is one small accent dot, held.",
+  "sound": "A soft ambient hum under the drift, a hit on each word swap, a whoosh as the icons clear.",
+  "duration": [1.5, 2.5],
+  "prompt": "Open on small category icon bubbles scattered and drifting behind one bold centred word, hard-cutting to a second word naming a sibling category. Then let the icons drift apart to the edges and clear away, leaving a single small accent dot on screen.",
+  "source": "an investing-platform demo film in prompt-motion.com's gallery (prompt-motion.com/rammanq-f5a90f), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "tease", "set-mood"],
+    "content": ["abstract", "logo"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["open", "type"],
+    "complexity": "medium"
+  }
+}

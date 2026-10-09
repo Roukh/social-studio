@@ -1,0 +1,21 @@
+{
+  "id": "ultimaxbt-2ddf1e-s03",
+  "kind": "scene",
+  "name": "a single result card pops on a bold field",
+  "looks": "A bright, saturated colour fills the whole frame, with one small dark result card centred on it: a photo of a dish, its name and price, nothing else competing for attention.",
+  "build": "The field is a flat fill; the card scales in from 0.92 -> 1 with a slight overshoot (back.out), the only moving element in the shot.",
+  "sound": "A single clean pop as the card lands.",
+  "duration": [2.0, 2.5],
+  "prompt": "Fill the whole frame with one bold, saturated colour and pop a single small result card into the centre, a photo, a name, a price, with nothing else competing for attention, so the answer itself is the punch.",
+  "techniques": ["ui-tilt-card"],
+  "source": {"film": "ultimaxbt-2ddf1e", "url": "https://prompt-motion.com/ultimaxbt-2ddf1e", "creator": "@ultimaxbt", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["reveal-product", "show-contrast"],
+    "content": ["product-ui", "photo"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

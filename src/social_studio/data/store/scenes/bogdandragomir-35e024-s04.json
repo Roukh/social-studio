@@ -1,0 +1,21 @@
+{
+  "id": "bogdandragomir-35e024-s04",
+  "kind": "scene",
+  "name": "the issue appears on a tilted e-reader beside its cover",
+  "looks": "Beside a headline about automatic delivery, the printed-style cover sits next to a small e-reader device mockup showing the same issue on its screen, both held at a gentle tilt with soft shadows beneath them.",
+  "build": "ui-tilt-card for both the cover and the device (shallow rotateX/rotateY, soft offset shadow); the device's screen content fades in a beat after the cover settles, so the eye reads cover-then-device.",
+  "sound": "A soft whoosh as the pair settles.",
+  "duration": [2.3, 2.7],
+  "prompt": "Beside a claim about automatic delivery, hold a printed-style cover next to a small reader device mockup showing the same content on its screen, both at a gentle tilt with soft shadows. Let the device's screen populate a beat after the cover settles, so the two clearly belong to the same piece of content.",
+  "techniques": ["ui-tilt-card"],
+  "source": {"film": "bogdandragomir-35e024", "url": "https://prompt-motion.com/bogdandragomir-35e024", "creator": "@BogdanDragomir", "start": 10.0, "end": 12.5},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-ease", "reveal-product"],
+    "content": ["device", "illustration"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "viktoroddy-98c1d8-s07",
+  "kind": "scene",
+  "name": "a gratitude line cycles through who it's for",
+  "looks": "A quiet 'to every' label stays fixed while the word naming the audience cuts hard from one to the next across several beats, developer, designer, founder, each in a loose, warm script over a dim, blurred backdrop, before landing on a thank you.",
+  "build": "The fixed label stays static; each audience word swaps on a hard cut with a quick scale/opacity snap, same mechanic as command-chip-cycle, the backdrop a slow, heavily blurred crossfade between abstract renders.",
+  "sound": "A soft chime per word swap, warmer and quieter than a kinetic word hit.",
+  "duration": [10.0, 12.5],
+  "prompt": "Hold a quiet fixed label while the word naming the audience it's for cuts hard from one to the next across a few beats, each in a warm script over a dim blurred backdrop, before landing on a simple word of thanks.",
+  "techniques": ["command-chip-cycle"],
+  "source": {"film": "viktoroddy-98c1d8", "url": "https://prompt-motion.com/viktoroddy-98c1d8", "creator": "@viktoroddy", "start": 35.0, "end": 47.5},
+  "tags": {
+    "role": ["cta", "transition"],
+    "purpose": ["establish-brand", "set-mood"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

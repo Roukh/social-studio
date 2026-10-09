@@ -1,0 +1,21 @@
+{
+  "id": "davidmarcus-a28a60-s03",
+  "kind": "scene",
+  "name": "Cross-border transfer rail",
+  "looks": "A thin horizontal rail connects a 'sent' currency dot on the left to a 'received' currency dot on the right. A puck travels from one dot to the other along the rail, and below it a two-line payoff types in: a bold claim with a dimmer rebuttal of the old way.",
+  "build": "An SVG or DOM line with two fixed end dots labelled above/below; the puck is a circle tweened along the line's x-axis, power2.inOut, with a soft ring pulse on arrival. The payoff text uses list-stack-reveal underneath, synced to the puck's landing.",
+  "sound": "A soft whoosh as the puck travels, a tick on arrival, and a beat under the payoff line.",
+  "duration": [2.0, 3.0],
+  "prompt": "Show two currencies or states as labelled points on a line, with a single marker travelling from one to the other to dramatise an instant transfer. Land the payoff underneath as a two-line claim: the fast way in full brightness, the slow old way dimmed beside it.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "davidmarcus-a28a60", "url": "https://prompt-motion.com/davidmarcus-a28a60", "creator": "@davidmarcus", "start": 5.3, "end": 7.97},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["show-speed", "show-transformation", "explain-mechanism"],
+    "content": ["data", "type"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "samuel-yostt-891f87-s02",
+  "kind": "scene",
+  "name": "vertical motion-blur push transition",
+  "looks": "A portrait frame stretches into a tall vertical motion-blur streak, as if the camera dove straight through it, before resolving sharp again into the next headline's scene.",
+  "build": "The outgoing frame scales and blurs along the vertical axis (a directional blur filter growing with velocity) while the incoming scene's colour bleeds in underneath; resolves sharp on power2.out as the next headline's text starts.",
+  "sound": "A rising whoosh through the blur, cutting to silence the instant the next scene resolves.",
+  "duration": [1.0, 1.5],
+  "prompt": "Cut between beats with a vertical motion-blur push: stretch the outgoing frame into a tall blurred streak as if diving straight through it, then resolve sharp into the next scene on the beat.",
+  "techniques": ["transitions"],
+  "source": {"film": "samuel-yostt-891f87", "url": "https://prompt-motion.com/samuel-yostt-891f87", "creator": "@samuel_yostt", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["transition"],
+    "purpose": ["connect-scenes"],
+    "content": ["photo"],
+    "energy": ["punch"],
+    "format": ["16:9", "1:1", "9:16"],
+    "family": ["transition"],
+    "complexity": "low"
+  }
+}

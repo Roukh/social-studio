@@ -1,0 +1,21 @@
+{
+  "id": "micheleharmonic-77628e-s07",
+  "kind": "scene",
+  "name": "hard-cut montage builds a character moment into climax",
+  "looks": "A sequence of full-bleed cards hard-cuts through a backlit character silhouette with a spiky glowing crown, a pair of small glowing dots in two accent colours, a wash of saturated colour with a bold claim over it, a column of foreign-script glyphs, and the mark reshaped into an infinity loop, each card holding for under a second before the next lands, building toward a climax.",
+  "build": "One full-bleed illustration or type card per unit, hard swapped on a stepped index with no crossfades; a consistent rim-light and floating particle shards carry across cards so the run reads as one continuous build rather than unrelated cuts, and the ring mark reappears mid-run reshaped as a figure-eight.",
+  "sound": "A hit on every cut, a rising riser through the run, and a bigger hit on the last two or three cards as it peaks.",
+  "duration": [3.0, 5.0],
+  "prompt": "Build a short montage of full-bleed hard cuts around one dramatic figure or idea: a backlit silhouette, a wash of saturated colour with a bold claim, a few symbolic glyphs or marks, and the film's own mark reshaped into something new partway through, each card landing for under a second so the whole run reads as rising tension toward a peak.",
+  "techniques": ["mecha-cut-reveal"],
+  "source": {"film": "micheleharmonic-77628e", "url": "https://prompt-motion.com/micheleharmonic-77628e", "creator": "@MicheleHarmonic", "start": 20.77, "end": 33.47},
+  "tags": {
+    "role": ["transition", "proof"],
+    "purpose": ["build-tension", "set-mood", "show-craft"],
+    "content": ["character", "type", "abstract"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["reveal", "structure"],
+    "complexity": "high"
+  }
+}

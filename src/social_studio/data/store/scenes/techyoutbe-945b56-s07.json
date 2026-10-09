@@ -1,0 +1,21 @@
+{
+  "id": "techyoutbe-945b56-s07",
+  "kind": "scene",
+  "name": "a pay-what-you-want card with cursor press",
+  "looks": "A product cover sits beside a short pricing statement, a price field and a dark call-to-action button underneath it. A cursor glyph moves to the button and presses it, the button scaling down and springing back.",
+  "build": "The card is a fixed DOM panel; the cursor path is power3.inOut with a 0.045s press scale (0.82) and a 0.14s release, same mechanic as glass-ui-flow's cursor.",
+  "sound": "A soft slide as the cursor arrives and a distinct click on the press.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold a product card beside a short pricing statement and a call-to-action button, then animate a cursor gliding to the button and pressing it down with a quick spring release, as the simple, low-friction close to the pitch.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "techyoutbe-945b56", "url": "https://prompt-motion.com/techyoutbe-945b56", "creator": "@techyoutbe", "start": 30.0, "end": 35.0},
+  "tags": {
+    "role": ["cta", "demo"],
+    "purpose": ["show-ease", "land-cta"],
+    "content": ["product-ui"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

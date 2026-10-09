@@ -1,0 +1,21 @@
+{
+  "id": "bogdandragomir-35e024-s03",
+  "kind": "scene",
+  "name": "a fanned stack of pages builds into one issue",
+  "looks": "On a light field beside a headline about distilling everything into one issue, a cover page sits in front of a fanned stack of numbered pages behind it, the stack thickening slightly as a short table of contents list fills in on the cover.",
+  "build": "variant-stack-reveal: the fanned pages behind the cover are near-identical DOM sheets offset in a tight rotation gradient; the table-of-contents rows on the cover fade/slide in top to bottom, staggered.",
+  "sound": "A soft paper-shuffle texture as the stack settles, a tick per list row.",
+  "duration": [2.3, 2.7],
+  "prompt": "Beside a headline about combining many pieces into one issue, show a cover page in front of a tightly fanned stack of numbered pages, with a short table of contents filling in row by row on the cover. Use it to make \"everything in one place\" physically visible as a stack rather than just stated.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "bogdandragomir-35e024", "url": "https://prompt-motion.com/bogdandragomir-35e024", "creator": "@BogdanDragomir", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-transformation", "show-craft"],
+    "content": ["illustration", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["collage"],
+    "complexity": "low"
+  }
+}

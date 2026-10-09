@@ -1,0 +1,21 @@
+{
+  "id": "agonaliu-466a8f-s05",
+  "kind": "scene",
+  "name": "padlock reveal over an encrypted credential card",
+  "looks": "On a near-black field, a glossy padlock icon hangs above a small mono caption. A headline (\"Your passwords, sealed.\") types in beneath it as a credential card fades up showing masked, encrypted field values and a security caption.",
+  "build": "glass-ui-flow: the padlock is a DOM/SVG icon with a soft glow and a subtle vertical float; the card uses backdrop-filter blur and a 1px border, its fields set from the clock with the password shown as a monospace hash string.",
+  "sound": "A soft low drone, a single mechanical click as the lock settles.",
+  "duration": [2.2, 2.6],
+  "prompt": "Hang a glossy lock icon over a dark field with a soft glow, then type in a short reassurance line about security. Fade up a credential card beneath it with its sensitive field shown masked or hashed, to make the security claim visible rather than just stated.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "agonaliu-466a8f", "url": "https://prompt-motion.com/agonaliu-466a8f", "creator": "@agonaliu_", "start": 10.0, "end": 12.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["build-tension", "establish-brand"],
+    "content": ["product-ui", "illustration"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

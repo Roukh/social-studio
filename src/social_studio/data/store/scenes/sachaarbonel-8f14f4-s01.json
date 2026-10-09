@@ -1,0 +1,21 @@
+{
+  "id": "sachaarbonel-8f14f4-s01",
+  "kind": "scene",
+  "name": "problem statement over a blurred backdrop",
+  "looks": "A tiny eyebrow label fades in, then a two-line problem statement rises into view over a flat, airy gradient field: a plain first line, then a softer italic line that lands a beat later naming the real cost. Behind the text a heavily blurred screenshot washes the field in soft colour.",
+  "build": "Eyebrow label fades ~0.15s; first line rises 6-8px on power2.out; the italic second line follows at lower opacity after a short pause; background is a blurred (40-60px) scaled screenshot under a gradient wash.",
+  "sound": "A soft intake on the label and a light rise under each line landing.",
+  "duration": [2.0, 2.5],
+  "prompt": "Open on a tiny eyebrow label fading in, then a two-line problem statement rising into frame over a flat gradient field, the first line plain, the second softer and italic, naming the real cost a beat later. Wash the background in a heavily blurred, color-matched echo of the product so the field never sits empty.",
+  "techniques": ["blur-echo-statement-card"],
+  "source": {"film": "sachaarbonel-8f14f4", "url": "https://prompt-motion.com/sachaarbonel-8f14f4", "creator": "@sachaarbonel", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "set-mood"],
+    "content": ["type", "photo"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["type", "texture"],
+    "complexity": "low"
+  }
+}

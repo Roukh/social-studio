@@ -1,0 +1,21 @@
+{
+  "id": "l3d1c-0e35a3-s02",
+  "kind": "scene",
+  "name": "Numbered steps walk through the app",
+  "looks": "A window-chrome product screenshot holds centre frame while a small step label (\"01 - UPLOAD\", \"03 - GENERATE\") and a one-line instruction sit underneath it. As the flow advances, the screenshot's content changes to the next real app state (an empty upload panel, a populated prompt bar, a results grid) in step with the label changing.",
+  "build": "Step label cross-fades to the next stage (150-200ms); the instruction line beneath it swaps on the same beat. The screenshot itself is a hard cut to the next real UI state, timed exactly with the label change so the two never feel independent.",
+  "sound": "A short, clean blip on each step change.",
+  "duration": [2.0, 2.5],
+  "prompt": "Walk through a product flow as a sequence of window-chrome screenshots, each paired with a small numbered step label and a one-line instruction underneath; change the label, the instruction and the screenshot's content all on the same beat for each step, so the sequence reads as a clear, numbered walkthrough.",
+  "techniques": ["stage-numeral-marker"],
+  "source": {"film": "l3d1c-0e35a3", "url": "https://prompt-motion.com/l3d1c-0e35a3", "creator": "@l3d1c", "start": 2.5, "end": 10.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["structure", "interface"],
+    "complexity": "medium"
+  }
+}

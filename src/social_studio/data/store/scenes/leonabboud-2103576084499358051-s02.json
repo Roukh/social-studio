@@ -1,0 +1,21 @@
+{
+  "id": "leonabboud-2103576084499358051-s02",
+  "kind": "scene",
+  "name": "a voxel field ripples under an orbiting sphere",
+  "looks": "A tilted field of small blocks sits lit like a studio product shot; a glossy sphere with a thin orbit ring sits at the centre, sending ripples out through the blocks that lift and shift colour from the ground tone through to the accent at the peak.",
+  "build": "voxel-ripple-3d: an InstancedMesh of boxes with heights and colours set per frame from a ripple function centred on the sphere's position, the sphere itself held in a slow orbit rather than falling.",
+  "sound": "A low drone under the orbit, a soft ripple shimmer radiating outward.",
+  "duration": [1.5, 2.0],
+  "prompt": "Light a tilted field of small 3D blocks like a studio product shot, with a glossy sphere orbiting slowly at the centre sending ripples out through the field that lift the blocks and shift their colour toward the accent at the peak. Use it as a materials-and-craft beat between type-driven scenes.",
+  "techniques": ["voxel-ripple-3d"],
+  "source": {"film": "leonabboud-2103576084499358051", "url": "https://x.com/leonabboud/status/2103576084499358051", "creator": "@leonabboud", "start": 3.35, "end": 4.983},
+  "tags": {
+    "role": ["intro", "transition"],
+    "purpose": ["set-mood", "show-craft"],
+    "content": ["3d-object"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["3d"],
+    "complexity": "high"
+  }
+}

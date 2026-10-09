@@ -1,0 +1,20 @@
+{
+  "id": "orbit-word-spiral",
+  "kind": "technique",
+  "name": "Orbit word spiral",
+  "looks": "Several short words sit on curved baselines around concentric rings, each at its own radius, rotation and size, overlapping as they land so only the mass of them reads, not any single line. A faint geometric scaffold of circles and a rotated grid sits behind them.",
+  "build": "The scaffold is static or very slowly rotating SVG circles and a rotated square grid, low opacity. Each word sits on an SVG textPath on its own arc at a unique radius, seeded rotation offset and size; words fade/scale in on a loose overlapping stagger rather than a clean beat grid.",
+  "sound": "A low anxious drone or tremolo bed, with a soft flutter per word landing, overlapping rather than discrete.",
+  "duration": [2.0, 3.0],
+  "prompt": "Show many competing thoughts or options at once, not one message: scatter several short words onto curved orbits around a faint geometric scaffold, each at its own size and angle, overlapping as they land so the mass of them reads before any single word does.",
+  "source": "an \"Overthinking\" motion study in prompt-motion.com's gallery (prompt-motion.com/gizakdag-cf4ae6), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "set-mood"],
+    "content": ["type", "abstract"],
+    "energy": ["build"],
+    "format": ["9:16", "1:1", "4:5"],
+    "family": ["type", "structure"],
+    "complexity": "medium"
+  }
+}

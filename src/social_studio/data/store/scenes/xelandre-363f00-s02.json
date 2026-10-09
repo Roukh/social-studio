@@ -1,0 +1,21 @@
+{
+  "id": "xelandre-363f00-s02",
+  "kind": "scene",
+  "name": "the question completes over a blurred inbox echo",
+  "looks": "The opening line gains a second clause, its key word landing in the accent colour, while a heavily blurred inbox screenshot fades in low beneath it, just legible enough to read as an inbox and nothing more.",
+  "build": "The added clause fades/rises in on power2.out, the accent word's colour set from the start; the inbox screenshot sits scaled and blurred (40-60px) at low opacity beneath the text, same mechanic as blur-echo-statement-card.",
+  "sound": "A soft rise under the new clause landing.",
+  "duration": [2.0, 2.5],
+  "prompt": "Extend an opening line with a second clause, one word landing in the accent colour, while a heavily blurred inbox screenshot fades in low beneath it, just legible enough to read as an inbox, setting up the problem before the sharp version arrives.",
+  "techniques": ["blur-echo-statement-card"],
+  "source": {"film": "xelandre-363f00", "url": "https://prompt-motion.com/xelandre-363f00", "creator": "@xelandre__", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension"],
+    "content": ["type", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "texture"],
+    "complexity": "low"
+  }
+}

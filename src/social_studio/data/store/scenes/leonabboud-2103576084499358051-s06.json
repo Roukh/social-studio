@@ -1,0 +1,21 @@
+{
+  "id": "leonabboud-2103576084499358051-s06",
+  "kind": "scene",
+  "name": "a render queue card confirms settings before the final step",
+  "looks": "A small frosted panel holds a queue label and a live status badge, a toggle switch, a two-option setting with one value selected, and a bold button at the bottom that a cursor presses to confirm.",
+  "build": "glass-ui-flow: the card uses backdrop-filter blur and a tinted shadow; the toggle animates its knob on a spring, the selected setting option gets a solid fill while the other stays outlined; the button presses with a 0.045 s scale-down and a 0.14 s release.",
+  "sound": "A toggle tick, a soft click on the button press.",
+  "duration": [1.3, 1.7],
+  "prompt": "Show a small frosted settings card with a live status badge, a toggle switch, and a two-option setting with one choice already selected, ending on a cursor pressing a bold confirm button. Use it as the final technical step before a result is produced.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "leonabboud-2103576084499358051", "url": "https://x.com/leonabboud/status/2103576084499358051", "creator": "@leonabboud", "start": 9.9, "end": 11.433},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

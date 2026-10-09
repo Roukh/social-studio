@@ -1,0 +1,21 @@
+{
+  "id": "aschapmann-131210-s04",
+  "kind": "scene",
+  "name": "a drafted reply appears under a real post",
+  "looks": "A single post card holds centre frame with its vote count and comment count, then a draft reply card slides up beneath it already written, with one phrase in the accent colour calling out the specific hook.",
+  "build": "glass-ui-flow: the post card is a static DOM panel; the draft reply slides up and fades in on power3.out, its accent phrase getting a short colour-in animation a beat after the card settles.",
+  "sound": "A soft whoosh as the reply card slides up, a light tick on the accent phrase.",
+  "duration": [1.8, 2.2],
+  "prompt": "Hold a single real-looking post card in frame, then slide a draft reply up beneath it, already written, with one short phrase highlighted in the accent colour as the specific, non-generic hook. Use it to show the product doing the hard writing step instantly.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "aschapmann-131210", "url": "https://prompt-motion.com/aschapmann-131210", "creator": "@aschapmann", "start": 15.0, "end": 17.5},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "show-speed"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

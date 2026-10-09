@@ -1,0 +1,21 @@
+{
+  "id": "cansincengiz-me-cf68dd-s03",
+  "kind": "scene",
+  "name": "the closed device floats on a brand gradient",
+  "looks": "The same closed device floats and rotates slowly on a rich blue gradient field, the logo sitting small and quiet in the corner, as the only element besides the hero object.",
+  "build": "aurora-gradient-photo for the background (a drifting diagonal gradient wash); ui-tilt-card-style shallow continuous rotation on the device for a three.js or CSS-3D hero turntable feel.",
+  "sound": "A low, warm ambient pad.",
+  "duration": [2.3, 2.7],
+  "prompt": "Float a single hero product render slowly rotating on a rich, drifting gradient field, with only a small logo mark in the corner for company. Keep the frame otherwise empty, letting the object and the colour carry the beat.",
+  "techniques": ["aurora-gradient-photo", "ui-tilt-card"],
+  "source": {"film": "cansincengiz-me-cf68dd", "url": "https://prompt-motion.com/cansincengiz-me-cf68dd", "creator": "@cansincengiz_me", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["intro"],
+    "purpose": ["establish-brand", "set-mood"],
+    "content": ["device"],
+    "energy": ["calm"],
+    "format": ["1:1"],
+    "family": ["texture", "establishing"],
+    "complexity": "low"
+  }
+}

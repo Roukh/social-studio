@@ -1,0 +1,50 @@
+{
+  "id": "rneayan-474bcf-s02",
+  "kind": "scene",
+  "name": "stage counter climbs to a delivered banner",
+  "looks": "A two-digit stage number and its label cut forward through a short production sequence while a row of dots beside it fills in to track progress, until the counter reaches its final stage and a diagonal banner sweeps across the frame announcing the work is done.",
+  "build": "The stage-counter-dot-fill mechanic: a DOM number and label pair hard-cuts per step; a row of fixed dots advances its fill colour to match the step index; a rotated full-bleed bar wipes across on completion.",
+  "sound": "A tick per dot filling, a rising pitch as the steps advance, a solid hit as the banner sweeps through.",
+  "duration": [
+    5.5,
+    7.0
+  ],
+  "prompt": "Cut forward through a short numbered sequence of production stages, a stage number and label changing on each beat while a row of dots fills in beside it to track progress, then land on a diagonal banner sweeping across the frame to announce the work is delivered.",
+  "techniques": [
+    "stage-numeral-marker"
+  ],
+  "source": {
+    "film": "rneayan-474bcf",
+    "url": "https://prompt-motion.com/rneayan-474bcf",
+    "creator": "@rneayan",
+    "start": 9.9,
+    "end": 16.533
+  },
+  "tags": {
+    "role": [
+      "demo",
+      "proof"
+    ],
+    "purpose": [
+      "show-speed",
+      "show-ease"
+    ],
+    "content": [
+      "data",
+      "type"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "data"
+    ],
+    "complexity": "medium"
+  }
+}

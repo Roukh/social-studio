@@ -1,0 +1,20 @@
+{
+  "id": "icon-lid-open-reveal",
+  "kind": "technique",
+  "name": "Icon lid open reveal",
+  "looks": "A simple pill or square shape morphs into a small icon with a hinged lid. The lid tips open on an overshoot and a tiny glowing diorama scene sits inside it, small enough to feel like a peephole into another world, before the camera cuts to that world at full size.",
+  "build": "The pill-to-icon morph tweens border-radius and width/height on power3.inOut; the lid rotates open from its hinge edge on back.out; the inner scene only starts playing once the lid passes a threshold angle.",
+  "sound": "A soft mechanical click as the shape resolves into the icon, a creak on the lid opening, a faint ambient tone from the scene inside.",
+  "duration": [2.0, 3.0],
+  "prompt": "Morph a simple shape into a small icon with a hinged lid, tip the lid open with a slight overshoot, and reveal a tiny glowing scene inside it, like a peephole into another world, as a teaser before the next shot pays it off at full size.",
+  "source": "prompt-motion.com's gallery (twoclipping-221cab), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "reveal-product"],
+    "content": ["abstract", "3d-object"],
+    "energy": ["build"],
+    "format": ["1:1", "4:5", "9:16", "16:9"],
+    "family": ["reveal", "transition"],
+    "complexity": "medium"
+  }
+}

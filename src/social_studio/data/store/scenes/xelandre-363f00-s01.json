@@ -1,0 +1,21 @@
+{
+  "id": "xelandre-363f00-s01",
+  "kind": "scene",
+  "name": "a pointed question with a live timestamp in the corner",
+  "looks": "A short, direct line types on in a warm serif, addressing the viewer by role. A tiny timestamp sits quietly in the top corner, ticking forward in real time, independent of the words.",
+  "build": "Headline revealed with kit.typeOn; the timestamp is a monospace DOM text block set from the live clock with no easing, same mechanic as live-readout-hud, low contrast so it never competes with the headline.",
+  "sound": "A light typing clack per character, otherwise silent.",
+  "duration": [2.0, 2.5],
+  "prompt": "Type on a short, direct line addressing the viewer by their role, with a tiny live timestamp ticking quietly in the corner of the frame, independent of the words, to suggest a story happening in real time.",
+  "techniques": ["kinetic-word-run", "live-readout-hud"],
+  "source": {"film": "xelandre-363f00", "url": "https://prompt-motion.com/xelandre-363f00", "creator": "@xelandre__", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["build-tension", "tease"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["type", "frame"],
+    "complexity": "low"
+  }
+}

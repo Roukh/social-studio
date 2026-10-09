@@ -1,0 +1,21 @@
+{
+  "id": "lexnlin-6161a6-s03",
+  "kind": "scene",
+  "name": "Equalizer timeline highlights a selected range",
+  "looks": "A row of flat block segments sits above a jagged line graph, both spanning a ruled timeline; a playhead line sits partway across, and the segments and graph ahead of it pick up colour (coral, green, teal) while everything behind stays neutral grey, marking out the range currently in focus.",
+  "build": "Segments are fixed-width rects, their fill colour swapping from neutral to their assigned hue exactly at the playhead's x-position; the line graph beneath redraws its stroke colour the same way, split at the same x. The playhead itself is a thin vertical rule that can animate across on a slow dolly.",
+  "sound": "A soft tick as the playhead crosses into the coloured range, a faint hum under the hold.",
+  "duration": [2.0, 2.8],
+  "prompt": "Lay a row of flat segments above a jagged line graph on a shared ruled timeline, and let a playhead mark out a selected range by colouring everything from that point forward while leaving everything before it neutral grey, so the shot reads as a timeline sampling a selection from a much larger whole.",
+  "techniques": ["timeline-scrubber-hud"],
+  "source": {"film": "lexnlin-6161a6", "url": "https://prompt-motion.com/lexnlin-6161a6", "creator": "@LexnLin", "start": 15.0, "end": 17.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "explain-mechanism"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data", "frame"],
+    "complexity": "medium"
+  }
+}

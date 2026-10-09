@@ -1,0 +1,52 @@
+{
+  "id": "rneayan-474bcf-s03",
+  "kind": "scene",
+  "name": "a complicated process resolves into one pipeline strand",
+  "looks": "A card naming the process as complicated sits on a busy striped texture, then dissolves into a single blue arrow drawing across a plain field under a claim about one pipeline doing it all. Small round stage icons pop onto the arrow one at a time, each named for a step of production, left to right, until the whole line is strung with them.",
+  "build": "The pipeline-icon-strand mechanic: the striped card is a textured DOM background that cuts away; the arrow is an SVG path stroked on with strokeDashoffset; stage markers pop in (scale 0 -> 1, back.out) along the path at even intervals, staggered left to right.",
+  "sound": "A busy rattle under the complicated-process card settling into quiet, a whoosh as the arrow draws, a soft tick per icon landing.",
+  "duration": [
+    6.0,
+    7.0
+  ],
+  "prompt": "Name a process as complicated on a busy, textured card, then cut to a calm field where a single arrow draws itself across the frame under a claim about one pipeline doing it all, and pop a run of small labelled stage markers onto that arrow one at a time, left to right, so a whole multi-step process reads as one continuous thread.",
+  "techniques": [
+    "pipeline-chip-flow"
+  ],
+  "source": {
+    "film": "rneayan-474bcf",
+    "url": "https://prompt-motion.com/rneayan-474bcf",
+    "creator": "@rneayan",
+    "start": 16.533,
+    "end": 23.167
+  },
+  "tags": {
+    "role": [
+      "solution",
+      "demo"
+    ],
+    "purpose": [
+      "explain-mechanism",
+      "show-ease",
+      "show-contrast"
+    ],
+    "content": [
+      "abstract",
+      "data"
+    ],
+    "energy": [
+      "calm"
+    ],
+    "format": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "data",
+      "structure"
+    ],
+    "complexity": "medium"
+  }
+}

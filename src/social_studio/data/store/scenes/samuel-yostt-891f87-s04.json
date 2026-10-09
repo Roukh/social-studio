@@ -1,0 +1,21 @@
+{
+  "id": "samuel-yostt-891f87-s04",
+  "kind": "scene",
+  "name": "a view-count card rolls up while thumbnails rank below it",
+  "looks": "A small analytics card holds a rising line graph labelled 'Views, last 30 days' with a big number rolling upward in the corner. Below it three small content thumbnails sit side by side, each with its own view count, as the headline beside the card states the product learns what works.",
+  "build": "The number rolls up under a slight vertical blur that eases with its speed; the line graph draws across with strokeDashoffset on power3.out; the three thumbnail counts roll up on a short uneven stagger after the main number settles.",
+  "sound": "A rising tone under the number roll-up and a soft tick per thumbnail count landing.",
+  "duration": [1.0, 1.5],
+  "prompt": "Show a small analytics card with a line graph drawing across and a big number rolling upward, then a row of a few content thumbnails each gaining its own rolling view count, to make the point that the system is learning which pieces perform.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "samuel-yostt-891f87", "url": "https://prompt-motion.com/samuel-yostt-891f87", "creator": "@samuel_yostt", "start": 10.0, "end": 11.3},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data", "explain-mechanism"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "9:16"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

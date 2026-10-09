@@ -1,0 +1,20 @@
+{
+  "id": "list-stack-reveal",
+  "kind": "technique",
+  "name": "List stack reveal",
+  "looks": "A short list builds top to bottom, one line at a time, on the beat. Each new line lands at full weight and contrast while every earlier line desaturates to a dim secondary colour, so the eye always lands on the newest line. The final line often stays bright instead of dimming, as the payoff.",
+  "build": "One DOM block of line spans; each fades/slides in (opacity 0->1, y 8px->0) on its own beat, power2.out, 0.25-0.35s. On the same beat every earlier line's colour tweens to a dim secondary (35-45% opacity or a grey token), except the last line, left at full contrast.",
+  "sound": "A soft tick per line landing, slightly louder on the last.",
+  "duration": [1.5, 3.0],
+  "prompt": "Build a short list top to bottom, one line per beat, where each new line lands bright and every earlier line dims to a secondary colour. Let the final line hold at full brightness as the payoff.",
+  "source": "a Lightspark social promo in prompt-motion.com's gallery (prompt-motion.com/davidmarcus-a28a60), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "intro", "solution", "proof"],
+    "purpose": ["establish-brand", "show-contrast", "tease", "introduce-feature"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

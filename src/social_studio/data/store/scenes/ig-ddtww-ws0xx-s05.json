@@ -1,0 +1,21 @@
+{
+  "id": "ig-ddtww-ws0xx-s05",
+  "kind": "scene",
+  "name": "a glitch resolves into the full finished page",
+  "looks": "The frame briefly tears into a wash of colour-fringed, scan-line smeared imagery, then resolves into a full, glowing-bordered page: a short feature grid of four labelled callouts sits beside a couple of soft abstract colour-wash images standing in for photography, the camera settling back to show the whole tilted, glowing panel at once.",
+  "build": "A brief chroma-split/band-tear glitch transition (2-4 frames) bridges the cut; the resolved panel is the same tilted, glow-bordered interface frame now showing a 2x2 grid of short labelled callouts and soft gradient-wash swatches standing in for photos; camera eases back to frame the whole panel.",
+  "sound": "A short digital stutter under the glitch, a soft low swell as the full page settles into frame.",
+  "duration": [4, 5],
+  "prompt": "Punctuate a transition with one short, sharp glitch -- colour channels splitting, bands tearing for a couple of frames -- then resolve into the full, polished page at once: a tidy grid of a few labelled feature callouts beside soft abstract colour-wash images standing in for real photography, all inside the same glowing-bordered, tilted frame.",
+  "techniques": ["aurora-gradient-photo", "provenance-glow-stroke", "ui-tilt-card", "chroma-split-glitch-wall"],
+  "source": {"film": "ig-ddtww-ws0xx", "url": "https://www.instagram.com/p/DdtwW_Ws0Xx/", "creator": "Framer", "start": 17.5, "end": 22.5},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-craft", "reveal-product"],
+    "content": ["product-ui", "abstract"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9"],
+    "family": ["interface", "texture", "transition"],
+    "complexity": "high"
+  }
+}

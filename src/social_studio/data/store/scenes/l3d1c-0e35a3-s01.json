@@ -1,0 +1,21 @@
+{
+  "id": "l3d1c-0e35a3-s01",
+  "kind": "scene",
+  "name": "Phone gallery grid sets up the headline",
+  "looks": "A phone's photo gallery grid shows a dozen ordinary selfies, several already checkmark-selected; beside it a huge two-line headline states what the viewer is looking at, with a small caption underneath grounding it in something everyday (\"the ones already on your phone\").",
+  "build": "Device screenshot is static, the headline fades/rises in as one block (`y:10px -> 0`, power2.out, ~300ms) a beat after the screenshot settles; the small caption beneath types or fades in last, in a quieter weight.",
+  "sound": "A soft low swell under the headline's arrival, a faint camera-shutter tick as the checkmarks appear on the selected photos.",
+  "duration": [2.0, 2.8],
+  "prompt": "Pair a real device screenshot of an ordinary photo grid, a few items already selected, with a huge two-line headline that names what's being shown, and a small grounding caption underneath in a quieter weight, so the everyday input feels deliberately chosen rather than generic.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "l3d1c-0e35a3", "url": "https://prompt-motion.com/l3d1c-0e35a3", "creator": "@l3d1c", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "establish-brand"],
+    "content": ["device", "type", "photo"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["open", "type"],
+    "complexity": "low"
+  }
+}

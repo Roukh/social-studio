@@ -1,0 +1,21 @@
+{
+  "id": "rammanq-f5a90f-s07",
+  "kind": "scene",
+  "name": "tilted phone answers a typed question",
+  "looks": "A phone screen showing a portfolio dashboard sits at a shallow fixed tilt beside a headline. A short question bubble types on next to it, then a reply bubble fades in below with a specific figure picked out in the accent colour.",
+  "build": "The phone is a DOM panel inside a perspective parent, rotateX/rotateY fixed at a shallow angle with a slow one-to-two-degree drift, soft blurred shadow beneath. The chat bubbles are DOM, the question typed on character by character with a blinking cursor, the reply fading and sliding up 4-6px after a short pause once the question completes.",
+  "sound": "A soft slide as the phone settles, a light typing clack on the question, a gentle confirm tone as the reply appears.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold a product screen at a fixed, shallow 3D tilt beside a headline, with a short question typing on in a chat bubble next to it and a reply fading in below with one figure picked out in the accent colour. Keep the tilt still through the whole beat, only the chat content moves.",
+  "techniques": ["ui-tilt-card", "dual-voice-type"],
+  "source": {"film": "rammanq-f5a90f", "url": "https://prompt-motion.com/rammanq-f5a90f", "creator": "@rammanq", "start": 33.5, "end": 38.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "reveal-product"],
+    "content": ["device", "product-ui"],
+    "energy": ["calm"],
+    "format": ["1:1", "9:16"],
+    "family": ["interface", "3d"],
+    "complexity": "medium"
+  }
+}

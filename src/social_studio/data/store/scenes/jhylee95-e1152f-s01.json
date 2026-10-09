@@ -1,0 +1,21 @@
+{
+  "id": "jhylee95-e1152f-s01",
+  "kind": "scene",
+  "name": "One word per feature, colour-coded",
+  "looks": "A single bold lower-case word fills the frame with a full stop and a small accent dot beside it, on a flat ground whose colour changes with the feature's category. A tiny UI prop appears underneath a beat later, just enough to show the word in action: a tooltip bubble with a step counter, a small toggle, a search field. Hard cut to the next word, next colour, next prop.",
+  "build": "One word per card, set in a heavy grotesk at huge scale, with the trailing period and a small circular accent dot sitting at baseline to its right. Background colour is a fixed palette per category (near-black, cobalt, off-white, teal) that never repeats back-to-back. The UI prop fades/rises in (`y: 10px -> 0`) 200-300ms after the word lands, then holds until the hard cut.",
+  "sound": "A short, dry hit on every hard cut, pitched slightly differently per card so the run has melodic shape rather than repeating the same note.",
+  "duration": [5.0, 8.0],
+  "prompt": "Name each feature as a single bold word filling the frame, a full stop and a small accent dot beside it, the background colour changing by category. A beat after each word lands, drop in one small, real UI control that embodies it, then hard-cut straight to the next word on a clean rhythm.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "jhylee95-e1152f", "url": "https://prompt-motion.com/jhylee95-e1152f", "creator": "@jhylee95", "start": 0.0, "end": 9.0},
+  "tags": {
+    "role": ["hook", "intro", "demo"],
+    "purpose": ["introduce-feature", "establish-brand"],
+    "content": ["type", "product-ui"],
+    "energy": ["punch"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["type", "open"],
+    "complexity": "low"
+  }
+}

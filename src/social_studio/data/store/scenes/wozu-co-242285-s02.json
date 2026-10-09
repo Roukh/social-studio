@@ -1,0 +1,21 @@
+{
+  "id": "wozu-co-242285-s02",
+  "kind": "scene",
+  "name": "scattered messages pile up around a mark",
+  "looks": "A handful of real-looking messages, a chat alert, a launch notice, a text from a colleague, drift in and settle around a small central app icon, each slightly offset and rotated, none quite overlapping the mark itself.",
+  "build": "Message cards are DOM panels with kit.rng-seeded offset x/y/rotation, staggered entrance 10-30% uneven on a spring, same mechanic as variant-stack-reveal, settling around a fixed central icon.",
+  "sound": "A soft cluster of hits as the messages land, one per card.",
+  "duration": [2.0, 2.5],
+  "prompt": "Let a handful of real-looking messages, a team chat alert, a launch notice, a note from a colleague, drift in and settle unevenly around a small central app icon, each offset and slightly rotated, to show the scattered noise one product is meant to replace.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "wozu-co-242285", "url": "https://prompt-motion.com/wozu-co-242285", "creator": "@wozu_co", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["problem"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["type", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["collage"],
+    "complexity": "medium"
+  }
+}

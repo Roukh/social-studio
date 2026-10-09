@@ -1,0 +1,21 @@
+{
+  "id": "ndhabarde11-f155b4-s05",
+  "kind": "scene",
+  "name": "particles implode, spell a word, then converge into a sphere",
+  "looks": "A point of light on a black field implodes into a burst of fine specks. The specks regather into a word made entirely of dust-sized particles, with a small caption stating the particle count and the kind of flow field driving them, then the same particles stream off and converge into a dense, slowly turning sphere of points.",
+  "build": "One particle system driven by the master clock: an initial radial burst/implosion seeds each particle's starting position; particles then ease toward sample points of the word's filled glyph shapes (power3.out, seeded per-particle delay) to spell it out, hold briefly, then re-target onto a Fibonacci-sphere distribution for the final convergence, with short light trails on the fastest-moving particles.",
+  "sound": "A soft implosion whoosh, a granular shimmer as the word resolves, and a rising tone into the sphere's hum.",
+  "duration": [2.0, 3.0],
+  "prompt": "Implode a point of light into a cloud of fine particles, let them regather into a single word built entirely out of dust, caption the particle count and the kind of field moving them, then stream the same particles off into a dense, slowly turning sphere, so one particle system carries three different payoffs.",
+  "techniques": ["particle-flow-sphere", "noise-dissolve-logomark"],
+  "source": {"film": "ndhabarde11-f155b4", "url": "https://prompt-motion.com/ndhabarde11-f155b4", "creator": "@ndhabarde11", "start": 6.0, "end": 9.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-craft", "show-scale"],
+    "content": ["abstract", "type"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["particles", "generative"],
+    "complexity": "high"
+  }
+}

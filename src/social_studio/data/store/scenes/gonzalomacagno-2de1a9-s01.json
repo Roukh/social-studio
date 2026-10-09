@@ -1,0 +1,21 @@
+{
+  "id": "gonzalomacagno-2de1a9-s01",
+  "kind": "scene",
+  "name": "Event wordmark over a flowing ribbon ground",
+  "looks": "Thick coloured ribbons curl and loop across a soft gradient field behind a bold two-line event name and year, with a small location line beneath it in a lighter weight.",
+  "build": "The ribbons are a set of thick SVG paths with rounded caps, drifting slowly along their own length on a loop (background-position or stroke-dashoffset drift), independent of the text. The title and location fade/slide in on a short stagger, power2.out.",
+  "sound": "A soft ambient swell under the ribbons, a light tick as the title lands.",
+  "duration": [1.5, 2.5],
+  "prompt": "Open an event or festival announcement on a lively, looping ribbon-gradient background, with the event's name, year and location fading in over it in a clean type hierarchy, letting the background carry the energy while the type stays calm.",
+  "techniques": ["aurora-gradient-photo"],
+  "source": {"film": "gonzalomacagno-2de1a9", "url": "https://prompt-motion.com/gonzalomacagno-2de1a9", "creator": "@GonzaloMacagno", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "set-mood"],
+    "content": ["type", "abstract"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["texture", "type"],
+    "complexity": "low"
+  }
+}

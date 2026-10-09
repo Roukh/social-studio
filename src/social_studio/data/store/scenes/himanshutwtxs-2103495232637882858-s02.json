@@ -1,0 +1,21 @@
+{
+  "id": "himanshutwtxs-2103495232637882858-s02",
+  "kind": "scene",
+  "name": "A word stretches elastically into place",
+  "looks": "A single bold word slams in with heavy motion blur, overshoots past its resting scale, and settles back with a visible elastic wobble, a small lower-case caption naming the easing style used (\"elastic\") sitting quietly beside it.",
+  "build": "Word scales in from ~1.4x with directional motion blur tied to velocity, overshooting to ~0.95x before settling to 1x on a spring ease (response ~0.3, damping ~0.5) so two or three visible wobbles land before it's still. The caption fades in only once the word has fully settled.",
+  "sound": "A heavy whoosh under the slam, a boingy twang under the settle wobble.",
+  "duration": [1.5, 2.0],
+  "prompt": "Slam a single bold word into frame with heavy motion blur, let it overshoot past its resting size and spring back with a visible wobble before settling still, naming the easing style in a small quiet caption only once it has fully stopped moving.",
+  "techniques": ["squash-stretch-ball-demo", "kinetic-word-run"],
+  "source": {"film": "himanshutwtxs-2103495232637882858", "url": "https://x.com/himanshutwtxs/status/2103495232637882858", "creator": "@himanshutwtxs", "start": 3.8, "end": 5.2},
+  "tags": {
+    "role": ["hook", "demo"],
+    "purpose": ["show-craft", "tease"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["type", "physics"],
+    "complexity": "medium"
+  }
+}

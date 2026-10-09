@@ -1,0 +1,21 @@
+{
+  "id": "ratheejaisal-1f4538-s04",
+  "kind": "scene",
+  "name": "ranked bars race across dates, then a world map populates",
+  "looks": "A dated leaderboard card builds a ranked list of coloured bars with names and dollar values. The date advances twice in hard cuts, the bars regrowing to new lengths and rows swapping position as the big date watermark changes behind the card. It cuts to a world map dotted with small labelled pins, each showing a count, while three summary numbers tick up beside a headline.",
+  "build": "Leaderboard rows re-sort by value on each date step (FLIP position tween, ~0.3s), bars regrow and values roll up, with the date watermark crossfading behind the card. The map is a DOM/SVG dot field with labelled pins popping in on a stagger, their counts tied to the same clock driving the three summary numbers above.",
+  "sound": "A tick per row re-sort, a louder tick on each date flip, a soft patter as the map pins populate.",
+  "duration": [3.0, 4.0],
+  "prompt": "Build a small ranked leaderboard of bars under a dated header, advancing the date once or twice so bars regrow and rows swap position as they overtake each other. Follow it with a world map populating with labelled location pins while a few summary numbers count up beside a headline, to show the product's reach.",
+  "techniques": ["leaderboard-bar-race"],
+  "source": {"film": "ratheejaisal-1f4538", "url": "https://prompt-motion.com/ratheejaisal-1f4538", "creator": "@RatheeJaisal", "start": 12.5, "end": 17.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "build-tension", "show-scale"],
+    "content": ["data", "map"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "aistocksavvy-3fb9f5-s05",
+  "kind": "scene",
+  "name": "a value slides along a number line to its new target",
+  "looks": "A horizontal number line of small tick values sits under a bold claim. A dot marked \"FROM\" one value slides along the line to a new, larger value labelled \"NEW\", in the accent green, while a detail card beside it updates its own figures and a bullet list of reasons fades in underneath.",
+  "build": "easing-graph-draw's number-line pattern: the dot's x position tweens from the old tick to the new tick on power3.out, with the value label counting through the intermediate numbers as it travels; the side card and its bullet list key in with annotated-diagram-overlay-style staggered callouts right after the dot lands.",
+  "sound": "A rising tick-tick as the dot travels, a soft chime as it lands, a tick per bullet.",
+  "duration": [1.8, 2.0],
+  "prompt": "Under a bold claim, slide a marked value along a number line to a new target value in the accent colour, with the number counting through as it travels. Land beside it on a detail card that updates its own figures and reveals a short bulleted rationale right after the value settles.",
+  "techniques": ["easing-graph-draw", "annotated-diagram-overlay"],
+  "source": {"film": "aistocksavvy-3fb9f5", "url": "https://prompt-motion.com/aistocksavvy-3fb9f5", "creator": "@AIStockSavvy", "start": 8.867, "end": 10.833},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "show-transformation"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "annotation"],
+    "complexity": "medium"
+  }
+}

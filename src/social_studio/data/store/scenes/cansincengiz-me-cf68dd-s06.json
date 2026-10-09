@@ -1,0 +1,21 @@
+{
+  "id": "cansincengiz-me-cf68dd-s06",
+  "kind": "scene",
+  "name": "wordmark end card with CTA and fine print",
+  "looks": "On a plain light field, the bold wordmark settles large and centred, a two-line tagline (the second in italic) fading in beneath it, then a dark rounded CTA button with the destination, and a thin line of fine print under everything.",
+  "build": "wordmark-assemble's settle stage: the wordmark fades and rises into place, the tagline reveals a beat after, the CTA button scales in from 0.92 on back.out, the fine print fading in last and smallest.",
+  "sound": "A soft resolving chime as the wordmark settles, a quiet click on the CTA.",
+  "duration": [2.3, 2.7],
+  "prompt": "Close on a bold wordmark settling large and centred on a plain field, with a two-line tagline beneath it, its second line in italic. Bring in a dark rounded call-to-action button with the destination a beat later, and a thin line of fine print (trial terms, compatibility) under everything as the final frame.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "cansincengiz-me-cf68dd", "url": "https://prompt-motion.com/cansincengiz-me-cf68dd", "creator": "@cansincengiz_me", "start": 12.5, "end": 14.9},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["1:1"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

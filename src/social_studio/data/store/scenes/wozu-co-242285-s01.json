@@ -1,0 +1,21 @@
+{
+  "id": "wozu-co-242285-s01",
+  "kind": "scene",
+  "name": "a headline fades out on its own closing word",
+  "looks": "A bold two-line claim types on, the second line in a lighter grey, and its final word fades to near-nothing just as it lands, as if trailing off mid-thought rather than finishing with punch.",
+  "build": "First line revealed with kit.typeOn at full opacity; second line types on at reduced opacity from the start; the last word's opacity eases further down (power2.out) rather than holding steady, an inverted landing.",
+  "sound": "A light typing clack per character, softening to near silence on the fading last word.",
+  "duration": [2.0, 2.5],
+  "prompt": "Type on a bold two-line claim, the second line already a lighter grey, and let its final word fade further toward nothing as it lands, trailing off instead of landing with punch, for a quieter, more thoughtful open.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "wozu-co-242285", "url": "https://prompt-motion.com/wozu-co-242285", "creator": "@wozu_co", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "reveal-product"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "reflex-cloud-72ffe5-s06",
+  "kind": "scene",
+  "name": "wordmark hold with tagline and fine print",
+  "looks": "The glowing wordmark settles into a plain, steady hold on a dark, grained field. A short tagline fades in beneath it, and a smaller line of fine print appears under that, both landing softly with no further motion, as the audio falls away.",
+  "build": "The wordmark is already resolved from the prior beat; the tagline is a DOM line that fades and slides up 4-6 px (power2.out); the fine print fades in after a short delay at low opacity (the wordmark-assemble mechanic, serif-phrase-under-mark half); a grain-vignette texture runs under the whole hold.",
+  "sound": "A soft swell settling into quiet as the tagline lands, room tone under the fine print, the audio fading out by the end.",
+  "duration": [1.7, 2.1],
+  "prompt": "Close on a steady hold of the brand's mark on a dark, grained field, with a short tagline fading in beneath it and a smaller fine-print line settling under that, calm and still, as the sound bed fades to silence.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "reflex-cloud-72ffe5", "url": "https://prompt-motion.com/reflex-cloud-72ffe5", "creator": "@reflex_cloud", "start": 13.133, "end": 15.061},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

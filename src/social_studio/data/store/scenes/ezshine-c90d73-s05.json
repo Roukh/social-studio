@@ -1,0 +1,21 @@
+{
+  "id": "ezshine-c90d73-s05",
+  "kind": "scene",
+  "name": "Match record exports to report and replay",
+  "looks": "A list of past matches with scores and checkmarks sits on the left. Two cards fan out from it: a formatted report document with a thumbnail of the board state, and a replay file icon, each labelled with its format.",
+  "build": "variant-stack-reveal for the two export cards fanning out from the list's edge, each on a small seeded rotation that settles flat; the list rows above stagger in first on a quick 0.05s beat.",
+  "sound": "A soft tick per list row, then a pop per export card landing.",
+  "duration": [2.0, 2.5],
+  "prompt": "Prove every result is backed by a record: show a short list of past runs with scores and checkmarks, then fan out two or three export formats from it, a readable report and a replayable file, each clearly labelled.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "ezshine-c90d73", "url": "https://prompt-motion.com/ezshine-c90d73", "creator": "@ezshine", "start": 30.0, "end": 38.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-craft", "establish-brand"],
+    "content": ["product-ui", "data"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

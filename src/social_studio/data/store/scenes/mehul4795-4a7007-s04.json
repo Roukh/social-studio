@@ -1,0 +1,21 @@
+{
+  "id": "mehul4795-4a7007-s04",
+  "kind": "scene",
+  "name": "Search narrows a scan history to one match",
+  "looks": "A search field above a scrollable list of past results types on a short query; rows that don't match thin out and collapse one by one as the characters land, leaving just a couple of rows with the matched word highlighted inside them.",
+  "build": "Full list present from the start; each keystroke that changes the match set animates the newly non-matching rows out (`height -> 0`, `opacity -> 0`, 150-200ms, staggered by position). The matched substring's highlight fades in once filtering settles, not on every keystroke.",
+  "sound": "A soft key-tick under the typed query, a light whoosh as rows collapse out.",
+  "duration": [1.8, 2.3],
+  "prompt": "Type a short query into a search field above a list of past results and let the non-matching rows thin out and collapse one by one as the characters land, highlighting the matched word inside the rows that survive once filtering settles.",
+  "techniques": ["live-search-filter"],
+  "source": {"film": "mehul4795-4a7007", "url": "https://prompt-motion.com/mehul4795-4a7007", "creator": "@mehul4795", "start": 20.0, "end": 25.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

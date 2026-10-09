@@ -1,0 +1,21 @@
+{
+  "id": "ai-baymax-0ef9dd-s04",
+  "kind": "scene",
+  "name": "trust strip of sample outputs and institution logos",
+  "looks": "A caption line (\"Trusted by many\") sits above two rows of small sample-output thumbnails, then a row of greyscale institution logos along the bottom, all held in one steady, quiet composition.",
+  "build": "variant-stack-reveal for the thumbnail rows (near-identical small panels, tiny seeded offsets, a soft stagger-in); the logo row fades up together a beat later at reduced opacity.",
+  "sound": "Quiet bed, no hits.",
+  "duration": [2.3, 2.6],
+  "prompt": "Under a short trust line, lay out two rows of small sample-output thumbnails that fan in with a tiny stagger, then fade up a row of partner or institution logos beneath them at lower contrast. Keep the whole beat calm and still, as proof rather than spectacle.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "ai-baymax-0ef9dd", "url": "https://prompt-motion.com/ai-baymax-0ef9dd", "creator": "@Ai_Baymax", "start": 45.0, "end": 47.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["establish-brand", "show-scale"],
+    "content": ["logo", "illustration"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["collage", "structure"],
+    "complexity": "low"
+  }
+}

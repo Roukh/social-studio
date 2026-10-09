@@ -1,0 +1,21 @@
+{
+  "id": "visheshbaghell-3aba37-s01",
+  "kind": "scene",
+  "name": "a plain problem statement over a tally-mark watermark",
+  "looks": "A short line fades in stating the work is one job split across two documents, with one key word landing in the brand's accent colour. Behind it a faint tally-mark glyph sits enlarged and low-opacity, a quiet brand texture rather than content.",
+  "build": "The line fades/rises 6-8px in on power2.out, the accent word's colour set from the start; the watermark glyph is a static, low-opacity SVG icon scaled large behind the text.",
+  "sound": "A soft rise under the line landing.",
+  "duration": [2.0, 2.5],
+  "prompt": "Fade in a short line stating one job is split across two different documents, one key word in the brand's accent colour, over a faint, oversized brand glyph sitting quietly behind the text as a textured watermark.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "visheshbaghell-3aba37", "url": "https://prompt-motion.com/visheshbaghell-3aba37", "creator": "@VisheshBaghell", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "tease"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["type", "texture"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "anilraok-eff262-s01",
+  "kind": "scene",
+  "name": "a crossword grid glows around one empty square",
+  "looks": "A warm overhead light picks out one empty square on a crossword grid on a wooden table, small character tiles with faces waiting at the edge of frame, a mug and a few props softly out of focus nearby. The camera holds still, letting the light and the empty square do the work.",
+  "build": "cinematic-atmosphere-hold: a near-static camera, a single warm key light pooling on the empty cell, two or three soft-focus prop layers for depth, grain and a gentle vignette over the whole frame.",
+  "sound": "A low, warm ambient pad, a faint ticking clock.",
+  "duration": [2.5, 3.0],
+  "prompt": "Hold a near-still shot of a puzzle, board or workspace with one piece or space pointedly empty, lit by a single warm pool of light, with soft out-of-focus props at the edges. Let the stillness and the gap in the frame create the question the film will answer.",
+  "techniques": ["cinematic-atmosphere-hold"],
+  "source": {"film": "anilraok-eff262", "url": "https://prompt-motion.com/anilraok-eff262", "creator": "@Anilraok", "start": 0.0, "end": 8.533},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["set-mood", "build-tension"],
+    "content": ["3d-object"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["establishing", "texture"],
+    "complexity": "medium"
+  }
+}

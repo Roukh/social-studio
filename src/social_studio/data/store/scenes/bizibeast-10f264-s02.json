@@ -1,0 +1,21 @@
+{
+  "id": "bizibeast-10f264-s02",
+  "kind": "scene",
+  "name": "one tool replaces eight, at one low price",
+  "looks": "A single clean app panel with eight small coloured feature tiles (store, bookings, DMs, scheduler, courses, community, analytics) sits beside a short claim and a single bold monthly price, directly replacing the messy pile of separate tools from before.",
+  "build": "ui-tilt-card for the app panel (shallow tilt, soft shadow), its eight tiles fanning in on variant-stack-reveal's staggered spring; the single price rolls up small and fast, in contrast to the earlier big scary total.",
+  "sound": "A clean, single confident chime as the price settles.",
+  "duration": [2.3, 2.7],
+  "prompt": "Show a single clean product panel made of several small feature tiles fanning in together, beside a claim that it replaces many separate tools, and one bold, low monthly price. Let the calm, single price visually answer the chaotic, expensive pile from the problem beat.",
+  "techniques": ["ui-tilt-card", "variant-stack-reveal"],
+  "source": {"film": "bizibeast-10f264", "url": "https://prompt-motion.com/bizibeast-10f264", "creator": "@bizibeast", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["solution"],
+    "purpose": ["reveal-product", "show-contrast"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

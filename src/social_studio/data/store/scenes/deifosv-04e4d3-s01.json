@@ -1,0 +1,21 @@
+{
+  "id": "deifosv-04e4d3-s01",
+  "kind": "scene",
+  "name": "Live stat rotator over gameplay",
+  "looks": "A blurred clip of live 3D gameplay sits under a small pulsing 'LIVE' badge and a huge accent-coloured number that rolls up to its final value, with a caption naming what it counts. The whole card's colour grade and the stat swap together three times (games played, hours on court, matches finished), each on a different court colour.",
+  "build": "The number uses data-infographic's blurred digit roll-up (vertical slide under a speed-linked feGaussianBlur) landing on power3.out; the LIVE badge's dot opacity pulses on a sine, independent of the clock's easing (live-readout-hud). The background gameplay clip and accent colour crossfade between the three cards on the same beat as the number swap.",
+  "sound": "A rising tone under each roll-up and a soft tick when it settles, with a faint crowd-noise bed under the gameplay.",
+  "duration": [2.0, 3.0],
+  "prompt": "Prove scale with a live counter: a huge number rolls up to its value over a blurred shot of the product in action, badged as live and captioned with what it counts. Cycle through two or three such stats, each on its own accent colour, to build momentum before the pitch.",
+  "techniques": ["data-infographic", "live-readout-hud"],
+  "source": {"film": "deifosv-04e4d3", "url": "https://prompt-motion.com/deifosv-04e4d3", "creator": "@deifosv", "start": 0.0, "end": 6.0},
+  "tags": {
+    "role": ["hook", "proof"],
+    "purpose": ["show-scale", "show-data", "build-tension"],
+    "content": ["data", "footage"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

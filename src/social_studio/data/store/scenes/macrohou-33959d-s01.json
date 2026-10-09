@@ -1,0 +1,21 @@
+{
+  "id": "macrohou-33959d-s01",
+  "kind": "scene",
+  "name": "Pills and claims scatter behind a skeptical headline",
+  "looks": "A chaotic burst of small pill, capsule and star icons scatters outward across a dark field, overlapping and drifting at different speeds, while a skeptical headline (\"Everyone swears it works.\") sits centred and still against the noise.",
+  "build": "Each icon is an independent sprite with its own seeded start velocity and slow rotation, spawned in a burst (`t=0`) and drifting outward with light drag so the field thins over the shot rather than looping. The headline stays perfectly static, a deliberate anchor against the motion around it.",
+  "sound": "A low, slightly dissonant rattle under the scatter, nothing rhythmic, so it reads as noise rather than music.",
+  "duration": [2.0, 2.5],
+  "prompt": "Scatter a burst of small icons representing competing, unreliable claims outward across a dark field, each drifting at its own speed and angle, while a single skeptical headline sits perfectly still at the centre as the one fixed point against the noise.",
+  "techniques": ["dot-drop-flood"],
+  "source": {"film": "macrohou-33959d", "url": "https://prompt-motion.com/macrohou-33959d", "creator": "@macrohou", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "tease"],
+    "content": ["abstract", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["particles", "open"],
+    "complexity": "low"
+  }
+}

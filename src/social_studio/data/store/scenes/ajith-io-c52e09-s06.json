@@ -1,0 +1,21 @@
+{
+  "id": "ajith-io-c52e09-s06",
+  "kind": "scene",
+  "name": "a wall of sample illustrations tiles in",
+  "looks": "A dense grid of small finished illustration thumbnails, each a different style and subject, tiles in together under a two-line claim naming the two output styles.",
+  "build": "variant-stack-reveal, scaled up to 15-20 tiles: each thumbnail fades and scales up from 0.9 to 1 with a small seeded delay per tile, so the grid fills in like a wave rather than all at once.",
+  "sound": "A soft cluster of quiet pops, overlapping.",
+  "duration": [2.0, 2.4],
+  "prompt": "Tile a dense grid of small finished sample thumbnails, each one fading and scaling up with a tiny per-tile delay so the grid fills like a wave. Use it to prove range and volume at a glance, under a short claim naming the output styles available.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "ajith-io-c52e09", "url": "https://prompt-motion.com/ajith-io-c52e09", "creator": "@ajith_io", "start": 25.0, "end": 27.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-scale", "show-craft"],
+    "content": ["illustration"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["collage"],
+    "complexity": "medium"
+  }
+}

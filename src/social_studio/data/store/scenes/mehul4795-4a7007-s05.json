@@ -1,0 +1,21 @@
+{
+  "id": "mehul4795-4a7007-s05",
+  "kind": "scene",
+  "name": "Three stat cards prove the social score",
+  "looks": "Under a short claim about trust, three stacked cards pop in one after another: a star rating, a download count, and a review count, each number set huge and the label small beside it.",
+  "build": "Cards pop in top to bottom, 100-150ms apart, each `scale 0.95 -> 1` with a light settle; the star icon on the rating card gives a small extra twinkle (`scale 1 -> 1.2 -> 1`) just after its card lands.",
+  "sound": "A soft pop per card, a tiny chime on the star's twinkle.",
+  "duration": [1.8, 2.3],
+  "prompt": "Pop in a short stack of social-proof stat cards one after another beneath a trust claim, each with a huge number and a small label, giving the top card's icon one small extra flourish once it lands.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "mehul4795-4a7007", "url": "https://prompt-motion.com/mehul4795-4a7007", "creator": "@mehul4795", "start": 25.0, "end": 27.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "establish-brand"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

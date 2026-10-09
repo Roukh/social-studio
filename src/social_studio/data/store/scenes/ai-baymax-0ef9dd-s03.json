@@ -1,0 +1,21 @@
+{
+  "id": "ai-baymax-0ef9dd-s03",
+  "kind": "scene",
+  "name": "a generation panel counts up inside a product chat card",
+  "looks": "A chat-style input card sits above a results area where a circular percentage loader counts up with a caption beneath it (\"generating...\"), while a cursor rests nearby waiting. The whole card is framed inside the browser mockup from the surrounding steps.",
+  "build": "radial-progress-anticipation for the loader (SVG ring with strokeDashoffset, counter text set from the clock, no easing on the number); the surrounding chat card is a static DOM panel with a slightly dimmed, blurred backdrop behind it.",
+  "sound": "A soft tick on each percentage step, a low hum under the wait.",
+  "duration": [2.3, 2.6],
+  "prompt": "Inside a product's own interface, show a circular percentage loader counting up beneath a short status caption, framed inside a chat or input card. Keep everything else in the frame still, so the ring and the number are the only things moving, to sell real work happening.",
+  "techniques": ["radial-progress-anticipation"],
+  "source": {"film": "ai-baymax-0ef9dd", "url": "https://prompt-motion.com/ai-baymax-0ef9dd", "creator": "@Ai_Baymax", "start": 22.5, "end": 25.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-data", "build-tension"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "interface"],
+    "complexity": "low"
+  }
+}

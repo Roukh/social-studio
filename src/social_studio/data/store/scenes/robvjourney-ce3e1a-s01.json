@@ -1,0 +1,21 @@
+{
+  "id": "robvjourney-ce3e1a-s01",
+  "kind": "scene",
+  "name": "a terminal boot sequence opens the film",
+  "looks": "A thin instrument HUD frames the whole edge of the dark frame -- small corner readouts, a status bar, a timecode -- while a single line of command-line text types on in the centre: a boot command, then two status lines confirming the system is online, each with a small ok tag.",
+  "build": "DOM monospace text revealed per character at a steady rate with a blinking block cursor; two status lines fade in below once the boot line completes, each with a small coloured ok tag; a persistent HUD layer (corner labels, a scene counter, a running timecode) sits above for the whole shot.",
+  "sound": "A soft mechanical key tick per character, a short confirm tone on each status line landing.",
+  "duration": [1.5, 2.5],
+  "prompt": "Open cold on a terminal boot: a command types on character by character with a blinking cursor inside a thin instrument HUD frame, followed by a couple of short status lines confirming the system is alive. Let the HUD chrome (corner labels, a timecode) persist as the frame for the rest of the film.",
+  "techniques": ["terminal-type-on", "hud-frame"],
+  "source": {"film": "robvjourney-ce3e1a", "url": "https://prompt-motion.com/robvjourney-ce3e1a", "creator": "@robvjourney", "start": 0.0, "end": 2.0},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["establish-brand", "set-mood"],
+    "content": ["code", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["open", "interface", "frame"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "oscillograph-word-card",
+  "kind": "technique",
+  "name": "Oscillograph word card",
+  "looks": "A short word or phrase hard-cuts onto a black field in a thin monochrome outline or mono font, and beside or beneath it a small generative diagram -- a tangled knot, a woven pair of threads, a pair of spikes, a radial fan, a stepped pulse -- echoes what the word means. A thin live waveform strip runs the length of the frame's bottom edge throughout, breathing under every card.",
+  "build": "DOM word/phrase hard-cut in with no easing, on the beat. The diagram is 2D canvas or SVG, generated from a small set of parametric curves (Lissajous-style knots, sine pairs, spike functions, stepped pulses) seeded per card so each shape is unique but reads as the same instrument throughout the run. One glyph per card; pair with waveform-readout-strip for the bottom strip and hud-frame for the surrounding chrome.",
+  "sound": "A soft blip or tick as each card cuts in; a very low synth hum under the waveform strip.",
+  "duration": [1.2, 3],
+  "prompt": "Hard-cut a short word or phrase onto a black field in a thin monochrome outline font, paired with a small generative diagram -- a knot, a weave, a spike pair, a radial sweep, a stepped pulse -- whose shape echoes what the word means. Keep one shared bottom waveform strip breathing under every card so the run reads as one continuous instrument.",
+  "source": "prompt-motion.com's gallery (rneayan-ea6129), studied 2026-10-09",
+  "tags": {
+    "role": ["intro", "problem", "solution", "proof"],
+    "purpose": ["explain-mechanism", "show-contrast", "establish-brand"],
+    "content": ["type", "abstract", "data"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["type", "data"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "steventey-2103625902211088880-s02",
+  "kind": "scene",
+  "name": "A live total rolls up over a glowing globe",
+  "looks": "A short link pill holds at the top. Beneath it a huge number rolls up live, its last digits still ticking, above a warm, glowing dotted globe with a thin beam pinned to one point on it, as if the count is being read straight off the globe.",
+  "build": "geo-pulse-globe: the digit roll-up finishes just as the beam's pulse peaks, so the two read as one live system rather than two separate elements.",
+  "sound": "A low warm drone under the globe, a soft beam pulse, and a rising tone under the counting number.",
+  "duration": [2.0, 2.5],
+  "prompt": "Prove real-time global scale: hold a huge number rolling up live, its last digits still moving, above a glowing dotted globe with a thin beam marking one point on it, so the count and the globe read as one live system.",
+  "techniques": ["geo-pulse-globe"],
+  "source": {"film": "steventey-2103625902211088880", "url": "https://x.com/steventey/status/2103625902211088880", "creator": "@steventey", "start": 1.5, "end": 4.0},
+  "tags": {
+    "role": ["hook", "proof"],
+    "purpose": ["show-scale", "show-data"],
+    "content": ["map", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "3d"],
+    "complexity": "medium"
+  }
+}

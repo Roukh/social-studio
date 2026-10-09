@@ -1,0 +1,47 @@
+{
+  "id": "ndhabarde11-f155b4-s02",
+  "kind": "scene",
+  "name": "a keyword stutters into place behind glitched echoes",
+  "looks": "A section label types on in a corner. Then a single word hard-cuts into the centre of the frame, solid and glowing, while several larger outlined copies of the same word hover around it, their edges split with a faint colour fringe, and small coloured pixels blink in and out across the field.",
+  "build": "A small mono section-label layer types on in the top-left. The main word is a solid centred layer; 3-4 stroke-only duplicate copies sit at larger, offset scales behind it with a constant 1-2px chromatic-aberration offset on their edges; seeded pixel sprites fade in/out independently on short loops, unsynced from the word's beat.",
+  "sound": "A short digital stutter burst as the word lands, with a few quiet random blips under the hold.",
+  "duration": [
+    0.8,
+    1.3
+  ],
+  "prompt": "Label the section with a small corner tag, then hard-cut a single keyword into frame solid and bright, ringed by larger outline-only echoes of itself with a faint colour-split edge and a scatter of drifting pixels, so the word reads as glitched into existence rather than simply typed on.",
+  "techniques": [
+    "chroma-split-glitch-wall"
+  ],
+  "source": {
+    "film": "ndhabarde11-f155b4",
+    "url": "https://prompt-motion.com/ndhabarde11-f155b4",
+    "creator": "@ndhabarde11",
+    "start": 2.0,
+    "end": 2.5
+  },
+  "tags": {
+    "role": [
+      "hook",
+      "demo"
+    ],
+    "purpose": [
+      "show-craft",
+      "tease"
+    ],
+    "content": [
+      "type"
+    ],
+    "energy": [
+      "punch"
+    ],
+    "format": [
+      "9:16"
+    ],
+    "family": [
+      "type",
+      "texture"
+    ],
+    "complexity": "medium"
+  }
+}

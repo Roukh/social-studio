@@ -1,0 +1,21 @@
+{
+  "id": "deifosv-04e4d3-s02",
+  "kind": "scene",
+  "name": "Friction-objection list over dimmed gameplay",
+  "looks": "Over a dimmed, still shot of gameplay, a list of three short rebuttals stacks down the left edge, each landing in white while the one before it dims to grey, finishing on a fourth line in the accent colour with a highlight bar behind it.",
+  "build": "list-stack-reveal for the three white lines; the final line gets a highlight-bar treatment instead of dimming: a solid accent rectangle scales in behind it from the left (scaleX 0->1, power2.out) just before the text itself pops in on top.",
+  "sound": "A tick per line, with a heavier stamp hit under the highlighted final line.",
+  "duration": [2.0, 3.0],
+  "prompt": "Knock down the usual objections to trying a product: stack three short 'no X' lines down the frame over a dimmed shot of the product itself, each line landing bright while the last dims, and close the list on a highlighted claim in the brand's accent colour.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "deifosv-04e4d3", "url": "https://prompt-motion.com/deifosv-04e4d3", "creator": "@deifosv", "start": 5.97, "end": 9.97},
+  "tags": {
+    "role": ["problem", "solution"],
+    "purpose": ["show-ease", "build-tension", "establish-brand"],
+    "content": ["type", "footage"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

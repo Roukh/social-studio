@@ -1,0 +1,21 @@
+{
+  "id": "steventey-0d20e4-s04",
+  "kind": "scene",
+  "name": "a partner network bursts outward from a glowing hub",
+  "looks": "A headline names growing through partners while a ring of small avatar circles bursts outward and settles around a single glowing hub at the centre, threads of light connecting each one back to it. A payout total counts up underneath as the ring finishes settling.",
+  "build": "Avatar nodes seeded at angles around the hub (kit.rng), travelling outward from the centre on power3.out with their connecting line stroked in behind them; the payout number rolls up on the same clock as the ring's settle.",
+  "sound": "A soft whoosh as the ring expands and a rising tone under the payout count-up.",
+  "duration": [1.5, 2.0],
+  "prompt": "Burst a ring of small avatar circles outward from a single glowing hub, each trailing a thin connecting line back to the centre, while a payout total counts up underneath as the ring settles, to show a network of people earning through the product.",
+  "techniques": ["particle-flow-sphere"],
+  "source": {"film": "steventey-0d20e4", "url": "https://prompt-motion.com/steventey-0d20e4", "creator": "@steventey", "start": 8.5, "end": 10.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-scale", "show-data"],
+    "content": ["character", "data"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1"],
+    "family": ["particles", "data"],
+    "complexity": "medium"
+  }
+}

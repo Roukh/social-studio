@@ -1,0 +1,21 @@
+{
+  "id": "robvjourney-ce3e1a-s07",
+  "kind": "scene",
+  "name": "particles gather into the mark and the lockup holds",
+  "looks": "Loose drifting dots gather and condense into a simple line-art pointer/hand icon. The brand's name types in below it with a blinking cursor, then a short tagline fades in under that, and finally a pill-shaped call-to-action button and a small site address arrive last and hold still.",
+  "build": "Canvas point-gather resolving into a crisp SVG/DOM icon in its last fraction of a second; the wordmark types on character by character beneath it; the tagline fades in after a short pause; the CTA pill arrives last with a touch of scale overshoot and holds, no further motion.",
+  "sound": "A soft shimmer resolving into a clean hit as the icon locks, a light typing clack under the name, quiet under the final hold.",
+  "duration": [2, 2.5],
+  "prompt": "Close by letting scattered points gather into a simple line-art mark, typing the brand's name on beneath it, then settling a short tagline and a pill-shaped call-to-action with a site address as the last, static beat of the film -- end on stillness, not more motion.",
+  "techniques": ["noise-dissolve-logomark", "lockup-close-card"],
+  "source": {"film": "robvjourney-ce3e1a", "url": "https://prompt-motion.com/robvjourney-ce3e1a", "creator": "@robvjourney", "start": 13.0, "end": 15.104},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["identity", "close"],
+    "complexity": "low"
+  }
+}

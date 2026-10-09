@@ -1,0 +1,21 @@
+{
+  "id": "oliahmed205-3e31c4-s07",
+  "kind": "scene",
+  "name": "end card: icon, wordmark and tagline settle among drifting photo cards",
+  "looks": "A ring of soft light pulses gently around a small rounded app icon. The icon and a matching wordmark settle together, a short tagline fades in under them, and small photo cards drift slowly at the frame's edges, out of focus, for texture rather than content.",
+  "build": "The icon and wordmark arrive together as one group, y:8-12px->0, opacity 0->1, power2.out; the ring is a blurred circle pulsing slowly on the clock. The tagline fades in 150-200ms after the lockup settles. Two to four drifting card sprites sit at different depths and speeds behind the lockup for parallax, never sharp enough to read.",
+  "sound": "A soft low swell fading out under the hold, no new hits once the lockup settles.",
+  "duration": [1.8, 2.4],
+  "prompt": "Close on the brand's mark and name settling together on a calm, softly lit field, a one-line promise fading in under them. Let a few out-of-focus samples of the work drift slowly at the edges for atmosphere, and hold the finished lockup without further motion.",
+  "techniques": ["lockup-close-card", "cinematic-atmosphere-hold"],
+  "source": {"film": "oliahmed205-3e31c4", "url": "https://prompt-motion.com/oliahmed205-3e31c4", "creator": "@oliahmed205", "start": 13.0, "end": 15.104},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type", "photo"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity", "texture"],
+    "complexity": "medium"
+  }
+}

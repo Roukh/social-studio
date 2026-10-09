@@ -1,0 +1,21 @@
+{
+  "id": "prasad-pilla-2c0cba-s01",
+  "kind": "scene",
+  "name": "a bowtie icon morphs into a clock dial on a dashed line",
+  "looks": "A small bowtie-shaped icon, like an hourglass pinched at the middle, sits over a dashed horizontal line while a headline states that the bottleneck moved. The icon's outline morphs into a circular clock dial with radial ticks and two triangular hands, and a trail of small dots streams along the dashed line like a comet sweeping past it.",
+  "build": "The icon's outline is resampled to a fixed point count and interpolated between the bowtie and dial shapes on power3.inOut, rotating slowly throughout. A comet of small dots traces the dashed line with a tapering tail, its head easing along the line's length on the master clock.",
+  "sound": "A soft wobble under the shape morph, a light whoosh as the dot comet sweeps past, a low tick as the dial settles.",
+  "duration": [3.6, 4.6],
+  "prompt": "Open on a small abstract icon that names a structural problem (a bottleneck, a block) sitting on a thin dashed line, under a headline stating that the problem moved somewhere new. Morph the icon's outline into a second shape that answers it (a dial, a gauge), with a trail of small particles sweeping along the line underneath to keep the shot alive.",
+  "techniques": ["metaball-morph", "particle-flow-comet"],
+  "source": {"film": "prasad-pilla-2c0cba", "url": "https://prompt-motion.com/prasad-pilla-2c0cba", "creator": "@prasad_pilla", "start": 0.0, "end": 4.3},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "build-tension"],
+    "content": ["abstract", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["morph", "particles", "open"],
+    "complexity": "medium"
+  }
+}

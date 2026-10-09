@@ -1,0 +1,21 @@
+{
+  "id": "anthonyriera-9b1b2a-s01",
+  "kind": "scene",
+  "name": "connected accounts list with karma meter bars",
+  "looks": "A short list of small avatar rows, each with a username, grows a horizontal meter bar beside it that fills to a different length, landing on a small number label at the end of each bar.",
+  "build": "data-infographic's bar-growth pattern, horizontal instead of vertical: each bar's scaleX animates 0 -> 1 from a left origin on an uneven stagger, the number ticking up as the bar fills.",
+  "sound": "A soft tick per bar as it finishes filling.",
+  "duration": [2.0, 2.5],
+  "prompt": "List a handful of small identity rows, each gaining a horizontal meter bar that fills to its own length a beat apart, with a number counting up as it fills. Use it to show several independent accounts or agents building up activity at once.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "anthonyriera-9b1b2a", "url": "https://prompt-motion.com/anthonyriera-9b1b2a", "creator": "@anthonyriera", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

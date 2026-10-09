@@ -1,0 +1,49 @@
+{
+  "id": "twoclipping-221cab-s06",
+  "kind": "scene",
+  "name": "a product panel steps from checkout to shipped",
+  "looks": "A small order panel holds a frame colour row, a size row and a price, with the buy button sitting ready underneath. It crossfades into the same panel showing a shipping status instead: a label reading on its way, a day, and a slim progress bar most of the way across.",
+  "build": "The frame/size options are static rows with a selection ring on the active one; the panel crossfades to the shipping state; the progress bar's fill and the day label are set from one value with no easing, read-only once shipped.",
+  "sound": "A soft tick as the panel's state crossfades and a light confirm tone under the progress bar.",
+  "duration": [
+    2.0,
+    2.5
+  ],
+  "prompt": "Hold a small order panel with its options and a price, then morph it in place into a shipping-status version of the same panel, a short label and a slim progress bar most of the way filled, so the purchase and its fulfilment read as one continuous panel.",
+  "techniques": [
+    "data-infographic"
+  ],
+  "source": {
+    "film": "twoclipping-221cab",
+    "url": "https://prompt-motion.com/twoclipping-221cab",
+    "creator": "@twoclipping",
+    "start": 20.0,
+    "end": 22.5
+  },
+  "tags": {
+    "role": [
+      "proof",
+      "demo"
+    ],
+    "purpose": [
+      "show-ease",
+      "land-cta"
+    ],
+    "content": [
+      "product-ui",
+      "data"
+    ],
+    "energy": [
+      "calm"
+    ],
+    "format": [
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "data",
+      "interface"
+    ],
+    "complexity": "medium"
+  }
+}

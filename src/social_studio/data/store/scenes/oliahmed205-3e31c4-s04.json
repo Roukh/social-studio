@@ -1,0 +1,21 @@
+{
+  "id": "oliahmed205-3e31c4-s04",
+  "kind": "scene",
+  "name": "a swipe gesture erases an object from a beach photo",
+  "looks": "Over a beach photo in a simple photo-editor frame, a glowing brush gesture scribbles across an unwanted object. The instant the scribble completes, the object dissolves into fine particles and the background behind it fills in seamlessly, and a small confirmation chip reports how many objects were removed.",
+  "build": "The gesture is a hand-drawn SVG path stroked on with a progressive reveal and a soft glow, riding over the fixed editor chrome. On completion, the object layer crossfades to a particle-dissolve (a short burst of small sprites fading and drifting) revealing the patched background underneath; the confirmation chip pops in at the end, scale 0.9->1.",
+  "sound": "A soft brush-stroke swish as the gesture draws, a light crumble/dissolve sound as the object disappears, a confirming tick on the chip.",
+  "duration": [2.0, 2.6],
+  "prompt": "Inside a simple photo-editor frame, draw a quick glowing gesture over something that doesn't belong in the shot. The instant the gesture completes, dissolve that object away and have the background fill in seamlessly behind it, then drop in a small chip confirming what was removed.",
+  "techniques": ["glass-ui-flow", "bounce-path-draw"],
+  "source": {"film": "oliahmed205-3e31c4", "url": "https://prompt-motion.com/oliahmed205-3e31c4", "creator": "@oliahmed205", "start": 7.2, "end": 9.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-ease", "show-transformation"],
+    "content": ["photo", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "physics"],
+    "complexity": "medium"
+  }
+}

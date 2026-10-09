@@ -1,0 +1,21 @@
+{
+  "id": "sachaarbonel-8f14f4-s05",
+  "kind": "scene",
+  "name": "a clock ticks through the night while tasks tick off",
+  "looks": "A big digital clock reads the small hours on a dark field, climbing from one time to the next across hard cuts, with a short task list beside it adding a finished item and a green check each time the hour jumps. By the last cut the clock reads morning and every task sits checked off.",
+  "build": "Clock digits are plain text set directly from a time value with no easing, one value per cut; each task row fades/rises in with a check-mark pop timed to its own cut, dimming the rows above it slightly so the newest always reads brightest.",
+  "sound": "A low ambient pad under the dark hold, a soft chime on each new task checking off.",
+  "duration": [2.5, 3.0],
+  "prompt": "Show a big digital clock jumping forward through the small hours across hard cuts on a dark field, with a short task list beside it gaining one finished, checked-off item on each jump, so the passage of time and the accumulating work read together.",
+  "techniques": ["live-readout-hud"],
+  "source": {"film": "sachaarbonel-8f14f4", "url": "https://prompt-motion.com/sachaarbonel-8f14f4", "creator": "@sachaarbonel", "start": 20.0, "end": 25.0},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-speed", "build-tension"],
+    "content": ["data", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["data", "texture"],
+    "complexity": "medium"
+  }
+}

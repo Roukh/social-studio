@@ -1,0 +1,21 @@
+{
+  "id": "hqmank-7c61f1-s02",
+  "kind": "scene",
+  "name": "Hyphenated wordmark assembles under a small subhead",
+  "looks": "A small all-caps subhead sits above, then the product's hyphen-joined name drops in piece by piece until it is whole, the hyphens themselves in the accent colour.",
+  "build": "wordmark-assemble's letter-drop mechanic applied per name-segment instead of per letter (three or four chunks separated by hyphens), each chunk's delay growing outward from the centre segment; the hyphens pop in last, in the accent colour.",
+  "sound": "A tick per chunk landing, a slightly sharper tick on each hyphen.",
+  "duration": [2.0, 2.5],
+  "prompt": "Assemble a hyphen-joined product name piece by piece from the centre outward, with a small technical subhead already in place above it and the hyphens themselves picked out in the brand's accent colour as the last detail to land.",
+  "techniques": ["wordmark-assemble", "hud-frame"],
+  "source": {"film": "hqmank-7c61f1", "url": "https://prompt-motion.com/hqmank-7c61f1", "creator": "@hqmank", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["intro"],
+    "purpose": ["establish-brand"],
+    "content": ["type", "logo"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["identity", "type"],
+    "complexity": "low"
+  }
+}

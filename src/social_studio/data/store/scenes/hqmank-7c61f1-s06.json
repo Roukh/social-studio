@@ -1,0 +1,21 @@
+{
+  "id": "hqmank-7c61f1-s06",
+  "kind": "scene",
+  "name": "Punch close with the install command",
+  "looks": "A two-word hyphenated headline lands hard-cut beside a small blinking cursor prompt, a subline naming who it is for beneath it. It cuts to the full wordmark with its tagline again, now above a dark terminal pill with a real install command typing on and a small pulsing status dot beside it, three plain badges closing the frame.",
+  "build": "kinetic-word-run for the hyphenated headline; terminal-type-on for the install command; provenance-glow-stroke for the status dot's pulse; wordmark-assemble's finished-state settle for the repeated lockup.",
+  "sound": "A hit on the headline, a key tick under the install command, and a soft confirm chime on the final badges.",
+  "duration": [2.5, 3.5],
+  "prompt": "Close hard and practical: land a short hyphenated punch line naming who the product is for, then show the real one-line install command typing on beside a pulsing status dot, finishing on the lockup and a short row of plain capability badges.",
+  "techniques": ["kinetic-word-run", "terminal-type-on", "wordmark-assemble", "provenance-glow-stroke"],
+  "source": {"film": "hqmank-7c61f1", "url": "https://prompt-motion.com/hqmank-7c61f1", "creator": "@hqmank", "start": 17.5, "end": 22.5},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["type", "code", "logo"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["close", "type"],
+    "complexity": "medium"
+  }
+}

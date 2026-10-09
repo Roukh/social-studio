@@ -1,0 +1,20 @@
+{
+  "id": "venn-overlap-converge",
+  "kind": "technique",
+  "name": "Venn overlap converge",
+  "looks": "Two solid-coloured circles, each labelled with one half of a capability, slide together until they overlap. The lens where they meet fills with a dense, noisy texture distinct from either parent colour, and a caption names the overlap as the exact, deliberate fit.",
+  "build": "Two DOM/SVG circles translate toward each other on power2.inOut until their overlap is a fixed fraction of their radius. The intersection is a clipped third layer (clip-path intersection or an SVG mask) filled with a seeded noise/stipple pattern instead of a flat alpha blend. A caption clips in under the pair once they settle.",
+  "sound": "A soft converging whoosh as the circles close, a short grain-like rattle as the intersection texture resolves, a tick on the caption.",
+  "duration": [2.0, 3.0],
+  "prompt": "Slide two labelled, solid-coloured circles together until they overlap, and fill the lens where they meet with its own distinct texture rather than a plain colour blend, then caption the overlap as the precise, deliberate fit between the two things it names.",
+  "source": "rneayan-474bcf (prompt-motion.com/rneayan-474bcf), studied 2026-10-09",
+  "tags": {
+    "role": ["solution"],
+    "purpose": ["explain-mechanism", "show-contrast"],
+    "content": ["abstract", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["shape", "morph"],
+    "complexity": "medium"
+  }
+}

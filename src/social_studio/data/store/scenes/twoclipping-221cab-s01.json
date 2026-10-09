@@ -1,0 +1,21 @@
+{
+  "id": "twoclipping-221cab-s01",
+  "kind": "scene",
+  "name": "a pill morphs into a box that opens on a tiny glowing scene",
+  "looks": "A plain black pill shape sits alone on an empty field, then reshapes into a small square icon with a hinged lid. The lid tips open and a tiny glowing scene sits inside it: a lone figure walking toward a bright doorway, small enough to feel like a peephole into another world.",
+  "build": "Pill-to-icon shape tween on border-radius/width/height (power3.inOut); the lid rotates open from its hinge on back.out for a slight overshoot; the inner scene starts playing only once the lid passes a threshold angle.",
+  "sound": "A soft mechanical click as the shape resolves, a creak on the lid opening, a faint ambient tone from inside.",
+  "duration": [2.0, 2.5],
+  "prompt": "Morph a simple pill shape into a small icon with a hinged lid, tip the lid open with a slight overshoot, and reveal a tiny glowing scene inside, a figure walking toward a bright doorway, like a peephole into another world, as the opening tease before the payoff shot.",
+  "techniques": ["icon-lid-open-reveal"],
+  "source": {"film": "twoclipping-221cab", "url": "https://prompt-motion.com/twoclipping-221cab", "creator": "@twoclipping", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "reveal-product"],
+    "content": ["abstract", "3d-object"],
+    "energy": ["build"],
+    "format": ["1:1", "4:5"],
+    "family": ["reveal", "transition"],
+    "complexity": "medium"
+  }
+}

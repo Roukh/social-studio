@@ -1,0 +1,21 @@
+{
+  "id": "ik-builds-b8bdcf-s04",
+  "kind": "scene",
+  "name": "Huge paper-cutout type slams the claim",
+  "looks": "On the dark ground, a two-line claim slams in at a huge size, each letter carrying a thick offset drop-shadow like layered cut paper, the mark now small and orbiting one letter with a thin baseline rule beneath the whole line.",
+  "build": "kinetic-word-run's hard-weighted entrance applied per line rather than per word, each letter's drop-shadow a duplicate layer offset a fixed few pixels down-right; the mark's orbit is a small circular path loop, independent of the text's own tween.",
+  "sound": "A heavy slam hit as the type lands, with a lighter tick under the mark's orbit.",
+  "duration": [1.7, 2.2],
+  "prompt": "Land the film's biggest claim as oversized, paper-cutout type: a short two-line statement slams in at a huge size with a thick offset shadow on every letter, the brand's small recurring mark still visible, orbiting quietly beside it.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "ik-builds-b8bdcf", "url": "https://prompt-motion.com/ik-builds-b8bdcf", "creator": "@ik_builds", "start": 6.5, "end": 8.7},
+  "tags": {
+    "role": ["solution", "hook"],
+    "purpose": ["build-tension", "establish-brand"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["type"],
+    "complexity": "medium"
+  }
+}

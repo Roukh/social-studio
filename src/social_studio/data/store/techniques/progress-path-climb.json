@@ -1,0 +1,20 @@
+{
+  "id": "progress-path-climb",
+  "kind": "technique",
+  "name": "Progress path climb",
+  "looks": "A dotted path winds up across an illustrated landscape; a glowing marker travels along it as a cumulative total climbs in the corner. Named waypoints along the route light up and label themselves in turn as the marker reaches them, paying off with a glowing title over the illustration once the total completes.",
+  "build": "Path is a fixed pre-drawn SVG route; the marker's position uses getPointAtLength driven by the same value powering the cumulative counter. Waypoint pill badges cross-fade from dim to lit the instant the marker passes, with a short pulse. The payoff title fades/scales in once the total reaches target, holding longer than other waypoints.",
+  "sound": "A soft ambient bed under the climb, a chime on each waypoint unlocking, a fuller resolving chord on the final payoff.",
+  "duration": [2.0, 2.5],
+  "prompt": "Wind a dotted path across an illustrated landscape and travel a glowing marker along it as a cumulative total climbs, lighting up named waypoints in turn as the marker reaches them, and pay off the journey with a glowing title once the total hits its target.",
+  "source": "prompt-motion.com's gallery (marklaunches-3b9492), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "show-transformation"],
+    "content": ["illustration", "data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "establishing"],
+    "complexity": "medium"
+  }
+}

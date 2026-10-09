@@ -1,0 +1,21 @@
+{
+  "id": "ezshine-c90d73-s04",
+  "kind": "scene",
+  "name": "Live board duel with streaming reasoning",
+  "looks": "A game board fills with pieces placing one at a time as two competitors' name cards sit beside it, each with a short line of reasoning that types on, character by character, under its own name, swapping as the turn passes between them. The board fills in further over a few turns, then a banner drops announcing the winner and how they won.",
+  "build": "Each reasoning line uses terminal-type-on's per-character reveal in a small card, one card lit (full opacity) and the other dimmed depending on whose turn it is; the board pieces appear with a small scale-pop at their grid position, no physics needed since placement is discrete. The winner banner reuses command-chip-cycle's final-state glow.",
+  "sound": "A soft click per placed piece, a light key tick under the streaming reasoning, and a win chime on the banner.",
+  "duration": [3.0, 4.5],
+  "prompt": "Make an AI's thinking visible, not just its output: show a shared board or canvas filling in move by move while two competing reasoning panels beside it type on their live thinking line by line, the active one lit and the other dimmed, finishing on a banner that announces the result.",
+  "techniques": ["terminal-type-on"],
+  "source": {"film": "ezshine-c90d73", "url": "https://prompt-motion.com/ezshine-c90d73", "creator": "@ezshine", "start": 21.0, "end": 30.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "show-craft", "reveal-product"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "type"],
+    "complexity": "high"
+  }
+}

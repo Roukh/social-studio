@@ -1,0 +1,21 @@
+{
+  "id": "wozu-co-242285-s05",
+  "kind": "scene",
+  "name": "a code change previews live before it ships",
+  "looks": "A headline promises a look before anything goes live. A dark code editor sits fixed on one side showing a small file and the exact change being made, while a live preview of the real page updates on the other side in step with it, a pricing card visibly changing shape.",
+  "build": "Both panels are fixed DOM content held side by side (ui-tilt-card's held-panel mechanic); the preview's layout change is cued to the same moment the code's edited line appears, no independent clock.",
+  "sound": "A soft mechanical key tick under the code, a light pop as the preview updates.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold a dark code editor and a live page preview side by side; the instant a specific line changes in the code, have the preview update to match it, a card's shape or price shifting visibly, so a real edit and its real, live result read as one moment.",
+  "techniques": ["ui-tilt-card"],
+  "source": {"film": "wozu-co-242285", "url": "https://prompt-motion.com/wozu-co-242285", "creator": "@wozu_co", "start": 10.0, "end": 12.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["code", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

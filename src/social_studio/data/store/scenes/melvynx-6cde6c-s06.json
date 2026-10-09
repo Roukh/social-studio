@@ -1,0 +1,52 @@
+{
+  "id": "melvynx-6cde6c-s06",
+  "kind": "scene",
+  "name": "A plain question resolves into a visible chain of actions",
+  "looks": "A terminal panel types a plain-English question; underneath, a short sequence of structured tool-call lines streams in one at a time, each a function name with its arguments and a small result count, like a visible trace of real work being done. It closes on a plain-English confirmation line and a small workflow badge.",
+  "build": "Query types on 20-30ms per character. Each tool-call line clips in top to bottom, 300-500ms apart, mono with the function name in the accent colour and the rest dimmer. The final confirmation line switches to the panel's plain body font, with a small status badge settling beside it.",
+  "sound": "A soft key-tick under the typed question, a distinct tone per tool-call line landing, a clean confirm chime on the final line.",
+  "duration": [
+    3.5,
+    5.0
+  ],
+  "prompt": "Type a plain-English question into a terminal-style panel, then stream in a short sequence of structured tool-call lines one at a time, each naming a function, its arguments and a result, before closing on one plain-English confirmation line with a small status badge, so the agent's actual work is visible rather than hidden behind a spinner.",
+  "techniques": [
+    "terminal-type-on"
+  ],
+  "source": {
+    "film": "melvynx-6cde6c",
+    "url": "https://prompt-motion.com/melvynx-6cde6c",
+    "creator": "@melvynx",
+    "start": 32.5,
+    "end": 37.5
+  },
+  "tags": {
+    "role": [
+      "demo",
+      "solution",
+      "proof"
+    ],
+    "purpose": [
+      "explain-mechanism",
+      "show-craft"
+    ],
+    "content": [
+      "product-ui",
+      "code"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "interface",
+      "type"
+    ],
+    "complexity": "high"
+  }
+}

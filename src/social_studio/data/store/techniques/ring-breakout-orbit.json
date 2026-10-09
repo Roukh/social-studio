@@ -1,0 +1,20 @@
+{
+  "id": "ring-breakout-orbit",
+  "kind": "technique",
+  "name": "Ring breakout orbit",
+  "looks": "A ball on a tether orbits inside a set of concentric gapped rings, swings out and passes through the current ring's gap in a small particle burst; that ring fades, a counter ticks down, and the palette steps around the hue wheel. The pattern repeats ring by ring, each pass a little faster and brighter.",
+  "build": "Rings are arcs with a seeded gap angle via strokeDasharray; only the current innermost ring is interactive. The ball orbits at theta driven by the master clock with a tether line to the centre. On the pass (theta crosses the gap), spawn 8-16 particles, fade the passed ring to 0 over 200-300ms, step the counter and hue (hue += 360/ringCount). Orbit speed multiplies ~1.05x per ring so the loop accelerates.",
+  "sound": "One note per ring stepping up a pentatonic scale, a soft swoosh under the orbit, a brighter chime on the final pass.",
+  "duration": [1.5, 2.5],
+  "prompt": "Animate an object orbiting inside a set of concentric gapped rings, breaking through one ring's gap at a time in a small burst, with a counter ticking down and the colour palette stepping forward each time. Let the pace and brightness build with each ring so the sequence reads as an accelerating countdown to a final release.",
+  "source": "prompt-motion.com's gallery (kantamk-61f410), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "demo"],
+    "purpose": ["tease", "build-tension", "show-transformation"],
+    "content": ["abstract"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["physics", "generative"],
+    "complexity": "medium"
+  }
+}

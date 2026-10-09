@@ -1,0 +1,21 @@
+{
+  "id": "micheleharmonic-77628e-s06",
+  "kind": "scene",
+  "name": "chrome coin stamps a run of stats and claims",
+  "looks": "The ring mark thickens into a glossy, slowly turning chrome coin. A sequence of short words and one big number hard-cut in front of it one after another, each a different proof point, with a couple of plain caption lines interleaved between stamps to connect them into a sentence.",
+  "build": "A continuously rotating 3D coin driven by the master clock so it never resets across cuts; each word or number is cut exactly on the beat as its own layer with a drop shadow over the chrome, interleaved with hard-cut plain-caption beats on a flat dark field for the connecting words.",
+  "sound": "A metallic clang on every stamp, pitched a little differently each time, with quieter dry ticks under the connecting caption beats.",
+  "duration": [2.5, 4.0],
+  "prompt": "Turn the brand's own mark into a slowly rotating chrome coin and hard-cut a short run of proof points in front of it, mixing one big number with a couple of short claim-words, stitched together by a plain caption line or two, so the whole run reads as the brand stamping its own credentials.",
+  "techniques": ["medallion-stat-stamp"],
+  "source": {"film": "micheleharmonic-77628e", "url": "https://prompt-motion.com/micheleharmonic-77628e", "creator": "@MicheleHarmonic", "start": 15.97, "end": 20.77},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data", "show-scale", "build-tension"],
+    "content": ["data", "logo", "type"],
+    "energy": ["punch"],
+    "format": ["9:16"],
+    "family": ["identity", "data", "type"],
+    "complexity": "medium"
+  }
+}

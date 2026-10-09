@@ -1,0 +1,21 @@
+{
+  "id": "twoclipping-221cab-s04",
+  "kind": "scene",
+  "name": "a new generated scene becomes a phone lock screen",
+  "looks": "A different full-bleed generated scene, a lone figure facing a distant eclipse, cuts in and holds, then shrinks and settles inside a phone mockup as its lock-screen wallpaper, tilted slightly over a soft swirling ribbon background.",
+  "build": "The full-bleed scene cuts in and holds briefly before scaling down into the phone frame (power2.inOut); the phone is a DOM panel at a shallow steady tilt (ui-tilt-card); the ribbon background is a slow-moving gradient field behind it.",
+  "sound": "A low pad under the full-bleed hold, a soft whoosh as it settles into the phone frame.",
+  "duration": [4.5, 5.0],
+  "prompt": "Hold a new full-bleed generated scene briefly, then shrink it down into a tilted phone mockup as its lock-screen wallpaper, over a slow, soft swirling gradient background, to show the same output living naturally on a real device.",
+  "techniques": ["ui-tilt-card"],
+  "source": {"film": "twoclipping-221cab", "url": "https://prompt-motion.com/twoclipping-221cab", "creator": "@twoclipping", "start": 12.5, "end": 17.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["reveal-product", "show-craft"],
+    "content": ["photo", "device"],
+    "energy": ["calm"],
+    "format": ["1:1", "4:5"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

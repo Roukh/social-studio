@@ -1,0 +1,21 @@
+{
+  "id": "bizibeast-10f264-s08",
+  "kind": "scene",
+  "name": "a diamond mark assembles into the closing wordmark",
+  "looks": "A small coloured diamond shape settles alone on a light field, then the bold two-colour wordmark builds out beside it, a one-line tagline fades in beneath, and a small rounded start button settles last.",
+  "build": "wordmark-assemble: the mark settles on a short spring first, then the name builds in from a tight cluster around it, the second colour applied only to part of the word; the tagline reveals on a clipPath wipe, the button arriving on back.out.",
+  "sound": "A soft chime as the mark settles, quiet under the rest.",
+  "duration": [2.0, 2.4],
+  "prompt": "Close on a small geometric mark settling alone, then build the bold wordmark out beside it with two colours splitting the name. Fade in a short tagline beneath and settle a small rounded call-to-action button last, as the final frame.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "bizibeast-10f264", "url": "https://prompt-motion.com/bizibeast-10f264", "creator": "@bizibeast", "start": 37.5, "end": 39.9},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

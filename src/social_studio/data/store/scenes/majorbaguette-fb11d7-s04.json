@@ -1,0 +1,21 @@
+{
+  "id": "majorbaguette-fb11d7-s04",
+  "kind": "scene",
+  "name": "Wordmark closes on its one highlighted word",
+  "looks": "The mark and wordmark settle together on a dark ground, a one-line promise fading in beneath with its final word picked out in a bright highlight colour, a small compatibility line and a pill-shaped CTA arriving last and lowest in the frame.",
+  "build": "Mark and wordmark arrive together (`y:10px -> 0`, power2.out, ~300ms); the promise line fades in 150ms later, its last word's highlight applying as a background colour swipe rather than a text-colour change. Compatibility line and CTA pill fade in last, smallest and lowest.",
+  "sound": "A soft low swell under the lockup's arrival, a light pop as the highlight swipes on.",
+  "duration": [2.0, 2.8],
+  "prompt": "Settle a mark and wordmark together on a dark ground, fade in a one-line promise beneath it with its final word picked out by a highlight colour swiped behind the text, then land a small compatibility note and a CTA pill last and smallest at the bottom.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "majorbaguette-fb11d7", "url": "https://prompt-motion.com/majorbaguette-fb11d7", "creator": "@MajorBaguette", "start": 25.0, "end": 30.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

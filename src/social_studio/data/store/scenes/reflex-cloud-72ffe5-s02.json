@@ -1,0 +1,21 @@
+{
+  "id": "reflex-cloud-72ffe5-s02",
+  "kind": "scene",
+  "name": "two-word thesis hook with path diagram",
+  "looks": "Two single words hard-cut onto the screen in sequence, bracketed on a dark field. The first arrives clean; the second drops in through a heavy motion blur that resolves as it lands. A beat later a tiny diagram appears: a dot and a small square joined by a wavering connecting line, with a one-line caption underneath naming that line as the short route between the two ideas the words named.",
+  "build": "Two DOM word cards hard-cut on the beat, no crossfade (the kinetic-word-run mechanic); the second word's entrance uses a directional motion-blur filter that clears on arrival. The diagram is two DOM/SVG nodes joined by an SVG path stroked on via strokeDashoffset, with a slow sine wobble on its control point; the caption clips in beneath.",
+  "sound": "A hit on each word's cut, a whoosh under the blurred word's entrance, a quiet tick as the connecting line draws.",
+  "duration": [1.8, 2.3],
+  "prompt": "Hard-cut a two-word thesis statement onto the screen, one clean, one arriving through a heavy motion blur that resolves as it lands, then follow it with a tiny node-and-line diagram that names the straight line between the two ideas the words set up. Keep both words and the diagram on the beat, with no crossfades.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "reflex-cloud-72ffe5", "url": "https://prompt-motion.com/reflex-cloud-72ffe5", "creator": "@reflex_cloud", "start": 2.817, "end": 5.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "build-tension", "establish-brand"],
+    "content": ["type", "abstract"],
+    "energy": ["punch"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

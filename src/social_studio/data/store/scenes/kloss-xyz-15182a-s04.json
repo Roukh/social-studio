@@ -1,0 +1,52 @@
+{
+  "id": "kloss-xyz-15182a-s04",
+  "kind": "scene",
+  "name": "Terminal profile card introduces the maker",
+  "looks": "A small monospace card, styled like a config file, lists a handful of field-value rows (a handle, a location, a role, a stance) typing in one after another. A short line of prose sits beside it explaining why the card exists, in a lighter, human voice distinct from the mono rows.",
+  "build": "Fixed-width mono card, rows clip in top to bottom 100-150ms apart, label first then value in a brighter weight. The prose line beside it fades in once the card finishes, in a different typeface from the mono rows to keep the two voices visually distinct (see `dual-voice-type.md`).",
+  "sound": "A soft mechanical key-tick per row, quiet under the prose line.",
+  "duration": [
+    1.8,
+    2.5
+  ],
+  "prompt": "Show a small monospace card styled like a config file, a handful of field-value rows typing in to introduce the maker (a handle, a place, a role, a stance), with a short human-voice line beside it in a different typeface explaining why it's there.",
+  "techniques": [
+    "terminal-type-on",
+    "dual-voice-type"
+  ],
+  "source": {
+    "film": "kloss-xyz-15182a",
+    "url": "https://prompt-motion.com/kloss-xyz-15182a",
+    "creator": "@kloss_xyz",
+    "start": 40.0,
+    "end": 43.0
+  },
+  "tags": {
+    "role": [
+      "intro",
+      "proof"
+    ],
+    "purpose": [
+      "establish-brand",
+      "show-craft"
+    ],
+    "content": [
+      "type",
+      "code"
+    ],
+    "energy": [
+      "calm"
+    ],
+    "format": [
+      "9:16",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "type",
+      "interface"
+    ],
+    "complexity": "low"
+  }
+}

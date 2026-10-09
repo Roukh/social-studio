@@ -1,0 +1,21 @@
+{
+  "id": "tdinh-me-815acb-s01",
+  "kind": "scene",
+  "name": "a wireframe brain grows into a solid faceted mark",
+  "looks": "A handful of points on a dark field connect into a growing wireframe, line by line, until it traces a brain shape in full. Small triangular faces then light up one by one with flat warm colour, in no fixed order, turning the wireframe into a solid, glass-faceted object as a soft glow pulses behind it.",
+  "build": "Precomputed low-poly mesh; edges stroke on in a seeded order; each face fades/scales in once its three vertices connect, seeded per-face stagger; a soft radial glow behind the mesh pulses gently throughout, same bloom as cinematic-atmosphere-hold's pinned flare.",
+  "sound": "A faint high shimmer per connecting node, a soft glassy tick per face landing, building to a held chord as it completes.",
+  "duration": [10.0, 15.0],
+  "prompt": "On a dark field, grow a wireframe mesh line by line until it traces a recognisable mark's silhouette, then light its triangular faces one by one with flat colour in no fixed order, turning the skeleton into a solid, faceted object. Hold on the finished mark glowing softly before cutting away.",
+  "techniques": ["wireframe-to-facet-reveal"],
+  "source": {"film": "tdinh-me-815acb", "url": "https://prompt-motion.com/tdinh-me-815acb", "creator": "@tdinh_me", "start": 0.0, "end": 15.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "reveal-product", "show-craft"],
+    "content": ["abstract", "3d-object"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "9:16"],
+    "family": ["identity", "3d"],
+    "complexity": "high"
+  }
+}

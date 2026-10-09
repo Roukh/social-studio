@@ -1,0 +1,21 @@
+{
+  "id": "fractadev-149adc-s05",
+  "kind": "scene",
+  "name": "Dashboard stat tiles and a call-volume chart",
+  "looks": "Four stat tiles roll up their numbers side by side, each with a small captioned change beneath it. Below them an area chart of call volume draws itself across the month, and a short call-log table fills in with rows of phone numbers, durations and a coloured sentiment tag per row.",
+  "build": "data-infographic drives all three: the tiles' digits roll up under a speed-linked blur, the area chart draws left to right with a filled gradient beneath the line, and the log rows stagger in on a quick 0.05s beat with their sentiment tag popping in last.",
+  "sound": "A rising tone under the tile roll-ups, a soft whoosh under the chart draw, and a light tick per log row.",
+  "duration": [2.5, 3.5],
+  "prompt": "Prove the product is measurable: roll up a row of headline stat tiles with their period-over-period change, draw a volume chart across the month beneath them, and fill in a short log of individual records, each tagged with its own outcome.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "fractadev-149adc", "url": "https://prompt-motion.com/fractadev-149adc", "creator": "@FractaDev", "start": 30.0, "end": 35.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

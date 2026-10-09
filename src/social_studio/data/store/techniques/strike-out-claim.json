@@ -1,0 +1,20 @@
+{
+  "id": "strike-out-claim",
+  "kind": "technique",
+  "name": "Strike-out claim",
+  "looks": "A short headline sets up the problem, then a hand-drawn-style line strikes through the one word naming it, the rest of the headline landing around it and often closing on an accent-coloured word that states the fix.",
+  "build": "Headline set before the strike so it never reflows. The struck word gets a single diagonal/horizontal stroke drawn on (strokeDashoffset, 200-300ms) with a slight hand-wobble path so it reads as drawn, not generated. Struck word drops to ~60% opacity once marked; the rest of the headline holds full strength.",
+  "sound": "A single marker-pen scribble/whoosh exactly as the strike draws on.",
+  "duration": [1.5, 2.5],
+  "prompt": "Set a short headline naming the problem, then draw a hand-style strike-through line across the one word that names it, as the rest of the line lands around it and closes on an accent-coloured word stating the fix, so the whole line reads as problem-named-then-solved in one breath.",
+  "source": "prompt-motion.com's gallery (kmasiff-cc72cb), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "intro", "problem"],
+    "purpose": ["build-tension", "show-contrast", "establish-brand"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type", "open"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "thilina-a-891c09-s02",
+  "kind": "scene",
+  "name": "a version badge, a headline and a mode switch",
+  "looks": "A small rounded version badge pops in above a two-line headline. Underneath, a three-way segmented control shows its active pill sliding from one option to another, and a grid of six icon tiles sits below it holding steady through the switch.",
+  "build": "Badge scales in (back.out) first; headline fades/rises in; the segmented control's active pill slides to the new option's position and width on power2.inOut, 0.2-0.3s; the icon grid is static, unaffected by the switch.",
+  "sound": "A light pop on the badge, a soft slide-click as the segmented control's pill moves.",
+  "duration": [2.0, 2.5],
+  "prompt": "Pop in a small version badge above a two-line headline, then slide a segmented control's active pill from one option to another underneath, while a steady grid of icon tiles sits below holding through the switch, to prove a setting actually changes the app.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "thilina-a-891c09", "url": "https://prompt-motion.com/thilina-a-891c09", "creator": "@thilina_a", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["introduce-feature", "show-ease"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

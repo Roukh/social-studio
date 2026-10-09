@@ -1,0 +1,21 @@
+{
+  "id": "rammanq-f5a90f-s04",
+  "kind": "scene",
+  "name": "what-if scenario charts on a dark card",
+  "looks": "On a near-black card, two splines (the viewer's line and a benchmark line) draw across together while small stat pills pop in beside them. A new headline asks a what-if question and the same two lines replay through a dip, with a shaded loss area and two result percentages landing at the end. It cuts again to a bundle of thin simulated paths fanning out from today's value toward a spread of possible futures, with percentile labels at the top, middle and bottom.",
+  "build": "Each beat reuses the spline-plus-pill build: two strokeDashoffset lines draw in parallel with a short lag between them, a shaded area fills between them on the what-if beat, and stat pills spring up (response ~0.36-0.42) as each line finishes. The fan chart is 20-40 faint paths sharing a start point, each eased to a different end offset with per-path easing jitter so they settle unevenly, with three labelled callouts.",
+  "sound": "A rising tone under each pair of lines drawing, a dip in pitch on the what-if crash, blips as each percentile label lands.",
+  "duration": [3.5, 4.5],
+  "prompt": "On a dark card, draw two comparison lines together with stat pills popping up beside them, then put the same comparison through a stress scenario with a shaded loss area and two result numbers. Follow it with a bundle of faint simulated paths fanning out from today's value toward a spread of futures, labelled at a few percentile points. Use this as the film's proof-under-pressure beat.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "rammanq-f5a90f", "url": "https://prompt-motion.com/rammanq-f5a90f", "creator": "@rammanq", "start": 13.0, "end": 20.8},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "build-tension", "show-contrast"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["1:1"],
+    "family": ["data"],
+    "complexity": "high"
+  }
+}

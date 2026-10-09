@@ -1,0 +1,21 @@
+{
+  "id": "samuel-yostt-891f87-s01",
+  "kind": "scene",
+  "name": "headline with an inline avatar group and a word swap payoff",
+  "looks": "A single accent dot sits alone, then a bold headline types on across the frame, with a small rounded group of overlapping avatar circles sitting inline inside the sentence like a tagged mention. The sentence wraps to a second line and its final word swaps once, in a lighter weight, to land on the real payoff word.",
+  "build": "Headline revealed with kit.typeOn; the avatar group is a fixed-width DOM chip of overlapping circular images inserted mid-string so the type-on flows around it; the final word crossfades/scales from its placeholder to the payoff word on power3.out, same mechanic as command-chip-cycle's final settle.",
+  "sound": "A light typing clack per character and a soft chime on the final word's swap.",
+  "duration": [2.0, 2.5],
+  "prompt": "Type on a bold headline with a small inline chip of overlapping avatar circles sitting mid-sentence like a tagged mention, and have the sentence's last word swap once, lighter and brighter, onto the real payoff word as the line completes.",
+  "techniques": ["kinetic-word-run", "command-chip-cycle"],
+  "source": {"film": "samuel-yostt-891f87", "url": "https://prompt-motion.com/samuel-yostt-891f87", "creator": "@samuel_yostt", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["reveal-product", "tease"],
+    "content": ["type", "character"],
+    "energy": ["punch"],
+    "format": ["16:9", "1:1", "9:16"],
+    "family": ["type"],
+    "complexity": "medium"
+  }
+}

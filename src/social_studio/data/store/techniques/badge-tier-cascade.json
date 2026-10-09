@@ -1,0 +1,20 @@
+{
+  "id": "badge-tier-cascade",
+  "kind": "technique",
+  "name": "Badge tier cascade",
+  "looks": "A short vertical list of status icons, each labelled with a name and a tier word, steps up through a tier ladder (bronze to silver to gold to diamond) in its fill and rim-light colour while a stat line fills in beside it. The rows climb out of sync with each other so the read feels earned, and the last frame holds every badge at its top tier.",
+  "build": "One icon per row, same silhouette throughout; only its fill gradient and rim-light colour swap per tier via `kit.lerpColor` through the tier stops on power2.inOut, under 0.3s per step. Stagger rows 0.15-0.25s apart. The stat line clips in under the label only once its badge reaches top tier, digits rolling up in the last 0.2s.",
+  "sound": "A light chime per tier step, pitching up with each tier, a longer chime on the final top tier per badge.",
+  "duration": [2.0, 4.0],
+  "prompt": "Show earned status as a short list of badges, each stepping up through a tier ladder of colour and material while a stat fills in beside it. Stagger the rows so they climb out of sync, and hold the last frame with every badge at its top tier.",
+  "source": "prompt-motion.com's gallery (jesscaroline7-1ff7cb), studied 2026-10-09",
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-data", "show-transformation"],
+    "content": ["data", "illustration"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "reveal"],
+    "complexity": "medium"
+  }
+}

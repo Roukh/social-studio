@@ -1,0 +1,21 @@
+{
+  "id": "quickdesignio-dd93d0-s05",
+  "kind": "scene",
+  "name": "wordmark, tagline and url hold",
+  "looks": "A small pixel-grid mark sits beside the brand name typed on with a blinking cursor. An italic serif tagline fades up underneath, then a small underlined mono URL fades in below that, and the frame holds.",
+  "build": "The name types on character by character (kit.typeOn) in a mono-accented display face, cursor blinking on the beat. The serif tagline reveals with a clipPath wipe and a small x slide. The mono URL fades and slides up 4-6px after a short pause, with a thin underline.",
+  "sound": "A light key tick per character, a soft swell under the tagline, and the bed fading out over the hold.",
+  "duration": [1.8, 2.3],
+  "prompt": "Close on the brand's mark and name typing on with a blinking cursor, an italic tagline fading up underneath it, and a small underlined site address fading in last. Hold the finished card at least a second so the message can land.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "quickdesignio-dd93d0", "url": "https://prompt-motion.com/quickdesignio-dd93d0", "creator": "@quickdesignio", "start": 12.85, "end": 15.061},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

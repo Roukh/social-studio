@@ -1,0 +1,49 @@
+{
+  "id": "prasad-pilla-2c0cba-s04",
+  "kind": "scene",
+  "name": "a verification loop draws beside a condensed before/after pipeline",
+  "looks": "A headline states that verification sits in the loop, not after it. On the left, a small circular diagram of review, QA and build steps draws itself as a cycle. On the right, a grey row of many small pipeline steps (the old way) sits above a short, green, condensed row (the new way), making the shrink obvious at a glance.",
+  "build": "The cycle's nodes and connecting arc draw on clockwise with strokeDashoffset, each node landing as its segment completes. The before row is a flex line of many small static chips; the after row tweens in from the same starting chips, merging and shrinking to fewer, wider, green-filled chips on power2.inOut.",
+  "sound": "A soft tick per node on the loop, a low hum through the draw, a satisfied chime as the condensed row settles.",
+  "duration": [
+    2.4,
+    3.0
+  ],
+  "prompt": "Claim that a safeguard runs continuously rather than as a final step. Draw a small circular loop diagram of that safeguard's stages on one side, and beside it, shrink a long row of many small steps (the old way) into a short, bright row of far fewer steps (the new way), so the contraction itself proves the claim.",
+  "techniques": [
+    "node-graph-build",
+    "data-infographic"
+  ],
+  "source": {
+    "film": "prasad-pilla-2c0cba",
+    "url": "https://prompt-motion.com/prasad-pilla-2c0cba",
+    "creator": "@prasad_pilla",
+    "start": 10.9,
+    "end": 13.6
+  },
+  "tags": {
+    "role": [
+      "proof",
+      "solution"
+    ],
+    "purpose": [
+      "show-contrast",
+      "explain-mechanism"
+    ],
+    "content": [
+      "abstract",
+      "data"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9"
+    ],
+    "family": [
+      "structure",
+      "data"
+    ],
+    "complexity": "high"
+  }
+}

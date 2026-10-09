@@ -1,0 +1,21 @@
+{
+  "id": "en-ra-81c6dd-s04",
+  "kind": "scene",
+  "name": "Results chart with a called-out spike",
+  "looks": "On the posted confirmation card a small 'clicks this week' line chart draws itself left to right under a travelling dot, climbing unevenly before a sharp rise at the end. A rounded callout holds the peak day and its value beside the chart's last point, lightly filled under the climbing stroke.",
+  "build": "data-infographic's spline: a Catmull-Rom curve through the week's points, drawn with strokeDashoffset and a dot following getPointAtLength from the master clock; the callout pill springs up at the end (response ~0.36, damping ~0.78) once the dot lands.",
+  "sound": "A rising tone under the draw, with a soft pop on the callout pill.",
+  "duration": [1.5, 2.5],
+  "prompt": "Prove a result with a small, honest chart: a line draws itself across a short span under a travelling dot, climbing to a visible spike at the end, with a small callout naming the peak value right where the line lands.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "en-ra-81c6dd", "url": "https://prompt-motion.com/en-ra-81c6dd", "creator": "@en______ra", "start": 12.97, "end": 15.4},
+  "tags": {
+    "role": ["proof", "cta"],
+    "purpose": ["show-data", "show-transformation"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["1:1", "4:5"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "francoxavier33-d2dfd2-s01",
+  "kind": "scene",
+  "name": "Warm serif headline types on, phone close behind",
+  "looks": "On a soft peach gradient, a two-line serif headline types on with a blinking cursor, its last word switching to a loose cursive script with a hand-drawn underline swash. It cuts to a phone held close and centred, a small notification card popping up over a blurred message thread behind it.",
+  "build": "script-accent-underline for the headline. The phone is a static or barely-drifting device frame; the notification card scales/fades in (0.9->1, power3.out) over the backgrounded thread, which stays soft-focus throughout.",
+  "sound": "A soft typewriter clack per character and a pen swish under the underline, then a light pop as the notification card lands.",
+  "duration": [2.5, 3.5],
+  "prompt": "Open warm, not corporate: type on a short serif headline with one word switching to a cursive script and a hand-drawn underline, then cut to a phone held close with a single real notification popping up over a softly blurred thread behind it.",
+  "techniques": ["script-accent-underline"],
+  "source": {"film": "francoxavier33-d2dfd2", "url": "https://prompt-motion.com/francoxavier33-d2dfd2", "creator": "@francoxavier33", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "set-mood"],
+    "content": ["type", "device"],
+    "energy": ["calm"],
+    "format": ["9:16", "4:5"],
+    "family": ["type", "interface"],
+    "complexity": "low"
+  }
+}

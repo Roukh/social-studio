@@ -1,0 +1,50 @@
+{
+  "id": "adamdesgns-478d6d-s04",
+  "kind": "scene",
+  "name": "dot field condenses then a big stat counter lands",
+  "looks": "A scattered field of blue dots over a dark starfield condenses into a dense halftone circle. It cross-fades into a huge number counting up against the same starfield, with a small caption beneath naming what it counts, and a thin progress bar with two mono labels (\"verified\" / \"calculated\") ticking at the bottom edge.",
+  "build": "noise-dissolve-logomark for the dot condense: seeded points ease from scattered starting positions to a circular target grid on power3.out. Cross-fade into a data-infographic-style digit roll-up (vertical blur during the count) for the big number, with a live-readout-hud strip (two mono values, no easing) pinned to the bottom.",
+  "sound": "A soft shimmer as the dots gather, a rising tone under the count, a tick on each readout update.",
+  "duration": [
+    2.2,
+    2.8
+  ],
+  "prompt": "Over a starfield, let a loose field of dots condense into a dense circular cluster, then collapse into a single large number counting up with a short caption beneath it naming what the number represents. Run a thin live readout strip along the bottom edge with two small changing values, to make the count feel measured rather than decorative.",
+  "techniques": [
+    "noise-dissolve-logomark",
+    "data-infographic",
+    "live-readout-hud"
+  ],
+  "source": {
+    "film": "adamdesgns-478d6d",
+    "url": "https://prompt-motion.com/adamdesgns-478d6d",
+    "creator": "@Adamdesgns",
+    "start": 5.4,
+    "end": 8.1
+  },
+  "tags": {
+    "role": [
+      "proof",
+      "demo"
+    ],
+    "purpose": [
+      "show-data",
+      "show-scale"
+    ],
+    "content": [
+      "data",
+      "abstract"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9"
+    ],
+    "family": [
+      "particles",
+      "data"
+    ],
+    "complexity": "high"
+  }
+}

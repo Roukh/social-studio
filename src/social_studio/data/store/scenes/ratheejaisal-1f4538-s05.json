@@ -1,0 +1,21 @@
+{
+  "id": "ratheejaisal-1f4538-s05",
+  "kind": "scene",
+  "name": "wordmark, tagline and cta hold",
+  "looks": "The small app icon and brand name settle centred with a short tagline fading up beneath them. A solid call-to-action button fades in, and a cursor flies in to press it, the button scaling down briefly on the click before the frame holds.",
+  "build": "Icon and wordmark fade/scale in together, tagline reveals with a short opacity+y tween. The button is a DOM pill, fading in then pressed by a cursor on a power3.inOut path with a 0.045s press scale (0.92) and a 0.14s release.",
+  "sound": "A soft swell as the wordmark lands, a click on the cursor's press, bed fading out over the hold.",
+  "duration": [1.8, 2.3],
+  "prompt": "Close on the brand's mark and name settling centred with a short tagline fading up beneath, then a solid call-to-action button fading in and a cursor flying in to press it, with a brief scale-down on the click before the card holds.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "ratheejaisal-1f4538", "url": "https://prompt-motion.com/ratheejaisal-1f4538", "creator": "@RatheeJaisal", "start": 17.5, "end": 20.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

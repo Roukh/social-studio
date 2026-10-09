@@ -1,0 +1,20 @@
+{
+  "id": "script-accent-underline",
+  "kind": "technique",
+  "name": "Script accent underline",
+  "looks": "A short serif or display headline types on character by character with a blinking cursor, in a warm, editorial voice. The one emphasised word switches to a loose cursive script face as it lands, and a hand-drawn underline swash draws itself beneath that word a beat later.",
+  "build": "The headline types on with kit.typeOn, one voice, with a blinking ::after cursor. The emphasised word is a separate span in a script font, landing with the same typing rhythm. The underline is an SVG path under the word, revealed with strokeDashoffset, hand-wobbled, drawn after the word finishes on power2.out.",
+  "sound": "A soft typewriter clack per character, and a light pen-on-paper swish under the underline draw.",
+  "duration": [1.5, 2.5],
+  "prompt": "Type on a short, warm headline in a serif voice with a blinking cursor, letting the one word the shot is about switch to a cursive script face and gain a hand-drawn underline swash as it lands, so the line feels personal rather than corporate.",
+  "source": "a Momwise parenting-app hype video in prompt-motion.com's gallery (prompt-motion.com/francoxavier33-d2dfd2), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "intro", "cta"],
+    "purpose": ["establish-brand", "set-mood", "tease"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["9:16", "4:5", "1:1"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

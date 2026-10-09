@@ -1,0 +1,21 @@
+{
+  "id": "thilina-a-891c09-s08",
+  "kind": "scene",
+  "name": "mascot end card with a CTA button",
+  "looks": "The mark and wordmark settle above a short version line, then a round character mascot drops in and lands with a small bounce. A row of small icon badges fades in beneath it, and a bright rounded call-to-action button settles at the very bottom.",
+  "build": "Mark/wordmark fade/scale in; the mascot drops in from above and settles with an overshoot-and-settle bounce (back.out, 1-2 small oscillations); the icon row fades in on a short stagger; the CTA button scales in last and holds.",
+  "sound": "A soft confirm tone as the mark lands, a cheerful boing on the mascot's bounce, a light chime on the button.",
+  "duration": [2.0, 2.5],
+  "prompt": "Close on the mark and wordmark settling above a short version line, then drop a small character mascot in to land with a playful bounce, fade in a row of small icon badges beneath it, and settle a bright call-to-action button at the bottom.",
+  "techniques": ["end-card-decode", "squash-stretch-ball-demo"],
+  "source": {"film": "thilina-a-891c09", "url": "https://prompt-motion.com/thilina-a-891c09", "creator": "@thilina_a", "start": 22.5, "end": 25.045},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "character", "type"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "melvynx-6cde6c-s07",
+  "kind": "scene",
+  "name": "Two cards state the pricing rule",
+  "looks": "Under a two-line claim about what's billed and what's free, two cards pop in side by side: one with a large contact count still climbing and a small \"+\" add control, the other a bold \"$0\" beside a lock icon, pairing a real number with a flat promise.",
+  "build": "Cards pop in together with a light stagger (80-100ms), the contact count rolling up for a beat before settling, the \"$0\" card's lock icon giving one small shake once it lands to underline the promise.",
+  "sound": "A soft tick under the rolling count, a light confirm chime on the lock icon's shake.",
+  "duration": [1.8, 2.3],
+  "prompt": "Under a two-line pricing claim, pop in two cards side by side: one showing a large, still-climbing count next to a small add control, the other a bold flat price next to a lock icon, pairing a real growing number against a flat, locked-in promise.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "melvynx-6cde6c", "url": "https://prompt-motion.com/melvynx-6cde6c", "creator": "@melvynx", "start": 37.5, "end": 40.0},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-contrast", "show-data"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

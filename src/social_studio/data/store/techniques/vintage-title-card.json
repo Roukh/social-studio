@@ -1,0 +1,20 @@
+{
+  "id": "vintage-title-card",
+  "kind": "technique",
+  "name": "Vintage title card",
+  "looks": "A title letters in with an ornate, period display face, gold against near-black, each letter carrying a soft outer glow like old marquee lighting. A short subtitle in a smaller serif settles underneath a beat later, with a fine hairline rule or small flourish between them.",
+  "build": "Title text in a decorative display face with a blurred glow duplicate behind it; fades/rises in as one block or a loose stagger (power2.out); subtitle fades in after a pause at lower contrast with a thin rule between; fine grain and vignette over the whole card.",
+  "sound": "A low orchestral swell or single warm chord under the title's arrival, a soft hiss of period film grain under the hold.",
+  "duration": [3.0, 8.0],
+  "prompt": "Letter in a title in an ornate, glowing period display face against near-black, then settle a short subtitle underneath a beat later with a thin rule between them, finished with a fine film grain and vignette, so the card reads like the opening of a silent film rather than a digital product.",
+  "source": "a shadow-play explainer studied from x.com/LLMJunky/status/2106411941497389342, studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["set-mood", "establish-brand"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "9:16", "4:5"],
+    "family": ["type", "open"],
+    "complexity": "medium"
+  }
+}

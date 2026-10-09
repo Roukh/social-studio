@@ -1,0 +1,21 @@
+{
+  "id": "cansincengiz-me-cf68dd-s02",
+  "kind": "scene",
+  "name": "the laptop lid falls shut and sends it to sleep",
+  "looks": "The same laptop's lid swings down and settles shut under a headline saying it falls asleep, small hand-drawn \"Z\" marks drifting up from the hinge to sell the idea of the device dozing off.",
+  "build": "squash-stretch-ball-demo's physical-honesty approach applied to the hinge: the lid rotates closed on a real eased fall (power2.in then a soft settle bounce), with two or three outline \"Z\" glyphs easing upward and fading as they rise.",
+  "sound": "A soft mechanical close, a gentle chime as the Zs drift up.",
+  "duration": [2.3, 2.7],
+  "prompt": "Animate a device's lid or cover swinging shut and settling with a small honest bounce, under a headline about it going to sleep. Let a couple of small drifting glyphs (sleep marks, a dimming dot) rise and fade near the hinge to sell the idea without any text label needed.",
+  "techniques": ["squash-stretch-ball-demo"],
+  "source": {"film": "cansincengiz-me-cf68dd", "url": "https://prompt-motion.com/cansincengiz-me-cf68dd", "creator": "@cansincengiz_me", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-transformation", "show-ease"],
+    "content": ["device"],
+    "energy": ["calm"],
+    "format": ["1:1"],
+    "family": ["physics"],
+    "complexity": "low"
+  }
+}

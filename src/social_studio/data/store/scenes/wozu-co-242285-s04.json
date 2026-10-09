@@ -1,0 +1,21 @@
+{
+  "id": "wozu-co-242285-s04",
+  "kind": "scene",
+  "name": "a small node chain connects two outside tools through the mark",
+  "looks": "A headline promises freedom to use whatever's already chosen. Three small icons sit in a row, two outside tools on either end, the product's own mark in the middle, connected by two short lines that draw on in sequence.",
+  "build": "Icons sit at fixed positions; each connecting line strokes on with strokeDashoffset (power2.out), left line first then right, same mechanic as node-graph-build but for a simple three-node chain rather than a branching tree.",
+  "sound": "A soft tick per line connecting.",
+  "duration": [2.0, 2.5],
+  "prompt": "Promise the freedom to keep using whatever tools are already chosen, then draw two short lines connecting two outside tool icons to the product's own mark sitting between them, in sequence, so the mark reads as a connector, not a replacement.",
+  "techniques": ["node-graph-build"],
+  "source": {"film": "wozu-co-242285", "url": "https://prompt-motion.com/wozu-co-242285", "creator": "@wozu_co", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["abstract", "logo"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["data", "structure"],
+    "complexity": "low"
+  }
+}

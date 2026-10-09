@@ -1,0 +1,21 @@
+{
+  "id": "twoclipping-221cab-s08",
+  "kind": "scene",
+  "name": "plain wordmark and tagline close",
+  "looks": "A lower-case wordmark with a single trailing dot sits alone on a near-white field, with a short, quiet tagline fading in beneath it summing up the journey the film just showed.",
+  "build": "Wordmark fades/scales in (0.96 -> 1, power3.out); the tagline fades/rises 4-6px in after a short pause and holds at least 1s.",
+  "sound": "A soft confirm tone as the wordmark lands, the bed fading out under the hold.",
+  "duration": [1.5, 2.0],
+  "prompt": "Close on a plain lower-case wordmark alone on a near-white field, with a short, quiet tagline fading in beneath it that sums up the transformation the film just showed; hold the finished card.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "twoclipping-221cab", "url": "https://prompt-motion.com/twoclipping-221cab", "creator": "@twoclipping", "start": 27.5, "end": 29.077},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

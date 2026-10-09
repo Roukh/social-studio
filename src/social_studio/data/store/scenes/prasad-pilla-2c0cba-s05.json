@@ -1,0 +1,21 @@
+{
+  "id": "prasad-pilla-2c0cba-s05",
+  "kind": "scene",
+  "name": "end card: icon mark, kicker and an underlined closing line",
+  "looks": "A simple geometric icon mark sits centred above a small spaced-out kicker line naming the category. A bold closing headline settles beneath both, and a hairline draws under part of it for emphasis.",
+  "build": "The icon and kicker arrive together, y:8-12px->0, opacity 0->1, power2.out; the headline follows as one settled block, no per-letter stagger; the underline is a scaleX reveal from the left under the emphasised phrase, landing just after the headline settles.",
+  "sound": "A soft low swell fading out under the hold, a light tick as the underline draws.",
+  "duration": [1.5, 2.0],
+  "prompt": "Close on a simple icon mark and a small spaced-out category kicker settling together above a bold closing claim. Draw a hairline under the most important phrase in that claim just after it lands, and hold the finished card without further motion.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "prasad-pilla-2c0cba", "url": "https://prompt-motion.com/prasad-pilla-2c0cba", "creator": "@prasad_pilla", "start": 13.6, "end": 15.296},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

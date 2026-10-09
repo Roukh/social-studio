@@ -1,0 +1,21 @@
+{
+  "id": "llmjunky-2106411941497389342-s05",
+  "kind": "scene",
+  "name": "a wall clock flips years while the experiment slowly completes",
+  "looks": "A silhouetted figure works at a bench. A small wall-mounted card above them flips from one year to the next across several hard cuts, 1905, 1906, 1915, 1916, while the apparatus on the bench grows more complete and a thin diagonal ray with a small axis label draws further each time, until the full result sits finished and labelled.",
+  "build": "The year card is a flipping DOM text swap on each cut, set directly with no easing, same mechanic as live-readout-hud; the apparatus and the diagonal ray's reveal both advance a little further on each cut, cued to the same year change rather than a separate clock, with a small axis label (annotated-diagram-overlay's anchored callout) appearing once the result is legible.",
+  "sound": "A soft mechanical tick on each year flip, a faint workshop ambience under the figure's work.",
+  "duration": [8.0, 12.5],
+  "prompt": "Hold a silhouetted figure working at a bench while a small wall card flips forward through several years across hard cuts, the apparatus growing more complete and a diagonal ray's reveal advancing a little further each time, until a labelled result sits finished, compressing years of work into one continuous, legible build.",
+  "techniques": ["live-readout-hud", "annotated-diagram-overlay"],
+  "source": {"film": "llmjunky-2106411941497389342", "url": "https://x.com/LLMJunky/status/2106411941497389342", "creator": "@LLMJunky", "start": 1545.0, "end": 1557.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-craft", "build-tension"],
+    "content": ["character", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "annotation"],
+    "complexity": "high"
+  }
+}

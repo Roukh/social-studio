@@ -1,0 +1,21 @@
+{
+  "id": "kantamk-61f410-s01",
+  "kind": "scene",
+  "name": "Ball breaks through twelve rings",
+  "looks": "A small ball on a tether orbits inside twelve nested rings, each with one open gap. Every time the ball reaches a ring's gap it passes through in a burst of tiny particles, that ring fades away, a caption counts down the rings left, and the whole glow shifts a step around the colour wheel from magenta through violet to cyan. Each pass happens a touch faster than the last.",
+  "build": "Concentric arcs with seeded gap angles; the ball orbits on the innermost active ring's radius, tether line to centre. Pass triggers a small particle burst, fades that ring's opacity to 0 over ~250ms, steps the counter text and the hue. Orbit speed increases ~5% per ring so the sequence visibly accelerates toward the end.",
+  "sound": "One note per ring stepping up a pentatonic scale, so the full run of rings plays as a short rising melody; a soft swoosh under each orbit pass.",
+  "duration": [1.8, 2.5],
+  "prompt": "Loop an object orbiting inside a stack of concentric gapped rings, breaking through one ring's gap at a time with a small particle burst, a counter ticking down and the colour palette stepping forward on every pass, the pace quickening as fewer rings remain. Good for any countdown, unlock sequence or multi-step build toward a payoff.",
+  "techniques": ["ring-breakout-orbit"],
+  "source": {"film": "kantamk-61f410", "url": "https://prompt-motion.com/kantamk-61f410", "creator": "@kantamk", "start": 0.0, "end": 27.0},
+  "tags": {
+    "role": ["hook", "demo"],
+    "purpose": ["tease", "build-tension"],
+    "content": ["abstract"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["physics", "generative"],
+    "complexity": "medium"
+  }
+}

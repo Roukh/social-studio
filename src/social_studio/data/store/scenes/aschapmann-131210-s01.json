@@ -1,0 +1,21 @@
+{
+  "id": "aschapmann-131210-s01",
+  "kind": "scene",
+  "name": "a tilted wall of real posts backs the opening claim",
+  "looks": "A dense, slightly tilted wall of small dark post cards fills the background, each a different short line of real-sounding text, while a bold headline builds word by word in the foreground, its key phrase in the accent colour.",
+  "build": "variant-stack-reveal for the wall (12-16 small DOM cards in a tilted grid, tiny seeded fade-in delays); the headline keys in with a short fade-and-rise per phrase, the accent words colour-flashing in on arrival.",
+  "sound": "A soft overlapping murmur of quiet pops behind, a clean type-in tick for the headline.",
+  "duration": [4.5, 5.0],
+  "prompt": "Fill the background with a dense, slightly tilted wall of short real-sounding snippets, each fading up with a tiny stagger, while a bold claim builds word by word in the foreground with its key phrase landing in the accent colour. Use it to open on volume and noise before naming the opportunity inside it.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "aschapmann-131210", "url": "https://prompt-motion.com/aschapmann-131210", "creator": "@aschapmann", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "build-tension"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["open", "collage"],
+    "complexity": "medium"
+  }
+}

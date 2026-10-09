@@ -1,0 +1,20 @@
+{
+  "id": "pixelate-resolve",
+  "kind": "technique",
+  "name": "Pixelate resolve",
+  "looks": "A portrait or scene starts as a coarse block of large, blurred pixels, then sharpens in discrete steps rather than a smooth blur-out, while supporting UI populates around it before the image itself is legible.",
+  "build": "Render the source at very low resolution, then step the resolution up 2-4 times at discrete intervals with image-rendering: pixelated so each step stays blocky; time surrounding UI to arrive during the coarsest steps.",
+  "sound": "A soft digital static or modem-like texture that clears as the image sharpens.",
+  "duration": [2.0, 3.0],
+  "prompt": "Show a portrait or scene starting as a coarse, blurred block of pixels, then sharpening in a few discrete steps rather than a smooth fade, like a connection warming up. Let supporting labels or messages populate around it while it is still coarse, so the beat feels live before the image itself resolves.",
+  "source": "prompt-motion.com's gallery (anthonyriera-9b1b2a), studied 2026-10-09",
+  "tags": {
+    "role": ["intro", "demo"],
+    "purpose": ["show-transformation", "build-tension"],
+    "content": ["photo", "character"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["reveal", "texture"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "viktoroddy-98c1d8-s02",
+  "kind": "scene",
+  "name": "a bold claim with one word in colour, over a thumbnail row",
+  "looks": "A two-line bold claim fades in, with one key word picked out in a bright accent colour mid-sentence. A short row of small preview thumbnails sits beneath it, quiet and secondary to the headline.",
+  "build": "The headline fades/rises 6-8px in on power2.out, the accent word's colour set from the start rather than swapped; the thumbnail row fades in afterward at lower opacity so it reads as supporting evidence, not competing content.",
+  "sound": "A soft rise under the headline landing.",
+  "duration": [2.0, 2.5],
+  "prompt": "Fade in a bold two-line claim with one key word picked out in a bright accent colour, then bring in a quiet row of small preview thumbnails beneath it that support the claim without competing with it.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "viktoroddy-98c1d8", "url": "https://prompt-motion.com/viktoroddy-98c1d8", "creator": "@viktoroddy", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "tease"],
+    "content": ["type", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

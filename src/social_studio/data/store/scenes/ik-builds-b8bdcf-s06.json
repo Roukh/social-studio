@@ -1,0 +1,21 @@
+{
+  "id": "ik-builds-b8bdcf-s06",
+  "kind": "scene",
+  "name": "Light close: mark, wordmark, one-line claim",
+  "looks": "A hard switch back to the light field settles on the brand's triangular mark and wordmark together, a single plain sentence beneath naming who it is for, and the URL in a small caps caption at the very bottom.",
+  "build": "wordmark-assemble's finished-state settle for the mark and name together; the sentence and URL fade in on a short stagger after, power2.out.",
+  "sound": "A soft confirm tone as the lockup settles, fading to silence under the URL.",
+  "duration": [1.5, 2.0],
+  "prompt": "Close by switching back to the light field one last time and settling on the brand's mark and name together, a single plain sentence naming exactly who the product is for, and a small URL caption as the quiet final beat.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "ik-builds-b8bdcf", "url": "https://prompt-motion.com/ik-builds-b8bdcf", "creator": "@ik_builds", "start": 11.5, "end": 14.5},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

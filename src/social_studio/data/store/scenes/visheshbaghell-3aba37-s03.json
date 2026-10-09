@@ -1,0 +1,21 @@
+{
+  "id": "visheshbaghell-3aba37-s03",
+  "kind": "scene",
+  "name": "a tally-mark logo settles with its one-line pitch",
+  "looks": "A small tally-mark icon and the wordmark fade in together and sit still, with a short italic line fading in underneath explaining exactly what the product finds and where.",
+  "build": "Mark and wordmark fade/scale in together (0.92 -> 1, power3.out); the tagline fades in after a short pause at lower opacity, same timing as mark-stroke-reveal's wordmark beat.",
+  "sound": "A soft confirm tone as the mark lands.",
+  "duration": [2.0, 2.5],
+  "prompt": "Settle a small tally-mark icon and wordmark together on a plain field, then fade in a short italic line underneath stating exactly what the product finds and where it finds it.",
+  "techniques": ["mark-stroke-reveal"],
+  "source": {"film": "visheshbaghell-3aba37", "url": "https://prompt-motion.com/visheshbaghell-3aba37", "creator": "@VisheshBaghell", "start": 12.5, "end": 15.0},
+  "tags": {
+    "role": ["intro"],
+    "purpose": ["establish-brand", "reveal-product"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["identity"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "reyzostyle-b55864-s04",
+  "kind": "scene",
+  "name": "script generator typing out a hook line",
+  "looks": "A dark rounded panel pops in with a set of mode tabs across the top, then a script document types itself on below, line by line, in mono type, finishing on a short opening hook line that stays highlighted as the payoff.",
+  "build": "The terminal-type-on mechanic: DOM text revealed per character at a steady rate with a blinking block cursor; the panel scales/pops in before typing starts (0.9 -> 1, power3.out); the final hook line gets a subtle highlight once typing completes.",
+  "sound": "A soft mechanical key tick per character, a single confirm tone on the finished line.",
+  "duration": [2.1, 2.5],
+  "prompt": "Pop in a dark, rounded document panel with a few mode tabs across the top, then type a short script onto it character by character in mono type with a blinking cursor, finishing on one highlighted opening line as the shot's payoff, ready to use.",
+  "techniques": ["terminal-type-on"],
+  "source": {"film": "reyzostyle-b55864", "url": "https://prompt-motion.com/reyzostyle-b55864", "creator": "@reyzostyle", "start": 6.3, "end": 8.5},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["show-ease", "reveal-product"],
+    "content": ["product-ui", "code"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

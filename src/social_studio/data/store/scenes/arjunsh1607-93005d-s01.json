@@ -1,0 +1,21 @@
+{
+  "id": "arjunsh1607-93005d-s01",
+  "kind": "scene",
+  "name": "a glitching category word cuts through client proof",
+  "looks": "A huge category word glitches and flickers across a solid colour card, a row of small client names beneath it; hard cuts take it to a moody portrait with floating data callouts, then to a client's logo centred on a soft gradient card, each full-bleed and on the beat.",
+  "build": "kinetic-word-run: the glitching word uses noise-dissolve-logomark's seeded-point jitter on the letterforms instead of a clean reveal; the portrait and logo cards are hard DOM swaps with no crossfade, the HUD frame's corner brackets and timecode running the whole time.",
+  "sound": "A glitch texture under the word, a hit on each hard cut.",
+  "duration": [3.5, 4.0],
+  "prompt": "Open on a huge category word that glitches and flickers on a bold colour card, with a short row of client names beneath it. Hard-cut through a moody portrait carrying a couple of small floating data callouts, then to a single client logo on a soft gradient card, each cut landing on the beat with a HUD frame running throughout.",
+  "techniques": ["kinetic-word-run", "noise-dissolve-logomark"],
+  "source": {"film": "arjunsh1607-93005d", "url": "https://prompt-motion.com/arjunsh1607-93005d", "creator": "@arjunsh1607", "start": 0.0, "end": 4.0},
+  "tags": {
+    "role": ["hook", "proof"],
+    "purpose": ["establish-brand", "show-scale"],
+    "content": ["type", "logo", "photo"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["type", "frame"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "ndhabarde11-f155b4-s08",
+  "kind": "scene",
+  "name": "closing card lists the skill tags and signs off available for work",
+  "looks": "A thin hairline draws across the top, then a role label, a bold display name and a row of small rounded skill-tag pills settle in on a dark field, the last pill lit in the accent colour. A second pass adds one more tag and a small glowing dot with an availability line, while a faint ring quietly rotates in the background.",
+  "build": "A hairline scales in from one end, the role label and name fade/rise in together, then the tag pills stagger in left to right (power2.out, ~60-80ms apart) with the final pill getting an accent fill and a soft glow; the availability dot pulses gently and its label fades in last, held static as the backdrop keeps a slow, barely-visible rotation.",
+  "sound": "A soft swell as the hairline draws, a light tick per pill landing, and a final soft chime on the availability line.",
+  "duration": [1.3, 2.0],
+  "prompt": "Close on a simple credentials card: a drawn hairline, a role and name, and a row of small skill-tag pills that land one after another with the last one lit in the accent colour, finishing on a quietly pulsing availability dot and line, held on a calm, almost-still backdrop.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "ndhabarde11-f155b4", "url": "https://prompt-motion.com/ndhabarde11-f155b4", "creator": "@ndhabarde11", "start": 13.5, "end": 15.061},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

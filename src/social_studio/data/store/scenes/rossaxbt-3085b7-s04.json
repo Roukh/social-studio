@@ -1,0 +1,21 @@
+{
+  "id": "rossaxbt-3085b7-s04",
+  "kind": "scene",
+  "name": "reference swatches scatter and settle around a portrait",
+  "looks": "A short headline types on, then small square reference swatches, each a different muted tone sample, drift in from the edges and settle in a loose ring around a central portrait photo, slightly offset and rotated so no two sit flush. The portrait itself takes on the swatches' shared tone a beat after they land.",
+  "build": "Swatch squares placed with kit.rng-seeded offset x/y/rotation, staggered entrance 10-30% uneven on a spring ease (kit.springEase); the portrait's CSS filter (hue/duotone) crossfades to the swatches' shared tone once the last swatch settles.",
+  "sound": "A soft cluster of hits as the swatches land, one per swatch, then a light shimmer as the portrait's tone shifts.",
+  "duration": [2.0, 2.5],
+  "prompt": "Type a short line, then let a handful of small reference swatches drift in and settle unevenly around a central photo, each one a slightly different offset and rotation, and have the photo itself pick up their shared tone the moment they settle. Keep the photo and swatches generic stock, not a real shoot.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "rossaxbt-3085b7", "url": "https://prompt-motion.com/rossaxbt-3085b7", "creator": "@rossaxbt", "start": 8.0, "end": 10.5},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-craft", "explain-mechanism"],
+    "content": ["photo", "product-ui"],
+    "energy": ["calm"],
+    "format": ["1:1", "4:5", "9:16"],
+    "family": ["collage", "interface"],
+    "complexity": "medium"
+  }
+}

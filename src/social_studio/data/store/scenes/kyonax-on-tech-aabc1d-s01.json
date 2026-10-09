@@ -1,0 +1,21 @@
+{
+  "id": "kyonax-on-tech-aabc1d-s01",
+  "kind": "scene",
+  "name": "Pipeline stage numeral steps through parse-to-render",
+  "looks": "On a near-black ground with a faint amber code-scroll texture, a huge outline numeral and a short stage label sit in the corner (01, then 02 PARSE). As the stage advances, the main panel swaps from raw source code to a branching tree diagram, each node labelled by a thin leader line, then on to a styled rendered document, always in sync with the numeral change.",
+  "build": "Numeral+label cross-fade 150-200ms on each stage change, cued to the same beat as the main panel swap. Tree diagram nodes connect to their labels with straight leader-line strokes drawing on (`strokeDashoffset`), each landing 60-100ms after its parent node settles.",
+  "sound": "A short digital blip on each stage change, pitched a step higher per stage; a soft tick per leader line landing.",
+  "duration": [4.0, 6.0],
+  "prompt": "Mark a short technical pipeline's stages with a huge numeral and label in the corner, swapping the main content between raw input, an annotated structural diagram with leader-line labels on each part, and a finished rendered output, the numeral and the content always changing together on the same beat.",
+  "techniques": ["stage-numeral-marker", "annotated-diagram-overlay"],
+  "source": {"film": "kyonax-on-tech-aabc1d", "url": "https://prompt-motion.com/kyonax-on-tech-aabc1d", "creator": "@kyonax_on_tech", "start": 0.0, "end": 8.0},
+  "tags": {
+    "role": ["intro", "demo"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["code", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["structure", "annotation"],
+    "complexity": "medium"
+  }
+}

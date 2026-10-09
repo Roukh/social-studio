@@ -1,0 +1,21 @@
+{
+  "id": "iammxfschr-d68f90-s06",
+  "kind": "scene",
+  "name": "Pricing claim lands as one serif line",
+  "looks": "A single long serif line fades in across the frame, three short claims in a row, each separated by a period, one claim's price picked out in the accent colour.",
+  "build": "A single-line list-stack-reveal variant: each clause fades/slides in left to right instead of top to bottom, the accent clause getting its own colour tween; no card or UI behind it, just type on a plain field.",
+  "sound": "A soft tick per clause landing, left to right.",
+  "duration": [1.5, 2.0],
+  "prompt": "Close on the commercial terms as one calm, confident serif line: a short run of plain claims separated by periods, landing left to right, with the price itself picked out in the brand's accent colour as the one number that matters.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "iammxfschr-d68f90", "url": "https://prompt-motion.com/iammxfschr-d68f90", "creator": "@iamMXFSCHR", "start": 26.45, "end": 30.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["type", "close"],
+    "complexity": "low"
+  }
+}

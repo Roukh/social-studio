@@ -1,0 +1,21 @@
+{
+  "id": "agonaliu-466a8f-s03",
+  "kind": "scene",
+  "name": "typed search query returns an exact match",
+  "looks": "A headline pairs a bold word with an italic accent word above a clean search bar. A query types itself into the bar, a small result count and filter caption appear beneath, then the scene cuts to a single connected result card zooming into frame.",
+  "build": "glass-ui-flow: a search input with a blinking caret typing the query (kit.typeOn), a result row fading/sliding in once typing completes, then a hard cut to a DOM card entering on a spring with a slight scale-up.",
+  "sound": "A soft typing clack per character, a light blip as the result count appears, a whoosh on the card cut.",
+  "duration": [2.3, 2.7],
+  "prompt": "Show a short headline above a clean search bar as a query types itself in, with a small exact-match count appearing under it. Cut to a single result card springing into frame to prove the search actually found something specific.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "agonaliu-466a8f", "url": "https://prompt-motion.com/agonaliu-466a8f", "creator": "@agonaliu_", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

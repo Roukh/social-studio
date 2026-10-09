@@ -1,0 +1,21 @@
+{
+  "id": "kloss-xyz-15182a-s02",
+  "kind": "scene",
+  "name": "Instruction chips arrive, then get struck through",
+  "looks": "Small coloured pill chips, each a short instruction (\"make it pop\", \"but keep it minimal\"), drop in one at a time under a header reading like an incoming request. A beat later, a couple of the chips get a diagonal strike-through and go dim, as if being crossed off a list in real time, while the rest stay bright.",
+  "build": "Chips are rounded-rect pills in a wrap layout, each with its own flat colour; they pop in with a small overshoot, staggered 120-180ms apart. The strike-through is a single diagonal line drawing across the retired chip (`strokeDashoffset`, 150ms) immediately followed by its opacity dropping to 40%.",
+  "sound": "A light pop per chip arriving, a sharper zip sound on each strike-through.",
+  "duration": [1.8, 2.5],
+  "prompt": "Drop in a row of small coloured instruction chips one at a time under a header, then strike a diagonal line through a couple of them and dim them, as if the list is being edited live while the rest stay bright and active.",
+  "techniques": ["command-chip-cycle"],
+  "source": {"film": "kloss-xyz-15182a", "url": "https://prompt-motion.com/kloss-xyz-15182a", "creator": "@kloss_xyz", "start": 15.0, "end": 18.0},
+  "tags": {
+    "role": ["transition", "problem"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type", "interface"],
+    "complexity": "low"
+  }
+}

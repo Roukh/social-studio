@@ -1,0 +1,21 @@
+{
+  "id": "ho-ba-f3f0e9-s06",
+  "kind": "scene",
+  "name": "One ember resolves into the final lockup",
+  "looks": "A single soft warm point of light sits alone in a grey void, holding. It resolves into the full closing lockup: icon, wordmark and tagline, with a short row of small feature pills settling beneath it.",
+  "build": "cinematic-atmosphere-hold for the single ember, held still with a slow pulse; the resolve to the lockup is a cross-fade, and wordmark-assemble's settle brings in the icon and name together; the feature pills use variant-stack-reveal's small seeded stagger, settling in a single row.",
+  "sound": "A long, low hold under the ember, then a soft confirm chime as the lockup and pills land.",
+  "duration": [2.5, 3.5],
+  "prompt": "Close on near-nothing before the final answer: hold a single soft point of light alone for a beat, then resolve it into the brand's full lockup, icon, name and a short tagline, with a row of small feature pills settling beneath it as the last word.",
+  "techniques": ["cinematic-atmosphere-hold", "wordmark-assemble", "variant-stack-reveal"],
+  "source": {"film": "ho-ba-f3f0e9", "url": "https://prompt-motion.com/ho-ba-f3f0e9", "creator": "@HO_BA", "start": 25.0, "end": 29.5},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "medium"
+  }
+}

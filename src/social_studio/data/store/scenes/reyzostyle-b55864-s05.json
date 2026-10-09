@@ -1,0 +1,21 @@
+{
+  "id": "reyzostyle-b55864-s05",
+  "kind": "scene",
+  "name": "comet-drawn mark into wordmark lockup with CTA",
+  "looks": "A soft comet of light loops and tightens into the clean outline of a small leaf-like brand mark on a dark field. It cuts to the full wordmark beside the mark, with a short tagline underneath, a button, and a web address settling into place for the close.",
+  "build": "The particle-flow-comet mechanic: a comet head follows a tightening parametric loop with a fading tail, converging into the mark's outline rather than a free figure-8. The lockup is DOM type with the tagline wiping in and a CTA button scaling in (the wordmark-assemble mechanic).",
+  "sound": "A riser under the comet's loop, a soft chime as it resolves into the mark, a confident hit as the lockup and button land.",
+  "duration": [1.3, 1.8],
+  "prompt": "Let a soft trail of light loop and tighten until it draws the outline of a small brand mark, then cut to the full name beside it with a short tagline, a call-to-action button and a web address settling into a calm, confident close.",
+  "techniques": ["particle-flow-comet", "wordmark-assemble"],
+  "source": {"film": "reyzostyle-b55864", "url": "https://prompt-motion.com/reyzostyle-b55864", "creator": "@reyzostyle", "start": 8.5, "end": 10.048},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["particles", "identity"],
+    "complexity": "medium"
+  }
+}

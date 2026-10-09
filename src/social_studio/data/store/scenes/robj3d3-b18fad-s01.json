@@ -1,0 +1,21 @@
+{
+  "id": "robj3d3-b18fad-s01",
+  "kind": "scene",
+  "name": "a comet streak draws a familiar mark from total darkness",
+  "looks": "Total black holds for a beat, then a warm ember-coloured comet streaks diagonally across the frame, its glow tracing the stroke of a simple two-letter mark as it passes. The mark settles, glowing softly, and a short line of caption text fades in beneath it saying the viewer assumed this symbol only meant one familiar thing.",
+  "build": "A particle/canvas comet (seeded points with a tapering tail) travels a path that doubles as the mark's stroke (SVG dasharray reveal timed to the comet's pass); once the stroke completes, the mark holds with a soft outer glow (box-shadow/blur layer); a caption line fades/rises in beneath it after a short pause.",
+  "sound": "A rising riser under the comet's pass, a soft low hit as the mark settles, a quiet intake under the caption.",
+  "duration": [4, 5.5],
+  "prompt": "Open on total darkness, then let a warm streak of light cross the frame and, in passing, draw the stroke of a simple, familiar mark. Hold the mark glowing alone, then fade in a short line of text that names the one thing everyone already assumes this symbol means -- set up the assumption before you break it.",
+  "techniques": ["particle-flow-comet", "mark-stroke-reveal"],
+  "source": {"film": "robj3d3-b18fad", "url": "https://prompt-motion.com/robj3d3-b18fad", "creator": "@robj3d3", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "build-tension"],
+    "content": ["logo", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["open", "particles", "identity"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "engraving-collage-type",
+  "kind": "technique",
+  "name": "Engraving collage type",
+  "looks": "On a warm off-white paper ground, a scrap of antique engraving or etching sits beside a short line of elegant serif display type, with one small accent-colour dot threading between them like a pin on a specimen board. The image reads as evidence, the type as the claim.",
+  "build": "Engraving image desaturated to near-monochrome, placed directly on the page with no shadow or frame. Accent dot is a small filled circle at a natural eye-travel point, pulsing subtly (scale 1 -> 1.05, slow). Type and image arrive with a plain fast fade/lift (y: 6-10px -> 0, 200-300ms).",
+  "sound": "Near silence or a very soft paper-like texture.",
+  "duration": [1.5, 3.0],
+  "prompt": "On a warm paper-coloured ground, place a piece of antique engraving or etching artwork beside a short line of elegant serif type, with one small accent dot threading between them as the only colour, letting a plain fast fade bring both in together so the pairing feels literary and considered rather than decorative.",
+  "source": "prompt-motion.com's gallery (lexnlin-038035), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "intro", "whole-film"],
+    "purpose": ["set-mood", "establish-brand"],
+    "content": ["illustration", "type"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["texture", "collage"],
+    "complexity": "low"
+  }
+}

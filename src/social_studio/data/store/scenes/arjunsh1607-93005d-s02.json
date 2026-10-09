@@ -1,0 +1,21 @@
+{
+  "id": "arjunsh1607-93005d-s02",
+  "kind": "scene",
+  "name": "a wall of website mockups tiles behind a section word",
+  "looks": "A dense tilted wall of small website screenshots fills the background, each in its own faint card, while a bold section word sits large in the foreground over them.",
+  "build": "variant-stack-reveal, scaled up to a full wall: 12-16 small DOM cards in a 3D-tilted grid (slight perspective rotateX), each fading up with a tiny seeded delay; the HUD frame and section label persist over it.",
+  "sound": "A soft overlapping cluster of quiet pops as the wall fills.",
+  "duration": [2.3, 2.7],
+  "prompt": "Fill the background with a dense, slightly tilted wall of small sample screenshots, each fading up with a tiny stagger, while a single bold section word sits large in the foreground. Use it to prove volume of work behind a simple category label.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "arjunsh1607-93005d", "url": "https://prompt-motion.com/arjunsh1607-93005d", "creator": "@arjunsh1607", "start": 4.0, "end": 6.5},
+  "tags": {
+    "role": ["proof", "intro"],
+    "purpose": ["show-scale", "establish-brand"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["collage", "frame"],
+    "complexity": "medium"
+  }
+}

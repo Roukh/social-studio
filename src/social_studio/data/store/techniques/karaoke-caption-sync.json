@@ -1,0 +1,20 @@
+{
+  "id": "karaoke-caption-sync",
+  "kind": "technique",
+  "name": "Karaoke caption sync",
+  "looks": "Over real talking-head footage, a line of captions sits low in the frame. As the speaker says each word, that word gets a highlight box or colour fill exactly on the syllable, while words before it stay base-coloured and words after are not yet visible. The highlight travels word to word in lockstep with the audio.",
+  "build": "One DOM line of word spans with per-word start/end times. renderCaptions(t) sets each word's class (past/active/future) from the master clock; the active word's highlight scales in (0.9->1, 0.08s) exactly at its start time, with no easing on the switch itself.",
+  "sound": "The real or simulated speech audio is the timing source; a very light tick on each word can reinforce it in a silent preview.",
+  "duration": [1.5, 3.0],
+  "prompt": "Over real talking-head footage, caption the speech with a word-by-word highlight that lands exactly on each word as it is said, the spoken words staying lit and the rest base-coloured, so the caption reads as live transcription, not a static subtitle.",
+  "source": "a Matra captions-app promo in prompt-motion.com's gallery (prompt-motion.com/gautam-mer1-2ae354), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "hook", "solution"],
+    "purpose": ["reveal-product", "show-ease", "explain-mechanism"],
+    "content": ["type", "photo"],
+    "energy": ["build"],
+    "format": ["9:16", "4:5", "1:1"],
+    "family": ["type"],
+    "complexity": "medium"
+  }
+}

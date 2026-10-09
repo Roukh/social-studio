@@ -1,0 +1,45 @@
+{
+  "id": "chroma-split-glitch-wall",
+  "kind": "technique",
+  "name": "Chroma-split glitch wall",
+  "looks": "A word or image repeats full-bleed in horizontal bands, each band torn slightly out of alignment with the one above it, red/green/blue channels offset so every edge fringes with colour. It reads as a system glitching under pressure, not a stylistic filter.",
+  "build": "The content is drawn three times in red, green and blue with alpha masking, each offset a few pixels differently per frame via kit.rng. The frame is sliced into 4-8 horizontal bands, each with an independent seeded x-jitter re-rolled every few frames rather than tweened.",
+  "sound": "A harsh digital stutter or bitcrushed noise burst, cutting off sharply when the beat ends.",
+  "duration": [
+    0.5,
+    1.2
+  ],
+  "prompt": "Punctuate an overload or error moment: repeat a word or image full-bleed in torn, misaligned horizontal bands with the colour channels split and fringing, held for less than a second, then cut hard out of it into calm.",
+  "source": "an \"Overthinking\" motion study in prompt-motion.com's gallery (prompt-motion.com/gizakdag-cf4ae6), studied 2026-10-09",
+  "tags": {
+    "role": [
+      "transition",
+      "problem",
+      "hook"
+    ],
+    "purpose": [
+      "build-tension",
+      "show-contrast",
+      "tease",
+      "show-craft"
+    ],
+    "content": [
+      "type",
+      "abstract"
+    ],
+    "energy": [
+      "punch"
+    ],
+    "format": [
+      "9:16",
+      "1:1",
+      "4:5",
+      "16:9"
+    ],
+    "family": [
+      "texture",
+      "type"
+    ],
+    "complexity": "low"
+  }
+}

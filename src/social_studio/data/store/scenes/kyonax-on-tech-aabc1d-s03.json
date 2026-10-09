@@ -1,0 +1,21 @@
+{
+  "id": "kyonax-on-tech-aabc1d-s03",
+  "kind": "scene",
+  "name": "Pixel mark closes with an install line",
+  "looks": "A small pixel-art style mark sits beside the project's wordmark on a dark ground; underneath, a one-line terminal install command types on in mono, the only remaining motion as the film ends.",
+  "build": "Mark and wordmark arrive together (`y:10px -> 0`, power2.out, ~350ms); the install command clips in character by character, 30-40ms per character, with a blinking cursor at the end that holds after typing finishes.",
+  "sound": "A soft low swell under the lockup's arrival, a quiet mechanical key-tick under the install line typing on.",
+  "duration": [1.8, 2.5],
+  "prompt": "Close on a small pixel-style mark beside the product's wordmark on a dark ground, then type on a single-line terminal install command underneath as the last piece of motion before the film holds and ends.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "kyonax-on-tech-aabc1d", "url": "https://prompt-motion.com/kyonax-on-tech-aabc1d", "creator": "@kyonax_on_tech", "start": 13.1, "end": 15.06},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "code"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

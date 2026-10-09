@@ -1,0 +1,21 @@
+{
+  "id": "astrodevil-3f2054-s02",
+  "kind": "scene",
+  "name": "a huge view count rolls up beside a rising trend line",
+  "looks": "A short mono caption sits above a huge number that rolls up digit by digit, a plus sign punctuating it, with a caption beneath naming what it counts; beside it a thin accent line draws itself rising left to right, ending in a small dot.",
+  "build": "data-infographic for the digit roll-up (vertical blur during the count, landing on power3.out); easing-graph-draw for the trend line (progressive lineTo reveal up to current time, an uneven uphill slope).",
+  "sound": "A rising tone under the roll-up, a soft tick as the line's dot lands.",
+  "duration": [2.3, 2.7],
+  "prompt": "Roll a huge number up digit by digit beside a short caption naming what it measures, a plus sign marking it as still growing. Draw a thin rising trend line beside it that climbs unevenly left to right and ends on a small dot, so the number and its trajectory read together.",
+  "techniques": ["data-infographic", "easing-graph-draw"],
+  "source": {"film": "astrodevil-3f2054", "url": "https://prompt-motion.com/astrodevil-3f2054", "creator": "@Astrodevil_", "start": 1.883, "end": 5.633},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

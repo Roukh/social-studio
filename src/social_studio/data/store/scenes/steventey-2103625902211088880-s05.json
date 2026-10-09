@@ -1,0 +1,21 @@
+{
+  "id": "steventey-2103625902211088880-s05",
+  "kind": "scene",
+  "name": "Circle wipe into wordmark, then the full promise and CTA",
+  "looks": "A dark field opens into white through an expanding circle centred on the brand's mark. The mark and wordmark settle together over a soft multicolour aurora glow, and a short claim types in one word at a time beneath it, finishing with one word underlined in the accent colour, a button and a short domain pill landing last.",
+  "build": "transitions.md's circle wipe (clip-path circle, power2.in) carries the cut from dark to white; aurora-gradient-photo for the glow behind the wordmark; list-stack-reveal's single-line variant for the claim typing in word by word, the key word gaining an underline on its own beat; the button and domain pill pop in with glass-ui-flow's small press-ready scale.",
+  "sound": "A soft whoosh on the wipe, a confirm tone as the wordmark settles, a tick per word, and a light pop on the button and pill.",
+  "duration": [2.5, 3.5],
+  "prompt": "Close on the brand's core promise: wipe from a dark field into white through an expanding circle centred on the logo, settle the mark and name over a soft colourful glow, then type in a short, confident claim one word at a time with the key word underlined, landing on one button and a short domain as the call to action.",
+  "techniques": ["aurora-gradient-photo", "list-stack-reveal", "glass-ui-flow"],
+  "source": {"film": "steventey-2103625902211088880", "url": "https://x.com/steventey/status/2103625902211088880", "creator": "@steventey", "start": 12.5, "end": 14.6},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "medium"
+  }
+}

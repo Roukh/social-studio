@@ -1,0 +1,21 @@
+{
+  "id": "llmjunky-2106411941497389342-s02",
+  "kind": "scene",
+  "name": "one point of light carries the idea across centuries",
+  "looks": "A lone silhouetted figure raises a hand toward a single point of light in the sky. More figures join the line one at a time, a growing crowd, each era's word for that same light fading in above them in a different script, a thin progress bar along the bottom tracking the date forward from antiquity toward today. The point of light itself slowly becomes a falling star, then a rising moon, as a city skyline grows in beneath it.",
+  "build": "Each new silhouette fades/steps into the line on a seeded stagger; each era's word-label cross-fades to the next, timed to the timeline bar's playhead, which advances with no easing from the clock (timeline-scrubber-hud's mechanic); the light's form morphs between states (point, streak, disc) as a crossfade tied to the same clock, so mark, word and bar always agree on where in history the scene sits.",
+  "sound": "A sustained low drone under the whole sequence, a soft chime each time a new word-label lands.",
+  "duration": [15.0, 30.0],
+  "prompt": "Let a single point of light persist across many cuts while the world around it changes: more silhouettes joining a line reaching toward it, each era's own word for it fading in above in a different script, a thin timeline bar along the bottom tracking the date, and the light itself slowly changing form, so one mark carries the idea continuously through centuries of jump cuts.",
+  "techniques": ["through-line", "timeline-scrubber-hud"],
+  "source": {"film": "llmjunky-2106411941497389342", "url": "https://x.com/LLMJunky/status/2106411941497389342", "creator": "@LLMJunky", "start": 37.5, "end": 67.5},
+  "tags": {
+    "role": ["intro", "whole-film"],
+    "purpose": ["set-mood", "establish-brand"],
+    "content": ["character", "type", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["through-line", "frame"],
+    "complexity": "high"
+  }
+}

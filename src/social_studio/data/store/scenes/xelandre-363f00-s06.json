@@ -1,0 +1,21 @@
+{
+  "id": "xelandre-363f00-s06",
+  "kind": "scene",
+  "name": "a reply notification lands at the right moment",
+  "looks": "A small notification card slides in low in the frame showing a short, real-looking reply with a timestamp. A caption beneath it closes the loop, naming the moment someone else takes over.",
+  "build": "The notification card slides/fades in from the edge (power3.out), holding briefly; the caption fades/rises in beneath it a beat later, one word in the accent colour.",
+  "sound": "A soft notification chime as the card lands.",
+  "duration": [2.0, 2.5],
+  "prompt": "Slide a small notification card in low in the frame showing a short, real-looking reply with a timestamp, then fade in a caption beneath it naming the moment a person takes back over from the system, closing the loop the film opened.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "xelandre-363f00", "url": "https://prompt-motion.com/xelandre-363f00", "creator": "@xelandre__", "start": 22.5, "end": 25.0},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

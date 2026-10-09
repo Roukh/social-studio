@@ -1,0 +1,21 @@
+{
+  "id": "anas0ra-e57aea-s01",
+  "kind": "scene",
+  "name": "a closed shop diorama holds in the evening light",
+  "looks": "A small isometric 3D diorama of a shopfront floats on a round platform, lit warm and dim, trees and a bench drifting faintly for parallax. A caption states the time and that the shop is closed, over the still scene.",
+  "build": "cinematic-atmosphere-hold: a near-static camera on the diorama, two or three background layers (trees, lamp, signage) drifting at slightly different speeds for parallax, a warm low-key grade with a soft vignette.",
+  "sound": "A low ambient pad, quiet street-at-night room tone.",
+  "duration": [2.3, 2.7],
+  "prompt": "Hold a small diorama-style 3D scene of a place that is closed or off-duty, lit warm and dim with faint parallax drift in the background layers. Caption it with the time and the fact that it is closed, to set up a problem the product will solve.",
+  "techniques": ["cinematic-atmosphere-hold"],
+  "source": {"film": "anas0ra-e57aea", "url": "https://prompt-motion.com/anas0ra-e57aea", "creator": "@anas0ra", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["set-mood", "build-tension"],
+    "content": ["3d-object", "illustration"],
+    "energy": ["calm"],
+    "format": ["4:5"],
+    "family": ["establishing", "texture"],
+    "complexity": "low"
+  }
+}

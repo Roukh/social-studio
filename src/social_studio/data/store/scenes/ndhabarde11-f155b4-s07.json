@@ -1,0 +1,21 @@
+{
+  "id": "ndhabarde11-f155b4-s07",
+  "kind": "scene",
+  "name": "an incoming request drives a profile card's stat and button to update live",
+  "looks": "On a bright accent-colour field, a chat bubble with a short incoming request slides in above a small profile card. The card's headline stat rolls up through blurred digits to a higher percentage, a row of bars grows up beside it with the last bar in a contrasting colour, a status row ticks a render progress, and the card's main button swaps from a plain call-to-action to a filled, checked confirmation state.",
+  "build": "data-infographic-style digit roll-up (digits slide under a vertical blur whose strength follows their speed) for the percentage, bars scaling up from a baseline with an uneven stagger; the card itself is a glass-ui-flow-style DOM group that springs in, with its button layer swapping fill colour/label and gaining a check icon on a short scale-pop (back.out) once the progress readout completes.",
+  "sound": "A rising tone under the digit roll-up, soft blips on the bars, and a confirming chime as the button swaps to its done state.",
+  "duration": [1.8, 2.5],
+  "prompt": "On a bold colour field, have a short incoming message trigger a small profile or status card to update live: its headline number rolls up through blurred digits to a bigger figure, a bar chart grows beside it, a progress row ticks across, and the card's main button swaps into a filled, checked confirmation state, so the whole card feels like it is responding to the message in real time.",
+  "techniques": ["data-infographic", "glass-ui-flow"],
+  "source": {"film": "ndhabarde11-f155b4", "url": "https://prompt-motion.com/ndhabarde11-f155b4", "creator": "@ndhabarde11", "start": 11.7, "end": 13.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "show-craft", "explain-mechanism"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

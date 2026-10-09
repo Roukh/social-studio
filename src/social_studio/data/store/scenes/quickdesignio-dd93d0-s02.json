@@ -1,0 +1,21 @@
+{
+  "id": "quickdesignio-dd93d0-s02",
+  "kind": "scene",
+  "name": "rapid-fire toolkit card rundown",
+  "looks": "A fast run of full-bleed cards, one tool name per hard cut (an ad grid, a product-shot mockup, a UGC reference-to-video pair, an image editor, upscaling, background removal in two states, lipsync, subtitles in two languages, a competitor-tracking radar, a replicate step), each card its own background colour with a small numbered toolkit counter in the corner. No crossfades anywhere in the run.",
+  "build": "One flat DOM or canvas illustration per card on a stepped index, hard swaps with no crossfade, each card holding 0.3-0.6s. A mono 'NN/27' counter ticks in the top corner per card. Card background colour and headline treatment change per card (bold sans, blurred sans, outlined) to keep the rhythm varied.",
+  "sound": "A hit on every cut, with the pitch rising slightly as the run goes, and a brief sting on the louder cards.",
+  "duration": [2.5, 3.5],
+  "prompt": "Run through a fast sequence of hard-cut cards, one per feature or capability, each full-bleed in its own colour with a small numbered counter ticking up in the corner and no crossfades between them. Vary the headline treatment card to card so the rhythm stays alive, and let the run show the sheer number of things the product can do.",
+  "techniques": ["mecha-cut-reveal"],
+  "source": {"film": "quickdesignio-dd93d0", "url": "https://prompt-motion.com/quickdesignio-dd93d0", "creator": "@quickdesignio", "start": 2.0, "end": 10.3},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-scale", "reveal-product", "show-speed"],
+    "content": ["type", "illustration"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["reveal", "type"],
+    "complexity": "medium"
+  }
+}

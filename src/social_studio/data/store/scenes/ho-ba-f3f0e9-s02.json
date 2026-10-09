@@ -1,0 +1,21 @@
+{
+  "id": "ho-ba-f3f0e9-s02",
+  "kind": "scene",
+  "name": "Icon and wordmark settle with a tagline",
+  "looks": "A simple document icon and the product's wordmark fade and settle together at the centre of a warm, near-white field, with a short one-line tagline appearing beneath in a lighter weight.",
+  "build": "wordmark-assemble's finished-state settle (icon and letters arriving together rather than letter by letter, since the mark is short) on a soft `power3.out`; the tagline fades in after a short pause.",
+  "sound": "A single soft confirm tone as the lockup settles.",
+  "duration": [1.5, 2.0],
+  "prompt": "Settle on the product's simple icon and name together at the centre of a calm field, with a short one-line tagline beneath it stating exactly what it is, as a clean beat between the hook and the demo.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "ho-ba-f3f0e9", "url": "https://prompt-motion.com/ho-ba-f3f0e9", "creator": "@HO_BA", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["intro"],
+    "purpose": ["establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["identity"],
+    "complexity": "low"
+  }
+}

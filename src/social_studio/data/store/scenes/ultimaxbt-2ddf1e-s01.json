@@ -1,0 +1,21 @@
+{
+  "id": "ultimaxbt-2ddf1e-s01",
+  "kind": "scene",
+  "name": "a vague craving typed into a chat input",
+  "looks": "A phone screen holds a chat input field with a half-written message already filled in, trailing off mid-word, a blinking text cursor sitting inside the highlighted last letter as if caught mid-type.",
+  "build": "DOM text revealed with kit.typeOn up to a paused point; the cursor blinks on the beat at the live character position; the send button sits ready, unpressed, to carry tension into the next beat.",
+  "sound": "A soft key tick under the typing, holding on silence at the pause.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold on a phone's chat input with a vague, half-written request typed in and trailing off mid-word, a blinking cursor caught at the last letter, so the viewer feels the uncertainty before the system responds.",
+  "techniques": ["prompt-bar-generate"],
+  "source": {"film": "ultimaxbt-2ddf1e", "url": "https://prompt-motion.com/ultimaxbt-2ddf1e", "creator": "@ultimaxbt", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "tease"],
+    "content": ["product-ui", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface", "type"],
+    "complexity": "low"
+  }
+}

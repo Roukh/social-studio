@@ -1,0 +1,19 @@
+{
+  "id": "ledger-row-reveal",
+  "kind": "technique",
+  "name": "Ledger row reveal",
+  "looks": "A short ranked data table builds row by row under a blunt headline stating the finding: a rank, a label with a dim sub-label, a colour-coded status pill, and a right-aligned value per row, landing top to bottom on a stagger. The worst rows (dead, zero, missing) are tinted in the warning colour so the damage reads at a glance.",
+  "build": "Each row is a flex line (rank, label + sub-label, status pill, value) revealing on y:6px->0, opacity 0->1, staggered 0.06-0.09s, power2.out. A bad-status row tints its pill, value and a faint background strip in the warning colour; the headline above lands just before the rows start.",
+  "duration": [2.0, 2.6],
+  "prompt": "Under a blunt one-line finding, build a short ranked table row by row: a rank, a label, a status pill and a value, staggered top to bottom. Pick out the worst rows in the accent colour so the damage reads at a glance, and hold the finished table a beat before cutting away.",
+  "source": "prompt-motion.com's gallery (palashbagchi11-0a4b6b), studied 2026-10-09.",
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data", "show-contrast"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

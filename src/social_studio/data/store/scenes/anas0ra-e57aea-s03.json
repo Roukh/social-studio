@@ -1,0 +1,21 @@
+{
+  "id": "anas0ra-e57aea-s03",
+  "kind": "scene",
+  "name": "a question and answer bubble exchange over the scene",
+  "looks": "A speech bubble in a plain outline style pops in above the shopfront asking a question, then a second bubble in the brand's filled colour pops in lower, from the mascot, answering with a specific detail, while the camera slowly pushes in.",
+  "build": "dual-voice-type's two-voice contrast, applied to bubbles instead of text styles: the question bubble is an outline/light style, the answer bubble is solid-filled in the accent colour, each popping in on a quick scale-and-settle (back.out) a beat apart.",
+  "sound": "A soft pop per bubble, a light camera-push whoosh.",
+  "duration": [2.3, 2.7],
+  "prompt": "Pop in a plain question bubble from one voice, then a second, visually distinct bubble from the product's own voice answering with a specific, concrete detail. Give the two bubbles different styles (outline vs filled) so who is asking and who is answering is clear at a glance.",
+  "techniques": ["dual-voice-type"],
+  "source": {"film": "anas0ra-e57aea", "url": "https://prompt-motion.com/anas0ra-e57aea", "creator": "@anas0ra", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["type", "character"],
+    "energy": ["calm"],
+    "format": ["4:5"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "cansincengiz-me-cf68dd-s01",
+  "kind": "scene",
+  "name": "an open laptop runs an agent's live log",
+  "looks": "A clean 3D laptop render sits open on black, its screen filling with a dark terminal where an agent's task log scrolls line by line (reading a file, updating code, running tests), under a headline naming how long it has been running.",
+  "build": "glass-ui-flow's typing/terminal pattern: the laptop is a lit 3D render (studio key light, soft shadow); the terminal lines type and scroll upward on a steady clock-driven cadence, with coloured status words (passed, updated) flashing in.",
+  "sound": "A soft keystroke texture, a faint fan hum under the render.",
+  "duration": [2.3, 2.7],
+  "prompt": "Render a clean 3D hero shot of a laptop open on black, its screen filled with a terminal log scrolling through real task steps (reading, updating, testing) under a headline naming how long the work has been running. Keep the device lighting crisp and the log small and dense, like a real background process.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "cansincengiz-me-cf68dd", "url": "https://prompt-motion.com/cansincengiz-me-cf68dd", "creator": "@cansincengiz_me", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "show-craft"],
+    "content": ["device", "code"],
+    "energy": ["build"],
+    "format": ["1:1"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

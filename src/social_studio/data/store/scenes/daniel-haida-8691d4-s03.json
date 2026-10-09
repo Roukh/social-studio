@@ -1,0 +1,21 @@
+{
+  "id": "daniel-haida-8691d4-s03",
+  "kind": "scene",
+  "name": "a payment status bar fills beside an invoice list",
+  "looks": "A small card shows a payment-status bar filling partway with a percentage label, beside a list of invoice rows beneath it, each with a date, a client name, a status tag and an amount, fading in top to bottom.",
+  "build": "data-infographic's bar-growth pattern for the status bar (scaleX from a left origin on power3.out, percentage counting up with it); the invoice rows fade/slide in staggered beneath.",
+  "sound": "A soft fill tone under the bar, a tick per invoice row.",
+  "duration": [2.3, 2.7],
+  "prompt": "Fill a small status bar partway with a percentage label, then list a few invoice or record rows beneath it fading in top to bottom, each with a date, a name, a status tag and an amount. Use it to show the current state of outstanding work at a glance.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "daniel-haida-8691d4", "url": "https://prompt-motion.com/daniel-haida-8691d4", "creator": "@daniel_haida", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-data", "introduce-feature"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

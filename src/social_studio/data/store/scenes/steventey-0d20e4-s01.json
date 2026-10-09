@@ -1,0 +1,21 @@
+{
+  "id": "steventey-0d20e4-s01",
+  "kind": "scene",
+  "name": "a tagged link types on with a live character count",
+  "looks": "On a near-black field a small eyebrow label and a character counter sit above a long tracking URL typing on in mono, one character at a time, with a blinking cursor at the live position. A dashboard card begins to fade in at the edge of frame as the string finishes.",
+  "build": "DOM mono text revealed per character with kit.typeOn; the character counter is set from the live string length with no easing, same mechanic as live-readout-hud; the cursor is a blinking ::after block at the live position.",
+  "sound": "A soft mechanical key tick per character, lighter than a kinetic word hit.",
+  "duration": [1.3, 1.7],
+  "prompt": "Type a long tracking URL on character by character in mono on a near-black field, with a small live character counter ticking up above it and a blinking cursor at the live position, as the next scene's card begins to fade in at the edge.",
+  "techniques": ["terminal-type-on", "live-readout-hud"],
+  "source": {"film": "steventey-0d20e4", "url": "https://prompt-motion.com/steventey-0d20e4", "creator": "@steventey", "start": 0.0, "end": 1.517},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["reveal-product", "show-craft"],
+    "content": ["type", "code"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1"],
+    "family": ["type", "data"],
+    "complexity": "low"
+  }
+}

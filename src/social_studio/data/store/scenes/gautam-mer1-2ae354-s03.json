@@ -1,0 +1,21 @@
+{
+  "id": "gautam-mer1-2ae354-s03",
+  "kind": "scene",
+  "name": "Caption-style grid, one tap",
+  "looks": "A headline lands naming a large number of styles and 'one tap.' Six small preview cards of the same clip pop into a grid beneath it, each captioned in a different visual style (a plain classic line, a highlighted box, a bold pop colour, a neon glow, a marker-stroke underline, a boxed chip), each card's caption already mid-sentence.",
+  "build": "list-stack-reveal for the headline; variant-stack-reveal for the six-card grid, seeded offsets settling square in two rows of three, each card's own caption style baked into its own small karaoke-caption-sync pass rather than shared code.",
+  "sound": "A tick per headline line and a soft cluster of pops as the six cards land.",
+  "duration": [2.0, 2.5],
+  "prompt": "Show stylistic range at a glance: pop in a small grid of preview cards of the same clip, each captioned in a visibly different style, so the viewer compares looks side by side instead of cycling through them one at a time.",
+  "techniques": ["list-stack-reveal", "variant-stack-reveal"],
+  "source": {"film": "gautam-mer1-2ae354", "url": "https://prompt-motion.com/gautam-mer1-2ae354", "creator": "@gautam_mer1", "start": 17.0, "end": 19.5},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-scale", "introduce-feature"],
+    "content": ["product-ui", "photo"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

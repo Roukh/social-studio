@@ -1,0 +1,21 @@
+{
+  "id": "ddryo-loos-300829-s04",
+  "kind": "scene",
+  "name": "Code prop types on, layout reflows across breakpoints",
+  "looks": "A short component code snippet types on above an empty canvas, a prop value highlighted in the line. Below it a single narrow column of filled pills sits beside a width ruler; the ruler extends rightward, breakpoint pills light up as it passes them, and the column springs apart into four pills side by side.",
+  "build": "The code types on with terminal-type-on, the changed prop value highlighted in the brand accent as it lands. The reflow uses responsive-breakpoint-scrub: the ruler's width tweens on the clock, breakpoint markers fade/scale in as it crosses them, and each pill's x/width interpolates from its stacked slot to its row slot in lockstep.",
+  "sound": "A key tick under the code, then a rising tick per breakpoint crossed.",
+  "duration": [2.5, 3.5],
+  "prompt": "Type on a short piece of real configuration code with one prop highlighted, then prove what it does: show a layout sample reflow live as a width ruler extends past labelled breakpoints, a single stacked column springing apart into a row of elements exactly as the ruler crosses each marker.",
+  "techniques": ["terminal-type-on", "responsive-breakpoint-scrub"],
+  "source": {"film": "ddryo-loos-300829", "url": "https://prompt-motion.com/ddryo-loos-300829", "creator": "@ddryo_loos", "start": 17.5, "end": 25.0},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["code", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

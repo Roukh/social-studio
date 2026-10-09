@@ -1,0 +1,48 @@
+{
+  "id": "ai-baymax-0ef9dd-s02",
+  "kind": "scene",
+  "name": "numbered step card beside a cursor editing the product",
+  "looks": "A numbered badge, a two-line bold claim and a short caption sit at the left of the frame; to the right, a browser-window mockup of the product holds steady as a cursor flies in, clicks a label, and an edit panel appears over it. The camera holds the frame, then the whole pairing cross-fades to the next numbered step with a new claim and a new product view.",
+  "build": "gallery-zoom-tour's camera-through-many-pieces pattern, slowed to a soft cross-fade between fixed compositions instead of a whip; each product view is a DOM browser-chrome frame around a screenshot, with a cursor glyph animated on power3.inOut paths (glass-ui-flow) for the click-and-edit beat.",
+  "sound": "A soft click on the cursor's press, a quiet whoosh on the cross-fade between steps.",
+  "duration": [
+    4.5,
+    5.0
+  ],
+  "prompt": "Pair a numbered step label and a short claim at one side of the frame with a framed product screenshot at the other, and animate a cursor flying in to click an element and open a small edit panel over it. Hold the composition, then push the whole pairing out as the next numbered step slides in with a new claim and a new product view, so the sequence reads as one guided walkthrough.",
+  "techniques": [
+    "gallery-zoom-tour",
+    "glass-ui-flow"
+  ],
+  "source": {
+    "film": "ai-baymax-0ef9dd",
+    "url": "https://prompt-motion.com/ai-baymax-0ef9dd",
+    "creator": "@Ai_Baymax",
+    "start": 10.0,
+    "end": 15.0
+  },
+  "tags": {
+    "role": [
+      "demo"
+    ],
+    "purpose": [
+      "introduce-feature",
+      "show-ease"
+    ],
+    "content": [
+      "product-ui",
+      "device"
+    ],
+    "energy": [
+      "calm"
+    ],
+    "format": [
+      "16:9"
+    ],
+    "family": [
+      "interface",
+      "structure"
+    ],
+    "complexity": "medium"
+  }
+}

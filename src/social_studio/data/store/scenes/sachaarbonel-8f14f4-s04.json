@@ -1,0 +1,21 @@
+{
+  "id": "sachaarbonel-8f14f4-s04",
+  "kind": "scene",
+  "name": "a small alert card slides over the main dashboard",
+  "looks": "A dashboard card sits tilted in space. A second, smaller card carrying a short highlighted alert slides down and settles in front of it, slightly offset and overlapping the corner, so the two read as the plan and its first concrete result stacked together.",
+  "build": "Both cards are DOM panels inside a shared perspective, held at a shallow steady tilt (ui-tilt-card); the smaller card enters with a spring (response ~0.38, damping ~0.8), sliding in from above and settling with a slight offset and rotation over the main card.",
+  "sound": "A soft whoosh as the small card slides in, a light thud as it settles.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold a dashboard panel at a shallow tilt, then slide a smaller highlighted alert card down over its corner on a spring so it settles slightly offset and overlapping, reading as the plan and its first concrete result stacked together.",
+  "techniques": ["ui-tilt-card", "variant-stack-reveal"],
+  "source": {"film": "sachaarbonel-8f14f4", "url": "https://prompt-motion.com/sachaarbonel-8f14f4", "creator": "@sachaarbonel", "start": 17.5, "end": 20.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["product-ui", "data"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["interface", "structure"],
+    "complexity": "medium"
+  }
+}

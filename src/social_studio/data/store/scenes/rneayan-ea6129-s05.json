@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-ea6129-s05",
+  "kind": "scene",
+  "name": "a stepped timeline proves real delivery",
+  "looks": "A thin year-range timeline grows a stepped square-wave pulse across it, each new pulse adding a small label underneath, as short phrases above state that the studio has been shipping real, delivered work since a given year. The square wave fills out fully as the claim lands.",
+  "build": "Canvas stepped line (square pulses) draws left to right along a year-range axis, each step gated to a beat and tagged with a small label beneath it; hard-cut phrases above state the claim, same HUD/scanline chrome.",
+  "sound": "A tick on each step of the pulse, a settling low chime as the line completes.",
+  "duration": [4.5, 6],
+  "prompt": "Prove a track record with a stepped timeline: a thin axis spanning a year range grows a square-wave pulse step by step, each step tagged with what shipped, while short phrases above state that this has been real, delivered work the whole time. Let the completed stepped line be the receipt for the claim.",
+  "techniques": ["oscillograph-word-card"],
+  "source": {"film": "rneayan-ea6129", "url": "https://prompt-motion.com/rneayan-ea6129", "creator": "@rneayan", "start": 23.5, "end": 28.8},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-craft", "establish-brand"],
+    "content": ["type", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "data"],
+    "complexity": "medium"
+  }
+}

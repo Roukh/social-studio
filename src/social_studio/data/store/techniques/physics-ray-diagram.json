@@ -1,0 +1,20 @@
+{
+  "id": "physics-ray-diagram",
+  "kind": "technique",
+  "name": "Physics ray diagram",
+  "looks": "A silhouetted figure holds up a prop, a crystal, a lens, a prism, and a thin bright ray travels across the frame to meet it, bending or splitting the instant it arrives. Small plain labels sit fixed in the corners naming the two ideas in tension, and a tiny live graph or equation draws or updates low in the frame in sync with the ray.",
+  "build": "The ray is a line with strokeDashoffset revealing it from source to prop (power2.inOut); the prop's effect on the ray triggers the instant the reveal reaches it; corner labels are static, low-contrast; the small graph draws in sync with the ray's own progress.",
+  "sound": "A thin rising tone as the ray travels, a soft chime the instant it meets the prop and bends or splits.",
+  "duration": [3.0, 8.0],
+  "prompt": "Have a silhouetted figure hold up a prop while a thin ray travels across the frame to meet it and bends or splits on arrival, with two one-word labels fixed in the corners naming the idea in tension and a small graph or equation drawing in sync low in the frame, so the demonstration and its maths read as one timeline.",
+  "source": "a shadow-play explainer studied from x.com/LLMJunky/status/2106411941497389342, studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "show-data"],
+    "content": ["character", "abstract", "data"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "9:16", "4:5"],
+    "family": ["data", "annotation"],
+    "complexity": "high"
+  }
+}

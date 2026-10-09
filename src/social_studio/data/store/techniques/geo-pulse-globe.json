@@ -1,0 +1,20 @@
+{
+  "id": "geo-pulse-globe",
+  "kind": "technique",
+  "name": "Geo pulse globe",
+  "looks": "A dotted wireframe globe sits low in the frame, lit from within by a warm glow, a thin vertical beam pinned to one point like a location marker. Above it a huge number rolls up live, counting a real-time total as if the globe is the source of the count.",
+  "build": "The globe is a sphere of seeded dot points lit by a radial gradient. The beam is a thin vertical gradient line pinned to one dot's screen position, pulsing in opacity on a slow sine. The number uses data-infographic's blurred digit roll-up, its last digits still ticking as the shot ends.",
+  "sound": "A low, warm drone under the globe, a soft tick as the beam pulses, and a rising tone under the counting number.",
+  "duration": [2.0, 3.0],
+  "prompt": "Claim global reach or real-time scale with a glowing dotted globe, a thin beam marking one specific location on it, and a huge number rolling up above as if counting live from the globe itself, the last digits still ticking as the shot ends.",
+  "source": "a dub.co launch promo shared by @steventey (x.com/steventey/status/2103625902211088880), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "proof"],
+    "purpose": ["show-scale", "show-data"],
+    "content": ["map", "data"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["data", "3d"],
+    "complexity": "medium"
+  }
+}

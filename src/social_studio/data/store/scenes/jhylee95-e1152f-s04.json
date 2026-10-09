@@ -1,0 +1,53 @@
+{
+  "id": "jhylee95-e1152f-s04",
+  "kind": "scene",
+  "name": "Chat transcript drives a UI tooltip walkthrough",
+  "looks": "A chat panel types on the left: a short greeting, a user's question, then a reply with a one-line summary card. On the right, exactly as the reply names the action, a tooltip with a step counter lands on the matching button in a live product screen, a cursor moves to it and clicks, and the panel updates. A second question-and-reply beat repeats the move with a different part of the screen.",
+  "build": "Fixed two-panel split (chat left, product UI right). Chat text types on 20-35ms per step; the reply's summary card rises in once the line finishes. The tooltip (arrow + short label + 'n of 4' badge) clips in next to the exact element the reply names, a cursor glyph tweens to it and does a quick click-scale, then that part of the UI updates. Only one tooltip is live at a time; the previous one clears before the next lands.",
+  "sound": "A soft typewriter patter under the chat text, a light pop on each message landing, a distinct click exactly on the cursor's click.",
+  "duration": [
+    4.5,
+    6.5
+  ],
+  "prompt": "Split the frame between a typed chat conversation and a live product screen. As each reply names a specific action, land a tooltip with a step counter on the exact matching UI element, move a cursor to it and click, and update that part of the screen right on that beat, so two or three exchanges visibly drive the interface instead of just narrating it.",
+  "techniques": [
+    "chat-updates-preview"
+  ],
+  "source": {
+    "film": "jhylee95-e1152f",
+    "url": "https://prompt-motion.com/jhylee95-e1152f",
+    "creator": "@jhylee95",
+    "start": 15.5,
+    "end": 20.9
+  },
+  "tags": {
+    "role": [
+      "demo",
+      "solution",
+      "proof"
+    ],
+    "purpose": [
+      "introduce-feature",
+      "explain-mechanism",
+      "show-ease"
+    ],
+    "content": [
+      "product-ui",
+      "type"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "interface",
+      "annotation"
+    ],
+    "complexity": "high"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "notdwd-c2037d-s02",
+  "kind": "scene",
+  "name": "two photo cards hard-cut past, each with a ghosted word naming the subject",
+  "looks": "A rounded card holds a labelled photograph with a short caption pill, and a single huge word ghosted faintly beneath it, naming the subject in oversized type for scale and mood. It hard-cuts to a near-identical card: a different photo, a different caption, a different ghost word.",
+  "build": "ghost-glyph-headline-card: the ghost word is one oversized line of type at low opacity (12-18%), scaled several times the caption's size, sitting behind/under the photo rather than beside it; the card hard-cuts to the next with the same layout and rhythm, no crossfade, only the photo and the two short text elements changing.",
+  "sound": "A dry tick on each card's arrival, nothing under the hold.",
+  "duration": [1.5, 2.2],
+  "prompt": "Show two or three near-identical photo cards hard-cutting one after another, each with a short caption and one huge word naming its subject ghosted faintly beneath the image, same layout and rhythm every time, so the set reads as a small catalogue of reference subjects.",
+  "techniques": ["ghost-glyph-headline-card"],
+  "source": {"film": "notdwd-c2037d", "url": "https://prompt-motion.com/notdwd-c2037d", "creator": "@notdwd", "start": 7.3, "end": 10.027},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-craft", "introduce-feature"],
+    "content": ["photo", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "open"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-ea6129-s01",
+  "kind": "scene",
+  "name": "scope HUD opens on a single glowing word",
+  "looks": "A pitch-black frame carries a thin instrument HUD (small mono labels, a flat scanline) along its edges. A short word snaps onto the centre in a thin green outline font with no entrance easing, holds, then hard-cuts to a second short phrase and a third, each replacing the last with no crossfade, the baseline scanline flexing slightly under each new phrase.",
+  "build": "DOM word swapped on hard beats (no easing) inside a fixed HUD frame (corner labels, a small changing section tag top-right, a scanline strip along the bottom riding a looping noise waveform). Mono/outline display font, single accent green on black.",
+  "sound": "A low synth drone under the HUD, a soft blip exactly as each phrase cuts in.",
+  "duration": [6, 8],
+  "prompt": "Open cold on a near-black frame dressed like a diagnostic instrument: thin corner marks, a small running label, a flat scanline along one edge. A short word or phrase hard-cuts onto the centre in a thin monochrome outline face, holds a beat, then is replaced by the next phrase with no easing or crossfade, so the opening reads as a machine coming online and stating its purpose one word at a time.",
+  "techniques": ["hud-frame", "waveform-readout-strip"],
+  "source": {"film": "rneayan-ea6129", "url": "https://prompt-motion.com/rneayan-ea6129", "creator": "@rneayan", "start": 0.0, "end": 7.5},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "establish-brand", "set-mood"],
+    "content": ["type", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["open", "frame", "type"],
+    "complexity": "medium"
+  }
+}

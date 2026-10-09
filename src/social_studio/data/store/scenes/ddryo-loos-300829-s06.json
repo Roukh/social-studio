@@ -1,0 +1,21 @@
+{
+  "id": "ddryo-loos-300829-s06",
+  "kind": "scene",
+  "name": "Template library zoom tour",
+  "looks": "A dim section title sits over a blurred wall of template thumbnails. The blur clears and the camera settles on a dense, varied grid of real page layouts (hero sections, galleries, profile cards, pricing panels), filling the frame several rows deep, reading as one large catalogue rather than a few examples.",
+  "build": "The title dissolves out on the clock as the background layer's blur radius tweens to 0 (gaussian filter animated). The grid is a world container of DOM cards at fixed positions; a slow, even camera drift (translate + slight scale) across it sells the sense of a much larger catalogue beyond the frame.",
+  "sound": "A soft shift under the blur clearing, with a low ambient bed under the grid.",
+  "duration": [3.0, 5.0],
+  "prompt": "Prove a library is large: hold a section title over a blurred wall of samples, let the blur resolve into a dense grid of many real, varied layouts filling the frame, and drift the camera slowly across it so the catalogue reads as bigger than what fits on screen.",
+  "techniques": ["gallery-zoom-tour"],
+  "source": {"film": "ddryo-loos-300829", "url": "https://prompt-motion.com/ddryo-loos-300829", "creator": "@ddryo_loos", "start": 32.5, "end": 42.5},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-scale", "show-craft"],
+    "content": ["photo", "product-ui"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["structure", "transition"],
+    "complexity": "medium"
+  }
+}

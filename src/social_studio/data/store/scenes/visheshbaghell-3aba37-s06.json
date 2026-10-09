@@ -1,0 +1,21 @@
+{
+  "id": "visheshbaghell-3aba37-s06",
+  "kind": "scene",
+  "name": "a confidence threshold slider moves the included total",
+  "looks": "A settings panel holds a single slider labelled by how sure the system should be before it bills automatically. As the handle slides along its track, a dollar figure above it recalculates live, and a short breakdown beside it splits into what's billed automatically, what's sent to a person, and what's blocked.",
+  "build": "The slider's handle x and the dollar figure are driven off one clock value (power2.inOut); the three-way breakdown's values key off the same value so all four numbers move in lockstep, same mechanic as slider-scrub-preview.",
+  "sound": "A soft tick per slider step and a light shimmer as the numbers resolve.",
+  "duration": [2.5, 3.0],
+  "prompt": "Show a settings panel with a single confidence-threshold slider; as the handle moves, have a dollar figure above it recalculate live along with a short breakdown of what gets billed automatically, sent to a person, or blocked, so the one slider visibly controls the system's caution.",
+  "techniques": ["slider-scrub-preview"],
+  "source": {"film": "visheshbaghell-3aba37", "url": "https://prompt-motion.com/visheshbaghell-3aba37", "creator": "@VisheshBaghell", "start": 57.5, "end": 62.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["product-ui", "data"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

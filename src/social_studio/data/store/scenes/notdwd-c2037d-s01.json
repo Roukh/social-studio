@@ -1,0 +1,21 @@
+{
+  "id": "notdwd-c2037d-s01",
+  "kind": "scene",
+  "name": "an article page drifts past while a labelled photo card holds focus in front",
+  "looks": "An informational article sits softly out of focus in the background: a breadcrumb trail, a heading and a paragraph of body copy with one phrase bolded. In front of it, sharp and in focus, a single card holds a labelled photograph and a short caption, catching the eye while the page behind it slowly drifts.",
+  "build": "A slow camera dolly or parallax scale over the static article layer supplies the sense of motion even though the text itself doesn't change; the foreground photo card sits on its own layer, slightly offset in depth, staying sharp while the background page stays soft and the bolded phrase in the body text gets a touch more contrast than the rest.",
+  "sound": "A soft whoosh under the camera drift, with a quiet ambient bed.",
+  "duration": [1.5, 2.2],
+  "prompt": "Let an article or reference page sit softly out of focus in the background while the camera drifts slowly across it, and keep one small labelled photo card sharp in front, so the page reads as context and the photo reads as the thing being pointed to.",
+  "techniques": ["device-row-screen-swap"],
+  "source": {"film": "notdwd-c2037d", "url": "https://prompt-motion.com/notdwd-c2037d", "creator": "@notdwd", "start": 5.289, "end": 7.3},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["photo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface", "camera"],
+    "complexity": "low"
+  }
+}

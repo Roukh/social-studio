@@ -1,0 +1,21 @@
+{
+  "id": "viktoroddy-98c1d8-s04",
+  "kind": "scene",
+  "name": "a gradient mark and wordmark settle with a launch date",
+  "looks": "A small dated tag fades in above a short line naming when the product launched. A gradient-coloured mark and the wordmark beside it settle together below, static and calm on a near-black field.",
+  "build": "The dated tag and launch line fade/rise in first; the mark and wordmark fade/scale in together (0.92 -> 1, power3.out) a beat later, holding still for the rest of the shot.",
+  "sound": "A soft low swell under the hold and a light confirm tone as the mark lands.",
+  "duration": [2.0, 2.5],
+  "prompt": "Fade in a small dated tag above a line naming when the product launched, then settle a gradient-coloured mark and wordmark together beneath it on a near-black field, calm and still, as a brief look back before the numbers arrive.",
+  "techniques": ["mark-stroke-reveal"],
+  "source": {"film": "viktoroddy-98c1d8", "url": "https://prompt-motion.com/viktoroddy-98c1d8", "creator": "@viktoroddy", "start": 12.5, "end": 15.0},
+  "tags": {
+    "role": ["intro", "transition"],
+    "purpose": ["establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["identity"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "palashbagchi11-0a4b6b-s08",
+  "kind": "scene",
+  "name": "end card: cursive wordmark, promise and a credit-led CTA",
+  "looks": "On a plain white field, a cursive script wordmark settles above a short promise line. A dark pill button arrives last, naming a free start with a small credit amount, and a last, fine-print line of terms sits quietly beneath it.",
+  "build": "The wordmark and promise line arrive together, y:8-12px->0, opacity 0->1, power2.out, 300-400ms; the CTA pill follows 150-200ms later with a touch of scale overshoot (0.95->1.02->1); the fine print fades in last at low opacity, no motion.",
+  "sound": "A soft low swell fading out under the hold, nothing new once the pill lands.",
+  "duration": [1.8, 2.4],
+  "prompt": "Close on the brand's cursive wordmark and a one-line promise settling together on a plain field. Let a dark call-to-action pill arrive last with a small bounce, naming a low-risk way to start, and fade in a quiet line of fine print beneath it. Hold the finished card without further motion.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "palashbagchi11-0a4b6b", "url": "https://prompt-motion.com/palashbagchi11-0a4b6b", "creator": "@PalashBagchi11", "start": 26.6, "end": 30.058},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}
