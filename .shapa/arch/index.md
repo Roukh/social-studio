@@ -4,7 +4,7 @@ type: reference
 created: "2026-10-06T23:59:00Z"
 consequence: 9
 locus: output
-summary: social-studio system diagram for agents - what it is, the ten boxes, the edges between them, and the make, approve, post and sync flows.
+summary: social-studio system diagram for agents - what it is, the eleven boxes, the edges between them, and the make, approve, post and sync flows.
 scope: repo
 status: active
 ---
@@ -34,7 +34,8 @@ A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos fo
 | [[cli]] | `cli.py`, `__main__.py`, `data/SKILL.md` | argparse noun-verb tree, `--json`, exit codes, human gates, doctor, timer, completion |
 | [[core]] | `core.py`, `mcp.toml` contract | project discovery, config, `.env`, write boundary, presets and `--set`, validation, formats, MCP registry |
 | [[library]] | `db.py`, `approval.py` | SQLite schema, trigger-enforced statuses, append-only events, signed approval |
-| [[runner]] | `runner.py` | one jailed harness session per video: prepare, run, render, encode, QA, review, file, trim, purge |
+| [[runner]] | `runner.py` | one jailed sandbox per video: prepare, storyteller then designer session, render, encode, QA, review, file, trim, purge |
+| [[story]] | `story.py`, `store.py`, `data/store/`, `data/skills/storyteller/` | the storyteller session and the tagged SQLite reference store (techniques, film scenes, brand story posts) with per-beat retrieval |
 | [[engine]] | `engine.py` | pinned HyperFrames and Chrome, bubblewrap argv, master render, delivery encode, loudness, poster and sheet |
 | [[maker-kit]] | `data/house.md`, `data/session_prompt.md`, `data/skills/`, `data/tools/` | what the maker reads and runs: house rules, task, skills, sound synth |
 | [[presets]] | `presets/example`, `presets/reel`, preset keys | brand, fonts, assets, video, content, agent, review, render, encode, publish settings |
@@ -52,6 +53,7 @@ A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos fo
 | cli | schedule-publish | drafts after `make`; `post` (draft, pick, schedule, list, sync, cancel), withdraw on reject or revise, `channel connect|test buffer|media`, `timer` (runs `post sync`) |
 | core | runner | frozen `Preset`, `format_sets`, vetted `mcp_registry` |
 | runner | maker-kit | fills `house.md` and `TASK.md`; mounts skills and `tools/` into the session |
+| runner | story | a prepared session -> story.json, techniques.json and the designer brief for TASK.md; `store.db` in every session |
 | runner | engine | `bwrap_argv`, `render_master`, `encode`, `poster_and_sheet` |
 | runner | qa | rendered video, composition, `brief.json` -> `qa.json` and `videos.meta.qa` |
 | runner | review | maker session plus video -> `verdict.json` |
@@ -61,7 +63,7 @@ A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos fo
 
 ## Flows
 
-- **make:** cli -> core (load, validate) -> engine (ensure engine, skills) -> runner per try: prepare session -> harness in bubblewrap -> `video.json` -> master render -> encode -> poster and sheet -> qa -> optional reviewer -> library row `review` -> trim sessions; a revision purges its parent's files.
+- **make:** cli -> core (load, validate) -> engine (ensure engine, skills, registry) -> runner per try: prepare session -> storyteller in bubblewrap -> `story.json` checked -> store retrieval per beat -> designer in the same sandbox -> `video.json` -> master render -> encode -> poster and sheet -> qa -> optional reviewer -> library row `review` -> trim sessions; a revision purges its parent's files.
 - **approve in Buffer (default, rule R14):** `make` ends -> the CLI uploads each new video -> a `drafts` post and one draft per connected channel -> GraphQL createPost with `saveToDraft` -> the operator schedules, edits or deletes the drafts in Buffer.
 - **approve at the terminal:** `review` walk at a TTY shows each network's full post text -> `ssh-keygen -Y sign` over id, sha256 and post-text hash (one passphrase per batch) -> approvals row -> `approved`.
 - **post a terminal-approved video:** `post` at a TTY -> pick an approved video, channels, a time -> re-verify signature, file and post text -> check text limits -> upload to the Railway bucket under its sha256 (read publicly through the media proxy) -> post and targets (`via buffer`) -> GraphQL createPost per channel -> Buffer publishes.

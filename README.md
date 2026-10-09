@@ -4,13 +4,17 @@ A local command-line tool that makes short motion-graphics videos with an LLM ag
 in a library with its full post text, and hands each new video to [Buffer](https://buffer.com) as a
 draft, where you approve, edit or delete it.
 
-- **One isolated session per video.** Each try runs your harness (Claude Code, OpenCode or Codex)
-  headless, in a fresh throwaway home, inside a bubblewrap sandbox that cannot see your library,
-  your database or your keys.
-- **A library of techniques.** Every film picks its shots from a shipped technique library (a 3D voxel
-  field, a particle flow, a kinetic word run, a morph, wipes and more, each with a proven implementation)
-  and applies shared principles; the maker records which set it used, so the next film differs. Every
-  composition has GSAP, three.js and a small motion kit. The library grows from reference films.
+- **One isolated sandbox per video, story first.** Each try runs your harness (Claude Code, OpenCode or
+  Codex) headless, in a fresh throwaway home, inside a bubblewrap sandbox that cannot see your library,
+  your database or your keys. Two sessions run there back to back: a storyteller writes the film's idea
+  and its beats (no motion), learning from analysed brand posts; then a designer builds the motion from
+  that story. Set `story.enabled = false` in a preset to skip the storyteller.
+- **A tagged store of techniques.** A shipped SQLite store holds atomic techniques (a 3D voxel field, a
+  particle flow, a kinetic word run, a morph, wipes, each with a proven recipe) and scenes extracted shot
+  by shot from reference films, each tagged by story role, purpose, content and energy with a general
+  prompt. Code retrieves the best few for each story beat and hands them to the designer, who records
+  the set it used, so the next film differs. Every composition has GSAP (with SplitText, MorphSVG and
+  DrawSVG), three.js and a small motion kit; every session has the engine's block registry, pinned.
 - **Presets make it consistent.** One TOML file pins the brand (colours, fonts, assets, easing),
   the content rules, the agent (backend, model, MCP servers, skills, plugins), the render engine
   version and the encode settings. Override any value per run with `--set key=value`.

@@ -25,9 +25,9 @@ Part of [[index]]. Turns `make` into videos: one isolated harness session per tr
 | Path | Holds |
 |---|---|
 | `home/` | throwaway HOME: harness config, skills, the login copy, caches; `home/house.md` (house rules, never in `work/`) |
-| `work/` | the agent's only writable folder: `TASK.md`, `preset.json`, `history.json`, `skills/`, `tools/` (`sampler.py`, everything in `data/tools/`), `composition/`, `drafts/`, `evidence/`, `brief.json`, `video.json`; on a revision `revision.json` and `scaffold.reference.html` |
+| `work/` | the agents' only writable folder: `TASK.md`, `preset.json`, `history.json`, `skills/`, `tools/` (`sampler.py`, `store.py`, everything in `data/tools/`), `store.db`, `registry` (link to the engine's pinned registry), `composition/`, `drafts/`, `evidence/`, `brief.json`, `video.json`; from the storyteller `STORY.md`, `story-references.json`, `story.json`, `techniques.json`; on a revision `revision.json` and `scaffold.reference.html` |
 | `render/` | `master.mp4` (CRF 10, opaque), written by the runner, deleted after the encode; the maker's jail cannot write it |
-| `logs/` | `agent.out`, `agent.err` (gzipped at trim) |
+| `logs/` | `story.out`, `story.err`, `agent.out`, `agent.err` (gzipped at trim) |
 | `<id>-review/` | the reviewer's sibling: `frames/`, `contact.jpg`, `verdict.json` |
 
 Agent outputs: `brief.json` = `film`, `pillar`, `topic`, `angle`, `hook`, `bpm`, `shots[{start, end, start_state, change, end_state, text[], technique}]`, `cues[{t, kind (hit, whoosh, riser, tick, blip, voice), note}]`, `on_screen_text[]`, `cta` (schema in `data/session_prompt.md`). `video.json` = `title` (required), `description`, `pillar`, `topic`, `angle`, `captions{platform}`, `alt_text`, `hashtags[]`, `poster_at`, `rounds`, `scores{}` (the maker's own, never fed back). `revision.json` = `previous` (old `video.json` without scores or rounds), `reviewer` (issues, summary), `notes`.
@@ -43,6 +43,8 @@ Agent outputs: `brief.json` = `film`, `pillar`, `topic`, `angle`, `hook`, `bpm`,
 ## Invariants
 
 - Every session runs in bubblewrap with a throwaway HOME; unsandboxed is human-only (rule R2). `engine.safe_root` never mounts a folder that is or contains home or the project.
+- One sandbox, two sessions (F15): the storyteller ([[story]], role `story`) then the designer (role `agent`), back to back in the same session folder with no operator step; each gets only its own skills in the harness config, and the session's cost is the sum of both. Limits are per role (`agent.*`, `story.*`, `review.*`; `MAX_TURNS`, `TIMEOUT_MIN`).
+- Every designer session mounts the kit skills on top of the preset's: `KIT_ENGINE_SKILLS` (hyperframes-creative, motion-graphics, product-launch-video, hyperframes-registry) and `KIT_VENDOR_SKILLS` (launch-video, product-demo-video, short-form-video, explainer-video).
 - Rounds are fixed (`agent.rounds`, 1-5); scores and rounds are never shown to a later session.
 - Pillars rotate across a batch, least recently used first; the history the maker sees covers `content.no_repeat_days` (default 30) so angles do not repeat.
 - A finished session keeps only an allowlist (`work/*.md`, `work/*.json`, `contact.jpg`, gzipped logs); a failed one also keeps `work/composition/`. Deletes go through `remove_within`.
@@ -52,7 +54,7 @@ Agent outputs: `brief.json` = `film`, `pillar`, `topic`, `angle`, `hook`, `bpm`,
 
 ## Rules and gotchas
 
-- Rules: R1 (drive harnesses), R2 (isolation, keys), R5 (boundary), R6 (story and boards, not built).
+- Rules: R1 (drive harnesses), R2 (isolation, keys), R5 (boundary), R6 (story built by F15; boards not built).
 - Issues: I1 (preset overrides), I2 (makes start from a terminal, not an agent session), I6 (one root HTML).
 - Ledger: J2 (split), F2 (story and board stages), F3 (network allowlist, log redaction), F5 (own API loop).
 - Research: [[motion-quality-diagnosis]], [[harnesses-and-providers]].

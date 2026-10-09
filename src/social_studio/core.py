@@ -517,8 +517,10 @@ def validate_preset(p: Preset, ctx: Ctx) -> list[str]:
     dur = p.get("video.duration")
     if not (isinstance(dur, list) and len(dur) == 2 and all(isinstance(x, (int, float)) for x in dur)):
         errs.append("video.duration must be [min_seconds, max_seconds]")
-    errs += [f"{role}.effort must be one of {', '.join(EFFORTS)}" for role in ("agent", "review")
+    errs += [f"{role}.effort must be one of {', '.join(EFFORTS)}" for role in ("agent", "story", "review")
              if p.get(f"{role}.effort") is not None and p.get(f"{role}.effort") not in EFFORTS]
+    if not isinstance(p.get("story.enabled", True), bool):
+        errs.append("story.enabled must be true or false")
     rounds = p.get("agent.rounds", 2)
     if isinstance(rounds, bool) or not isinstance(rounds, int) or not 1 <= rounds <= 5:
         errs.append("agent.rounds must be a whole number from 1 to 5")
