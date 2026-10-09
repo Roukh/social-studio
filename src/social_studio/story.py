@@ -6,13 +6,16 @@ retrieves for this brand (story references), and writes story.json, beats with n
 the story, retrieves the top technique items for each beat from the store (store.for_beats), and writes the
 designer's brief: what each beat must make the viewer understand and feel, its candidate techniques and why, and
 the looks banned for this film. The designer session follows with no operator step between.
+
+With no operator brief (no title, subject, topic or notes), a pitch round runs before the storyteller (pitch.py, J6):
+five concepts, a judge, and the winner handed to the storyteller in STORY.md.
 """
 from __future__ import annotations
 
 import json
 import shutil
 
-from . import store
+from . import pitch, store
 from .core import PKG_DIR, Ctx, DataError, Preset, log
 from .runner import (STORY_SKILL, TIMEOUT_MIN, Backend, Session, _aspect, _brief_block, _fill, _maker_values,
                      _read_json, backend_command, run_jailed)
@@ -47,8 +50,14 @@ def prepare(p: Preset, s: Session, pillar: str | None, con) -> list[dict]:
     (s.work / REFERENCES).write_text(json.dumps(refs, indent=2))
     shutil.copytree(PKG_DIR / "data" / "skills" / STORY_SKILL, s.work / "skills" / STORY_SKILL, dirs_exist_ok=True,
                     ignore=shutil.ignore_patterns(".*"))
+    write_task(p, s, pillar, refs)
+    return refs
+
+
+def write_task(p: Preset, s: Session, pillar: str | None, refs: list[dict], concept: str = "") -> None:
+    """STORY.md; after a pitch round it carries the winning concept (pitch.concept_block)."""
     voc = store.vocab()["technique"]
-    vals = {**_maker_values(p), "brief_block": _brief_block(p, pillar, None),
+    vals = {**_maker_values(p), "brief_block": _brief_block(p, pillar, None) + concept,
             "references_line": (f"{len(refs)} analysed posts" if refs else "none yet: work from the method alone"),
             "voice_line": ("\nThis film is voiced: every beat gets a voice line, and the voice sets the timing "
                            "(about 2.5 spoken words a second)." if _voiced(p) else "\nThis film has no voice-over: "
@@ -58,7 +67,6 @@ def prepare(p: Preset, s: Session, pillar: str | None, con) -> list[dict]:
             "structures": ", ".join(store.vocab()["story"]["structure"]),
             "always_banned": json.dumps(ALWAYS_BANNED)}
     (s.work / TASK).write_text(_fill((PKG_DIR / "data" / "story_prompt.md").read_text(), vals))
-    return refs
 
 
 def check(raw: dict, p: Preset, ref_ids: set[str]) -> dict:
@@ -171,6 +179,9 @@ def tell(ctx: Ctx, p: Preset, s: Session, b: Backend, version: str, history: lis
 def _tell(ctx: Ctx, p: Preset, s: Session, b: Backend, version: str, history: list[dict], pillar: str | None,
           con) -> dict:
     refs = prepare(p, s, pillar, con)
+    pitched = pitch.run(ctx, p, s, b, version, pillar) if pitch.needed(p) else None
+    if pitched:
+        write_task(p, s, pillar, refs, pitch.concept_block(pitched))
     prompt = (f"Read {TASK} in the current folder and complete it. Work autonomously; nobody will answer questions. "
               f"Finish by writing {STORY}.")
     argv, env, ro, rw = backend_command(ctx, p, b, s, prompt, STORY_SKILLS, role="story")
@@ -192,5 +203,7 @@ def _tell(ctx: Ctx, p: Preset, s: Session, b: Backend, version: str, history: li
     meta = {"idea": told["idea"], "structure": told.get("structure", ""), "seconds": told["seconds"],
             "beats": [x["role"] for x in told["beats"]],
             "references": [r.get("id") for r in told.get("references", []) if isinstance(r, dict)]}
+    if pitched:
+        meta["pitch"] = pitched["meta"]
     return {"story": told, "plan": plan, "meta": meta,
             "brief": designer_brief(told, plan, refs, _voiced(p))}

@@ -25,9 +25,10 @@ Part of [[index]]. Turns `make` into videos: one isolated harness session per tr
 | Path | Holds |
 |---|---|
 | `home/` | throwaway HOME: harness config, skills, the login copy, caches; `home/house.md` (house rules, never in `work/`) |
-| `work/` | the agents' only writable folder: `TASK.md`, `preset.json`, `history.json`, `skills/`, `tools/` (`sampler.py`, `store.py`, everything in `data/tools/`), `store.db`, `registry` (link to the engine's pinned registry), `composition/`, `drafts/`, `evidence/`, `brief.json`, `video.json`; from the storyteller `STORY.md`, `story-references.json`, `story.json`, `techniques.json`; on a revision `revision.json` and `scaffold.reference.html` |
+| `work/` | the agents' only writable folder: `TASK.md`, `preset.json`, `history.json`, `skills/`, `tools/` (`sampler.py`, `store.py`, everything in `data/tools/`), `store.db`, `registry` (link to the engine's pinned registry), `composition/`, `drafts/`, `evidence/`, `brief.json`, `video.json`; from the pitch round `PITCH.md`, `pitches.json`, `pitch-verdict.json`; from the storyteller `STORY.md`, `story-references.json`, `story.json`, `techniques.json`; on a revision `revision.json` and `scaffold.reference.html` |
+| `judge/` | the pitch round's judge, only while it runs: its own `home/`, `work/` (`JUDGE.md`, `preset.json`, the pitches' own words) and `logs/`; the logs move to `logs/`, the folder is removed |
 | `render/` | `master.mp4` (CRF 10, opaque), written by the runner, deleted after the encode; the maker's jail cannot write it |
-| `logs/` | `story.out`, `story.err`, `agent.out`, `agent.err` (gzipped at trim) |
+| `logs/` | `pitch.*`, `judge.*`, `story.*`, `agent.*` (`.out` and `.err`, gzipped at trim); the session's cost is the sum of their `result` events |
 | `<id>-review/` | the reviewer's sibling: `frames/`, `contact.jpg`, `verdict.json` |
 
 Agent outputs: `brief.json` = `film`, `pillar`, `topic`, `angle`, `hook`, `bpm`, `shots[{start, end, start_state, change, end_state, text[], technique}]`, `cues[{t, kind (hit, whoosh, riser, tick, blip, voice), note}]`, `on_screen_text[]`, `cta` (schema in `data/session_prompt.md`). `video.json` = `title` (required), `description`, `pillar`, `topic`, `angle`, `captions{platform}`, `alt_text`, `hashtags[]`, `poster_at`, `rounds`, `scores{}` (the maker's own, never fed back). `revision.json` = `previous` (old `video.json` without scores or rounds), `reviewer` (issues, summary), `notes`.
@@ -43,7 +44,8 @@ Agent outputs: `brief.json` = `film`, `pillar`, `topic`, `angle`, `hook`, `bpm`,
 ## Invariants
 
 - Every session runs in bubblewrap with a throwaway HOME; unsandboxed is human-only (rule R2). `engine.safe_root` never mounts a folder that is or contains home or the project.
-- One sandbox, two sessions (F15): the storyteller ([[story]], role `story`) then the designer (role `agent`), back to back in the same session folder with no operator step; each gets only its own skills in the harness config, and the session's cost is the sum of both. Limits are per role (`agent.*`, `story.*`, `review.*`; `MAX_TURNS`, `TIMEOUT_MIN`).
+- One sandbox, back-to-back sessions (F15): with no operator brief the pitcher and the judge ([[story]], roles `pitch` and `judge`), then the storyteller (role `story`), then the designer (role `agent`), in the same session folder with no operator step; the judge alone works in `judge/` with its own home, so it never sees the pitcher's reasoning. Each gets only its own skills in the harness config, and the session's cost is the sum of all. Limits are per role (`agent.*`, `story.*`, `pitch.*`, `judge.*`, `review.*`; `MAX_TURNS`, `TIMEOUT_MIN`).
+- The library folder of a video made after a pitch round also holds `pitches.json` and `pitch-verdict.json`.
 - Every designer session mounts the kit skills on top of the preset's: `KIT_ENGINE_SKILLS` (hyperframes-creative, motion-graphics, product-launch-video, hyperframes-registry) and `KIT_VENDOR_SKILLS` (launch-video, product-demo-video, short-form-video, explainer-video).
 - Rounds are fixed (`agent.rounds`, 1-5); scores and rounds are never shown to a later session.
 - Pillars rotate across a batch, least recently used first; the history the maker sees covers `content.no_repeat_days` (default 30) so angles do not repeat.

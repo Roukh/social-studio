@@ -37,6 +37,9 @@ KIT_VENDOR_SKILLS = ["launch-video", "product-demo-video", "short-form-video", "
 # techniques and shots from (operator, 2026-10-07).
 PACKAGE_SKILLS = ["motion-doctrine", "motion-canon", "technique-library"]
 STORY_SKILL = "storyteller"  # shipped too, mounted for the storyteller session only (story.py)
+PITCH_SKILL = "pitch-round"  # shipped, mounted for the pitch session only (pitch.py)
+# Shipped skills only one session role mounts; a preset may not take their names.
+ROLE_SKILLS = (STORY_SKILL, PITCH_SKILL)
 # The motion kit every composition gets (`window.kit`), next to GSAP and three.js (engine.KIT_*).
 KIT_JS = PKG_DIR / "data" / "kit" / "motion-kit.js"
 # Third-party skills vendored at pinned commits (data/skills/vendor/skills.lock.json); a preset mounts them by name
@@ -294,7 +297,7 @@ def _skills(ctx: Ctx, p: Preset, s: Session, version: str) -> list[str]:
     for name in [*p.get("agent.engine_skills", DEFAULT_SKILLS), *p.get("agent.skills", {})]:
         if not SLUG.fullmatch(str(name)):  # a name is a folder under work/skills, never a path elsewhere
             raise ConfigError(f"skill name {name!r} is not a slug", "use a-z, 0-9 and hyphens")
-        if name in (*PACKAGE_SKILLS, STORY_SKILL):
+        if name in (*PACKAGE_SKILLS, *ROLE_SKILLS):
             raise ConfigError(f"skill name {name!r} is taken by a skill social-studio ships", "rename the preset's skill")
     for name in PACKAGE_SKILLS:  # a shipped skill has no hidden files; anything hidden there is not ours
         shutil.copytree(PKG_DIR / "data" / "skills" / name, out / name, dirs_exist_ok=True,
@@ -553,15 +556,17 @@ def _private_copy(dest: Path, data: dict) -> None:
         json.dump(data, f)
 
 
-MAX_TURNS = {"agent": 80, "story": 30, "review": 40}  # 20 ran a 60 fps reel's review out of turns
-TIMEOUT_MIN = {"agent": 45, "story": 15, "review": 15}
+# Per role: the designer, the storyteller, the pitcher and the judge of its pitch round (pitch.py), the reviewer.
+MAX_TURNS = {"agent": 80, "story": 30, "pitch": 30, "judge": 15, "review": 40}  # 20 ran a 60 fps review out of turns
+TIMEOUT_MIN = {"agent": 45, "story": 15, "pitch": 15, "judge": 10, "review": 15}
 
 
 def backend_command(ctx: Ctx, p: Preset, b: Backend, s: Session, prompt: str, skills: list[str],
                     review: bool = False, role: str | None = None) -> tuple[list[str], dict[str, str], list[Path], list[Path]]:
     """argv, extra env, extra read-only binds, extra read-write binds for one harness run. Every limit is read for
-    the run's own role (agent.* for the designer, story.* for the storyteller, review.* for the reviewer): none
-    inherits another's. Only the designer gets MCP servers, plugins and the house rules."""
+    the run's own role (agent.* for the designer, story.* for the storyteller, pitch.* and judge.* for its pitch
+    round, review.* for the reviewer): none inherits another's. Only the designer gets MCP servers, plugins and the
+    house rules."""
     role = role or ("review" if review else "agent")
     env: dict[str, str] = {}
     ro: list[Path] = [_install_root(b.bin, ctx)]
@@ -720,6 +725,9 @@ def run_jailed(ctx: Ctx, s: Session, argv: list[str], env: dict[str, str], ro: l
         except subprocess.TimeoutExpired:
             err.write(f"\nsocial-studio: timed out after {timeout}s\n")
             return 124
+
+
+SESSION_LOGS = ("pitch", "judge", "story", "agent")  # every harness run of one build; its cost is their sum
 
 
 def _claude_cost(s: Session, log_name: str) -> float | None:
@@ -881,7 +889,7 @@ def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pilla
         engine.poster_and_sheet(dest / "video.mp4", dest / "poster.jpg", s.dir / "contact.jpg", info["duration"],
                                 meta.get("poster_at"))
         shutil.copy2(s.dir / "contact.jpg", dest / "contact.jpg")
-        for name in ("video.json", "brief.json", "story.json", "techniques.json"):
+        for name in ("video.json", "brief.json", "story.json", "techniques.json", "pitches.json", "pitch-verdict.json"):
             if (s.work / name).exists():
                 shutil.copy2(s.work / name, dest / name)
         shutil.copytree(s.comp, dest / "composition", ignore=shutil.ignore_patterns("snapshots", "renders", ".hf*", "scaffold.html"),
@@ -921,7 +929,7 @@ def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pilla
                     db.set_status(con, revise["id"], "superseded", f"superseded by {vid}")
         finally:
             con.close()
-        costs = [c for c in (_claude_cost(s, "story"), _claude_cost(s, "agent")) if c is not None]
+        costs = [c for c in (_claude_cost(s, n) for n in SESSION_LOGS) if c is not None]
         cost = round(sum(costs), 4) if costs else None
         _session_end(ctx, s, "ok", cost=cost, video_id=vid)
         try:  # the video exists from here on; cleanup trouble is a warning, never a failed run

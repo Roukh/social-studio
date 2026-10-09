@@ -517,10 +517,15 @@ def validate_preset(p: Preset, ctx: Ctx) -> list[str]:
     dur = p.get("video.duration")
     if not (isinstance(dur, list) and len(dur) == 2 and all(isinstance(x, (int, float)) for x in dur)):
         errs.append("video.duration must be [min_seconds, max_seconds]")
-    errs += [f"{role}.effort must be one of {', '.join(EFFORTS)}" for role in ("agent", "story", "review")
+    errs += [f"{role}.effort must be one of {', '.join(EFFORTS)}"
+             for role in ("agent", "story", "pitch", "judge", "review")
              if p.get(f"{role}.effort") is not None and p.get(f"{role}.effort") not in EFFORTS]
-    if not isinstance(p.get("story.enabled", True), bool):
-        errs.append("story.enabled must be true or false")
+    errs += [f"{key} must be true or false" for key in ("story.enabled", "story.pitch")
+             if not isinstance(p.get(key, True), bool)]
+    for key in ("pitch.max_turns", "pitch.timeout_min", "judge.max_turns", "judge.timeout_min"):  # the pitch round's
+        val = p.get(key)
+        if val is not None and (isinstance(val, bool) or not isinstance(val, int) or val < 1):
+            errs.append(f"{key} must be a whole number above 0")
     rounds = p.get("agent.rounds", 2)
     if isinstance(rounds, bool) or not isinstance(rounds, int) or not 1 <= rounds <= 5:
         errs.append("agent.rounds must be a whole number from 1 to 5")

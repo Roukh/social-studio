@@ -21,7 +21,7 @@ everything is.
 | Goal | Command |
 |---|---|
 | See the state of things | `sclstdio --json agent status` |
-| Make videos | `sclstdio --json build -n 3` (add `--title`, `--subject`, `--topic`, `--pillar`, `--notes`, `--preset`, `--set key=value`); each film picks its techniques from the shipped technique library and lists them in its `video.json` |
+| Make videos | `sclstdio --json build -n 3` (add `--title`, `--subject`, `--topic`, `--pillar`, `--notes`, `--preset`, `--set key=value`); each film picks its techniques from the shipped technique library and lists them in its `video.json`. With none of `--title`, `--subject`, `--topic`, `--notes`, a pitch round picks each film's concept first (five pitches, a judge); give one of them when the operator asked for something specific |
 | Pick the format for this batch | `make --aspect 16:9 --fps 60 --duration 15 --sound bed+sfx` (aspect 9:16, 4:5, 1:1 or 16:9; sound none, sfx, bed+sfx, sfx+voice or bed+sfx+voice) |
 | Make a showreel in the house reel look | `sclstdio --json build --preset reel` (16:9, 60 fps, 20-25 s, synthesized bed and effects) |
 | Remake a video a human sent back | `sclstdio --json build --revise <id>` (the new version replaces the old one's files) |

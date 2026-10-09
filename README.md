@@ -9,6 +9,12 @@ draft, where you approve, edit or delete it.
   your database or your keys. Two sessions run there back to back: a storyteller writes the film's idea
   and its beats (no motion), learning from analysed brand posts; then a designer builds the motion from
   that story. Set `story.enabled = false` in a preset to skip the storyteller.
+- **A pitch round when you give no brief.** Without `--title`, `--subject`, `--topic` or `--notes`, the
+  story stage opens with five concepts pitched on five different paths (the product's world, the emotion,
+  the audience, the usual video inverted, an unusual format), each resting on a concrete fact about the
+  product. A judge in its own fresh session, seeing only the pitches and the brief, scores them on one
+  rubric; code checks the verdict, picks the winner and hands it to the storyteller. The pitches, the
+  verdict and the typical direction left behind stay with the video. `story.pitch = false` skips it.
 - **A tagged store of techniques.** A shipped SQLite store holds atomic techniques (a 3D voxel field, a
   particle flow, a kinetic word run, a morph, wipes, each with a proven recipe) and scenes extracted shot
   by shot from reference films, each tagged by story role, purpose, content and energy with a general

@@ -36,6 +36,7 @@ Part of [[index]]. A preset sets everything about a video: brand, fonts, assets,
 - `assets.files`; `render.{engine, version, libraries, vendor, esm, scripts}`; `encode.{crf, preset, tune, maxrate, bufsize, audio_bitrate, loudness}`.
 - `agent.{backend, model, effort, rounds, timeout_min, max_turns, allow_web, max_budget_usd, engine_skills, package_skills, skills, mcp, plugins}`.
 - `review.{independent, backend, model, effort, criteria, min_score, timeout_min, max_turns, allow_web, max_budget_usd}`; each role reads only its own keys (`review.max_rounds` is only a fallback for `agent.rounds`).
+- `story.{enabled, pitch, backend, model, effort, timeout_min, max_turns, allow_web, max_budget_usd, goal, product}`; `story.pitch` (default true) runs the pitch round when no operator brief is set. The pitch round's roles read only their limits, `pitch.{effort, timeout_min, max_turns, allow_web, max_budget_usd}` and the same under `judge.`, and use the storyteller's backend and model.
 - `publish.{platforms, link, link_platforms, bio_note}`.
 
 ## Invariants

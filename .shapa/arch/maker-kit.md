@@ -22,7 +22,7 @@ Part of [[index]]. The prompts, skills and tools that decide how a made video lo
 
 ## Mounting order (`runner._skills`)
 
-1. Shipped: `motion-doctrine`, `motion-canon`, `technique-library` (names reserved, with `storyteller`, which only the storyteller session mounts; see [[story]]).
+1. Shipped: `motion-doctrine`, `motion-canon`, `technique-library` (names reserved, with `storyteller` and `pitch-round`, which only the storyteller and the pitcher mount; see [[story]]).
 2. Vendored skills named in `agent.package_skills`, then the kit's `KIT_VENDOR_SKILLS` (launch-video, product-demo-video, short-form-video, explainer-video), from `skills.lock.json`.
 3. Engine skills from the pinned tag: `agent.engine_skills` (default `hyperframes-core`, `hyperframes-cli`, `hyperframes-animation`, `hyperframes-audio`, `media-use`), then the kit's `KIT_ENGINE_SKILLS` (hyperframes-creative, motion-graphics, product-launch-video, hyperframes-registry; the registry is the engine's pinned copy at `work/registry`).
 4. Preset skills in `agent.skills` (inline text or a folder inside the repo; never `.env` files).

@@ -116,7 +116,7 @@ def test_the_storyteller_session_has_its_own_limits_and_no_designer_extras(ctx, 
 
 
 def test_tell_runs_the_storyteller_then_briefs_the_designer(ctx, engine_stub, monkeypatch):
-    p, s, skills = prepared(ctx, engine_stub)
+    p, s, skills = prepared(ctx, engine_stub, {"story.pitch": False})   # the pitch round has its own tests
     calls = []
 
     def fake_storyteller(ctx_, s_, argv, env, ro, rw, sandbox, version, log_name, timeout, workdir=None):
