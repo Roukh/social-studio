@@ -25,7 +25,9 @@ everything is.
 | Pick the format for this batch | `make --aspect 16:9 --fps 60 --duration 15 --sound bed+sfx` (aspect 9:16, 4:5, 1:1 or 16:9; sound none, sfx, bed+sfx, sfx+voice or bed+sfx+voice) |
 | Make a showreel in the house reel look | `sclstdio --json build --preset reel` (16:9, 60 fps, 20-25 s, synthesized bed and effects) |
 | Remake a video a human sent back | `sclstdio --json build --revise <id>` (the new version replaces the old one's files) |
-| Find a video's file to show the operator | `sclstdio --json library path <id>` |
+| Every video file on this disk, with its path | `sclstdio --json library` (`library <id>` shows one) |
+| Find a video's file to show the operator | `sclstdio --json library <id> path` |
+| Put a video waiting for review into Buffer as drafts | `sclstdio --json library <id> draft` (a make already does this) |
 | Show or move the library (inside the repo) | `sclstdio --json library dir [folder]` |
 | List videos not yet posted | `sclstdio --json agent videos` |
 | Topics already covered (avoid repeats) | `sclstdio --json agent topics` |
@@ -33,16 +35,17 @@ everything is.
 
 A `build` result carries `buffer`: the drafts it left in Buffer, or why they did not get there. Tell
 the operator the drafts are waiting in Buffer. Approving them is the operator's, in Buffer. When
-Buffer is not connected, the operator approves at the terminal instead: `sclstdio review`,
-then `sclstdio post` picks an approved post, its channels and a time. When `agent status`
+Buffer is not connected, the operator approves at the terminal instead: `sclstdio review walk`,
+then `sclstdio post pick` picks an approved post, its channels and a time. When `agent status`
 shows `ready_to_post` above zero, tell the operator to run it.
 
 ## What you cannot do, by design
 
 - Approve, reject or mark videos for revision. Only the human can: in Buffer for drafts, or in
-  their own terminal (`sclstdio review`), where approval is a passphrase signature that cannot
+  their own terminal (`sclstdio review walk`), where approval is a passphrase signature that cannot
   be done for them.
-- Schedule, post, list or cancel posts (`sclstdio post`), or pick which video goes out or when.
+- Schedule, post, list or cancel posts (`sclstdio post`, `library <id> post|schedule|cancel`), delete
+  videos (`library <id> delete`), or pick which video goes out or when.
   A scheduled video disappears from everything you can list. (`post draft ID` only puts a video that
   waits for review into Buffer's drafts, which publish nothing; a make already does this itself.)
 - Change where posts and videos go (`publish.buffer`, `publish.media`), see or change scheduled and
@@ -57,5 +60,5 @@ If a command answers `denied` (exit 77), it is human-only: tell the operator whi
 1. `agent status` to see how many videos wait for review and how many are ready to post.
 2. `make -n <count>` if the library is short of approved or pending videos.
 3. Tell the operator the new drafts wait in Buffer to be approved, edited or deleted there.
-4. Without Buffer drafts: tell the operator to run `sclstdio review` to approve them (the
-   video and its post text), then `sclstdio post` to schedule approved ones through Buffer.
+4. Without Buffer drafts: tell the operator to run `sclstdio review walk` to approve them (the
+   video and its post text), then `sclstdio post pick` to schedule approved ones through Buffer.

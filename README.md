@@ -20,7 +20,7 @@ draft, where you approve, edit or delete it.
 - **A human approves; agents never post.** Once Buffer is connected, code puts each finished video
   into Buffer as a draft on every connected channel, and you approve it there. Drafts publish
   nothing. You can also approve at the terminal instead: a passphrase-protected signature over the
-  exact file and its post text, then `sclstdio post` picks the post, its channels and a time.
+  exact file and its post text, then `sclstdio post pick` picks the post, its channels and a time.
 - **Two ways in.** Run it yourself, or let an agent in any harness drive it through the CLI
   (`--json` everywhere, a shipped `SKILL.md`).
 - **One folder, no sprawl.** A project folder holds config, keys, presets, the library and all
@@ -38,7 +38,10 @@ cd social && sclstdio doctor
 ```
 
 The command is `sclstdio` (`social-studio` still works as an alias). A bare `sclstdio` prints the menu of
-commands, and `sclstdio help <command>` prints that command's options.
+commands, and `sclstdio help <command>` prints that command's options. A bare command shows what it
+holds: `sclstdio library` lists every video whose file is on this disk, with its path; `review` and
+`post` list their queues (`review walk` and `post pick` are the interactive ones). At a terminal, reads
+first sync with Buffer, so a draft deleted there shows here as rejected without waiting for the timer.
 
 ## Quick start
 
@@ -50,8 +53,11 @@ deploy/media-proxy/setup.sh social          # Railway bucket + read-only proxy B
 sclstdio timer install                      # systemd user timer: `post sync` every 10 minutes records Buffer's results
 sclstdio build -n 3 --preset mybrand        # three videos, three isolated sessions, each one a Buffer draft
                                             # then approve, edit or delete the drafts in Buffer
+sclstdio library                            # every video on this disk: id, status, title, path
+sclstdio library 4 post                     # what Buffer does to a post, from here (signed): post, schedule
+                                            #   [--at '2026-10-09 09:00'; else Buffer's queue], cancel, delete
 sclstdio post list                          # drafts, queued and sent posts, with post URLs
-sclstdio review                             # watch here; reject or send back with notes (takes the drafts out)
+sclstdio review walk                        # watch here; reject or send back with notes (takes the drafts out)
 sclstdio review rescore 4 --times 2         # re-run the independent reviewer to see how much its scores move
 ```
 

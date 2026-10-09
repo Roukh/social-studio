@@ -96,6 +96,13 @@ def sign(ctx: Ctx, videos: list[dict]) -> list[tuple[dict, str, str]]:
         return [(v, f.read_text(), Path(f"{f}.sig").read_text()) for v, f in zip(videos, files)]
 
 
+def record(con, signed: list[tuple[dict, str, str]]) -> None:
+    """Store what sign() returned, inside the caller's transaction, which then moves each video to approved."""
+    for v, text, sig in signed:
+        con.execute("INSERT OR REPLACE INTO approvals (video_id, sha256, approved_at, payload, signature) "
+                    "VALUES (?, ?, ?, ?, ?)", (v["id"], v["sha256"], text.split("approved_at:")[1].strip(), text, sig))
+
+
 def verify(ctx: Ctx, approval_payload: str, signature: str, video: dict) -> bool:
     """True only if the signature is valid AND it covers this video id and this exact sha256."""
     _, _, allowed = key_paths(ctx)

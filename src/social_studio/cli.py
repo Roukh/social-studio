@@ -19,7 +19,7 @@ from pathlib import Path
 
 from . import __version__, approval, db, engine, platforms, posting, review
 from .core import (EFFORTS, FORMATS, GUARDED_CONFIG, PKG_DIR, PROJECT_FILE, SOUNDS, ConfigError, Ctx, DataError,
-                   StudioError, UsageError, dget, dset, emit, format_sets, guarded, is_tty, iso, list_presets, load_preset,
+                   StudioError, UsageError, dget, dset, emit, format_sets, guarded, is_human, is_tty, iso, list_presets, load_preset,
                    load_toml, log, make_ctx, now_utc, parse_sets, parse_value, require_human, save_env,
                    validate_preset)
 
@@ -44,7 +44,8 @@ def table(rows: list[dict], cols: list[str]) -> str:
     if not rows:
         return "(none)"
     cells = [[str(r.get(c, "") if r.get(c) is not None else "") for c in cols] for r in rows]
-    widths = [min(60, max(len(c), *(len(row[i]) for row in cells))) for i, c in enumerate(cols)]
+    widths = [max(len(c), *(len(row[i]) for row in cells)) for i, c in enumerate(cols)]
+    widths = [min(60, w) for w in widths[:-1]] + widths[-1:]  # the last column (a path, URLs) is never cut
     line = lambda vals: "  ".join(v[:w].ljust(w) for v, w in zip(vals, widths))  # noqa: E731
     return "\n".join([line(cols), line(["-" * w for w in widths]), *map(line, cells)])
 
@@ -303,8 +304,8 @@ def cmd_make(ctx: Ctx, a) -> int:
         human += ("\n\nNext: approve, edit or delete the drafts in Buffer. `sclstdio post sync` (the timer runs "
                   "it) records what you decide there.")
     elif ok:
-        human += ("\n\nNext: a human reviews them in a terminal with `sclstdio review`, "
-                  "then schedules approved ones with `sclstdio post`.")
+        human += ("\n\nNext: a human reviews them in a terminal with `sclstdio review walk`, "
+                  "then schedules approved ones with `sclstdio post pick`.")
     emit(ctx, {"made": len(ok), "failed": len(results) - len(ok), "results": results}, human)
     return 0 if ok else 1
 
@@ -344,6 +345,18 @@ def move_library(ctx: Ctx, new: Path) -> int:
     return moved
 
 
+LIBRARY_WORDS = ("list", "dir")
+# `library ID ACTION`: what Buffer offers on a post (post now, schedule, cancel, delete), then review and browse.
+VIDEO_ACTIONS = ("post", "schedule", "cancel", "delete", "draft", "approve", "reject", "revise", "show", "path", "open")
+
+
+class _IdOr(tuple):
+    """argparse choices that also take a video id, so `library 4 post` parses as well as `library list`."""
+
+    def __contains__(self, word) -> bool:
+        return str(word).isdigit() or tuple.__contains__(self, word)
+
+
 def cmd_library(ctx: Ctx, a) -> int:
     if a.action == "dir":
         if not a.target:
@@ -355,8 +368,28 @@ def cmd_library(ctx: Ctx, a) -> int:
         ctx.save_config()
         emit(ctx, {"library": str(new), "moved": moved}, f"library is now {new} ({moved} video folders moved)")
         return 0
+    if a.action and a.action.isdigit():  # id first: library 4 post
+        return _video_action(ctx, a, int(a.action), a.target or "show")
+    if a.action in VIDEO_ACTIONS:  # the older order: library show 4
+        if not (a.target or "").isdigit():
+            raise UsageError(f"library {a.action} needs a video id", f"e.g. sclstdio library 4 {a.action}")
+        return _video_action(ctx, a, int(a.target), a.action)
+    posting.refresh(ctx)
     con = db.connect(ctx)
     try:
+        if a.action is None:  # a bare `sclstdio library`: every video whose file is on this disk
+            statuses = a.status or []
+            if any(s in HIDDEN for s in statuses):
+                require_human("listing scheduled and posted videos")
+            rows = []
+            for r in db.rows(con.execute("SELECT id, status, title, file FROM videos WHERE file IS NOT NULL "
+                                         "AND file <> '' ORDER BY id DESC")):
+                path = ctx.abs(r.pop("file"))
+                hidden = r["status"] in HIDDEN and not is_human()  # agents never see scheduled or posted videos
+                if path.is_file() and not hidden and (not statuses or r["status"] in statuses):
+                    rows.append({**r, "path": str(path)})
+            emit(ctx, rows, table(rows, ["id", "status", "title", "path"]) if rows else "no video files on this disk")
+            return 0
         if a.action == "list":
             if a.all:
                 require_human("listing scheduled and posted videos")
@@ -374,20 +407,59 @@ def cmd_library(ctx: Ctx, a) -> int:
                 r["mb"] = round(r.pop("bytes") / 1e6, 1)
             emit(ctx, rows, table(rows, ["id", "status", "title", "pillar", "duration", "mb", "created_at"]))
             return 0
-        if not (a.target or "").isdigit():
-            raise UsageError(f"library {a.action} needs a video id")
-        v = db.get_video(con, int(a.target))
+    finally:
+        con.close()
+    return 0
+
+
+def _video_action(ctx: Ctx, a, vid: int, act: str) -> int:
+    if act not in VIDEO_ACTIONS:
+        raise UsageError(f"no library action {act!r}", "one of: " + ", ".join(VIDEO_ACTIONS))
+    if act in ("post", "schedule"):
+        return _go_out(ctx, a, vid, act)
+    if act == "cancel":
+        con = db.connect(ctx)
+        try:
+            pid = posting.live_post(con, vid)
+        finally:
+            con.close()
+        if pid is None:
+            raise DataError(f"video {vid} is on no post that can still change", "see `sclstdio post list`")
+        emit(ctx, posting.cancel(ctx, pid), f"video {vid}: post {pid} cancelled and taken out of Buffer")
+        return 0
+    if act == "delete":
+        return _delete_video(ctx, a, vid)
+    if act == "draft":  # drafts publish nothing: no terminal check
+        res = posting.draft(ctx, vid)
+        emit(ctx, res, _drafted(res) + "\nApprove, edit or delete them in Buffer.")
+        return 0 if any(t["status"] == "draft" for t in res["targets"]) else 1
+    if act == "approve":
+        res = _approve(ctx, [vid])
+        emit(ctx, res, f"approved {vid}; post it with `sclstdio library {vid} post` (or schedule --at ...)")
+        return 0
+    if act in ("reject", "revise"):
+        require_human(f"marking videos for {act}")
+        if act == "revise" and not a.notes:
+            raise UsageError("library ID revise needs --notes saying what to change")
+        _decide(ctx, vid, "rejected" if act == "reject" else "revision", a.notes or "")
+        emit(ctx, {act: [vid]}, f"{act}: {vid}" + (f"\nThen: sclstdio build --revise {vid}" if act == "revise" else ""))
+        return 0
+    if act == "show":
+        posting.refresh(ctx)
+    con = db.connect(ctx)
+    try:
+        v = db.get_video(con, vid)
         if v["status"] in HIDDEN:
             require_human(f"viewing a {v['status']} video")
-        if a.action == "path":
+        if act == "path":
             f = str(ctx.abs(v["file"])) if v["file"] else ""
             emit(ctx, {"file": f, "dir": str(ctx.abs(v["dir"])) if v["dir"] else ""}, f or "(files deleted)")
-        elif a.action == "open":
+        elif act == "open":
             opener = shutil.which("xdg-open") or shutil.which("open")
             if not opener:
                 raise DataError("no xdg-open/open available", str(ctx.abs(v["file"])))
             if not v["file"]:
-                raise DataError(f"video {v['id']} has no files (a revision replaced it)")
+                raise DataError(f"video {v['id']} has no files (a revision replaced it, or it was deleted)")
             subprocess.Popen([opener, str(ctx.abs(v["file"]))], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             emit(ctx, {"opened": str(ctx.abs(v["file"]))}, str(ctx.abs(v["file"])))
         else:
@@ -397,6 +469,67 @@ def cmd_library(ctx: Ctx, a) -> int:
             emit(ctx, v, json.dumps(v, indent=2, default=str))
     finally:
         con.close()
+    return 0
+
+
+def _go_out(ctx: Ctx, a, vid: int, act: str) -> int:
+    """post (now), or schedule (--at, else Buffer's queue): a video in Buffer as drafts has those drafts released,
+    signed, the way approving them in Buffer does; one approved here before gets a Buffer post per channel."""
+    when = (a.at or posting.QUEUE) if act == "schedule" else "now"
+    con = db.connect(ctx)
+    try:
+        in_buffer = posting.drafts_post(con, vid)
+    finally:
+        con.close()
+    if in_buffer:
+        rp = posting.release_plan(ctx, vid, a.channel, when)
+        return _send(ctx, a, rp, posting.describe_release(rp), lambda: posting.release(ctx, rp))
+    p = posting.plan(ctx, vid, a.channel, when)
+    return _send(ctx, a, p, posting.describe(p), lambda: posting.execute(ctx, p))
+
+
+def _send(ctx: Ctx, a, p: dict, described: str, go) -> int:
+    """Show what goes out, then confirm (or --yes, or --dry-run) before anything reaches Buffer."""
+    log(described + "\n")
+    if a.dry_run:
+        return _scheduled(ctx, {"dry_run": True, "video_id": p["video"]["id"], "local": p["local"]})
+    if not a.yes and input("send it? [y/N] ").strip().lower() != "y":
+        log("nothing sent")
+        return 0
+    return _scheduled(ctx, go())
+
+
+def _delete_video(ctx: Ctx, a, vid: int) -> int:
+    """What deleting a post in Buffer does, for the whole video: its drafts or unsent posts leave Buffer, it is
+    rejected (as a draft deleted in Buffer is), and its files and sessions go; the row stays as history."""
+    require_human("deleting a video")
+    con = db.connect(ctx)
+    try:
+        v = db.get_video(con, vid)
+        pid = posting.live_post(con, vid)
+        sent = con.execute("SELECT count(*) FROM post_targets t JOIN posts p ON p.id = t.post_id "
+                           "WHERE p.video_id = ? AND t.status = 'posted'", (vid,)).fetchone()[0]
+    finally:
+        con.close()
+    if v["status"] == "posted" or sent:
+        raise DataError(f"video {vid} went out; its files stay as the record of what was posted",
+                        "delete the post on the network itself")
+    if not a.yes and input(f"delete video {vid} ({v['title']}): out of Buffer, rejected, files removed? [y/N] "
+                           ).strip().lower() != "y":
+        log("nothing deleted")
+        return 0
+    if pid:
+        posting.cancel(ctx, pid)  # drafts withdrawn, or a scheduled post taken back out of Buffer
+    con = db.connect(ctx, actor="human")
+    try:
+        if db.get_video(con, vid)["status"] not in ("rejected", "superseded"):
+            with db.tx(con):
+                db.set_status(con, vid, "rejected", "deleted at the terminal")
+    finally:
+        con.close()
+    from .runner import purge_version
+    purge_version(ctx, v)
+    emit(ctx, {"deleted": vid, "post_id": pid}, f"video {vid} deleted: out of Buffer, rejected, files removed")
     return 0
 
 
@@ -415,13 +548,11 @@ def _approve(ctx: Ctx, ids: list[int]) -> dict:
             pid = posting.drafts_post(con, v["id"])
             if pid:
                 raise DataError(f"video {v['id']} waits in Buffer as drafts; approve it there",
-                                f"or take it back out first: sclstdio post cancel {pid}")
+                                f"or here: sclstdio library {v['id']} post (or schedule --at ...)")
         signed = approval.sign(ctx, videos)
         with db.tx(con):
-            for v, payload, sig in signed:
-                con.execute("INSERT OR REPLACE INTO approvals (video_id, sha256, approved_at, payload, signature) "
-                            "VALUES (?, ?, ?, ?, ?)", (v["id"], v["sha256"], payload.split("approved_at:")[1].strip(),
-                                                        payload, sig))
+            approval.record(con, signed)
+            for v, _, _ in signed:
                 db.set_status(con, v["id"], "approved", "approved by a human")
     finally:
         con.close()
@@ -440,6 +571,8 @@ def _decide(ctx: Ctx, vid: int, status: str, notes: str) -> None:
 
 
 def cmd_review(ctx: Ctx, a) -> int:
+    if a.action in ("list", "walk"):  # a draft deleted or approved in Buffer is no longer waiting here
+        posting.refresh(ctx)
     con = db.connect(ctx)
     try:
         rows = _review_rows(con)
@@ -468,7 +601,7 @@ def cmd_review(ctx: Ctx, a) -> int:
         if not a.ids:
             raise UsageError("review approve needs video ids")
         res = _approve(ctx, a.ids)
-        emit(ctx, res, f"approved {res['approved']}; schedule them with `sclstdio post`")
+        emit(ctx, res, f"approved {res['approved']}; schedule them with `sclstdio post pick`")
         return 0
     if a.action in ("reject", "revise"):
         require_human(f"marking videos for {a.action}")
@@ -531,12 +664,14 @@ def cmd_review(ctx: Ctx, a) -> int:
         print(f"\nSigning {len(to_approve)} approval(s), each covering the video and its post text. "
               "Enter your approval passphrase.")
         res = _approve(ctx, to_approve)
-        emit(ctx, res, f"approved {res['approved']}; schedule them with `sclstdio post`")
+        emit(ctx, res, f"approved {res['approved']}; schedule them with `sclstdio post pick`")
     return 0
 
 
 def cmd_agent(ctx: Ctx, a) -> int:
     """Everything an agent needs, nothing it should not see. Agents read; they never schedule or post."""
+    if a.action == "status":
+        posting.refresh(ctx)
     con = db.connect(ctx, actor="agent")
     try:
         if a.action == "status":
@@ -601,17 +736,11 @@ def cmd_post(ctx: Ctx, a) -> int:
         emit(ctx, res, _drafted(res) + "\nApprove, edit or delete them in Buffer.")
         return 0 if any(t["status"] == "draft" for t in res["targets"]) else 1
     if a.action == "schedule":
-        if a.target is None or not a.at:
-            raise UsageError("post schedule needs a video id and --at",
+        if a.target is None:
+            raise UsageError("post schedule needs a video id",
                              "e.g. sclstdio post schedule 12 --at '2026-10-08 09:00' -c instagram -c x")
-        p = posting.plan(ctx, a.target, a.channel, a.at)
-        log(posting.describe(p) + "\n")
-        if a.dry_run:
-            return _scheduled(ctx, {"dry_run": True, "video_id": a.target, "local": p["local"]})
-        if not a.yes and input("schedule it? [y/N] ").strip().lower() != "y":
-            log("nothing scheduled")
-            return 0
-        return _scheduled(ctx, posting.execute(ctx, p))
+        p = posting.plan(ctx, a.target, a.channel, a.at or posting.QUEUE)
+        return _send(ctx, a, p, posting.describe(p), lambda: posting.execute(ctx, p))
     return _scheduled(ctx, posting.pick(ctx, dry_run=a.dry_run))
 
 
@@ -686,6 +815,9 @@ def cmd_completion(ctx: Ctx, a) -> int:
     """Shell completion generated from the parser itself, so it never drifts from the commands."""
     ap = build_parser()
     sub = _commands(ap)
+    if not a.shell:  # it holds nothing to show, so a bare call opens its menu
+        sub.choices["completion"].print_help()
+        return 0
     top = sorted(sub.choices) + [o for x in ap._actions for o in x.option_strings if o.startswith("--")]
     cases = []
     for name, p in sub.choices.items():
@@ -736,7 +868,7 @@ def build_parser() -> argparse.ArgumentParser:
         prog="sclstdio",
         description="Make motion-graphics videos in isolated LLM sessions, keep them in a library, post approved ones.",
         epilog="A bare `sclstdio` shows this menu; `sclstdio help <command>` (or `<command> -h`) shows its options.\n"
-               "Typical day: sclstdio build  ->  approve the drafts in Buffer (or sclstdio review)  ->  sclstdio post list",
+               "Typical day: sclstdio build  ->  approve the drafts in Buffer (or sclstdio review walk)  ->  sclstdio post list",
         formatter_class=lambda prog: argparse.RawDescriptionHelpFormatter(prog, max_help_position=26))
     ap.add_argument("--json", action="store_true", help="machine-readable output on stdout")
     ap.add_argument("--project", help=f"project folder (default: found from the current folder: {PROJECT_FILE}, or social/{PROJECT_FILE})")
@@ -748,6 +880,9 @@ def build_parser() -> argparse.ArgumentParser:
         p = sub.add_parser(name, help=help_, description=about or help_, aliases=list(aliases))
         p.set_defaults(fn=fn)
         return p
+
+    # A command called bare shows what it holds (its read-only word is the default); one that holds
+    # nothing, like completion, opens its own menu, as a bare sclstdio does.
 
     # Make and judge
     p = cmd("build", cmd_make, "make videos: one isolated agent session each, then drafts in Buffer",
@@ -781,34 +916,49 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--review", dest="review", action="store_true", default=None, help="force the independent reviewer")
     p.add_argument("--no-review", dest="review", action="store_false", help="skip the independent reviewer")
 
-    p = cmd("review", cmd_review, "walk the review queue, or approve, reject, revise or rescore by id",
-            about="human review: walk the queue, or approve / reject / revise by id; "
+    p = cmd("review", cmd_review, "list or walk the review queue, or approve, reject, revise or rescore by id",
+            about="human review: bare, list the queue; walk it, or approve / reject / revise by id; "
             "rescore ID re-runs the independent reviewer to measure its noise")
     p.add_argument("action", nargs="?", choices=["walk", "list", "approve", "reject", "revise", "rescore"],
-                   default="walk")
+                   default="list")
     p.add_argument("ids", nargs="*", type=int)
     p.add_argument("--notes")
     p.add_argument("--times", type=int, default=2, help="rescore: reviewer runs on the same video (default 2)")
     p.add_argument("--effort", choices=EFFORTS, help="rescore: the reviewer's effort (review.effort)")
 
-    p = cmd("library", cmd_library, "browse the videos, or move the library folder",
-            about="browse the library, or move it with `library dir <folder>` (inside the repo)")
-    p.add_argument("action", choices=["list", "show", "path", "open", "dir"])
-    p.add_argument("target", nargs="?", help="a video id; for `dir`, the new folder")
-    p.add_argument("--status", action="append")
-    p.add_argument("--all", action="store_true", help="include scheduled and posted (human only)")
-    p.add_argument("--limit", type=int, default=25)
+    p = cmd("library", cmd_library, "the videos on this disk; act on one: post, schedule, cancel, delete...",
+            about="the library. Bare, every video whose file is on this disk, with its path. `library ID ACTION` "
+            "acts on one video the way Buffer acts on a post: post (now) or schedule --at release its Buffer drafts "
+            "(signed, as approving them in Buffer does) or post an approved one; cancel takes it back out of "
+            "Buffer; delete takes it out of Buffer, rejects it and removes its files. Also draft, approve, reject, "
+            "revise, show (`library ID` alone), path, open. `library list` filters; `library dir <folder>` moves "
+            "it (inside the repo)")
+    p.add_argument("action", nargs="?", choices=_IdOr(LIBRARY_WORDS + VIDEO_ACTIONS), metavar="ID|word",
+                   help="a video id, then an action; or list, or dir")
+    p.add_argument("target", nargs="?", metavar="action", help="what to do with the video (default show); "
+                   "for `dir`, the new folder")
+    p.add_argument("--at", metavar="'YYYY-MM-DD HH:MM'|now", help="schedule: local time, or now; "
+                   "left out, the channel's next slot in Buffer's queue")
+    p.add_argument("-c", "--channel", action="append",
+                   help="post, schedule: instagram, facebook, x, or a Buffer channel id (repeatable; default all)")
+    p.add_argument("--notes", help="reject, revise: why, or what should change")
+    p.add_argument("--yes", action="store_true", help="post, schedule, delete: skip the confirmation question")
+    p.add_argument("--dry-run", action="store_true", help="post, schedule: show what would happen; send nothing")
+    p.add_argument("--status", action="append", help="list only videos in this status (repeatable)")
+    p.add_argument("--all", action="store_true", help="list: include scheduled and posted (human only)")
+    p.add_argument("--limit", type=int, default=25, help="list: how many (default 25)")
 
     # Post
     p = cmd("post", cmd_post, "post through Buffer: draft, pick, schedule, list, sync, cancel",
-            about="post videos through Buffer: draft sends a video there as drafts to approve in Buffer "
-            "(build does this by itself); with no action, pick a signed-approved one, its channels and a time at a "
-            "terminal; schedule does the same from flags; list and cancel follow them; "
+            about="post videos through Buffer: bare, list the posts; draft sends a video there as drafts to approve "
+            "in Buffer (build does this by itself); pick chooses a signed-approved one, its channels and a time at "
+            "a terminal; schedule does the same from flags; list and cancel follow them; "
             "sync records what Buffer did (the timer runs it)")
     p.add_argument("action", nargs="?", choices=["pick", "draft", "schedule", "list", "sync", "cancel"],
-                   default="pick")
+                   default="list")
     p.add_argument("target", nargs="?", type=int, help="draft, schedule: a video id; cancel: a post id")
-    p.add_argument("--at", metavar="'YYYY-MM-DD HH:MM'|now", help="schedule: local time, or now")
+    p.add_argument("--at", metavar="'YYYY-MM-DD HH:MM'|now", help="schedule: local time, or now; "
+                   "left out, the channel's next slot in Buffer's queue")
     p.add_argument("-c", "--channel", action="append",
                    help="schedule: instagram, facebook, x, or a Buffer channel id (repeatable; default all)")
     p.add_argument("--yes", action="store_true", help="schedule: skip the confirmation question")
@@ -818,16 +968,16 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = cmd("channel", cmd_channel, "connect and test the posting accounts: buffer and media",
             about="connect and test the accounts posting uses: buffer (posts) and media (video hosting)")
-    p.add_argument("action", choices=["list", "connect", "test", "disconnect"])
+    p.add_argument("action", nargs="?", choices=["list", "connect", "test", "disconnect"], default="list")
     p.add_argument("platform", nargs="?", metavar="account", help="buffer or media")
 
     p = cmd("timer", cmd_timer, "the systemd user timer that runs `post sync`")
-    p.add_argument("action", choices=["install", "remove", "status"])
+    p.add_argument("action", nargs="?", choices=["install", "remove", "status"], default="status")
     p.add_argument("--every", type=int, default=10, help="minutes (default 10)")
 
     # Set up
     p = cmd("preset", cmd_preset, "list, show, validate or create presets")
-    p.add_argument("action", choices=["list", "show", "validate", "new"])
+    p.add_argument("action", nargs="?", choices=["list", "show", "validate", "new"], default="list")
     p.add_argument("name", nargs="?")
     p.add_argument("--set", action="append", metavar="KEY=VALUE", help="override a preset value")
 
@@ -843,7 +993,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = cmd("config", cmd_config, f"read or change {PROJECT_FILE}",
             about=f"read or change {PROJECT_FILE} (comments are not kept on write)")
-    p.add_argument("action", choices=["get", "set", "list", "path"])
+    p.add_argument("action", nargs="?", choices=["get", "set", "list", "path"], default="list")
     p.add_argument("key", nargs="?")
     p.add_argument("value", nargs="?")
 
@@ -856,15 +1006,15 @@ def build_parser() -> argparse.ArgumentParser:
     # Agents and the shell
     p = cmd("agent", cmd_agent, "the read-only agent surface: status, videos, topics, calendar",
             about="the agent surface (read-only): status, unassigned videos, topics, calendar")
-    p.add_argument("action", choices=["status", "videos", "topics", "calendar"])
+    p.add_argument("action", nargs="?", choices=["status", "videos", "topics", "calendar"], default="status")
     p.add_argument("--limit", type=int, default=50)
 
     p = cmd("skill", cmd_skill, "install the agent skill into a harness (claude, opencode, codex, or a folder)")
-    p.add_argument("action", choices=["install", "show"])
+    p.add_argument("action", nargs="?", choices=["install", "show"], default="show")
     p.add_argument("--target", default="claude")
 
     p = cmd("completion", cmd_completion, "print shell completion: eval \"$(sclstdio completion bash)\"")
-    p.add_argument("shell", choices=["bash", "zsh"])
+    p.add_argument("shell", nargs="?", choices=["bash", "zsh"])
 
     p = cmd("help", cmd_help, "show this menu, or one command's options: sclstdio help build")
     p.add_argument("topic", nargs="?", metavar="command")

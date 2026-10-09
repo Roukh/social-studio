@@ -193,6 +193,46 @@ def test_sclstdio_bare_opens_the_menu(capsys):
     assert out.startswith("usage: sclstdio") and "build (make)" in out and "help" in out
 
 
+@pytest.mark.parametrize("command, shows", [("review", "list"), ("post", "list"), ("channel", "list"),
+                                            ("timer", "status"), ("preset", "list"), ("model", "list"),
+                                            ("engine", "status"), ("config", "list"), ("agent", "status"),
+                                            ("skill", "show")])
+def test_a_bare_command_shows_what_it_holds(command, shows):
+    assert cli.build_parser().parse_args([command]).action == shows
+    with pytest.raises(SystemExit):  # a wrong word still fails
+        cli.main([command, "nonsense"])
+
+
+def test_a_bare_completion_opens_its_menu(capsys):
+    assert cli.main(["completion"]) == 0
+    assert capsys.readouterr().out.startswith("usage: sclstdio completion")
+
+
+def test_library_takes_the_video_id_first_or_the_action_first(ctx, capsys):
+    v = add_video(ctx)
+    assert cli.main(["--json", "library", str(v["id"])]) == 0  # an id alone shows it
+    assert json.loads(capsys.readouterr().out)["id"] == v["id"]
+    for argv in (["library", str(v["id"]), "path"], ["library", "path", str(v["id"])]):
+        assert cli.main(["--json", *argv]) == 0
+        assert Path(json.loads(capsys.readouterr().out)["file"]).samefile(v["file"])
+    assert cli.main(["library", str(v["id"]), "nonsense"]) == 64
+    assert cli.main(["library", str(v["id"]), "revise"]) == 77  # human-only, before --notes is even checked
+
+
+def test_a_bare_library_lists_every_video_file_on_this_disk(ctx, signer, capsys, monkeypatch):
+    kept, gone, out = add_video(ctx, "Kept"), add_video(ctx, "Gone"), add_video(ctx, "Out")
+    gone["file"].unlink()
+    approve(ctx, out["id"])
+    db.set_status(db.connect(ctx), out["id"], "scheduled", "test")
+    assert cli.main(["--json", "library"]) == 0
+    rows = json.loads(capsys.readouterr().out)  # an agent never sees the scheduled one
+    assert [(r["id"], r["status"], r["title"]) for r in rows] == [(kept["id"], "review", "Kept")]
+    assert Path(rows[0]["path"]).samefile(kept["file"])
+    as_human(monkeypatch)
+    assert cli.main(["--json", "library"]) == 0
+    assert [r["id"] for r in json.loads(capsys.readouterr().out)] == [out["id"], kept["id"]]
+
+
 def test_sclstdio_build_is_make_and_help_shows_one_command(ctx, capsys):
     parse = cli.build_parser().parse_args
     assert parse(["build", "--topic", "t"]).fn is cli.cmd_make and parse(["make"]).fn is cli.cmd_make

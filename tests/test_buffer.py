@@ -9,12 +9,13 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 
-from social_studio import approval, cli, db, posting
+from social_studio import approval, cli, core, db, posting
 from social_studio.core import (PROJECT_FILE, ConfigError, DataError, Denied, UsageError, dump_toml, make_ctx,
                                 sha256_file)
 from social_studio.platforms import HttpError, buffer, media
 
 PUBLIC = "https://pub.example.dev"
+QUEUE_SLOT = "2030-01-07T09:00:00.000Z"
 ENDPOINT = "https://acct.r2.cloudflarestorage.com"
 CHANNELS = [
     {"id": "ig1", "name": "ghobz", "displayName": "Ghobz", "service": "instagram"},
@@ -35,6 +36,11 @@ class FakeNet:
         self.refuse: set[str] = set()
         self.issued: list[str] = []
         self.channels = CHANNELS
+
+    @staticmethod
+    def _due(inp: dict) -> str | None:
+        """Buffer gives a queued post the channel's next free slot."""
+        return QUEUE_SLOT if inp["mode"] == "addToQueue" and not inp.get("saveToDraft") else inp.get("dueAt")
 
     def ops(self, word: str) -> list[dict]:
         return [c[3] for c in self.calls if c[1] == buffer.API and word in c[3]["query"]]
@@ -58,11 +64,17 @@ class FakeNet:
                 if self.issued.count(pid) > 1:  # Buffer never reuses a post id
                     pid = f"{pid}-{self.issued.count(pid)}"
                 self.remote[pid] = {"id": pid, "status": "draft" if inp.get("saveToDraft") else "scheduled",
-                                    "dueAt": inp.get("dueAt"), "sentAt": None, "externalLink": None, "error": None}
+                                    "dueAt": self._due(inp), "sentAt": None, "externalLink": None, "error": None}
                 return 200, {}, {"data": {"createPost": {"__typename": "PostActionSuccess", "post": self.remote[pid]}}}
             if "deletePost" in q:
                 self.remote.pop(v["input"]["id"], None)
                 return 200, {}, {"data": {"deletePost": {"__typename": "DeletePostSuccess", "id": v["input"]["id"]}}}
+            if "editPost" in q:
+                inp, post = v["input"], self.remote.get(v["input"]["id"])
+                if post is None or inp["id"] in self.refuse:
+                    return 200, {}, {"data": {"editPost": {"__typename": "NotFoundError", "message": "nope"}}}
+                post.update(status="sending" if inp["mode"] == "shareNow" else "scheduled", dueAt=self._due(inp))
+                return 200, {}, {"data": {"editPost": {"__typename": "PostActionSuccess", "post": post}}}
             if "post(input" in q:
                 if v["input"]["id"] not in self.remote:
                     return 200, {}, {"data": None, "errors": [{"message": "gone", "extensions": {"code": "NOT_FOUND"}}]}
@@ -280,7 +292,8 @@ def test_post_is_human_only(ctx, net):
     assert cli.main(["--json", "post", "schedule", str(vid), "--at", "now"]) == 77
     assert cli.main(["--json", "post", "list"]) == 77
     assert cli.main(["--json", "post", "cancel", "1"]) == 77
-    assert cli.main(["--json", "post"]) == 77
+    assert cli.main(["--json", "post"]) == 77  # bare is list
+    assert cli.main(["--json", "post", "pick"]) == 77
     assert not net.ops("createPost")
 
 
@@ -593,3 +606,84 @@ def test_withdraw_by_post_cancel_leaves_the_video_waiting_for_review(ctx, net, h
     assert posting.cancel(ctx, res["post_id"]) == {"post_id": res["post_id"], "status": "cancelled"}
     assert not net.remote and db.get_video(db.connect(ctx), vid)["status"] == "review"
     assert {t["status"] for t in posting.draft(ctx, vid)["targets"]} == {"draft"}  # it can go back
+
+
+# --- library ID ACTION: what Buffer offers on a post, from the terminal -----------------------------------------
+
+def test_library_post_releases_the_drafts_in_buffer_signed(ctx, net, human):
+    vid, _ = drafts(ctx, net)
+    assert cli.main(["library", str(vid), "post", "-c", "instagram", "-c", "x", "--yes"]) == 0
+    edits = {c["variables"]["input"]["id"]: c["variables"]["input"] for c in net.ops("editPost")}
+    assert sorted(edits) == ["b-ig1", "b-tw1"] and len(net.ops("createPost")) == 4  # moved in place, none made
+    other, _ = drafts(ctx, net, title="Refused")
+    net.refuse.update(t for t in net.remote if t.endswith("-2"))
+    assert cli.main(["library", str(other), "post", "--yes"]) == 1  # Buffer moved none: nothing approved here
+    assert db.get_video(db.connect(ctx), other)["status"] == "review"
+    assert all(e["mode"] == "shareNow" and e["saveToDraft"] is False for e in edits.values())
+    con = db.connect(ctx)
+    assert db.get_video(con, vid)["status"] == "scheduled"
+    assert approval.check_video(ctx, con, db.get_video(con, vid), post=True) is None  # signed at the terminal
+    assert {r["platform"]: r["status"] for r in row(ctx, "SELECT platform, status FROM post_targets WHERE post_id = 1")
+            } == {"instagram": "pending", "x": "pending", "facebook": "draft", "linkedin": "draft"}  # left out: drafts
+    for pid in ("b-ig1", "b-tw1"):
+        net.remote[pid].update(status="sent", sentAt="2026-10-01T09:00:00Z", externalLink=f"https://e.com/{pid}")
+    net.remote.pop("b-fb1")
+    net.remote.pop("b-li1")
+    posting.sync(ctx)
+    assert db.get_video(db.connect(ctx), vid)["status"] == "posted"
+
+
+def test_library_schedule_moves_the_drafts_to_a_time_and_cancel_takes_them_back(ctx, net, human):
+    vid, _ = drafts(ctx, net)
+    at = (datetime.now(timezone.utc) + timedelta(days=1)).strftime("%Y-%m-%d %H:%M")
+    assert cli.main(["library", str(vid), "schedule", "--at", at, "--yes"]) == 0
+    edits = [c["variables"]["input"] for c in net.ops("editPost")]
+    assert len(edits) == 4 and {(e["mode"], e["dueAt"][:16]) for e in edits} == {("customScheduled",
+                                                                                   at.replace(" ", "T"))}
+    assert db.get_video(db.connect(ctx), vid)["status"] == "scheduled"
+    assert cli.main(["library", str(vid), "cancel"]) == 0
+    assert not net.remote  # deleted in Buffer
+    assert db.get_video(db.connect(ctx), vid)["status"] == "approved"
+    assert row(ctx, "SELECT status, video_id FROM posts")[0] == {"status": "cancelled", "video_id": None}
+
+
+def test_schedule_without_a_time_goes_to_the_next_slot_in_buffers_queue(ctx, net, human):
+    vid, _ = drafts(ctx, net)
+    assert cli.main(["library", str(vid), "schedule", "--yes"]) == 0  # its drafts, moved into the queue
+    assert {e["variables"]["input"]["mode"] for e in net.ops("editPost")} == {"addToQueue"}
+    assert {(r["status"], r["at"]) for r in row(ctx, "SELECT status, at FROM post_targets WHERE post_id = 1")} == {
+        ("pending", "2030-01-07T09:00:00Z")}
+    other = add_video(ctx, title="Approved here")
+    cli._approve(ctx, [other])
+    assert cli.main(["post", "schedule", str(other), "-c", "x", "--yes"]) == 0  # a new Buffer post, queued
+    sent = net.ops("createPost")[-1]["variables"]["input"]
+    assert sent["mode"] == "addToQueue" and "dueAt" not in sent and "saveToDraft" not in sent
+    assert row(ctx, "SELECT at FROM posts WHERE video_id = ?", other)[0]["at"] == "2030-01-07T09:00:00Z"
+    assert row(ctx, "SELECT at FROM post_targets WHERE post_id = 2")[0]["at"] == "2030-01-07T09:00:01Z"  # x held :00
+
+
+def test_library_delete_takes_a_video_out_of_buffer_rejects_it_and_removes_its_files(ctx, net, monkeypatch):
+    vid, _ = drafts(ctx, net)
+    assert cli.main(["--json", "library", str(vid), "delete", "--yes"]) == 77  # agents cannot
+    assert cli.main(["--json", "library", str(vid), "post", "--yes"]) == 77
+    assert len(net.remote) == 4 and not net.ops("editPost")
+    folder = ctx.abs(db.get_video(db.connect(ctx), vid)["dir"])
+    monkeypatch.setattr(core, "is_tty", lambda: True)
+    assert cli.main(["library", str(vid), "delete", "--yes"]) == 0
+    assert not net.remote and not folder.exists()
+    v = db.get_video(db.connect(ctx), vid)
+    assert (v["status"], v["file"]) == ("rejected", "")
+
+
+def test_reads_sync_with_buffer_first_so_deleted_drafts_show_as_rejected(ctx, net, capsys, monkeypatch):
+    vid, _ = drafts(ctx, net)
+    keep, _ = drafts(ctx, net, title="Kept")
+    for pid in [t for t in net.remote if not t.endswith("-2")]:  # the operator deleted the first video's drafts
+        net.remote.pop(pid)
+    assert cli.main(["--json", "agent", "status"]) == 0 and cli.main(["--json", "library"]) == 0
+    assert not net.ops("post(input")  # an agent's read never reaches Buffer
+    capsys.readouterr()
+    monkeypatch.setattr(core, "is_tty", lambda: True)
+    assert cli.main(["--json", "library"]) == 0
+    assert [(r["id"], r["status"]) for r in json.loads(capsys.readouterr().out)] == [(keep, "review"),
+                                                                                       (vid, "rejected")]

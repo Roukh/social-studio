@@ -108,9 +108,13 @@ def is_tty() -> bool:
     return sys.stdin.isatty() and sys.stdout.isatty()
 
 
+def is_human() -> bool:
+    return is_tty() and os.environ.get("SOCIAL_STUDIO_ROLE") != "agent"
+
+
 def require_human(action: str) -> None:
     """Human-only actions need an interactive terminal. Agents in a harness run without one."""
-    if not is_tty() or os.environ.get("SOCIAL_STUDIO_ROLE") == "agent":
+    if not is_human():
         raise Denied(f"{action} is human-only and needs an interactive terminal",
                      "run it yourself in a terminal; an agent cannot do this")
 

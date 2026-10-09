@@ -2,8 +2,9 @@
 
 In Buffer (the default once Buffer is connected): each finished video goes to Buffer as a draft on every
 connected channel. Drafts publish nothing; the operator approves, edits or deletes them in Buffer, and
-`post sync` (run by the timer) follows them to their post URL. Rejecting, revising or superseding the
-video here takes its drafts back out.
+`post sync` (run by the timer, and before each read) follows them to their post URL. `library ID post` or
+`schedule` releases them from the terminal instead, signed, as approving them in Buffer would. Rejecting,
+revising, superseding or deleting the video here takes its drafts back out.
 
 At the terminal: the operator picks a signed-approved post, the channels and the time. Code checks the
 signed approval (file and post text), uploads the file to public storage, creates one Buffer post per
@@ -22,12 +23,13 @@ from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 from . import approval, db, platforms
-from .core import (ConfigError, Ctx, DataError, Denied, StudioError, Unavailable, UsageError, iso, load_preset,
-                   now_utc, parse_iso, require_human)
+from .core import (ConfigError, Ctx, DataError, Denied, StudioError, Unavailable, UsageError, is_human, iso,
+                   load_preset, now_utc, parse_iso, require_human)
 from .platforms import buffer, media
 
 SCHEDULABLE = ("approved", "failed")  # failed: Buffer or the network refused it; the operator may try again
 MIN_LEAD = timedelta(minutes=2)
+QUEUE = "queue"  # a schedule without a time: the channel's next free slot in Buffer's queue
 DRAFTS = "drafts"  # posts.created_by for a video sent to Buffer as drafts, to be approved there
 
 
@@ -81,11 +83,12 @@ def settle_post(con, post_id: int) -> None:
         return
     vid, by = con.execute("SELECT video_id, created_by FROM posts WHERE id = ?", (post_id,)).fetchone()
     current = db.get_video(con, vid)["status"] if vid else None
-    movable = bool(vid) and (by != DRAFTS or current == "review")
+    movable = bool(vid) and (by != DRAFTS or current in ("review", "scheduled"))  # scheduled: released here
     if not states:
         con.execute("UPDATE posts SET status = 'cancelled', video_id = NULL WHERE id = ?", (post_id,))
         if movable and by == DRAFTS:
-            db.set_status(con, vid, "rejected", f"post {post_id}: every draft was deleted in Buffer")
+            db.set_status(con, vid, "rejected" if current == "review" else "approved",
+                          f"post {post_id}: every draft was deleted in Buffer")
         return
     done = sum(s == "posted" for s in states)
     status = "posted" if done == len(states) else ("partial" if done else "failed")
@@ -148,6 +151,14 @@ def _when(ctx: Ctx, when: str) -> str | None:
     return iso(at)
 
 
+def _timing(ctx: Ctx, when: str | None) -> dict:
+    """No time, or 'queue': the channel's next slot in Buffer's queue (Buffer picks it); else as _when."""
+    if (when or QUEUE).strip().lower() == QUEUE:
+        return {"due": None, "queue": True, "local": "Buffer's queue"}
+    due = _when(ctx, when)
+    return {"due": due, "queue": False, "local": local_str(ctx, due) if due else "now"}
+
+
 def plan(ctx: Ctx, video_id: int, channel_keys: list[str] | None, when: str) -> dict:
     """Everything a schedule would send, checked, with no side effects (it reads Buffer's channel list)."""
     require_human("scheduling a post")
@@ -156,7 +167,7 @@ def plan(ctx: Ctx, video_id: int, channel_keys: list[str] | None, when: str) -> 
         video = db.get_video(con, video_id)
         if video["status"] not in SCHEDULABLE:
             raise DataError(f"video {video_id} is {video['status']}; only approved videos can be scheduled",
-                            "approve it first with `sclstdio review`")
+                            "approve it first with `sclstdio review walk`")
         live = con.execute("SELECT id FROM posts WHERE video_id = ? AND status <> 'failed'", (video_id,)).fetchone()
         if live:
             raise DataError(f"video {video_id} is already on post {live[0]}", "see `sclstdio post list`")
@@ -165,7 +176,7 @@ def plan(ctx: Ctx, video_id: int, channel_keys: list[str] | None, when: str) -> 
             raise Denied(f"video {video_id} is not cleared to post: {problem}")
     finally:
         con.close()
-    due = _when(ctx, when)
+    timing = _timing(ctx, when)
     chans = select_channels(ctx, buffer.channels(ctx), channel_keys)
     if not chans:
         raise ConfigError("no Instagram, Facebook or X channel is connected in Buffer", "connect them at buffer.com")
@@ -179,7 +190,7 @@ def plan(ctx: Ctx, video_id: int, channel_keys: list[str] | None, when: str) -> 
     if over:
         raise DataError(f"post text too long for {', '.join(over)}",
                         "shorten that caption in video.json and approve again, or drop the channel with -c")
-    return {"video": video, "due": due, "local": local_str(ctx, due) if due else "now", "targets": targets}
+    return {"video": video, **timing, "targets": targets}
 
 
 def describe(p: dict) -> str:
@@ -202,7 +213,7 @@ def execute(ctx: Ctx, p: dict) -> dict:
             same = (now["status"], now["sha256"], approval.post_hash(now)) == (v["status"], v["sha256"],
                                                                                approval.post_hash(v))
             if not same:
-                raise DataError(f"video {v['id']} changed while you were confirming; run `sclstdio post` again")
+                raise DataError(f"video {v['id']} changed while you were confirming; run `sclstdio post pick` again")
             problem = approval.check_video(ctx, con, now, post=True)
             if problem:
                 raise Denied(f"video {v['id']} is not cleared to post: {problem}")
@@ -233,9 +244,12 @@ def execute(ctx: Ctx, p: dict) -> dict:
                 entry = {"platform": t["channel"]["platform"], "channel": t["channel"]["label"]}
                 try:
                     created = buffer.create_post(ctx, buffer.post_input(
-                        t["channel"], t["text"], url, v, p["due"], bool(ctx.cfg("publish.buffer.ai_label", False))))
+                        t["channel"], t["text"], url, v, p["due"], bool(ctx.cfg("publish.buffer.ai_label", False)),
+                        queue=p["queue"]))
                     con.execute("UPDATE post_targets SET platform_post_id = ?, attempts = 1 WHERE id = ?",
                                 (created["id"], tid))
+                    if p["queue"] and created.get("dueAt"):  # Buffer picked the slot: record its time
+                        _pend(con, {"id": tid}, parse_iso(created["dueAt"]))
                     entry.update(status="scheduled", buffer_id=created["id"], due=created.get("dueAt"))
                 except (StudioError, OSError) as e:
                     msg = str(e) if isinstance(e, StudioError) else (
@@ -244,6 +258,9 @@ def execute(ctx: Ctx, p: dict) -> dict:
                                 (msg[:1000], tid))
                     entry.update(status="failed", error=msg)
                 out.append(entry)
+            dues = [parse_iso(e["due"]) for e in out if e["status"] == "scheduled" and e.get("due")]
+            if p["queue"] and dues:
+                con.execute("UPDATE posts SET at = ? WHERE id = ?", (iso(min(dues)), pid))
             if not any(e["status"] == "scheduled" for e in out):
                 with db.tx(con):
                     con.execute("UPDATE posts SET status = 'cancelled', video_id = NULL WHERE id = ?", (pid,))
@@ -259,7 +276,7 @@ def pick(ctx: Ctx, dry_run: bool = False) -> dict | None:
     require_human("scheduling a post")
     vids = approved_posts(ctx)
     if not vids:
-        print("No approved post is waiting. Approve some with `sclstdio review`.")
+        print("No approved post is waiting. Approve some with `sclstdio review walk`.")
         return None
     for i, v in enumerate(vids, 1):
         again = "  (failed before)" if v["status"] == "failed" else ""
@@ -273,7 +290,7 @@ def pick(ctx: Ctx, dry_run: bool = False) -> dict | None:
     for i, c in enumerate(found, 1):
         print(f"  [{i}] {c['label']}" + ("  (queue paused in Buffer)" if c["isQueuePaused"] else ""))
     keys = input("channels, comma-separated numbers or names [all]: ").replace(",", " ").split()
-    when = input("when: 'YYYY-MM-DD HH:MM' local time, or now: ").strip()
+    when = input("when: 'YYYY-MM-DD HH:MM' local time, now, or Enter for Buffer's queue: ").strip()
     p = plan(ctx, video["id"], keys, when)
     print("\n" + describe(p) + "\n")
     if dry_run:
@@ -395,9 +412,97 @@ def withdraw(ctx: Ctx, video_id: int, why: str) -> dict | None:
                     settle_post(con, pid)
                 else:
                     con.execute("UPDATE posts SET status = 'cancelled', video_id = NULL WHERE id = ?", (pid,))
+                    if db.get_video(con, video_id)["status"] == "scheduled":  # released here: on no post now
+                        db.set_status(con, video_id, "approved", why)
         finally:
             con.close()
     return {"post_id": pid, "video_id": video_id, "posted": posted}
+
+
+def live_post(con, video_id: int) -> int | None:
+    """The video's post while any of it can still change: drafts, or scheduled and not all sent."""
+    r = con.execute("SELECT id FROM posts WHERE video_id = ? AND status IN ('open', 'scheduled', 'posting', 'partial') "
+                    "ORDER BY id DESC", (video_id,)).fetchone()
+    return r[0] if r else None
+
+
+def release_plan(ctx: Ctx, video_id: int, channel_keys: list[str] | None, when: str) -> dict:
+    """Which of a video's Buffer drafts a release moves, and to when. Reads only."""
+    require_human("posting a video")
+    con = db.connect(ctx)
+    try:
+        v = db.get_video(con, video_id)
+        pid = drafts_post(con, video_id)
+        if pid is None:
+            raise DataError(f"video {video_id} has no drafts in Buffer")
+        drafts = db.rows(con.execute("SELECT * FROM post_targets WHERE post_id = ? AND status = 'draft' "
+                                     "AND platform_post_id IS NOT NULL ORDER BY id", (pid,)))
+    finally:
+        con.close()
+    keys = {k.strip().lower() for k in channel_keys or [] if k.strip()} - {"all"}
+    targets = [t for t in drafts if not keys or t["platform"] in keys or (t["channel_id"] or "").lower() in keys]
+    if not targets:
+        raise DataError(f"video {video_id} has no draft left in Buffer" + (" on those channels" if keys else ""))
+    return {"video": v, "post_id": pid, **_timing(ctx, when), "targets": targets}
+
+
+def describe_release(rp: dict) -> str:
+    v = rp["video"]
+    return (f"#{v['id']}  {v['title']}: its Buffer drafts on {', '.join(t['platform'] for t in rp['targets'])}"
+            f"  ->  {rp['local']}")
+
+
+def release(ctx: Ctx, rp: dict) -> dict:
+    """Approve at the terminal what Buffer holds as drafts: sign the video (one passphrase), then move each draft
+    to share now, to its time, or into Buffer's queue, as approving it in Buffer does. A draft Buffer refuses stays a draft there."""
+    require_human("posting a video")
+    v, pid = rp["video"], rp["post_id"]
+    with post_lock(ctx, wait=True):
+        con = db.connect(ctx, actor="human")
+        try:
+            now = db.get_video(con, v["id"])
+            if (now["status"], now["sha256"]) != (v["status"], v["sha256"]):
+                raise DataError(f"video {v['id']} changed while you were confirming; run it again")
+            signed = approval.sign(ctx, [now]) if now["status"] in ("review", "revision") else None
+            if signed is None:  # released before, some drafts still waiting: the signature it has must still hold
+                problem = approval.check_video(ctx, con, now, post=True)
+                if problem:
+                    raise Denied(f"video {v['id']} is not cleared to post: {problem}")
+            out = []
+            for t in rp["targets"]:
+                entry = {"platform": t["platform"], "channel": t["channel_id"]}
+                try:
+                    moved = buffer.release_draft(ctx, t["platform_post_id"], rp["due"], queue=rp["queue"])
+                except (StudioError, OSError) as e:
+                    out.append({**entry, "status": "draft", "error": str(e)[:300]})
+                    continue
+                due = parse_iso(moved["dueAt"]) if moved.get("dueAt") else parse_iso(rp["due"] or iso())
+                with db.tx(con):
+                    if signed:  # recorded with the first draft Buffer moved: a release that moved none approves nothing
+                        approval.record(con, signed)
+                        db.set_status(con, v["id"], "approved", "approved by a human, from its Buffer drafts")
+                        signed = None
+                    if not _pend(con, t, due):
+                        entry["error"] = "no free second to record its time; the next sync records it"
+                    con.execute("UPDATE posts SET status = 'scheduled' WHERE id = ? AND status = 'open'", (pid,))
+                    if db.get_video(con, v["id"])["status"] == "approved":
+                        db.set_status(con, v["id"], "scheduled", f"Buffer post {pid}")
+                out.append({**entry, "status": "scheduled", "buffer_id": moved["id"], "due": moved.get("dueAt")})
+        finally:
+            con.close()
+    return {"post_id": pid, "video_id": v["id"], "local": rp["local"], "targets": out}
+
+
+def _pend(con, t: dict, due: datetime) -> bool:
+    """A draft approved in Buffer waits to go out at `due`. False when no second is free to record it."""
+    for shift in range(60):  # a post here already holds that second on that network; Buffer keeps its own time
+        try:
+            con.execute("UPDATE post_targets SET status = 'pending', at = ? WHERE id = ?",
+                        (iso(due + timedelta(seconds=shift)), t["id"]))
+            return True
+        except sqlite3.IntegrityError:
+            continue
+    return False
 
 
 def _apply(con, t: dict, remote: dict | None, entry: dict) -> None:
@@ -417,15 +522,7 @@ def _apply(con, t: dict, remote: dict | None, entry: dict) -> None:
     elif remote["status"] in buffer.WAITING:
         entry.update(status="draft")
     elif t["status"] == "draft" and remote["status"] in ("scheduled", "sending"):  # approved in Buffer
-        due = parse_iso(remote["dueAt"]) if remote.get("dueAt") else parse_iso(t["at"])
-        for shift in range(60):  # a post here already holds that second on that network; Buffer keeps its own time
-            try:
-                con.execute("UPDATE post_targets SET status = 'pending', at = ? WHERE id = ?",
-                            (iso(due + timedelta(seconds=shift)), t["id"]))
-                break
-            except sqlite3.IntegrityError:
-                continue
-        else:
+        if not _pend(con, t, parse_iso(remote["dueAt"]) if remote.get("dueAt") else parse_iso(t["at"])):
             entry.update(status="draft", error="no free second to record its time; the next sync tries again")
             return
         con.execute("UPDATE posts SET status = 'scheduled' WHERE id = ? AND status = 'open'", (t["post_id"],))
@@ -469,6 +566,18 @@ def sync(ctx: Ctx, locked: bool = False) -> list[dict]:
         con.close()
 
 
+def refresh(ctx: Ctx) -> None:
+    """Bring statuses up to date with Buffer before a human's read shows them: drafts deleted or approved there,
+    posts sent. An agent's read never reaches Buffer. Quiet: without Buffer, offline, or with a sync already
+    running, the read shows what it has."""
+    if not is_human() or not ctx.env(buffer.KEY):
+        return
+    try:
+        sync(ctx)
+    except (StudioError, OSError):
+        pass
+
+
 def cancel(ctx: Ctx, post_id: int) -> dict:
     require_human("cancelling a post")
     con = db.connect(ctx)
@@ -509,6 +618,7 @@ def cancel(ctx: Ctx, post_id: int) -> dict:
 
 def listing(ctx: Ctx, include_past: bool = False, limit: int = 50) -> list[dict]:
     require_human("seeing which video goes out when")
+    refresh(ctx)
     con = db.connect(ctx)
     try:
         cond = "" if include_past else "AND p.at >= ?"

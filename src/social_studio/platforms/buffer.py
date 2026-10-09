@@ -1,8 +1,8 @@
 """Buffer's GraphQL API (api.buffer.com): the route posts leave by.
 
 A personal API key (BUFFER_API_KEY in the .env) acts for the operator's whole Buffer account. Buffer
-publishes at the scheduled time; social-studio only creates, reads and deletes posts: drafts the operator
-approves in Buffer, or posts already approved at the terminal. Mutations are never retried here:
+publishes at the scheduled time; social-studio only creates, reads, releases and deletes posts: drafts the
+operator approves in Buffer (or releases from the terminal, signed), or posts already approved at the terminal. Mutations are never retried here:
 createPost has no idempotency key, so a blind retry could double-post.
 """
 from __future__ import annotations
@@ -36,6 +36,11 @@ Q_POST = """query Post($input: PostInput!) {
   post(input: $input) { id status dueAt sentAt externalLink error { message } } }"""
 M_CREATE = """mutation Create($input: CreatePostInput!) {
   createPost(input: $input) {
+    __typename
+    ... on PostActionSuccess { post { id status dueAt } }
+    ... on MutationError { message } } }"""
+M_EDIT = """mutation Edit($input: EditPostInput!) {
+  editPost(input: $input) {
     __typename
     ... on PostActionSuccess { post { id status dueAt } }
     ... on MutationError { message } } }"""
@@ -135,10 +140,11 @@ def limit(ctx: Ctx, platform: str) -> int | None:
 
 
 def post_input(channel: dict, text: str, video_url: str, video: dict, due_at: str | None,
-               ai_label: bool = False, draft: bool = False) -> dict:
+               ai_label: bool = False, draft: bool = False, queue: bool = False) -> dict:
     """CreatePostInput for one channel: a video post, Reel-shaped where the network has one.
 
-    A draft (`saveToDraft`) publishes nothing: Buffer holds it until someone schedules it in Buffer."""
+    A draft (`saveToDraft`) publishes nothing: Buffer holds it until someone schedules it in Buffer. Otherwise
+    it goes at `due_at`, into the channel's queue (`queue`, Buffer picks the slot), or now."""
     service = channel["service"]
     asset: dict = {"url": video_url}
     meta: dict = {}
@@ -165,7 +171,7 @@ def post_input(channel: dict, text: str, video_url: str, video: dict, due_at: st
     elif due_at:
         out.update(mode="customScheduled", dueAt=due_at)
     else:
-        out["mode"] = "shareNow"
+        out["mode"] = "addToQueue" if queue else "shareNow"
     return {k: v for k, v in out.items() if v is not None}
 
 
@@ -179,6 +185,17 @@ def _poster_ms(video: dict) -> int | None:
 def create_post(ctx: Ctx, data: dict) -> dict:
     """Returns {id, status, dueAt}. Raises DataError when Buffer refuses the input."""
     res = gql(ctx, M_CREATE, {"input": data}, mutation=True)["createPost"]
+    return _mutation_result(res, "post")
+
+
+def release_draft(ctx: Ctx, post_id: str, due_at: str | None, queue: bool = False) -> dict:
+    """What approving a draft in Buffer does: share it now, at `due_at`, or into the channel's queue (`queue`).
+    Returns {id, status, dueAt}.
+
+    editPost with a mode and saveToDraft false (EditPostInput, developers.buffer.com/reference, read 2026-10-08)."""
+    mode = {"mode": "customScheduled", "dueAt": due_at} if due_at else {"mode": "addToQueue" if queue else "shareNow"}
+    data = {"id": post_id, "saveToDraft": False, "schedulingType": "automatic", **mode}
+    res = gql(ctx, M_EDIT, {"input": data}, mutation=True)["editPost"]
     return _mutation_result(res, "post")
 
 
