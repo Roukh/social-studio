@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import subprocess
 from pathlib import Path
@@ -28,6 +29,13 @@ QUIET_ENV = {
 # is open to any preset (operator, 2026-10-07). A preset that pins its own version of a package keeps it.
 KIT_LIBRARIES = {"gsap": "gsap@3.14.2", "three": "three@0.181.2"}
 KIT_VENDOR = {"gsap.min.js": "gsap/dist/gsap.min.js"}
+# GSAP's former Club plugins ship free in the public package from 3.13. Loaded after gsap.min.js, MorphSVG and
+# DrawSVG register themselves; SplitText is the global class `SplitText`. Every composition whose GSAP is 3.13 or
+# later gets them (F15, J45).
+KIT_GSAP_PLUGINS = {"SplitText.min.js": "gsap/dist/SplitText.min.js",
+                    "MorphSVGPlugin.min.js": "gsap/dist/MorphSVGPlugin.min.js",
+                    "DrawSVGPlugin.min.js": "gsap/dist/DrawSVGPlugin.min.js"}
+GSAP_PLUGINS_SINCE = (3, 13)
 KIT_ESM = {"three": ["three/build/three.module.min.js", "three/build/three.core.min.js"]}
 
 
@@ -47,11 +55,22 @@ def libraries(p) -> list[str]:
     return own + [spec for name, spec in KIT_LIBRARIES.items() if name not in pinned]
 
 
+def _pinned(p, package: str) -> tuple[int, ...] | None:
+    """The version of `package` this preset installs (its own pin, else the kit's), as numbers."""
+    spec = next((s for s in libraries(p) if _package(s) == package and "@" in s[1:]), None)
+    return tuple(int(x) for x in re.findall(r"\d+", spec.rsplit("@", 1)[1])[:3]) if spec else None
+
+
 def vendor(p) -> dict[str, str]:
-    """render.vendor plus the kit's classic scripts for packages the preset does not vendor itself."""
+    """render.vendor plus the kit's classic scripts for packages the preset does not vendor itself, then GSAP's
+    plugins when the GSAP installed has them."""
     own = dict(p.get("render.vendor", {}))
     mine = {_package(rel) for rel in own.values()}
-    return {**own, **{n: rel for n, rel in KIT_VENDOR.items() if _package(rel) not in mine and n not in own}}
+    out = {**own, **{n: rel for n, rel in KIT_VENDOR.items() if _package(rel) not in mine and n not in own}}
+    gsap = _pinned(p, "gsap")
+    if gsap and gsap >= GSAP_PLUGINS_SINCE:
+        out.update({n: rel for n, rel in KIT_GSAP_PLUGINS.items() if n not in out})
+    return out
 
 
 def esm(p) -> dict[str, list[str]]:
@@ -94,29 +113,42 @@ def skills_root(ctx: Ctx, version: str) -> Path:
     return engine_root(ctx, version) / "skills"
 
 
+def registry_root(ctx: Ctx, version: str) -> Path:
+    """The engine's block and component registry at the same tag: `hyperframes add` fetches from GitHub's main
+    branch, so sessions read this pinned copy instead."""
+    return engine_root(ctx, version) / "registry"
+
+
+PINNED = {"skills": "hyperframes-core/SKILL.md", "registry": "registry.json"}  # folder: the file that proves it
+
+
 def ensure_skills(ctx: Ctx, version: str) -> Path:
-    """The engine's agent skills at the exact same git tag as the npm package, fetched once."""
+    """The engine's agent skills and registry at the exact same git tag as the npm package, fetched once."""
     import tarfile
     import urllib.request
-    root = skills_root(ctx, version)
-    if (root / "hyperframes-core" / "SKILL.md").is_file():
-        return root
+    root = engine_root(ctx, version)
+    if all((root / d / f).is_file() for d, f in PINNED.items()):
+        return skills_root(ctx, version)
     url = f"https://codeload.github.com/heygen-com/hyperframes/tar.gz/refs/tags/v{version}"
-    log(f"fetching hyperframes v{version} skills")
-    tmp = root.with_name("skills.partial")
-    shutil.rmtree(tmp, ignore_errors=True)
-    tmp.mkdir(parents=True)
+    log(f"fetching hyperframes v{version} skills and registry")
+    tmp = {d: root / f"{d}.partial" for d in PINNED}
+    for d in tmp.values():
+        shutil.rmtree(d, ignore_errors=True)
+        d.mkdir(parents=True)
     with urllib.request.urlopen(url, timeout=300) as resp, tarfile.open(fileobj=resp, mode="r|gz") as tar:
         for member in tar:
             parts = member.name.split("/", 2)
-            if len(parts) == 3 and parts[1] == "skills" and (member.isfile() or member.isdir()):
+            if len(parts) == 3 and parts[1] in PINNED and (member.isfile() or member.isdir()):
+                dest = tmp[parts[1]]
                 member.name = parts[2]
-                tar.extract(member, tmp, filter="data")
-    if not (tmp / "hyperframes-core" / "SKILL.md").is_file():
-        raise Unavailable(f"skills for hyperframes v{version} not found in {url}")
-    shutil.rmtree(root, ignore_errors=True)
-    tmp.rename(root)
-    return root
+                tar.extract(member, dest, filter="data")
+    for d, f in PINNED.items():
+        if not (tmp[d] / f).is_file():
+            raise Unavailable(f"{d} for hyperframes v{version} not found in {url}")
+    for d in PINNED:
+        shutil.rmtree(root / d, ignore_errors=True)
+        tmp[d].rename(root / d)
+    return skills_root(ctx, version)
 
 
 def engine_env(ctx: Ctx) -> dict[str, str]:
