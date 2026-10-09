@@ -1,0 +1,21 @@
+{
+  "id": "aschapmann-131210-s03",
+  "kind": "scene",
+  "name": "a glowing ship mark surfaces on a dark sea",
+  "looks": "On a near-black field with a faint horizon line and thin glowing wave lines, a small ship mark fades up in silhouette, its glow seeding outward, with the bold wordmark settling above it a beat later.",
+  "build": "noise-dissolve-logomark for the mark's materialising (seeded points condensing into the silhouette), then wordmark-assemble's settle stage for the name arriving above it; the wave lines are thin animated SVG paths with a slow horizontal drift.",
+  "sound": "A low ambient swell, a soft glow-in shimmer as the mark resolves.",
+  "duration": [2.3, 2.7],
+  "prompt": "On a dark, near-empty field with a faint horizon and thin glowing lines suggesting water or motion, let a brand mark condense into its silhouette from scattered glow, then settle the bold wordmark above it a beat later. Keep the palette to one accent colour against near-black for a confident, moody brand moment.",
+  "techniques": ["noise-dissolve-logomark", "wordmark-assemble"],
+  "source": {"film": "aschapmann-131210", "url": "https://prompt-motion.com/aschapmann-131210", "creator": "@aschapmann", "start": 10.0, "end": 15.0},
+  "tags": {
+    "role": ["intro"],
+    "purpose": ["establish-brand", "set-mood"],
+    "content": ["logo", "illustration"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["identity", "reveal"],
+    "complexity": "medium"
+  }
+}

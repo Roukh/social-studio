@@ -1,0 +1,20 @@
+{
+  "id": "skeleton-to-result-reveal",
+  "kind": "technique",
+  "name": "Skeleton to result reveal",
+  "looks": "A chat input receives a typed request, then a soft blank placeholder block appears exactly where a result will land, with a small working spinner or pulse. The placeholder resolves in place into the finished asset, cross-fading within its own bounds rather than popping in elsewhere.",
+  "build": "Placeholder is a flat rounded rect a few percent off its ground, opacity pulsing 0.85-1 over ~1.2s. Result asset is pre-sized to the same bounding box. The result cross-fades in over the placeholder (300-500ms, power1.out) at identical bounds; the placeholder fades out in the same window, no layout shift.",
+  "sound": "A soft low pulse under the working hold, a brighter chime exactly as the result resolves in.",
+  "duration": [1.5, 2.5],
+  "prompt": "Show a request typed into a chat input, then a soft placeholder block appearing exactly where the result will sit, pulsing gently to read as working. Resolve the placeholder into the finished asset in place, cross-fading within the same bounds so nothing shifts in the layout.",
+  "source": "prompt-motion.com's gallery (justincooperman-e7bbc4), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["interface", "reveal"],
+    "complexity": "low"
+  }
+}

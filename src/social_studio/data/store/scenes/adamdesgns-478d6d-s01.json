@@ -1,0 +1,21 @@
+{
+  "id": "adamdesgns-478d6d-s01",
+  "kind": "scene",
+  "name": "welded pipe path draws itself from a spark",
+  "looks": "A bright weld-spark point sits alone in the dark, throwing off a cone of orange sparks. From it, a thick metal pipe draws itself outward segment by segment, turning once at a right angle, with a dimension line and length label ticking in beneath it. A headline burns in over the top, then swaps to a second line in the accent colour.",
+  "build": "2D canvas path drawn progressively (strokeDashoffset or a point-by-point reveal) with a rounded, lit stroke; a particle emitter (15-20 sparks, random velocity, gravity, fade) rides the leading tip. The dimension line and length text key in just behind the draw. Headline swap is a hard cross-cut with no easing.",
+  "sound": "A faint weld sizzle under the draw, a soft tick as the dimension label locks in.",
+  "duration": [1.2, 1.5],
+  "prompt": "Open on a single bright spark in the dark, throwing off particles. From that point, draw a rigid structural line segment by segment, turning once at an angle, with a measurement readout ticking in beside it as it grows. Hold a short headline over the top, then hard-cut it to a second, bolder line in the accent colour.",
+  "techniques": ["bounce-path-draw", "annotated-diagram-overlay"],
+  "source": {"film": "adamdesgns-478d6d", "url": "https://prompt-motion.com/adamdesgns-478d6d", "creator": "@Adamdesgns", "start": 0.0, "end": 1.35},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "show-craft"],
+    "content": ["abstract", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["open", "physics", "annotation"],
+    "complexity": "medium"
+  }
+}

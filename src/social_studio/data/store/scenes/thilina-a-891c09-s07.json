@@ -1,0 +1,21 @@
+{
+  "id": "thilina-a-891c09-s07",
+  "kind": "scene",
+  "name": "a weekly summary card rolls up its total",
+  "looks": "A headline names the recap. A card beneath it holds a date range, a big number rolling up to the week's total, and a short set of labelled bars growing from a baseline to show the mix behind that total.",
+  "build": "The big number rolls up under a slight vertical blur tied to its speed; the bars grow scaleY 0 -> 1 from a bottom origin on an uneven stagger, same mechanic as data-infographic's bar build.",
+  "sound": "A rising tone under the number roll-up and a soft tick per bar growing.",
+  "duration": [2.0, 2.5],
+  "prompt": "Name a weekly recap, then roll up a big total number on a summary card, followed by a short set of labelled bars growing from a baseline on an uneven stagger to show what made up that total.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "thilina-a-891c09", "url": "https://prompt-motion.com/thilina-a-891c09", "creator": "@thilina_a", "start": 20.0, "end": 22.5},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

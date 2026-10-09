@@ -1,0 +1,21 @@
+{
+  "id": "gonzalomacagno-2de1a9-s03",
+  "kind": "scene",
+  "name": "Recap card with the dates",
+  "looks": "The frame returns to the opening wordmark layout, now with a hairline rule and the two event dates added beneath it in a bold, bright line, the location repeated at the bottom.",
+  "build": "A quick crossfade from the previous card back to the opening layout's ribbon ground; the dates line and rule reuse the opening title's fade/slide-in, landing last as the single new element.",
+  "sound": "A soft confirm chime as the dates line lands.",
+  "duration": [1.5, 2.0],
+  "prompt": "Close by returning to the opening layout with one new line added: the concrete dates, set boldly beneath a hairline rule, so the announcement ends on the one fact the viewer needs to act on.",
+  "techniques": ["aurora-gradient-photo"],
+  "source": {"film": "gonzalomacagno-2de1a9", "url": "https://prompt-motion.com/gonzalomacagno-2de1a9", "creator": "@GonzaloMacagno", "start": 7.5, "end": 9.5},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["close", "type"],
+    "complexity": "low"
+  }
+}

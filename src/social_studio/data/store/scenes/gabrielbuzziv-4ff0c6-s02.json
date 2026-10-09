@@ -1,0 +1,21 @@
+{
+  "id": "gabrielbuzziv-4ff0c6-s02",
+  "kind": "scene",
+  "name": "Two profile chips feed one tailored screen",
+  "looks": "A headline lands with one word in italic. Two small labelled chips (a due date, a season) sit stacked on the left, each connected by a thin dotted line curving across to a phone mockup on the right, whose screen shows a tailored plan already adjusting a percentage.",
+  "build": "fan-out-branch-diagram run in reverse: two source chips instead of one, their dotted bezier lines (strokeDashoffset reveal) converging on the single phone destination instead of branching out from it, staggered so each line lands just before the phone's content updates.",
+  "sound": "A soft whoosh per connecting line and a light chime as the phone's content updates.",
+  "duration": [2.0, 2.5],
+  "prompt": "Prove personalisation with a diagram, not a claim: show two or three small labelled facts about the user, each connected by a drawn line to a single device screen, whose content visibly adjusts once the lines land, as if the facts were the input to the result.",
+  "techniques": ["fan-out-branch-diagram"],
+  "source": {"film": "gabrielbuzziv-4ff0c6", "url": "https://prompt-motion.com/gabrielbuzziv-4ff0c6", "creator": "@gabrielbuzziv", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "introduce-feature"],
+    "content": ["product-ui", "device"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "interface"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "anthonyriera-9b1b2a-s04",
+  "kind": "scene",
+  "name": "a bold diagonal-halftone card states the hands-off option",
+  "looks": "The frame hard-cuts to a full-bleed diagonal halftone pattern in the brand's accent colour, a short confident claim centred over it in white, with the mascot mark sitting small beneath as the only other element.",
+  "build": "kinetic-word-run's hard-cut card pattern: one flat DOM clip, the halftone a repeating CSS pattern or SVG dot grid at a diagonal angle, the claim keyed in with a simple scale-and-fade.",
+  "sound": "A hit on the cut, quiet under the hold.",
+  "duration": [1.8, 2.2],
+  "prompt": "Hard-cut to a bold full-bleed card in a graphic halftone or pattern treatment in the brand's accent colour, with a short confident claim centred over it stating the hands-off or automatic option. Keep it simple: one claim, one mark, one strong background texture.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "anthonyriera-9b1b2a", "url": "https://prompt-motion.com/anthonyriera-9b1b2a", "creator": "@anthonyriera", "start": 20.0, "end": 22.5},
+  "tags": {
+    "role": ["demo", "transition"],
+    "purpose": ["introduce-feature", "build-tension"],
+    "content": ["type", "abstract"],
+    "energy": ["punch"],
+    "format": ["16:9", "9:16"],
+    "family": ["type", "texture"],
+    "complexity": "low"
+  }
+}

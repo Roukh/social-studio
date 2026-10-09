@@ -1,0 +1,21 @@
+{
+  "id": "ik-builds-b8bdcf-s02",
+  "kind": "scene",
+  "name": "Ball rolls past annotated paper documents",
+  "looks": "The same ball rolls steadily along a ruled baseline, passing a scatter of paper-like documents above and below the line: a submitted bid summary, a drawing sheet, a sticky note rule, a pricing sheet, each labelled in a casual handwritten script with a small arrow pointing at it.",
+  "build": "bounce-path-draw continues the ball's progressive line reveal along the baseline at a steady roll instead of a bounce; each document pops in as the ball passes beneath it, with annotated-diagram-overlay's label-and-arrow mechanic naming it, one label live at a time.",
+  "sound": "A steady soft roll tone under the ball, a light tick as each document and its label pops in.",
+  "duration": [2.0, 2.5],
+  "prompt": "Show a process as a single continuous roll: a marker travels steadily along a baseline past a handful of real, labelled documents representing the steps of the old workflow, one hand-drawn label naming each as the marker passes it.",
+  "techniques": ["bounce-path-draw", "annotated-diagram-overlay"],
+  "source": {"film": "ik-builds-b8bdcf", "url": "https://prompt-motion.com/ik-builds-b8bdcf", "creator": "@ik_builds", "start": 2.0, "end": 5.0},
+  "tags": {
+    "role": ["problem", "intro"],
+    "purpose": ["explain-mechanism", "build-tension"],
+    "content": ["illustration", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["annotation", "physics"],
+    "complexity": "medium"
+  }
+}

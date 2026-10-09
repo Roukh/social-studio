@@ -1,0 +1,21 @@
+{
+  "id": "gizakdag-cf4ae6-s04",
+  "kind": "scene",
+  "name": "Breathe: a circular portal close",
+  "looks": "After the glitch, the frame resolves into calm: a circular vignette frames a small scene of soft cloud shapes and a beam of light inside a dark starry sky, with a cursive one-word caption above it. A wide, light wordmark fades in beneath, large and quiet.",
+  "build": "A circular mask (clip-path: circle()) frames the inner scene, grain-vignette's radial darkening applied inside it instead of the full frame; the cursive caption and the wide-tracked closing wordmark fade in slowly, power1.out, far longer than any earlier beat's easing.",
+  "sound": "The glitch noise cuts to silence, then a single long, slow exhale tone under the close.",
+  "duration": [2.5, 3.5],
+  "prompt": "Resolve tension into calm: after a hard, chaotic beat, settle into a single circular vignette holding a small, quiet scene, a short cursive word above it, and a wide, slow-fading wordmark beneath, letting the pacing itself read as relief.",
+  "techniques": ["grain-vignette"],
+  "source": {"film": "gizakdag-cf4ae6", "url": "https://prompt-motion.com/gizakdag-cf4ae6", "creator": "@gizakdag", "start": 11.1, "end": 14.5},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["set-mood", "land-cta"],
+    "content": ["illustration", "type"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["close", "texture"],
+    "complexity": "low"
+  }
+}

@@ -7,6 +7,7 @@ import json
 import os
 import re
 import shutil
+import sqlite3
 import subprocess
 import sys
 from pathlib import Path
@@ -35,10 +36,11 @@ def ctx(tmp_path, monkeypatch):
 def engine_stub(tmp_path, monkeypatch):
     """Just enough of an installed engine for prepare(): the engine skills and the kit's GSAP and three.js files."""
     root = tmp_path / "engine"
-    for name in runner.DEFAULT_SKILLS:
+    for name in [*runner.DEFAULT_SKILLS, *runner.KIT_ENGINE_SKILLS]:
         (root / "skills" / name).mkdir(parents=True)
         (root / "skills" / name / "SKILL.md").write_text(f"# {name}\n")
-    for rel in ("gsap/dist/gsap.min.js", "three/build/three.module.min.js", "three/build/three.core.min.js"):
+    for rel in ("gsap/dist/gsap.min.js", *engine.KIT_GSAP_PLUGINS.values(), "three/build/three.module.min.js",
+                "three/build/three.core.min.js"):
         (root / "node_modules" / rel).parent.mkdir(parents=True, exist_ok=True)
         (root / "node_modules" / rel).write_text(f"/* {rel} */")
     monkeypatch.setattr(engine, "skills_root", lambda ctx, version: root / "skills")
@@ -76,7 +78,8 @@ def test_brief_and_house_rules_are_fully_filled(ctx, engine_stub):
 def test_the_motion_doctrine_and_canon_mount_beside_the_engine_skills(ctx, engine_stub, monkeypatch):
     p, s = prepared(ctx, engine_stub)
     mounted = sorted(x.name for x in (s.work / "skills").iterdir())
-    assert mounted == sorted([*runner.PACKAGE_SKILLS, *runner.DEFAULT_SKILLS])
+    assert mounted == sorted([*runner.PACKAGE_SKILLS, *runner.DEFAULT_SKILLS, *runner.KIT_ENGINE_SKILLS,
+                              *runner.KIT_VENDOR_SKILLS])
     doctrine = s.work / "skills" / "motion-doctrine"
     assert (doctrine / "SKILL.md").is_file() and (doctrine / "LICENSE").is_file() and (doctrine / "NOTICE.md").is_file()
     assert (s.work / "skills" / "motion-canon" / "SKILL.md").is_file()
@@ -222,19 +225,22 @@ def test_sampler_runs_standalone_with_the_safe_zone_and_poster(tmp_path):
 
 # --- the technique library and the motion kit (operator, 2026-10-07) ---------------------------------------------
 
-def test_technique_library_ships_with_every_make_and_indexes_every_entry(ctx, engine_stub):
+def test_technique_library_ships_with_every_make_and_the_store_holds_every_entry(ctx, engine_stub):
+    from social_studio import store
     p, s = prepared(ctx, engine_stub)
     lib = s.work / "skills" / "technique-library"
-    index = (lib / "SKILL.md").read_text()
     entries = {f.stem for f in (lib / "techniques").glob("*.md")}
-    linked = set(re.findall(r"\(techniques/([a-z0-9-]+)\.md\)", index))
-    assert entries and entries == linked                                  # every entry indexed, every link real
+    con = sqlite3.connect(s.work / runner.STORE_DB)                       # the session's own copy of the store
+    rows = {r[0] for r in con.execute("SELECT id FROM items WHERE kind = 'technique'")}
+    assert entries and entries == rows                                    # every recipe has a row, every row a recipe
     assert (lib / "principles.md").is_file() and (lib / "examples" / "reel-2026-10-06.html").is_file()
     for f in (lib / "techniques").glob("*.md"):
         text = f.read_text()
         assert text.startswith(f"# {f.stem}\n") and "**Source:**" in text, f.name
+    assert (s.work / "tools" / "store.py").read_bytes() == (PKG_DIR / "store.py").read_bytes()
     task = (s.work / "TASK.md").read_text()
-    assert "skills/technique-library/SKILL.md" in task and '"techniques": [' in task
+    assert "skills/technique-library/SKILL.md" in task and '"techniques": [' in task and "tools/store.py" in task
+    assert not store.problems(store.load(), store.vocab())
 
 
 def test_kit_every_composition_gets_gsap_three_and_the_motion_kit(ctx, engine_stub):

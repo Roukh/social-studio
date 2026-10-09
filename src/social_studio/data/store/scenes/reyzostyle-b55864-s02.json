@@ -1,0 +1,21 @@
+{
+  "id": "reyzostyle-b55864-s02",
+  "kind": "scene",
+  "name": "dense category tile grid behind a headline",
+  "looks": "A bold two-line claim sits over a dense grid of dozens of small coloured tiles, each labelled with a different short content idea or format, built up in a loose stagger until the grid is packed and slightly overwhelming.",
+  "build": "The category-tile-grid mechanic: a CSS/DOM grid of small cards, each with a random accent fill and a short label, scaling and fading in on a seeded per-card delay, while the headline stays layered above at full contrast.",
+  "sound": "A fast, granular patter of soft ticks as the tiles land.",
+  "duration": [1.5, 1.9],
+  "prompt": "Behind a short, confident headline, fill the frame with a dense, loosely staggered grid of small coloured tiles, each labelled with a different idea or category, deliberately too many to read one by one, so the shot says there is a lot of noise to sort through before the product does the sorting.",
+  "techniques": ["category-tile-grid"],
+  "source": {"film": "reyzostyle-b55864", "url": "https://prompt-motion.com/reyzostyle-b55864", "creator": "@reyzostyle", "start": 1.5, "end": 3.3},
+  "tags": {
+    "role": ["problem", "hook"],
+    "purpose": ["build-tension", "show-scale"],
+    "content": ["type", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data", "interface"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "prompt-bar-generate",
+  "kind": "technique",
+  "name": "Prompt bar generate",
+  "looks": "A minimal, rounded prompt bar sits alone on an open field. A short phrase types on into it character by character with a blinking cursor, then a round submit button presses and springs back. A generated result pops up below or beside the bar, soft-focus to sharp, with a small labelled chip naming the style or mode used.",
+  "build": "DOM text revealed per character (kit.typeOn), one voice, in a glowing pill; the submit button scales 1 -> 0.88 -> 1 on power3.out; the result pops at scale 0.92 -> 1 with blur(6px) -> blur(0) over 0.2-0.3s right after the press; the chip fades/slides up 4-6px after.",
+  "sound": "A soft key tick per character, a click on the press, and a light pop as the result resolves.",
+  "duration": [2.0, 3.5],
+  "prompt": "Type a short phrase into a minimal prompt bar, press submit with a quick spring, and let a generated result pop up sharpened from a soft blur with a small chip naming what was used. Keep the phrase short and the result honestly generic, not a real brand's output.",
+  "source": "prompt-motion.com's gallery (rossaxbt-3085b7), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "hook"],
+    "purpose": ["show-ease", "introduce-feature", "reveal-product"],
+    "content": ["product-ui", "type"],
+    "energy": ["calm", "build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

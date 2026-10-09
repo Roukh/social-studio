@@ -1,0 +1,21 @@
+{
+  "id": "lexnlin-6161a6-s01",
+  "kind": "scene",
+  "name": "Code-tag chips pile up under a typed claim",
+  "looks": "A short claim types on with a blinking caret, a handful of small code-style tag chips (each a bracketed technique name) sitting below it. A beat later many more chips flood in and pile up in a dense cluster beneath the same claim, as if to prove the claim by sheer volume.",
+  "build": "Claim text types on character by character, caret blinking continuously rather than disappearing. Chips are small bordered mono pills; the first handful pop in with a light stagger, then a much larger wave pops in fast and tight (20-30ms apart) to read as a flood rather than a list.",
+  "sound": "A soft mechanical key-tick under the typed claim, a fast patter of light pops as the chip flood lands.",
+  "duration": [2.0, 2.8],
+  "prompt": "Type a short claim with a persistent blinking caret, a few small bracketed tag chips sitting beneath it, then flood in many more chips in a fast, tight wave so the pile-up itself proves the claim's scale at a glance.",
+  "techniques": ["command-chip-cycle"],
+  "source": {"film": "lexnlin-6161a6", "url": "https://prompt-motion.com/lexnlin-6161a6", "creator": "@LexnLin", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["show-scale", "establish-brand"],
+    "content": ["type", "code"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["type", "interface"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "anas0ra-e57aea-s02",
+  "kind": "scene",
+  "name": "a glowing mascot wakes on the empty set",
+  "looks": "A small glowing, rounded mascot character fades up from nothing on the empty platform, bobbing gently, its soft inner light the only bright point in the dim scene, and settles into an idle smile.",
+  "build": "The mascot is a rigged or sprite 3D character; it fades/scales up from 0 on power2.out, then idles on a slow vertical sine bob (amplitude a few px) with a subtle emissive pulse.",
+  "sound": "A soft chime as it appears, a quiet hum under the idle bob.",
+  "duration": [2.0, 2.4],
+  "prompt": "On an otherwise still, dim scene, fade up a small glowing character as the only bright point, bobbing gently and settling into an idle, friendly pose. Let its glow read as \"available\" against the dark, closed setting around it.",
+  "techniques": ["noise-dissolve-logomark"],
+  "source": {"film": "anas0ra-e57aea", "url": "https://prompt-motion.com/anas0ra-e57aea", "creator": "@anas0ra", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["intro"],
+    "purpose": ["reveal-product", "set-mood"],
+    "content": ["character"],
+    "energy": ["calm"],
+    "format": ["4:5"],
+    "family": ["reveal", "identity"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "bogdandragomir-35e024-s05",
+  "kind": "scene",
+  "name": "an italic wordmark settles with a quiet tagline",
+  "looks": "On a plain light field, a large italic serif wordmark fades and settles centred, a short tagline fading in beneath it a beat later, and the destination address resting quietly at the very bottom.",
+  "build": "wordmark-assemble's settle stage only: the wordmark fades and rises a few px into place on one slow spring, the tagline revealing with a simple fade a beat behind, the URL fading in last and smallest.",
+  "sound": "Near silence, one soft resolving tone.",
+  "duration": [2.3, 2.7],
+  "prompt": "Close on a large italic serif wordmark settling centred on a plain field, with a short, quiet tagline fading in beneath it and the destination address resting small at the very bottom. Keep the whole close calm, editorial and unhurried.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "bogdandragomir-35e024", "url": "https://prompt-motion.com/bogdandragomir-35e024", "creator": "@BogdanDragomir", "start": 12.5, "end": 14.9},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["type", "logo"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

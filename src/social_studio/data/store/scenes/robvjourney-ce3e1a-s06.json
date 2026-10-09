@@ -1,0 +1,21 @@
+{
+  "id": "robvjourney-ce3e1a-s06",
+  "kind": "scene",
+  "name": "a small portfolio glitches into its next state",
+  "looks": "A short row of small numbered cards shows which products are live and which are coming soon, under a headline naming the count. The whole row suddenly glitches -- channels split apart and tear sideways for a couple of frames -- before snapping back to show one more card now live and the labels updated.",
+  "build": "DOM/canvas small fixed-card row (numbered, each with a live/waitlist tag); on the update beat the frame's RGB channels are drawn offset with a few horizontal bands torn out of alignment for 2-4 frames (seeded jitter, re-rolled, not tweened), then everything snaps back aligned with the row's new state.",
+  "sound": "A harsh short digital stutter exactly on the glitch frames, cutting off sharply as the row resolves.",
+  "duration": [1.5, 2.5],
+  "prompt": "Show a small, growing portfolio as a short row of numbered status cards, then punctuate an update to that row with one sharp, short glitch -- channels splitting and tearing for a couple of frames -- before it snaps back clean with the new state in place. Use the glitch as punctuation for 'this just changed,' not as a stylistic filter.",
+  "techniques": ["category-tile-grid", "chroma-split-glitch-wall"],
+  "source": {"film": "robvjourney-ce3e1a", "url": "https://prompt-motion.com/robvjourney-ce3e1a", "creator": "@robvjourney", "start": 11.0, "end": 13.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-scale", "show-transformation"],
+    "content": ["product-ui", "data"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["interface", "texture"],
+    "complexity": "medium"
+  }
+}

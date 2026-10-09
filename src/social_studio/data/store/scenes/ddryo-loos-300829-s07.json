@@ -1,0 +1,21 @@
+{
+  "id": "ddryo-loos-300829-s07",
+  "kind": "scene",
+  "name": "Agent request to a built result, checklist and live code",
+  "looks": "A short request types into a chat panel on the left. Beside it a checklist of tool calls ticks off one by one, each gaining a green check as it completes, while a code editor on the right types the real output line by line. The editor's result then renders beneath as a small UI preview, which grows from a single card into a row of three.",
+  "build": "The chat request and the editor code both use terminal-type-on's per-character reveal, on two offset clocks so they feel like two live panels, not one. Each checklist row's icon swaps from a loading ring to a check on its own beat, top to bottom. The preview card's row uses variant-stack-reveal to go from one panel to three, staggered and settling square.",
+  "sound": "A key tick under both typing panels, a soft blip per checklist item completing, and a cluster of settle hits as the preview cards land.",
+  "duration": [3.5, 5.0],
+  "prompt": "Show an AI agent doing real, visible work: a short request types into a chat panel, a checklist of the steps it takes ticks off one by one, and a code panel beside it types the result live. Finish on the rendered output building from a single element into a small set, proving the request became something real.",
+  "techniques": ["terminal-type-on", "variant-stack-reveal"],
+  "source": {"film": "ddryo-loos-300829", "url": "https://prompt-motion.com/ddryo-loos-300829", "creator": "@ddryo_loos", "start": 42.5, "end": 50.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-ease", "reveal-product", "explain-mechanism"],
+    "content": ["code", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "type"],
+    "complexity": "high"
+  }
+}

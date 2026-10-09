@@ -1,0 +1,21 @@
+{
+  "id": "marklaunches-3b9492-s05",
+  "kind": "scene",
+  "name": "A walking glyph settles into the closing claim",
+  "looks": "A small glowing stick-figure glyph takes a single step in place on a dark ground above the wordmark; a bold two-line claim lands beneath it with its last word in a bright neon colour, a short tagline and a rounded CTA pill arriving last.",
+  "build": "The glyph plays one short walk-cycle loop (2-3 frames of pose change) before settling still; the claim's two lines arrive together (`y:10px -> 0`, power2.out, ~300ms), its neon word's colour already baked in rather than animated separately. Tagline and CTA pill fade in in turn beneath it.",
+  "sound": "A soft footstep tick on the glyph's step, a low swell under the claim landing, a light pop on the CTA pill.",
+  "duration": [2.0, 2.8],
+  "prompt": "Close with a small glowing glyph taking one settling step above the wordmark, then land a bold two-line claim beneath it with its final word in a bright neon colour, followed by a short tagline and a CTA pill arriving last.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "marklaunches-3b9492", "url": "https://prompt-motion.com/marklaunches-3b9492", "creator": "@marklaunches", "start": 40.0, "end": 43.8},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type", "character"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

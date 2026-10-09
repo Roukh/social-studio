@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-ea6129-s06",
+  "kind": "scene",
+  "name": "a comet trail draws the path from idea to finished",
+  "looks": "A single bright point draws a thin connected trail across the frame as it moves, leaving a jagged, deliberate path behind it like a signal travelling, while a word above states this is the journey from idea to completion. The trail grows longer and the point keeps moving until it curls into the start of a larger outline shape.",
+  "build": "2D canvas, the moving point's path sampled at fine steps and stroked progressively behind it (the same mark reused from the start of the film); as the trail completes its last segment it continues directly into the next shot's opening stroke (the outline mark), so the cut reads as one continuous draw.",
+  "sound": "A rising, airy whoosh as the trail extends, resolving into a soft chime where it curls into the next shape.",
+  "duration": [4, 5.5],
+  "prompt": "Draw a single travelling point's path across the frame as a thin connected trail, under a short phrase naming it as the journey from first idea to finished work, then let that same trail curl directly into the opening stroke of the brand's mark in the next beat -- one continuous line carries the viewer from 'process' to 'identity.'",
+  "techniques": ["bounce-path-draw", "through-line"],
+  "source": {"film": "rneayan-ea6129", "url": "https://prompt-motion.com/rneayan-ea6129", "creator": "@rneayan", "start": 28.8, "end": 33.5},
+  "tags": {
+    "role": ["transition"],
+    "purpose": ["connect-scenes", "show-transformation"],
+    "content": ["abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["through-line", "physics"],
+    "complexity": "medium"
+  }
+}

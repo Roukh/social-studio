@@ -1,0 +1,21 @@
+{
+  "id": "rammanq-f5a90f-s08",
+  "kind": "scene",
+  "name": "mark, wordmark and cta inside a soft ring",
+  "looks": "A small square app icon sits inside a faint expanding ring on a pale field. The brand name and a short tagline fade up beneath it, then a solid CTA button and a plain url appear side by side, with a small platform list underneath.",
+  "build": "The ring is a thin stroked circle scaling up from the icon on power2.out with fading opacity. The wordmark and tagline reveal with a clipPath wipe; the CTA button is a DOM pill with a solid fill that pops in on back.out(1.6); the url and platform list fade up last, staggered 0.08s apart.",
+  "sound": "A soft chime as the ring settles, a swell under the wordmark, a confirm tone on the button's pop, fading out over the hold.",
+  "duration": [2.0, 2.5],
+  "prompt": "Close on a small app mark inside a faint expanding ring, with the brand name and a short tagline fading up beneath it, then a solid call-to-action button and a plain web address appearing together, with a short platform list fading in last. Hold the finished card.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "rammanq-f5a90f", "url": "https://prompt-motion.com/rammanq-f5a90f", "creator": "@rammanq", "start": 38.0, "end": 42.048},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["1:1"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

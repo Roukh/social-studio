@@ -1,0 +1,23 @@
+{
+  "id": "shopify-pos-handheld-launch",
+  "kind": "story",
+  "name": "Verifone Mobile: one handheld for the whole floor",
+  "brand": "Shopify",
+  "source": {"url": "https://www.youtube.com/watch?v=U5ULiaf4H1E", "platform": "youtube", "posted": "2026-06-18", "duration": 36.0},
+  "object": "Verifone Mobile, Shopify POS's new all-in-one handheld card reader for retail staff",
+  "audience": "retail store owners and staff who check customers out on the sales floor and at a counter",
+  "message": "This video tells retail store owners that Shopify's new Verifone Mobile handheld runs checkout, scanning and every payment type from one device, on the floor or docked at the counter.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 3.2, "what": "a presenter holding a phone up to the camera, standing by a tabletop POS stand, tells retail owners they'll want to hear this", "copy": "if you have a retail store, you're going to want to hear this", "voice": "narration"},
+    {"role": "intro", "start": 3.2, "end": 8.0, "what": "the presenter reveals the new handheld reader, says Shopify and Verifone teamed up, and that it now runs on Shopify POS", "copy": "Shopify and Verifone just teamed up; this is the Verifone Mobile and now it runs on Shopify POS", "voice": "narration"},
+    {"role": "demo", "start": 8.0, "end": 25.3, "what": "close-ups of the handheld's screen walk through search, cart and checkout, its built-in barcode scanner, and the full set of payment options (tap, chip, swipe, mobile wallet), then show a sale processing and completing on screen", "copy": "it has a built-in barcode scanner, all the payment options your customers expect, mobile wallets built in too", "voice": "narration"},
+    {"role": "solution", "start": 25.3, "end": 33.2, "what": "the device is shown two ways: carried anywhere in the store, including the fitting room, and then docked at the counter for a customer-facing checkout", "copy": "use the handheld anywhere in the store, or dock it at the counter for a customer-facing setup", "voice": "narration"},
+    {"role": "cta", "start": 33.2, "end": 36.4, "what": "the presenter sums it up to camera and tells viewers to act now", "copy": "one device does it all; pre-order it now", "voice": "narration"}
+  ],
+  "cta": "the presenter tells viewers directly to pre-order the handheld now, after demonstrating it can replace both a roaming scanner and a fixed counter terminal",
+  "why": "A single presenter walking through the device on camera, in a vertical format built for the feed, makes a hardware spec sheet feel like a quick personal recommendation rather than an ad. Showing the same device in two physical setups (roaming vs. docked) answers the real objection a multi-staff retailer would have before the direct pre-order push lands.",
+  "tags": {
+    "goal": ["launch"], "product": ["hardware"], "structure": ["hook-demo-cta"],
+    "voice": ["narration"], "energy": ["build"], "format": ["9:16"]
+  }
+}

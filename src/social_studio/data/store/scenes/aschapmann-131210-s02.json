@@ -1,0 +1,21 @@
+{
+  "id": "aschapmann-131210-s02",
+  "kind": "scene",
+  "name": "three problem cards fan in under a hard-truth headline",
+  "looks": "A headline states the catch, its hard word in the accent colour; beneath it, three small labelled cards fan in one after another, each a short problem name over a tiny example snippet (a flooded feed, a stale thread, a removed reply).",
+  "build": "variant-stack-reveal: three DOM cards ease in on staggered springs with a small seeded offset, each card's label and caption keying in right behind it.",
+  "sound": "A soft cluster of three settle ticks, one per card.",
+  "duration": [2.3, 2.7],
+  "prompt": "State the catch in a short headline with the hard word in the accent colour, then fan in three small labelled problem cards beneath it one after another, each with a tiny supporting example. Use it to turn a single claim into three concrete, specific pain points.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "aschapmann-131210", "url": "https://prompt-motion.com/aschapmann-131210", "creator": "@aschapmann", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["problem"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["type", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "collage"],
+    "complexity": "medium"
+  }
+}

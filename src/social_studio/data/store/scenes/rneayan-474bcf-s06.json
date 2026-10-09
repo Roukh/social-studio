@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-474bcf-s06",
+  "kind": "scene",
+  "name": "year badge with cycling category chips and a proof stamp",
+  "looks": "A bold founding year sits on a flat card with a small tag chip beneath it; the chip cycles through two more category tags, one per beat, building a short row of pills. It cuts to a claim about proof, and a stamp-like circle clamps down around a bold word declaring the work is proven, real and delivered.",
+  "build": "The command-chip-cycle mechanic: a glowing DOM pill cycles through names on the beat, each one staying on screen as the next appears, building a row rather than replacing it. The proof stamp is a DOM/SVG ring scaling down onto the word with a slight overshoot (back.out).",
+  "sound": "A blip per chip added, a riser into the final brighten, a solid thunk as the stamp clamps down.",
+  "duration": [5.5, 7.0],
+  "prompt": "Hold a bold founding year with a small tag chip beneath it, then add two more chips one at a time on the beat, building a short row naming the different kinds of work made, before cutting to a word declaring the work is proven, with a ring stamping down around it like a seal.",
+  "techniques": ["command-chip-cycle"],
+  "source": {"film": "rneayan-474bcf", "url": "https://prompt-motion.com/rneayan-474bcf", "creator": "@rneayan", "start": 43.0, "end": 49.6},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["establish-brand", "show-craft", "build-tension"],
+    "content": ["type", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["type", "interface"],
+    "complexity": "low"
+  }
+}

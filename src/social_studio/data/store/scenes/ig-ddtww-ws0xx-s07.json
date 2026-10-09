@@ -1,0 +1,21 @@
+{
+  "id": "ig-ddtww-ws0xx-s07",
+  "kind": "scene",
+  "name": "the glow resolves into the brand mark",
+  "looks": "The last glowing pill's light condenses down into a simple geometric mark on pure black, which holds steady and alone as the shot ends.",
+  "build": "The pill's glow point crossfades/condenses into a crisp SVG mark at the same screen position (seeded point-gather or a simple cross-fade of the glow into the mark's fill); the mark holds with no further motion.",
+  "sound": "A soft shimmer resolving into one clean, quiet hit as the mark settles.",
+  "duration": [2, 2.5],
+  "prompt": "Let the last glowing element of the film condense down into your brand's mark on pure black, in the same spot it was glowing, and hold it there alone as the closing frame -- the simplest, quietest beat in the film.",
+  "techniques": ["noise-dissolve-logomark"],
+  "source": {"film": "ig-ddtww-ws0xx", "url": "https://www.instagram.com/p/DdtwW_Ws0Xx/", "creator": "Framer", "start": 27.5, "end": 30.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9"],
+    "family": ["identity", "close"],
+    "complexity": "low"
+  }
+}

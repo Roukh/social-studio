@@ -1,0 +1,20 @@
+{
+  "id": "flourish-line-draw",
+  "kind": "technique",
+  "name": "Flourish line draw",
+  "looks": "A single continuous pen line draws itself across the frame in dense, looping calligraphic flourishes, never resolving into legible letters, filling open space with craft and motion between two type beats.",
+  "build": "One long SVG path with many control points, strokeDashoffset drawn from full length to 0 over 1.5-2.5s as one continuous gesture. Thin monochrome stroke matching the body type's colour.",
+  "sound": "A very soft pen-on-paper scratch, rising and falling with the line's speed.",
+  "duration": [1.5, 2.5],
+  "prompt": "Draw a single continuous pen line in dense looping calligraphic flourishes across the frame, never resolving into legible words, as a connective, textural beat between two type-led moments.",
+  "source": "prompt-motion.com's gallery (lexnlin-038035), studied 2026-10-09",
+  "tags": {
+    "role": ["transition", "whole-film"],
+    "purpose": ["set-mood", "show-craft"],
+    "content": ["abstract", "illustration"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type", "texture"],
+    "complexity": "low"
+  }
+}

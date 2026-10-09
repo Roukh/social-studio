@@ -1,0 +1,21 @@
+{
+  "id": "bizibeast-10f264-s04",
+  "kind": "scene",
+  "name": "a phone shows a draggable link-in-bio page",
+  "looks": "A phone mockup holds a colourful personal page: profile header, social stat chips, a course card and a booking block, all stacked and clearly separate, beside a claim about dragging blocks where they belong.",
+  "build": "ui-tilt-card for the phone (shallow tilt, soft shadow); each block inside fades/slides into its stacked position on a short staggered spring, as if just dragged into place.",
+  "sound": "A soft slide-and-snap per block.",
+  "duration": [2.3, 2.7],
+  "prompt": "Show a phone holding a personal page made of small distinct blocks (a profile header, a stat chip, a product card, a booking block) stacking into place one after another as if just dragged in. Pair it with a claim about full control over layout, to sell flexibility rather than a fixed template.",
+  "techniques": ["ui-tilt-card"],
+  "source": {"film": "bizibeast-10f264", "url": "https://prompt-motion.com/bizibeast-10f264", "creator": "@bizibeast", "start": 12.5, "end": 17.5},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["introduce-feature", "show-ease"],
+    "content": ["device", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

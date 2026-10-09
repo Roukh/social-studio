@@ -1,0 +1,21 @@
+{
+  "id": "anas0ra-e57aea-s04",
+  "kind": "scene",
+  "name": "logo and tagline fade over the dimmed diorama",
+  "looks": "The same shopfront scene dims further and blurs slightly as a small chat-bubble mark and bold wordmark fade up centred over it, with a two-line tagline settling beneath, the mascot a faint silhouette in the background.",
+  "build": "wordmark-assemble's settle stage over the held establishing shot (reused from the open), the background given a gaussian blur and darker grade to push it back; the tagline's second line (a continuation of the first) reveals on a clipPath wipe.",
+  "sound": "A soft pad swell, quiet under the settle.",
+  "duration": [2.3, 2.7],
+  "prompt": "Dim and softly blur the opening establishing scene, and fade up a small mark and bold wordmark centred over it, with a two-line tagline settling beneath that completes the thought the film opened on. Let the mascot or hero element sit as a faint silhouette behind the text.",
+  "techniques": ["wordmark-assemble", "cinematic-atmosphere-hold"],
+  "source": {"film": "anas0ra-e57aea", "url": "https://prompt-motion.com/anas0ra-e57aea", "creator": "@anas0ra", "start": 12.5, "end": 15.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

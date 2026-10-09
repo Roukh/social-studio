@@ -1,0 +1,21 @@
+{
+  "id": "agonaliu-466a8f-s01",
+  "kind": "scene",
+  "name": "scattered browser tabs tumble to a save",
+  "looks": "A swarm of small browser-tab cards tumbles in loose 3D over a dark field, a big dim count (\"37 open tabs\") behind them, then settles as a bold line reads \"I saved it\" with the cards arranged loosely around the words. The frame then wipes to a flat colour field on a circle from centre.",
+  "build": "variant-stack-reveal, exaggerated: 10-15 DOM or three.js cards with randomised depth, rotation and drift (seeded), converging loosely toward the headline's baseline on staggered springs; exit on transitions.md's circle wipe.",
+  "sound": "A soft clutter of small whooshes as the cards tumble, a settle hit on \"I saved it\", a wipe whoosh on the cut.",
+  "duration": [2.2, 2.6],
+  "prompt": "Open on a swarm of small reference cards tumbling loosely in 3D over a dark field, with a faint oversized count behind them naming the mess. Let them settle loosely around a short confident headline that names the fix. Exit on a circle wipe to a flat colour field.",
+  "techniques": ["variant-stack-reveal", "transitions"],
+  "source": {"film": "agonaliu-466a8f", "url": "https://prompt-motion.com/agonaliu-466a8f", "creator": "@agonaliu_", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["tease", "build-tension"],
+    "content": ["abstract", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["open", "collage", "transition"],
+    "complexity": "medium"
+  }
+}

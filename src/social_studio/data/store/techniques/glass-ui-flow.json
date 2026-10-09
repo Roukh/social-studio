@@ -1,0 +1,20 @@
+{
+  "id": "glass-ui-flow",
+  "kind": "technique",
+  "name": "Glass UI flow",
+  "looks": "Over a radial colour field with a fine dot grid, three frosted glass cards spring up into a stack, each slightly rotated on arrival before settling square. A cursor flies in, presses a control, flips a toggle, picks an option, and a button turns into a progress fill that counts to completion and becomes a toast notification, before the scene leaves on a soft circle wipe.",
+  "build": "Build the cards as DOM with a backdrop blur, a translucent fill, a hairline border and a tinted shadow, carried on spring eases (response about 0.36-0.42, damping 0.78-0.85). Drive the cursor on power3 in-out paths with a short press-and-release, and set the progress percentage as text from the clock, using only fictional sample product names.",
+  "sound": "Blips on each card landing, a click on the press, a toggle tick, a rising tone under the progress, and a chime on completion.",
+  "duration": [1.7, 2.5],
+  "prompt": "Show a small interface coming to life: frosted glass cards spring into a stack, a cursor presses a control and flips a toggle, and a button fills with progress before completing and surfacing a confirmation. Use invented sample product names and controls, never a real brand's interface, and let the whole sequence demonstrate how effortless the product is to use.",
+  "source": "the 2026 Opus showreels; built in examples/reel-2026-10-06.html, S7.",
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "introduce-feature"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["interface"],
+    "complexity": "high"
+  }
+}

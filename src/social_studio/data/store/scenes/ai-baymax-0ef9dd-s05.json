@@ -1,0 +1,21 @@
+{
+  "id": "ai-baymax-0ef9dd-s05",
+  "kind": "scene",
+  "name": "logo, tagline and CTA end card",
+  "looks": "The logo mark sits above a two-line instruction, a short supporting caption, and a rounded CTA button with the destination, all centred and held steady on the same gradient field as the open, with a fine-print reassurance beneath the button.",
+  "build": "wordmark-assemble's settle stage only (no letter build, since the mark is already simple): the whole stack fades and rises a few px into place on one spring, the CTA button arriving last with a small back.out scale-in.",
+  "sound": "Quiet bed, a soft click as the CTA settles.",
+  "duration": [2.3, 2.6],
+  "prompt": "Close on the logo mark above a short instruction line, a supporting caption, and a rounded call-to-action button with the destination, all centred and settling together on the same soft gradient field the film opened on. Add one small line of fine print beneath the button to lower the risk of clicking.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "ai-baymax-0ef9dd", "url": "https://prompt-motion.com/ai-baymax-0ef9dd", "creator": "@Ai_Baymax", "start": 52.5, "end": 55.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

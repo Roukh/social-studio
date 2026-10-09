@@ -1,0 +1,21 @@
+{
+  "id": "ig-ddtww-ws0xx-s06",
+  "kind": "scene",
+  "name": "glowing command pills cycle to one answer",
+  "looks": "A small glowing rounded pill types in a short command name, then is replaced by a second, then a third, each cut hard on the beat, the last one growing larger and brighter than the rest as it holds -- the shot's payoff.",
+  "build": "DOM pill with a box-shadow glow and a blurred duplicate layer; each name types on with a per-character reveal for the first, then swaps hard-cut on the beat for the rest; the final pill's glow and scale ramp up as it holds.",
+  "sound": "A blip on each swap, a rising tone into the final pill's brighten.",
+  "duration": [2, 2.5],
+  "prompt": "Cycle a glowing command pill through two or three short names, one per hard cut, and let the last one grow brighter and a little larger as it holds -- read as the film arriving at its one answer after trying on a few.",
+  "techniques": ["command-chip-cycle"],
+  "source": {"film": "ig-ddtww-ws0xx", "url": "https://www.instagram.com/p/DdtwW_Ws0Xx/", "creator": "Framer", "start": 22.5, "end": 27.5},
+  "tags": {
+    "role": ["demo", "cta"],
+    "purpose": ["tease", "land-cta"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9"],
+    "family": ["type", "interface"],
+    "complexity": "low"
+  }
+}

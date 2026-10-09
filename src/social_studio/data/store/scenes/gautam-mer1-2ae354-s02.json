@@ -1,0 +1,21 @@
+{
+  "id": "gautam-mer1-2ae354-s02",
+  "kind": "scene",
+  "name": "Word-by-word editing on a scrub timeline",
+  "looks": "A headline stacks in naming what the product does to every word. It cuts to an editor view: a filmstrip of small frame thumbnails sits above a word-chip row and a waveform, a playhead marker sitting on one selected word-chip, highlighted, among the others.",
+  "build": "list-stack-reveal for the headline. The editor reuses timeline-scrubber-hud's playhead-on-track mechanic, but the track is a row of individual word chips rather than scene markers; the selected chip gets a filled background and the waveform beneath pulses in sync with the audio level under the clock.",
+  "sound": "A tick per headline line, then a soft scrub tick as the playhead's selected chip changes.",
+  "duration": [2.0, 3.0],
+  "prompt": "Prove word-level control: show an editor where every spoken word is its own selectable chip above a waveform and a filmstrip, one chip highlighted as the playhead sits on it, to say the product understands speech at the level of individual words, not just lines.",
+  "techniques": ["list-stack-reveal", "timeline-scrubber-hud"],
+  "source": {"film": "gautam-mer1-2ae354", "url": "https://prompt-motion.com/gautam-mer1-2ae354", "creator": "@gautam_mer1", "start": 9.0, "end": 13.0},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

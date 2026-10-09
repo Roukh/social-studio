@@ -1,0 +1,27 @@
+{
+  "id": "claude-cowork-launch",
+  "kind": "story",
+  "name": "Cowork turns a loose to-do into a finished slide deck",
+  "brand": "Claude",
+  "source": {"url": "https://www.youtube.com/watch?v=UAmKyyZ-b9E", "platform": "youtube", "posted": "2026-01-12", "duration": 69.0},
+  "object": "Cowork, a Claude Code-style mode for everyday work tasks rather than just coding, shown turning meeting notes into a finished status deck",
+  "audience": "knowledge workers, not engineers, who want an agent to actually finish an open-ended task rather than just answer a question",
+  "message": "This video tells knowledge workers that Cowork can take a loose ask like prep the deck and actually finish it, checking off real steps along the way.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 7.0, "what": "a \"Now available as a research preview\" title card, then a Chat / Cowork toggle appears at the top of the Claude interface", "copy": "Now available as a research preview.", "voice": "none"},
+    {"role": "hook", "start": 7.0, "end": 19.0, "what": "a \"Let's knock something off your list\" screen shows task chips (create a file, crunch data, make a prototype); the user asks Claude to summarize this week's meetings and find action items, then hits Let's go", "copy": "Summarize my meetings from this week and find action items. Where do you think I can be more efficient?", "voice": "none"},
+    {"role": "demo", "start": 19.0, "end": 45.0, "what": "Claude asks how detailed the summary should be, then builds a live checklist (read recordings, pull key points, find action items, write summary) and ticks items off while the user piles on more asks mid-task, including a calendar check and a deck request", "copy": "actually one more thing — can you check my calendar for what's urgent tomorrow, and prep the deck for tomorrow's team standup", "voice": "none"},
+    {"role": "demo", "start": 45.0, "end": 60.0, "what": "Claude pulls in referenced skill files (SKILL.md, pptx-patterns.md, css.md) and assembles an actual slide, Product Team Standup, populated with real numbers", "copy": "", "voice": "none"},
+    {"role": "cta", "start": 60.0, "end": 69.0, "what": "a user reaction line appears, then the film closes on \"What will you try next?\" over the Claude wordmark", "copy": "claude... you cooked. What will you try next?", "voice": "none"}
+  ],
+  "cta": "What will you try next?, staged as a closing title card over the Claude logo, right after the finished deck appears",
+  "why": "Watching the checklist get ticked off item by item while new, unplanned asks get folded into the same run sells the \"actually finishes the work\" promise better than any single before/after shot could.",
+  "tags": {
+    "goal": ["launch"],
+    "product": ["ai-app", "developer-tool"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["none"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

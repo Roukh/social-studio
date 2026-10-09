@@ -1,0 +1,21 @@
+{
+  "id": "allforbigfire-86ff3c-s02",
+  "kind": "scene",
+  "name": "parts snap together over a burst title and speed lines",
+  "looks": "A burst title announces the units combining, then the separate pieces fly together against a dark field of radiating speed lines, snapping into place limb by limb with a bold onomatopoeia word flashing on each impact, ending held as the fully combined figure.",
+  "build": "mecha-cut-reveal's burst stage: the title reuses wordmark-assemble's slam over a radial flash and speed lines; each part eases to its docking position on back.out(2) and locks with a hard scale-snap, the impact word popping in sync.",
+  "sound": "A hit on each cut, a riser through the sequence, a big hit on the burst.",
+  "duration": [5.5, 7.0],
+  "prompt": "Announce a combination or assembly with a slammed burst title over radiating speed lines, then show the separate pieces flying together and snapping into place one by one, each impact landing with a bold flashed sound-effect word. Hold on the fully assembled result at the end.",
+  "techniques": ["mecha-cut-reveal"],
+  "source": {"film": "allforbigfire-86ff3c", "url": "https://prompt-motion.com/allforbigfire-86ff3c", "creator": "@allforbigfire", "start": 8.367, "end": 19.267},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-transformation", "build-tension"],
+    "content": ["3d-object", "type"],
+    "energy": ["punch"],
+    "format": ["9:16"],
+    "family": ["type", "reveal"],
+    "complexity": "high"
+  }
+}

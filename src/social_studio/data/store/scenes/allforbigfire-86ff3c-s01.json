@@ -1,0 +1,21 @@
+{
+  "id": "allforbigfire-86ff3c-s01",
+  "kind": "scene",
+  "name": "three vehicles introduced on hard-cut cards",
+  "looks": "Three vehicles, each flying or driving across its own full-bleed coloured-sky or ground card, hard-cut in turn, with a colour-coded number-and-name chip (unit 1, unit 2, unit 3) locking in at the bottom of each card the instant it appears.",
+  "build": "mecha-cut-reveal: one flat-shaded 3D render per card, hard swap on a stepped index with no crossfade; the label chip reuses the HUD's mono label style, its colour bar matching the unit.",
+  "sound": "A hit on each cut, an engine or mechanical whir under each vehicle.",
+  "duration": [6.0, 8.5],
+  "prompt": "Introduce three variants of a thing (vehicles, tools, plans) one per full-bleed card, hard-cut with no crossfade, each card its own colour and each with a small numbered label chip locking in the instant it appears. Keep every card in its own distinct environment so the three read as clearly different.",
+  "techniques": ["mecha-cut-reveal"],
+  "source": {"film": "allforbigfire-86ff3c", "url": "https://prompt-motion.com/allforbigfire-86ff3c", "creator": "@allforbigfire", "start": 0.0, "end": 8.367},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "show-scale"],
+    "content": ["3d-object"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["type", "reveal"],
+    "complexity": "medium"
+  }
+}

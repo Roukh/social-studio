@@ -1,0 +1,21 @@
+{
+  "id": "himanshutwtxs-2103495232637882858-s01",
+  "kind": "scene",
+  "name": "A claim lands with an underline and a through-line dot",
+  "looks": "A two-line statement sets up small then lands huge on its second line, a hand-drawn underline swiping on beneath the big word and a small accent dot sitting at its end like punctuation. A thin HUD timeline bar runs along the bottom edge with a labelled keyframe marker showing where in the reel this beat sits.",
+  "build": "First line fades in small and light; second line lands heavier and larger a beat later (`y:10px -> 0`, power2.out). The underline draws on left to right (`strokeDashoffset`, ~250ms) once the big word lands, the accent dot popping in last at its end. The HUD timeline bar runs the whole shot with a single labelled tick marking this beat.",
+  "sound": "A soft swell under the setup line, a confident thud as the big word lands, a quick swipe sound under the underline.",
+  "duration": [2.5, 3.2],
+  "prompt": "Land a short claim in two weights, a quiet setup line followed by a heavier, bigger payoff line, drawing a hand-style underline beneath the payoff the instant it lands and capping it with a small accent dot, with a thin labelled timeline bar running along the bottom edge throughout.",
+  "techniques": ["kinetic-word-run", "timeline-scrubber-hud"],
+  "source": {"film": "himanshutwtxs-2103495232637882858", "url": "https://x.com/himanshutwtxs/status/2103495232637882858", "creator": "@himanshutwtxs", "start": 0.0, "end": 3.8},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "tease"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["type", "open"],
+    "complexity": "low"
+  }
+}

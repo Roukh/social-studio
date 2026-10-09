@@ -1,0 +1,26 @@
+{
+  "id": "softriver-powerful-manifesto",
+  "kind": "story",
+  "name": "Why big brands 'look powerful'",
+  "brand": "Softriver.co",
+  "source": {"url": "https://www.instagram.com/softriver.co/reel/DTiRZC4iMpN/", "platform": "instagram", "posted": "2026-01-15", "duration": 71.8},
+  "object": "Softriver's brand positioning: the promise that its identity work can make a small startup look as credible as an established giant",
+  "audience": "early-stage founders whose brand feels small or amateur next to the companies they compete with",
+  "message": "This video tells early-stage founders who feel invisible next to big brands that looking as powerful as Microsoft isn't about being that size yet — it's a brand choice Softriver can make for them.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 8.56, "what": "A two-person interview set: a woman in a dark tee holds up a card reading a 'people love Softriver' line to camera while a man in a suit begins talking, teasing what 'the brands above' look like.", "copy": "What do the people above you look like, all the time?", "voice": "dialogue"},
+    {"role": "problem", "start": 8.56, "end": 29.32, "what": "He builds the comparison, naming how powerful and strong an established brand like Microsoft looks, then pivots to note small startups or Y Combinator companies can look exactly as powerful.", "copy": "Some brands look so powerful — as strong as Microsoft. Small startups, YC companies, have looked just as good.", "voice": "dialogue"},
+    {"role": "solution", "start": 29.32, "end": 61.88, "what": "He pivots to the mechanism: big brands don't earn that look over years, they can be 'born' fully formed, like a celebrity's image — framing Softriver as the studio that engineers that instant credibility.", "copy": "Big brands get born like that — like Brad Pitt just shows up famous. You can start acting like that brand is already Softriver's work.", "voice": "dialogue"},
+    {"role": "cta", "start": 61.88, "end": 71.8, "what": "The woman lifts the Softriver card back into frame as he lands the closing promise, and the reel ends on the brand name held to camera.", "copy": "Soon enough — okay, Softriver.", "voice": "dialogue"}
+  ],
+  "cta": "No on-screen link or button; the close is the brand name itself held up on the card a second time, backed by the caption's standing bio-link pitch to DM or visit softriver.co.",
+  "why": "The piece works as a manifesto, not a feature pitch: it never shows a single deliverable, it sells the feeling of looking powerful by naming brands the audience already envies (Microsoft, YC startups) and reframing that look as something bought rather than earned over time. The two-hander format (an interviewer prompting, a confident speaker answering) gives the claims social proof instead of reading as a solo ad read.",
+  "tags": {
+    "goal": ["manifesto"],
+    "product": ["agency"],
+    "structure": ["manifesto"],
+    "voice": ["dialogue"],
+    "energy": ["build"],
+    "format": ["9:16"]
+  }
+}

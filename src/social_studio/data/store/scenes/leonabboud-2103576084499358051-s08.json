@@ -1,0 +1,21 @@
+{
+  "id": "leonabboud-2103576084499358051-s08",
+  "kind": "scene",
+  "name": "the wordmark returns with a kicker line for the close",
+  "looks": "The through-line dot pulses beside the bold wordmark on a quiet warm field, an italic subtitle settling beneath it exactly as it opened, and a short kicker phrase decoding into place at the very bottom.",
+  "build": "end-card-decode: the dot gets a pulsing glow ring, the kicker phrase's letters flicker through scrambled glyphs before locking on a staggered time; the wordmark and subtitle reuse their opening positions and styling so the film visually rhymes start to end.",
+  "sound": "Glitch ticks under the kicker's decode, a soft hit on the last lock, the bed fading out.",
+  "duration": [1.6, 2.0],
+  "prompt": "Close by returning to the exact wordmark and subtitle the film opened on, with the through-line mark pulsing quietly beside it. Let a short kicker phrase beneath it decode in through scrambled glyphs before locking into place, so the ending rhymes with the opening but adds one last idea.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "leonabboud-2103576084499358051", "url": "https://x.com/leonabboud/status/2103576084499358051", "creator": "@leonabboud", "start": 13.283, "end": 15.0},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["type", "logo"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "type", "through-line"],
+    "complexity": "medium"
+  }
+}

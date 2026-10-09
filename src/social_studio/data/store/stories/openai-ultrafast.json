@@ -1,0 +1,27 @@
+{
+  "id": "openai-ultrafast",
+  "kind": "story",
+  "name": "Ultrafast writes seven times more in the same breath",
+  "brand": "OpenAI",
+  "source": {"url": "https://www.youtube.com/watch?v=sKltfHvsDQM", "platform": "youtube", "posted": "2026-09-29", "duration": 45.0},
+  "object": "Ultrafast, a faster model mode now available in the API, ChatGPT Work, and Codex",
+  "audience": "developers and builders who need low-latency generation for interactive products and agentic coding",
+  "message": "This video tells developers that Ultrafast is not just a marketing word: side by side, it finishes far more work in the same amount of time as the standard mode.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 5.0, "what": "a plain title card reads the announcement before any footage", "copy": "Ultrafast, now in the API, ChatGPT Work, and Codex.", "voice": "none"},
+    {"role": "hook", "start": 5.0, "end": 15.0, "what": "a person speaks to camera at a home desk, introducing the release", "copy": "", "voice": "narration"},
+    {"role": "demo", "start": 15.0, "end": 30.0, "what": "a side-by-side split screen labeled Standard and Ultrafast renders the same 3D scene; the Ultrafast side visibly resolves first", "copy": "", "voice": "narration"},
+    {"role": "proof", "start": 30.0, "end": 40.0, "what": "a second split screen shows two text generations running for the same stretch of time; the Standard pane has produced a short passage while the Ultrafast pane has written several times more text, with token counts overlaid", "copy": "", "voice": "narration"},
+    {"role": "cta", "start": 40.0, "end": 45.0, "what": "closes on the OpenAI mark", "copy": "", "voice": "none"}
+  ],
+  "cta": "no explicit spoken call to action; the film closes on the OpenAI mark after the side-by-side speed proof",
+  "why": "Running the same prompt through both modes on screen at once turns an abstract speed claim into something the viewer can literally watch race and count, which is more convincing than a quoted benchmark number.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["ai-model", "developer-tool", "api"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["narration"],
+    "energy": ["punch"],
+    "format": ["16:9"]
+  }
+}

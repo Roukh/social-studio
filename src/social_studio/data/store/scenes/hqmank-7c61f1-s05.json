@@ -1,0 +1,21 @@
+{
+  "id": "hqmank-7c61f1-s05",
+  "kind": "scene",
+  "name": "Live browser and agent log run side by side",
+  "looks": "A real browser window sits beside a dark log panel. As the log types on a numbered step ('observe', 'click a link', 'scroll'), the browser's matching element glows and the page itself navigates and scrolls to match, until a small 'goal reached' badge pops over the clicked button and the log's last line confirms it is done.",
+  "build": "terminal-type-on drives the log's step-by-step reveal; provenance-glow-stroke marks whichever element the current step targets, moving from element to element in lockstep with the log, never more than one glowing at once; the badge pops in with a spring on the exact frame the glow lands on the target button.",
+  "sound": "A key tick per log line, a soft chime each time the glow moves to a new element, and a confirm hit on the goal-reached badge.",
+  "duration": [3.0, 4.5],
+  "prompt": "Prove an agent's actions are real, not simulated: run a live interface beside a log of its steps, a glowing marker moving from element to element in the interface exactly as the matching step appears in the log, finishing on a badge that confirms the goal was reached.",
+  "techniques": ["terminal-type-on", "provenance-glow-stroke", "hud-frame"],
+  "source": {"film": "hqmank-7c61f1", "url": "https://prompt-motion.com/hqmank-7c61f1", "creator": "@hqmank", "start": 10.0, "end": 17.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["reveal-product", "explain-mechanism", "show-craft"],
+    "content": ["product-ui", "code"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "type"],
+    "complexity": "high"
+  }
+}

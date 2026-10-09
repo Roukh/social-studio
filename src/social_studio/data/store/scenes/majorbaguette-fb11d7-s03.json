@@ -1,0 +1,21 @@
+{
+  "id": "majorbaguette-fb11d7-s03",
+  "kind": "scene",
+  "name": "A follow-up chat summarises the results",
+  "looks": "Under a different numbered step tag (\"03 - READ THE ANSWERS\"), a short chat request asks for a summary; the reply opens with a one-line total, then a short bulleted list of findings types in, each bullet landing on its own beat with a key phrase set in the accent colour.",
+  "build": "Step tag swaps to its new label and number via cross-fade. The reply's headline count appears first, then bullets clip in top to bottom 150-200ms apart, with the one key phrase per bullet (a name, a number) coloured to stand out from the rest of the line.",
+  "sound": "A soft typewriter patter under the request, a light tick per bullet landing.",
+  "duration": [2.5, 3.5],
+  "prompt": "Under a numbered step tag for the final stage of a flow, ask a quick follow-up question in chat and have the reply open with a one-line total before a short bulleted list of findings types in one line at a time, each with one key phrase picked out in the accent colour.",
+  "techniques": ["stage-numeral-marker", "chat-updates-preview"],
+  "source": {"film": "majorbaguette-fb11d7", "url": "https://prompt-motion.com/majorbaguette-fb11d7", "creator": "@MajorBaguette", "start": 17.5, "end": 22.5},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data", "explain-mechanism"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

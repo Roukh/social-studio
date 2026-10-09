@@ -1,0 +1,21 @@
+{
+  "id": "ratheejaisal-1f4538-s02",
+  "kind": "scene",
+  "name": "profile card, then an aggregator list builds row by row",
+  "looks": "A small profile card (avatar, name, a short bio, two buttons) fades up beside a headline. It cuts to a new headline next to a card that fills in top to bottom with project rows, each a coloured icon, a name, a dollar figure and a live badge, the newest row always the sharpest while the card itself grows taller to fit.",
+  "build": "The profile card is one DOM block, fading and sliding up 8px, power2.out. The list card builds with one row per beat (opacity 0->1, y 8px->0, ~0.3s), the card height tweening open to fit new rows; every landed row stays at full contrast as more are added beneath it, unlike a dimming stack.",
+  "sound": "A soft whoosh as the profile card lands, a tick per list row, slightly louder as later rows carry bigger figures.",
+  "duration": [2.5, 3.0],
+  "prompt": "Show a small profile card fading in, then cut to a headline beside a card that fills in top to bottom with short project rows (an icon, a name, a figure, a status badge), the card growing taller as each new row lands and every row staying legible once added.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "ratheejaisal-1f4538", "url": "https://prompt-motion.com/ratheejaisal-1f4538", "creator": "@RatheeJaisal", "start": 2.5, "end": 7.5},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["reveal-product", "show-scale"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["structure", "interface"],
+    "complexity": "medium"
+  }
+}

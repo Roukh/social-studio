@@ -1,0 +1,21 @@
+{
+  "id": "kyonax-on-tech-aabc1d-s02",
+  "kind": "scene",
+  "name": "One input fans into many outputs",
+  "looks": "A single small source card sits at left under a headline (\"One in. Everything out.\"); several near-identical output cards fan out from behind it to the right, each slightly offset in position and rotation, each labelled with a different output format, then settle square in a loose row.",
+  "build": "Output cards start stacked directly behind the source card and tween to their fanned positions (`x`, `rotate`) on a short stagger, 60-80ms apart, power2.out, each with a touch of overshoot as it settles.",
+  "sound": "A quick flutter of soft pops, one per card, fast enough to read as one fanning gesture.",
+  "duration": [1.5, 2.2],
+  "prompt": "Under a headline promising one input and many outputs, fan a handful of near-identical result cards out from behind a single source card, each labelled with a different format, settling into a loose row with a touch of overshoot, so one shot shows the full range at once.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "kyonax-on-tech-aabc1d", "url": "https://prompt-motion.com/kyonax-on-tech-aabc1d", "creator": "@kyonax_on_tech", "start": 11.2, "end": 13.1},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-scale", "show-ease"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data", "interface"],
+    "complexity": "low"
+  }
+}

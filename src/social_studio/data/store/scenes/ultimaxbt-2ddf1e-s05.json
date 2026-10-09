@@ -1,0 +1,21 @@
+{
+  "id": "ultimaxbt-2ddf1e-s05",
+  "kind": "scene",
+  "name": "a plain statement names what just happened",
+  "looks": "A single line of plain text sits centred on an empty field, naming in the past tense exactly what the viewer just watched happen, holding still with nothing else in frame.",
+  "build": "The line fades/rises 6-8px in on power2.out and holds for the full shot; no other motion.",
+  "sound": "A quiet bed under the hold, no hits.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold a single plain line of text centred on an empty field, stating in the past tense exactly what the viewer just watched the product do, as a quiet beat of confirmation before the close.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "ultimaxbt-2ddf1e", "url": "https://prompt-motion.com/ultimaxbt-2ddf1e", "creator": "@ultimaxbt", "start": 10.0, "end": 12.5},
+  "tags": {
+    "role": ["proof", "transition"],
+    "purpose": ["show-ease", "land-cta"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

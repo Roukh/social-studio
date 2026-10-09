@@ -1,0 +1,27 @@
+{
+  "id": "spotify-jam-premium",
+  "kind": "story",
+  "name": "Jam: everyone in the car gets to DJ",
+  "brand": "Spotify",
+  "source": {"url": "https://www.youtube.com/watch?v=A_N_PjC1kes", "platform": "youtube", "posted": "2025-08-14", "duration": 26.7},
+  "object": "Jam, the Spotify Premium feature that lets a group start and co-host a shared, real-time listening session",
+  "audience": "friend groups who fight over who controls the music on a drive or hangout",
+  "message": "This video tells friend groups that with Spotify Premium, nobody has to fight over the aux cord — everyone in the car can add to the same live session together.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 5.0, "what": "A girl in the passenger seat turns to the driver and claims control of the music; in the next shot, several friends packed in the back seat all hold up their phones at once, each wanting to pick the song.", "copy": "So guys, who's playing music? It's me.", "voice": "dialogue"},
+    {"role": "problem", "start": 5.0, "end": 10.0, "what": "Close shot of the girl smiling smugly, then a hand holds up a phone showing the Spotify home screen with a Jam icon visible among the navigation options.", "copy": "", "voice": "none"},
+    {"role": "solution", "start": 10.0, "end": 17.5, "what": "Hands tap through the app to start a Jam; a 'Join Tanya's Jam?' screen appears offering to continue on this phone or play from Tanya's speaker, then a shared queue fills with songs from different friends.", "copy": "Spotify — I start and host a Jam with Spotify Premium.", "voice": "dialogue"},
+    {"role": "proof", "start": 17.5, "end": 22.5, "what": "The whole car sings and laughs together, phones still in hand, everyone visibly part of the same shared playlist.", "copy": "", "voice": "none"},
+    {"role": "cta", "start": 22.5, "end": 26.7, "what": "The car drives off down a tree-lined road as bold on-screen text reads the feature name, followed by the Spotify Premium logo and an upgrade line.", "copy": "Start and host a Jam. Spotify Premium — upgrade now.", "voice": "none"}
+  ],
+  "cta": "On-screen text 'Start and host a Jam' over the car pulling away, followed by the Spotify Premium logo and an 'Upgrade Now' line.",
+  "why": "Opening on a petty fight for music control is instantly recognisable to anyone who has shared a car with friends, so the UI steps that follow (search, join, shared queue) read as solving that specific friction rather than showing off a feature in a vacuum. Ending on the group singing together before the logo lands the message: Jam is sold as a group feeling, not a screen.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["music"],
+    "structure": ["intro-problem-solution-cta"],
+    "voice": ["dialogue"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

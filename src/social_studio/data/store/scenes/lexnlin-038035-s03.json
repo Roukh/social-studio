@@ -1,0 +1,21 @@
+{
+  "id": "lexnlin-038035-s03",
+  "kind": "scene",
+  "name": "Ink plume curls into a bird, then dissolves",
+  "looks": "A monochrome plume of smoke or ink billows up the frame, and for a moment its drifting form reads as a bird's head and wing before dissolving back into abstract wisps. A thin accent line traces alongside it like a flight path, a small accent dot riding its tip.",
+  "build": "Fluid/smoke sim driven toward a bird-silhouette mask at its peak-legibility frame, then released back to free drift. The accent line is a separate hand-eased path kept crisp against the organic smoke noise; rendered in ink-on-paper monochrome, colour reserved for the line and dot only.",
+  "sound": "A very soft, low whoosh under the plume's motion, nothing percussive.",
+  "duration": [2.5, 3.0],
+  "prompt": "Billow a monochrome plume of smoke or ink up the frame, letting it drift through a moment where it reads as a recognisable creature or shape before dissolving back into abstraction, with one thin accent line and dot tracing alongside it like a path, on an otherwise quiet, restrained palette.",
+  "techniques": ["smoke-plume-morph"],
+  "source": {"film": "lexnlin-038035", "url": "https://prompt-motion.com/lexnlin-038035", "creator": "@LexnLin", "start": 8.4, "end": 10.7},
+  "tags": {
+    "role": ["hook", "transition"],
+    "purpose": ["set-mood", "tease"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["generative", "physics"],
+    "complexity": "high"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "twoclipping-221cab-s07",
+  "kind": "scene",
+  "name": "shattered facets assemble into a framed print held by hand",
+  "looks": "A dark, cracked facet pattern sits on the wall where a print should be, each shard a sliver of the image showing through. The shards snap together into the whole framed print, and a pair of hands reaches in to hold it level against the wall, leaf-shadow drifting behind it.",
+  "build": "The frame's surface is divided into irregular facet shapes that fade/scale to 0 opacity in a seeded order, revealing the full print underneath, same family as wireframe-to-facet-reveal's face-fill; the hands are a filmed or rendered overlay that enters once the print has resolved.",
+  "sound": "A soft glassy tick per facet resolving, a gentle rustle as the hands settle the frame.",
+  "duration": [2.0, 2.5],
+  "prompt": "Show a dark, faceted crack pattern on a wall resolving shard by shard into a complete framed image, then have a pair of hands reach in to hold the finished print level against the wall, with a soft leaf-shadow drifting behind it, to turn the digital output tangible.",
+  "techniques": ["wireframe-to-facet-reveal", "cinematic-atmosphere-hold"],
+  "source": {"film": "twoclipping-221cab", "url": "https://prompt-motion.com/twoclipping-221cab", "creator": "@twoclipping", "start": 22.5, "end": 25.0},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-craft", "show-transformation"],
+    "content": ["photo", "abstract"],
+    "energy": ["build"],
+    "format": ["1:1", "4:5"],
+    "family": ["reveal", "texture"],
+    "complexity": "medium"
+  }
+}

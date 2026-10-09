@@ -1,0 +1,21 @@
+{
+  "id": "lexnlin-038035-s01",
+  "kind": "scene",
+  "name": "Engraved study paired with a word",
+  "looks": "On a warm paper-white ground, a thick comma-like glyph sits above a small accent dot; cut to a dense tangle of calligraphic flourish lines, then to a short serif word with its own small accent dot, an antique engraving of a scholar at a desk with a rhino study pinned above him resting quietly beside the word.",
+  "build": "Each element arrives on a plain fast fade/lift (`y:6-10px -> 0`, 200-300ms) and holds; the engraving is placed directly on the page, no frame or shadow, desaturated to near-monochrome against the warm ground. The accent dot is the one recurring coloured mark across every card.",
+  "sound": "Near silence, a very soft paper-texture hiss under the holds.",
+  "duration": [3.0, 4.5],
+  "prompt": "On a warm paper-coloured ground, pair a short serif word with a small accent dot and a piece of antique engraving artwork placed directly on the page with no frame, letting each element arrive on a plain quick fade so the sequence reads as a considered, literary opening rather than a flashy one.",
+  "techniques": ["engraving-collage-type"],
+  "source": {"film": "lexnlin-038035", "url": "https://prompt-motion.com/lexnlin-038035", "creator": "@LexnLin", "start": 0.0, "end": 4.4},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["set-mood", "establish-brand"],
+    "content": ["illustration", "type"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["texture", "collage"],
+    "complexity": "low"
+  }
+}

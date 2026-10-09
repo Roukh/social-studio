@@ -1,0 +1,21 @@
+{
+  "id": "notdwd-7de38a-s05",
+  "kind": "scene",
+  "name": "the wordmark glows alone in the dark as the camera pulls back",
+  "looks": "The brand's wordmark glows softly in the centre of an otherwise pitch-black frame. The camera slowly pulls back, so the glowing type shrinks and dims into the distance, growing smaller and quieter as the shot holds.",
+  "build": "A single bloom sprite/text layer pinned to the wordmark, pulsing gently; the camera (or a scale tween on the whole layer) eases the wordmark from large to small over the shot's length on a slow, linear-to-eased pull, paired with a `grain-vignette.md` pass so the black field never reads flat.",
+  "sound": "A low pad and room tone, fading further as the pull-back continues, with no hits.",
+  "duration": [1.8, 2.5],
+  "prompt": "Close on the name glowing alone in total darkness, then pull the camera slowly back so it shrinks into the distance and the glow dims with it, ending on a small, quiet point of light in a black frame.",
+  "techniques": ["cinematic-atmosphere-hold"],
+  "source": {"film": "notdwd-7de38a", "url": "https://prompt-motion.com/notdwd-7de38a", "creator": "@notdwd", "start": 10.027, "end": 12.074},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "set-mood"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["1:1"],
+    "family": ["close", "texture"],
+    "complexity": "low"
+  }
+}

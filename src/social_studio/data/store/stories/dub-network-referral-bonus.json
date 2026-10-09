@@ -1,0 +1,59 @@
+{
+  "id": "dub-network-referral-bonus",
+  "kind": "story",
+  "name": "Dub Network Referral Bonus",
+  "brand": "dub.co",
+  "source": {
+    "url": "https://dub.co/blog/network-referral-bonus",
+    "platform": "site",
+    "posted": "2026-05-22",
+    "duration": 16
+  },
+  "object": "The Dub Network Referral Bonus, an ongoing payout for Dub Partners who refer other partners into Dub's own affiliate network",
+  "audience": "Existing Dub Partners and affiliates looking to earn more by growing the partner network itself",
+  "message": "This video tells existing Dub Partners that referring other partners now pays an ongoing bonus, not just a one-time reward.",
+  "moments": [
+    {
+      "role": "hook",
+      "start": 0.0,
+      "end": 4.7,
+      "what": "a retro VHS-static texture resolves into a shelf of labeled floppy disks branded 'dub', each naming a recent launch (Commission Analytics, Dub MCP & Platform Logs) with this feature as 'Disk 5 of 5'",
+      "copy": "the newest disk in a numbered set of recent Dub launches: Network Referral Bonus",
+      "voice": "none"
+    },
+    {
+      "role": "intro",
+      "start": 4.7,
+      "end": 5.3,
+      "what": "a quick cut lands on a plain title card naming the feature",
+      "copy": "Dub Network Referral Bonus",
+      "voice": "none"
+    },
+    {
+      "role": "demo",
+      "start": 5.3,
+      "end": 13.0,
+      "what": "the real partner dashboard appears: a referred-partner count, a running earnings total, a referral link, a rewards panel explaining the bonus terms, and a table of referred partners with join dates and active programs",
+      "copy": "7 referred partners, $3,234 in earnings so far, with reward terms (a cut of referred partners' fees, plus a bonus past $10,000 in referred bonus earnings) laid out in the panel",
+      "voice": "none"
+    },
+    {
+      "role": "cta",
+      "start": 13.0,
+      "end": 16.0,
+      "what": "the screen cuts to the Dub wordmark and then a short link",
+      "copy": "d.to/network-referral",
+      "voice": "none"
+    }
+  ],
+  "cta": "Ends on the Dub logo cutting to the short link d.to/network-referral as the single next step to read the program's terms.",
+  "why": "Opening on a shelf of numbered 'disks' for the week's other launches frames this as one of several features shipping together, which signals momentum rather than a lone minor tweak. Showing the real referral dashboard with a specific partner count and dollar figure, not a mockup, makes the bonus feel like it is already paying out, which is what earns the short-link close.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["link-management"],
+    "structure": ["montage-cta"],
+    "voice": ["none"],
+    "energy": ["punch"],
+    "format": ["16:9"]
+  }
+}

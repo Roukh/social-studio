@@ -1,0 +1,21 @@
+{
+  "id": "rossaxbt-3085b7-s05",
+  "kind": "scene",
+  "name": "slider scrub drives a live duotone portrait",
+  "looks": "A small floating panel labelled 'Controls' holds three sliders: creativity, randomness, style strength. One at a time, each handle glides along its track as its percentage ticks up, and the portrait photo beside the panel visibly shifts further into a bold duotone pink-and-blue treatment as the values climb.",
+  "build": "Slider handle x and percentage text driven off one clock value per slider (power2.inOut), one slider active at a time; the portrait's duotone overlay opacity and hue key off the same value so the image and the slider move in lockstep.",
+  "sound": "A soft tick per slider step and a light shimmer as the portrait's look resolves on each stop.",
+  "duration": [2.5, 3.0],
+  "prompt": "Show a small labelled control panel with two or three sliders scrubbing up one at a time, and have a photo beside the panel visibly shift its look, colour, strength, style, in exact step with each slider so the parameter clearly causes the visible result. Keep the panel and photo generic, not a real brand's UI.",
+  "techniques": ["slider-scrub-preview"],
+  "source": {"film": "rossaxbt-3085b7", "url": "https://prompt-motion.com/rossaxbt-3085b7", "creator": "@rossaxbt", "start": 10.5, "end": 15.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-ease", "explain-mechanism", "show-contrast"],
+    "content": ["product-ui", "photo"],
+    "energy": ["build"],
+    "format": ["1:1", "4:5", "9:16"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

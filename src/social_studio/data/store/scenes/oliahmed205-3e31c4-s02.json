@@ -1,0 +1,21 @@
+{
+  "id": "oliahmed205-3e31c4-s02",
+  "kind": "scene",
+  "name": "face landmarks resolve into a before/after retouch readout",
+  "looks": "A close portrait gets a mesh of small landmark dots across the skin, then the frame splits down the middle into a before/after: one side untouched, the other smoothed and lit. A headline reads 'Flawless in one tap.' beside it, and a small panel of checked parameters (a blemish count, a skin-tone percentage, a light value) ticks in one after another next to the result.",
+  "build": "The landmark dots are a seeded point field positioned over a face crop, fading in on a light stagger. The before/after is a hard vertical clip-path split with a thin divider line. The parameter panel is a slider-style readout: each row's label fades in, then its value ticks up to its final number in sync with a live change in the photo, one row settling before the next starts, power2.inOut.",
+  "sound": "A soft shutter-like tick as the landmarks appear, a light whoosh on the split, a tick per parameter settling.",
+  "duration": [2.4, 3.2],
+  "prompt": "Show an AI edit as cause and effect: landmark points settle over a photo, then the frame splits into a clean before/after. Beside it, reveal two or three parameters one at a time, each value ticking up as its visible result changes in the photo at the same moment, so the viewer reads the number and the result as one thing.",
+  "techniques": ["slider-scrub-preview"],
+  "source": {"film": "oliahmed205-3e31c4", "url": "https://prompt-motion.com/oliahmed205-3e31c4", "creator": "@oliahmed205", "start": 1.88, "end": 4.9},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["photo", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

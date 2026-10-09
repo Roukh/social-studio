@@ -1,0 +1,21 @@
+{
+  "id": "jesscaroline7-1ff7cb-s08",
+  "kind": "scene",
+  "name": "Leaderboard bars race with avatar chips",
+  "looks": "Three bars grow up from a baseline, each topped with a round avatar-initial chip, a rank numeral badge, a name and a running count. The centre bar (first place) is tallest and in the accent colour; the two side bars are shorter and neutral. A second version of the same layout cuts in a beat later with the counts incremented, as if the leaderboard is live.",
+  "build": "Bars scaleY from 0 to final height from a bottom origin on an uneven stagger (centre bar leads). Avatar chips and rank badges pop in with a small overshoot (spring, response ~0.3) once their bar lands. The incremented second card is a hard cut, not a tween, to read as a fresh data pull rather than continuous motion.",
+  "sound": "A rising blip per bar as it grows, a brighter chime on the first-place bar landing, a soft tick on the hard cut to the updated numbers.",
+  "duration": [2.5, 3.5],
+  "prompt": "Grow three ranked bars up from a baseline, the leader tallest and in the accent colour, each one topped with a small avatar chip, a rank number and a running count. Cut to the same layout a beat later with the counts ticked up, so the board reads as live rather than a one-off chart.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "jesscaroline7-1ff7cb", "url": "https://prompt-motion.com/jesscaroline7-1ff7cb", "creator": "@jesscaroline7", "start": 50.0, "end": 55.0},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data", "show-contrast"],
+    "content": ["data", "character"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

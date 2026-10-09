@@ -1,0 +1,21 @@
+{
+  "id": "viktoroddy-98c1d8-s03",
+  "kind": "scene",
+  "name": "one real command sets everything up",
+  "looks": "A headline claims the whole setup is one command, no key required. A dark terminal panel types out that exact command, a status line confirms the connection a beat later with a check mark, and a second command begins typing right after, unprompted.",
+  "build": "DOM mono text revealed per character with kit.typeOn; the status line reveals after a short pause, a coloured dot plus a word, fading and sliding up 4-6px, same mechanic as terminal-type-on; the second command starts typing immediately after, no cut.",
+  "sound": "A soft mechanical key tick per character and a single confirm tone on the status line.",
+  "duration": [4.5, 5.0],
+  "prompt": "Claim the whole setup takes one command and no key, then type that exact command into a dark terminal panel, let a status line confirm the connection with a check mark, and have a second command begin typing right after, unprompted, to show the tool is immediately ready to work.",
+  "techniques": ["terminal-type-on"],
+  "source": {"film": "viktoroddy-98c1d8", "url": "https://prompt-motion.com/viktoroddy-98c1d8", "creator": "@viktoroddy", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["code", "product-ui"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["type", "interface"],
+    "complexity": "medium"
+  }
+}

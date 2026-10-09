@@ -1,0 +1,21 @@
+{
+  "id": "hqmank-7c61f1-s01",
+  "kind": "scene",
+  "name": "Three-step instruction, hard cut per line",
+  "looks": "Under a small eyebrow label, three short imperative lines land one per hard cut: two in plain black, the third's last word in bold accent colour, a cursor idling beside it. A thin HUD frame with corner marks and a running label sits around the whole shot.",
+  "build": "kinetic-word-run adapted to full lines instead of single words: each line is its own hard cut, no crossfade, the third line's final word getting its own colour and weight; hud-frame's corner brackets and label run underneath for the whole scene.",
+  "sound": "A hit on each line's cut, heavier on the third.",
+  "duration": [2.0, 2.5],
+  "prompt": "State what the product does as three short imperative steps, hard-cutting from one line to the next with no crossfade, the last line's key word landing in the brand's accent colour as the payoff, inside a thin technical frame that signals a developer tool.",
+  "techniques": ["kinetic-word-run", "hud-frame"],
+  "source": {"film": "hqmank-7c61f1", "url": "https://prompt-motion.com/hqmank-7c61f1", "creator": "@hqmank", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "explain-mechanism"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["type", "frame"],
+    "complexity": "low"
+  }
+}

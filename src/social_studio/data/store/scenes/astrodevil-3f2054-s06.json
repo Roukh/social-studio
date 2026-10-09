@@ -1,0 +1,21 @@
+{
+  "id": "astrodevil-3f2054-s06",
+  "kind": "scene",
+  "name": "wordmark with an underline sweep closes the reel",
+  "looks": "The bold studio wordmark settles large, a hairline sweeps under it left to right, small stat labels appear above it, a tagline fades in beneath, and a URL pill settles last at the bottom.",
+  "build": "wordmark-assemble: letters settle on the usual centre-out stagger, the hairline reveals with scaleX 0 -> 1 right after; the stat row and tagline fade in staggered, the URL pill arriving last on back.out.",
+  "sound": "A soft swell under the wordmark, a chime as the URL pill lands.",
+  "duration": [1.0, 1.4],
+  "prompt": "Close on the bold studio or brand name settling large, with a hairline sweeping under it and small stat labels appearing above as quick proof. Fade in a one-line tagline beneath and settle a URL pill last, as the final frame.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "astrodevil-3f2054", "url": "https://prompt-motion.com/astrodevil-3f2054", "creator": "@Astrodevil_", "start": 13.6, "end": 14.9},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

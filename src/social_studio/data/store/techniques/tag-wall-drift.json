@@ -1,0 +1,20 @@
+{
+  "id": "tag-wall-drift",
+  "kind": "technique",
+  "name": "Tag wall drift",
+  "looks": "A dense wall of small rounded pills, each naming a different topic or skill, fills the frame in several rows and drifts sideways at a slow steady speed, rows moving at slightly different speeds. A bold headline sits perfectly still on top of the drift.",
+  "build": "Pills are a repeating, looped row (x wraps modulo total width); each row's speed is a small uneven multiple of a base rate for parallax; the headline is a fixed layer above with a soft shadow or translucent backing to stay legible.",
+  "sound": "A soft, continuous low shimmer under the drift, with no individual hits.",
+  "duration": [2.5, 5.0],
+  "prompt": "Fill the frame with several rows of small pill tags drifting sideways at slightly different speeds, with a bold, perfectly still headline held over the top, so the drifting wall reads as breadth and depth behind one claim.",
+  "source": "prompt-motion.com's gallery (techyoutbe-945b56), studied 2026-10-09",
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-scale", "show-data"],
+    "content": ["type", "data"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "9:16", "4:5"],
+    "family": ["data", "texture"],
+    "complexity": "medium"
+  }
+}

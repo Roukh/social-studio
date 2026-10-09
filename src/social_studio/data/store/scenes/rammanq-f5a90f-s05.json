@@ -1,0 +1,21 @@
+{
+  "id": "rammanq-f5a90f-s05",
+  "kind": "scene",
+  "name": "cursor scrubs a scatter, a payoff line and a price curve",
+  "looks": "A scatter of small dots builds on a light card under a headline, and a curved line draws across the top of the cluster with a value pill calling out the best point. A cursor nudges a highlighted dot and a second pill compares it. It cuts to a dark payoff diagram (a loss zone, a breakeven point, a flat profit line) where a cursor drags a point along the diagonal and a floating pill updates its numbers live. It cuts again to a simple downward price line on a dark card with a draggable point and a pill of computed values that flips sign as the point crosses centre.",
+  "build": "The scatter is seeded dots at fixed positions with a curve drawn over them via strokeDashoffset; a value pill springs up at the curve's best point (response ~0.36-0.42). The cursor is a DOM dot following a power3.inOut path with a 0.045s press scale. On each dark card, the cursor's x position drives the pill's text directly from the clock, no easing on the numbers themselves, so the update feels live and precise.",
+  "sound": "A soft click on each cursor press, a rising tone under the curve draws, a sharper tick when a pill's numbers flip sign.",
+  "duration": [3.5, 4.5],
+  "prompt": "Show a cursor dragging a point along a chart (a scatter with a best-fit curve, a payoff diagram with a loss zone and breakeven, a simple trend line) while a floating value pill updates live and precisely as the point moves, with no lag or easing on the numbers themselves. Use two or three such charts back to back to show the product computing different outcomes on demand.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "rammanq-f5a90f", "url": "https://prompt-motion.com/rammanq-f5a90f", "creator": "@rammanq", "start": 20.8, "end": 29.7},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["1:1"],
+    "family": ["data", "interface"],
+    "complexity": "medium"
+  }
+}

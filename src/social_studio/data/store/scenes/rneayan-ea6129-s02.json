@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-ea6129-s02",
+  "kind": "scene",
+  "name": "word cards pair with a generative scope diagram",
+  "looks": "Each new phrase arrives with its own small generative diagram drawn in the same green line-work: a tangled interference knot for a complex process, a woven double-helix for combined skills, an orbiting ellipse for a finished delivery. A small stage counter and changing section tag sit in the corner, ticking up with each card. The scanline strip keeps breathing underneath throughout.",
+  "build": "2D canvas/SVG generative glyph (Lissajous knot, sine-pair weave, orbit ellipse) rendered per-card from a small seeded parametric set, paired with a hard-cut DOM word/phrase; a small mono stage counter ('STEP n/10') cross-fades in the corner on each new card.",
+  "sound": "A soft blip on each card's cut, a low shimmer under the diagram as it forms.",
+  "duration": [6, 8],
+  "prompt": "Build a short run of hard-cut word cards on a black field, each paired with its own small generative diagram -- a tangled knot, a woven pair of threads, an orbiting shape -- whose form echoes what the word means. Keep every card in the same thin monochrome line style so the instrument feels continuous even as the content changes, and tick a small stage counter in the corner so the viewer senses progress through a process.",
+  "techniques": ["oscillograph-word-card", "waveform-readout-strip", "stage-numeral-marker"],
+  "source": {"film": "rneayan-ea6129", "url": "https://prompt-motion.com/rneayan-ea6129", "creator": "@rneayan", "start": 7.5, "end": 15.0},
+  "tags": {
+    "role": ["problem", "solution"],
+    "purpose": ["explain-mechanism", "show-contrast"],
+    "content": ["type", "abstract", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "data"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "visheshbaghell-3aba37-s08",
+  "kind": "scene",
+  "name": "a closing instruction and the wordmark",
+  "looks": "A short two-part instruction fades in, the second half in the accent colour, over the tally-mark watermark. It cuts to the mark and wordmark settled on a plain field, with the site's address fading in beneath, a cursor blinking at its end.",
+  "build": "The instruction's two halves fade in with a short gap between them, the second in the accent colour; the mark/wordmark fade/scale in on the cut; the address fades in last with a blinking cursor glyph, holding at least 1s.",
+  "sound": "A soft rise under the instruction, a confirm tone as the wordmark lands, the bed fading out under the hold.",
+  "duration": [2.5, 3.0],
+  "prompt": "Fade in a short two-part closing instruction, the second half in the accent colour, over the brand's watermark, then cut to the mark and wordmark settled on a plain field with the site's address fading in beneath, a cursor blinking at its end; hold the finished card.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "visheshbaghell-3aba37", "url": "https://prompt-motion.com/visheshbaghell-3aba37", "creator": "@VisheshBaghell", "start": 75.0, "end": 80.5},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

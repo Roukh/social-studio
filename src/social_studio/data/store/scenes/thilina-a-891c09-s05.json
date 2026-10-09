@@ -1,0 +1,21 @@
+{
+  "id": "thilina-a-891c09-s05",
+  "kind": "scene",
+  "name": "a real phone screen fills the frame",
+  "looks": "A headline lands, then the frame holds a real phone mockup: a status bar, the app's own name, a grid of icon tiles and a bottom tab bar, filling almost the whole vertical frame as one honest screenshot.",
+  "build": "The phone frame and its content are a single fixed DOM panel scaled to fill the 9:16 frame (ui-tilt-card's held-panel mechanic, no tilt); a small trail of dots animates along the tab bar to draw the eye to it.",
+  "sound": "A soft whoosh as the screen settles into frame.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold a real, honest phone-screen mockup filling almost the whole vertical frame, status bar and all, with a grid of icon tiles and a bottom tab bar, and a small trail animating along the tab bar to draw the eye there.",
+  "techniques": ["ui-tilt-card"],
+  "source": {"film": "thilina-a-891c09", "url": "https://prompt-motion.com/thilina-a-891c09", "creator": "@thilina_a", "start": 15.0, "end": 17.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["reveal-product", "show-craft"],
+    "content": ["product-ui", "device"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

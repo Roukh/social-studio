@@ -1,0 +1,21 @@
+{
+  "id": "palashbagchi11-0a4b6b-s05",
+  "kind": "scene",
+  "name": "a dollar figure rolls up to the real total",
+  "looks": "A large dollar amount rolls up through a couple of intermediate values to its final number, with a one-line caption underneath naming what it totals and a small dim footnote qualifying the figure as an estimate.",
+  "build": "The digits roll up under a vertical blur whose strength follows their speed, settling on power3.out; the caption and footnote fade in just as the digits land, the footnote at lower opacity and smaller size.",
+  "sound": "A rising tone under the roll-up, a soft pop as the digits settle.",
+  "duration": [1.8, 2.4],
+  "prompt": "Roll a large dollar figure up to its final total, digits blurring with their own speed, landing with a one-line caption naming what it totals and a small, honest footnote marking it as an estimate rather than an audited figure.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "palashbagchi11-0a4b6b", "url": "https://prompt-motion.com/palashbagchi11-0a4b6b", "creator": "@PalashBagchi11", "start": 17.3, "end": 20.6},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

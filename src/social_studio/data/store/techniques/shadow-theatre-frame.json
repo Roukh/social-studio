@@ -1,0 +1,20 @@
+{
+  "id": "shadow-theatre-frame",
+  "kind": "technique",
+  "name": "Shadow theatre frame",
+  "looks": "A decorative stage-curtain border hangs around every shot like a puppet theatre's proscenium. The scene inside is built from flat black silhouettes layered at different depths for parallax, against a soft gradient sky drifting slowly from one time of day to the next. A single rope hangs down one side, pulled to open the first shot and released to close the last.",
+  "build": "The curtain is a fixed DOM frame layered above every scene for the whole runtime; each silhouette element is a flat shape at a fixed depth, parallax from each depth panning at its own slow rate; the sky gradient interpolates over the whole film's clock with a moon or sun on its own slow arc; the rope tweens out on open and back in on close.",
+  "sound": "A soft fabric rustle as the curtain opens and closes, a quiet ambient bed under the whole film, no hard hits.",
+  "duration": [5.0, 15.0],
+  "prompt": "Frame the whole film in a decorative stage-curtain border, like a puppet theatre, with every scene built from flat black silhouettes at different depths against a slowly drifting gradient sky. Open with a curtain rope pulling back and close the same way, for a hand-made, storybook register.",
+  "source": "prompt-motion.com's gallery (x4b47x-9cc84f), studied 2026-10-09",
+  "tags": {
+    "role": ["whole-film", "hook", "cta"],
+    "purpose": ["set-mood", "establish-brand"],
+    "content": ["illustration", "character"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["frame", "through-line"],
+    "complexity": "high"
+  }
+}

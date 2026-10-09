@@ -1,0 +1,21 @@
+{
+  "id": "micheleharmonic-77628e-s03",
+  "kind": "scene",
+  "name": "glitch title card hard-cuts into the chrome coin wordmark reveal",
+  "looks": "A dim, scanlined divider card holds a short line of title text over a faint vertical glyph, then hard-cuts to the full brand reveal: the ring mark, now a glossy chrome coin tilted in 3D, sits beside the wordmark on a plain dark field with a small kicker line above it.",
+  "build": "The divider card is a DOM layer with a seeded film-grain and scanline texture and a chromatic-aberration offset on the text; it holds about a beat, then hard-cuts with no crossfade to the coin-and-wordmark group, which fades and rises in together on power2.out over about 300ms.",
+  "sound": "A low glitch hit on the divider, then a clean single chime as the full lockup lands.",
+  "duration": [1.2, 1.8],
+  "prompt": "Hold a short line of title text over a textured, scanlined divider for a beat, then hard-cut straight into the brand's full mark-and-name lockup, now rendered as a solid chrome medallion beside the wordmark, so the glitch clears into one clean, confident reveal.",
+  "techniques": ["mecha-cut-reveal"],
+  "source": {"film": "micheleharmonic-77628e", "url": "https://prompt-motion.com/micheleharmonic-77628e", "creator": "@MicheleHarmonic", "start": 7.97, "end": 9.6},
+  "tags": {
+    "role": ["intro"],
+    "purpose": ["establish-brand", "reveal-product"],
+    "content": ["logo", "type"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["identity", "reveal"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-ea6129-s04",
+  "kind": "scene",
+  "name": "a credibility numeral and a radar sweep",
+  "looks": "A large outline numeral fills most of the frame beside a short claim of years of experience, the scanline still ticking underneath. It hard-cuts to a circular radar-style sweep -- a ring with converging spoke lines -- under a short claim of hands-on, personal control.",
+  "build": "Big DOM numeral (outline weight) beside a short phrase, hard-cut to an SVG/canvas radial fan (a dozen thin lines converging from a ring's edge to a point, sweeping or pulsing on the clock) under a second phrase; same HUD chrome and green line style throughout.",
+  "sound": "A low confident swell under the numeral, a soft whirr under the radar sweep.",
+  "duration": [3, 4],
+  "prompt": "State a credibility figure (years of experience, a track record) as one big outline numeral beside a short claim, then cut to a radial sweep diagram -- spokes converging from a ring to a centre point -- under a claim of hands-on control. Both beats are proof moments: the number and the sweep both read as 'this is measured, not promised.'",
+  "techniques": ["oscillograph-word-card"],
+  "source": {"film": "rneayan-ea6129", "url": "https://prompt-motion.com/rneayan-ea6129", "creator": "@rneayan", "start": 20.0, "end": 23.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["establish-brand", "show-craft"],
+    "content": ["type", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "data"],
+    "complexity": "medium"
+  }
+}

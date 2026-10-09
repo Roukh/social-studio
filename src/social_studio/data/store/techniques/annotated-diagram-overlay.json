@@ -1,0 +1,20 @@
+{
+  "id": "annotated-diagram-overlay",
+  "kind": "technique",
+  "name": "Annotated diagram overlay",
+  "looks": "A short hand-drawn label and arrow pop onto the exact element being demonstrated and name what it is doing. The label sits in a casual script face, distinct from the display type, so it reads as a designer's note rather than a caption bar. Only one label is on screen at a time, and each leaves before the next arrives.",
+  "build": "The label is DOM text in a second handwritten or marker face with its own role; the arrow is an SVG path drawn on with strokeDashoffset and a small arrowhead that pops in at the end. Anchor each label to its element's position from the same clock so it never drifts when the element moves.",
+  "sound": "A tick on each label's arrival.",
+  "duration": [0.8, 2.5],
+  "prompt": "Over a shot that is already demonstrating a move (a bounce, a curve, a stagger), pop a short hand-drawn label and arrow directly onto the element doing the work, naming the mechanism in a few words. Use a casual script or marker face distinct from the rest of the type, keep only one label live at a time, and have it point at the thing itself, not at empty space. Let each label arrive on the beat and clear before the next lands.",
+  "source": "Himanshu's 15 s showreel (x.com/himanshutwtxs/status/2103495232637882858), studied 2026-10-07.",
+  "tags": {
+    "role": ["solution", "demo", "proof"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["annotation", "type"],
+    "complexity": "medium"
+  }
+}

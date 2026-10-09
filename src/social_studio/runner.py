@@ -21,16 +21,26 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from . import db, engine
-from .core import (FORMATS, MCP_FILE, PKG_DIR, SLUG, ConfigError, Ctx, DataError, Preset, StudioError, Unavailable, iso,
-                   load_preset, log, mcp_registry, new_id, require_human, slugify, validate_preset)
+from . import db, engine, store
+from .core import (FORMATS, MCP_FILE, PKG_DIR, SLUG, ConfigError, Ctx, DataError, Preset, StudioError, Unavailable,
+                   UsageError, iso, load_preset, log, mcp_registry, new_id, require_human, slugify, validate_preset)
 
 DEFAULT_SKILLS = ["hyperframes-core", "hyperframes-cli", "hyperframes-animation", "hyperframes-audio", "media-use"]
+# Mounted in every designer session on top of the preset's own lists, as the kit's libraries are (F15, J45): the
+# engine's creative, motion-graphics, launch and registry skills (the registry reads the copy pinned with the
+# engine, engine.registry_root), and the vendored launch, product-demo, short-form and explainer skills.
+KIT_ENGINE_SKILLS = ["hyperframes-creative", "motion-graphics", "product-launch-video", "hyperframes-registry"]
+KIT_VENDOR_SKILLS = ["launch-video", "product-demo-video", "short-form-video", "explainer-video"]
 # Shipped with the tool and mounted in every maker session: the motion doctrine distilled from the engine's
 # product-launch-video and hyperframes-keyframes skills (Apache-2.0, see its NOTICE.md), motion-canon, the
 # working method of non-AI motion design (rulings 16 and 19), and the technique library every film picks its
 # techniques and shots from (operator, 2026-10-07).
 PACKAGE_SKILLS = ["motion-doctrine", "motion-canon", "technique-library"]
+STORY_SKILL = "storyteller"  # shipped too, mounted for the storyteller session only (story.py)
+PITCH_SKILL = "pitch-round"  # shipped, mounted for the pitch session only (pitch.py)
+BOARD_SKILL = "key-poses"    # shipped, mounted for the designer in boards mode only (boards.py)
+# Shipped skills only one session role mounts; a preset may not take their names.
+ROLE_SKILLS = (STORY_SKILL, PITCH_SKILL, BOARD_SKILL)
 # The motion kit every composition gets (`window.kit`), next to GSAP and three.js (engine.KIT_*).
 KIT_JS = PKG_DIR / "data" / "kit" / "motion-kit.js"
 # Third-party skills vendored at pinned commits (data/skills/vendor/skills.lock.json); a preset mounts them by name
@@ -81,6 +91,8 @@ class MakeOpts:
     sandbox: bool | None = None
     revise: int | None = None
     review: bool | None = None
+    boards: bool = False              # stop at a keyframe board instead of a video (boards.py)
+    from_board: int | None = None     # animate this approved board; with `boards`, lay out one sent back again
 
 
 @dataclass
@@ -288,21 +300,22 @@ def _skills(ctx: Ctx, p: Preset, s: Session, version: str) -> list[str]:
     for name in [*p.get("agent.engine_skills", DEFAULT_SKILLS), *p.get("agent.skills", {})]:
         if not SLUG.fullmatch(str(name)):  # a name is a folder under work/skills, never a path elsewhere
             raise ConfigError(f"skill name {name!r} is not a slug", "use a-z, 0-9 and hyphens")
-        if name in PACKAGE_SKILLS:
+        if name in (*PACKAGE_SKILLS, *ROLE_SKILLS):
             raise ConfigError(f"skill name {name!r} is taken by a skill social-studio ships", "rename the preset's skill")
     for name in PACKAGE_SKILLS:  # a shipped skill has no hidden files; anything hidden there is not ours
         shutil.copytree(PKG_DIR / "data" / "skills" / name, out / name, dirs_exist_ok=True,
                         ignore=shutil.ignore_patterns(".*"))
         names.append(name)
     vendored = vendored_skills()
-    for name in p.get("agent.package_skills", []):
+    for name in [*p.get("agent.package_skills", []), *KIT_VENDOR_SKILLS]:
         if name not in vendored:
             raise ConfigError(f"agent.package_skills: no vendored skill named {name!r}",
                               f"pick from: {', '.join(sorted(vendored))}")
         if name not in names:
             _mount_vendored(vendored[name], out / name)
             names.append(name)
-    for name in p.get("agent.engine_skills", DEFAULT_SKILLS):
+    own = p.get("agent.engine_skills", DEFAULT_SKILLS)
+    for name in [*own, *(k for k in KIT_ENGINE_SKILLS if k not in own)]:
         src = src_root / name
         if not src.is_dir():
             raise ConfigError(f"engine skill not found: {name}", "run `sclstdio engine install`")
@@ -322,11 +335,13 @@ def _skills(ctx: Ctx, p: Preset, s: Session, version: str) -> list[str]:
 
 
 def _history(ctx: Ctx, days: int = 120) -> list[dict]:
-    """Recent videos' pillar, topic, angle and the technique set each one used, so the next film differs."""
+    """Recent videos' pillar, topic, angle, story idea and the technique set each one used, so the next film
+    differs."""
     con = db.connect(ctx, actor="make")
     try:
         rows = db.rows(con.execute(
             "SELECT substr(created_at, 1, 10) AS day, pillar, topic, angle, "
+            "COALESCE(json_extract(meta, '$.story.idea'), '') AS idea, "
             "json_extract(meta, '$.video.techniques') AS techniques FROM videos "
             "WHERE status <> 'superseded' AND created_at >= date('now', ?) ORDER BY created_at DESC",
             (f"-{days} days",)))
@@ -353,13 +368,18 @@ def _pillar_plan(p: Preset, history: list[dict], count: int) -> list[str | None]
 
 
 def prepare(ctx: Ctx, p: Preset, s: Session, version: str, eng_root: Path, pillar: str | None,
-            history: list[dict], revise: dict | None) -> list[str]:
+            history: list[dict], revise: dict | None, board: dict | None = None) -> list[str]:
+    """The session folder, ready for the designer. With `board` (an approved keyframe board), its composition and
+    files replace the scaffold and its designer brief is the video's brief (boards.stage)."""
     for d in (s.home, s.work, s.render, s.logs):
         d.mkdir(parents=True, exist_ok=True)
     (s.work / "preset.json").write_text(json.dumps(p.data, indent=2))
     (s.work / "history.json").write_text(json.dumps(history, indent=2))
     _scaffold(p, s, eng_root)
-    revision_block = ""
+    revision_block, designer_brief = "", None
+    if board:
+        from . import boards
+        revision_block, designer_brief = boards.stage(ctx, s, board), boards.designer_brief(ctx, board)
     if revise:
         old_comp = ctx.abs(revise["dir"]) / "composition"
         # Outside composition/: a second root HTML there fails the strict render (multiple_root_compositions).
@@ -380,15 +400,48 @@ def prepare(ctx: Ctx, p: Preset, s: Session, version: str, eng_root: Path, pilla
     skills = _skills(ctx, p, s, version)
     (s.work / "tools").mkdir(exist_ok=True)
     (s.work / "drafts").mkdir(exist_ok=True)
-    shutil.copy2(PKG_DIR / "sampler.py", s.work / "tools" / "sampler.py")
+    for module in ("sampler.py", "store.py"):  # stdlib-only modules that also run on their own in the session
+        shutil.copy2(PKG_DIR / module, s.work / "tools" / module)
     for tool in sorted((PKG_DIR / "data" / "tools").glob("*")):  # session tools the maker runs: sound.mjs ...
         if tool.is_file() and not tool.name.startswith("."):
             shutil.copy2(tool, s.work / "tools" / tool.name)
+    try:
+        con = store.open_store()
+    except store.StoreError as e:
+        raise DataError(str(e), "fix the store's files: python -m social_studio.store check") from e
+    try:
+        store.save(con, s.work / STORE_DB)
+    finally:
+        con.close()
+    registry = engine.registry_root(ctx, version)
+    if registry.is_dir():  # read-only in the jail with the rest of the engine; the trim unlinks the link
+        (s.work / "registry").symlink_to(registry, target_is_directory=True)
+    write_task(p, s, skills, pillar, revise, revision_block, designer_brief)
+    return skills
+
+
+STORE_DB = "store.db"
+
+
+def write_task(p: Preset, s: Session, skills: list[str], pillar: str | None, revise: dict | None,
+               revision_block: str = "", designer_brief: str | None = None) -> None:
+    """The designer's house rules and TASK.md. With a story (story.py), its designer brief is the video's brief."""
+    story_on = designer_brief is not None
     vals = {**_maker_values(p), "skill_list": ", ".join(skills), "revision_block": revision_block,
-            "brief_block": _brief_block(p, pillar, revise)}
+            "brief_block": designer_brief if story_on else _brief_block(p, pillar, revise),
+            "story_files": STORY_FILES if story_on else "",
+            "story_step": STORY_STEP if story_on else ""}
     (s.home / HOUSE_FILE).write_text(_fill((PKG_DIR / "data" / "house.md").read_text(), vals))
     (s.work / "TASK.md").write_text(_fill((PKG_DIR / "data" / "session_prompt.md").read_text(), vals))
-    return skills
+
+
+STORY_FILES = ("- `story.json`: the story of this film, written by the storyteller before you. It is binding: its idea, "
+               "its beats in order with their seconds, their exact copy and voice lines, and its banned looks.\n"
+               "- `techniques.json`: for each beat, the techniques and reference scenes the store retrieved for it, "
+               "with why each fits and a general prompt (a direction to build from, never a script to copy).\n")
+STORY_STEP = (" The shots follow the story: each beat gets one or more shots inside its seconds, and each shot's "
+              "technique comes from that beat's candidates in `techniques.json` or from the store (`python3 "
+              "tools/store.py --db store.db search \"...\"`); name a scene's techniques, not the scene.")
 
 
 def _maker_values(p: Preset) -> dict:
@@ -441,15 +494,20 @@ SOUND_STEP = (". Build the soundtrack from the beat grid and the cues in `brief.
 
 # --- backends -----------------------------------------------------------------------------------------
 
+ROLES = ("agent", "story", "review")  # the designer (maker), the storyteller before it, the reviewer after it
+
+
 def resolve_backend(ctx: Ctx, p: Preset, name: str | None, model: str | None, sandbox: bool | None,
                     role: str = "agent") -> Backend:
-    key = "agent" if role == "agent" else "review"
+    """The harness for one role. The storyteller falls back to the designer's backend and model; the reviewer
+    never does (it should see the film with other eyes)."""
+    key = role if role in ROLES else "review"
     name = name or p.get(f"{key}.backend") or p.get("agent.backend") or ctx.cfg("backend.default", "claude")
     if name not in BACKENDS:
         raise ConfigError(f"unknown backend {name!r}", f"use one of: {', '.join(BACKENDS)}")
     if model is None:
         if p.get(f"{key}.backend", p.get("agent.backend")) == name:
-            model = p.get(f"{key}.model") or (p.get("agent.model") if key == "agent" else None)
+            model = p.get(f"{key}.model") or (p.get("agent.model") if key != "review" else None)
         model = model or ctx.cfg(f"backend.{name}.model")
     exe = ctx.cfg(f"backend.{name}.bin") or shutil.which(name)
     if not exe:
@@ -506,22 +564,30 @@ def _private_copy(dest: Path, data: dict) -> None:
         json.dump(data, f)
 
 
+# Per role: the designer, the storyteller, the pitcher and the judge of its pitch round (pitch.py), the reviewer.
+MAX_TURNS = {"agent": 80, "story": 30, "pitch": 30, "judge": 15, "review": 40}  # 20 ran a 60 fps review out of turns
+TIMEOUT_MIN = {"agent": 45, "story": 15, "pitch": 15, "judge": 10, "review": 15}
+
+
 def backend_command(ctx: Ctx, p: Preset, b: Backend, s: Session, prompt: str, skills: list[str],
-                    review: bool = False) -> tuple[list[str], dict[str, str], list[Path], list[Path]]:
+                    review: bool = False, role: str | None = None) -> tuple[list[str], dict[str, str], list[Path], list[Path]]:
     """argv, extra env, extra read-only binds, extra read-write binds for one harness run. Every limit is read for
-    the run's own role (agent.* for the maker, review.* for the reviewer): neither inherits the other's."""
-    role = "review" if review else "agent"
+    the run's own role (agent.* for the designer, story.* for the storyteller, pitch.* and judge.* for its pitch
+    round, review.* for the reviewer): none inherits another's. Only the designer gets MCP servers, plugins and the
+    house rules."""
+    role = role or ("review" if review else "agent")
     env: dict[str, str] = {}
     ro: list[Path] = [_install_root(b.bin, ctx)]
     rw: list[Path] = []
-    mcp = _mcp(ctx, p) if not review else {}
-    max_turns = str(p.get(f"{role}.max_turns", 40 if review else 80))  # 20 ran a 60 fps reel's review out of turns
+    mcp = _mcp(ctx, p) if role == "agent" else {}
+    max_turns = str(p.get(f"{role}.max_turns", MAX_TURNS[role]))
     allow_web = bool(p.get(f"{role}.allow_web", False))
     effort = p.get(f"{role}.effort")
-    house = s.home / HOUSE_FILE if not review and (s.home / HOUSE_FILE).is_file() else None
+    house = s.home / HOUSE_FILE if role == "agent" and (s.home / HOUSE_FILE).is_file() else None
 
     if b.name == "claude":
         cfg = s.home / ".claude-config"
+        shutil.rmtree(cfg / "skills", ignore_errors=True)  # two sessions share this home: each gets only its own
         (cfg / "skills").mkdir(parents=True, exist_ok=True)
         for name in skills:
             shutil.copytree(s.work / "skills" / name, cfg / "skills" / name, dirs_exist_ok=True)
@@ -550,7 +616,7 @@ def backend_command(ctx: Ctx, p: Preset, b: Backend, s: Session, prompt: str, sk
             login = json.loads(real.read_text()).get("claudeAiOauth")
             if not login:
                 raise ConfigError(f"no Claude subscription login in {real}", "log in with `claude`, or set backend.claude.auth")
-            minutes = int(p.get("review.timeout_min", 15) if review else p.get("agent.timeout_min", 45))
+            minutes = int(p.get(f"{role}.timeout_min", TIMEOUT_MIN[role]))
             left = (login.get("expiresAt", 0) / 1000 - time.time()) / 60
             if left < minutes + 5:  # a refresh inside the jail could rotate the host's login away
                 raise Unavailable(f"the Claude login expires in {max(left, 0):.0f} min, before this session could end",
@@ -583,7 +649,7 @@ def backend_command(ctx: Ctx, p: Preset, b: Backend, s: Session, prompt: str, sk
             argv += ["--strict-mcp-config", "--mcp-config", str(mfile)]
         else:
             argv += ["--strict-mcp-config"]
-        for plugin in p.get("agent.plugins", []) if not review else ():
+        for plugin in p.get("agent.plugins", []) if role == "agent" else ():
             argv += ["--plugin-dir", str(p.path(plugin))]
             ro.append(p.path(plugin))
 
@@ -667,6 +733,9 @@ def run_jailed(ctx: Ctx, s: Session, argv: list[str], env: dict[str, str], ro: l
         except subprocess.TimeoutExpired:
             err.write(f"\nsocial-studio: timed out after {timeout}s\n")
             return 124
+
+
+SESSION_LOGS = ("pitch", "judge", "story", "agent")  # every harness run of one build; its cost is their sum
 
 
 def _claude_cost(s: Session, log_name: str) -> float | None:
@@ -785,13 +854,21 @@ def _qa(ctx: Ctx, p: Preset, s: Session, video: Path, version: str, sandbox: boo
 
 
 def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pillar: str | None,
-            history: list[dict], revise: dict | None) -> dict:
+            history: list[dict], revise: dict | None, sb: Backend | None = None, board: dict | None = None) -> dict:
+    """One build: the storyteller session (when `sb`, the storyteller's backend, is given), then the designer
+    session in the same sandbox and session folder, then render, encode, file. With `board`, the designer
+    animates that approved keyframe board instead, and the video records it."""
     sid = new_id()
     s = Session(sid, ctx.sessions_dir / sid)
     _session_row(ctx, s, "make", p, b)
     try:
         eng_root = engine.engine_root(ctx, version)
-        skills = prepare(ctx, p, s, version, eng_root, pillar, history, revise)
+        skills = prepare(ctx, p, s, version, eng_root, pillar, history, revise, board)
+        told = None
+        if sb:
+            from . import story
+            told = story.tell(ctx, p, s, sb, version, history, pillar)
+            write_task(p, s, skills, pillar, revise, designer_brief=told["brief"])
         prompt = ("Read TASK.md in the current folder and complete it. Work autonomously; nobody will answer "
                   "questions. Finish by writing video.json.")
         argv, env, ro, rw = backend_command(ctx, p, b, s, prompt, skills)
@@ -821,7 +898,7 @@ def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pilla
         engine.poster_and_sheet(dest / "video.mp4", dest / "poster.jpg", s.dir / "contact.jpg", info["duration"],
                                 meta.get("poster_at"))
         shutil.copy2(s.dir / "contact.jpg", dest / "contact.jpg")
-        for name in ("video.json", "brief.json"):
+        for name in ("video.json", "brief.json", "story.json", "techniques.json", "pitches.json", "pitch-verdict.json"):
             if (s.work / name).exists():
                 shutil.copy2(s.work / name, dest / name)
         shutil.copytree(s.comp, dest / "composition", ignore=shutil.ignore_patterns("snapshots", "renders", ".hf*", "scaffold.html"),
@@ -837,6 +914,11 @@ def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pilla
         mov.unlink(missing_ok=True)
         meta_all = {"video": meta, "verdict": verdict, "session": s.id, "backend": f"{b.name}:{b.model or 'default'}",
                     "effort": p.get("agent.effort") or "default", "qa": qa_report.get("gates"), "preset_hash": p.hash}
+        if told:
+            meta_all["story"] = told["meta"]
+        if board:  # the story the board was laid out from
+            meta_all["story"], meta_all["board"] = json.loads(board["meta"]).get("story"), board["id"]
+        board_id = board["id"] if board else (revise or {}).get("board_id")  # a revision keeps its board
         if revise:  # the version this replaces leaves Buffer before it is superseded
             from . import posting
             try:
@@ -848,18 +930,19 @@ def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pilla
             with db.tx(con):
                 cur = con.execute(
                     "INSERT INTO videos (session_id, parent_id, slug, title, description, topic, angle, pillar, meta,"
-                    " preset, dir, file, sha256, bytes, duration, width, height, created_at, updated_at)"
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    " preset, dir, file, sha256, bytes, duration, width, height, created_at, updated_at, board_id)"
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                     (s.id, revise["id"] if revise else None, slugify(title), title, str(meta.get("description", "")),
                      str(meta.get("topic", "")), str(meta.get("angle", "")), str(meta.get("pillar", pillar or "")),
                      json.dumps(meta_all), p.name, ctx.rel(dest), ctx.rel(dest / "video.mp4"), info["sha256"], info["bytes"],
-                     info["duration"], info["width"], info["height"], iso(), iso()))
+                     info["duration"], info["width"], info["height"], iso(), iso(), board_id))
                 vid = cur.lastrowid
                 if revise:
                     db.set_status(con, revise["id"], "superseded", f"superseded by {vid}")
         finally:
             con.close()
-        cost = _claude_cost(s, "agent")
+        costs = [c for c in (_claude_cost(s, n) for n in SESSION_LOGS) if c is not None]
+        cost = round(sum(costs), 4) if costs else None
         _session_end(ctx, s, "ok", cost=cost, video_id=vid)
         try:  # the video exists from here on; cleanup trouble is a warning, never a failed run
             trim_session(s)
@@ -884,6 +967,13 @@ def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pilla
 
 
 def make(ctx: Ctx, opts: MakeOpts) -> list[dict]:
+    """Every try of one `build`: a video each, or with `opts.boards` a keyframe board each (boards.run_board)."""
+    from . import boards
+    if opts.revise is not None and (opts.boards or opts.from_board is not None):
+        raise UsageError("--revise makes a new version of a video; it takes neither --boards nor --from-board")
+    board = boards.for_build(ctx, opts.from_board, opts.boards) if opts.from_board is not None else None
+    if board:  # the frame the board was laid out in, unless this run sets its own
+        opts.sets = {**boards.format_of(board), **opts.sets}
     p = load_preset(ctx, opts.preset, opts.sets)
     problems = validate_preset(p, ctx)
     if problems:
@@ -902,11 +992,21 @@ def make(ctx: Ctx, opts: MakeOpts) -> list[dict]:
         if revise["status"] not in ("revision", "review", "rejected"):
             raise DataError(f"video {opts.revise} is {revise['status']}; only review, revision or rejected videos can be revised")
         opts.count = 1
+    if board:  # one board, one film from it
+        opts.count = 1
     history = _history(ctx)
     if revise:  # the version being revised is not a repeat of itself
         history = [h for h in history if not (h["topic"] == revise["topic"] and h["angle"] == revise["angle"])]
-    plan = [revise["pillar"] or None] if revise else _pillar_plan(p, history, max(1, opts.count))
+    kept = revise or board
+    plan = [kept["pillar"] or None] if kept else _pillar_plan(p, history, max(1, opts.count))
+    sb = None  # a build tells its story first (F15); a revision, or a film from a board, keeps the story it has
+    if p.get("story.enabled", True) and not kept:
+        own = p.get("story.backend") or p.get("story.model")
+        sb = resolve_backend(ctx, p, p.get("story.backend"), p.get("story.model"), opts.sandbox, role="story") \
+            if own else b
+    work = boards.run_board if opts.boards else run_one
     workers = max(1, min(opts.parallel, opts.count))
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        futures = [pool.submit(run_one, ctx, p, opts, b, version, plan[i], history, revise) for i in range(opts.count)]
+        futures = [pool.submit(work, ctx, p, opts, b, version, plan[i], history, revise, sb, board=board)
+                   for i in range(opts.count)]
         return [f.result() for f in futures]

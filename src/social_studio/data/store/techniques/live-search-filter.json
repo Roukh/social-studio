@@ -1,0 +1,20 @@
+{
+  "id": "live-search-filter",
+  "kind": "technique",
+  "name": "Live search filter",
+  "looks": "A search field types on with a short query; a list beneath it narrows from many rows to just the matching ones as each character lands, and the matched substring inside each surviving row highlights in the accent colour. The narrowing itself is the proof that search works.",
+  "build": "Full list present from the start; as the query types on, non-matching rows animate out (height -> 0, opacity -> 0, 150-200ms, staggered by position) on every keystroke that changes the match set. The matched substring highlight fades in once filtering settles, not per keystroke.",
+  "sound": "A soft mechanical key-tick under the typed query, a light whoosh as rows filter out.",
+  "duration": [1.5, 2.5],
+  "prompt": "Type a short query into a search field and let a list beneath it narrow from many rows down to just the matches as each character lands, highlighting the matched text inside each surviving row once filtering settles, so the narrowing itself demonstrates that search works.",
+  "source": "prompt-motion.com's gallery (mehul4795-4a7007), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

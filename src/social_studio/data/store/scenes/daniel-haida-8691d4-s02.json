@@ -1,0 +1,21 @@
+{
+  "id": "daniel-haida-8691d4-s02",
+  "kind": "scene",
+  "name": "transaction rows confirm themselves one by one",
+  "looks": "A list of transaction rows, each with a vendor name and a signed amount, sits in a dark card; beside each one a small green check and a short confirmation tag pop in a beat apart, top to bottom.",
+  "build": "glass-ui-flow's list-confirm pattern: each row's check badge pops in on back.out with a staggered 0.1-0.15 s delay per row, its tag fading in right behind it.",
+  "sound": "A soft tick per row as its check lands.",
+  "duration": [2.3, 2.7],
+  "prompt": "List a column of transaction or record rows, each with a label and a signed amount, and let a small check badge and confirmation tag pop in beside each one in turn, top to bottom. Use it to show tedious reconciliation happening automatically, row by row.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "daniel-haida-8691d4", "url": "https://prompt-motion.com/daniel-haida-8691d4", "creator": "@daniel_haida", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "data"],
+    "complexity": "low"
+  }
+}

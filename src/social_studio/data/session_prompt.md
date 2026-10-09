@@ -18,7 +18,14 @@ anything from the network. Your house rules are binding.
 - `composition/`: a HyperFrames project already set up with the brand fonts, colours, easing curves and local
   libraries. Edit `composition/index.html`. Brand files are in `composition/assets/`, libraries in
   `composition/vendor/`; a library listed in the page's import map loads by its bare name, e.g.
-  `import * as THREE from "three"` inside a `<script type="module">`.
+  `import * as THREE from "three"` inside a `<script type="module">`. Where the page loads them, GSAP's
+  MorphSVG and DrawSVG plugins are registered and `SplitText` is a global.
+{{story_files}}- `tools/store.py` with `store.db`: the technique store, the techniques and the reference-film scenes the library
+  grew from, tagged by story role, purpose, content and energy. `python3 tools/store.py --db store.db search
+  "text" --tag role=hook` finds items; `... show ID` prints one with its general prompt.
+- `registry/`: the engine's ready-made blocks and components (charts, terminals, captions, device frames,
+  effects), pinned with the engine. `skills/hyperframes-registry` explains them; `hyperframes add` needs the network, so
+  install a block by copying the files its `registry/<blocks|components>/<name>/registry-item.json` lists.
 - `tools/sampler.py`: picks the frames worth judging from a draft render.
 - `tools/sound.mjs`: synthesizes a soundtrack in code. Run `node tools/sound.mjs --help`.
 {{revision_block}}
@@ -34,8 +41,8 @@ Format: {{width}}×{{height}} ({{aspect}}), {{fps}} fps, between {{min_s}} and {
    then the shot list on that grid. Each shot gives its start and end time, its start state, the one change, its
    end state, the exact on-screen text, and its `technique` (a slug from the technique library, or a new slug
    of your own for a technique you invent). The
-   shots cover the whole runtime with no gaps, and scene changes land on beats. List every sound cue in `cues`
-   with its time and kind.
+   shots cover the whole runtime with no gaps, and scene changes land on beats.{{story_step}} List every sound
+   cue in `cues` with its time and kind.
 2. Build `composition/index.html` from the shot list. Lay out each shot's key pose first, static, at the final
    layout with the real fonts; then animate between the poses. Animation dresses the layout and never redraws it.
 3. Sound{{sound_step}}.

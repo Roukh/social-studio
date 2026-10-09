@@ -1,0 +1,21 @@
+{
+  "id": "prasad-pilla-2c0cba-s02",
+  "kind": "scene",
+  "name": "four step chips build the pipeline, then two go live",
+  "looks": "A small wordmark fades in at the top corner as a one-line promise appears: one flow, full control. Beneath it, four rounded step chips (plan, build, verify, ship) build left to right, a thin arrow drawing on between each pair. The first two chips then swap to an active green fill, with a short caption clipping in beneath naming what that unlocks.",
+  "build": "Chips pop in on scale 0.92->1, power3.out, staggered 0.12-0.18s left to right, each preceded by its connecting arrow drawing on. The active-state swap recolours the first two chips' fill and border on power2.inOut under 0.3s; the caption clips in via a collapsing clip-path inset just after.",
+  "sound": "A soft click per chip landing, a tick on each arrow draw, a brighter chime as the active chips light up.",
+  "duration": [2.6, 3.2],
+  "prompt": "Introduce the brand, then build a short pipeline of step chips left to right, a thin arrow connecting each pair as it lands. Once the full line is built, swap the steps already handled into an active colour and clip in a short caption naming what that gives the viewer.",
+  "techniques": ["pipeline-chip-flow"],
+  "source": {"film": "prasad-pilla-2c0cba", "url": "https://prompt-motion.com/prasad-pilla-2c0cba", "creator": "@prasad_pilla", "start": 4.3, "end": 7.2},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "introduce-feature"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "structure"],
+    "complexity": "medium"
+  }
+}

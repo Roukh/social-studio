@@ -1,0 +1,21 @@
+{
+  "id": "notdwd-7de38a-s04",
+  "kind": "scene",
+  "name": "two module cards hard-cut past, each with a ghosted word behind its title",
+  "looks": "A rounded card holds a small pill label, a short title and a bookmark icon, with a single huge word ghosted faintly behind it, barely readable, just for scale and mood. It hard-cuts to a near-identical card with a new label and title and a different ghost word behind it.",
+  "build": "ghost-glyph-headline-card: the ghost word is one oversized line of type at low opacity (12-18%), scaled several times the card title's size, sitting behind rather than beside the text; the card is a hard cut to the next, same layout and rhythm, no crossfade, each card's small pill label swapping colour/text to match its topic.",
+  "sound": "A dry tick on each card's arrival, nothing under the hold.",
+  "duration": [1.2, 1.8],
+  "prompt": "Show two or three near-identical cards in a row, each hard-cutting to the next: a small topic pill, a short title and an icon, with one huge word for that card's theme ghosted faintly behind it just for scale, same layout and rhythm every time so the cards read as entries in one set.",
+  "techniques": ["ghost-glyph-headline-card"],
+  "source": {"film": "notdwd-7de38a", "url": "https://prompt-motion.com/notdwd-7de38a", "creator": "@notdwd", "start": 7.5, "end": 10.027},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["introduce-feature", "show-scale"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["1:1"],
+    "family": ["type", "open"],
+    "complexity": "low"
+  }
+}

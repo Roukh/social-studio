@@ -1,0 +1,21 @@
+{
+  "id": "kloss-xyz-15182a-s03",
+  "kind": "scene",
+  "name": "Ranked bars with retired/banned stamps",
+  "looks": "A short horizontal bar chart ranks a handful of labelled values by percentage, bars growing from the left on an uneven stagger. A beat after the bars settle, a couple of the lower rows get a red, rotated rubber-stamp label (\"RETIRED\", \"BANNED\") slapped over them, while a small live readout in the corner keeps ticking a secondary value.",
+  "build": "Bars scaleX 0 -> 1 from the left edge, staggered top to bottom with the top bar leading. The stamp is a rotated (-8 to -12 degrees) bordered label that scales in fast from 1.4x to 1x with a hard stop (no overshoot), landing with a thump. The corner readout updates on its own short interval, independent of the bars.",
+  "sound": "A rising blip per bar as it grows, a heavy thud on each stamp landing.",
+  "duration": [2.5, 3.5],
+  "prompt": "Grow a short ranked bar chart from the left edge, each row labelled with a value, then slap a rotated rubber-stamp label over one or two of the lower-ranked rows a beat later, as a blunt, slightly comic verdict on them, while a small readout elsewhere keeps ticking independently.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "kloss-xyz-15182a", "url": "https://prompt-motion.com/kloss-xyz-15182a", "creator": "@kloss_xyz", "start": 23.0, "end": 29.0},
+  "tags": {
+    "role": ["proof", "transition"],
+    "purpose": ["show-data", "show-contrast"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

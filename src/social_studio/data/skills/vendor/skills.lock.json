@@ -221,6 +221,69 @@
       "tree_sha256": "70f5c20c97ae6fd63719c8b88deaadc8a4c51838c58a6a7955ae7a3b173d2d24",
       "fetched": "2026-10-06",
       "what": "Rive state-machine/ViewModel runtime integration patterns for interactive vector assets."
+    },
+    {
+      "name": "ad-video-skills",
+      "repo": "iart-ai/ad-video-skills",
+      "sha": "0de0f2a1c1f42a98103fc0ec436509276428372c",
+      "path_in_repo": "skills (ad-creative-video, launch-video, testimonial-video)",
+      "licence": "MIT",
+      "skills": [
+        "ad-video-skills/ad-creative-video",
+        "ad-video-skills/launch-video",
+        "ad-video-skills/testimonial-video"
+      ],
+      "tree_sha256": "2e8527d553b79c43a395afbc0a5130f9e21bb4a38d7971c196d96870a87c7615",
+      "fetched": "2026-10-09",
+      "what": "Ad creative, launch-video structure and testimonial patterns for short paid and launch spots."
+    },
+    {
+      "name": "tiktok-video-skills",
+      "repo": "iart-ai/tiktok-video-skills",
+      "sha": "2a775336b5a638cbf8a61dbd785f9a1b649be016",
+      "path_in_repo": "skills (caption-animation, countdown-video, lower-thirds, short-form-video)",
+      "licence": "MIT",
+      "skills": [
+        "tiktok-video-skills/caption-animation",
+        "tiktok-video-skills/countdown-video",
+        "tiktok-video-skills/lower-thirds",
+        "tiktok-video-skills/short-form-video"
+      ],
+      "tree_sha256": "1a70d7cf168dafc07bf27491bffba80e5c0aec7a7c06a857ebf1d961db8b5db7",
+      "fetched": "2026-10-09",
+      "what": "Short-form vertical pacing and retention, word-timed captions, countdowns, lower thirds."
+    },
+    {
+      "name": "ecommerce-video-skills",
+      "repo": "iart-ai/ecommerce-video-skills",
+      "sha": "2bd0dd19c9b2df5230f5d8f7453861b9681e49b4",
+      "path_in_repo": "skills (photo-slideshow, product-demo-video, promo-video)",
+      "licence": "MIT",
+      "skills": [
+        "ecommerce-video-skills/photo-slideshow",
+        "ecommerce-video-skills/product-demo-video",
+        "ecommerce-video-skills/promo-video"
+      ],
+      "tree_sha256": "b621dac091935af199e022dd06021dec4a9cbe92c13eec0e82771c7f04fce73d",
+      "fetched": "2026-10-09",
+      "what": "Product-demo, promo and photo-slideshow video structures with annotation and transition recipes."
+    },
+    {
+      "name": "explainer-video-skills",
+      "repo": "iart-ai/explainer-video-skills",
+      "sha": "3e2d411b725d9a72939cf8e5eb81579e751373e7",
+      "path_in_repo": "skills (diagram-animation, explainer-video, isometric-animation, whiteboard-animation, wrapped-video)",
+      "licence": "MIT",
+      "skills": [
+        "explainer-video-skills/diagram-animation",
+        "explainer-video-skills/explainer-video",
+        "explainer-video-skills/isometric-animation",
+        "explainer-video-skills/whiteboard-animation",
+        "explainer-video-skills/wrapped-video"
+      ],
+      "tree_sha256": "baf075964897d1feb5ab77ed370bccc153e65fb898c1a6f0724b15e2bd2d636a",
+      "fetched": "2026-10-09",
+      "what": "Explainer script-to-screen workflow, diagram, isometric, whiteboard and wrapped-style recap animation."
     }
   ]
 }

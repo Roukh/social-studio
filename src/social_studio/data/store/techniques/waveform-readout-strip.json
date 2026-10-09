@@ -1,0 +1,20 @@
+{
+  "id": "waveform-readout-strip",
+  "kind": "technique",
+  "name": "Waveform readout strip",
+  "looks": "A thin ribbon of waveform bars sits along one edge of the frame, each bar's height riding the track's amplitude at that instant, in the accent colour at low opacity, so whatever type is on screen feels spoken rather than just captioned.",
+  "build": "A row of 40-80 thin bars, each height driven by a precomputed per-frame amplitude lookup for its frequency band. Smooth with a short attack / slower release (height = max(newHeight, height*0.85)) so the strip pulses rather than jitters.",
+  "sound": "Visualises whatever is already playing; adds nothing of its own.",
+  "duration": [1.5, 3.0],
+  "prompt": "Run a thin ribbon of waveform bars along one edge of the frame, each bar pulsing with the track's amplitude at low opacity, under a closing or key statement, so the words feel spoken rather than captioned.",
+  "source": "prompt-motion.com's gallery (kloss-xyz-15182a), studied 2026-10-09",
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["set-mood", "show-craft"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["texture", "data"],
+    "complexity": "low"
+  }
+}

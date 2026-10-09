@@ -1,0 +1,21 @@
+{
+  "id": "bizibeast-10f264-s06",
+  "kind": "scene",
+  "name": "a row of sellable product cards fans out with a fee badge",
+  "looks": "Under a headline about selling in different ways, four small product cards (a download, a membership, a course, a call) fan into an even row, each its own colour with its own price, as a small starburst badge announcing no platform fee pops in beside them.",
+  "build": "variant-stack-reveal: four DOM cards ease from a tighter cluster to an even row on staggered springs; the badge pops in on a quick rotate-and-scale (back.out) once the row settles.",
+  "sound": "A soft cluster of card-settle ticks, a bright pop on the badge.",
+  "duration": [2.3, 2.7],
+  "prompt": "Fan out a small row of differently priced product cards (a download, a membership, a course, a session), each its own colour, from a tighter starting cluster into an even spread. Pop in a small badge beside them calling out a favourable term (no fee, free setup) once the row settles, as the clinching detail.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "bizibeast-10f264", "url": "https://prompt-motion.com/bizibeast-10f264", "creator": "@bizibeast", "start": 27.5, "end": 30.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-scale", "introduce-feature"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "collage"],
+    "complexity": "medium"
+  }
+}

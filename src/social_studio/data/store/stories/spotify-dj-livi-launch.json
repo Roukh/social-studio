@@ -1,0 +1,26 @@
+{
+  "id": "spotify-dj-livi-launch",
+  "kind": "story",
+  "name": "A Spanish-speaking AI DJ, requested into existence",
+  "brand": "Spotify",
+  "source": {"url": "https://www.youtube.com/watch?v=XscVIeFcvaM", "platform": "youtube", "posted": "2024-07-17", "duration": 60.0},
+  "object": "AI DJ's Spanish-language voice and curation, launching for Spanish-speaking Premium listeners",
+  "audience": "Spanish-speaking Spotify users who had been asking for AI DJ in their own language",
+  "message": "This video tells Spanish-speaking listeners that the AI DJ feature they asked for now speaks their language and curates a session built entirely around their own listening history.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 5.0, "what": "A screenshotted fan reply to Spotify's Mexico account asks when AI DJ is coming to Mexico; the screen cuts to a blue card with a spinning green ring logo and bold type revealing the answer.", "copy": "pa cuando el AI DJ en México? / tu nueva DJ personal.", "voice": "none"},
+    {"role": "intro", "start": 5.0, "end": 15.0, "what": "Large kinetic type explains the feature over blue and black cards, alongside a small 'DJ (beta)' app icon.", "copy": "Mezclando lo mejor de tu Spotify en una sesión musical, creada solo para ti.", "voice": "none"},
+    {"role": "demo", "start": 15.0, "end": 40.0, "what": "A run of bold-type cards, each paired with a tilted phone mockup playing a track, walks through how the session is built: old favourites, mood-matched picks, liked songs, then new discoveries.", "copy": "Desde la música que te transporta al pasado hasta hits que encienden el fin de semana... empezamos con artistas que escuchaste sin parar, seguimos con lo que te gusta, y descubrimos temas nuevos que suenan a ti.", "voice": "none"},
+    {"role": "cta", "start": 40.0, "end": 60.0, "what": "Type builds to 'experiencia musical', then a phone screenshot shows someone typing 'DJ' into the search bar, followed by a plain instruction card and the Spotify logo.", "copy": "Solo busca DJ, dale click y listo. Pruébalo ahora.", "voice": "none"}
+  ],
+  "cta": "A plain instruction card, 'just search DJ, tap it, done,' paired with a search-bar screenshot, closing on 'Try it now' and the Spotify logo.",
+  "why": "Opening on a real fan's own request to the brand (rather than a staged scenario) makes the localisation feel like a direct answer, and the all-text, all-motion treatment keeps the pace fast enough to explain the curation logic (past favourites, mood, new discoveries) in a minute without needing footage of a person at all. The CTA stays deliberately mundane — just search and tap — so the feature, not the ad, is what's being sold.",
+  "tags": {
+    "goal": ["launch"],
+    "product": ["music", "ai-app"],
+    "structure": ["intro-body-cta"],
+    "voice": ["none"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

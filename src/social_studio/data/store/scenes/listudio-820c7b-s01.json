@@ -1,0 +1,51 @@
+{
+  "id": "listudio-820c7b-s01",
+  "kind": "scene",
+  "name": "A typed prompt opens into its image",
+  "looks": "A plain search-style input holds a short typed prompt on a black field; it cross-fades and scales up into the full generated cinematic image the prompt described, the same prompt text now sitting as a small caption pill at the bottom of the frame.",
+  "build": "Input bar is a fixed small element; on the cut, it scales (`1 -> fills frame`) while cross-fading into the final image, 300-400ms, power2.out. The prompt text itself doesn't change, just repositions from the input's centre to a caption pill at the bottom edge.",
+  "sound": "A soft whoosh under the scale-up, a quiet settle as the image fills the frame.",
+  "duration": [
+    1.8,
+    2.5
+  ],
+  "prompt": "Hold on a short typed prompt in a plain input, then scale it up until it opens into the full image it describes, filling the frame, letting the same prompt text resettle as a small caption at the bottom so the viewer can always trace the image back to its exact words.",
+  "techniques": [
+    "skeleton-to-result-reveal"
+  ],
+  "source": {
+    "film": "listudio-820c7b",
+    "url": "https://prompt-motion.com/listudio-820c7b",
+    "creator": "@listudio",
+    "start": 0.0,
+    "end": 5.0
+  },
+  "tags": {
+    "role": [
+      "hook",
+      "intro"
+    ],
+    "purpose": [
+      "reveal-product",
+      "show-ease"
+    ],
+    "content": [
+      "product-ui",
+      "photo"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "interface",
+      "reveal"
+    ],
+    "complexity": "low"
+  }
+}

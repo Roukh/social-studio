@@ -1,0 +1,52 @@
+{
+  "id": "lexnlin-6161a6-s05",
+  "kind": "scene",
+  "name": "Install command types into the final lockup",
+  "looks": "A dark terminal window types out a one-line install command, a small checkmark confirming it installed; the frame then settles on the product's mark and wordmark on a light ground, with the same install command repeated in a rounded pill beneath it and a small open-source credit line under that.",
+  "build": "Terminal command clips in character by character, 30-40ms per character, confirmation checkmark popping in after; hard cut to the lockup card, mark+wordmark arriving together (`y:10px -> 0`, power2.out, ~350ms), the install pill and credit line fading in in turn beneath it.",
+  "sound": "A quiet mechanical key-tick under the terminal line, a soft confirm tick on the checkmark, a low swell under the final lockup hold.",
+  "duration": [
+    2.5,
+    3.5
+  ],
+  "prompt": "Type a one-line install command into a terminal window with a confirming checkmark, then cut to the product's closing lockup: mark and wordmark settling together, the same install command repeated in a pill underneath, and a small open-source credit line at the very bottom.",
+  "techniques": [
+    "terminal-type-on",
+    "lockup-close-card"
+  ],
+  "source": {
+    "film": "lexnlin-6161a6",
+    "url": "https://prompt-motion.com/lexnlin-6161a6",
+    "creator": "@LexnLin",
+    "start": 25.5,
+    "end": 30.0
+  },
+  "tags": {
+    "role": [
+      "cta"
+    ],
+    "purpose": [
+      "land-cta",
+      "establish-brand"
+    ],
+    "content": [
+      "code",
+      "logo",
+      "type"
+    ],
+    "energy": [
+      "calm"
+    ],
+    "format": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "close",
+      "identity"
+    ],
+    "complexity": "low"
+  }
+}

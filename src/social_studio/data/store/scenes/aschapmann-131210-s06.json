@@ -1,0 +1,21 @@
+{
+  "id": "aschapmann-131210-s06",
+  "kind": "scene",
+  "name": "wordmark decodes to its final form before the CTA",
+  "looks": "The brand wordmark flickers through scrambled glyphs, one letter lagging and glitching after the rest lock in, before resolving fully. A bold closing claim and the destination URL fade up beneath it a beat later.",
+  "build": "end-card-decode: each letter scrambles through random glyphs on a seeded per-frame pick and locks to its real letter on a staggered time, one letter deliberately lagging for a last flicker; the claim and URL reveal on a clipPath wipe once the mark locks.",
+  "sound": "Glitch ticks under the decode, a hit on the final lock, quiet under the claim.",
+  "duration": [2.3, 2.7],
+  "prompt": "Let the brand wordmark flicker through scrambled glyphs before locking into its real letters, with one letter lagging behind the rest for a last flicker of tension. Settle into a bold closing claim and the destination URL once the mark fully resolves.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "aschapmann-131210", "url": "https://prompt-motion.com/aschapmann-131210", "creator": "@aschapmann", "start": 25.0, "end": 30.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["close", "type"],
+    "complexity": "medium"
+  }
+}

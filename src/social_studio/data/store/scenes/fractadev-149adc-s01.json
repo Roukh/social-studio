@@ -1,0 +1,21 @@
+{
+  "id": "fractadev-149adc-s01",
+  "kind": "scene",
+  "name": "Missed-call card stacks into the cost of silence",
+  "looks": "A plain incoming-call card with answer/decline buttons swaps to a missed-call state, and a short list of three missed calls with their times stacks in beneath it. Beside it a bold headline lands: a plain claim, then one word landing in red.",
+  "build": "list-stack-reveal for both the missed-call rows and the headline's two lines, the red word getting its own colour tween instead of dimming. The call card's state swap (answer buttons to a red missed banner) is a quick crossfade, power2.out.",
+  "sound": "A soft ring tone cutting to silence, a tick per missed-call row, and a harder stamp on the red word.",
+  "duration": [2.5, 3.5],
+  "prompt": "State the cost of inaction with a real interface: a call card flips from ringing to missed, and a short list of missed calls and their times stacks in beside a plain headline that lands on one word in a warning colour, naming what was actually lost.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "fractadev-149adc", "url": "https://prompt-motion.com/fractadev-149adc", "creator": "@FractaDev", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "type"],
+    "complexity": "low"
+  }
+}

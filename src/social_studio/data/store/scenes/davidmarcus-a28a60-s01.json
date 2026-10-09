@@ -1,0 +1,21 @@
+{
+  "id": "davidmarcus-a28a60-s01",
+  "kind": "scene",
+  "name": "Problem statement, light-to-dark rebuttal cut",
+  "looks": "On a light field a three-line headline stacks in, each line graying the one before it, landing on a stat number that drops in bold under a small caption. It hard-cuts to a full black field holding the brand mark static in the centre, and a short rebuttal line fades in white below it.",
+  "build": "List-stack-reveal for the headline (0.3s per line, power2.out, prior lines to ~45% opacity); the stat number pops in on its own beat, scale 0.9->1. A hard cut (no crossfade) swaps the whole field to the dark palette; the mark is a static SVG/DOM icon, and the rebuttal line fades/slides up 8px over about 0.3s.",
+  "sound": "A soft tick per line, a slightly louder hit on the stat, then a flat beat of silence into the cut before the rebuttal's tick.",
+  "duration": [3.0, 4.0],
+  "prompt": "Open on a plain field with a short headline that stacks in line by line, each earlier line dimming as the next lands, finishing on one bold stat that proves the problem is real. Hard-cut to the inverse palette, hold the brand mark static and alone, and fade in a short one-line rebuttal beneath it.",
+  "techniques": ["list-stack-reveal", "transitions"],
+  "source": {"film": "davidmarcus-a28a60", "url": "https://prompt-motion.com/davidmarcus-a28a60", "creator": "@davidmarcus", "start": 0.0, "end": 3.5},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "tease", "establish-brand"],
+    "content": ["type", "logo"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9"],
+    "family": ["type", "transition"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "llmjunky-2106411941497389342-s04",
+  "kind": "scene",
+  "name": "a dated quote hangs over a figure at a candlelit desk",
+  "looks": "A silhouetted figure sits at a desk by a single candle, writing. Above the scene a short, dismissive quote fades in, in a quiet italic voice, with its date and occasion set underneath in a smaller plain face.",
+  "build": "The quote fades/rises in on power2.out in an italic or handwritten-adjacent face; the attribution line, smaller and plainer, fades in just after at lower contrast, same two-voice split as dual-voice-type; the candle's glow flickers gently throughout on a seeded noise.",
+  "sound": "A quiet room tone, a soft page-turn or pen-scratch under the figure's writing, nothing under the quote itself.",
+  "duration": [2.5, 4.0],
+  "prompt": "Hold a silhouetted figure writing at a candlelit desk while a short, dismissive quote fades in above the scene in a quiet italic voice, its date and occasion settling underneath in a smaller plain face a beat later, to let history's own scepticism speak in two distinct registers.",
+  "techniques": ["dual-voice-type"],
+  "source": {"film": "llmjunky-2106411941497389342", "url": "https://x.com/LLMJunky/status/2106411941497389342", "creator": "@LLMJunky", "start": 1537.5, "end": 1542.5},
+  "tags": {
+    "role": ["transition", "problem"],
+    "purpose": ["set-mood", "build-tension"],
+    "content": ["character", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

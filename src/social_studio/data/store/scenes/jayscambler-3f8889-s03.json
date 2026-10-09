@@ -1,0 +1,21 @@
+{
+  "id": "jayscambler-3f8889-s03",
+  "kind": "scene",
+  "name": "Pick an amount, see what it funds",
+  "looks": "A headline promises impact in exchange for support. A row of amount pills sits below it; a cursor taps one, which gets a highlight ring, and a small readout list beneath updates to show what that amount is roughly worth in concrete, technical terms, several lines ticking to new numbers together.",
+  "build": "command-chip-cycle for the amount pills, the tapped pill gaining the highlight ring; live-readout-hud for the equivalence list, each line's number set from the clock with no easing the instant the pill changes, so the update reads as a calculation, not an animation.",
+  "sound": "A click on the pill tap and a soft cluster of ticks as the readout numbers update.",
+  "duration": [2.0, 2.5],
+  "prompt": "Make a contribution concrete: let a cursor pick one of a row of preset amounts, highlighting it, and have a small readout list beneath instantly recalculate what that amount is worth in real, specific terms, so the number stops being abstract.",
+  "techniques": ["command-chip-cycle", "live-readout-hud"],
+  "source": {"film": "jayscambler-3f8889", "url": "https://prompt-motion.com/jayscambler-3f8889", "creator": "@JayScambler", "start": 10.0, "end": 12.5},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

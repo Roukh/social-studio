@@ -1,0 +1,21 @@
+{
+  "id": "x4b47x-9cc84f-s01",
+  "kind": "scene",
+  "name": "a curtain opens on a silhouette town and a figure walks home",
+  "looks": "A striped stage curtain hangs around the frame, a rope pulling back to open it. Inside, flat black silhouettes of a skyline and streetlamps sit under a warm dusk gradient, a question fading in on a small wooden plaque. The skyline dissolves to a single house as a lone silhouetted figure walks up to its door.",
+  "build": "The curtain is a fixed frame layered above the scene; silhouette layers pan at different slow rates for parallax; the caption plaque fades/rises in (power2.out) and holds before the next line replaces it; the skyline-to-house cut is a soft crossfade timed to the figure's arrival.",
+  "sound": "A soft fabric rustle as the curtain opens, a quiet ambient bed of wind and distant sound, footsteps under the figure's walk.",
+  "duration": [8.0, 10.0],
+  "prompt": "Open a striped stage curtain on a flat black silhouette skyline under a warm dusk gradient, a short question fading in on a small wooden plaque, then dissolve to a single house as a lone silhouetted figure walks up to its door, establishing the whole film's hand-made, storybook register in one unbroken move.",
+  "techniques": ["shadow-theatre-frame"],
+  "source": {"film": "x4b47x-9cc84f", "url": "https://prompt-motion.com/x4b47x-9cc84f", "creator": "@x4b47x", "start": 0.0, "end": 10.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["set-mood", "establish-brand"],
+    "content": ["illustration", "character"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["frame", "through-line"],
+    "complexity": "high"
+  }
+}

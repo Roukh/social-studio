@@ -1,0 +1,75 @@
+{
+  "id": "dub-partners-launch",
+  "kind": "story",
+  "name": "Introducing Dub Partners",
+  "brand": "dub.co",
+  "source": {
+    "url": "https://dub.co/blog/introducing-dub-partners",
+    "platform": "site",
+    "posted": "2025-08-12",
+    "duration": 51
+  },
+  "object": "Dub Partners, Dub's white-labeled affiliate and referral program platform",
+  "audience": "SaaS founders and growth teams who want to launch a branded partner program without building payouts and tracking themselves",
+  "message": "This video tells SaaS founders that Dub Partners gives them a modern, white-labeled affiliate program with global payouts and analytics built in, live in hours.",
+  "moments": [
+    {
+      "role": "hook",
+      "start": 0.0,
+      "end": 7.5,
+      "what": "the product name tiles in surrounded by a ring of small circular customer avatars, framing the program as built around real partner people",
+      "copy": "Introducing Dub Partners: the modern way to partner with affiliates",
+      "voice": "none"
+    },
+    {
+      "role": "problem",
+      "start": 7.5,
+      "end": 15.0,
+      "what": "copy names the usual payout models (per click, per lead, per sale) over a small referral card, then cuts to a live revenue/payouts dashboard with per-partner payout amounts",
+      "copy": "whichever model you pick, Dub tracks revenue and payouts automatically and pays out globally with tax compliance handled",
+      "voice": "none"
+    },
+    {
+      "role": "demo",
+      "start": 17.5,
+      "end": 30.0,
+      "what": "a tilted dashboard mockup shows the analytics view embedding into a partner's own app, then cuts to an Acme-branded referral page builder with a referral link, reward terms, and live clicks/leads stats",
+      "copy": "offer a world-class dashboard and embed it right into your own app; easily customize it to match your brand",
+      "voice": "none"
+    },
+    {
+      "role": "solution",
+      "start": 30.0,
+      "end": 37.5,
+      "what": "a browser mockup of app.acme.com shows the finished embedded referral page live inside a customer's product",
+      "copy": "get your partner program up and running in hours, not months",
+      "voice": "none"
+    },
+    {
+      "role": "proof",
+      "start": 37.5,
+      "end": 45.0,
+      "what": "real customer tweet screenshots praising the partner dashboard appear, then a grid of recognizable company logos already using the product",
+      "copy": "your users and partners will love it — teams like Framer, Superhuman, Perplexity, Cal.com, Granola, and Tella already do",
+      "voice": "none"
+    },
+    {
+      "role": "cta",
+      "start": 47.5,
+      "end": 51.0,
+      "what": "the headline resolves into a plain black screen with the Dub wordmark",
+      "copy": "take your affiliate program to the next level with Dub Partners",
+      "voice": "none"
+    }
+  ],
+  "cta": "Closes on the line 'take your affiliate program to the next level' over the Dub Partners name, leaving the brand itself (dub.co/partners) as the next step rather than a literal button.",
+  "why": "It opens by naming the product against a ring of real partner faces, so the viewer pictures a program full of people before any feature is shown. Pairing live payout numbers with real customer tweets and recognizable logos (Framer, Superhuman, Cal.com) makes the 'up and running in hours' claim feel earned rather than a slogan, which is what lets the close be just the brand name instead of a hard sell.",
+  "tags": {
+    "goal": ["launch"],
+    "product": ["link-management", "saas"],
+    "structure": ["intro-problem-solution-cta"],
+    "voice": ["none"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

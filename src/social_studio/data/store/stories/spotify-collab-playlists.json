@@ -1,0 +1,27 @@
+{
+  "id": "spotify-collab-playlists",
+  "kind": "story",
+  "name": "Collaborative playlists: everyone adds a song",
+  "brand": "Spotify",
+  "source": {"url": "https://www.youtube.com/watch?v=9C0i-yJT4Lo", "platform": "youtube", "posted": "2022-10-14", "duration": 10.8},
+  "object": "Collaborative playlists, the Spotify feature that lets a listener invite friends to add their own songs to a shared playlist",
+  "audience": "friend groups planning a shared moment together, like a road trip or a festival weekend",
+  "message": "This video tells friend groups that turning a solo playlist into a group one just takes naming it, inviting friends, and letting everyone drop in their own songs.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 1.6, "what": "A woman lies relaxed on her bed scrolling her phone, hand-drawn stars popping in around her, while bold lettering over the shot pitches building a playlist together with friends.", "copy": "Make a playlist with your friends.", "voice": "none"},
+    {"role": "demo", "start": 1.6, "end": 3.5, "what": "Cut to the actual app: a 'name your playlist' modal with a keyboard open, a road-trip themed name being typed in, and a Create button below it.", "copy": "Name it 'Road-trip' and tap Create.", "voice": "none"},
+    {"role": "solution", "start": 3.5, "end": 5.6, "what": "Quick cuts of a guy pushing his sunglasses up in a car and a woman jumping down some steps outside, both shots stamped with bold lettering about pulling friends into the playlist, doodled hearts and flames flying around them.", "copy": "Add your friends.", "voice": "none"},
+    {"role": "demo", "start": 5.6, "end": 8.2, "what": "Back to the app: a shared playlist named 'Festival' with several friends listed as collaborators and a scrollable queue of songs they've each added, while a woman on her bed smiles at her phone and lettering states the payoff.", "copy": "Everyone adds their own songs to the same playlist.", "voice": "none"},
+    {"role": "cta", "start": 8.2, "end": 10.8, "what": "The screen bursts into bright pop-art starburst graphics in quick cuts, then cuts to black and settles on the plain Spotify wordmark and logo.", "copy": "", "voice": "none"}
+  ],
+  "cta": "No spoken or typed 'try it now' line; the video simply demonstrates the three steps (name it, add friends, add songs) and then closes on the Spotify logo once the shared playlist is built.",
+  "why": "Splitting the pitch into three short, literally-labelled beats (make it, add friends, add songs) makes a feature that could be abstract feel like a checklist anyone could repeat in under a minute, and cutting straight to real app screens after each label proves each step actually exists rather than just claiming it. The all-text, no-narration treatment and rapid vertical cuts match how the feature itself gets used and shared.",
+  "tags": {
+    "goal": ["feature", "how-to"],
+    "product": ["music"],
+    "structure": ["list-cta"],
+    "voice": ["none"],
+    "energy": ["punch"],
+    "format": ["9:16"]
+  }
+}

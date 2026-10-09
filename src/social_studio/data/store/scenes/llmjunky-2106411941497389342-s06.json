@@ -1,0 +1,21 @@
+{
+  "id": "llmjunky-2106411941497389342-s06",
+  "kind": "scene",
+  "name": "a roll call of names lights up under candlelit arches",
+  "looks": "A row of silhouetted figures stands beneath a line of candlelit arches. Their names build in underneath them left to right, one at a time, each new name landing bright while the earlier ones settle to a dimmer, secondary brightness.",
+  "build": "Each name fades/rises in on a short stagger left to right, landing at full brightness then easing down to a secondary opacity as the next one lands, same mechanic as list-stack-reveal; the candle flames flicker gently on a seeded loop throughout.",
+  "sound": "A soft tick per name landing, a quiet ambient hum of a shared room underneath.",
+  "duration": [2.5, 4.0],
+  "prompt": "Stand a row of silhouetted figures beneath candlelit arches and build their names in underneath them left to right, one at a time, each new name landing bright while the earlier ones dim to secondary, so a panel or committee introduces itself as a single held breath rather than a list.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "llmjunky-2106411941497389342", "url": "https://x.com/LLMJunky/status/2106411941497389342", "creator": "@LLMJunky", "start": 955.0, "end": 960.0},
+  "tags": {
+    "role": ["proof", "transition"],
+    "purpose": ["establish-brand", "set-mood"],
+    "content": ["character", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

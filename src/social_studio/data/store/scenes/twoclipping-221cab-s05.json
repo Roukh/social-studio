@@ -1,0 +1,21 @@
+{
+  "id": "twoclipping-221cab-s05",
+  "kind": "scene",
+  "name": "the same image follows across phone and browser",
+  "looks": "A phone showing the generated scene as its lock screen sits beside a browser window open to the same product's web app, the identical image now sitting inside a small preview card in the page, both devices held steady over the same swirling background.",
+  "build": "Fixed device frame positions side by side; each screen's content is a layer inside its own mask; a slow camera dolly (translateX, 15-20px/s) supplies motion even though the devices don't move relative to each other, same mechanic as device-row-cross-fade.",
+  "sound": "A soft whoosh under the camera drift.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold a phone and a browser window side by side, both carrying the same generated image in their own natural context, lock screen and web app, with a slow camera drift supplying the only motion, to show one output following the user everywhere.",
+  "techniques": ["device-row-screen-swap"],
+  "source": {"film": "twoclipping-221cab", "url": "https://prompt-motion.com/twoclipping-221cab", "creator": "@twoclipping", "start": 17.5, "end": 20.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-scale", "reveal-product"],
+    "content": ["device", "product-ui"],
+    "energy": ["calm"],
+    "format": ["1:1", "4:5"],
+    "family": ["interface", "collage"],
+    "complexity": "medium"
+  }
+}

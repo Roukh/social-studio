@@ -1,0 +1,21 @@
+{
+  "id": "fractadev-149adc-s04",
+  "kind": "scene",
+  "name": "Undecided caller becomes a captured lead",
+  "looks": "A second call card for a different, more open-ended question sits beside an intake panel. Its fields fill in one at a time, straight from the call, name first, then address, then a short note on what the caller needs, each field typing on under its own label as the panel's answered-count ticks up.",
+  "build": "terminal-type-on drives each field's reveal, one after another rather than all at once, each completing before the next field starts; the panel's 'x of y answers' counter updates live with the field count, no separate easing.",
+  "sound": "A light key tick under each field, a soft confirm blip as the answered-count advances.",
+  "duration": [2.0, 3.0],
+  "prompt": "Show a product rescuing an unready visitor: a loosely worded question becomes a structured intake record as its fields fill in live, one at a time, straight from the conversation, with a small counter proving nothing was missed.",
+  "techniques": ["terminal-type-on"],
+  "source": {"film": "fractadev-149adc", "url": "https://prompt-motion.com/fractadev-149adc", "creator": "@FractaDev", "start": 17.5, "end": 27.5},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

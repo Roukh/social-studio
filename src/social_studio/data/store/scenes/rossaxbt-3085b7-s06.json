@@ -1,0 +1,21 @@
+{
+  "id": "rossaxbt-3085b7-s06",
+  "kind": "scene",
+  "name": "version-bump end card",
+  "looks": "A small mark sits alone over a plain field, with the product name beside it. A beat later the name updates in place to its next version number and a short 'out now' line fades in underneath, holding as the final frame.",
+  "build": "Static DOM mark and wordmark; the version digit swaps with a quick scale/opacity snap (kit.typeOn-style single-character swap) rather than a full retype; the supporting line fades/rises 4-6px in on power2.out and holds at least 1s.",
+  "sound": "A soft confirm tone on the version swap, with the bed fading out under the hold.",
+  "duration": [2.0, 2.5],
+  "prompt": "Close on a small mark and wordmark alone on a plain field; have the name's version number update in place with a quick snap, then fade in one short supporting line underneath and hold the finished card for at least a second.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "rossaxbt-3085b7", "url": "https://prompt-motion.com/rossaxbt-3085b7", "creator": "@rossaxbt", "start": 18.5, "end": 22.1},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["1:1", "4:5", "9:16"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

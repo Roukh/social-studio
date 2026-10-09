@@ -1,0 +1,21 @@
+{
+  "id": "visheshbaghell-3aba37-s07",
+  "kind": "scene",
+  "name": "a big recovered total rolls up into a dated report",
+  "looks": "A large dollar figure rolls up alone on an otherwise empty field, its digits blurring with speed. It settles, then a short report card fades in beneath it naming a span of weeks and breaking the total down into a handful of labelled line items with their own amounts.",
+  "build": "The big number rolls up under a vertical blur tied to its speed (same mechanic as data-infographic's roll-up); the report card's rows fade/rise in on a short stagger once the number settles, each row's amount set directly, no further easing.",
+  "sound": "A rising tone under the roll-up, a soft tick per report row landing.",
+  "duration": [2.5, 3.0],
+  "prompt": "Roll up a large recovered-dollar figure alone on an empty field until it settles, then fade in a short dated report card beneath it breaking the total down into a handful of labelled line items with their own amounts, as the film's clearest proof of value.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "visheshbaghell-3aba37", "url": "https://prompt-motion.com/visheshbaghell-3aba37", "creator": "@VisheshBaghell", "start": 65.0, "end": 70.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

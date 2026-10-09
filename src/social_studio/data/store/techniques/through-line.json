@@ -1,0 +1,20 @@
+{
+  "id": "through-line",
+  "kind": "technique",
+  "name": "Through-line mark",
+  "looks": "One mark travels the whole film and changes form at every scene change: a dot becomes a band, the band a flood, a wipe, a sphere, a block, a button, a blob, and a dot again on the end card. Wherever one scene ends, the next scene picks the mark up from exactly that point, so the cuts read as one continuous move.",
+  "build": "Choose the mark before writing any shots (an accent-coloured dot works for almost any film), and write what it means at each stop, not only where it sits; then write every shot's end state as the next shot's start state (its position, size and colour) so each seam is built before the scene between it.",
+  "sound": "A recurring sound motif, one blip pitch, on the mark across every technique.",
+  "duration": [5, 30],
+  "prompt": "Choose one simple mark, such as a dot in the accent colour, and carry it through every scene of the film, having it change form and meaning at each stop: a node, an axis, a line, a button. Always end one scene exactly where the mark will begin the next, so every cut reads as one continuous move even as the technique underneath it changes completely.",
+  "source": "the reel of 2026-10-06, whose angle was \"One dot as the through-line: every scene starts from the last scene's mark (dot, band, circle, sphere, block, blue dot, button, blob), so the cuts read as one continuous move across eight techniques.\"",
+  "tags": {
+    "role": ["whole-film"],
+    "purpose": ["connect-scenes", "establish-brand"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["structure", "through-line"],
+    "complexity": "high"
+  }
+}

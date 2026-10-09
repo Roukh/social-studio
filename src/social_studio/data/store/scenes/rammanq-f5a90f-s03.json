@@ -1,0 +1,21 @@
+{
+  "id": "rammanq-f5a90f-s03",
+  "kind": "scene",
+  "name": "payout calendar fills in with amounts",
+  "looks": "A month grid of day cells builds on a solid colour field under a headline and a forecast total. Individual cells light up out of order with small payout chips (an icon and a signed amount) popping into place as the total above them ticks upward.",
+  "build": "A DOM grid of day cells revealed with a short uneven stagger, like data-infographic's bar build generalised to a grid: each payout cell clips in with its chip (icon + amount) once its day lands, and the headline total rolls up on the same clock the cells use so they land together.",
+  "sound": "A soft tick per cell that lights up, a slightly stronger chime on the cells carrying a payout chip, a rising tone under the total.",
+  "duration": [1.8, 2.3],
+  "prompt": "Build a month calendar grid of day cells on a solid colour field, under a headline and a running total that counts up. Let individual cells light up out of order, with a small chip (an icon and a signed amount) popping into the ones that matter, landing on the same beat as the total above.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "rammanq-f5a90f", "url": "https://prompt-motion.com/rammanq-f5a90f", "creator": "@rammanq", "start": 10.4, "end": 13.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-data", "explain-mechanism"],
+    "content": ["data"],
+    "energy": ["calm"],
+    "format": ["1:1"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

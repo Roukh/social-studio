@@ -1,0 +1,21 @@
+{
+  "id": "oliahmed205-3e31c4-s06",
+  "kind": "scene",
+  "name": "a feature-name wordmark cycles through a rail of choices",
+  "looks": "A single feature name fills the frame in a bold holographic, gradient-stroked face, hard-cutting to the next name on the beat. Beneath it, a small breadcrumb row lists every name in the set, the current one bold and underlined, the rest dim, so the cycling reads as one position in a known list rather than a random sequence.",
+  "build": "Each name is its own DOM block, hard swapped with no crossfade, kit.beat(n, bpm); the gradient-stroke fill uses a moving background-position on a text-clip mask so the colour shimmers as each name holds. The breadcrumb rail is a fixed row of labels; the live one's weight and underline update exactly on the same cut as the big name, reusing the dash-rail idea as words instead of dashes.",
+  "sound": "A hit on each name's hard cut, a light shimmer under the holographic fill, a brighter chime on the last name.",
+  "duration": [0.9, 1.3],
+  "prompt": "Cycle a single feature name across the full frame in a bold, shimmering treatment, hard-cutting name to name on the beat. Track progress with a small row of every name underneath, the current one bold, so the rhythm reads as moving through a known set of features rather than a random flash.",
+  "techniques": ["command-chip-cycle", "ghost-glyph-headline-card"],
+  "source": {"film": "oliahmed205-3e31c4", "url": "https://prompt-motion.com/oliahmed205-3e31c4", "creator": "@oliahmed205", "start": 12.0, "end": 13.0},
+  "tags": {
+    "role": ["transition", "demo"],
+    "purpose": ["tease", "show-scale"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["type", "transition"],
+    "complexity": "medium"
+  }
+}

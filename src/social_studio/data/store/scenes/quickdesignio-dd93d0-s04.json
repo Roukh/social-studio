@@ -1,0 +1,21 @@
+{
+  "id": "quickdesignio-dd93d0-s04",
+  "kind": "scene",
+  "name": "particles condense into the mark, then burst",
+  "looks": "A ring of small bright particles scatters and drifts inward around a dark field, settling into a small pixel-grid mark at the centre. Concentric rings pulse outward from the mark as it locks, like a shockwave.",
+  "build": "A 2D canvas of seeded points easing from scattered start positions to sampled pixel-grid targets on power3.out, opacity ramping up as each lands; crossfade to the crisp SVG/DOM mark in the last 0.1s. The ring burst is a couple of stroked circles scaling from 0 opacity-faded out on power2.out, timed to the mark locking.",
+  "sound": "A rising shimmer as the particles gather, resolving into a soft hit as the mark completes and the rings pulse out.",
+  "duration": [1.0, 1.3],
+  "prompt": "Condense a field of scattered bright particles into a small geometric mark at the centre of a dark frame, then send a couple of rings pulsing outward from it the instant it locks into place. Use this as the pivot into the brand's identity card.",
+  "techniques": ["noise-dissolve-logomark"],
+  "source": {"film": "quickdesignio-dd93d0", "url": "https://prompt-motion.com/quickdesignio-dd93d0", "creator": "@quickdesignio", "start": 11.7, "end": 12.85},
+  "tags": {
+    "role": ["transition"],
+    "purpose": ["establish-brand", "set-mood"],
+    "content": ["abstract", "logo"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["particles", "identity"],
+    "complexity": "medium"
+  }
+}

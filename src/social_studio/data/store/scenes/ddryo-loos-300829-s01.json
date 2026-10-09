@@ -1,0 +1,21 @@
+{
+  "id": "ddryo-loos-300829-s01",
+  "kind": "scene",
+  "name": "Golden-ratio diagram into a growing bar chart",
+  "looks": "A nested golden-ratio square spiral, each square labelled with its token name, draws itself from smallest to largest. It cuts to a simple bar chart of the same values, bars growing from a baseline left to right on an uneven stagger, the largest bar landing last.",
+  "build": "The spiral squares scale in from 0 on an uneven stagger (smallest first), with the arc drawn via strokeDashoffset. The bar chart reuses data-infographic's bar growth (scaleY 0->1 from a bottom origin, stagger ~0.04 * (1 + 0.3 sin(2.1 i))).",
+  "sound": "A soft tick per square, then a tick per bar, rising in pitch as the bars grow taller.",
+  "duration": [2.0, 3.0],
+  "prompt": "Show how a numeric scale is derived: draw a nested geometric diagram that builds each value from the last, then cut to a plain bar chart of the same values growing from a baseline, so the viewer sees the same progression twice, once as a rule and once as a result.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "ddryo-loos-300829", "url": "https://prompt-motion.com/ddryo-loos-300829", "creator": "@ddryo_loos", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["intro", "solution"],
+    "purpose": ["explain-mechanism", "show-data"],
+    "content": ["data", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "generative"],
+    "complexity": "medium"
+  }
+}

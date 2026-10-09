@@ -1,0 +1,20 @@
+{
+  "id": "aurora-gradient-photo",
+  "kind": "technique",
+  "name": "Aurora gradient photo",
+  "looks": "A soft diagonal wash of two or three brand colours sits inside an interface mock-up where a photograph would normally go. It reads as imagery without needing a real photo or a real person, and it drifts gently so the panel never looks static.",
+  "build": "Build it as a canvas linear or conic gradient in the brand's colours with seeded grain noise, or as stacked CSS gradients with blend modes. Drift the gradient's angle and stops slowly as a function of time so the image stays alive.",
+  "sound": "",
+  "duration": [1.5, 4],
+  "prompt": "Wherever a mock-up or panel needs a stand-in photograph, fill it instead with a slow, drifting gradient wash in two or three of the brand's colours plus a touch of grain. It should read as imagery at a glance without depicting any real person or sourced photo, and its angle or colour stops should shift gently over the shot so it feels alive rather than painted on.",
+  "source": "Framer's \"skills\" ad (instagram.com/p/DdtwW_Ws0Xx), studied 2026-10-07.",
+  "tags": {
+    "role": ["intro", "solution", "demo", "proof"],
+    "purpose": ["set-mood"],
+    "content": ["photo", "abstract"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["texture"],
+    "complexity": "low"
+  }
+}

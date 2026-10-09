@@ -1,0 +1,21 @@
+{
+  "id": "reflex-cloud-72ffe5-s03",
+  "kind": "scene",
+  "name": "camera dolly across data cards with climbing counter",
+  "looks": "The camera dollies across a tilted, receding plane of dark HUD cards seen at an angle, each one showing a status string and a number that climbs sharply from the thousands into the millions as the camera passes, under a constant small label naming the quality being measured. The shot ends with several of these cards fanning out and overlapping into a loose cascade, as if many samples were stacking up at once.",
+  "build": "A tilted plane (CSS perspective or three.js) carries several card textures; the camera moves along it with real depth, cards sharpening as they near. Each card's number ticks with no easing from the clock, formatted with thousands separators (the live-readout-hud mechanic). The ending cascade uses 4-6 cards fanning out with seeded offset position/rotation and uneven stagger (the variant-stack-reveal mechanic).",
+  "sound": "A rising whoosh under the camera move, a fast tick per digit as the counter climbs, a soft cluster of hits as the cascade of cards fans out.",
+  "duration": [4.0, 4.5],
+  "prompt": "Dolly the camera across a tilted row of dark data cards receding into depth, each one showing a number that climbs sharply as the camera passes it, under a short label naming what is being counted, then end the move with several of those cards fanning out into an overlapping cascade, as if many results were landing at once.",
+  "techniques": ["live-readout-hud", "variant-stack-reveal"],
+  "source": {"film": "reflex-cloud-72ffe5", "url": "https://prompt-motion.com/reflex-cloud-72ffe5", "creator": "@reflex_cloud", "start": 5.0, "end": 9.383},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-scale", "show-data", "show-speed"],
+    "content": ["data", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "camera"],
+    "complexity": "high"
+  }
+}

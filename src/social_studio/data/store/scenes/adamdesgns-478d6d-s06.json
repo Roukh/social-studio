@@ -1,0 +1,21 @@
+{
+  "id": "adamdesgns-478d6d-s06",
+  "kind": "scene",
+  "name": "feature-name word cycle on hard-cut colour cards",
+  "looks": "Three feature words hard-cut in turn, each full-bleed on its own flat colour field (blue, then a motion-blurred glitch wash, then dark with an accent word), landing on the beat with no crossfade between them.",
+  "build": "kinetic-word-run, simplified: one DOM clip per word, swapped on a hard cut exactly on the beat; between two of the cuts a short motion-blur/double-exposure wipe (overlapping duplicate layers at low opacity, offset a few frames) stands in for a transition.",
+  "sound": "A hit on each cut, a glitch texture under the blurred wipe.",
+  "duration": [1.2, 1.8],
+  "prompt": "Name three features as single words, one per flat-colour full-bleed card, hard-cut on the beat with no crossfade. Use a short motion-blurred glitch wipe between two of the cuts to vary the rhythm, and give the field a different colour each time.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "adamdesgns-478d6d", "url": "https://prompt-motion.com/adamdesgns-478d6d", "creator": "@Adamdesgns", "start": 10.75, "end": 12.25},
+  "tags": {
+    "role": ["demo", "transition"],
+    "purpose": ["introduce-feature", "build-tension"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9", "9:16"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

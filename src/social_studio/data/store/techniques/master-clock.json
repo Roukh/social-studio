@@ -1,0 +1,20 @@
+{
+  "id": "master-clock",
+  "kind": "technique",
+  "name": "Master clock render",
+  "looks": "Every canvas, WebGL and code-driven text element in the film renders purely from one shared clock value, so seeking to any time, in any order, always produces the exact same frame. There is nothing to see on its own; it is the invisible discipline under every procedural scene.",
+  "build": "Drive one paused GSAP timeline whose only job is to update a clock object and call a render function on each update; inside that render function, guard each procedural scene by its own time window so only live scenes draw, and seed all randomness from a function of the frame number rather than Math.random. Prove it by seeking to the same time twice in a different order and confirming the two captured frames match exactly.",
+  "sound": "",
+  "duration": [5, 30],
+  "prompt": "Build every procedural visual (canvas, WebGL, code-driven text) as a pure function of a single shared clock, never of wall time or incidental state, so any frame renders identically no matter how many times or in what order it is seeked. Seed every bit of randomness from the current time or frame number so a replay is always exact.",
+  "source": "built in examples/reel-2026-10-06.html, // ===== master render and // ===== timeline.",
+  "tags": {
+    "role": ["whole-film"],
+    "purpose": ["show-craft"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["build-pattern"],
+    "complexity": "high"
+  }
+}

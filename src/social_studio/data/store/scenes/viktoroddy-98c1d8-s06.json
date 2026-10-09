@@ -1,0 +1,21 @@
+{
+  "id": "viktoroddy-98c1d8-s06",
+  "kind": "scene",
+  "name": "a dashboard wall of real output backs the headline",
+  "looks": "A browser window holds a dense dashboard grid of small generated-site previews, filling nearly the whole frame. A two-line headline fades in over it, naming how many people are exploring a new way to build, its last few words landing a beat after the rest.",
+  "build": "The dashboard grid is a single DOM panel with many small image tiles in a fixed layout; the headline is a separate fixed layer above it with a soft shadow for legibility, its final clause fading/rising in slightly after the first line.",
+  "sound": "A low ambient bed under the hold, a soft rise under the headline's final clause.",
+  "duration": [8.5, 10.0],
+  "prompt": "Hold a dense dashboard grid of small generated-output previews filling almost the whole frame, with a two-line headline fading in over it naming the scale of people using the product, its final clause landing a beat after the rest.",
+  "techniques": ["gallery-zoom-tour"],
+  "source": {"film": "viktoroddy-98c1d8", "url": "https://prompt-motion.com/viktoroddy-98c1d8", "creator": "@viktoroddy", "start": 25.0, "end": 35.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-scale", "show-data"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["collage", "interface"],
+    "complexity": "medium"
+  }
+}

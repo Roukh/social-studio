@@ -1,0 +1,21 @@
+{
+  "id": "sachaarbonel-8f14f4-s06",
+  "kind": "scene",
+  "name": "a permissions card drops in and its toggles flip",
+  "looks": "The main dashboard sits tilted in the back. A smaller permissions card slides down in front of it, slightly rotated, listing a handful of checks the product may run on its own; one by one their toggles flip on, each with a small snap.",
+  "build": "Permissions card enters on a spring over the tilted dashboard (ui-tilt-card), settling offset and overlapping; each toggle knob slides and the track's fill colour swaps on its own beat, 0.12-0.16s, same mechanic as glass-ui-flow's toggle.",
+  "sound": "A soft whoosh as the card settles, then a distinct toggle tick per switch flipping.",
+  "duration": [2.5, 3.0],
+  "prompt": "Slide a small permissions card down over a tilted dashboard panel, slightly rotated and overlapping its corner, then flip its toggles on one by one, each with its own tick, so the viewer sees exactly what the product is and isn't allowed to do on its own.",
+  "techniques": ["ui-tilt-card", "glass-ui-flow"],
+  "source": {"film": "sachaarbonel-8f14f4", "url": "https://prompt-motion.com/sachaarbonel-8f14f4", "creator": "@sachaarbonel", "start": 32.5, "end": 37.5},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["build-tension", "show-craft"],
+    "content": ["product-ui"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

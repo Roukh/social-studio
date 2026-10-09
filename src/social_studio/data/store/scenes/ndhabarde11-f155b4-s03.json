@@ -1,0 +1,21 @@
+{
+  "id": "ndhabarde11-f155b4-s03",
+  "kind": "scene",
+  "name": "three-word kinetic run defines the skill in its own voice",
+  "looks": "A bold condensed word with a bright drop shadow lands on a light field, then crossfades to the same word restated with a short italic definition line beneath it, like a dictionary entry. A hard cut flips to a dark field where a single italic word glows in the accent colour, then another hard cut lands a short, blunt word in heavy caps on a saturated colour field.",
+  "build": "Word one is DOM text with an offset solid-colour shadow duplicate; it holds, then a definition line fades in beneath it on a held frame. The next two beats are separate hard-cut word layers, each on its own full-bleed field colour (dark, then accent), cut exactly on the beat with no easing between cuts.",
+  "sound": "A soft thud as the first word lands, a page-turn tick into the definition, then a dry hit on each of the following two hard cuts.",
+  "duration": [1.5, 2.2],
+  "prompt": "Spell out a short verb phrase as three beats: a bold word with its own dictionary-style definition line underneath, then a lone italic word glowing in the accent colour on a dark field, then a short blunt word in heavy caps on a saturated colour field, each a hard cut with its own look so the phrase reads as three distinct moves rather than one caption.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "ndhabarde11-f155b4", "url": "https://prompt-motion.com/ndhabarde11-f155b4", "creator": "@ndhabarde11", "start": 2.5, "end": 3.5},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "set-mood"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["type"],
+    "complexity": "medium"
+  }
+}

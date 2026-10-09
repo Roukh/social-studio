@@ -1,0 +1,21 @@
+{
+  "id": "leonabboud-2103576084499358051-s04",
+  "kind": "scene",
+  "name": "an engagement stat lands beside a bar chart and a donut",
+  "looks": "On a light card, a big percentage rolls up in the corner with a small trend squiggle beside it, while a bar chart grows from a baseline to the right, its last bar in the accent colour, and a donut ring fills beneath them both with a centred retention percentage.",
+  "build": "data-infographic: the big percentage rolls with a vertical blur during the count; the bars scale up from a bottom origin on an uneven stagger; the donut's strokeDashoffset animates from full to its value on power3.out, all keyed from the master clock.",
+  "sound": "Blips on each bar on the sixteenth grid, a rising tone under the roll-up, a pop on the donut's finish.",
+  "duration": [1.8, 2.2],
+  "prompt": "On a light card, roll up a big percentage in the corner with a small trend line beside it, grow a bar chart from a baseline with its final bar in the accent colour, and fill a donut ring beneath them both to a specific value. Use real numbers if given, otherwise clearly labelled samples, and let every element land a beat apart.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "leonabboud-2103576084499358051", "url": "https://x.com/leonabboud/status/2103576084499358051", "creator": "@leonabboud", "start": 6.25, "end": 8.167},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

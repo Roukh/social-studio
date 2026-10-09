@@ -1,0 +1,21 @@
+{
+  "id": "melvynx-6cde6c-s01",
+  "kind": "scene",
+  "name": "Huge wordmark with a glossy accent sphere",
+  "looks": "A single small line of type sits quietly at left, then a massive cropped display word fills the frame, its trailing full stop replaced by a glossy, lit 3D sphere in the accent colour, a faint wall of scrolling industry-critique text drifting behind it out of focus.",
+  "build": "The small opening line fades in alone first; hard cut to the giant word, cropped tight by the frame edges, type static while the sphere behind its final letter has a real specular highlight and a soft ground shadow to read as 3D among flat type. Background ticker text scrolls continuously at low opacity, never sharp.",
+  "sound": "A quiet ambient hum under the opening line, a deep low thud on the cut to the giant word.",
+  "duration": [2.0, 2.8],
+  "prompt": "Open on one quiet line of type, then hard-cut to a massive, frame-cropped display word with its final punctuation replaced by a glossy lit 3D sphere in the accent colour, a wall of related commentary text scrolling softly out of focus behind it.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "melvynx-6cde6c", "url": "https://prompt-motion.com/melvynx-6cde6c", "creator": "@melvynx", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "establish-brand"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["type", "open"],
+    "complexity": "medium"
+  }
+}

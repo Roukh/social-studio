@@ -1,0 +1,21 @@
+{
+  "id": "steventey-0d20e4-s06",
+  "kind": "scene",
+  "name": "wordmark and tagline end card on a soft colour bloom",
+  "looks": "A small mark and the wordmark settle above centre on a plain field with a soft, colourful bloom glowing low in the corner. A one-line tagline fades in underneath, its last word picked out in a bright accent colour.",
+  "build": "Mark and wordmark fade/scale in together; the bloom is a soft radial gradient, low opacity, pulsing gently; the tagline fades/rises 4-6px in, with its final word's colour swapped to the accent the instant it lands.",
+  "sound": "A soft confirm tone as the mark settles, the bed fading out under the hold.",
+  "duration": [2.0, 2.5],
+  "prompt": "Close on a small mark and wordmark settling above centre over a soft colour bloom low in the corner, with a one-line tagline fading in underneath and its last word landing in a bright accent colour; hold the finished card.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "steventey-0d20e4", "url": "https://prompt-motion.com/steventey-0d20e4", "creator": "@steventey", "start": 12.5, "end": 15.104},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "listudio-820c7b-s06",
+  "kind": "scene",
+  "name": "Agent plans a campaign and builds it on a canvas",
+  "looks": "A caption describes the ask (\"Describe it. The agent builds it.\") beside an empty node canvas and a chat panel. The agent's reply lists a short checklist of planned shots; as each checklist item is confirmed, a connected node appears on the canvas and fills in with its generated image, the nodes linking into a small campaign tree.",
+  "build": "Checklist items in the chat tick from pending to checked on their own beat; each check cues exactly one node to appear on the canvas (`scale 0.9 -> 1`, power2.out) connected by a drawn line to its parent node. The node's image resolves via a short placeholder-to-result cross-fade once it appears.",
+  "sound": "A soft low pad under the chat, a light pop per checklist item confirming, a quiet whoosh as each node's connecting line draws on.",
+  "duration": [4.0, 6.0],
+  "prompt": "Beside a chat panel, let an agent's reply lay out a short checklist of planned outputs, and as each item confirms, grow a connected node on an open canvas that fills in with its own generated result, so a whole small campaign visibly assembles itself as a linked tree.",
+  "techniques": ["chat-updates-preview"],
+  "source": {"film": "listudio-820c7b", "url": "https://prompt-motion.com/listudio-820c7b", "creator": "@listudio", "start": 26.5, "end": 32.0},
+  "tags": {
+    "role": ["demo", "solution", "proof"],
+    "purpose": ["introduce-feature", "show-transformation"],
+    "content": ["product-ui", "photo"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "structure"],
+    "complexity": "high"
+  }
+}

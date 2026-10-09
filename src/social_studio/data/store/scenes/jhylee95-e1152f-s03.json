@@ -1,0 +1,21 @@
+{
+  "id": "jhylee95-e1152f-s03",
+  "kind": "scene",
+  "name": "Window-chrome screenshot settles under the word",
+  "looks": "Under the headline word, a full product screenshot in a browser or app window frame slides and settles into frame, filling most of the lower half, with just enough real UI (a chart, a few labelled icon tiles) to read as a genuine screen rather than a mockup. The next card repeats the same move with a different screen (a video player instead of a dashboard), so the pair reads as two honest ways to show the same thing.",
+  "build": "The window frame is a flat card with a thin top chrome bar (three dots, a URL-style strip); it tweens in from `y: 24px, opacity 0 -> y:0, opacity 1` on power2.out, 300-400ms, arriving just after the headline word. Internal UI elements (a line chart path draw-on, small icon tiles) settle 100-150ms after the frame itself lands, so the frame reads first and the content second.",
+  "sound": "A soft whoosh under the window's slide, a light tick as the internal chart or tiles settle.",
+  "duration": [1.5, 2.2],
+  "prompt": "Under a headline word, slide a real product screen into frame inside a simple window chrome, filling most of the lower half, letting its own chart or UI elements settle in a beat after the frame arrives. Repeat the same move for a second, different kind of screen right after, so two cards together show the same capability two honest ways.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "jhylee95-e1152f", "url": "https://prompt-motion.com/jhylee95-e1152f", "creator": "@jhylee95", "start": 9.9, "end": 12.9},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["introduce-feature", "reveal-product"],
+    "content": ["product-ui", "device"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "reveal"],
+    "complexity": "low"
+  }
+}

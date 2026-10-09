@@ -1,0 +1,20 @@
+{
+  "id": "still-to-motion-reveal",
+  "kind": "technique",
+  "name": "Still to motion reveal",
+  "looks": "A frame holds on what reads as a static photo, held just a beat too long to be sure, then it quietly starts moving, revealing it was secretly a video clip all along. A short caption names the shift after motion has already begun.",
+  "build": "Open on a single frame held static 400-600ms before playback starts, so the cut from photo to video is really playback starting late. The giveaway motion is subtle and physical (breathing, hair, a slow push-in), not an obvious effect. Caption fades in low in the frame after motion has already started.",
+  "sound": "Silence or near-silence during the photo hold, ambient sound fading up the instant motion starts.",
+  "duration": [1.5, 2.5],
+  "prompt": "Hold on what looks like a still photo a beat too long, then let it quietly start moving with subtle, physical motion so the viewer realises it was secretly video all along, and only then fade in a short caption confirming the shift.",
+  "source": "prompt-motion.com's gallery (listudio-820c7b), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["reveal-product", "show-transformation"],
+    "content": ["photo", "footage"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["reveal", "camera"],
+    "complexity": "low"
+  }
+}

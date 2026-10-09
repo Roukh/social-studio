@@ -1,0 +1,51 @@
+{
+  "id": "macrohou-33959d-s04",
+  "kind": "scene",
+  "name": "A finished step branches into the next pick",
+  "looks": "A checked, completed node sits at the left under the line \"It learns, then picks your next test.\" Thin lines branch out from it to a short list of dim candidate labels; a beat later, one candidate bolds and fills solid while the rest stay faint, as the system's pick for what comes next.",
+  "build": "Branch lines draw on (`strokeDashoffset`) with a light 40-60ms stagger; all candidates start dim and thin. The chosen one tweens to full opacity and a bolder fill with a touch of scale (1 -> 1.06) over 200-300ms, landing after the lines finish so the pick reads as its own beat.",
+  "sound": "A soft whoosh per branch line, a distinct confirming tick exactly as the chosen candidate bolds.",
+  "duration": [
+    2.0,
+    2.5
+  ],
+  "prompt": "From one completed, checked step, branch thin lines out to a short list of dim candidate next options, then let one of them bold and solidify a beat later as the system's pick, so the recommendation reads as a considered decision rather than a random highlight.",
+  "techniques": [
+    "fan-out-branch-diagram"
+  ],
+  "source": {
+    "film": "macrohou-33959d",
+    "url": "https://prompt-motion.com/macrohou-33959d",
+    "creator": "@macrohou",
+    "start": 20.0,
+    "end": 25.0
+  },
+  "tags": {
+    "role": [
+      "demo",
+      "solution",
+      "proof"
+    ],
+    "purpose": [
+      "explain-mechanism",
+      "show-craft"
+    ],
+    "content": [
+      "data"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "data",
+      "structure"
+    ],
+    "complexity": "medium"
+  }
+}

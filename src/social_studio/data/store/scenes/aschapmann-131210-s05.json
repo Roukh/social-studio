@@ -1,0 +1,21 @@
+{
+  "id": "aschapmann-131210-s05",
+  "kind": "scene",
+  "name": "three milestones connect along a dashed timeline",
+  "looks": "Under a headline about ongoing payoff, three small cards (an early day, a few weeks later, months later) sit in a row, each linked to the next by a short dashed, slightly wavy connector line that draws on, with a one-line caption under each card.",
+  "build": "annotated-diagram-overlay's leader-line build, used as a timeline connector: each dashed SVG segment draws with strokeDashoffset between two cards, the second card fading in right as its connector completes.",
+  "sound": "A soft tick as each connector finishes drawing.",
+  "duration": [2.3, 2.7],
+  "prompt": "Lay out three small milestone cards in a row spanning a short timescale, each linked to the next by a dashed connector line that draws on before the next card appears, with a one-line caption beneath each. Use it to show a single action compounding into payoff over time.",
+  "techniques": ["annotated-diagram-overlay"],
+  "source": {"film": "aschapmann-131210", "url": "https://prompt-motion.com/aschapmann-131210", "creator": "@aschapmann", "start": 20.0, "end": 22.5},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-transformation", "explain-mechanism"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["annotation", "structure"],
+    "complexity": "medium"
+  }
+}

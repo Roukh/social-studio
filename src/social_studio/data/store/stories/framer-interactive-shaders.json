@@ -1,0 +1,27 @@
+{
+  "id": "framer-interactive-shaders",
+  "kind": "story",
+  "name": "A ripple that follows your cursor, tuned live in the panel",
+  "brand": "Framer",
+  "source": {"url": "https://www.youtube.com/watch?v=rwMJ08sXNOA", "platform": "youtube", "posted": "2026-06-25", "duration": 80.0},
+  "object": "Interactive Shaders in Framer, starting with the Ripple Shader, a WebGL effect that distorts an image with water-like ripples that follow the cursor and respond to clicks and drags",
+  "audience": "designers building motion-led, experimental sites who want real-time interactive effects without writing shader code",
+  "message": "This video tells designers that a cursor-reactive WebGL effect is now just a property panel away, tunable in real time with no shader code required.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 6.0, "what": "a glowing Framer glyph distorts into ripples as the narrator introduces the feature over the effect applied to the logo itself", "copy": "We're bringing interactive shaders to Framer, starting with the Ripple Shader.", "voice": "narration"},
+    {"role": "solution", "start": 6.0, "end": 26.0, "what": "a property panel appears beside a live canvas showing radius, fade, strength, decay, displacement and dispersion sliders, each one reshaping the ripple around the cursor as it's dragged", "copy": "Through properties like radius, strength, decay, displacement and dispersion, you can customize the ripple's size, intensity, motion and color split.", "voice": "narration"},
+    {"role": "demo", "start": 26.0, "end": 47.0, "what": "the effect is shown following the cursor automatically on hover, then a spring-based transition curve is opened and tuned, blending motion-style physics with the WebGL shader", "copy": "These interactive shaders support spring-based cursor tracking, blending motion-style interaction with WebGL shaders.", "voice": "narration"},
+    {"role": "demo", "start": 47.0, "end": 65.0, "what": "two more behaviors are demonstrated: an optional click property that sends ripples outward on click, and a click-drag that amplifies the ripple for a heavier, more physical feel", "copy": "We have an optional click property that sends ripples out as you click the image, and if you click-drag, the ripple effect is amplified.", "voice": "narration"},
+    {"role": "cta", "start": 65.0, "end": 80.0, "what": "closes with the feature confirmed live and the Framer glyph on black", "copy": "The Ripple Shader is out now in Framer. Thank you for watching, and stay tuned for more updates coming soon.", "voice": "narration"}
+  ],
+  "cta": "\"The Ripple Shader is out now in Framer\", delivered as a direct narration line over the glyph, closing with a tease of more shaders to come",
+  "why": "Walking through each property slider live, on the same canvas, while naming exactly what it changes turns a single buzzword, interactive shaders, into something a designer can picture tuning themselves within seconds of watching.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["design-tool"],
+    "structure": ["intro-body-cta"],
+    "voice": ["narration"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

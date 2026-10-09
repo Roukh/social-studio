@@ -1,0 +1,21 @@
+{
+  "id": "adamdesgns-478d6d-s02",
+  "kind": "scene",
+  "name": "sketch snaps into precise angled diagram",
+  "looks": "A squiggly hand-drawn line is traced across a dark grid by a small pen glyph at its tip, under the words \"SKETCH IT.\" The line then straightens and snaps into a clean isometric diagram with right angles, with length and angle labels (degrees, feet-and-inches) popping in at each corner, under a new headline, and a confirm button fades up.",
+  "build": "freehand-to-precision-snap: a hand-jittered SVG path revealed with strokeDashoffset, point-lerped to a straightened target set on back.out(1.6) over about 0.25 s, with angle-arc and length callouts staggering in 0.06 s apart at each vertex. The headline swap is a hard cut.",
+  "sound": "A soft pencil-scratch texture under the sketch, a crisp snap on the straighten, a tick per callout.",
+  "duration": [2.5, 3.0],
+  "prompt": "Show a rough, hand-drawn sketch being traced across a technical grid, with a plain headline labelling the step. At the instant the sketch completes, snap it into a precise, straight-edged diagram of the same shape, with measurement callouts popping in at each corner and a second headline naming the payoff. Close on a small confirm action.",
+  "techniques": ["freehand-to-precision-snap"],
+  "source": {"film": "adamdesgns-478d6d", "url": "https://prompt-motion.com/adamdesgns-478d6d", "creator": "@Adamdesgns", "start": 1.35, "end": 4.0},
+  "tags": {
+    "role": ["problem", "solution"],
+    "purpose": ["show-transformation", "show-ease"],
+    "content": ["abstract", "illustration"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["annotation", "reveal"],
+    "complexity": "medium"
+  }
+}

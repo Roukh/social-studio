@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-474bcf-s04",
+  "kind": "scene",
+  "name": "two circles converge, then a numbered order steps in",
+  "looks": "Two solid circles, one for intelligence and one for production craft, slide together until their edges overlap, and the lens where they meet fills with a dense, noisy texture, captioned as the exact fit between the two. The circles cut away to a claim about the right order, and a run of numbered circles pops in one at a time, first one, then two, then three, each labelled for its stage in the process.",
+  "build": "The venn-overlap-converge mechanic for the first half: two DOM/SVG circles translate together on power2.inOut, their intersection a clipped layer filled with a seeded stipple pattern. The numbered sequence hard-cuts a new coloured circle with its digit and label on each beat, each earlier circle staying on screen as the run builds left to right (the list-stack-reveal mechanic adapted to circles instead of lines).",
+  "sound": "A soft converging whoosh and a grain-like rattle as the circles meet, then a tick per number as the sequence builds.",
+  "duration": [12.5, 13.5],
+  "prompt": "Slide two labelled, solid-coloured circles together until they overlap, filling the lens where they meet with its own distinct texture rather than a plain blend, caption it as a precise fit, then cut to a short run of numbered circles popping in one at a time, left to right, each one staying on screen as the next lands, to show the right order of steps.",
+  "techniques": ["venn-overlap-converge", "list-stack-reveal"],
+  "source": {"film": "rneayan-474bcf", "url": "https://prompt-motion.com/rneayan-474bcf", "creator": "@rneayan", "start": 23.167, "end": 36.367},
+  "tags": {
+    "role": ["solution"],
+    "purpose": ["explain-mechanism", "show-contrast"],
+    "content": ["abstract", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["shape", "morph"],
+    "complexity": "medium"
+  }
+}

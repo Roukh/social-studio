@@ -1,0 +1,21 @@
+{
+  "id": "leonabboud-2103576084499358051-s01",
+  "kind": "scene",
+  "name": "a lone dot on a grid opens into the wordmark",
+  "looks": "A single accent dot sits alone on a fine dark grid with a small mono caption beside it, then the frame cuts to a bold wordmark filling a solid colour card, an italic kicker beneath it in a serif face, the HUD frame running throughout.",
+  "build": "dot-drop-flood's opening dot (a single point on a 2D canvas grid, no fall yet, just held) cross-cutting to wordmark-assemble's settle stage for the name, the italic kicker revealing on a clipPath wipe beneath it.",
+  "sound": "Near silence under the dot, a soft swell as the wordmark lands.",
+  "duration": [3.0, 3.5],
+  "prompt": "Open on a single accent dot alone on a fine grid with a small caption beside it, almost nothing else moving. Cut to a bold wordmark filling a solid colour card with an italic kicker line beneath it, so the film moves from a single mark to the full identity in one beat.",
+  "techniques": ["dot-drop-flood", "wordmark-assemble"],
+  "source": {"film": "leonabboud-2103576084499358051", "url": "https://x.com/leonabboud/status/2103576084499358051", "creator": "@leonabboud", "start": 0.0, "end": 3.35},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "tease"],
+    "content": ["type", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["open", "identity"],
+    "complexity": "medium"
+  }
+}

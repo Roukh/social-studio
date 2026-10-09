@@ -1,0 +1,21 @@
+{
+  "id": "melvynx-6cde6c-s04",
+  "kind": "scene",
+  "name": "A terminal command fails, then connects clean",
+  "looks": "A terminal panel types a plain-language command; a dashed line reaches toward a tool panel beside it and stalls on a red error badge with a blunt, specific reason. A beat later the same shot repeats, but this time the dashed line pulses through clean and the tool panel populates, no error in sight.",
+  "build": "Dashed connector animates its `stroke-dashoffset` toward the tool panel; on the failure beat it stops short and a red X badge pops in with a small shake. On the success beat the same line completes its full draw and the tool panel's content cross-fades in as it lands, no badge needed.",
+  "sound": "A flat error buzz on the failed connection, a clean confirming tick on the successful one.",
+  "duration": [3.0, 4.0],
+  "prompt": "Type a plain-language command into a terminal and watch a dashed line reach toward a connected tool and stall on a blunt error, then repeat the same beat with the connection completing clean and the tool panel populating with no error at all, letting the contrast between the two do the selling.",
+  "techniques": ["chat-updates-preview"],
+  "source": {"film": "melvynx-6cde6c", "url": "https://prompt-motion.com/melvynx-6cde6c", "creator": "@melvynx", "start": 15.0, "end": 20.0},
+  "tags": {
+    "role": ["problem", "solution"],
+    "purpose": ["show-contrast", "explain-mechanism"],
+    "content": ["product-ui", "code"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

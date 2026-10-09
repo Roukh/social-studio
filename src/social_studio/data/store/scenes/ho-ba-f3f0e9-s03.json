@@ -1,0 +1,21 @@
+{
+  "id": "ho-ba-f3f0e9-s03",
+  "kind": "scene",
+  "name": "Split editor tilts in, a line highlights across both panes",
+  "looks": "A two-pane editor window tilts into frame at a shallow angle: raw markdown source on the left, its rendered output on the right. One line in the source highlights, and a thin line draws across the gap to the matching line in the rendered pane, which highlights in turn.",
+  "build": "ui-tilt-card for the window's fixed shallow perspective and settle. The cross-pane highlight reuses annotated-diagram-overlay's leader-line mechanic: a strokeDashoffset line from the source line's edge to the rendered line's edge, both lines' background tweening to a highlight colour as the connector lands.",
+  "sound": "A soft whoosh as the window settles into its tilt, a light tick as the connecting line draws and both highlights land.",
+  "duration": [2.0, 2.5],
+  "prompt": "Prove a live, two-way connection between an editor and its output: tilt a split-pane window into frame, then draw a thin line from one highlighted line of input straight across to its matching line of rendered output, so the relationship between the two is seen, not just claimed.",
+  "techniques": ["ui-tilt-card", "annotated-diagram-overlay"],
+  "source": {"film": "ho-ba-f3f0e9", "url": "https://prompt-motion.com/ho-ba-f3f0e9", "creator": "@HO_BA", "start": 7.5, "end": 12.5},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "reveal-product"],
+    "content": ["product-ui", "code"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "annotation"],
+    "complexity": "medium"
+  }
+}

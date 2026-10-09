@@ -1,0 +1,48 @@
+{
+  "id": "ultimaxbt-2ddf1e-s04",
+  "kind": "scene",
+  "name": "the assistant explains its pick and offers to act",
+  "looks": "A chat transcript types on: the user's original request sits at the top, then a reply breaks down why this pick fits, with the same result card appearing inline a beat later. A final line asks permission to place the order, with two buttons settling underneath it.",
+  "build": "Chat bubbles type on per word, 20-35ms a step, then hold; the result card fades/rises in after the reasoning line finishes; the two buttons fade in last on a short stagger, same mechanic as chat-drives-ui.",
+  "sound": "A soft typewriter patter under the chat text and a light pop on the card and buttons landing.",
+  "duration": [
+    2.0,
+    2.5
+  ],
+  "prompt": "Type on a short chat exchange: the original request, then a reply explaining why a specific pick fits, with a small result card landing inline a beat later, and close on a question asking permission to act, with two buttons settling underneath.",
+  "techniques": [
+    "chat-updates-preview"
+  ],
+  "source": {
+    "film": "ultimaxbt-2ddf1e",
+    "url": "https://prompt-motion.com/ultimaxbt-2ddf1e",
+    "creator": "@ultimaxbt",
+    "start": 7.5,
+    "end": 10.0
+  },
+  "tags": {
+    "role": [
+      "solution",
+      "demo"
+    ],
+    "purpose": [
+      "explain-mechanism",
+      "show-ease"
+    ],
+    "content": [
+      "product-ui",
+      "type"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9"
+    ],
+    "family": [
+      "interface",
+      "annotation"
+    ],
+    "complexity": "medium"
+  }
+}

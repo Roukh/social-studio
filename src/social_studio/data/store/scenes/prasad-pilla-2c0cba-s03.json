@@ -1,0 +1,49 @@
+{
+  "id": "prasad-pilla-2c0cba-s03",
+  "kind": "scene",
+  "name": "a hub diagram and a task list build side by side",
+  "looks": "A headline claims one shared brain and one execution layer. On the left, a handful of labelled nodes (specs, tasks, repositories, decisions, sessions, tests) draw in around a central mark, thin lines connecting them. On the right, a short list of task rows, each with a small progress bar, fills in one after another, every bar growing to a different length.",
+  "build": "The hub's nodes fade/scale in around the centre on a light stagger as their connecting lines draw on with strokeDashoffset, outside-in; the centre mark pulses once all nodes land. The task-row bars scaleY/scaleX from a zero origin on an uneven stagger, power3.out, timed to finish alongside the hub.",
+  "sound": "A soft tick per node landing, a low hum under the connecting lines, a settle chime as both panels finish together.",
+  "duration": [
+    3.2,
+    3.8
+  ],
+  "prompt": "Claim that many separate parts share one brain and one execution layer. Draw a small hub diagram of labelled parts connected to a central mark on one side, and build a short list of tasks with their own progress bars on the other, timing both to land together so the claim and its proof finish in the same beat.",
+  "techniques": [
+    "node-graph-build",
+    "data-infographic"
+  ],
+  "source": {
+    "film": "prasad-pilla-2c0cba",
+    "url": "https://prompt-motion.com/prasad-pilla-2c0cba",
+    "creator": "@prasad_pilla",
+    "start": 7.2,
+    "end": 10.9
+  },
+  "tags": {
+    "role": [
+      "solution",
+      "demo"
+    ],
+    "purpose": [
+      "explain-mechanism",
+      "show-scale"
+    ],
+    "content": [
+      "abstract",
+      "data"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9"
+    ],
+    "family": [
+      "structure",
+      "data"
+    ],
+    "complexity": "high"
+  }
+}

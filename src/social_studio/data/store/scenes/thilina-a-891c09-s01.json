@@ -1,0 +1,21 @@
+{
+  "id": "thilina-a-891c09-s01",
+  "kind": "scene",
+  "name": "playful mascot wordmark types on",
+  "looks": "A small round character mark sits still beside the product name as it types on letter by letter, a trail of three small dots popping in beside the cursor as the name completes.",
+  "build": "Mark static with a tiny idle bob; wordmark revealed with kit.typeOn; the trailing dots pop in on a quick stagger (0.05s apart) right as typing finishes.",
+  "sound": "A light, toy-like tick per character and a soft pop on the trailing dots.",
+  "duration": [1.5, 2.0],
+  "prompt": "Hold a small friendly character mark still beside the product name as it types on letter by letter, with a few small dots popping in beside the cursor the instant the name completes, for a playful, toy-like open.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "thilina-a-891c09", "url": "https://prompt-motion.com/thilina-a-891c09", "creator": "@thilina_a", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand"],
+    "content": ["logo", "type", "character"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["identity", "type"],
+    "complexity": "low"
+  }
+}

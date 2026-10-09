@@ -1,0 +1,20 @@
+{
+  "id": "text-diff-highlight",
+  "kind": "technique",
+  "name": "Text diff highlight",
+  "looks": "Two real documents sit side by side or stacked. A phrase in one gets highlighted in an accent colour, and the matching phrase or value in the other highlights a beat later, as if a thread were drawn between them. The pairs light up one at a time, and a running total updates each time a pair confirms.",
+  "build": "Each document is real DOM text so specific spans can be targeted; a highlight is a background/text-decoration tween (power2.out, 0.15-0.2s); the two matched spans highlight within one beat of each other, not simultaneously; any running total updates the instant the pair confirms.",
+  "sound": "A soft highlighter-pen tick per phrase, a slightly different pitch for the second half of each matched pair.",
+  "duration": [2.0, 5.0],
+  "prompt": "Sit two real documents side by side and highlight a phrase in one, then highlight its matching phrase or value in the other a beat later, as if a thread connects them, updating a running total each time a pair confirms. Keep the matched pairs few and let each fully land before the next.",
+  "source": "prompt-motion.com's gallery (visheshbaghell-3aba37), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "show-data", "show-contrast"],
+    "content": ["type", "data"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["annotation", "data"],
+    "complexity": "medium"
+  }
+}

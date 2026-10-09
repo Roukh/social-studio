@@ -1,0 +1,21 @@
+{
+  "id": "lexnlin-6161a6-s04",
+  "kind": "scene",
+  "name": "Countdown leader marks a build-in-progress beat",
+  "looks": "A giant blocky time readout sits over a deep red brick texture, a thin build-log line above it reading like a terminal status. A short ruled progress line underneath, with a small marker on it, places the card in a longer sequence of similar example categories.",
+  "build": "Numeral set in a heavy slab face filling most of the card over a tiled brick texture at full saturation; it ticks on whole-second hard cuts, no easing. The progress rule's marker sits at this card's position relative to the full sequence.",
+  "sound": "A mechanical tick on each coarse time step, a low ambient rumble under the hold.",
+  "duration": [1.8, 2.5],
+  "prompt": "Mark a build-in-progress beat with a giant blocky timer numeral over a rough brick or concrete texture, a short build-log status line above it, ticking in hard coarse steps rather than smooth animation, so the moment feels physical and workmanlike.",
+  "techniques": ["countdown-leader-card"],
+  "source": {"film": "lexnlin-6161a6", "url": "https://prompt-motion.com/lexnlin-6161a6", "creator": "@LexnLin", "start": 20.0, "end": 22.0},
+  "tags": {
+    "role": ["transition", "demo"],
+    "purpose": ["build-tension", "show-craft"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["texture", "type"],
+    "complexity": "low"
+  }
+}

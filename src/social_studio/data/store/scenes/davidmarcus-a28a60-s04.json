@@ -1,0 +1,21 @@
+{
+  "id": "davidmarcus-a28a60-s04",
+  "kind": "scene",
+  "name": "Feature list over a dark field",
+  "looks": "On a dark field a six-item feature list stacks down the frame one line per beat, each new item landing white while earlier items settle to a dim grey, until the whole list is visible and the last item stays bright. The frame then hard-cuts to a single bold two-word payoff line lower on the frame.",
+  "build": "List-stack-reveal with six lines instead of three, a faster per-line beat (about 0.22s) so the longer list still lands inside a few seconds; the payoff line enters after a short hold with its own fade/slide-up.",
+  "sound": "A steady tick per item, faster than the three-line version, with a settling beat before the payoff line's tick.",
+  "duration": [2.5, 3.5],
+  "prompt": "List five or six concrete options a feature supports, one per beat, stacking down a dark field with earlier items dimming as each new one lands and the last one staying bright. Follow with a short, bold line that names the single idea tying the list together.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "davidmarcus-a28a60", "url": "https://prompt-motion.com/davidmarcus-a28a60", "creator": "@davidmarcus", "start": 17.97, "end": 20.5},
+  "tags": {
+    "role": ["solution", "proof"],
+    "purpose": ["show-scale", "introduce-feature"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

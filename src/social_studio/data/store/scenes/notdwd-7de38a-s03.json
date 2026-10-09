@@ -1,0 +1,21 @@
+{
+  "id": "notdwd-7de38a-s03",
+  "kind": "scene",
+  "name": "a lesson page drifts past with a floating preview card",
+  "looks": "A course lesson page sits slightly out of focus in the background: a breadcrumb trail, a lesson heading and a paragraph of instructions. In front of it, a single preview card holds a short title and a small action icon, catching the eye while the page behind it slowly drifts.",
+  "build": "A slow camera dolly or parallax scale over the static document layer supplies the sense of motion even though the text itself doesn't change; the foreground card sits on its own layer, slightly offset in depth, staying sharp while the background page stays soft.",
+  "sound": "A soft whoosh under the camera drift, with a quiet ambient bed.",
+  "duration": [1.5, 2.2],
+  "prompt": "Let a document or lesson page sit softly out of focus in the background while the camera drifts slowly across it, and keep one small preview card sharp in front, holding a short title and an action icon, so the page reads as context and the card reads as the thing to notice.",
+  "techniques": ["device-row-screen-swap"],
+  "source": {"film": "notdwd-7de38a", "url": "https://prompt-motion.com/notdwd-7de38a", "creator": "@notdwd", "start": 5.289, "end": 7.5},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["product-ui", "type"],
+    "energy": ["calm"],
+    "format": ["1:1"],
+    "family": ["interface", "camera"],
+    "complexity": "low"
+  }
+}

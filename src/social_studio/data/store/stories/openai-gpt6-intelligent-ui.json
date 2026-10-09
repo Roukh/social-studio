@@ -1,0 +1,26 @@
+{
+  "id": "openai-gpt6-intelligent-ui",
+  "kind": "story",
+  "name": "Moving day, told through folded paper and rich answer cards",
+  "brand": "OpenAI",
+  "source": {"url": "https://www.youtube.com/watch?v=IsL4dVezs18", "platform": "youtube", "posted": "2026-10-07", "duration": 70.0},
+  "object": "GPT-6 in ChatGPT with Intelligent UI: answers that render as rich, glanceable cards (a bike-build diagram, a neighborhood map, a color palette) instead of walls of plain text",
+  "audience": "everyday ChatGPT users doing real-world tasks, like moving into a new home, who get buried in dense instructions",
+  "message": "This video tells everyday users that some answers need more than words: GPT-6's Intelligent UI turns a paragraph of instructions into something you can actually glance at and use.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 20.0, "what": "a couple moves into a new house, unpacking boxes, intercut with hands folding paper into origami shapes and unfolding dense printed instructions, a color-palette card, a bike-assembly sheet", "copy": "", "voice": "none"},
+    {"role": "problem", "start": 20.0, "end": 43.0, "what": "close-ups of people squinting at walls of plain text, an origami recipe written out as paragraphs, a huge paper neighborhood map awkwardly unfolded on a city overpass", "copy": "", "voice": "none"},
+    {"role": "solution", "start": 43.0, "end": 64.0, "what": "the same tasks now solved on a phone screen as rich cards: a labeled bike-build diagram, a neighborhood guide map, a tidy color-swatch grid, glanced at in seconds while the couple relaxes amid the boxes", "copy": "", "voice": "none"},
+    {"role": "cta", "start": 64.0, "end": 70.0, "what": "title cards read \"Sometimes words aren't enough\" then \"GPT-6 with Intelligent UI,\" closing on a grid of ChatGPT app icons", "copy": "Sometimes words aren't enough. GPT-6, with Intelligent UI.", "voice": "none"}
+  ],
+  "cta": "\"Sometimes words aren't enough: GPT-6 with Intelligent UI\", staged as closing title cards over the ChatGPT app icon grid",
+  "why": "Building the whole film around a literal folding-paper metaphor, dense instructions versus a clean card, lets the viewer feel the relief of Intelligent UI before a single feature is named.",
+  "tags": {
+    "goal": ["launch"],
+    "product": ["ai-model", "ai-app"],
+    "structure": ["before-after-cta"],
+    "voice": ["none"],
+    "energy": ["calm"],
+    "format": ["16:9"]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "ho-ba-f3f0e9-s01",
+  "kind": "scene",
+  "name": "Headline assembles inside a halo of syntax chips",
+  "looks": "A serif word types in, settles, and a second italic word lands beneath it in the accent colour with a blinking cursor. Small torn-paper chips (each naming a tiny syntax feature) pop in around the headline at scattered angles, each connected to the centre by a thin straight line.",
+  "build": "The headline uses terminal-type-on's per-character reveal in a serif face; the chips use annotated-diagram-overlay's label-and-leader-line mechanic, but radiating outward from the headline instead of pointing at a single spot, each chip's line revealed with strokeDashoffset as it lands, staggered 0.1-0.15s apart.",
+  "sound": "A soft typewriter clack under the headline, then a light pop per chip landing.",
+  "duration": [2.0, 3.0],
+  "prompt": "Introduce a text-editing product by typing its core verb on screen, then surround the headline with a small halo of torn-paper chips, each naming one tiny feature and connected back to the headline by a thin line, so the breadth of what it does reads at a glance.",
+  "techniques": ["terminal-type-on", "annotated-diagram-overlay"],
+  "source": {"film": "ho-ba-f3f0e9", "url": "https://prompt-motion.com/ho-ba-f3f0e9", "creator": "@HO_BA", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "establish-brand"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "annotation"],
+    "complexity": "medium"
+  }
+}

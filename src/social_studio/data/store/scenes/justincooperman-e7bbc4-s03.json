@@ -1,0 +1,21 @@
+{
+  "id": "justincooperman-e7bbc4-s03",
+  "kind": "scene",
+  "name": "Closing lockup with CTA pill",
+  "looks": "On a flat warm-gradient ground, the brand's triangular mark and wordmark settle together, a short tagline fades in underneath, and a small rounded CTA button arrives last and holds, closing the film on a calm, static card.",
+  "build": "Mark and wordmark arrive together (y: 10px -> 0, opacity 0 -> 1, power2.out, ~350ms). Tagline fades in 180ms later, no motion beyond opacity. CTA pill lands last with a small scale overshoot (0.95 -> 1.02 -> 1).",
+  "sound": "A soft low swell fading out under the hold, no further hits once the CTA pill lands.",
+  "duration": [1.8, 2.5],
+  "prompt": "Close on a flat, softly gradient brand-colour card: settle the mark and wordmark together, fade in a short tagline underneath, then land a small CTA pill last with a touch of overshoot, holding there as the film ends.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "justincooperman-e7bbc4", "url": "https://prompt-motion.com/justincooperman-e7bbc4", "creator": "@justincooperman", "start": 27.5, "end": 29.8},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

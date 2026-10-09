@@ -1,0 +1,21 @@
+{
+  "id": "twoclipping-221cab-s03",
+  "kind": "scene",
+  "name": "a floating slider tunes the scene's light live",
+  "looks": "A small frosted glass pill floats low in the frame, labelled with a lighting preset and a value. As a cursor drags its handle along the track, the value climbs and the photo above it visibly warms, the light growing softer and more golden in step with the slider.",
+  "build": "The slider's handle x and value text are driven off one clock value (power2.inOut); the photo's colour grade (a CSS filter stack: warmth, exposure) keys off that identical value so the image and the slider move in lockstep, same mechanic as slider-scrub-preview.",
+  "sound": "A soft tick per slider step and a light shimmer as the grade resolves.",
+  "duration": [2.0, 2.5],
+  "prompt": "Float a small frosted control over a generated photo, naming a lighting preset, and drag its slider while the photo's light visibly warms in exact step with the value, so the parameter and the image read as one live, tunable thing.",
+  "techniques": ["slider-scrub-preview"],
+  "source": {"film": "twoclipping-221cab", "url": "https://prompt-motion.com/twoclipping-221cab", "creator": "@twoclipping", "start": 10.0, "end": 12.5},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui", "photo"],
+    "energy": ["calm"],
+    "format": ["1:1", "4:5"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

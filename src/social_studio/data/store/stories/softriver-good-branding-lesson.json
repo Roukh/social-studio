@@ -1,0 +1,31 @@
+{
+  "id": "softriver-good-branding-lesson",
+  "kind": "story",
+  "name": "Can you tell good branding from bad?",
+  "brand": "Softriver.co",
+  "source": {
+    "url": "https://www.instagram.com/softriver.co/reel/DeMkIZqIwlE/",
+    "platform": "instagram",
+    "posted": "2026-10-07",
+    "duration": 18.18
+  },
+  "object": "Softriver's branding service and point of view on what separates a good logo from a generic one",
+  "audience": "Founders and marketers who think a logo is just a logo",
+  "message": "This video tells founders that a good mark does more than look fine next to a famous one — it changes how customers remember and trust a business — and that is the craft Softriver sells.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 2.5, "what": "Presenter holds the Aesop wordmark up beside two generic, unnamed app icons and asks the viewer to spot the difference.", "copy": "\"Can you tell this apart from...\"", "voice": "narration"},
+    {"role": "problem", "start": 2.5, "end": 7.5, "what": "He keeps the three marks on screen, pressing the question of whether people can actually tell good branding from forgettable branding at a glance.", "copy": "\"Now can you tell [this] from their [logo]?\"", "voice": "narration"},
+    {"role": "solution", "start": 7.5, "end": 12.5, "what": "He argues a good logo does not just look clean, it provokes something — he gestures toward a product screenshot (a tool's own clean landing page) as a case of that clarity carrying into trust.", "copy": "\"A good [brand] provokes [something] that customers [remember].\"", "voice": "narration"},
+    {"role": "cta", "start": 12.5, "end": 18.18, "what": "He tells viewers who want that same effect for their own business to check the link in his bio.", "copy": "\"If you need [this], check link in bio.\"", "voice": "narration"}
+  ],
+  "cta": "Direct spoken CTA at the very end — \"check link in Bio\" — the only one of the four Softriver posts analysed with an explicit, unambiguous call to action rather than a comment-bait question.",
+  "why": "It works as a teaching hook: it puts the viewer in the position of having to judge branding themselves before telling them judging is hard, which makes the craft argument land as earned rather than asserted. The direct bio CTA, unusual for this account, lands only after the viewer has been walked through why the distinction matters.",
+  "tags": {
+    "goal": ["how-to", "brand"],
+    "product": ["agency"],
+    "structure": ["intro-problem-solution-cta"],
+    "voice": ["narration"],
+    "energy": ["punch"],
+    "format": ["9:16"]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "ezshine-c90d73-s07",
+  "kind": "scene",
+  "name": "Anywhere devices into closing wordmark",
+  "looks": "A laptop holding the live table game sits at a fixed shallow tilt beside a tilted phone running a different game, both glowing softly against a dark field. It cuts to the same assembled wordmark from the open, now with a bolder tagline and a URL caption, plus small platform badges beneath.",
+  "build": "ui-tilt-card for both devices, same fixed rotateX/rotateY and slow one-degree drift, with their screens showing live DOM content. The close reuses wordmark-assemble's finished state rather than re-animating every letter, landing faster (0.4s cross-fade) since the mark already appeared once.",
+  "sound": "A soft whoosh on the device cut, then a confirm chime on the final wordmark.",
+  "duration": [2.5, 3.5],
+  "prompt": "Close by proving the product travels: hold it running live on a laptop and a phone, both at a fixed gentle tilt against a dark field, then cut to the brand's finished mark with a sharper tagline, a URL and small platform badges as the sign-off.",
+  "techniques": ["ui-tilt-card", "wordmark-assemble"],
+  "source": {"film": "ezshine-c90d73", "url": "https://prompt-motion.com/ezshine-c90d73", "creator": "@ezshine", "start": 56.0, "end": 65.0},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["show-ease", "land-cta", "establish-brand"],
+    "content": ["device", "logo"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "ho-ba-f3f0e9-s04",
+  "kind": "scene",
+  "name": "Live-preview pair with a glowing connector",
+  "looks": "A feature headline lands with one word in the accent colour and italic. Two small cards sit side by side, raw text on the left and its live-rendered twin on the right, joined at the seam by a small glowing icon that pulses to mark the connection as active.",
+  "build": "list-stack-reveal for the two-line headline; provenance-glow-stroke for the connector icon, its glow intensity a pure function of the clock, pulsing independent of the cards' own fade-in.",
+  "sound": "A tick per headline line and a soft electric hum under the connector's pulse.",
+  "duration": [2.0, 2.5],
+  "prompt": "Mark a feature as live, not static: sit two small panels side by side, one the input and one its live-updating twin, and join them at the seam with a small glowing marker that pulses to say this connection is active right now.",
+  "techniques": ["list-stack-reveal", "provenance-glow-stroke"],
+  "source": {"film": "ho-ba-f3f0e9", "url": "https://prompt-motion.com/ho-ba-f3f0e9", "creator": "@HO_BA", "start": 12.5, "end": 15.0},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "type"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "ig-ddtww-ws0xx-s02",
+  "kind": "scene",
+  "name": "the finished site tilts into view with a glowing edge",
+  "looks": "A full interface panel swings into a fixed, shallow 3D tilt, lit by a single accent-coloured glow around its edge. The page scrolls to reveal its sections -- a headline statement, a row of short principle cards -- while two more faint copies of the same panel sit stacked slightly behind it, as if several passes of the same page exist at once.",
+  "build": "A DOM panel inside a perspective parent, rotateX/rotateY fixed with a slow degree or two of drift; a shared glow class marks its border; the panel's inner content scrolls/cross-fades through its sections; two further instances of the same panel sit offset behind at reduced opacity.",
+  "sound": "A soft slide as the panel settles into its tilt, quiet under the scroll.",
+  "duration": [4, 6],
+  "prompt": "Tilt a finished interface panel into a fixed, shallow 3D angle with one accent-coloured glow tracing its live edge, then scroll through its sections while a couple of fainter duplicate panels sit stacked behind it -- read as 'here is the finished, polished result, and there were other passes before it.'",
+  "techniques": ["ui-tilt-card", "provenance-glow-stroke"],
+  "source": {"film": "ig-ddtww-ws0xx", "url": "https://www.instagram.com/p/DdtwW_Ws0Xx/", "creator": "Framer", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["reveal-product", "show-craft"],
+    "content": ["product-ui"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9"],
+    "family": ["interface", "camera"],
+    "complexity": "medium"
+  }
+}

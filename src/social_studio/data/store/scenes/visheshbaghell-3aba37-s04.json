@@ -1,0 +1,21 @@
+{
+  "id": "visheshbaghell-3aba37-s04",
+  "kind": "scene",
+  "name": "a split dashboard reconciles note and invoice live",
+  "looks": "A dashboard panel holds the field note on one side and a running list of invoice line items on the other. Each line item highlights together with the exact phrase in the note that justifies it, one pair at a time, and a corrected total rolls up at the bottom as the pairs confirm.",
+  "build": "The panel is a fixed DOM split-pane (ui-tilt-card's held-panel mechanic); each note phrase and its matching line item highlight within one beat of each other (text-diff-highlight); the total's digits roll up the instant each pair confirms.",
+  "sound": "A soft highlighter tick per matched pair and a light chime as the total updates.",
+  "duration": [3.0, 5.0],
+  "prompt": "Hold a split dashboard panel with a field note on one side and a running invoice on the other, highlighting one matched pair at a time, the phrase that justifies a charge and the charge itself, with a corrected total rolling up at the bottom as each pair confirms.",
+  "techniques": ["ui-tilt-card", "text-diff-highlight"],
+  "source": {"film": "visheshbaghell-3aba37", "url": "https://prompt-motion.com/visheshbaghell-3aba37", "creator": "@VisheshBaghell", "start": 22.5, "end": 27.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "show-data"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "annotation"],
+    "complexity": "medium"
+  }
+}

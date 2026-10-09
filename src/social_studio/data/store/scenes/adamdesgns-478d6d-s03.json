@@ -1,0 +1,21 @@
+{
+  "id": "adamdesgns-478d6d-s03",
+  "kind": "scene",
+  "name": "angled offset diagram with live readout",
+  "looks": "A mono data readout (\"ROLLED OFFSET: SET / ROLL / RESULT\") builds line by line on the left as a 3D-looking angled rod diagram draws on the right, its vertices marked with angle dots and dimension lines. A big result number in the accent colour rolls up at the bottom as the last value locks in.",
+  "build": "DOM mono text lines keyed in top to bottom, each a fixed delay after the last; the diagram is an SVG path with vertex dots and dimension leaders fading in once the segment they describe is drawn; the result number is a blurred digit roll-up similar to a data-infographic counter, landing in the accent colour.",
+  "sound": "A tick per readout line, a soft chime as the result number locks.",
+  "duration": [1.3, 1.8],
+  "prompt": "Build a technical readout line by line beside a diagram that draws itself to match it: a rod or path bending at a measured angle, with dimension leaders and angle markers appearing as each segment completes. Land on a single result number in the accent colour as the readout's payoff.",
+  "techniques": ["data-infographic", "annotated-diagram-overlay"],
+  "source": {"film": "adamdesgns-478d6d", "url": "https://prompt-motion.com/adamdesgns-478d6d", "creator": "@Adamdesgns", "start": 4.0, "end": 5.4},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "explain-mechanism"],
+    "content": ["data", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "annotation"],
+    "complexity": "medium"
+  }
+}

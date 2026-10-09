@@ -1,0 +1,20 @@
+{
+  "id": "end-card-decode",
+  "kind": "technique",
+  "name": "End card decode",
+  "looks": "The through-line mark pulses with a glow ring as the name decodes in letter by letter, each one flickering through scramble glyphs before locking to its real letter on its own staggered timing. An italic line, a hairline draw-across, and the call to action typing on in mono follow, with a small marker spinning in as the audio fades.",
+  "build": "Hold each letter as a span with a hidden final glyph and a scramble glyph chosen from a seeded random function of the frame, so every render matches; spread the lock times unevenly across letters rather than in order. Reveal the line beneath with a clip-path and slide, and the hairline with a scaleX draw.",
+  "sound": "Glitch ticks under the decode, a hit on the last letter locking, and the bed fading out over the last 1.5 s.",
+  "duration": [1.7, 3],
+  "prompt": "Close the film on an end card: a pulsing mark, a name that decodes letter by letter out of scrambled glyphs before locking into place, a short supporting line, a hairline that draws across, and the call to action typing on. Let the finished card hold for at least a second before the audio fades.",
+  "source": "the 2026 Opus showreels; built in examples/reel-2026-10-06.html, S9.",
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["type", "logo"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["close", "type"],
+    "complexity": "high"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "ig-ddtww-ws0xx-s01",
+  "kind": "scene",
+  "name": "handwritten notes type over a blurred interface",
+  "looks": "Small sticky-note style cards, each tilted a few degrees, sit over a softly blurred dark interface in the background. Inside each note, a short instruction types on character by character in a casual handwritten face with a blinking cursor -- a style rule, a type rule -- one note at a time.",
+  "build": "DOM note cards at slight seeded rotations; text revealed per character at a steady rate in a marker/handwritten face with a blinking cursor; the interface behind sits out of focus the whole shot, swapped only between notes.",
+  "sound": "A light typing clack per character, softer than a body-copy type-on.",
+  "duration": [4, 5],
+  "prompt": "Open on a couple of small, slightly tilted note cards floating over a softly blurred product interface, each one typing on a short instruction in a casual handwritten face with a blinking cursor -- read as a founder or designer jotting quick style notes before the real interface comes into focus.",
+  "techniques": ["dual-voice-type", "ui-tilt-card"],
+  "source": {"film": "ig-ddtww-ws0xx", "url": "https://www.instagram.com/p/DdtwW_Ws0Xx/", "creator": "Framer", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["intro"],
+    "purpose": ["set-mood", "establish-brand"],
+    "content": ["type", "product-ui"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9"],
+    "family": ["type", "interface"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "listudio-820c7b-s05",
+  "kind": "scene",
+  "name": "A still frame breathes into a moving shot",
+  "looks": "A close-up portrait of an animal holds completely still for a beat, read as a photograph, then its fur ruffles faintly and the camera starts a slow push in, revealing it was a video clip the whole time. A caption, \"From stills to motion.\", fades in low in the frame only after the motion has started.",
+  "build": "Open on a single held frame (400-600ms) before playback starts, so the still-to-video cut is really just delayed playback. The giveaway motion (fur, a slow push-in) is subtle and physical, not an obvious effect. Caption fades in after motion is already visible, confirming rather than announcing.",
+  "sound": "Near silence during the held frame, ambient sound fading up the instant motion starts.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold on a close shot that reads as a still photo a beat too long, then let it quietly start moving with subtle physical motion to reveal it was video all along, fading in a short caption only once the motion has already begun.",
+  "techniques": ["still-to-motion-reveal"],
+  "source": {"film": "listudio-820c7b", "url": "https://prompt-motion.com/listudio-820c7b", "creator": "@listudio", "start": 21.0, "end": 24.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["reveal-product", "show-transformation"],
+    "content": ["photo", "footage"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["reveal", "camera"],
+    "complexity": "low"
+  }
+}

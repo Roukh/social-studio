@@ -1,0 +1,21 @@
+{
+  "id": "ik-builds-b8bdcf-s05",
+  "kind": "scene",
+  "name": "Hand-drawn chart proves the same team does more",
+  "looks": "On the dark ground a simple hand-drawn axis chart draws itself: a flat, slightly wavering line labelled 'same team' sits low, while a smooth curve above it climbs steadily to a dot labelled 'more bids' with a checkmark, a soft crossed-out label marking what the flat line used to mean.",
+  "build": "easing-graph-draw's progressive lineTo reveal for both the flat comparison line and the rising curve, the curve in the accent colour only; the end dot and checkmark pop in with a small spring once the curve finishes drawing.",
+  "sound": "A quiet bed with a tick per unit along the curve, and a confirm chime on the checkmark.",
+  "duration": [2.0, 2.5],
+  "prompt": "Prove a result with a simple honest chart, not a dashboard: draw a flat comparison line low in the frame labelled with what stayed the same, then draw a smooth rising curve above it in the accent colour, ending on a checkmarked dot that names the thing that improved.",
+  "techniques": ["easing-graph-draw"],
+  "source": {"film": "ik-builds-b8bdcf", "url": "https://prompt-motion.com/ik-builds-b8bdcf", "creator": "@ik_builds", "start": 8.7, "end": 11.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-transformation"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "annotation"],
+    "complexity": "medium"
+  }
+}

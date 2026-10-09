@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-ea6129-s07",
+  "kind": "scene",
+  "name": "the trail becomes the outline mark and the name locks in",
+  "looks": "The travelling point's trail completes itself into a full silhouette outline mark, drawn in the same thin green line. The instant the outline closes, the studio's name sets in below it, and the HUD and scanline hold steady under the finished lockup as the frame rests.",
+  "build": "SVG path (the brand silhouette) continues the prior shot's stroke-dashoffset draw to completion; the wordmark fades/rises in as a single settled block directly beneath it the instant the stroke lands; HUD chrome and scanline remain visible and stop evolving once the lockup settles.",
+  "sound": "A soft low swell resolving into one clean hit as the outline completes, then quiet under the hold.",
+  "duration": [5, 6.5],
+  "prompt": "Close on the brand's mark completing its outline stroke in one continuous green line, with the name settling directly beneath it the instant the stroke lands, held on a quiet instrument-style frame. Keep it a resting beat: nothing else moves once the lockup is in place.",
+  "techniques": ["through-line", "mark-stroke-reveal"],
+  "source": {"film": "rneayan-ea6129", "url": "https://prompt-motion.com/rneayan-ea6129", "creator": "@rneayan", "start": 33.5, "end": 39.3},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["identity", "close"],
+    "complexity": "low"
+  }
+}

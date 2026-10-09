@@ -1,0 +1,21 @@
+{
+  "id": "thilina-a-891c09-s03",
+  "kind": "scene",
+  "name": "a custom icon card with a colour swatch row and a free badge",
+  "looks": "A small bright badge reading 'free' spins and settles onto the corner of a square icon card. Underneath, a name field sits filled in, and a row of small colour swatches fans out, one of them held with a bright selection ring.",
+  "build": "The badge rotates in from an angle and settles (back.out); the swatch row's circles pop in on a short even stagger; the selected swatch's ring scales in with a spring the instant it's picked.",
+  "sound": "A light whoosh as the badge spins in, a soft tick per swatch landing, a brighter chime on the selection ring.",
+  "duration": [2.0, 2.5],
+  "prompt": "Spin a small 'free' badge onto the corner of a square icon card, then fan out a row of colour swatches beneath a filled name field, with one swatch getting a bright selection ring the instant it's chosen, to show a personal, customisable creation.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "thilina-a-891c09", "url": "https://prompt-motion.com/thilina-a-891c09", "creator": "@thilina_a", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["introduce-feature", "show-ease"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "reyzostyle-b55864-s01",
+  "kind": "scene",
+  "name": "cropped headline next to a dim stat card",
+  "looks": "A short bold headline sits large and left-cropped, its last letters pushed off the edge of the frame, on a near-black ground. To the right, a small label and a low number sit over a flat, barely-moving line chart, dim and understated, like a stat nobody is proud of. A HUD-style corner frame and a bottom caption mark this as the first beat of a sequence.",
+  "build": "A DOM headline is set oversized so its trailing letters clip past the safe frame, on a static or barely-panning camera. The stat card is a DOM number set from the clock with no easing (the live-readout-hud mechanic), with a thin SVG polyline for the flat chart. The corner brackets and captions are the film's constant HUD frame layer.",
+  "sound": "A flat, quiet tone under the stat card, a single soft thud as the headline settles.",
+  "duration": [1.2, 1.7],
+  "prompt": "Open on a short, bold claim set so large its last letters bleed off the edge of the frame, and beside it a small, deliberately unimpressive stat card (a low number over a flat line chart) that the rest of the film will beat. Keep the stat quiet and dim, a problem to be solved, not a win.",
+  "techniques": ["live-readout-hud"],
+  "source": {"film": "reyzostyle-b55864", "url": "https://prompt-motion.com/reyzostyle-b55864", "creator": "@reyzostyle", "start": 0.0, "end": 1.5},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "tease"],
+    "content": ["type", "data"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["open", "data"],
+    "complexity": "low"
+  }
+}

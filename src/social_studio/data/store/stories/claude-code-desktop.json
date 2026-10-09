@@ -1,0 +1,25 @@
+{
+  "id": "claude-code-desktop",
+  "kind": "story",
+  "name": "Claude Code moves into the Claude desktop app",
+  "brand": "Claude",
+  "source": {"url": "https://www.youtube.com/watch?v=zrcCS9oHjtI", "platform": "youtube", "posted": "2025-11-24", "duration": 20.0},
+  "object": "Claude Code built directly into the Claude desktop app, letting a user pick a repo, a cloud or local environment, and fire off a coding task from the same window as chat",
+  "audience": "developers who already use Claude.ai and want agentic coding without switching to a separate tool",
+  "message": "This video tells developers that Claude Code now lives inside the Claude desktop app itself, so a coding task is one click away from a chat.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 5.0, "what": "opens on the familiar Claude chat window, then a quick cut to the Claude Code session list showing real past tasks like fixing a race condition and dark mode colors", "copy": "", "voice": "none"},
+    {"role": "demo", "start": 5.0, "end": 14.0, "what": "picks a repo, toggles between a Cloud Environment and a Local worktree, then types a coding task directly into the panel", "copy": "Add unit tests to the checkout flow to cover payment failure scenarios.", "voice": "none"},
+    {"role": "cta", "start": 14.0, "end": 20.0, "what": "closes on the Claude Code mascot icon over a plain title card", "copy": "Claude Code now available in the Claude desktop app.", "voice": "none"}
+  ],
+  "cta": "Claude Code now available in the Claude desktop app, staged as a closing title card",
+  "why": "Because the whole arc fits in twenty seconds and never leaves one window, the film proves its own pitch, that coding is now one click from chat, just by how short and uninterrupted it is.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["developer-tool", "ai-app"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["none"],
+    "energy": ["punch"],
+    "format": ["16:9"]
+  }
+}

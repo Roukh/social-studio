@@ -1,0 +1,21 @@
+{
+  "id": "gabrielbuzziv-4ff0c6-s03",
+  "kind": "scene",
+  "name": "Flatlay fans beside a size-by-size grid",
+  "looks": "A headline with one italic word lands beside a small fan of overlapping product photos. To its right a 2x2 grid of size cards pops in, each with a short label and a piece count, a thumbnail of two garments pinned to the corner of the bottom pair. A green checkmark line confirms a total count beneath it.",
+  "build": "variant-stack-reveal for both the photo fan (seeded rotation/offset) and the size-card grid (uneven 10-30% stagger, settling square); the checkmark line fades/slides in last, after the grid finishes.",
+  "sound": "A soft shutter click per photo, a cluster of ticks as the grid lands, and a confirm chime on the checkmark line.",
+  "duration": [2.0, 2.5],
+  "prompt": "Show a product organising physical items by category: fan a few photos of real items beside a small grid of labelled groups, each tagged with a count, and close on a single confirmation line proving everything was accounted for.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "gabrielbuzziv-4ff0c6", "url": "https://prompt-motion.com/gabrielbuzziv-4ff0c6", "creator": "@gabrielbuzziv", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["solution", "proof"],
+    "purpose": ["show-craft", "explain-mechanism"],
+    "content": ["photo", "product-ui"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

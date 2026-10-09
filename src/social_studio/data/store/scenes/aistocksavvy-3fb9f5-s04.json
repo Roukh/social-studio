@@ -1,0 +1,21 @@
+{
+  "id": "aistocksavvy-3fb9f5-s04",
+  "kind": "scene",
+  "name": "a week of calendar cards fans out",
+  "looks": "Under a claim about weekly timing, five date cards fan out left to right from a narrower starting cluster, each showing a date, an earnings count and small pre/post-market company chips, settling into an even row.",
+  "build": "variant-stack-reveal: five DOM cards ease from a tighter overlapping cluster to an even spaced row on staggered springs (10-20% stagger), each card's chip icons fading in right after it lands.",
+  "sound": "A soft cluster of card-settle ticks, one per card.",
+  "duration": [1.8, 2.2],
+  "prompt": "Under a claim about a week's schedule, fan a row of date cards out from a tighter starting cluster into an even spread, each one revealing a few small detail chips the moment it settles. Let the fan-out read as a calendar unfolding, not a static grid appearing.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "aistocksavvy-3fb9f5", "url": "https://prompt-motion.com/aistocksavvy-3fb9f5", "creator": "@AIStockSavvy", "start": 6.867, "end": 8.867},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-scale", "introduce-feature"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

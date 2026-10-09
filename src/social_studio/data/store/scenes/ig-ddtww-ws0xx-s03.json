@@ -1,0 +1,21 @@
+{
+  "id": "ig-ddtww-ws0xx-s03",
+  "kind": "scene",
+  "name": "a request types on with one command glowing inline",
+  "looks": "A plain input box sits alone in the dark. A short request types on character by character, and partway through, one phrase inside the sentence -- a named command -- lights up in a glowing accent-coloured pill inline with the rest of the typed text, as the request completes with a blinking cursor.",
+  "build": "DOM input panel, text revealed per character with a blinking cursor at a steady rate; the command token is wrapped in its own span that gains a glow (box-shadow, accent colour) the instant it's typed, staying lit as the rest of the sentence continues typing around it.",
+  "sound": "A soft mechanical key tick per character, a slightly brighter tick as the glowing command token lands.",
+  "duration": [3, 5],
+  "prompt": "Type a short request into a plain input box character by character, and the instant a named command appears inside the sentence, let just that phrase light up in a glowing pill while the rest of the sentence keeps typing around it in plain text -- the command should read as the one 'live' word in an otherwise ordinary instruction.",
+  "techniques": ["terminal-type-on"],
+  "source": {"film": "ig-ddtww-ws0xx", "url": "https://www.instagram.com/p/DdtwW_Ws0Xx/", "creator": "Framer", "start": 10.0, "end": 15.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["product-ui", "type"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

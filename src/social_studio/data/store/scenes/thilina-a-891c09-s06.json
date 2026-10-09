@@ -1,0 +1,21 @@
+{
+  "id": "thilina-a-891c09-s06",
+  "kind": "scene",
+  "name": "a reorderable list settles into a custom order",
+  "looks": "A headline claims the order is yours to choose. A short list of labelled rows sits beneath it, the top rows marked pinned, the rest carrying a small drag handle, as if ready to be picked up and moved.",
+  "build": "Rows fade/rise in top to bottom on a short even stagger; the pinned rows get a small badge that pops in a beat after the row lands; drag handles are a static icon, implying interactivity rather than animating it.",
+  "sound": "A light tick per row landing, a slightly brighter tick on the pinned badge.",
+  "duration": [2.0, 2.5],
+  "prompt": "Claim the order is fully up to the user, then build a short labelled list top to bottom, a couple of rows marked pinned with a small badge, the rest showing a drag handle, so the list reads as yours to rearrange.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "thilina-a-891c09", "url": "https://prompt-motion.com/thilina-a-891c09", "creator": "@thilina_a", "start": 17.5, "end": 20.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["introduce-feature", "show-ease"],
+    "content": ["product-ui"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

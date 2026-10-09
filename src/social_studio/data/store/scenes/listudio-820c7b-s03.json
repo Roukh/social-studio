@@ -1,0 +1,21 @@
+{
+  "id": "listudio-820c7b-s03",
+  "kind": "scene",
+  "name": "A three-step caption cycles over a result card",
+  "looks": "A single result card sits mid-frame, a generated image with its prompt and source thumbnails below it, while beside it a short caption builds line by line (\"See it.\", \"Copy it.\", \"Make it yours.\") each line arriving as the card's button state visibly changes (hover, then a \"Copied\" confirmation).",
+  "build": "Caption lines fade/lift in one at a time (`y:8px -> 0`, ~200ms), each synced to the card's own state change: cursor hover scaling the card slightly, button label swapping to its confirmed state exactly as the matching caption line lands.",
+  "sound": "A light tick on each caption line, a soft confirm chime exactly on the button's state change.",
+  "duration": [2.0, 2.8],
+  "prompt": "Beside a single result card showing its own source and output, build a short caption line by line, each new line landing exactly as a visible change happens on the card itself (a hover, a button confirming an action), so the words and the interface narrate the same moment together.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "listudio-820c7b", "url": "https://prompt-motion.com/listudio-820c7b", "creator": "@listudio", "start": 10.0, "end": 13.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "introduce-feature"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "type"],
+    "complexity": "low"
+  }
+}

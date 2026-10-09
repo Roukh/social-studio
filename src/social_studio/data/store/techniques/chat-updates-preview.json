@@ -1,0 +1,44 @@
+{
+  "id": "chat-updates-preview",
+  "kind": "technique",
+  "name": "Chat updates preview",
+  "looks": "A chat or prompt panel sits beside a live document preview. Each exchange in the chat lands a corresponding change in the preview, with no cursor and no click: an image slots in, a headline and body copy appear, a brand mark paints itself onto a product photo, a button labels itself.",
+  "build": "Two fixed panels, chat narrower than preview. Each chat reply triggers exactly one preview change cued on that reply's landing time. Preview changes are content swaps within fixed layout bounds (image cross-fade, text reveal by clip-path, logo overlay via soft multiply) so the layout never jumps. Hold the finished preview a beat longer than the chat, then pull the frame back slightly (scale 1.04 -> 1) to show the whole document.",
+  "sound": "A soft low pad under the chat typing, a light chime on each preview change, nothing under the final hold.",
+  "duration": [
+    4.0,
+    8.0
+  ],
+  "prompt": "Put a chat or prompt panel beside a live document preview, and land one visible change in the preview for each exchange in the chat, with no cursor and no click, so the document feels like it is building itself in step with the conversation. Hold the finished result a beat, then pull back slightly to show the whole composed piece.",
+  "source": "prompt-motion.com's gallery (justincooperman-e7bbc4), studied 2026-10-09",
+  "tags": {
+    "role": [
+      "demo",
+      "solution"
+    ],
+    "purpose": [
+      "introduce-feature",
+      "show-ease",
+      "show-transformation",
+      "explain-mechanism"
+    ],
+    "content": [
+      "product-ui",
+      "type"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "interface",
+      "annotation"
+    ],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "leonabboud-2103576084499358051-s03",
+  "kind": "scene",
+  "name": "three words hard-cut on their own field colours",
+  "looks": "Three single words hard-cut in turn, each on its own field colour and its own entrance: one with ghost outline walls of the same word drifting behind it, one centred in a bold accent colour, one inside viewfinder brackets with a skewed motion-blur whip.",
+  "build": "kinetic-word-run: one DOM clip per word cut exactly on the beat, each with its own motion (a wall of 1px-stroke outline words at low opacity behind the first, a whip with motion blur and HUD-style viewfinder brackets on the last).",
+  "sound": "A hit on each cut, a glitch texture under the whip.",
+  "duration": [1.2, 1.5],
+  "prompt": "Say a short claim as three single words, one per beat, hard-cut with no crossfade, each on its own field colour and its own kind of entrance (a wall of ghost outline type, a bold centred slam, a skewed motion-blur whip inside viewfinder brackets). Hold the last word with a small persistent frame detail (fps, a bracket) to root it in a technical feel.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "leonabboud-2103576084499358051", "url": "https://x.com/leonabboud/status/2103576084499358051", "creator": "@leonabboud", "start": 4.983, "end": 6.25},
+  "tags": {
+    "role": ["hook", "cta"],
+    "purpose": ["tease", "build-tension"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["type"],
+    "complexity": "medium"
+  }
+}

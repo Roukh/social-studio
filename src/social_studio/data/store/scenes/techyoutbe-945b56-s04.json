@@ -1,0 +1,21 @@
+{
+  "id": "techyoutbe-945b56-s04",
+  "kind": "scene",
+  "name": "a stack of covers fans into a full library",
+  "looks": "Two product covers sit stacked close together under a headline. They separate and more covers fan in beside them, each a different colour, until a row of six sits fanned out evenly, each slightly offset and rotated, reading as one full catalogue.",
+  "build": "Covers are DOM cards with kit.rng-seeded offset x/y/rotation, staggered entrance 10-30% uneven on a spring (kit.springEase), expanding from a tight stack to an even fanned row.",
+  "sound": "A soft cluster of hits as the covers fan out, one per cover landing.",
+  "duration": [5.0, 7.5],
+  "prompt": "Start on two product covers stacked close together, then let them separate and more covers fan in beside them, each a different colour, offset and slightly rotated, until a full row sits fanned out reading as one catalogue under a single headline.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "techyoutbe-945b56", "url": "https://prompt-motion.com/techyoutbe-945b56", "creator": "@techyoutbe", "start": 10.0, "end": 17.5},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-scale", "reveal-product"],
+    "content": ["product-ui", "illustration"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1"],
+    "family": ["collage", "reveal"],
+    "complexity": "medium"
+  }
+}

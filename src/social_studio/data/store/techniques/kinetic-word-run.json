@@ -1,0 +1,20 @@
+{
+  "id": "kinetic-word-run",
+  "kind": "technique",
+  "name": "Kinetic word run",
+  "looks": "Four words, one per beat, hard cuts between them; each word gets its own field colour and its own motion: a glide with letters closing up and weight rising, a slam at 1.8x and -7 degrees, a skewed whip with motion blur inside viewfinder brackets, an italic cascade letter by letter.",
+  "build": "One clip per word, cut exactly on the beat (kit.beat(n, bpm)); weight animates only on a variable font, otherwise scale and tracking; outline-word walls at 6-10% opacity behind the slam.",
+  "sound": "A hit on each cut, a tick under the glide, a slam hit, a whoosh on the whip, a cascade of ticks.",
+  "duration": [1.7, 2.5],
+  "prompt": "Say the message as a run of single words, one per beat, hard-cut. Give every word its own field colour and its own kind of entrance (a glide, a slam, a whip, a cascade) so the run shows range, and hold the last word one beat longer.",
+  "source": "the 2026 Opus showreels; worked example examples/reel-2026-10-06.html, S4a to S4d",
+  "tags": {
+    "role": ["hook", "problem", "cta"],
+    "purpose": ["tease", "build-tension", "establish-brand"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type"],
+    "complexity": "medium"
+  }
+}

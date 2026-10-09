@@ -1,0 +1,20 @@
+{
+  "id": "smoke-plume-morph",
+  "kind": "technique",
+  "name": "Smoke plume morph",
+  "looks": "A monochrome plume of smoke or ink curls and billows across the frame, and for a moment its drifting form reads as a recognisable silhouette before dissolving back into abstract wisps, with a thin accent line tracing alongside it like a flight path.",
+  "build": "A fluid/smoke simulation (stable-fluids solver or curl-noise advected particles as overlapping soft strokes) driven toward a target silhouette mask at its peak-legibility frame, then released back to free drift. The accent line is a separate hand-eased path so it stays crisp against the organic smoke.",
+  "sound": "A very soft, low whoosh under the plume's motion, nothing sharp or percussive.",
+  "duration": [2.0, 3.0],
+  "prompt": "Animate a monochrome plume of smoke or ink billowing across the frame, drifting through a moment where it reads as a recognisable silhouette before dissolving back into abstraction, with a single thin accent line tracing alongside it like a path.",
+  "source": "prompt-motion.com's gallery (lexnlin-038035), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "transition"],
+    "purpose": ["set-mood", "tease"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["generative", "physics"],
+    "complexity": "high"
+  }
+}

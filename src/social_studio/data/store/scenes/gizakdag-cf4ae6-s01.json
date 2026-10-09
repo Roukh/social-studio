@@ -1,0 +1,21 @@
+{
+  "id": "gizakdag-cf4ae6-s01",
+  "kind": "scene",
+  "name": "One point of light on a starfield",
+  "looks": "A near-black starfield holds almost still, a single small yellow dot glowing at its centre with a short caption beneath it naming what the dot is.",
+  "build": "cinematic-atmosphere-hold: a static or barely-panning starfield layer, the dot a single bloom sprite pinned centre-frame with a slow pulse; the caption fades in last, after the frame has held a moment in silence.",
+  "sound": "A low room tone, no hits, until a single soft tone under the caption.",
+  "duration": [1.5, 2.0],
+  "prompt": "Open on almost nothing: a near-still dark field with one small glowing point at its centre and a short caption naming it, holding long enough that the stillness itself sets the mood before anything else happens.",
+  "techniques": ["cinematic-atmosphere-hold"],
+  "source": {"film": "gizakdag-cf4ae6", "url": "https://prompt-motion.com/gizakdag-cf4ae6", "creator": "@gizakdag", "start": 0.0, "end": 2.2},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["set-mood", "tease"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["establishing", "texture"],
+    "complexity": "low"
+  }
+}

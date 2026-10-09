@@ -1,0 +1,21 @@
+{
+  "id": "samuel-yostt-891f87-s06",
+  "kind": "scene",
+  "name": "logo and tagline end card with two CTA pills",
+  "looks": "A small coloured play-button mark and the wordmark settle together above centre, with a short tagline fading in underneath in a mixed weight (plain then muted). Two rounded button placeholders sit side by side beneath, and the frame holds.",
+  "build": "Mark and wordmark fade/scale in together (0.92 -> 1, power3.out); tagline fades/rises 4-6px after; the two CTA pills fade in last on a short stagger and the frame holds at least 1s.",
+  "sound": "A soft confirm tone as the mark lands, the bed fading out under the hold.",
+  "duration": [2.0, 2.5],
+  "prompt": "Close on a small mark and wordmark settling together above centre, a short tagline fading in underneath, and two rounded call-to-action buttons fading in side by side beneath that; hold the finished card for at least a second.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "samuel-yostt-891f87", "url": "https://prompt-motion.com/samuel-yostt-891f87", "creator": "@samuel_yostt", "start": 12.5, "end": 15.061},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "9:16"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

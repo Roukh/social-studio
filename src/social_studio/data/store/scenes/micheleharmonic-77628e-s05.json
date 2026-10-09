@@ -1,0 +1,21 @@
+{
+  "id": "micheleharmonic-77628e-s05",
+  "kind": "scene",
+  "name": "ring icon cycles a live parameter readout and short labels",
+  "looks": "The ring mark returns, now static and centred, and becomes a live display: a mono stat line ticks from a low value up to a higher one beneath it, a short caption explains what the number means, then the same ring hard-cuts through a couple of single-word labels inside its centre before settling on a plain descriptive phrase.",
+  "build": "The ring stays fixed on screen while its caption layer swaps per beat: a mono 'KEY = value' line counts up with no easing as a pure function of time, a caption line fades in below it, then later beats replace the caption with a single word centred inside the ring, each on its own hard cut.",
+  "sound": "A soft tick per digit of the count-up, then a dry tick per word swap.",
+  "duration": [2.5, 4.0],
+  "prompt": "Bring back the film's own mark as a fixed, calm centrepiece and use it as a live readout: a small counter inside or beside it ticks up to a number that proves the claim just made, then the same mark cycles through one-word labels naming who or what the number describes.",
+  "techniques": ["through-line"],
+  "source": {"film": "micheleharmonic-77628e", "url": "https://prompt-motion.com/micheleharmonic-77628e", "creator": "@MicheleHarmonic", "start": 10.97, "end": 15.97},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-scale", "show-data", "explain-mechanism"],
+    "content": ["data", "type"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["through-line", "data"],
+    "complexity": "medium"
+  }
+}

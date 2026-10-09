@@ -1,0 +1,21 @@
+{
+  "id": "sachaarbonel-8f14f4-s03",
+  "kind": "scene",
+  "name": "one sentence becomes a checklist",
+  "looks": "A plain-language instruction types into a single input field and the submit arrow presses down. A panel opens beneath the input and a short checklist builds top to bottom, one line per beat, each landing with a green check and a couple of small chips naming what it picked.",
+  "build": "Input text revealed with kit.typeOn; submit scale 1 -> 0.88 -> 1 on power3.out; checklist lines fade/rise in top to bottom on an uneven stagger, each getting a check-mark pop and optional trailing chips.",
+  "sound": "A soft key tick per character, a click on submit, then a light tick per checklist line landing.",
+  "duration": [3.0, 4.0],
+  "prompt": "Type one plain-language instruction into a single input and press submit, then let a short checklist build underneath it top to bottom, one line per beat, each line landing with a check mark and a couple of small chips naming exactly what was understood. Keep the instruction and the picks generic, not a real brand's data.",
+  "techniques": ["prompt-bar-generate", "list-stack-reveal"],
+  "source": {"film": "sachaarbonel-8f14f4", "url": "https://prompt-motion.com/sachaarbonel-8f14f4", "creator": "@sachaarbonel", "start": 10.0, "end": 15.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "introduce-feature", "explain-mechanism"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

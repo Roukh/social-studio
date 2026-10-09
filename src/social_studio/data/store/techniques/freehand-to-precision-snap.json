@@ -1,0 +1,20 @@
+{
+  "id": "freehand-to-precision-snap",
+  "kind": "technique",
+  "name": "Freehand-to-precision snap",
+  "looks": "A loose hand-drawn squiggle, traced by a small pen glyph at its tip over a faint isometric grid, snaps the instant it finishes into a precise straightened version of the same shape, with angle and length callouts popping in at each vertex.",
+  "build": "Rough path as a jittered SVG stroke revealed with strokeDashoffset; snap by lerping resampled points from rough to straightened targets on back.out for a slight overshoot; callouts key in staggered 0.05-0.08s after the snap.",
+  "sound": "A soft pencil scratch under the sketch, a crisp snap hit as it straightens, a tick per callout.",
+  "duration": [2.0, 3.0],
+  "prompt": "Show a loose, hand-drawn sketch being traced by a small pen marker, over a faint technical grid. The instant it completes, snap it into a precise, straightened version of the same shape, with measurement callouts popping in at each corner. Let the rough and the precise read as the same idea, before and after.",
+  "source": "prompt-motion.com's gallery (adamdesgns-478d6d), studied 2026-10-09",
+  "tags": {
+    "role": ["intro", "problem", "solution"],
+    "purpose": ["show-transformation", "show-ease", "show-craft"],
+    "content": ["abstract", "illustration"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["annotation", "reveal"],
+    "complexity": "medium"
+  }
+}

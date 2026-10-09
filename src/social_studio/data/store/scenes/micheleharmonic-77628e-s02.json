@@ -1,0 +1,21 @@
+{
+  "id": "micheleharmonic-77628e-s02",
+  "kind": "scene",
+  "name": "ring mark closes into an eyelid then opens as a glowing eye, word by word",
+  "looks": "A short declarative sentence lands one or two words per hard cut over a stark flip between black and white fields. In step with it, the ring mark from the opening thins into a closed eyelid line, then arcs open into a wide eye whose iris is built from that same ring of pebble shapes, glowing from within.",
+  "build": "The ring's points interpolate to a thin horizontal eyelid shape, then the eyelid arcs open while the ring reappears inside the opening as the iris, lit from within (same resample-and-lerp morph approach as a shape morph). Each word is its own hard-cut layer on the beat, alternating light and dark fields with a strong chromatic-aberration glitch on every cut.",
+  "sound": "A dry tick on each word cut, a soft whoosh as the eye opens, and a rising hum under the glow.",
+  "duration": [1.2, 1.8],
+  "prompt": "Say a short, punchy claim one or two words per hard cut, flipping the field between a light and a dark ground each time, while the film's own mark morphs from a closed line into an eye whose iris is built from that same mark, so the sentence lands right as the mark reveals it is also an eye.",
+  "techniques": ["through-line", "kinetic-word-run"],
+  "source": {"film": "micheleharmonic-77628e", "url": "https://prompt-motion.com/micheleharmonic-77628e", "creator": "@MicheleHarmonic", "start": 6.37, "end": 7.97},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "build-tension", "establish-brand"],
+    "content": ["type", "abstract"],
+    "energy": ["punch"],
+    "format": ["9:16"],
+    "family": ["through-line", "type", "morph"],
+    "complexity": "high"
+  }
+}

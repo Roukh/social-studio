@@ -1,0 +1,21 @@
+{
+  "id": "samuel-yostt-891f87-s05",
+  "kind": "scene",
+  "name": "a tilted mosaic of content photos drifts behind the claim",
+  "looks": "A dense grid of small square photos, people and places in different everyday settings, tilts slightly in space and drifts slowly, while a short headline sits over it stating the viewer never has to film or edit any of it.",
+  "build": "Photo tiles are DOM squares in a shared perspective with a fixed shallow tilt; each row drifts at a slightly different speed (a few px/s) for parallax, with a small per-tile rotation jitter from kit.rng(seed) so the grid never reads as a flat raster.",
+  "sound": "A low ambient bed with no hits, letting the headline carry the beat.",
+  "duration": [1.0, 1.5],
+  "prompt": "Hold a dense, slightly tilted grid of small everyday photos drifting gently at different speeds per row for parallax, with a short headline over it making the point that none of it had to be filmed or edited by hand.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "samuel-yostt-891f87", "url": "https://prompt-motion.com/samuel-yostt-891f87", "creator": "@samuel_yostt", "start": 11.3, "end": 12.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-scale", "show-ease"],
+    "content": ["photo"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "9:16"],
+    "family": ["collage"],
+    "complexity": "low"
+  }
+}

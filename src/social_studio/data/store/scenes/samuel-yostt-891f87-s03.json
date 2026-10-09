@@ -1,0 +1,21 @@
+{
+  "id": "samuel-yostt-891f87-s03",
+  "kind": "scene",
+  "name": "fanned phone mockups show the content and where it posts",
+  "looks": "A headline names a content type, then two or three phone mockups fan out from a main centred one, each slightly offset in position and rotation, each screen showing a different piece of short-form video content. The headline changes and a row of platform icons fades in below a fresh set of fanned phones, now posting the same content across them.",
+  "build": "Phone mockups are DOM panels with kit.rng-seeded offset x/y/rotation, staggered entrance 10-30% uneven on a spring; platform icons fade/scale in on a short even stagger beneath a second fanned set.",
+  "sound": "A soft cluster of hits as the phones fan out, a light tick per platform icon landing.",
+  "duration": [4.5, 5.0],
+  "prompt": "Fan two or three phone mockups out from a centred one, each offset in position and rotation, each screen showing different short-form content, while a headline names what kind of content it is; follow with a row of platform icons fading in below a fresh fanned set to show the same content going out everywhere.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "samuel-yostt-891f87", "url": "https://prompt-motion.com/samuel-yostt-891f87", "creator": "@samuel_yostt", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-scale", "reveal-product"],
+    "content": ["product-ui", "device"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "9:16"],
+    "family": ["interface", "collage"],
+    "complexity": "medium"
+  }
+}

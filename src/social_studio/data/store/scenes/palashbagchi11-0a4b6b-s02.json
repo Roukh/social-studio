@@ -1,0 +1,21 @@
+{
+  "id": "palashbagchi11-0a4b6b-s02",
+  "kind": "scene",
+  "name": "a percentage climbs while a dot grid fills with the share it names",
+  "looks": "A big percentage climbs from zero, and beside it a tidy grid of small dots fills in, accent-coloured dots marking the exact share the percentage names. The number and the grid keep climbing together through several readings, each one a little worse, under a small mono audit header.",
+  "build": "The counter digits roll up tied to the same clock driving the dot grid; dots recolour from neutral to accent as the running share crosses their index, stagger by column so the fill reads left to right. The audit header (date, sample size) sits static throughout as a mono readout.",
+  "sound": "A soft granular patter as dots recolour, a rising tick under the counter, a slightly harder tick each time the number worsens.",
+  "duration": [2.4, 3.0],
+  "prompt": "Under a small audit-style header, count a percentage up while a tidy grid of dots fills in beside it with exactly that share, in the accent colour. Let the pair climb through two or three readings, each one plainly worse than the last, so the number and the picture of it build the same point together.",
+  "techniques": ["dot-population-count"],
+  "source": {"film": "palashbagchi11-0a4b6b", "url": "https://prompt-motion.com/palashbagchi11-0a4b6b", "creator": "@PalashBagchi11", "start": 4.9, "end": 9.8},
+  "tags": {
+    "role": ["problem", "proof"],
+    "purpose": ["show-data", "show-contrast"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "particles"],
+    "complexity": "medium"
+  }
+}

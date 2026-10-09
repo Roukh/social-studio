@@ -1,0 +1,20 @@
+{
+  "id": "command-chip-cycle",
+  "kind": "technique",
+  "name": "Command chip cycle",
+  "looks": "A glowing rounded pill types in and then cycles through two or three short names, one per beat, with a quick scale-and-opacity swap on each change. The last name holds, larger and brighter, as the shot's payoff.",
+  "build": "Build the pill as DOM with a box-shadow glow plus a blurred duplicate layer behind it. Type the first name on, cut the rest in on the beat, and ramp the final glow up from the clock as it lands.",
+  "sound": "A blip per swap and a riser into the final brighten.",
+  "duration": [1.7, 2.5],
+  "prompt": "Show a glowing pill or chip that types in a short label, then cycles through two or three alternative words on the beat before settling, brighter and larger, on one final answer. Use it for any moment that lands on a single choice: a plan, a mode, a feature, a name.",
+  "source": "Framer's \"skills\" ad (instagram.com/p/DdtwW_Ws0Xx), studied 2026-10-07.",
+  "tags": {
+    "role": ["solution", "cta"],
+    "purpose": ["introduce-feature", "land-cta"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type", "interface"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ticker-tape-marquee",
+  "kind": "technique",
+  "name": "Ticker tape marquee",
+  "looks": "A thin strip along the top or bottom edge scrolls a continuous row of short data tokens sideways at a steady, unending speed, like a stock ticker or a news wire running under the main scene.",
+  "build": "A DOM row of tokens duplicated end to end inside an overflow:hidden strip; translateX runs linearly from the clock with no easing so the loop never stutters or stops.",
+  "sound": "None, or a very quiet high-frequency tick bed.",
+  "duration": [1.5, 3.0],
+  "prompt": "Run a thin strip of short data tokens scrolling sideways along one edge of the frame, continuously and without easing, like a live wire. Keep it low-contrast and small, a texture under the main content rather than something to read.",
+  "source": "prompt-motion.com's gallery (aistocksavvy-3fb9f5), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "whole-film"],
+    "purpose": ["set-mood", "show-data"],
+    "content": ["data", "type"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "texture"],
+    "complexity": "low"
+  }
+}

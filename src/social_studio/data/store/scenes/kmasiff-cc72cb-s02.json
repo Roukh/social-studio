@@ -1,0 +1,21 @@
+{
+  "id": "kmasiff-cc72cb-s02",
+  "kind": "scene",
+  "name": "Live check steps across a verification rail",
+  "looks": "A single input field holds an email address with a button reading \"Checking...\"; beneath it a row of labelled checkpoints (syntax, disposable, dns, smtp, score) sits on a connecting line. As the check runs, each checkpoint fills solid and the connecting line extends to it, the current one pulsing larger than the rest, the ones ahead still hollow.",
+  "build": "Checkpoints are small circles on a horizontal line; filled state is a solid fill with a connecting stroke drawn up to it (`strokeDashoffset`), hollow state is an outline only. The active node pulses (`scale 1 -> 1.15 -> 1`, looping) until it resolves to filled and the next node starts its pulse. The button label cross-fades between its waiting and resolved text.",
+  "sound": "A soft tick as each checkpoint fills, a slightly different pitch per step so the sequence climbs, a resolving chime when the last one lands.",
+  "duration": [2.0, 2.8],
+  "prompt": "Show a single input running through a short checklist of validation steps laid out on a connecting line: each step fills solid and the line extends to it in turn, the current step pulsing while later ones stay hollow, until the whole row is filled and the result resolves.",
+  "techniques": ["timeline-scrubber-hud"],
+  "source": {"film": "kmasiff-cc72cb", "url": "https://prompt-motion.com/kmasiff-cc72cb", "creator": "@KmAsiff", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

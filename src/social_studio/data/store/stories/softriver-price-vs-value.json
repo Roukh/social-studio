@@ -1,0 +1,26 @@
+{
+  "id": "softriver-price-vs-value",
+  "kind": "story",
+  "name": "$47 branding vs. $5,000 branding",
+  "brand": "Softriver.co",
+  "source": {"url": "https://www.instagram.com/softriver.co/reel/DeHz1JkoDdX/", "platform": "instagram", "posted": "2026-10-05", "duration": 12.24},
+  "object": "Softriver's full brand-identity package, shown against a cheap generic logo as the point of contrast",
+  "audience": "founders comparing a cheap logo gig to a real branding agency before they spend",
+  "message": "This video tells founders shopping for a logo that a $47 mark looks shiny for a second, but a $5,000 Softriver brand system is the only one built with the strategy and assets to actually work everywhere.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 2.5, "what": "The creative director sits close to camera in a softly lit office and holds up a card reading the price contrast, setting the comparison he's about to make.", "copy": "$47 branding vs. $5,000 branding", "voice": "narration"},
+    {"role": "problem", "start": 2.5, "end": 5.0, "what": "A $47 label appears over a generic gold-on-black 'Mystify' logo mockup collage: building signage, a phone app icon, a business card. It looks fine at a glance but generic.", "copy": "$47", "voice": "narration"},
+    {"role": "solution", "start": 5.0, "end": 10.0, "what": "A $5000 label cuts to the real brand system: a typography spec sheet (Helvetica Neue in several weights), a brand-imagery mood board, and a business-card and stationery layout, each held a beat so the craft is visible.", "copy": "$5000 — primary typeface, brand imagery, brand stationery", "voice": "narration"},
+    {"role": "cta", "start": 10.0, "end": 12.235, "what": "The sequence closes on the finished stationery shot while he poses the rhetorical question that doubles as the pitch, pushing viewers toward the bio link.", "copy": "So what do you think you're actually paying for?", "voice": "narration"}
+  ],
+  "cta": "No on-screen button — the close is a rhetorical question ('what are you really paying for?') paired with the caption's 'visit softriver.co / DM to get started', so the proof itself is the pitch.",
+  "why": "The before/after price tag is instant and needs no narration to parse: one glance at the generic $47 mark next to the full $5,000 system (typography, imagery, stationery) tells the story. Ending on the rhetorical question rather than a hard sell lets the comparison do the persuading, which suits a scroll-stopping reel under 15 seconds.",
+  "tags": {
+    "goal": ["proof"],
+    "product": ["agency"],
+    "structure": ["before-after-cta"],
+    "voice": ["narration"],
+    "energy": ["punch"],
+    "format": ["9:16"]
+  }
+}

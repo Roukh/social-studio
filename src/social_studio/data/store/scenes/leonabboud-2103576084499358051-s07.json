@@ -1,0 +1,21 @@
+{
+  "id": "leonabboud-2103576084499358051-s07",
+  "kind": "scene",
+  "name": "a star outline morphs around drifting blobs",
+  "looks": "A thin outline shape morphs slowly between a star and an organic blob, rotating gently, while several small dark blobs of different sizes drift loosely inside it under a goo filter, never quite settling.",
+  "build": "metaball-morph: the outline resamples each shape to the same point count and interpolates on power3.inOut; the inner blobs sit under an feGaussianBlur plus feColorMatrix goo filter so they merge and separate smoothly as they drift.",
+  "sound": "A soft wobble under the drift, a tick on each outline change.",
+  "duration": [1.6, 2.0],
+  "prompt": "Morph a thin outline shape slowly between a star and an organic blob while it rotates gently, with a handful of small dark blobs of different sizes drifting loosely inside it, merging and separating under a soft goo effect. Use it as a playful, abstract identity beat that never fully settles.",
+  "techniques": ["metaball-morph"],
+  "source": {"film": "leonabboud-2103576084499358051", "url": "https://x.com/leonabboud/status/2103576084499358051", "creator": "@leonabboud", "start": 11.433, "end": 13.283},
+  "tags": {
+    "role": ["transition", "intro"],
+    "purpose": ["set-mood", "show-craft"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["morph", "shape"],
+    "complexity": "high"
+  }
+}

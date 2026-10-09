@@ -1,0 +1,21 @@
+{
+  "id": "jesscaroline7-1ff7cb-s02",
+  "kind": "scene",
+  "name": "Question headline cards",
+  "looks": "On a flat accent-colour card, a two-line question headline sits over a huge ghost punctuation mark watermarked behind it, with a single emoji-style icon and a thin progress dash rail underneath marking position in a sequence. The card cuts to a near-identical one with new copy and a new icon, same layout, same rhythm, then whip-pans into the next section.",
+  "build": "Static card per question, hard cut on the beat; the headline is two text rows with a shared baseline grid, the ghost watermark a single oversized glyph at ~15% opacity behind the type. The progress rail is a row of short dashes with the active one filled solid; it advances one dash per card. The whip-pan out is a fast horizontal blur-scale (1x to 1.4x in under 0.15s) into the next scene's hard cut.",
+  "sound": "A dry tick on each card's arrival, a short whoosh under the whip-pan.",
+  "duration": [3.5, 5.0],
+  "prompt": "Ask the viewer a short, punchy question on a flat colour card, a huge ghost punctuation mark behind the type for scale, with a small icon underneath standing in for the topic. Cut to a near-identical card with a new question and icon, same rhythm, and track position with a thin progress rail so the pair reads as a short set.",
+  "techniques": ["ghost-glyph-headline-card"],
+  "source": {"film": "jesscaroline7-1ff7cb", "url": "https://prompt-motion.com/jesscaroline7-1ff7cb", "creator": "@jesscaroline7", "start": 5.0, "end": 9.9},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["tease", "build-tension"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type", "open"],
+    "complexity": "low"
+  }
+}

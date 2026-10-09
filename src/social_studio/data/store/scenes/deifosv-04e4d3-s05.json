@@ -1,0 +1,21 @@
+{
+  "id": "deifosv-04e4d3-s05",
+  "kind": "scene",
+  "name": "Multiplayer globe into end card",
+  "looks": "A dark wireframe globe spins slowly, glowing dot nodes scattered across it with thin connecting lines drawing between a few of them, beside a two-line claim about playing anyone, anywhere. It cuts to the app icon, wordmark, a row of small feature pills and the URL, then a final accent-coloured call-to-action button.",
+  "build": "The globe is a low-poly or wireframe sphere (three.js or an SVG projection) with seeded node positions; connecting lines draw on with strokeDashoffset between node pairs on a stagger. The end card locks up icon, wordmark and pills with a short stagger, and the CTA button scales in last with a soft glow.",
+  "sound": "A low shimmer under the globe, a soft chime on the connecting lines, and a confirm hit on the CTA button.",
+  "duration": [2.5, 3.5],
+  "prompt": "Make the product's reach visible: a spinning wireframe globe with glowing nodes and connecting lines stands in for a global network, paired with a short claim. Close on the logo, name, a few feature pills, the URL and one bright call-to-action button.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "deifosv-04e4d3", "url": "https://prompt-motion.com/deifosv-04e4d3", "creator": "@deifosv", "start": 25.0, "end": 29.4},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["show-scale", "land-cta", "establish-brand"],
+    "content": ["map", "logo"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "medium"
+  }
+}

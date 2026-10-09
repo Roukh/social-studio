@@ -1,0 +1,20 @@
+{
+  "id": "blur-echo-statement-card",
+  "kind": "technique",
+  "name": "Blur echo statement card",
+  "looks": "A short eyebrow label and a two-line statement, a plain first line and a softer italic second line, fade and rise into a flat gradient field, with the exact art that proves the line sitting enlarged and heavily blurred behind the text as a soft colour echo. The card holds, then hard-cuts to the next beat's label, lines and echo together.",
+  "build": "Eyebrow label fades in first (~0.15s); first line rises 6-8px on power2.out; second italic line follows after a short pause at lower opacity; background is the same raster scaled 1.15-1.3x with blur(40-60px) and a gradient wash, cross-fading to the next beat's source on the cut.",
+  "sound": "A soft intake on the label, a light rise under each line landing, silence held through the hold.",
+  "duration": [2.0, 5.0],
+  "prompt": "Fade in a short eyebrow label and a two-line statement, a plain line then a softer italic line, over a flat gradient field with the proving art enlarged and heavily blurred behind the text as a colour echo. Hold, then hard-cut straight into the next beat's label, lines and echoed art together.",
+  "source": "prompt-motion.com's gallery (sachaarbonel-8f14f4), studied 2026-10-09",
+  "tags": {
+    "role": ["intro", "problem", "solution", "transition"],
+    "purpose": ["set-mood", "establish-brand", "connect-scenes"],
+    "content": ["type", "photo", "product-ui"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type", "texture"],
+    "complexity": "low"
+  }
+}

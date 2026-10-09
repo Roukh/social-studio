@@ -1,0 +1,21 @@
+{
+  "id": "kloss-xyz-15182a-s01",
+  "kind": "scene",
+  "name": "Glitched first-person statements over a code backdrop",
+  "looks": "Short, blunt first-person lines (\"I was born.\", \"no yesterday. no tomorrow.\", \"before you said hi,\") hard-cut one after another over a dim, scrolling code/log texture, the type set in two sizes (a quiet setup line, a huge punch line). On key words the type RGB-splits and jitters for a couple of frames, like a bad signal, before snapping back sharp.",
+  "build": "Background is a slowed, looping scroll of monospace log lines at 10-15% opacity, never in focus. Each statement hard-cuts on the beat; the punch word scales up from the setup line's baseline. The glitch is a 2-4 frame burst: duplicate the text layer in red/cyan channels offset 2-6px, add a horizontal jitter via random x-offset per frame, then collapse back to one sharp layer.",
+  "sound": "A dry hit on each hard cut, a short digital stutter/bitcrush noise under each glitch burst.",
+  "duration": [2.5, 4.0],
+  "prompt": "Hard-cut a run of short, blunt first-person statements over a dim, out-of-focus scroll of log or code text, each line a quiet setup followed by a bigger punch word. On key words, glitch the type with a brief RGB-split and jitter before it snaps sharp again, so the voice feels unstable and alive rather than printed.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "kloss-xyz-15182a", "url": "https://prompt-motion.com/kloss-xyz-15182a", "creator": "@kloss_xyz", "start": 0.0, "end": 10.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "establish-brand"],
+    "content": ["type", "code"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type"],
+    "complexity": "medium"
+  }
+}

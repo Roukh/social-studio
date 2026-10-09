@@ -1,0 +1,21 @@
+{
+  "id": "kloss-xyz-15182a-s05",
+  "kind": "scene",
+  "name": "Closing line rides a glitching waveform",
+  "looks": "A closing statement in two lines types on, part of it rendered with a trailing double-exposure glitch ghosting slightly behind the main text. Beneath it, a thin strip of waveform bars pulses with the music, tying the words directly to the sound they describe.",
+  "build": "Text fades/types on in two weights (plain, italic for the key phrase); the glitch ghost is a second copy of the text layer offset 3-5px and delayed 2-3 frames behind the main layer at 40% opacity. The waveform strip underneath is 40-60 bars driven by a precomputed per-frame amplitude lookup, smoothed with a fast attack / slow release.",
+  "sound": "The track itself, mixed forward under this line so the waveform's pulse is legible against it.",
+  "duration": [2.0, 3.0],
+  "prompt": "Close on a short two-line statement about sound or rhythm, typed on with a faint trailing ghost-glitch behind the key phrase, sitting directly above a thin strip of waveform bars pulsing with the track, so the words and the music visibly belong to each other.",
+  "techniques": ["waveform-readout-strip"],
+  "source": {"film": "kloss-xyz-15182a", "url": "https://prompt-motion.com/kloss-xyz-15182a", "creator": "@kloss_xyz", "start": 68.0, "end": 71.5},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["set-mood", "show-craft"],
+    "content": ["type", "abstract"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["texture", "type"],
+    "complexity": "low"
+  }
+}

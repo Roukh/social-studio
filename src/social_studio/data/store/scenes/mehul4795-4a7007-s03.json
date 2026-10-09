@@ -1,0 +1,21 @@
+{
+  "id": "mehul4795-4a7007-s03",
+  "kind": "scene",
+  "name": "Language pills pop in as the count climbs",
+  "looks": "A handful of language-name pills pop into a loose cluster one at a time while a big number beneath them rolls up toward its final count, a small \"+\" sign landing last to signal there are more than shown, and a short caption naming how they were detected.",
+  "build": "Pills pop in with a light stagger (60-90ms apart) and a touch of overshoot, scattered rather than gridded so the cluster feels organic. The counter rolls up on the same timeline the pills are arriving, reaching its final value just as the last pill and the trailing \"+\" land.",
+  "sound": "A light pop per pill, a rising tick under the counter, a brighter chime as the plus sign lands.",
+  "duration": [2.0, 2.5],
+  "prompt": "Pop a loose, organic cluster of small label pills into frame one at a time while a big number beneath them rolls up to its final count, landing a trailing plus sign exactly as the count and the last pill both settle, to claim breadth without listing everything.",
+  "techniques": ["command-chip-cycle", "data-infographic"],
+  "source": {"film": "mehul4795-4a7007", "url": "https://prompt-motion.com/mehul4795-4a7007", "creator": "@mehul4795", "start": 10.0, "end": 15.0},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-scale", "show-data"],
+    "content": ["type", "data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "type"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "mehul4795-4a7007-s02",
+  "kind": "scene",
+  "name": "A scan line pulls text out of a photo",
+  "looks": "A photographed note sits inside corner brackets like a scan target; a thin highlight line sweeps down across it once, and the instant it passes, a card beneath fills in with the extracted text, a small elapsed-time badge and a copy button settling with it.",
+  "build": "Scan line is a single horizontal bar with a soft glow, translating top to bottom over 500-600ms on a linear ease (deliberately mechanical, not eased, to read as a scan rather than a wipe). Extracted-text card cross-fades in exactly as the line exits the bottom, text already fully set (no typewriter), elapsed badge and copy button fading in last.",
+  "sound": "A rising electronic sweep under the scan line, a soft confirm tick as the text card lands.",
+  "duration": [1.8, 2.5],
+  "prompt": "Frame a photographed document inside corner brackets like a scan target, sweep a single glowing line down across it once, and the instant it clears the bottom, fill in a card beneath with the extracted text plus a small time badge and a copy button.",
+  "techniques": ["skeleton-to-result-reveal"],
+  "source": {"film": "mehul4795-4a7007", "url": "https://prompt-motion.com/mehul4795-4a7007", "creator": "@mehul4795", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["introduce-feature", "show-ease"],
+    "content": ["product-ui", "photo"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["interface", "reveal"],
+    "complexity": "low"
+  }
+}

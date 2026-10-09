@@ -1,0 +1,21 @@
+{
+  "id": "jesscaroline7-1ff7cb-s03",
+  "kind": "scene",
+  "name": "Grid of dots counts up and scatters",
+  "looks": "A big number rolls up while, beneath it, a tidy grid of small dots stands for the count, one dot per place. A vertical band of the grid highlights in the accent colour as the number climbs, then the grid's lower edge sheds dots that drift and fall away, and the whole field relaxes from a tidy grid into a loose, clustered scatter with a few outlier dots labelled by name at the margins.",
+  "build": "Dot grid at fixed spacing with ±1-2px jitter; recolor the highlighted column via index range on a column stagger. Edge dots animate position + opacity to 0 on a loose stagger (physics-flavoured drop, not a hard cut) as the count rises. Final state tweens every remaining dot from its grid (x,y) to a point inside a soft circular scatter (r = R*sqrt(random())), with small mono labels pinned to the handful of dots sitting outside the main cluster.",
+  "sound": "A soft granular patter as dots settle and fall, a tick on each digit of the roll-up, a slightly firmer tick when the accent column highlights.",
+  "duration": [4.0, 6.0],
+  "prompt": "Show a running count rolling up above a field of small dots, one dot standing for one unit of the total. Highlight a slice of the field in the accent colour as the number climbs, then let the whole field loosen from a tidy grid into a natural, clustered scatter, with a couple of outliers labelled by name at the edges to show what the main cluster doesn't cover.",
+  "techniques": ["dot-population-count"],
+  "source": {"film": "jesscaroline7-1ff7cb", "url": "https://prompt-motion.com/jesscaroline7-1ff7cb", "creator": "@jesscaroline7", "start": 10.3, "end": 20.2},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "particles"],
+    "complexity": "medium"
+  }
+}

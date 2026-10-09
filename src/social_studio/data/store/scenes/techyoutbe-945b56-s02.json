@@ -1,0 +1,21 @@
+{
+  "id": "techyoutbe-945b56-s02",
+  "kind": "scene",
+  "name": "a system diagram builds itself edge by edge",
+  "looks": "A headline claims the same idea is quick to see. Below it a small architecture diagram builds itself live: a line draws from one labelled box out to the next, the new box fades in the instant the line lands, branching out from a single entry point into several services and their stores.",
+  "build": "Nodes at fixed precomputed layout coordinates; each edge strokes on with strokeDashoffset (power2.out); the target node fades/scales in once its edge lands; one edge at a time in sequence, branching outward.",
+  "sound": "A soft tick per edge connecting, a slightly brighter tick when a node lands.",
+  "duration": [4.5, 5.0],
+  "prompt": "Claim that the same idea is quick to see, then build a small system diagram live underneath: a line draws from one box to the next, the new box fading in the instant it lands, branching out from a single entry point until the whole diagram sits connected.",
+  "techniques": ["node-graph-build"],
+  "source": {"film": "techyoutbe-945b56", "url": "https://prompt-motion.com/techyoutbe-945b56", "creator": "@techyoutbe", "start": 2.5, "end": 7.5},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["data", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1"],
+    "family": ["data", "structure"],
+    "complexity": "medium"
+  }
+}

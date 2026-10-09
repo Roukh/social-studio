@@ -1,0 +1,21 @@
+{
+  "id": "himanshutwtxs-2103495232637882858-s04",
+  "kind": "scene",
+  "name": "A comet loops through a dotted flow field",
+  "looks": "A dark field of faint dots arranged along soft flow-lines sits still, then a comet of coloured dots traces a looping path through it, its tail tapering off in size and opacity as it goes, reading as a single idea moving through a system of many.",
+  "build": "Background dots are static, placed along a precomputed vector-flow pattern at very low opacity. The comet is a chain of particles following a looping bezier/figure-8 path, each particle spawned a few frames behind the one before it and fading/shrinking with age so the tail reads as a trail, not a train of identical dots.",
+  "sound": "A soft whoosh that rises and falls with the comet's speed around the loop, nothing under the static background.",
+  "duration": [2.0, 2.5],
+  "prompt": "Over a dark field of faint dots arranged along soft flow-lines, trace a looping comet of coloured dots through it, its tail tapering off in size and opacity as it travels, so a single idea reads as moving purposefully through a larger, quieter system.",
+  "techniques": ["particle-flow-comet"],
+  "source": {"film": "himanshutwtxs-2103495232637882858", "url": "https://x.com/himanshutwtxs/status/2103495232637882858", "creator": "@himanshutwtxs", "start": 8.4, "end": 13.1},
+  "tags": {
+    "role": ["transition", "whole-film"],
+    "purpose": ["set-mood", "show-craft"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["particles", "generative"],
+    "complexity": "medium"
+  }
+}

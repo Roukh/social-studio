@@ -1,0 +1,21 @@
+{
+  "id": "listudio-820c7b-s04",
+  "kind": "scene",
+  "name": "Model picker generates a strip of results",
+  "looks": "A prompt bar with a model-picker dropdown open beside it sits above a row of placeholder tiles; as generation runs, the tiles resolve one after another into finished images of the same described scene, each slightly different, while the bar beneath shows \"Generating...\" before settling.",
+  "build": "Dropdown list items fade/stagger in on open (40-60ms apart); result tiles cross-fade from a soft placeholder to the finished image independently, not in row order, 300-400ms each. The prompt bar's status label swaps from \"Generating...\" to idle once the last tile resolves.",
+  "sound": "A soft click on the dropdown opening, a light whoosh per tile resolving, a confirming tick when the bar returns to idle.",
+  "duration": [2.0, 2.8],
+  "prompt": "Open a model picker beside a prompt bar, then resolve a row of placeholder tiles into finished variations of the same scene, each tile settling on its own independent timing rather than in order, with the prompt bar's status label confirming once everything has landed.",
+  "techniques": ["skeleton-to-result-reveal"],
+  "source": {"film": "listudio-820c7b", "url": "https://prompt-motion.com/listudio-820c7b", "creator": "@listudio", "start": 15.0, "end": 18.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "introduce-feature"],
+    "content": ["product-ui", "photo"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "reveal"],
+    "complexity": "medium"
+  }
+}

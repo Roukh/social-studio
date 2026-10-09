@@ -1,0 +1,31 @@
+{
+  "id": "elevenlabs-v4-launch",
+  "kind": "story",
+  "name": "Eleven v4: a speech model that forms, not just speaks",
+  "brand": "ElevenLabs",
+  "source": {
+    "url": "https://www.youtube.com/watch?v=th_tXR2QQ6U",
+    "platform": "youtube",
+    "posted": "2026-09-28",
+    "duration": 156.2
+  },
+  "object": "Eleven v4 and Eleven v4 Turbo, ElevenLabs' flagship text-to-speech model generation",
+  "audience": "Creators, filmmakers and AI builders deciding which speech model sounds most human",
+  "message": "This video tells creators that Eleven v4 doesn't just pronounce a script, it performs it — catching nerves, intimacy, insistence and mid-scene translation exactly as prompted, with nothing hand-edited afterward.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 13.63, "what": "Abstract generative particle-faces drift over a plain background while an opening disclaimer sets the rules of the demo, landing on the model's name and tagline.", "copy": "Everything you're about to hear was generated from the prompts shown, with no edits or modifications. Just 11v4 — a speech model that doesn't just speak, it forms.", "voice": "narration"},
+    {"role": "demo", "start": 13.63, "end": 60.0, "what": "A string of short staged voice performances plays over the particle visuals, opening with an actor nervously prepping on a film set as a director calls for quiet and action.", "copy": "\"Just give me a moment.\" / \"Quiet on set.\" / \"I'm ready.\" / \"Rolling... and action.\"", "voice": "dialogue"},
+    {"role": "proof", "start": 60.0, "end": 135.0, "what": "More vignettes follow — an abstract title card reading \"Intent,\" then further voice performances pushing into different emotional registers, including a line asking to translate something into Mandarin so a mother with limited English can understand it.", "copy": "\"...translate this into Mandarin so my mother can understand it? Her English is not so good.\"", "voice": "dialogue"},
+    {"role": "cta", "start": 135.0, "end": 156.2, "what": "Music swells back in as the film returns to its abstract visuals and closes on the model's name and positioning line.", "copy": "11v4 — the next frontier of human-level communication.", "voice": "narration"}
+  ],
+  "cta": "No product link or offer; the closing line positions the model itself — \"11v4, the next frontier of human-level communication\" — as the reason to go try it, typical of a flagship model launch film rather than a feature pitch.",
+  "why": "It works by refusing to explain itself: instead of a narrator describing what v4 can do, the film stacks short, specific vocal performances (nerves, translation, insistence) back to back and simply states up front that none of it was touched up. That upfront disclaimer is what turns a voice reel into proof rather than a demo reel.",
+  "tags": {
+    "goal": ["launch"],
+    "product": ["ai-audio", "ai-model"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["narration", "dialogue"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

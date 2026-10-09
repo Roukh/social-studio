@@ -1,0 +1,21 @@
+{
+  "id": "francoxavier33-d2dfd2-s03",
+  "kind": "scene",
+  "name": "Agents join a shared thread one by one",
+  "looks": "A headline lands, then a shared log card shows a task header with a small row of helper badges. Below it a run of short join lines lands one at a time, each in its own colour, naming the helper that joined and what it picked up, the badge row above growing by one with each new line until a final schedule card resolves beneath it.",
+  "build": "script-accent-underline for the headline; the join lines use list-stack-reveal's beat-by-beat landing but keep full colour and opacity once landed, since each is a distinct peer rather than a fading history. The badge row's count updates in lockstep with each new line.",
+  "sound": "A soft blip per helper joining, pitched differently per helper, and a settle tone on the final schedule card.",
+  "duration": [2.5, 3.5],
+  "prompt": "Show several specialised helpers coordinating in one place: a shared log gains one short, colour-coded line per helper as each joins and states what it is handling, a badge row above growing to match, until the thread resolves into one finished plan.",
+  "techniques": ["script-accent-underline", "list-stack-reveal"],
+  "source": {"film": "francoxavier33-d2dfd2", "url": "https://prompt-motion.com/francoxavier33-d2dfd2", "creator": "@francoxavier33", "start": 10.0, "end": 17.5},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["9:16", "4:5"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

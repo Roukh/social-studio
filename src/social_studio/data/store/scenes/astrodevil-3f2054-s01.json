@@ -1,0 +1,21 @@
+{
+  "id": "astrodevil-3f2054-s01",
+  "kind": "scene",
+  "name": "a terminal command types in and confirms shipped work",
+  "looks": "A small dark terminal window sits alone on a near-black field as a command types itself in; two check-marked lines confirm tasks underneath, one of them tagged \"shipped\" in the accent colour.",
+  "build": "glass-ui-flow's typing pattern in a terminal chrome: the command types on at a steady rate with a blinking caret, the confirm lines fading in with their check icons popping in on back.out right after.",
+  "sound": "A soft typing clack, a light chime on each check.",
+  "duration": [1.6, 2.0],
+  "prompt": "Open on a small terminal window alone on a dark field, a command typing itself in. Follow it with a couple of check-marked status lines confirming work is done, one tagged with a short status word in the accent colour. Keep it quiet and technical, the first proof point of the film.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "astrodevil-3f2054", "url": "https://prompt-motion.com/astrodevil-3f2054", "creator": "@Astrodevil_", "start": 0.0, "end": 1.883},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["establish-brand", "show-craft"],
+    "content": ["code"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface", "open"],
+    "complexity": "low"
+  }
+}

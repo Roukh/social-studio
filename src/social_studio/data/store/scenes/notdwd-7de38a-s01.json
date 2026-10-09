@@ -1,0 +1,21 @@
+{
+  "id": "notdwd-7de38a-s01",
+  "kind": "scene",
+  "name": "camera pushes from a small logo lockup into an app screenshot, ending on the mark",
+  "looks": "A small circular icon and wordmark sit together on a soft gradient field. The camera pushes slowly in and the field resolves into a zoomed app screenshot: a search bar, a couple of sidebar icons and a preview card peeking in from the edge. The push continues until only a circular badge with a few small colour chips orbiting it fills the frame.",
+  "build": "One continuous camera dolly/FOV push (`transitions.md`'s push-in) across a single static or lightly-parallaxed screenshot layer; the UI chrome (search bar, sidebar icons, card) is positioned so new detail enters frame as the push continues, ending tight on the app's own circular mark with a few small coloured squares drifting around it on slow, offset orbits.",
+  "sound": "A soft low whoosh that builds through the push, with a light shimmer as the small orbiting chips settle into view.",
+  "duration": [2.0, 3.0],
+  "prompt": "Open tight on a small circular mark and wordmark on a soft gradient field, then push the camera slowly in until the field resolves into an app screen: a search bar, a couple of sidebar icons, a card peeking in. Keep pushing until the frame holds on just the mark itself, now ringed by a few small colour chips on slow orbits.",
+  "techniques": ["transitions"],
+  "source": {"film": "notdwd-7de38a", "url": "https://prompt-motion.com/notdwd-7de38a", "creator": "@notdwd", "start": 0.0, "end": 3.353},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "tease"],
+    "content": ["product-ui", "logo"],
+    "energy": ["calm"],
+    "format": ["1:1"],
+    "family": ["camera", "interface"],
+    "complexity": "low"
+  }
+}

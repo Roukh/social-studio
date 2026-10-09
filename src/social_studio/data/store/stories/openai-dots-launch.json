@@ -1,0 +1,26 @@
+{
+  "id": "openai-dots-launch",
+  "kind": "story",
+  "name": "A studio full of small agents, each quietly handling one thing",
+  "brand": "OpenAI",
+  "source": {"url": "https://www.youtube.com/watch?v=uXspbC2srEQ", "platform": "youtube", "posted": "2026-09-29", "duration": 148.0},
+  "object": "dots, always-on background agents, each represented as a small colored character icon, that watch a specific job (meeting notes, competitor moves, product metrics) and report in on their own",
+  "audience": "operators and teams who want ongoing monitoring and busywork handled continuously, without having to ask every time",
+  "message": "This video tells busy teams that dots are not one assistant you prompt, they are many small always-on agents, each one quietly owning a single job and surfacing what matters on its own.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 20.0, "what": "a title card reads \"dots\"; a stylish studio-like office introduces a wall of small colorful character icons, each a distinct dots agent with its own look", "copy": "dots.", "voice": "none"},
+    {"role": "hook", "start": 20.0, "end": 50.0, "what": "two colleagues walk the halls as a wall-mounted screen shows one dots character has already caught a mistake and mapped out the fix on its own, without being asked", "copy": "I caught the typo already, and I've mapped out the changes.", "voice": "dialogue"},
+    {"role": "demo", "start": 50.0, "end": 100.0, "what": "more screens show different dots agents at work in parallel, one tracking edits across meeting notes, one watching for a competitor's move, one flagging a product check before a deadline, while the colleagues glance at phones and wall panels as updates roll in", "copy": "", "voice": "dialogue"},
+    {"role": "cta", "start": 100.0, "end": 148.0, "what": "the pair steps outside into a courtyard as the agents keep working behind them; the film closes on the OpenAI mark", "copy": "dots, always-on agents built to handle everything.", "voice": "none"}
+  ],
+  "cta": "\"dots, always-on agents built to handle everything\", delivered as the closing line over the OpenAI mark",
+  "why": "Giving each background job its own small character, instead of one generic assistant, makes the idea of many parallel always-on agents feel concrete and almost like a team you already know, rather than an abstract automation pitch.",
+  "tags": {
+    "goal": ["launch"],
+    "product": ["ai-app", "ai-model"],
+    "structure": ["story-arc"],
+    "voice": ["dialogue"],
+    "energy": ["calm"],
+    "format": ["16:9"]
+  }
+}

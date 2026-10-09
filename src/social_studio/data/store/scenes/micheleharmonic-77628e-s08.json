@@ -1,0 +1,21 @@
+{
+  "id": "micheleharmonic-77628e-s08",
+  "kind": "scene",
+  "name": "whip-pan reveal settles into the final logo and tagline card",
+  "looks": "A fast horizontal whip with a chromatic-aberration streak clears to reveal the wordmark, which settles centred on a plain dark field. A three-line tagline fades in beneath it, then a small handle and URL line, and the frame holds before fading to black.",
+  "build": "A single layer renders the whip as a motion-blurred, colour-split copy of the wordmark translating across frame on power3.out over about 250-350ms; once it settles, the tagline and handle fade and rise in on their own beats (opacity 0 to 1, y 8px to 0, power2.out), each about 150-200ms after the last, then the whole card fades on the clock.",
+  "sound": "A whoosh through the whip-pan, a soft low swell under the hold, and the bed fading out over the last second.",
+  "duration": [2.0, 3.0],
+  "prompt": "Clear a fast, motion-blurred whip-pan into the brand's lockup settled centre-frame, then let a short tagline and a handle or URL line fade in beneath it one after another, and hold the finished card a beat before the audio fades out.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "micheleharmonic-77628e", "url": "https://prompt-motion.com/micheleharmonic-77628e", "creator": "@MicheleHarmonic", "start": 33.47, "end": 38.06},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

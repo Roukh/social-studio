@@ -1,0 +1,21 @@
+{
+  "id": "hqmank-7c61f1-s04",
+  "kind": "scene",
+  "name": "The real command types on in a dark terminal",
+  "looks": "A dark terminal panel fills most of the frame; a single real command types on line by line, a URL flag then a quoted goal string, the cursor blinking at the end once it finishes.",
+  "build": "terminal-type-on's per-character reveal across two lines instead of one, the second line indented as a continuation; the cursor holds blinking once typing completes, no further motion.",
+  "sound": "A steady mechanical key tick per character, stopping clean when the command finishes.",
+  "duration": [1.5, 2.0],
+  "prompt": "Show the actual command a developer would run, typing on line by line in a dark terminal, a target and a plain-language instruction as its two arguments, holding on the finished command with a blinking cursor before the next beat proves it works.",
+  "techniques": ["terminal-type-on", "hud-frame"],
+  "source": {"film": "hqmank-7c61f1", "url": "https://prompt-motion.com/hqmank-7c61f1", "creator": "@hqmank", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["reveal-product", "show-ease"],
+    "content": ["code"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "interface"],
+    "complexity": "low"
+  }
+}

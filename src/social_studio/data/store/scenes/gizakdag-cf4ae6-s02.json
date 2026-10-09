@@ -1,0 +1,21 @@
+{
+  "id": "gizakdag-cf4ae6-s02",
+  "kind": "scene",
+  "name": "Anxious questions spiral around orbiting rings",
+  "looks": "A faint scaffold of concentric circles and a rotated grid appears over a deep blue field. Short anxious phrases land one after another on curved paths at different radii, overlapping each other as they arrive, each at its own size, angle and colour, until the mass of them crowds the centre.",
+  "build": "orbit-word-spiral: the scaffold rotates almost imperceptibly; each phrase sits on its own SVG textPath arc, seeded radius and rotation, fading/scaling in on a loose overlapping stagger rather than a clean beat.",
+  "sound": "A low anxious drone with a soft overlapping flutter per phrase landing.",
+  "duration": [2.0, 2.5],
+  "prompt": "Visualise a spiral of competing thoughts: let several short, worried phrases land on curved orbits around a faint geometric scaffold, each at its own size and angle, overlapping so densely that no single thought stays legible, only the crowd of them.",
+  "techniques": ["orbit-word-spiral"],
+  "source": {"film": "gizakdag-cf4ae6", "url": "https://prompt-motion.com/gizakdag-cf4ae6", "creator": "@gizakdag", "start": 2.2, "end": 4.5},
+  "tags": {
+    "role": ["problem", "hook"],
+    "purpose": ["build-tension", "set-mood"],
+    "content": ["type", "abstract"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["type", "structure"],
+    "complexity": "medium"
+  }
+}

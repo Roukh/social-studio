@@ -1,0 +1,21 @@
+{
+  "id": "arjunsh1607-93005d-s03",
+  "kind": "scene",
+  "name": "a tilted laptop hero cuts to a photographic site hero",
+  "looks": "A laptop mockup held at a shallow tilt shows a product site's headline and a soft colour wash; a hard cut takes it to a different site's hero, this one set over a dramatic photograph, with its own headline fading up.",
+  "build": "ui-tilt-card for the laptop (shallow rotateX/rotateY, soft offset shadow); hard cut (no crossfade) to the second DOM hero card, its headline fading and rising on power2.out.",
+  "sound": "A soft whoosh as the laptop settles, a hit on the cut.",
+  "duration": [1.8, 2.2],
+  "prompt": "Hold a product site in a tilted device mockup with its headline visible, then hard-cut to a second site's hero built over a strong photograph, its own headline fading up a beat after the cut. Use it to show range across two very different brand treatments quickly.",
+  "techniques": ["ui-tilt-card"],
+  "source": {"film": "arjunsh1607-93005d", "url": "https://prompt-motion.com/arjunsh1607-93005d", "creator": "@arjunsh1607", "start": 6.5, "end": 8.517},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-contrast", "show-craft"],
+    "content": ["device", "photo"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

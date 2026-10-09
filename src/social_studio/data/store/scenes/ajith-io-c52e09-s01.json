@@ -1,0 +1,45 @@
+{
+  "id": "ajith-io-c52e09-s01",
+  "kind": "scene",
+  "name": "serif quote fades to a small mark",
+  "looks": "On a plain cream field, a quiet serif line fades in, with a second line beneath it a beat later in the accent colour and a handwritten-feel italic. It cross-fades to a small coloured-book mark and a one-line caption.",
+  "build": "Two DOM lines keyed in on a slow fade-and-rise (0.4-0.5 s, power2.out), the second a beat behind the first; cross-fade to the mark settling on a short spring.",
+  "sound": "Near silence, a very soft pad swell.",
+  "duration": [
+    2.3,
+    2.7
+  ],
+  "prompt": "Open on a plain field with a quiet statement that fades in line by line, its final line in the accent colour. Let that accent line shrink into a small brand mark settling with one short caption, to move from idea to product without a hard cut.",
+  "techniques": [
+    "wordmark-assemble"
+  ],
+  "source": {
+    "film": "ajith-io-c52e09",
+    "url": "https://prompt-motion.com/ajith-io-c52e09",
+    "creator": "@ajith_io",
+    "start": 0.0,
+    "end": 5.0
+  },
+  "tags": {
+    "role": [
+      "hook"
+    ],
+    "purpose": [
+      "tease",
+      "set-mood"
+    ],
+    "content": [
+      "type"
+    ],
+    "energy": [
+      "calm"
+    ],
+    "format": [
+      "16:9"
+    ],
+    "family": [
+      "open"
+    ],
+    "complexity": "low"
+  }
+}

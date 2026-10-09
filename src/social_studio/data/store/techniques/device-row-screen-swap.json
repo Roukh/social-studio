@@ -1,0 +1,20 @@
+{
+  "id": "device-row-screen-swap",
+  "kind": "technique",
+  "name": "Device row screen swap",
+  "looks": "A row of identical device mockups lines up across the frame, each showing a different screen of the same product. The devices stay fixed while the camera drifts slowly past; the screen content inside each frame slides or wipes to the next feature, each on its own offset timing, reading as a continuous tour through several capabilities.",
+  "build": "Fixed device frame positions, evenly spaced; inside each frame's mask the old screen pushes out as the new one slides or wipes in (yPercent -100 to 0, expo.out, 0.35-0.45 s), staggered so no two devices change at the same instant; never an opacity fade. A slow camera dolly (translateX 15-20 px/s) supplies motion though the devices don't move relative to each other.",
+  "sound": "A soft whoosh under the camera drift, a light tick on each screen swap.",
+  "duration": [2.5, 4.0],
+  "prompt": "Line up several identical device mockups across the frame, each running a different screen of the same product, and drift the camera past while each screen slides to a new feature on its own offset beat, so one slow move tours several capabilities at once.",
+  "source": "prompt-motion.com's gallery (jesscaroline7-1ff7cb), studied 2026-10-09; the source's cross-fade swaps restaged as slides",
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["introduce-feature", "show-ease"],
+    "content": ["product-ui", "device"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["interface", "collage"],
+    "complexity": "medium"
+  }
+}

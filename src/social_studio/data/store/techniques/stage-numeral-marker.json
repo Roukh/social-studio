@@ -1,0 +1,47 @@
+{
+  "id": "stage-numeral-marker",
+  "kind": "technique",
+  "name": "Stage numeral marker",
+  "looks": "A huge outline or flat numeral sits in a corner beside a short all-caps label naming the current stage of a process; as the process advances, numeral and label cross-fade to the next pair while the main content area swaps to match that stage.",
+  "build": "Numeral and label are one fixed-position group; on each stage change the old pair slides up out of a mask as the new one slides in from below (150-200 ms) rather than counting up. The main content swap cues on the same beat as the numeral change so the two read as cause and effect.",
+  "sound": "A short digital blip on each stage change, pitched slightly differently per stage.",
+  "duration": [
+    0.8,
+    1.5
+  ],
+  "prompt": "Mark the current step of a named multi-stage process with a huge numeral and a short label in a corner of the frame; roll both to the next pair (the old pair slides out as the new one slides in) exactly as the main content area swaps to show that next stage, so the numeral and the content always change together.",
+  "source": "prompt-motion.com's gallery (kyonax-on-tech-aabc1d), studied 2026-10-09",
+  "tags": {
+    "role": [
+      "demo",
+      "solution",
+      "proof"
+    ],
+    "purpose": [
+      "explain-mechanism",
+      "show-craft",
+      "show-speed",
+      "show-ease"
+    ],
+    "content": [
+      "type",
+      "code",
+      "data"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "structure",
+      "type",
+      "data"
+    ],
+    "complexity": "low"
+  }
+}

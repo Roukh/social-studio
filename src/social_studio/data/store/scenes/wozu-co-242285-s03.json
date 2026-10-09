@@ -1,0 +1,21 @@
+{
+  "id": "wozu-co-242285-s03",
+  "kind": "scene",
+  "name": "small marks settle into a shared container",
+  "looks": "A headline promises to keep something as it already is. Beneath it a simple open container sits still while two small marks drop in and settle inside it side by side, with a short caption naming where it already lives.",
+  "build": "The container is a static illustration; the two marks drop in from above and settle with a small bounce (back.out), landing side by side without touching the container's rim.",
+  "sound": "A soft double-tap as the two marks settle into place.",
+  "duration": [2.0, 2.5],
+  "prompt": "Promise to keep something exactly where it already is, then let two small marks drop into a simple open container and settle side by side with a light bounce, under a short caption naming where it already lives.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "wozu-co-242285", "url": "https://prompt-motion.com/wozu-co-242285", "creator": "@wozu_co", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["solution"],
+    "purpose": ["show-ease", "establish-brand"],
+    "content": ["illustration"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["identity"],
+    "complexity": "low"
+  }
+}

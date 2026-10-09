@@ -1,0 +1,21 @@
+{
+  "id": "x4b47x-9cc84f-s02",
+  "kind": "scene",
+  "name": "short answers fade in one after another over a glowing house at night",
+  "looks": "A silhouetted house sits still under a star-flecked sky as the moon climbs slowly higher. One short answer at a time fades onto a small wooden plaque, holds, then fades for the next, while the house's windows warm from dark to a soft glow and a figure's small gestures animate faintly inside.",
+  "build": "Each caption fades/rises in on power2.out and holds about 1.5-2s before fading for the next, same pacing family as kinetic-word-run but unhurried; the sky gradient and moon position interpolate continuously on the master clock; the windows' glow opacity ramps in once, early in the sequence, and holds.",
+  "sound": "A quiet ambient bed, a soft chime as each caption lands, no hard hits.",
+  "duration": [20.0, 30.0],
+  "prompt": "Hold a silhouetted house under a slowly deepening night sky, the moon climbing higher, while short answers to a quiet question fade in one at a time on a small plaque, each holding before the next replaces it, and let the house's windows warm from dark to a soft glow partway through, so the scene itself answers the question alongside the words.",
+  "techniques": ["shadow-theatre-frame", "kinetic-word-run"],
+  "source": {"film": "x4b47x-9cc84f", "url": "https://prompt-motion.com/x4b47x-9cc84f", "creator": "@x4b47x", "start": 10.0, "end": 45.0},
+  "tags": {
+    "role": ["solution", "whole-film"],
+    "purpose": ["set-mood", "show-craft"],
+    "content": ["illustration", "type"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["frame", "type"],
+    "complexity": "medium"
+  }
+}

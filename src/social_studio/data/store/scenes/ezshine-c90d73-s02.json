@@ -1,0 +1,21 @@
+{
+  "id": "ezshine-c90d73-s02",
+  "kind": "scene",
+  "name": "Roster grid builds, then game modes cycle",
+  "looks": "Under a headline, a grid of small labelled cards populates row by row, each showing a competitor's name and the company behind it, until eleven fill the grid. It cuts to a new headline where a row of game-mode cards (cards, a board game, another board game) slides through, one replacing the last, each shown as a small live table thumbnail with a player-count badge.",
+  "build": "The roster grid uses variant-stack-reveal's seeded offsets and uneven 10-30% stagger per card, settling square in a fixed grid instead of fanning. The game-mode row reuses command-chip-cycle's swap-on-beat mechanic, scaled up to full card size, with the active card's dots indicator updating beneath it.",
+  "sound": "A cluster of soft hits as the grid fills, then a swap tick per game-mode card.",
+  "duration": [3.5, 5.0],
+  "prompt": "Prove breadth two ways: first fill a grid with many small labelled entries one after another until it reads as a full roster, then cut to a headline where a row of live sample cards cycles through the different modes or categories the product supports, one replacing the last.",
+  "techniques": ["variant-stack-reveal", "command-chip-cycle"],
+  "source": {"film": "ezshine-c90d73", "url": "https://prompt-motion.com/ezshine-c90d73", "creator": "@ezshine", "start": 5.0, "end": 15.0},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-scale", "introduce-feature"],
+    "content": ["product-ui", "logo"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

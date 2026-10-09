@@ -1,0 +1,21 @@
+{
+  "id": "mehul4795-4a7007-s01",
+  "kind": "scene",
+  "name": "Strike-through opens into the app icon",
+  "looks": "A bold two-line headline names the chore (\"Stop retyping.\") with a hand-drawn line struck through the verb; the frame cuts to the app's rounded-square icon centred alone, the wordmark and a one-line tagline settling beneath it.",
+  "build": "Struck word's line draws on with a slight hand-wobble (~250ms) before the headline cuts away. Icon arrives with a small scale-in (`0.9 -> 1`, power2.out), wordmark and tagline fading in beneath it in turn, 120ms apart.",
+  "sound": "A marker-pen scribble on the strike, a soft pop on the icon's arrival.",
+  "duration": [2.0, 2.5],
+  "prompt": "Open on a bold headline naming a tedious chore, strike a hand-drawn line through the key word, then cut to the app's icon alone on a soft ground with its wordmark and a one-line tagline settling in beneath it.",
+  "techniques": ["strike-out-claim"],
+  "source": {"film": "mehul4795-4a7007", "url": "https://prompt-motion.com/mehul4795-4a7007", "creator": "@mehul4795", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["build-tension", "establish-brand"],
+    "content": ["type", "logo"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type", "open"],
+    "complexity": "low"
+  }
+}

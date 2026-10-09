@@ -1,0 +1,21 @@
+{
+  "id": "anthonyriera-9b1b2a-s05",
+  "kind": "scene",
+  "name": "three terminal windows post to a platform in parallel",
+  "looks": "Three dark terminal-style windows sit side by side, each showing a different identity connected to the same platform, a short task checklist on the left of each and a live post forming on the right; a small automation mark pulses in the corner of each as it finishes.",
+  "build": "glass-ui-flow across three parallel panels instead of one: each terminal's checklist items check off top to bottom, the post content types on, staggered a fraction of a second between the three so they read as simultaneous, not sequential.",
+  "sound": "A soft keystroke texture under the typing, a tick per checklist item, three overlapping soft confirms.",
+  "duration": [3.0, 4.0],
+  "prompt": "Show three identical terminal-style panels side by side, each representing a different identity or agent doing the same kind of task on the same platform at once: a short checklist ticking off, then content typing itself in. Stagger the three just enough to read as live and parallel, not copy-pasted.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "anthonyriera-9b1b2a", "url": "https://prompt-motion.com/anthonyriera-9b1b2a", "creator": "@anthonyriera", "start": 22.5, "end": 30.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-scale", "show-ease"],
+    "content": ["product-ui", "code"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "high"
+  }
+}

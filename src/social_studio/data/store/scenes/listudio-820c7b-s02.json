@@ -1,0 +1,21 @@
+{
+  "id": "listudio-820c7b-s02",
+  "kind": "scene",
+  "name": "A tilted mosaic wall proves range",
+  "looks": "Dozens of distinct generated images tile together in a slightly tilted grid, filling the whole frame edge to edge with no two alike, a headline fading in over the top claiming the scale behind it (\"Thousands of proven prompts.\").",
+  "build": "Mosaic tiles are a fixed tilted grid (a few degrees of rotation on the whole wall), no individual tile animation beyond a slow, barely-perceptible parallax drift on the wall as a whole. The headline fades/lifts in over it (`y:8px -> 0`, ~300ms) once the wall is established.",
+  "sound": "A low ambient pad under the wall, a soft swell as the headline lands.",
+  "duration": [2.0, 2.8],
+  "prompt": "Fill the whole frame with a tilted wall of many distinct generated images tiled edge to edge, no two alike, then fade in a headline over it that claims the scale of the library behind it, letting the density of the wall itself make the case.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "listudio-820c7b", "url": "https://prompt-motion.com/listudio-820c7b", "creator": "@listudio", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["proof", "hook"],
+    "purpose": ["show-scale", "establish-brand"],
+    "content": ["photo"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["collage", "data"],
+    "complexity": "low"
+  }
+}

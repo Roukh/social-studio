@@ -1,0 +1,21 @@
+{
+  "id": "micheleharmonic-77628e-s01",
+  "kind": "scene",
+  "name": "ring mark forms from radiating strokes as captions explain the idea",
+  "looks": "In total darkness, eight short curved strokes hang scattered in a loose circle, then snap inward until they close into a neat ring of pebble shapes, the brand's mark. Underneath, a line of mono caption text types on and gets hard-replaced by the next line every beat or two, laying out the premise before the mark has even finished forming.",
+  "build": "A handful of seeded SVG stroke fragments tween from scattered start points and rotations to even positions on a circle on power3.out (about 0.4-0.6s each), snapping into their final pebble shape as they land. Captions are a single DOM text block whose string hard-swaps on the clock, with a blinking cursor square at the line's end.",
+  "sound": "A soft rising tone as the fragments gather, a low click as the ring locks, and a quiet key-tick under each caption line.",
+  "duration": [2.5, 4.0],
+  "prompt": "Open on a handful of loose, scattered line fragments in the dark that snap together into the brand's own simple mark, while a short caption underneath hard-cuts through a few lines explaining the one idea the whole film is about, finishing just as the mark locks into place.",
+  "techniques": ["noise-dissolve-logomark"],
+  "source": {"film": "micheleharmonic-77628e", "url": "https://prompt-motion.com/micheleharmonic-77628e", "creator": "@MicheleHarmonic", "start": 0.0, "end": 6.37},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "establish-brand", "explain-mechanism"],
+    "content": ["logo", "type", "abstract"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["identity", "open", "type"],
+    "complexity": "medium"
+  }
+}

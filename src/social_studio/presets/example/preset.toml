@@ -103,6 +103,15 @@ engine_skills = ["hyperframes-core", "hyperframes-cli", "hyperframes-animation",
 # Claude Code plugins (folders), loaded with --plugin-dir.
 # plugins = []
 
+# The story stage before the designer: the storyteller, and with no brief (--title, --subject, --topic, --notes)
+# a pitch round first (five pitches, a judge). Both use the designer's backend and model unless story.* sets them.
+# [story]
+# enabled = true
+# pitch = true
+# [pitch]                 # the pitcher's own limits; [judge] takes the same keys
+# timeout_min = 15
+# max_turns = 30
+
 [review]
 independent = false     # true runs a second, fresh reviewer session after each video
 criteria = ["hook in the first 2 seconds", "readability on a phone", "composition", "variety", "brand accuracy", "motion quality"]

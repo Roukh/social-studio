@@ -1,0 +1,21 @@
+{
+  "id": "xelandre-363f00-s04",
+  "kind": "scene",
+  "name": "a radar sweep finds signals in the dark",
+  "looks": "Concentric rings glow around a single bright dot on a near-black field. A thin sweep rotates slowly around them, and small dots light up one at a time wherever it passes, scattered at different distances from the centre, a field of signals being found in real time.",
+  "build": "Rings are static low-opacity circles; each signal dot fades/scales in the instant the rotating sweep's angle passes its seeded position, same mechanic as radar-scan-reveal; the sweep itself rotates linearly, no easing.",
+  "sound": "A soft, continuous low sweep tone, a distinct ping each time a dot lights up.",
+  "duration": [2.5, 5.0],
+  "prompt": "Glow concentric rings around a bright central dot on a near-black field, then rotate a thin sweep slowly around them, lighting up small scattered dots one at a time exactly as it passes, so the viewer watches signals being found in real time rather than told about them.",
+  "techniques": ["radar-scan-reveal"],
+  "source": {"film": "xelandre-363f00", "url": "https://prompt-motion.com/xelandre-363f00", "creator": "@xelandre__", "start": 7.5, "end": 12.5},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "show-data"],
+    "content": ["abstract", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "particles"],
+    "complexity": "medium"
+  }
+}

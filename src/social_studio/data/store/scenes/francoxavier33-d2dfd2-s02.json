@@ -1,0 +1,21 @@
+{
+  "id": "francoxavier33-d2dfd2-s02",
+  "kind": "scene",
+  "name": "Helper roster stacks beside a live summary",
+  "looks": "A headline with one cursive word lands, then a short stack of named helper cards fills in below it, each with a small two-letter badge, a role name and a one-line note on what it just did. A small summary message card pops up beneath the stack, timestamped, confirming one of the helpers' work in plain language.",
+  "build": "script-accent-underline for the headline; list-stack-reveal for the helper cards, each landing bright without dimming the ones above since they are peers, not a countdown. The summary card fades/slides in last, after a short pause.",
+  "sound": "A tick per helper card landing, and a soft confirm chime on the summary card.",
+  "duration": [2.0, 3.0],
+  "prompt": "Introduce a team of specialised helpers at once: stack three or four named roles in one after another, each with a short badge and a note on the task it just handled, then cap it with a plain-language summary message proving the work actually happened.",
+  "techniques": ["script-accent-underline", "list-stack-reveal"],
+  "source": {"film": "francoxavier33-d2dfd2", "url": "https://prompt-motion.com/francoxavier33-d2dfd2", "creator": "@francoxavier33", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["solution", "intro"],
+    "purpose": ["introduce-feature", "show-ease"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["9:16", "4:5"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

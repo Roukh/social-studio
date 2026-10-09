@@ -35,10 +35,11 @@ def ctx(tmp_path, monkeypatch):
 def engine_stub(tmp_path, monkeypatch):
     """The engine files the reel preset needs: its engine skills, GSAP and the two Three.js module files."""
     root = tmp_path / "engine"
-    for name in load_preset(make_ctx(), "reel").get("agent.engine_skills"):
+    for name in {*load_preset(make_ctx(), "reel").get("agent.engine_skills"), *runner.KIT_ENGINE_SKILLS}:
         (root / "skills" / name).mkdir(parents=True)
         (root / "skills" / name / "SKILL.md").write_text(f"# {name}\n")
     for rel, text in (("gsap/dist/gsap.min.js", "/* gsap */"),
+                      *((rel, f"/* {rel} */") for rel in engine.KIT_GSAP_PLUGINS.values()),
                       ("three/build/three.module.min.js", 'import{a}from"./three.core.min.js";'),
                       ("three/build/three.core.min.js", "export const a=1;")):
         (root / "node_modules" / rel).parent.mkdir(parents=True, exist_ok=True)
@@ -119,7 +120,8 @@ def test_reel_house_rules_and_task_follow_its_format_and_sound(ctx, engine_stub)
 def test_reel_mounts_its_skills_with_their_licences(ctx, engine_stub):
     p, s = prepared(ctx, engine_stub)
     mounted = {x.name for x in (s.work / "skills").iterdir()}
-    want = {*runner.PACKAGE_SKILLS, *p.get("agent.engine_skills"), *p.get("agent.package_skills"), "reel-look"}
+    want = {*runner.PACKAGE_SKILLS, *p.get("agent.engine_skills"), *p.get("agent.package_skills"), "reel-look",
+            *runner.KIT_ENGINE_SKILLS, *runner.KIT_VENDOR_SKILLS}
     assert mounted == want
     for name in p.get("agent.package_skills"):
         files = {f.name for f in (s.work / "skills" / name).iterdir()}

@@ -1,0 +1,21 @@
+{
+  "id": "llmjunky-2106411941497389342-s01",
+  "kind": "scene",
+  "name": "an ornate gold title letters in from black",
+  "looks": "A question letters in across a near-black field in a glowing, period display face, gold against the dark. A smaller subtitle settles underneath a beat later, naming the format of what's about to unfold, with a fine hairline rule between the two.",
+  "build": "Title fades/rises in as one block with a blurred glow duplicate behind each letter (power2.out); subtitle fades in after a pause at lower contrast; fine grain and a soft vignette sit over the whole card.",
+  "sound": "A low orchestral swell under the title's arrival, a soft hiss of period film grain under the hold.",
+  "duration": [4.0, 7.5],
+  "prompt": "Letter in a short, pointed question across a near-black field in a glowing, period display face, then settle a smaller subtitle underneath a beat later naming the format to come, finished with film grain and a vignette, to open on a literary, theatrical register rather than a digital one.",
+  "techniques": ["vintage-title-card"],
+  "source": {"film": "llmjunky-2106411941497389342", "url": "https://x.com/LLMJunky/status/2106411941497389342", "creator": "@LLMJunky", "start": 7.5, "end": 15.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["set-mood", "tease"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["type", "open"],
+    "complexity": "medium"
+  }
+}

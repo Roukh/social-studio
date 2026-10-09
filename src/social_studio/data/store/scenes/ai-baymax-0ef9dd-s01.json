@@ -1,0 +1,21 @@
+{
+  "id": "ai-baymax-0ef9dd-s01",
+  "kind": "scene",
+  "name": "question headline over a soft gradient wash",
+  "looks": "A two-line question fades up and scales in gently on a soft warm-to-cool gradient field, its second line in the accent colour. A row of small feature words (one per capability) fades in beneath it in one quiet beat, dimming toward the edge.",
+  "build": "aurora-gradient-photo for the background wash (slow drifting diagonal gradient with grain); the headline keys in on a short scale-and-fade (0.95 -> 1, opacity 0 -> 1) on power2.out; the word row fades in together about 0.3 s behind it.",
+  "sound": "A soft pad swell under the headline.",
+  "duration": [2.0, 2.5],
+  "prompt": "Open on a two-line question that fades and scales gently into frame over a soft drifting gradient wash, its final word in the accent colour. Let a short row of small capability words fade in beneath it a beat later, quiet and unhurried, to set up what the film will show.",
+  "techniques": ["aurora-gradient-photo"],
+  "source": {"film": "ai-baymax-0ef9dd", "url": "https://prompt-motion.com/ai-baymax-0ef9dd", "creator": "@Ai_Baymax", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "set-mood"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["open", "texture"],
+    "complexity": "low"
+  }
+}

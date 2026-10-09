@@ -1,0 +1,21 @@
+{
+  "id": "robvjourney-ce3e1a-s02",
+  "kind": "scene",
+  "name": "a headline condenses from scattered particles",
+  "looks": "A scattering of small glowing dots drifts across the dark field and gathers itself into a bold headline word, letter by letter, while beside it a blocky, pixel-built hand or pointer icon assembles from the same kind of particles. Partway through, the whole image briefly skews and tears before snapping back to settle clean.",
+  "build": "Canvas: sample the headline text and the icon shape into seeded point grids; each point eases from a scattered start position to its target on a fast out-ease, arriving at different times so the shape fills in as the last points land; a brief skew/tear distortion plays across the settled frame before it locks.",
+  "sound": "A soft granular shimmer as the points gather, resolving into one clean hit as the shape locks, a short digital stutter under the skew.",
+  "duration": [2.5, 3.5],
+  "prompt": "Let your headline word and a simple icon both condense out of a field of scattered glowing points rather than sliding or fading in, landing together as the shape fills in from the last few points, then let the whole frame skew and tear for a beat before snapping back clean -- a sense of something assembling itself under its own power.",
+  "techniques": ["noise-dissolve-logomark"],
+  "source": {"film": "robvjourney-ce3e1a", "url": "https://prompt-motion.com/robvjourney-ce3e1a", "creator": "@robvjourney", "start": 2.0, "end": 5.0},
+  "tags": {
+    "role": ["intro"],
+    "purpose": ["establish-brand", "set-mood"],
+    "content": ["type", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["identity", "particles", "type"],
+    "complexity": "medium"
+  }
+}

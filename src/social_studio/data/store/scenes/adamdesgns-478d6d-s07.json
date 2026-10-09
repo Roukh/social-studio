@@ -1,0 +1,21 @@
+{
+  "id": "adamdesgns-478d6d-s07",
+  "kind": "scene",
+  "name": "radiating end card with wordmark and tagline",
+  "looks": "A short line of centred type sits over thin light rays radiating from a point behind it, with two horizontal streaks sliding in from the frame edges. It settles into the closing card: a small ring icon beside the bold name, a tagline beneath, and a thin row of mono stat chips along the bottom.",
+  "build": "wordmark-assemble for the name and tagline reveal (letters settling with a light blur-clear, a clipPath wipe on the tagline); a radial burst of thin rays behind the ring icon, plus the grain-vignette pass over the whole card.",
+  "sound": "A soft swell as the rays bloom, a whoosh as the streaks slide in, quiet under the settled card.",
+  "duration": [2.5, 3.0],
+  "prompt": "Close on a short, centred line of type with thin rays radiating behind it and two light streaks sliding in from the edges. Settle into an end card: a small mark beside the bold name, a tagline beneath, and a thin row of small stat labels along the bottom, with fine grain over the whole frame.",
+  "techniques": ["wordmark-assemble", "grain-vignette"],
+  "source": {"film": "adamdesgns-478d6d", "url": "https://prompt-motion.com/adamdesgns-478d6d", "creator": "@Adamdesgns", "start": 12.25, "end": 15.061},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["type", "logo"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity", "texture"],
+    "complexity": "medium"
+  }
+}

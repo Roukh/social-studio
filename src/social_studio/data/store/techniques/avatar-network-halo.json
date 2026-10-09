@@ -1,0 +1,20 @@
+{
+  "id": "avatar-network-halo",
+  "kind": "technique",
+  "name": "Avatar network halo",
+  "looks": "A loose cloud of small round avatar or icon bubbles scatters across the frame at varying depths and sizes around a single glowing hub mark at the centre, with no drawn lines connecting them. Beneath it a dollar or count value rolls up live.",
+  "build": "The hub is a bright circular mark with a soft bloom, pinned centre-frame. Each avatar bubble sits at a seeded position within a radial falloff from the centre, landing on a loose overlapping stagger. The value beneath uses data-infographic's digit roll-up, finishing just after the bubbles settle.",
+  "sound": "A soft shimmer as the bubbles populate, and a rising tone under the counting value.",
+  "duration": [2.0, 2.5],
+  "prompt": "Prove a network effect: scatter a loose cloud of small avatar or icon bubbles around a single glowing hub mark, no lines needed, just proximity and a shared glow, with a count or dollar value rolling up live beneath it.",
+  "source": "a dub.co launch promo shared by @steventey (x.com/steventey/status/2103625902211088880), studied 2026-10-09",
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-scale", "show-data"],
+    "content": ["data", "character"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["data", "particles"],
+    "complexity": "medium"
+  }
+}

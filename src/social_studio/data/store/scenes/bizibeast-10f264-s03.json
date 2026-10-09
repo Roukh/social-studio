@@ -1,0 +1,21 @@
+{
+  "id": "bizibeast-10f264-s03",
+  "kind": "scene",
+  "name": "a playful headline with highlighted word chips over drifting shapes",
+  "looks": "On a bold flat colour field, a headline builds word by word, each key word boxed in its own solid highlight colour the instant it lands, while soft rounded squares drift slowly behind it; a second line of smaller type adds a supporting claim.",
+  "build": "Each headline word fades/scales in, immediately followed by its highlight box scaling in from the left (scaleX on a colour block, 0.1-0.15 s); background squares drift on a slow seeded path with gentle rotation.",
+  "sound": "A soft pop per highlighted word, a quiet ambient bed under the drifting shapes.",
+  "duration": [2.3, 2.7],
+  "prompt": "Build a short, punchy headline word by word on a bold flat colour field, boxing each key word in its own solid highlight colour the instant it lands. Let a few soft rounded shapes drift slowly behind the type for texture, and add a smaller supporting line beneath once the headline settles.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "bizibeast-10f264", "url": "https://prompt-motion.com/bizibeast-10f264", "creator": "@bizibeast", "start": 7.5, "end": 12.5},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "establish-brand"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["type"],
+    "complexity": "medium"
+  }
+}

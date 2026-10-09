@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-474bcf-s05",
+  "kind": "scene",
+  "name": "bold experience claim into a fader control demo",
+  "looks": "A big bold number and a short claim about years of experience hold on a flat colour card, then cut to a row of four vertical sliders, each labelled for a different part of the process, their handles animating up and down to different heights at different times, as if someone were mixing a board live.",
+  "build": "The number card is flat DOM type on a solid field; the fader demo uses the fader-level-set mechanic, DOM tracks with handles tweening to target positions on staggered beats (power2.out, 0.3-0.4 s).",
+  "sound": "A low confident hit under the number card, then a soft mechanical slide per handle with a faint click as each settles.",
+  "duration": [5.5, 7.0],
+  "prompt": "Hold a bold number and a short claim of hard-won experience on a flat colour card, then cut to a row of vertical sliders, one per part of the process, each moving to a different height at a different moment rather than all together, so the shot reads as someone actively mixing the levers rather than leaving them on a default.",
+  "techniques": ["fader-level-set"],
+  "source": {"film": "rneayan-474bcf", "url": "https://prompt-motion.com/rneayan-474bcf", "creator": "@rneayan", "start": 36.367, "end": 43.0},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["establish-brand", "show-ease", "explain-mechanism"],
+    "content": ["type", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

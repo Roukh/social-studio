@@ -1,0 +1,20 @@
+{
+  "id": "dot-population-count",
+  "kind": "technique",
+  "name": "Dot population count",
+  "looks": "A big number counts up while a population of small dots under it stands for the total, one dot per unit. A subset highlights in the accent colour to call out a slice, then the dots relax apart or gather into a ring whose arc-length per colour shows a breakdown, with small labels naming the outliers at the edges.",
+  "build": "One dot per unit (or sampled with a label above a few hundred); grid positions with ±1-2px jitter so it never reads as a raster. Scatter state tweens each dot to `r = R*sqrt(random())`, `theta = random()*2PI` inside a soft circle. Ring state buckets dots by category along an arc proportional to its share. The count-up ties to the same clock as the dots.",
+  "sound": "A soft granular patter while the dots settle, a tick on the count-up digits, a louder tick when the accent subset highlights.",
+  "duration": [2.5, 5.0],
+  "prompt": "Show a total as a population of small dots, one per unit, with the number counting up above it. Let a subset highlight in the accent colour to call out a slice of the total, then let the dots relax apart or regroup into a ring whose arcs show a breakdown by category, with a small label for whatever the main cluster doesn't cover.",
+  "source": "prompt-motion.com's gallery (jesscaroline7-1ff7cb), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "particles"],
+    "complexity": "medium"
+  }
+}

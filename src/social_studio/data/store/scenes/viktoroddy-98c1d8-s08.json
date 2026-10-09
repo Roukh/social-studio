@@ -1,0 +1,21 @@
+{
+  "id": "viktoroddy-98c1d8-s08",
+  "kind": "scene",
+  "name": "a thank you dissolves into sparkling wordmark close",
+  "looks": "A short line of thanks holds over a field that begins to fill with small drifting points of light. The frame cuts to the mark and wordmark settled among the lingering sparkle, a short milestone line and the site's address beneath them.",
+  "build": "The sparkle is a sprite field of small glowing points, kit.rng-seeded positions, drifting and twinkling at low speed; the mark/wordmark fade/scale in over it; the milestone line and address fade in last on a short stagger and hold.",
+  "sound": "A soft shimmer as the sparkle builds, a gentle confirm tone as the wordmark lands, the bed fading out under the hold.",
+  "duration": [5.5, 6.8],
+  "prompt": "Hold a short line of thanks as a field of small drifting points of light builds around it, then settle the mark and wordmark among the lingering sparkle with a short milestone line and the site's address beneath, holding as the final frame.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "viktoroddy-98c1d8", "url": "https://prompt-motion.com/viktoroddy-98c1d8", "creator": "@viktoroddy", "start": 47.5, "end": 54.3},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "medium"
+  }
+}

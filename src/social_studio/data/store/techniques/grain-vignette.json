@@ -1,0 +1,20 @@
+{
+  "id": "grain-vignette",
+  "kind": "technique",
+  "name": "Grain and vignette texture",
+  "looks": "Fine film grain moves subtly over every frame at low opacity, a radial vignette darkens the edges of each flat colour field, and faint walls of ghost outline type drift behind kinetic words. Together these stop a flat field from reading as a plain slide.",
+  "build": "Fill a small canvas once with seeded noise and tile it as a repeating background, offsetting its position each frame from a seeded random function of the frame number so the grain moves but renders identically on any repeat seek; layer a radial gradient vignette per field tinted toward its darkest colour; and drift 1px outline-stroke text walls slowly on a linear ease.",
+  "sound": "",
+  "duration": [5, 30],
+  "prompt": "Lay a constant, subtle texture over the whole film: fine moving grain, a soft vignette darkening the edges of every flat field, and the occasional faint drifting wall of outline type behind bold text. Keep it as a near-invisible layer that stops colour fields from reading as flat slides, and drive it harder only at impact or glitch beats rather than at one uniform strength throughout.",
+  "source": "the 2026 Opus showreels; built in examples/reel-2026-10-06.html, // ===== grain and the FX layer.",
+  "tags": {
+    "role": ["whole-film"],
+    "purpose": ["set-mood", "show-craft"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["texture"],
+    "complexity": "medium"
+  }
+}

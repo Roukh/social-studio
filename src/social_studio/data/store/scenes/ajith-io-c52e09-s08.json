@@ -1,0 +1,21 @@
+{
+  "id": "ajith-io-c52e09-s08",
+  "kind": "scene",
+  "name": "logo and tagline end card with CTA",
+  "looks": "A small three-spine book mark settles beside the bold wordmark, a one-line tagline fades in beneath, then a plain reassurance caption and a rounded CTA button with the destination URL arrive together.",
+  "build": "wordmark-assemble's settle stage: mark and name arrive together on one spring, the tagline reveals on a clipPath wipe, the CTA button scales in from 0.92 on back.out a beat after.",
+  "sound": "A soft chime as the mark settles, quiet under the rest.",
+  "duration": [2.2, 2.6],
+  "prompt": "Close on a small brand mark settling beside the bold wordmark, with a short one-line tagline revealing beneath it. Bring in a plain reassurance line and a rounded call-to-action button with the destination a beat later, calm and unhurried.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "ajith-io-c52e09", "url": "https://prompt-motion.com/ajith-io-c52e09", "creator": "@ajith_io", "start": 35.0, "end": 39.9},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

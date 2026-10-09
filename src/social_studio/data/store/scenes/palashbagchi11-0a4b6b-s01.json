@@ -1,0 +1,21 @@
+{
+  "id": "palashbagchi11-0a4b6b-s01",
+  "kind": "scene",
+  "name": "a paid-for claim hard-cuts into an accusing question",
+  "looks": "On a near-black card, a bold line states what the viewer paid for, with a dim timestamped receipt line underneath. It hard-cuts to a white card asking what they actually got, the second line underlined by hand. The rhythm is two flat cards, same size type, no crossfade.",
+  "build": "Two full-bleed DOM cards, opposite grounds (dark then light); each headline is one block, with a small opacity/y entrance under 0.2s so the hard cut doesn't feel completely static. The underline under the second card's question is a scaleX reveal from the left, power2.out.",
+  "sound": "A dry tick on each card's arrival, a short scratch as the underline draws.",
+  "duration": [2.2, 2.8],
+  "prompt": "Open on a flat card stating plainly what the viewer paid for, with a small receipt-style detail line. Hard-cut to a second card, same rhythm, opposite ground colour, that turns the claim into a pointed question, underlining the sting by hand. No crossfade between the two.",
+  "techniques": ["ghost-glyph-headline-card"],
+  "source": {"film": "palashbagchi11-0a4b6b", "url": "https://prompt-motion.com/palashbagchi11-0a4b6b", "creator": "@PalashBagchi11", "start": 0.0, "end": 4.9},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "tease"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["open", "type"],
+    "complexity": "low"
+  }
+}

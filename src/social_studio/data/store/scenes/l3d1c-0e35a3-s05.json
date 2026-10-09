@@ -1,0 +1,21 @@
+{
+  "id": "l3d1c-0e35a3-s05",
+  "kind": "scene",
+  "name": "Monogram opens into the full lockup and CTA",
+  "looks": "A single-letter monogram mark sits alone on a dark ground, then cuts to the full wordmark with its second word in the accent colour, a two-line promise underneath, a rounded CTA button, the site URL, and a small trust line in fine print at the very bottom.",
+  "build": "Monogram holds alone for a short beat, then hard-cuts to the full lockup group arriving together (`y:10px -> 0`, power2.out, ~350ms). The CTA button lands last with a small scale overshoot (0.95 -> 1.02 -> 1); the trust line fades in last, well below the button, at reduced opacity.",
+  "sound": "A soft low swell under the cut to the full lockup, a light pop on the CTA button's arrival.",
+  "duration": [2.0, 2.8],
+  "prompt": "Hold on a lone monogram mark, then cut to the full brand lockup: wordmark with one word in the accent colour, a short two-line promise, a CTA button arriving last with a touch of overshoot, the site URL, and a small trust line in fine print beneath everything.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "l3d1c-0e35a3", "url": "https://prompt-motion.com/l3d1c-0e35a3", "creator": "@l3d1c", "start": 25.0, "end": 29.8},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

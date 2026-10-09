@@ -1,0 +1,20 @@
+{
+  "id": "gallery-zoom-tour",
+  "kind": "technique",
+  "name": "Gallery zoom tour",
+  "looks": "One tile fills the frame, then the camera pulls back to reveal it is part of a live grid, whips sideways into a different tile until that one fills the frame, and match-cuts straight into that tile's own scene. It plays as one continuous camera move through many pieces rather than a series of cuts.",
+  "build": "Lay out absolutely positioned cards (or three.js planes) in one large world container, and drive a pseudo-camera as focus x, focus y and a log scale so the zoom speed feels even; tween each tile's corner radius to zero as it reaches full-bleed, and play each tile's own content from the clock even while small.",
+  "sound": "A soft shift on the pull-back and a whoosh on each whip.",
+  "duration": [4, 8],
+  "prompt": "Start zoomed into one tile, pull the camera back to reveal a grid of many live tiles, whip into a different one until it fills the frame, then cut straight into that tile's own scene. Use this single continuous camera move to show a portfolio, a set of features, or several examples side by side, keeping to one camera move at a time.",
+  "source": "prompt-motion.com's own promo, in its gallery of Claude-made motion films, studied 2026-10-07.",
+  "tags": {
+    "role": ["demo", "proof", "transition"],
+    "purpose": ["show-scale", "show-craft"],
+    "content": ["product-ui", "illustration"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["structure", "transition"],
+    "complexity": "high"
+  }
+}

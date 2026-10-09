@@ -1,0 +1,48 @@
+{
+  "id": "robj3d3-b18fad-s04",
+  "kind": "scene",
+  "name": "the cards resolve into a connected constellation",
+  "looks": "The wall of cards gives way to a looser constellation: small scattered marks, a few picked out in red, connected by thin lines like a network, before the frame settles back on one clean, glowing copy of the mark alone in the dark.",
+  "build": "DOM/SVG nodes at scattered seeded positions, connecting lines drawn on with strokeDashoffset between nearby nodes, a subset recoloured to the accent for emphasis; the shot ends by cross-fading the whole field down to a single centred instance of the mark with its soft glow.",
+  "sound": "A soft tick per connecting line, a low hum under the field, a settling chime as it resolves to the single mark.",
+  "duration": [
+    2,
+    3
+  ],
+  "prompt": "Pull back from a dense wall of options into a looser constellation of connected points, with a few picked out in an accent colour, then let the whole field settle back down to one clean, glowing mark alone -- read it as 'many things, one system, one symbol.'",
+  "techniques": [
+    "node-graph-build"
+  ],
+  "source": {
+    "film": "robj3d3-b18fad",
+    "url": "https://prompt-motion.com/robj3d3-b18fad",
+    "creator": "@robj3d3",
+    "start": 10.0,
+    "end": 12.5
+  },
+  "tags": {
+    "role": [
+      "proof"
+    ],
+    "purpose": [
+      "show-scale",
+      "establish-brand"
+    ],
+    "content": [
+      "data",
+      "abstract",
+      "logo"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9"
+    ],
+    "family": [
+      "data",
+      "structure"
+    ],
+    "complexity": "medium"
+  }
+}

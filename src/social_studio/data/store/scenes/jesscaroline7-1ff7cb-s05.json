@@ -1,0 +1,21 @@
+{
+  "id": "jesscaroline7-1ff7cb-s05",
+  "kind": "scene",
+  "name": "Phone tilts up with leader-line callouts",
+  "looks": "A phone mockup held at a slight 3D tilt sits in front of two ghost copies of itself stacked behind, dimmed and offset. Thin orange leader lines reach out from the phone's edge to short mono labels naming each UI section in turn (carousel, profile actions, categories, hours, address), each label clipping in on its own beat while the number values in the UI tick up.",
+  "build": "Phone mock at a fixed 8-12 degree tilt on two axes, soft shadow beneath; the two background copies are the same mock at reduced opacity and scale, offset diagonally. Leader lines are short straight SVG paths with strokeDashoffset draw-on, landing on a mono label that clips in from a 0-width mask. Labels stagger in top to bottom, 0.2-0.3s apart, synced to UI counters rolling up inside the screen.",
+  "sound": "A soft tick per leader line landing, a faint whirr under the counters rolling inside the screen.",
+  "duration": [3.5, 5.0],
+  "prompt": "Hold a product screen at a fixed, shallow 3D tilt with two faint ghost copies of itself stacked behind to suggest depth, then annotate it: thin leader lines reach from the screen's edge to short labels naming each section in turn, top to bottom, while any numbers inside the screen count up in step with the labels landing.",
+  "techniques": ["ui-tilt-card", "annotated-diagram-overlay"],
+  "source": {"film": "jesscaroline7-1ff7cb", "url": "https://prompt-motion.com/jesscaroline7-1ff7cb", "creator": "@jesscaroline7", "start": 29.5, "end": 34.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["introduce-feature", "explain-mechanism"],
+    "content": ["product-ui", "device"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["interface", "annotation"],
+    "complexity": "medium"
+  }
+}

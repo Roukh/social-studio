@@ -1,0 +1,20 @@
+{
+  "id": "radar-scan-reveal",
+  "kind": "technique",
+  "name": "Radar scan reveal",
+  "looks": "Concentric rings sit centred on a bright anchor dot, like a radar display. Small dots light up one at a time at scattered positions inside the rings as a thin sweeping line or wedge of light passes slowly around, each dot brightening the instant the sweep crosses it.",
+  "build": "Rings are static low-opacity SVG circles; each signal dot sits at a seeded (r, theta) position and fades/scales in once the sweep's current angle passes its theta; the sweep rotates continuously, linear, no easing. A detected dot can grow a short connecting line to a small label card.",
+  "sound": "A soft, continuous low sweep tone, a distinct ping each time the sweep lands on a dot.",
+  "duration": [2.5, 5.0],
+  "prompt": "Centre concentric rings on a bright anchor dot and rotate a thin sweeping line slowly around them, lighting up small scattered dots one at a time exactly as the sweep crosses each one, like a radar always watching and finding new signals.",
+  "source": "prompt-motion.com's gallery (xelandre-363f00), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "show-data"],
+    "content": ["abstract", "data"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "9:16", "4:5"],
+    "family": ["data", "particles"],
+    "complexity": "medium"
+  }
+}

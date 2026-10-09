@@ -1,0 +1,20 @@
+{
+  "id": "radial-progress-anticipation",
+  "kind": "technique",
+  "name": "Radial progress anticipation",
+  "looks": "A ring fills while a percentage counts up, loose squares orbiting around it at different rates. Before each step forward, the leading point pulls back slightly first, so every advance reads as a real push rather than a plain tween.",
+  "build": "Drive an SVG ring with strokeDashoffset, or a canvas arc, alongside counter text set from the clock; move each step backward slightly on a power2-in ease before the larger forward move on power3-out, with orbiting squares at seeded angles rotating at different speeds.",
+  "sound": "A tick on each step of the percentage.",
+  "duration": [1.5, 2],
+  "prompt": "Show a ring filling and a percentage counting toward completion, with small shapes orbiting loosely around it. Before each visible step forward, pull the motion back slightly first so every advance reads with real anticipation rather than a flat tween. Use this for any loading, building or counting moment the film wants to feel alive.",
+  "source": "Himanshu's 15 s showreel (x.com/himanshutwtxs/status/2103495232637882858), studied 2026-10-07.",
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["build-tension", "show-data"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "interface"],
+    "complexity": "medium"
+  }
+}

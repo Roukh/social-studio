@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-474bcf-s01",
+  "kind": "scene",
+  "name": "riso colour-flicker claim into a pivot question",
+  "looks": "A small circle holds one bold claim, then the same short claim flashes through four quick ink-colour swaps on a striped halftone card before settling hard on one final combination. A pink dot-matrix field pulls in with a highlighted pivot word, and the shot lands on one big question mark over a short line asking how long a single piece of work really takes.",
+  "build": "The riso-print-flicker mechanic: a DOM card swaps its two-colour background and type ink on a hard cut every 0.15-0.2 s through a short palette list, holding the final combination. The pivot card is a dot-matrix background with a highlighted label box popping in; the question card is a large DOM glyph under a bold two-line claim.",
+  "sound": "A fast paper-flutter rattle through the colour flicker landing on a thunk, a soft tap as the pivot label pops in, a low held tone under the question mark.",
+  "duration": [8.5, 10.0],
+  "prompt": "Open on a bold claim that flashes through a handful of quick ink-colour swaps on a textured, print-like card before settling hard on one final combination, then pivot through a short 'but' beat on a dot-matrix field into one big question mark asking how long a piece of creative work really takes.",
+  "techniques": ["riso-print-flicker"],
+  "source": {"film": "rneayan-474bcf", "url": "https://prompt-motion.com/rneayan-474bcf", "creator": "@rneayan", "start": 0.0, "end": 9.9},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["tease", "build-tension", "set-mood"],
+    "content": ["type", "abstract"],
+    "energy": ["punch"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["texture", "type"],
+    "complexity": "medium"
+  }
+}

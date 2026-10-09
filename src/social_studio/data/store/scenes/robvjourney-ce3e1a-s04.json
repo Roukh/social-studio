@@ -1,0 +1,21 @@
+{
+  "id": "robvjourney-ce3e1a-s04",
+  "kind": "scene",
+  "name": "a run of short claims, each its own flat colour",
+  "looks": "A run of four short, blunt statements hard-cut one after another, each on its own full-bleed flat colour field (a bright accent, near-black, white, a striped hazard pattern), each statement two-tone with one word picked out in a dot-matrix weight. A diagonal strip along the bottom edge scrolls a longer continuous list of related short phrases throughout, never pausing.",
+  "build": "DOM phrase swapped hard-cut on the beat, each card's background a different flat fill from a small accent palette; a thin diagonal marquee strip duplicated end-to-end scrolls left at a constant linear rate beneath the cards, independent of the card cuts.",
+  "sound": "A dry hit on each card's cut, a very quiet continuous tick bed under the scrolling strip.",
+  "duration": [1.5, 2.5],
+  "prompt": "Deliver a short run of blunt, punchy claims as hard cuts, each one on its own full-bleed flat colour so the run itself feels like a drumbeat of colour changes, while a thin diagonal strip along one edge scrolls a longer list of related phrases continuously underneath, tying the whole run together as one live feed.",
+  "techniques": ["kinetic-word-run", "ticker-tape-marquee"],
+  "source": {"film": "robvjourney-ce3e1a", "url": "https://prompt-motion.com/robvjourney-ce3e1a", "creator": "@robvjourney", "start": 7.0, "end": 9.0},
+  "tags": {
+    "role": ["problem", "hook"],
+    "purpose": ["build-tension", "tease"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["type", "texture"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "grid-wave-morph",
+  "kind": "technique",
+  "name": "Grid wave morph",
+  "looks": "A regular grid of identical rounded shapes sits over a flat field. A wave of transformation sweeps across the grid from one corner, each shape's rotation and roundness shifting at a time offset set by its distance from the wave's origin, with a small mono readout naming the easing function and shape count.",
+  "build": "Shapes on a regular grid; each shape's progress is ease(t - k * distanceFromOrigin) driving a rotation and scale/corner-radius lerp between two states; a small mono caption states the formula and shape count from the same constants; an optional ticker-tape-marquee strip runs behind the grid for texture.",
+  "sound": "A soft granular patter as the wave crosses the grid, with a faint tick as each shape settles.",
+  "duration": [1.5, 2.5],
+  "prompt": "Show a regular grid of simple shapes where a wave of change sweeps from one corner to the other, each shape shifting its form a little later than its neighbour depending on distance, with a small caption naming the function or rule driving it, so the craft reads as systematic rather than hand-placed.",
+  "source": "prompt-motion.com's gallery (ndhabarde11-f155b4), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-craft", "show-scale"],
+    "content": ["abstract", "data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["generative", "shape", "build-pattern"],
+    "complexity": "medium"
+  }
+}

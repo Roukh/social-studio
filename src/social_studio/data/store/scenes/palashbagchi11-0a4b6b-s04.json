@@ -1,0 +1,21 @@
+{
+  "id": "palashbagchi11-0a4b6b-s04",
+  "kind": "scene",
+  "name": "a ranked ledger names the dead and the worthless",
+  "looks": "Under a two-part headline stating a zero rate and a dead-item count, a short ranked table builds row by row: a rank, an anonymised source, a status pill and a value. Rows with a bad status (no link, dead) are tinted in the warning colour, their value zeroed out, so the worst offenders are immediately visible.",
+  "build": "Rows reveal top to bottom on a 0.06-0.09s stagger, y:6px->0, power2.out; bad-status rows get a tinted pill, a warning-coloured value and a faint background strip. The headline above lands just before the first row.",
+  "sound": "A dry tick per row, a slightly harder tick on each bad-status row.",
+  "duration": [2.0, 2.6],
+  "prompt": "State the worst finding as a blunt two-line headline, then build a short ranked table underneath it: a rank, a label, a status pill and a value, landing row by row. Tint the worst rows in a warning colour so the damage is legible without reading every cell.",
+  "techniques": ["ledger-row-reveal"],
+  "source": {"film": "palashbagchi11-0a4b6b", "url": "https://prompt-motion.com/palashbagchi11-0a4b6b", "creator": "@PalashBagchi11", "start": 14.8, "end": 17.3},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-contrast"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "robvjourney-ce3e1a-s05",
+  "kind": "scene",
+  "name": "a runtime log shows the system working alone",
+  "looks": "A short headline states that the company runs itself, beside a dark terminal-style panel where a list of task rows types on one at a time, each confirming it is running, with a running count of tasks and two numbers (a high automation share, a small human share) ticking beside it. A final row tags one task as waiting on a human sign-off.",
+  "build": "DOM monospace rows revealed on a steady per-row beat, each with a status tag that resolves from 'queued' to 'running'; a small mono corner readout counts tasks and the two percentage values with no easing; the last row's status tag is visually distinct (a highlighted sign-off chip).",
+  "sound": "A soft mechanical tick per row landing, a slightly brighter tone on the sign-off row.",
+  "duration": [1.5, 2.5],
+  "prompt": "Explain how the product runs without constant human input: a short claim beside a terminal-style log where task rows type on one by one, each confirming it's running, with a live counter nearby splitting the work between automation and a small human share, ending on the one row that still needs a person's sign-off.",
+  "techniques": ["terminal-type-on", "live-readout-hud"],
+  "source": {"film": "robvjourney-ce3e1a", "url": "https://prompt-motion.com/robvjourney-ce3e1a", "creator": "@robvjourney", "start": 9.0, "end": 11.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["explain-mechanism", "show-ease"],
+    "content": ["code", "data"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

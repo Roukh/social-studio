@@ -1,0 +1,21 @@
+{
+  "id": "twoclipping-221cab-s02",
+  "kind": "scene",
+  "name": "a photoreal generated scene holds, full bleed",
+  "looks": "The peephole scene pays off at full size: a weathered stone arch sits on a grassy hill under soft golden light, wildflowers in the foreground, a few birds drifting across the sky, the frame barely moving.",
+  "build": "A static or barely panning background layer; two or three sprite layers (the birds, the grass) drift at different depths for parallax, same mechanic as cinematic-atmosphere-hold; a warm grade and gentle grain sit over the whole frame.",
+  "sound": "A low pad and room tone, no hits, letting the image carry the beat.",
+  "duration": [2.5, 5.0],
+  "prompt": "Pay off the teaser with a full-bleed, photoreal generated scene held nearly still, a warm golden grade, small elements drifting at different depths for parallax, so the image reads as a believable place rather than a flat picture.",
+  "techniques": ["cinematic-atmosphere-hold"],
+  "source": {"film": "twoclipping-221cab", "url": "https://prompt-motion.com/twoclipping-221cab", "creator": "@twoclipping", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["hook", "demo"],
+    "purpose": ["reveal-product", "set-mood"],
+    "content": ["photo", "illustration"],
+    "energy": ["calm"],
+    "format": ["1:1", "4:5"],
+    "family": ["texture", "establishing"],
+    "complexity": "low"
+  }
+}

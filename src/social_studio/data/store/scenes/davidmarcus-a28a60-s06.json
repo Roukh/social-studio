@@ -1,0 +1,21 @@
+{
+  "id": "davidmarcus-a28a60-s06",
+  "kind": "scene",
+  "name": "Values stack to wordmark close",
+  "looks": "Three one-word values stack in on a dark field, each new word landing bright while the one before it dims, finishing with all three visible and the last brightest. It hard-cuts to a light field where a tagline types on, then the full wordmark and logo lock up, finally dropping the lockup's icon-only initial state to reveal the full name with a URL caption beneath.",
+  "build": "List-stack-reveal for the three values. The tagline types on with terminal-type-on's per-character mechanic in a plain sans face (no panel). The wordmark lockup is a hard cut from the icon mark alone to icon-plus-wordmark at full size, then a scale-down crossfade to the final lockup with the URL caption fading in beneath.",
+  "sound": "A tick per value landing, a typing tick under the tagline, then a soft confirm hit on the final wordmark lockup.",
+  "duration": [3.5, 4.5],
+  "prompt": "Close on three one-word brand values stacking in, the last staying bright. Cut to a plain field where a short tagline types on, then settle on the full logo lockup with the product name and a URL caption, as the film's final signature.",
+  "techniques": ["list-stack-reveal", "terminal-type-on", "wordmark-assemble"],
+  "source": {"film": "davidmarcus-a28a60", "url": "https://prompt-motion.com/davidmarcus-a28a60", "creator": "@davidmarcus", "start": 15.97, "end": 22.5},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["type", "logo"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9"],
+    "family": ["type", "identity", "close"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "node-graph-build",
+  "kind": "technique",
+  "name": "Node graph build",
+  "looks": "Small labelled boxes connect one at a time: a line draws from an existing node out to a new one, the new node's box fades and scales in the instant the line lands, and the next connection starts right away, so a system diagram builds itself edge by edge until the whole graph sits connected.",
+  "build": "Nodes at fixed, precomputed layout coordinates; each edge strokes on with strokeDashoffset (power2.out); the target node fades/scales in (0.9 -> 1) once its edge lands; one edge animates at a time in a seeded order.",
+  "sound": "A soft tick per edge connecting, a slightly brighter tick when a node lands.",
+  "duration": [
+    3.0,
+    6.0
+  ],
+  "prompt": "Build a small system diagram edge by edge: draw a line from an existing box out to a new one, let the new box fade and scale in the instant the line lands, and move straight to the next connection, until the whole diagram sits connected and readable.",
+  "source": "prompt-motion.com's gallery (techyoutbe-945b56), studied 2026-10-09",
+  "tags": {
+    "role": [
+      "demo",
+      "proof",
+      "solution"
+    ],
+    "purpose": [
+      "explain-mechanism",
+      "show-ease",
+      "show-scale",
+      "introduce-feature"
+    ],
+    "content": [
+      "data",
+      "abstract",
+      "product-ui",
+      "logo"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9",
+      "1:1",
+      "9:16",
+      "4:5"
+    ],
+    "family": [
+      "data",
+      "structure"
+    ],
+    "complexity": "medium"
+  }
+}

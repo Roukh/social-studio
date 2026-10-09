@@ -1,0 +1,21 @@
+{
+  "id": "aistocksavvy-3fb9f5-s03",
+  "kind": "scene",
+  "name": "earnings dashboard card with a stat trio",
+  "looks": "A dark dashboard card holds a company row and a highlighted EPS block (actual vs expected, with a swing badge), beneath a row of three big stats (two dollar figures and a percentage) each with a small vs-expectation caption.",
+  "build": "data-infographic: the dashboard card fades/slides up as one DOM panel; each of the three stats rolls its digits up with a vertical blur during the count, landing a beat apart; the swing badge pops with a small scale snap on back.out.",
+  "sound": "A rising tone under the digit rolls, a soft pop on the swing badge.",
+  "duration": [2.0, 2.4],
+  "prompt": "Show a dashboard card highlighting one key figure against its expected value, then reveal a row of three supporting stats beneath it, each rolling its digits up a beat apart with a small caption comparing it to expectations. Keep the whole thing dark and dense, like a real trading terminal.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "aistocksavvy-3fb9f5", "url": "https://prompt-motion.com/aistocksavvy-3fb9f5", "creator": "@AIStockSavvy", "start": 4.833, "end": 6.867},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "explain-mechanism"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

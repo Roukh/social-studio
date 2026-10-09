@@ -1,0 +1,21 @@
+{
+  "id": "en-ra-81c6dd-s02",
+  "kind": "scene",
+  "name": "Draft-reply variants cycle to approve",
+  "looks": "A found post card holds, scored by a small ringed number in the corner. A cursor clicks 'Draft reply' and the card grows into a reply panel with three small version tabs (V1, V2, V3); the cursor taps between them, the body copy swapping to match each one, before settling on the version it approves with a bold button press.",
+  "build": "command-chip-cycle for the V1/V2/V3 tabs: each tap swaps the active chip's fill and the body text crossfades beneath it, the chosen version held longest. The card's height tweens to fit the new content on each swap, power2.out.",
+  "sound": "A click on 'Draft reply', a soft blip on each tab swap, and a confirm chime on approve.",
+  "duration": [2.5, 3.5],
+  "prompt": "Show a product drafting more than one answer and letting a human pick: open a found item scored by a small badge, click to draft a reply, then tap through two or three written versions in small tabs, the copy swapping under each tap, before approving the best one with a single button press.",
+  "techniques": ["command-chip-cycle"],
+  "source": {"film": "en-ra-81c6dd", "url": "https://prompt-motion.com/en-ra-81c6dd", "creator": "@en______ra", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["1:1", "4:5"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

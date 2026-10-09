@@ -1,0 +1,21 @@
+{
+  "id": "mehul4795-4a7007-s06",
+  "kind": "scene",
+  "name": "Closing lockup lists its proof points",
+  "looks": "The app icon settles with its wordmark and a short descriptor beneath, a dark CTA button landing next, and a thin row of small proof points (an accuracy figure, a language count, a capability) sitting at the very bottom in reduced size, with the maker's name in fine print under everything.",
+  "build": "Icon, wordmark and descriptor arrive together (`y:10px -> 0`, power2.out, ~300ms); CTA button lands with a small scale overshoot (0.95 -> 1.02 -> 1) a beat later. The proof-point row fades in last, smallest and lowest, each separated by a small dot.",
+  "sound": "A soft low swell under the lockup's arrival, a light pop on the CTA button.",
+  "duration": [2.0, 2.5],
+  "prompt": "Close on the app icon settling with its wordmark and a short descriptor, a CTA button landing a beat later with a touch of overshoot, and a thin row of small proof points in reduced size at the very bottom, with the maker's credit in fine print beneath everything.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "mehul4795-4a7007", "url": "https://prompt-motion.com/mehul4795-4a7007", "creator": "@mehul4795", "start": 30.0, "end": 33.3},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "lexnlin-038035-s04",
+  "kind": "scene",
+  "name": "Wordmark closes beside an engraved solid",
+  "looks": "An engraved study of a geometric solid sits on the left, orbited by a single thin accent-coloured ellipse with one small dot riding its path; beside it, the brand's asterisk mark and wordmark settle on the warm paper ground, holding for a breath before the frame cuts to black.",
+  "build": "The engraved solid and its orbiting ellipse are already mid-motion when the shot opens (ellipse slowly rotating, `strokeDashoffset` steady); the mark and wordmark arrive together (`y:8px -> 0`, power2.out, ~300ms) a beat later. Hard cut to a full black frame closes the film.",
+  "sound": "Near silence under the hold, a single soft low tone under the cut to black.",
+  "duration": [2.0, 3.5],
+  "prompt": "Close beside a piece of antique engraving artwork orbited by one thin accent ellipse and dot, settling the brand's mark and wordmark onto the same warm paper ground a beat later, holding briefly, then cutting hard to black to end the film.",
+  "techniques": ["engraving-collage-type", "lockup-close-card"],
+  "source": {"film": "lexnlin-038035", "url": "https://prompt-motion.com/lexnlin-038035", "creator": "@LexnLin", "start": 10.7, "end": 13.5},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["illustration", "logo"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

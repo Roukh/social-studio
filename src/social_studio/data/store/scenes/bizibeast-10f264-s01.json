@@ -1,0 +1,21 @@
+{
+  "id": "bizibeast-10f264-s01",
+  "kind": "scene",
+  "name": "a stack of tool subscriptions tumbles to a scary total",
+  "looks": "Small cards for separate tools and their monthly prices tumble loosely into frame one at a time, more arriving and piling up messier each beat, until a bold total price lands beneath the pile in a warning colour.",
+  "build": "variant-stack-reveal, exaggerated with a seeded tumble (random rotation and drop height per card, increasing overlap); the total price rolls up with data-infographic's digit-count pattern, landing in a warning red.",
+  "sound": "A papery clatter per card, a low discordant hit on the total.",
+  "duration": [4.5, 5.0],
+  "prompt": "Tumble in a growing pile of small cards, each a separate tool and its price, more arriving and overlapping messier each beat. Land on a bold, alarming total price beneath the pile, rolling up digit by digit, to dramatise the cost of fragmentation before the product's answer.",
+  "techniques": ["variant-stack-reveal", "data-infographic"],
+  "source": {"film": "bizibeast-10f264", "url": "https://prompt-motion.com/bizibeast-10f264", "creator": "@bizibeast", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["data", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["collage", "data"],
+    "complexity": "medium"
+  }
+}

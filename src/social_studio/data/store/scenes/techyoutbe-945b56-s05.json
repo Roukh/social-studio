@@ -1,0 +1,21 @@
+{
+  "id": "techyoutbe-945b56-s05",
+  "kind": "scene",
+  "name": "one cover held while its proof swaps beside it",
+  "looks": "A single product cover sits fixed on one side of the frame while a headline types on beside it. A short checklist builds top to bottom with a check mark per line, then that panel is replaced by a dark terminal panel typing out a real command and its result, the cover never moving through either swap.",
+  "build": "The cover is a fixed DOM panel (ui-tilt-card's held-panel mechanic, no tilt needed if the brief is flat); the checklist lines fade/rise in on a short stagger, each with a check-mark pop; the panel then cross-fades to a mono terminal block revealed with kit.typeOn and a blinking cursor.",
+  "sound": "A light tick per checklist line, then a soft mechanical key tick under the terminal's type-on.",
+  "duration": [6.5, 7.5],
+  "prompt": "Hold one product panel fixed on one side of the frame while its proof swaps beside it: a short checklist building top to bottom with a check mark per line, then crossfading into a terminal panel typing out a real command and its result, so the one fixed cover earns two different kinds of proof in turn.",
+  "techniques": ["ui-tilt-card", "terminal-type-on"],
+  "source": {"film": "techyoutbe-945b56", "url": "https://prompt-motion.com/techyoutbe-945b56", "creator": "@techyoutbe", "start": 17.5, "end": 25.0},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-craft", "explain-mechanism"],
+    "content": ["product-ui", "code"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

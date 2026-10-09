@@ -1,0 +1,20 @@
+{
+  "id": "riso-print-flicker",
+  "kind": "technique",
+  "name": "Riso print flicker",
+  "looks": "The same short headline flashes through four or five different two-colour ink combinations in rapid succession, as if a print were recalibrating its registration, before settling on the final colourway and holding.",
+  "build": "One DOM card with a textured background (diagonal stripe or halftone dot) and a headline on top. Hard-swap, never crossfade, both the background's two spot colours and the type's ink colour together every 0.15-0.25 s through a short fixed palette list; hold the final combination at least 3x as long as a flicker step.",
+  "sound": "A fast paper-flutter or shutter-click rattle through the flicker, landing on a single thunk as it settles.",
+  "duration": [2.0, 3.0],
+  "prompt": "Flash a short, confident headline through four or five quick ink-colour swaps on a textured print-like background, as if the press were still finding registration, then settle hard on one final colourway and hold it. Keep every swap a hard cut, never a fade.",
+  "source": "rneayan-474bcf (prompt-motion.com/rneayan-474bcf), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "establish-brand", "set-mood"],
+    "content": ["type", "abstract"],
+    "energy": ["punch"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["texture", "type"],
+    "complexity": "low"
+  }
+}

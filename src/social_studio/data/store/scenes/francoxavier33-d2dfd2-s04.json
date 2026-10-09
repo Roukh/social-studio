@@ -1,0 +1,21 @@
+{
+  "id": "francoxavier33-d2dfd2-s04",
+  "kind": "scene",
+  "name": "Meal photos fan in, checklist ticks to send",
+  "looks": "A headline lands, then three overlapping meal photos fan in and settle at small seeded angles above a grocery checklist. The list's items tick off one by one, gaining a check and a strikethrough, until a green 'sent' button is pressed at the bottom.",
+  "build": "script-accent-underline for the headline; variant-stack-reveal for the photo fan (seeded rotation and offset, settling square-ish but still gently overlapped); each checklist row's check and strikethrough land together on their own beat, fastest at the end, finishing with the button's press-scale (0.045s down, 0.14s release).",
+  "sound": "A soft shutter-like click per photo landing, a tick per checklist item, and a confirm chime on the send button.",
+  "duration": [2.5, 3.5],
+  "prompt": "Prove a plan became real groceries: fan in a few photos of the finished result, then tick off a checklist item by item beneath them, each gaining a check and a strikethrough, ending on a single button press that sends the list onward.",
+  "techniques": ["script-accent-underline", "variant-stack-reveal"],
+  "source": {"film": "francoxavier33-d2dfd2", "url": "https://prompt-motion.com/francoxavier33-d2dfd2", "creator": "@francoxavier33", "start": 17.5, "end": 23.0},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-ease", "show-transformation"],
+    "content": ["photo", "product-ui"],
+    "energy": ["build"],
+    "format": ["9:16", "4:5"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

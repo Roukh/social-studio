@@ -1,0 +1,21 @@
+{
+  "id": "davidmarcus-a28a60-s02",
+  "kind": "scene",
+  "name": "Currency-code stat card swap",
+  "looks": "Under a small section label and hairline rule, a two-line claim stacks in (first line bold, second dimmer), then a big three-letter currency code and a count-with-caption sit below a divider. The currency code and its count swap once to a second country, the new pair landing brighter than the first.",
+  "build": "List-stack-reveal for the two-line claim. The code and the stat beneath are two DOM text nodes that crossfade/translateY on the same beat (power2.out, ~0.3s), so the pair reads as one synced swap rather than two separate cuts.",
+  "sound": "A tick on each stacked line, then a single swap hit when the card changes.",
+  "duration": [2.5, 3.5],
+  "prompt": "State a broad capability as a two-line claim that stacks in, then show one concrete instance of it as a big code or label with a small stat beneath a divider. Swap that instance once to a second, bigger example, landing brighter, to prove the claim covers more than one case.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "davidmarcus-a28a60", "url": "https://prompt-motion.com/davidmarcus-a28a60", "creator": "@davidmarcus", "start": 2.97, "end": 5.3},
+  "tags": {
+    "role": ["solution", "proof"],
+    "purpose": ["show-scale", "show-data", "introduce-feature"],
+    "content": ["type", "data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9"],
+    "family": ["type", "data"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "ajith-io-c52e09-s03",
+  "kind": "scene",
+  "name": "editable script card with a word highlighted for a fix",
+  "looks": "A narration script card lists several lines of text under the second step's headline. One word in the middle gets a small coloured underline and an \"edited\" tag as if just corrected, and an approve button at the bottom corner fills in solid once pressed.",
+  "build": "glass-ui-flow: the card's text is static DOM, the edited word gets a coloured underline and tag fading in on a short pop; the approve button's fill animates on press (scale 0.95, colour ramps from outline to solid) with a cursor arriving just before.",
+  "sound": "A soft click on the edit tag, a confirming chime on approve.",
+  "duration": [2.3, 2.7],
+  "prompt": "Show a card of generated text with one small phrase marked as edited, a coloured underline and a small tag calling it out. End on a plain approve button filling solid the moment it is pressed, so the viewer sees a human stayed in control of the output.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "ajith-io-c52e09", "url": "https://prompt-motion.com/ajith-io-c52e09", "creator": "@ajith_io", "start": 10.0, "end": 15.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-ease", "explain-mechanism"],
+    "content": ["product-ui", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["interface", "annotation"],
+    "complexity": "low"
+  }
+}

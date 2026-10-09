@@ -1,0 +1,21 @@
+{
+  "id": "davidmarcus-a28a60-s05",
+  "kind": "scene",
+  "name": "API call types to a settled status",
+  "looks": "A two-line claim stacks in above a dark rounded code panel. Inside the panel a short function call types on character by character with a blinking cursor, then a hairline rule appears and a dot-plus-word status line fades in beneath it as the payoff.",
+  "build": "List-stack-reveal for the claim line; terminal-type-on for the code panel (steady per-character reveal, blinking ::after cursor), then the status line (coloured dot + word) fades/slides up 4-6px after a short pause once typing completes.",
+  "sound": "A tick per stacked line, a light mechanical key tick per character while typing, then a single confirm tone on the status line.",
+  "duration": [2.5, 3.5],
+  "prompt": "State who the product serves as a two-line claim, then prove it with a real function call typing on in a dark code panel, finishing on a short confirmation status line below a hairline rule. Keep the call and its result true to what the product actually does, not a generic placeholder.",
+  "techniques": ["list-stack-reveal", "terminal-type-on"],
+  "source": {"film": "davidmarcus-a28a60", "url": "https://prompt-motion.com/davidmarcus-a28a60", "creator": "@davidmarcus", "start": 11.97, "end": 15.97},
+  "tags": {
+    "role": ["demo", "solution", "proof"],
+    "purpose": ["show-ease", "reveal-product", "explain-mechanism"],
+    "content": ["code", "product-ui"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9"],
+    "family": ["type", "interface"],
+    "complexity": "medium"
+  }
+}

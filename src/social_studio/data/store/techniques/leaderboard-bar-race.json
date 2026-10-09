@@ -1,0 +1,43 @@
+{
+  "id": "leaderboard-bar-race",
+  "kind": "technique",
+  "name": "Leaderboard bar race",
+  "looks": "A ranked list of horizontal bars (avatar, name, bar, dollar value) under a dated header card. As a date ticker advances from one cut to the next, the bars regrow to new lengths and the values roll to new numbers, rows that overtake each other swap position, and a big soft date watermark crossfades behind the card on each step.",
+  "build": "One flex DOM row per rank: avatar chip, a bar that tweens width/scaleX to its new value, a value span. On each date step, re-sort rows by new value and FLIP-tween each row to its new slot (~0.3s, power2.inOut) while the bar regrows and the digits roll up. The date watermark crossfades behind the card, never in front.",
+  "sound": "A tick per row that re-sorts, a soft riser under the bars regrowing, a louder tick on the date flip.",
+  "duration": [
+    2.5,
+    4.0
+  ],
+  "prompt": "Show a small ranked leaderboard of bars with names and values, under a dated header. Advance the date once or twice, letting the bars regrow, the values roll to new numbers, and rows swap position as they overtake each other, with a soft date watermark behind the card.",
+  "source": "founder.page's launch film in prompt-motion.com's gallery (prompt-motion.com/ratheejaisal-1f4538), studied 2026-10-09",
+  "tags": {
+    "role": [
+      "demo",
+      "proof"
+    ],
+    "purpose": [
+      "show-data",
+      "show-scale",
+      "build-tension"
+    ],
+    "content": [
+      "data",
+      "character"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "9:16",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "data",
+      "structure"
+    ],
+    "complexity": "medium"
+  }
+}

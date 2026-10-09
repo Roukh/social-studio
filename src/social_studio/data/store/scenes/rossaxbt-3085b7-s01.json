@@ -1,0 +1,21 @@
+{
+  "id": "rossaxbt-3085b7-s01",
+  "kind": "scene",
+  "name": "wordmark type-on with fanned photo collage",
+  "looks": "A loose arc of small photo cards hangs on the left in soft shadow. On the right, a headline types on character by character with a blinking cursor, then a plain subtitle line crossfades in underneath once the typing stops.",
+  "build": "DOM photo cards pre-placed with small random rotation (kit.rng seed) and a soft drop shadow; headline revealed with kit.typeOn at a steady rate; subtitle fades/rises 4-6px in on power2.out after a short pause once the cursor stops.",
+  "sound": "A light typing clack per character, then a soft swell under the subtitle fade.",
+  "duration": [2.5, 3.5],
+  "prompt": "Open on a loose arc of small reference images in soft shadow to one side, while a short headline types itself on with a blinking cursor on the other side, and a plain one-line subtitle fades in underneath once the typing settles. Use the brand's own display font and a calm, open field.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "rossaxbt-3085b7", "url": "https://prompt-motion.com/rossaxbt-3085b7", "creator": "@rossaxbt", "start": 0.0, "end": 3.4},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "tease"],
+    "content": ["type", "photo"],
+    "energy": ["calm"],
+    "format": ["1:1", "4:5", "9:16"],
+    "family": ["type", "identity"],
+    "complexity": "low"
+  }
+}

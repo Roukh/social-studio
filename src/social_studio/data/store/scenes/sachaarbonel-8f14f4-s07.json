@@ -1,0 +1,21 @@
+{
+  "id": "sachaarbonel-8f14f4-s07",
+  "kind": "scene",
+  "name": "a dark log panel stacks behind the detail view",
+  "looks": "A dark, code-styled log panel sits tilted, lines of raw calls scrolling past. A lighter detail card slides in front of it at its own offset tilt, breaking the same run down into billing, run details and a coloured trace timeline underneath.",
+  "build": "Both panels share one perspective and tilt family (ui-tilt-card); the dark log panel's lines type/scroll on in mono (terminal-type-on mechanic); the lighter detail card enters on a spring, offset in front, its trace bars growing from a baseline on a short uneven stagger.",
+  "sound": "A soft mechanical key tick under the log's scroll, a whoosh as the detail card settles in front.",
+  "duration": [2.5, 3.0],
+  "prompt": "Hold a dark, code-styled log panel tilted in the back with raw calls scrolling past in mono, then slide a lighter detail card in front of it at its own offset tilt, breaking the same activity down into a short trace timeline, so the raw record and its readable summary sit stacked together.",
+  "techniques": ["ui-tilt-card", "terminal-type-on"],
+  "source": {"film": "sachaarbonel-8f14f4", "url": "https://prompt-motion.com/sachaarbonel-8f14f4", "creator": "@sachaarbonel", "start": 45.0, "end": 50.0},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["build-tension", "show-craft"],
+    "content": ["code", "product-ui", "data"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["interface", "structure"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "ndhabarde11-f155b4-s06",
+  "kind": "scene",
+  "name": "iridescent liquid blobs ripple in front of a scrolling label wall",
+  "looks": "A wall of outlined words and small sunburst icons scrolls sideways behind glossy, iridescent liquid blobs that stretch, pinch and merge in front of it, their surfaces rippling with a rainbow sheen. A small mono caption names the rendering technique and step count.",
+  "build": "metaball-morph-style SDF blobs (raymarched or goo-filtered circles under a threshold filter) with a rainbow/iridescent reflective material whose hue shifts with surface normal; a ticker-tape-marquee strip of repeated labels and icon glyphs scrolls behind at a steady linear speed; a small mono caption states the render method and step count.",
+  "sound": "A low, wet wobble under the blobs merging and separating, with a soft whoosh behind the scrolling label wall.",
+  "duration": [1.3, 2.0],
+  "prompt": "Scroll a wall of small repeated labels and icon glyphs sideways in the background, and in front of it let a few glossy, rainbow-sheened liquid blobs stretch, pinch and merge into one another, with a small caption naming the render technique, so the craft and the look are shown together.",
+  "techniques": ["metaball-morph", "ticker-tape-marquee"],
+  "source": {"film": "ndhabarde11-f155b4", "url": "https://prompt-motion.com/ndhabarde11-f155b4", "creator": "@ndhabarde11", "start": 9.983, "end": 11.7},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-craft"],
+    "content": ["abstract", "3d-object"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["morph", "shape", "texture"],
+    "complexity": "high"
+  }
+}

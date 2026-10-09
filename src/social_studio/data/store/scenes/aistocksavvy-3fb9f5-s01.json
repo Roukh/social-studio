@@ -1,0 +1,21 @@
+{
+  "id": "aistocksavvy-3fb9f5-s01",
+  "kind": "scene",
+  "name": "glass blocks assemble over a scrolling ticker",
+  "looks": "In the dark, a dim point of light grows into a pair of glossy glass-blue rectangular blocks that drift together and settle at an angle, catching a cool rim light. The scene cuts to a bold one-word claim over a continuous ticker strip of symbols and values scrolling along the top and bottom edges.",
+  "build": "Two or three three.js or CSS-3D beveled blocks ease together on power3.out with a soft specular highlight; cut to ticker-tape-marquee running top and bottom (translateX from the clock, no easing, tokens duplicated for a seamless loop).",
+  "sound": "A low glassy swell as the blocks settle, a soft continuous data-stream texture under the ticker.",
+  "duration": [2.6, 3.0],
+  "prompt": "Open in the dark on a single point of light that grows into a pair of glossy angled blocks settling together with a cool rim light. Cut to a bold single-word claim held over a continuous ticker strip of short data tokens scrolling along the top and bottom edges, to set the tone as live and data-driven.",
+  "techniques": ["ticker-tape-marquee"],
+  "source": {"film": "aistocksavvy-3fb9f5", "url": "https://prompt-motion.com/aistocksavvy-3fb9f5", "creator": "@AIStockSavvy", "start": 0.0, "end": 2.867},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "set-mood"],
+    "content": ["3d-object", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["open", "texture"],
+    "complexity": "medium"
+  }
+}

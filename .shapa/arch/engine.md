@@ -23,7 +23,8 @@ Part of [[index]]. Everything that touches the renderer, ffmpeg and the sandbox 
 ## Contracts
 
 - Why HyperFrames: Apache-2.0, HTML plus GSAP with a deterministic seek(t); Remotion was rejected because companies of 4+ pay for automated renders.
-- Engine: `hyperframes@X` installed once per version under `.studio/engine`, its skills fetched from the matching git tag; `require_version` accepts only an exact version. Today every built-in preset pins 0.8.106.
+- Engine: `hyperframes@X` installed once per version under `.studio/engine`, its skills and its block/component registry (`registry/`, 171 blocks and 235 components at 0.8.106) fetched from the matching git tag (`ensure_skills`, `registry_root`); `hyperframes add` fetches from GitHub's main branch, so sessions read the pinned copy through `work/registry`. `require_version` accepts only an exact version. Today every built-in preset pins 0.8.106.
+- GSAP plugins: `KIT_GSAP_PLUGINS` (SplitText, MorphSVG, DrawSVG, free since 3.13) are vendored into every composition whose GSAP pin is 3.13 or later, after `gsap.min.js`, where each registers itself.
 - Master: `hyperframes render COMP --format mp4 --crf 10 --fps N --no-browser-gpu --strict` inside the jail, timeout 1800 s.
 - Delivery: libx264, yuv420p, preset slow, CRF 20, tune animation, GOP 2 s (`-g`, `-keyint_min`, `-sc_threshold 0`), maxrate 8M, bufsize 16M, faststart; audio AAC 192k 48 kHz with two-pass loudnorm to -14 LUFS, -1.5 dBTP, LRA 11; no audio stream -> `-an`. Every value is overridable through `encode.*`.
 - Poster: one frame at `poster_at` (else mid-video). Contact sheet: 12 frames, 270 px wide, `tile=6x2`.

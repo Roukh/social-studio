@@ -1,0 +1,21 @@
+{
+  "id": "quickdesignio-dd93d0-s01",
+  "kind": "scene",
+  "name": "question types on, then a URL chip answers it",
+  "looks": "A question types on character by character in white, with one word landing in an italic accent colour and a blinking cursor at the end. It cuts to a glowing pill-shaped input bar holding a site URL and a small ad-count badge, with four option labels fading up underneath it in a row.",
+  "build": "DOM text revealed per character at a steady rate with a blinking ::after cursor (kit.typeOn); the accent word sits in an italic face, the rest in the display sans. Hard cut to a bordered pill (rounded, glow via box-shadow) with an icon, mono URL text and a small badge; the four option labels below fade/slide up 4-6px on a short stagger.",
+  "sound": "A light typing clack per character, a soft confirm tone as the pill appears, a tick per option label.",
+  "duration": [1.7, 2.2],
+  "prompt": "Open on a plain question typed on character by character, with one key word picked out in an accent colour and italic. Hard-cut to a glowing input bar holding a short brand-relevant value and a tiny status badge, with a row of short option labels fading up beneath it.",
+  "techniques": ["dual-voice-type"],
+  "source": {"film": "quickdesignio-dd93d0", "url": "https://prompt-motion.com/quickdesignio-dd93d0", "creator": "@quickdesignio", "start": 0.0, "end": 2.0},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "reveal-product"],
+    "content": ["type", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["open", "type"],
+    "complexity": "low"
+  }
+}

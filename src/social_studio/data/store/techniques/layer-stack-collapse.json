@@ -1,0 +1,20 @@
+{
+  "id": "layer-stack-collapse",
+  "kind": "technique",
+  "name": "Layer stack collapse",
+  "looks": "A deck of flat, translucent shapes sits stacked with a slight 3D offset, each named by a small label on a leader line. The whole stack compresses straight down into a single solid, opaque shape of the same silhouette: many rules read as one simple result.",
+  "build": "Each layer is a shape offset by translateY/translateZ under a shared perspective, opacity decreasing toward the back; labels fade in on leader lines, staggered on the beat. The collapse tweens every layer's y/z to 0 and opacity to 1 on power3.in, finishing as one flat shape; labels fade out just before impact.",
+  "sound": "A soft layered hum while the stack is held, and a single solid thump on the collapse.",
+  "duration": [2.0, 2.5],
+  "prompt": "Show a stack of ordered rules or steps as translucent layered shapes, each named on a leader line, then collapse the whole stack into a single solid shape to say the complexity resolves to one simple result.",
+  "source": "a Lism CSS release video in prompt-motion.com's gallery (prompt-motion.com/ddryo-loos-300829), studied 2026-10-09",
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "show-transformation", "show-craft"],
+    "content": ["3d-object", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["structure", "3d"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "kmasiff-cc72cb-s03",
+  "kind": "scene",
+  "name": "Grid of status-coded result cards",
+  "looks": "A headline promises a short, finite set of outcomes; below it, a tidy grid of small cards pops in together, each with a coloured status pill (a different colour and label per card), an example value, and a one-line verdict on what to do with it.",
+  "build": "Grid cards pop in on a fast stagger (40-60ms between cards, row by row), each `scale 0.92 -> 1` with a touch of overshoot. The status pill's colour is the one distinguishing element per card; the verdict line fades in 80ms after the card lands.",
+  "sound": "A quick, light pop per card, fast enough that the full grid's arrival reads as one short flourish rather than six separate hits.",
+  "duration": [1.8, 2.5],
+  "prompt": "Promise a short, finite set of outcomes in a headline, then pop in a tidy grid of small cards together, each carrying its own coloured status pill, an example value, and a one-line verdict, so the whole taxonomy reads in one glance.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "kmasiff-cc72cb", "url": "https://prompt-motion.com/kmasiff-cc72cb", "creator": "@KmAsiff", "start": 5.0, "end": 7.3},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data", "explain-mechanism"],
+    "content": ["data", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

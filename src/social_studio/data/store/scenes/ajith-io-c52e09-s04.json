@@ -1,0 +1,21 @@
+{
+  "id": "ajith-io-c52e09-s04",
+  "kind": "scene",
+  "name": "a plant sketch draws itself to the narration",
+  "looks": "Inside a plain card, a simple illustration builds piece by piece: two water drops and a tangle of roots ink in first, then a stem and its first leaves, then more leaves and small arrow callouts, each new part landing exactly as a caption line beneath highlights the matching word.",
+  "build": "hand-drawn-illustration-build: each part is an SVG path revealed with strokeDashoffset then filled, started from the caption's per-word timing rather than a fixed clock; the caption plays karaoke-style beneath, already-spoken words solid, the live word accented.",
+  "sound": "A soft marker-scratch per stroke, timed to the voice reading the caption.",
+  "duration": [5.0, 7.0],
+  "prompt": "Inside a plain card, let a simple illustration draw itself piece by piece, exactly in step with a spoken caption line beneath it, whose words highlight one at a time. Keep every new stroke tied to a specific word, not a fixed timer, so the picture and the voice always agree.",
+  "techniques": ["hand-drawn-illustration-build"],
+  "source": {"film": "ajith-io-c52e09", "url": "https://prompt-motion.com/ajith-io-c52e09", "creator": "@ajith_io", "start": 15.0, "end": 22.5},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["illustration", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["reveal", "annotation"],
+    "complexity": "medium"
+  }
+}

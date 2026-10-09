@@ -1,0 +1,20 @@
+{
+  "id": "slider-scrub-preview",
+  "kind": "technique",
+  "name": "Slider scrub preview",
+  "looks": "A small floating control panel holds two or three labelled sliders. Each handle glides along its track and its percentage ticks up in turn, and right beside the panel a live preview visibly changes in sync with the value, so the parameter and its visible result read as one cause and effect.",
+  "build": "Each slider's handle x and percentage text are driven off the same clock value (power2.inOut); the preview's filter stack or a crossfade between graded copies keys off that identical value so it never lags the handle. Animate one slider at a time.",
+  "sound": "A soft tick per slider step and a light shimmer as the preview resolves on each stop.",
+  "duration": [2.0, 3.0],
+  "prompt": "Show a small control panel with a couple of labelled sliders scrubbing up in turn while a live preview beside it visibly changes in step with each one, a colour, a strength, a style, so the viewer sees the parameter cause the result. Keep one slider moving at a time.",
+  "source": "prompt-motion.com's gallery (rossaxbt-3085b7), studied 2026-10-09",
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-ease", "explain-mechanism", "introduce-feature"],
+    "content": ["product-ui"],
+    "energy": ["calm", "build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["interface", "data"],
+    "complexity": "medium"
+  }
+}

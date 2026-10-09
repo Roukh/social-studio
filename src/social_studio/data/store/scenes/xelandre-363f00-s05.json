@@ -1,0 +1,21 @@
+{
+  "id": "xelandre-363f00-s05",
+  "kind": "scene",
+  "name": "one word changes, one matching card follows",
+  "looks": "The radar field stays faintly visible in the background throughout. A short headline's last word swaps across three beats, signal, then prospect, then message, and each time a different UI card appears beside it: a detected lead with a reason, a scored prospect profile, a drafted outreach message ready to send.",
+  "build": "The headline's final word swaps on a hard cut with a quick scale/opacity snap, same mechanic as command-chip-cycle; the matching card fades/rises in beside it on each swap (ui-tilt-card's held-panel mechanic), replacing the previous card entirely rather than stacking.",
+  "sound": "A soft chime per word swap and a light pop as each card lands.",
+  "duration": [8.0, 10.0],
+  "prompt": "Swap a headline's last word across three beats while a matching UI card appears beside it each time, a detected signal, a scored prospect, a drafted message, so each word is proven by a different piece of the product rather than just stated.",
+  "techniques": ["command-chip-cycle", "ui-tilt-card"],
+  "source": {"film": "xelandre-363f00", "url": "https://prompt-motion.com/xelandre-363f00", "creator": "@xelandre__", "start": 12.5, "end": 22.5},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "introduce-feature"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

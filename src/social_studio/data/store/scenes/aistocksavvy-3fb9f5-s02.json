@@ -1,0 +1,21 @@
+{
+  "id": "aistocksavvy-3fb9f5-s02",
+  "kind": "scene",
+  "name": "headline card stack breaks in beside a claim",
+  "looks": "A numbered section label and a two-line bold claim sit at the left on a dark field; at the right, one news-style card (image, headline, source row) sits large with a live badge, and two more cards slide in and stack loosely beneath it in quick succession, each arriving a beat apart.",
+  "build": "variant-stack-reveal: DOM cards enter on a short slide-and-settle (power3.out, 0.25-0.3 s) with a small seeded offset in x/y/rotation, staggered about 0.15 s apart; a pulsing \"LIVE\" dot uses provenance-glow-stroke's glow.",
+  "sound": "A soft paper-slide whoosh per card, a quiet blip on the live dot.",
+  "duration": [2.0, 2.4],
+  "prompt": "Beside a short numbered claim, stack two or three content cards that slide in and settle one after another at a slight offset, topped by a pulsing live indicator. Let the arrival feel like a real-time feed updating, not a static layout.",
+  "techniques": ["variant-stack-reveal", "provenance-glow-stroke"],
+  "source": {"film": "aistocksavvy-3fb9f5", "url": "https://prompt-motion.com/aistocksavvy-3fb9f5", "creator": "@AIStockSavvy", "start": 2.867, "end": 4.833},
+  "tags": {
+    "role": ["intro", "demo"],
+    "purpose": ["introduce-feature", "show-speed"],
+    "content": ["product-ui", "photo"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "collage"],
+    "complexity": "medium"
+  }
+}

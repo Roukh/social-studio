@@ -1,0 +1,21 @@
+{
+  "id": "anthonyriera-9b1b2a-s03",
+  "kind": "scene",
+  "name": "a checklist confirms the mode before a toggle locks in",
+  "looks": "Beside a draft post card, a short checklist ticks off one item at a time (\"sounds human\", \"follows the rules\", \"helps first\"), then a two-way mode pill (one option muted, one bold) gets clicked by a cursor and locks to the chosen side as an approve button fills solid.",
+  "build": "command-chip-cycle for the mode pill (the two options swap emphasis on a quick scale/opacity change as the cursor clicks); each checklist line's check mark pops in on back.out a beat apart ahead of it.",
+  "sound": "A tick per checklist item, a click on the toggle, a confirming chime on approve.",
+  "duration": [2.3, 2.7],
+  "prompt": "Tick through a short checklist of reassurances one line at a time beside a draft output. End on a two-way mode toggle that a cursor clicks to lock into the bolder option, followed by an approve button filling solid. Use it to show a human reviewing before a system is trusted to run on its own.",
+  "techniques": ["command-chip-cycle"],
+  "source": {"film": "anthonyriera-9b1b2a", "url": "https://prompt-motion.com/anthonyriera-9b1b2a", "creator": "@anthonyriera", "start": 17.5, "end": 20.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-ease", "build-tension"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "type"],
+    "complexity": "medium"
+  }
+}

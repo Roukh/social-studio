@@ -1,0 +1,21 @@
+{
+  "id": "robj3d3-b18fad-s05",
+  "kind": "scene",
+  "name": "the lockup settles with a soon and a link",
+  "looks": "The mark and a short wordmark settle together on a near-black ground. A line restating that the symbol was never just one thing fades in beneath, then a short word promising it is coming soon, and finally a small site address, each arriving a beat after the last and holding still.",
+  "build": "Mark+wordmark arrive together as one group (y 8-12px -> 0, opacity 0 -> 1, power2.out); the restating tagline fades in 150-200ms later; the 'soon' word and the site address follow with their own short delay, no further motion once settled.",
+  "sound": "A soft low swell that fades out under the hold, no new hits once the last line lands.",
+  "duration": [2, 3],
+  "prompt": "Close on the mark and name settling together on a plain dark ground, a one-line statement restating the film's turn fading in beneath, then a short 'coming soon' word and a small site address arriving last and holding -- a quiet, static resting beat to end on.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "robj3d3-b18fad", "url": "https://prompt-motion.com/robj3d3-b18fad", "creator": "@robj3d3", "start": 12.5, "end": 15.061},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "tease"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

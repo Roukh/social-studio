@@ -1,0 +1,22 @@
+{
+  "id": "shopify-magic-product-photos",
+  "kind": "story",
+  "name": "One phone photo, four styled product shots",
+  "brand": "Shopify",
+  "source": {"url": "https://www.youtube.com/watch?v=ajltyxKyQ1k", "platform": "youtube", "posted": "2026-06-26", "duration": 23.0},
+  "object": "Shopify's AI photo editor, which turns one plain product photo into styled, ready-to-sell images from a typed prompt",
+  "audience": "small brand owners and sellers who can't afford a studio photoshoot for product photos",
+  "message": "This video tells sellers that a single quick phone photo of a product can become a professional, styled product photo in seconds, just by typing the scene they want.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 1.3, "what": "a phone camera viewfinder frames a plain black cap sitting on a bare surface, a finger hovering over the shutter button", "copy": "", "voice": "none"},
+    {"role": "demo", "start": 1.3, "end": 11.0, "what": "the captured photo opens in an AI photo editor; the seller types a prompt asking to place the cap on a reclaimed-wood table in a cozy office, then taps generate while the app processes", "copy": "show the hat on a reclaimed wood table in a cozy office", "voice": "none"},
+    {"role": "solution", "start": 11.0, "end": 16.8, "what": "the generated result appears instantly: the same cap now sits styled on a sunlit wood table in a warm, lived-in room, with no studio or reshoot involved", "copy": "", "voice": "none"},
+    {"role": "proof", "start": 16.8, "end": 23.1, "what": "a second typed prompt asks for a flat lay of the cap surrounded by complementary props on a sunlit concrete surface outdoors; the result appears with the cap laid out next to sunglasses, a denim jacket and a small plant, showing the tool can produce a full set of different scenes from one original photo", "copy": "create a flat lay of the hat surrounded by complementary items on a concrete surface, outdoors, bright natural daylight", "voice": "none"}
+  ],
+  "cta": "there is no spoken or written call to action; the video closes on the finished flat-lay image itself, letting the before-and-after transformation make the pitch to try the tool in the Shopify app",
+  "why": "Showing the actual typed prompts and the generated results back to back, twice, proves the feature works without anyone saying a word; the viewer watches a plain cap on a desk become two different ad-ready scenes in under 25 seconds. The silent, screen-recording format fits the vertical feed and lets the speed of the transformation be the whole argument.",
+  "tags": {
+    "goal": ["feature"], "product": ["ai-app"], "structure": ["before-after-cta"],
+    "voice": ["none"], "energy": ["build"], "format": ["9:16"]
+  }
+}

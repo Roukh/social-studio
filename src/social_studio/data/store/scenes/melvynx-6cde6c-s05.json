@@ -1,0 +1,51 @@
+{
+  "id": "melvynx-6cde6c-s05",
+  "kind": "scene",
+  "name": "The mark opens into a ring of integrations",
+  "looks": "A single app icon glows alone at centre, then curved lines reach out to four partner tool icons arriving one at a time around it, forming a small hub-and-spoke diagram. A short tagline naming the tool count and supported protocols settles beneath once the ring completes.",
+  "build": "Centre icon is fixed with a subtle pulse; each spoke is a curved bezier path drawing outward (`strokeDashoffset`, 200-300ms), staggered 100-150ms apart, its partner icon popping in the instant its line finishes. Tagline fades in only once the last spoke lands.",
+  "sound": "A soft whoosh per spoke drawing, a light pop on each partner icon, a confirming tick under the tagline.",
+  "duration": [
+    2.2,
+    2.8
+  ],
+  "prompt": "Glow a single product icon alone at centre, then draw curved lines out to a small ring of partner tool icons arriving one at a time, each popping in as its own line completes, settling a short tagline naming the scale of what connects underneath once the ring is whole.",
+  "techniques": [
+    "node-graph-build"
+  ],
+  "source": {
+    "film": "melvynx-6cde6c",
+    "url": "https://prompt-motion.com/melvynx-6cde6c",
+    "creator": "@melvynx",
+    "start": 25.0,
+    "end": 30.0
+  },
+  "tags": {
+    "role": [
+      "solution",
+      "proof"
+    ],
+    "purpose": [
+      "introduce-feature",
+      "show-scale"
+    ],
+    "content": [
+      "logo",
+      "product-ui"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "structure",
+      "data"
+    ],
+    "complexity": "medium"
+  }
+}

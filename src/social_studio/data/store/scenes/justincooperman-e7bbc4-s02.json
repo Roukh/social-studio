@@ -1,0 +1,21 @@
+{
+  "id": "justincooperman-e7bbc4-s02",
+  "kind": "scene",
+  "name": "Email preview builds itself beside the chat",
+  "looks": "Beside the chat panel, a live email layout fills in step with each exchange: the generated photo slots into the top of the email, the brand's logo appears painted directly onto the product packaging in the photo, then a headline, a paragraph of body copy and a coloured CTA button settle into place below it. The camera pulls back slightly at the end to show the whole composed email at once.",
+  "build": "Fixed two-panel split, chat left, email preview right. Each chat reply cues exactly one preview change: image cross-fade into its slot, logo blended onto the product via a soft multiply layer, headline and paragraph revealed by a widening clip-path, CTA button fading in last. Final pull-back is `scale 1.04 -> 1` over 400ms once the chat goes quiet.",
+  "sound": "A soft low pad under the chat, a light chime on each piece of the email landing, quiet under the final held pull-back.",
+  "duration": [5.0, 8.0],
+  "prompt": "Beside a chat panel, let a document preview assemble itself one piece at a time, each change landing on the beat of the exchange that asked for it: an image settling into place, a brand mark blending onto it, then a headline, body copy and a CTA button arriving in turn with no cursor or click anywhere. Finish by pulling the camera back slightly to reveal the whole composed piece.",
+  "techniques": ["chat-updates-preview"],
+  "source": {"film": "justincooperman-e7bbc4", "url": "https://prompt-motion.com/justincooperman-e7bbc4", "creator": "@justincooperman", "start": 9.0, "end": 24.5},
+  "tags": {
+    "role": ["demo", "solution", "proof"],
+    "purpose": ["introduce-feature", "show-transformation", "show-ease"],
+    "content": ["product-ui", "photo", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

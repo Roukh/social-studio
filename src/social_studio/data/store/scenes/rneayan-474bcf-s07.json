@@ -1,0 +1,21 @@
+{
+  "id": "rneayan-474bcf-s07",
+  "kind": "scene",
+  "name": "idea-to-finished claim into logomark reveal and wordmark lockup",
+  "looks": "A claim about going from idea to finished work sits over a loose field of small marks and a soft circle, out of which a textured, halftone silhouette gathers and resolves into a solid brand mark. It cuts to the full name set beneath the mark with a small founding year, then holds on that lockup as a closing line about moving forward together settles in, fading to black.",
+  "build": "The mark gathers from a grain/stipple fill condensing into a solid silhouette (the noise-dissolve-logomark mechanic); the lockup types the name in under the mark with a small kicker year (the wordmark-assemble mechanic); the whole hold runs under the film's constant grain-vignette texture before a fade to black.",
+  "sound": "A soft granular shimmer as the mark resolves into a confident thunk, a warm pad under the lockup, the bed fading out into the final black.",
+  "duration": [18.0, 20.0],
+  "prompt": "Over a claim about carrying an idea through to a finished piece, let a loose, grainy field of marks gather and resolve into a solid brand silhouette, then set the full name beneath it with a small founding year, holding the calm, confident lockup as a short closing line settles in before the fade to black.",
+  "techniques": ["noise-dissolve-logomark", "wordmark-assemble"],
+  "source": {"film": "rneayan-474bcf", "url": "https://prompt-motion.com/rneayan-474bcf", "creator": "@rneayan", "start": 49.6, "end": 69.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["identity", "close"],
+    "complexity": "medium"
+  }
+}

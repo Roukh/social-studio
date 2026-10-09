@@ -1,0 +1,52 @@
+{
+  "id": "marklaunches-3b9492-s03",
+  "kind": "scene",
+  "name": "Clock hits zero on a glowing rank reveal",
+  "looks": "The race clock hits 00:00.00 in red, freezing the final standings; a huge glowing rank word slams into the centre of the frame with a margin-of-victory line beneath it, while a scatter of small glowing marks drifts up past the frozen leaderboard like confetti.",
+  "build": "Clock's final frame holds in red, no further ticking. The rank word scales in fast with a hard stop (1.3x -> 1x, no overshoot) timed to a buzzer hit; the margin line fades in 150ms after. Confetti marks are independent sprites with seeded upward drift and rotation, spawned in a burst on the buzzer.",
+  "sound": "A sharp buzzer on the clock hitting zero, a bright sting under the rank word landing, a light patter under the confetti drift.",
+  "duration": [
+    2.0,
+    2.5
+  ],
+  "prompt": "Freeze a countdown clock at zero on the final standings, then slam a huge glowing rank word into the centre of the frame with a margin-of-victory line beneath it, releasing a scatter of small glowing confetti marks drifting up past the frozen board on the buzzer.",
+  "techniques": [
+    "leaderboard-bar-race",
+    "dot-population-count"
+  ],
+  "source": {
+    "film": "marklaunches-3b9492",
+    "url": "https://prompt-motion.com/marklaunches-3b9492",
+    "creator": "@marklaunches",
+    "start": 20.0,
+    "end": 22.5
+  },
+  "tags": {
+    "role": [
+      "proof",
+      "cta"
+    ],
+    "purpose": [
+      "show-transformation",
+      "land-cta"
+    ],
+    "content": [
+      "type",
+      "data"
+    ],
+    "energy": [
+      "punch"
+    ],
+    "format": [
+      "9:16",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "data",
+      "close"
+    ],
+    "complexity": "medium"
+  }
+}

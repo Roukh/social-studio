@@ -1,0 +1,21 @@
+{
+  "id": "en-ra-81c6dd-s03",
+  "kind": "scene",
+  "name": "Peak-time scheduler to posted proof",
+  "looks": "A schedule card shows a horizontal time-of-day track with a highlighted 'Peak' zone; a dot sits on the track and the time readout above updates as it is set, then a cursor presses 'Schedule'. The card blurs and resolves into a posted confirmation card with a checkmark, the original reply text, and live upvote and reply counts.",
+  "build": "The track is an SVG/DOM line with tick labels; the peak zone is a soft highlighted band behind the dot's resting position, and the time readout is a live text set from the dot's x position. The transition between cards is a blur dissolve (gaussian filter radius tweened to 0) rather than a cut.",
+  "sound": "A soft tick as the dot settles on peak, a click on Schedule, and a confirm chime as the posted card resolves.",
+  "duration": [2.5, 3.5],
+  "prompt": "Close the loop from decision to proof: a simple time-of-day picker highlights the best window to act and a single button commits to it, then the view resolves through a soft blur into a confirmation card showing the result already live, with real counts ticking on it.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "en-ra-81c6dd", "url": "https://prompt-motion.com/en-ra-81c6dd", "creator": "@en______ra", "start": 10.0, "end": 12.97},
+  "tags": {
+    "role": ["solution", "proof"],
+    "purpose": ["show-ease", "reveal-product"],
+    "content": ["product-ui", "data"],
+    "energy": ["calm"],
+    "format": ["1:1", "4:5"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

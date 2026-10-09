@@ -1,0 +1,21 @@
+{
+  "id": "gautam-mer1-2ae354-s04",
+  "kind": "scene",
+  "name": "Language-mixed sample into a feature card grid",
+  "looks": "A two-colour headline names who the product is built for. Below it one example line shows two languages or scripts mixed naturally in the same sentence, captioned. It cuts to a small 2x2 grid of short feature cards (edit any word, word-by-word timing, export resolution, subtitle file formats), each with a one-line label and a small sample.",
+  "build": "list-stack-reveal for the headline and the single mixed-language example line, which gets its own karaoke-caption-sync pass to prove the highlight works across both scripts. variant-stack-reveal for the 2x2 feature grid, each card settling with a tiny seeded offset.",
+  "sound": "A tick per stacked line, then a soft cluster of pops as the four feature cards land.",
+  "duration": [2.5, 3.5],
+  "prompt": "Prove the product fits a specific audience: show one real example line that naturally mixes two languages or scripts, correctly captioned, then back it with a small grid of concrete feature cards (editing, timing, export, formats) that matter to that audience specifically.",
+  "techniques": ["list-stack-reveal", "karaoke-caption-sync", "variant-stack-reveal"],
+  "source": {"film": "gautam-mer1-2ae354", "url": "https://prompt-motion.com/gautam-mer1-2ae354", "creator": "@gautam_mer1", "start": 19.5, "end": 25.0},
+  "tags": {
+    "role": ["solution", "proof"],
+    "purpose": ["establish-brand", "show-craft", "introduce-feature"],
+    "content": ["type", "product-ui"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["type", "interface"],
+    "complexity": "medium"
+  }
+}

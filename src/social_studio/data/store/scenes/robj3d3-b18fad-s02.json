@@ -1,0 +1,21 @@
+{
+  "id": "robj3d3-b18fad-s02",
+  "kind": "scene",
+  "name": "the assumed meaning gets struck through",
+  "looks": "A short equation-like statement names the mark's assumed, narrow meaning. A hand-drawn-style line strikes straight through that meaning, and it is replaced by a small glowing question mark sitting right where the old meaning was, undercutting the assumption in one beat.",
+  "build": "DOM text sets the claim before the strike so nothing reflows; a single stroke draws across the struck phrase (strokeDashoffset, 200-300ms, slight hand wobble); the struck phrase drops opacity and is swapped for a glowing question-mark glyph in the same position.",
+  "sound": "A single marker-pen scribble as the strike draws on, a soft chime as the question mark settles.",
+  "duration": [2, 3],
+  "prompt": "State the audience's assumption as a short, confident claim, then strike a single line through the part that's wrong and replace it with a bare question mark in the same spot -- one beat that turns a confident assumption into an open question.",
+  "techniques": ["strike-out-claim"],
+  "source": {"film": "robj3d3-b18fad", "url": "https://prompt-motion.com/robj3d3-b18fad", "creator": "@robj3d3", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["problem"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

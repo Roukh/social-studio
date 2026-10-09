@@ -1,0 +1,21 @@
+{
+  "id": "reyzostyle-b55864-s03",
+  "kind": "scene",
+  "name": "proof stat and side-by-side comparison cards",
+  "looks": "A short claim about picking real winners, not guesses, sits over a small thumbnail card and a bold multiplier number that rolls up, with a thin bar filling underneath to show how far past average it lands. It cuts to a second claim about making a version your own, with two interface cards side by side, one showing a breakdown of what worked and the other a new title idea built from it.",
+  "build": "The multiplier number rolls up under a vertical blur that clears as it settles, with a bar filling on power3.out beside it (the data-infographic mechanic). The two comparison cards are flat DOM panels with mono labels, swapped on a hard cut.",
+  "sound": "A rising tone under the number roll-up, a soft pop as the bar settles, a light blip on the card swap.",
+  "duration": [2.6, 3.2],
+  "prompt": "Pair a bold, rolled-up multiplier number with a thin bar that fills to show a result far past average, under a claim about proof instead of guessing, then cut to two flat interface cards side by side comparing someone else's approach with your own version of the same idea.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "reyzostyle-b55864", "url": "https://prompt-motion.com/reyzostyle-b55864", "creator": "@reyzostyle", "start": 3.3, "end": 6.3},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-data", "show-contrast", "build-tension"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data", "interface"],
+    "complexity": "medium"
+  }
+}

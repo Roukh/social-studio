@@ -1,0 +1,20 @@
+{
+  "id": "hud-frame",
+  "kind": "technique",
+  "name": "HUD frame",
+  "looks": "The whole frame is dressed like a camera viewfinder or editor's monitor: corner bracket marks near each edge, a small accent dot and mono label in one corner, a scene counter elsewhere, the current section's name, and progress squares with a running timecode. The HUD swaps between light and dark to stay legible against whatever field is behind it.",
+  "build": "Render the HUD as one DOM layer above every scene for the whole runtime, updating its text from the clock with no easing so it reads as live telemetry rather than decoration, with labels sitting a small distance from the edges.",
+  "sound": "",
+  "duration": [5, 30],
+  "prompt": "Dress the entire film like a camera viewfinder or an editor's live monitor: corner brackets, a small running label, a scene counter, a section name, and progress markers with a timecode, all updating without easing so they feel like a live readout rather than a graphic. Keep the dressing out of any platform interface zones in a vertical frame, and drop it entirely for a quieter, less technical film.",
+  "source": "the 2026 Opus showreels; built in examples/reel-2026-10-06.html, the HUD markup and // ===== HUD.",
+  "tags": {
+    "role": ["whole-film"],
+    "purpose": ["establish-brand", "show-craft"],
+    "content": ["type", "data"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["frame"],
+    "complexity": "medium"
+  }
+}

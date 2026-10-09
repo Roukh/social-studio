@@ -1,0 +1,21 @@
+{
+  "id": "fractadev-149adc-s06",
+  "kind": "scene",
+  "name": "Self-serve booking page to closing claim",
+  "looks": "A small public booking page, held at a fixed gentle tilt, shows a date picker and a list of services with prices; a cursor taps a day, a time slot highlights and a service locks in. It cuts to a confirmation card ticking a booking number up, then to a plain closing line that stacks in two parts, the second in the accent colour, before the wordmark and URL settle to close.",
+  "build": "ui-tilt-card for the booking page's fixed perspective and drift; the date and slot selection are quick highlight-state swaps, power2.out. The confirmation number uses live-readout-hud's no-ease counting. The close reuses list-stack-reveal for the two-line claim, then wordmark-assemble for the logo lockup.",
+  "sound": "A soft whoosh as the tilted page settles, a tick on the slot selection, a confirm chime on the booking number, then a tick per closing line and a final soft hit on the logo.",
+  "duration": [3.5, 5.0],
+  "prompt": "Close the loop with self-service: a small tilted booking page lets a cursor pick a day and a time with no agent involved, resolving into a confirmed booking number, then land the film's closing claim as a two-line stack with the payoff word in the brand's accent colour, finishing on the logo.",
+  "techniques": ["ui-tilt-card", "live-readout-hud", "list-stack-reveal", "wordmark-assemble"],
+  "source": {"film": "fractadev-149adc", "url": "https://prompt-motion.com/fractadev-149adc", "creator": "@FractaDev", "start": 35.0, "end": 47.0},
+  "tags": {
+    "role": ["solution", "cta"],
+    "purpose": ["show-ease", "land-cta", "establish-brand"],
+    "content": ["product-ui", "type", "logo"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "close"],
+    "complexity": "medium"
+  }
+}

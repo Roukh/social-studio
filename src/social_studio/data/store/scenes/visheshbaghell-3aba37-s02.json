@@ -1,0 +1,21 @@
+{
+  "id": "visheshbaghell-3aba37-s02",
+  "kind": "scene",
+  "name": "a note and an invoice light up their matching phrases",
+  "looks": "A handwritten-style field note sits beside a formal invoice. A phrase in the note underlines in the accent colour, a beat later the matching line item in the invoice highlights too, as if a thread connects them, while most of the invoice sits dim, unconnected to anything.",
+  "build": "Each document is real DOM text; highlights are background/text-decoration tweens (power2.out, 0.15-0.2s); the matched invoice span highlights one beat after the note's phrase, same mechanic as text-diff-highlight.",
+  "sound": "A soft highlighter-pen tick per phrase, a slightly different pitch for the invoice's half of each pair.",
+  "duration": [2.5, 3.0],
+  "prompt": "Sit a handwritten-style note beside a formal invoice, highlight a phrase in the note, then highlight its matching line item in the invoice a beat later as if a thread connects them, while most of the invoice stays dim and unconnected, to make the gap between the two documents visible.",
+  "techniques": ["text-diff-highlight"],
+  "source": {"film": "visheshbaghell-3aba37", "url": "https://prompt-motion.com/visheshbaghell-3aba37", "creator": "@VisheshBaghell", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["problem", "demo"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["type", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["annotation"],
+    "complexity": "medium"
+  }
+}

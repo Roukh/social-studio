@@ -1,0 +1,21 @@
+{
+  "id": "xelandre-363f00-s03",
+  "kind": "scene",
+  "name": "a sharp inbox panel names the manual grind",
+  "looks": "The same inbox resolves sharp, a real-looking message list with an open draft being written by hand, held steady on a dark field. A small caption beneath it names exactly what's costing the hours.",
+  "build": "The panel is a fixed DOM card (ui-tilt-card's held-panel mechanic); the caption fades/rises in beneath it after a short pause, one phrase inside it in the accent colour.",
+  "sound": "A soft whoosh as the panel resolves into focus.",
+  "duration": [2.0, 2.5],
+  "prompt": "Resolve a blurred inbox sharp into a real-looking message list with an open draft held steady on a dark field, then fade in a short caption beneath it naming exactly what's costing the hours, one phrase in the accent colour.",
+  "techniques": ["ui-tilt-card"],
+  "source": {"film": "xelandre-363f00", "url": "https://prompt-motion.com/xelandre-363f00", "creator": "@xelandre__", "start": 5.0, "end": 7.5},
+  "tags": {
+    "role": ["problem"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

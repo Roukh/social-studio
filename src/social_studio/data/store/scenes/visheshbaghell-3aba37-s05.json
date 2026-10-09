@@ -1,0 +1,21 @@
+{
+  "id": "visheshbaghell-3aba37-s05",
+  "kind": "scene",
+  "name": "an instruction hidden in a note gets caught, not followed",
+  "looks": "A note contains a line that reads like an instruction rather than a record, asking the system to add a charge on its own. That line strikes through in warning red, and beside it a line item shows as blocked with a short reason naming exactly why it wasn't actioned.",
+  "build": "The suspicious phrase gets a strike-through and a red highlight (power2.out), same mechanic as text-diff-highlight but in the warning colour; a small callout labels the line 'blocked' with a short reason, anchored to it like annotated-diagram-overlay's label.",
+  "sound": "A sharp, low warning tick as the phrase strikes through, quieter confirm tone on the blocked label.",
+  "duration": [2.5, 3.0],
+  "prompt": "Show a note containing a line that reads like an instruction rather than a record, asking the system to add a charge on its own; strike that line through in a warning colour and label the matching charge as blocked with a short reason, to prove the system reads notes as evidence, not commands.",
+  "techniques": ["text-diff-highlight", "annotated-diagram-overlay"],
+  "source": {"film": "visheshbaghell-3aba37", "url": "https://prompt-motion.com/visheshbaghell-3aba37", "creator": "@VisheshBaghell", "start": 40.0, "end": 45.0},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["build-tension", "show-craft"],
+    "content": ["type", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["annotation"],
+    "complexity": "medium"
+  }
+}

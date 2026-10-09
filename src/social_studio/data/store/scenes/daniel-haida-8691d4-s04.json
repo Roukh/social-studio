@@ -1,0 +1,21 @@
+{
+  "id": "daniel-haida-8691d4-s04",
+  "kind": "scene",
+  "name": "a ring completes into a calm reassurance",
+  "looks": "A thin ring draws itself closed at the centre of an otherwise empty dark frame, in a calm accent colour, and settles whole just as a quiet caption fades up beneath it confirming everything is in order.",
+  "build": "radial-progress-anticipation's ring, used as a simple completion mark rather than a percentage counter: the stroke draws with strokeDashoffset to a full closed circle on power2.out, with no counter text; the caption fades in right as it closes.",
+  "sound": "A soft rising tone that resolves into a calm chime as the ring closes.",
+  "duration": [1.3, 1.7],
+  "prompt": "On an otherwise empty frame, draw a thin ring closed in one calm accent colour, with no counter or label, and let a short reassuring caption fade up right as it completes. Use it as a quiet, wordless \"all done\" beat between busier data scenes.",
+  "techniques": ["radial-progress-anticipation"],
+  "source": {"film": "daniel-haida-8691d4", "url": "https://prompt-motion.com/daniel-haida-8691d4", "creator": "@daniel_haida", "start": 10.0, "end": 12.5},
+  "tags": {
+    "role": ["proof", "transition"],
+    "purpose": ["set-mood", "land-cta"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

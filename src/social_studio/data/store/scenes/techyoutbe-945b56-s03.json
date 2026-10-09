@@ -1,0 +1,21 @@
+{
+  "id": "techyoutbe-945b56-s03",
+  "kind": "scene",
+  "name": "mark and wordmark settle on a dark card",
+  "looks": "Two interlocking rings sit still above centre on a plain dark field. The wordmark fades in beneath them as a single settled block, followed by a short descriptor line a beat later.",
+  "build": "The rings are a static SVG mark; the wordmark fades/rises 6-8px in as one block (not staggered per letter); the descriptor line fades in after a short pause at lower opacity.",
+  "sound": "A soft low swell under the hold and a light confirm tone as the wordmark lands.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold a simple interlocking mark still above centre on a plain dark field, fade the wordmark in beneath it as one settled block, then fade in a short descriptor line a beat later underneath.",
+  "techniques": ["mark-stroke-reveal"],
+  "source": {"film": "techyoutbe-945b56", "url": "https://prompt-motion.com/techyoutbe-945b56", "creator": "@techyoutbe", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["intro"],
+    "purpose": ["establish-brand"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1"],
+    "family": ["identity"],
+    "complexity": "low"
+  }
+}

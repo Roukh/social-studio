@@ -1,0 +1,21 @@
+{
+  "id": "reflex-cloud-72ffe5-s04",
+  "kind": "scene",
+  "name": "colour-coded waveform frequency climb",
+  "looks": "A full-bleed colour field cuts through red, then yellow-green, then cyan, each time paired with a rising frequency value and a small spectrum bar showing where that colour sits on the scale. Under the number, a set of overlapping wave lines gets tighter and faster with every cut, and a small caption names the value as the rate at which the system takes in, decides, and responds.",
+  "build": "The background hue hard-cuts between steps with no crossfade; two or three canvas sine waveforms have a frequency that scales with the step's value. A corner spectrum bar is a fixed gradient strip with a small marker tweening to the current wavelength; the number ticks with no easing (the spectrum-waveform-cycle mechanic).",
+  "sound": "A tone that climbs in pitch with each cut, a soft chime landing on each new colour.",
+  "duration": [1.3, 1.7],
+  "prompt": "Cut through a few full-bleed colour steps, each paired with a climbing frequency number and a tightening, quickening waveform underneath, so a viewer reads one quantity, how fast the system senses and responds, through colour, number and line all moving together.",
+  "techniques": ["spectrum-waveform-cycle"],
+  "source": {"film": "reflex-cloud-72ffe5", "url": "https://prompt-motion.com/reflex-cloud-72ffe5", "creator": "@reflex_cloud", "start": 9.383, "end": 10.8},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-speed", "show-data"],
+    "content": ["abstract", "data"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data", "texture"],
+    "complexity": "medium"
+  }
+}

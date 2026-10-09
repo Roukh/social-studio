@@ -1,0 +1,20 @@
+{
+  "id": "cinematic-atmosphere-hold",
+  "kind": "technique",
+  "name": "Cinematic atmosphere hold",
+  "looks": "A near-still, painterly frame is carried by two or three thin atmosphere layers: small shapes or motes drifting at different depths, a warm colour grade, and one flare pinned to the brightest point. It feels calm but never empty, since something is always quietly moving.",
+  "build": "Use a static or barely panning background layer (gradients, shapes or a generative field) with two to four sprite layers drifting at different speeds as functions of time for parallax, a coloured grade overlay with a blend mode plus a grain-and-vignette pass, and one slowly pulsing bloom sprite on the brightest point.",
+  "sound": "A low pad and room tone, with no hits.",
+  "duration": [2, 3],
+  "prompt": "Hold on a near-still, atmospheric frame as a breath between busier shots: a calm background with small shapes or particles drifting at different depths for parallax, a warm overall grade, and a single soft glow pinned to the brightest point. Nothing cuts and nothing hits; the only motion is slow and ambient. Use it to open a film, close it, or settle the pace before a quieter beat.",
+  "source": "a cinematic film (\"a pelican riding a bicycle\") in prompt-motion.com's gallery, studied 2026-10-07.",
+  "tags": {
+    "role": ["intro", "transition"],
+    "purpose": ["set-mood"],
+    "content": ["illustration", "abstract"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["texture", "establishing", "close"],
+    "complexity": "medium"
+  }
+}

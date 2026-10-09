@@ -1,0 +1,21 @@
+{
+  "id": "ajith-io-c52e09-s07",
+  "kind": "scene",
+  "name": "aspect toggle beside a split phone mockup",
+  "looks": "A short headline names two aspect ratios, the second in the accent colour, with a one-line caption. Beside it a phone mockup shows a split screen: an upload flow on the left half, a finished vertical video with a viewer reaction row on the right half.",
+  "build": "ui-tilt-card for the phone (slight shallow tilt, soft offset shadow); the split inside the phone is a hard vertical clipPath divider with the two halves independently animated (DOM icons drifting in on the left, a small people-reacting row on the right).",
+  "sound": "A soft whoosh as the phone settles.",
+  "duration": [2.3, 2.7],
+  "prompt": "State that the output fits two aspect ratios, the one meant for short-form in the accent colour. Show a single device mockup split down the middle: one half suggesting the simple input flow, the other half suggesting the finished vertical result being watched.",
+  "techniques": ["ui-tilt-card"],
+  "source": {"film": "ajith-io-c52e09", "url": "https://prompt-motion.com/ajith-io-c52e09", "creator": "@ajith_io", "start": 27.5, "end": 30.0},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["introduce-feature", "show-contrast"],
+    "content": ["device", "product-ui"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

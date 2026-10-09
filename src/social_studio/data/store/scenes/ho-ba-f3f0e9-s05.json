@@ -1,0 +1,21 @@
+{
+  "id": "ho-ba-f3f0e9-s05",
+  "kind": "scene",
+  "name": "Theme toggle and export menu",
+  "looks": "A headline lands beside a small theme control: a sun icon and a row of colour swatches, one swatch pressed to swap the panel's grade from warm light to calm dark. It cuts to a dark card where an export button opens a small dropdown of two file-format options, and two small file icons float gently beside it.",
+  "build": "glass-ui-flow's cursor press mechanic for both taps; the theme swap is a crossfade of the whole panel's colour tokens, power2.inOut; the dropdown's options stagger in on a 0.05s beat, and the file icons drift slowly on independent sine offsets.",
+  "sound": "A soft click per press, a swish on the theme swap, and a light pop per dropdown option.",
+  "duration": [2.5, 3.5],
+  "prompt": "Show two small conveniences back to back: a one-tap toggle that swaps a warm light theme for a calm dark one, and an export menu that drops down to offer a couple of plain file formats, with their icons drifting gently beside it.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "ho-ba-f3f0e9", "url": "https://prompt-motion.com/ho-ba-f3f0e9", "creator": "@HO_BA", "start": 17.5, "end": 25.0},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["introduce-feature", "show-ease"],
+    "content": ["product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

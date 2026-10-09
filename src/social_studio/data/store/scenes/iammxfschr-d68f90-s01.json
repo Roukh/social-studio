@@ -1,0 +1,21 @@
+{
+  "id": "iammxfschr-d68f90-s01",
+  "kind": "scene",
+  "name": "Black terminal holds before the reveal",
+  "looks": "A plain dark terminal window sits alone on a near-black field, a thin command prompt blinking, holding in near silence before the brand beat begins.",
+  "build": "cinematic-atmosphere-hold for the still terminal window; the prompt's cursor blinks on the beat via terminal-type-on's cursor mechanic with no text typed yet.",
+  "sound": "A low room tone, almost silent, with a soft blink tick on the cursor.",
+  "duration": [1.5, 2.5],
+  "prompt": "Open a developer tool's launch film on almost nothing: a single dark, empty terminal window holding still with a blinking cursor, letting the quiet set up the reveal that follows.",
+  "techniques": ["cinematic-atmosphere-hold", "terminal-type-on"],
+  "source": {"film": "iammxfschr-d68f90", "url": "https://prompt-motion.com/iammxfschr-d68f90", "creator": "@iamMXFSCHR", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["set-mood", "tease"],
+    "content": ["code"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["establishing", "type"],
+    "complexity": "low"
+  }
+}

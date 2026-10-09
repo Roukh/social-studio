@@ -1,0 +1,21 @@
+{
+  "id": "rammanq-f5a90f-s02",
+  "kind": "scene",
+  "name": "portfolio value, donut and holdings bars build in turn",
+  "looks": "A headline lands, then a big currency total counts up above a line chart that draws left to right with a dot at its tip. It cuts to a new headline with a donut chart drawing its ring and a short legend ticking in row by row. It cuts again to a ranked list of horizontal bars growing out from zero next to their percentages.",
+  "build": "Each beat is a shutters-style infographic build: the counter's digits roll up under a blur tied to speed; the spline draws with strokeDashoffset and a travelling dot; the donut's stroke-dashoffset animates from full to its value; the bars scaleY/scaleX from a zero origin on an uneven stagger (about 0.042s * jitter), with the top bar in the accent colour. Mono labels clip in beside each element.",
+  "sound": "A rising tone under each counter and draw, blips on the bars and legend rows landing on a sixteenth grid.",
+  "duration": [3.0, 4.0],
+  "prompt": "Build a short run of data cards: a headline with a total that counts up over a line chart drawing to a point, a donut chart filling to its value with a short legend, and a ranked list of bars growing out to their percentages. Keep every number labelled and let each build land on its own beat before the next headline cuts in.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "rammanq-f5a90f", "url": "https://prompt-motion.com/rammanq-f5a90f", "creator": "@rammanq", "start": 2.5, "end": 10.4},
+  "tags": {
+    "role": ["demo"],
+    "purpose": ["show-data", "reveal-product"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["1:1"],
+    "family": ["data", "interface"],
+    "complexity": "medium"
+  }
+}

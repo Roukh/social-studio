@@ -1,0 +1,21 @@
+{
+  "id": "steventey-0d20e4-s03",
+  "kind": "scene",
+  "name": "a dashboard card builds its numbers and chart live",
+  "looks": "A dark analytics card holds three headline numbers side by side, then a green line chart draws across underneath, picking up speed toward the end. Small toast notifications slide in from the right one at a time, each naming a fresh result as it lands.",
+  "build": "The three numbers roll up on a short stagger; the line draws with strokeDashoffset on power3.out, a dot riding its tip; each toast slides/fades in from the right on its own beat and holds before the next one arrives.",
+  "sound": "A rising tone under the chart draw and a soft pop on each toast landing.",
+  "duration": [3.0, 3.5],
+  "prompt": "Build a dark analytics card live: three headline numbers rolling up side by side, a line chart drawing across underneath with a dot riding its tip, and a couple of small toast notifications sliding in from the edge one at a time to name fresh results as they land.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "steventey-0d20e4", "url": "https://prompt-motion.com/steventey-0d20e4", "creator": "@steventey", "start": 5.0, "end": 8.5},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9", "1:1"],
+    "family": ["data"],
+    "complexity": "medium"
+  }
+}

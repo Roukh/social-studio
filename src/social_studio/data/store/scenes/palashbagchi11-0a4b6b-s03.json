@@ -1,0 +1,21 @@
+{
+  "id": "palashbagchi11-0a4b6b-s03",
+  "kind": "scene",
+  "name": "a scattered dot cloud settles into a sorted column chart",
+  "looks": "A loose scatter of coloured dots, standing for individual accounts, drifts under a headline count. The scatter then relaxes into neat columns, one column per account, sorted tallest to shortest, so a handful of outsized columns (shown in a second colour) visibly dominate the rest.",
+  "build": "Dots start at a soft circular scatter position and tween to grid column positions sorted by count, power3.out, per-dot easing offsets so the field settles unevenly; the outsized columns swap to the accent/ink colour as they land. A mono caption states what one column equals.",
+  "sound": "A soft granular patter while the scatter drifts, a firmer tick as the columns snap into their sorted order.",
+  "duration": [2.4, 3.0],
+  "prompt": "Let a loose scatter of dots, one per unit, relax into a sorted column chart, tallest first, so a few outsized columns visibly dominate everything else. Name what one column equals in a small caption, and recolour only the dominant columns so the imbalance reads instantly.",
+  "techniques": ["dot-population-count", "data-infographic"],
+  "source": {"film": "palashbagchi11-0a4b6b", "url": "https://prompt-motion.com/palashbagchi11-0a4b6b", "creator": "@PalashBagchi11", "start": 9.8, "end": 14.8},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "particles"],
+    "complexity": "medium"
+  }
+}

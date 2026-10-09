@@ -1,0 +1,21 @@
+{
+  "id": "kmasiff-cc72cb-s04",
+  "kind": "scene",
+  "name": "Tab bar switches a window-chrome feature card",
+  "looks": "A row of small nav-style tabs sits above a two-part layout: a short headline and caption on the left, a window-chrome product screenshot on the right. As the active tab changes, the headline, caption and screenshot all swap together to the next feature, the tab's active state sliding to the new position.",
+  "build": "The active-tab indicator (a filled pill behind the current label) tweens its x-position and width to the new tab on `power2.inOut`, 250-300ms. Headline, caption and screenshot cross-fade/slide together on the same timing so the swap reads as one coordinated beat, not three separate ones.",
+  "sound": "A soft click on the tab change, a light whoosh under the content swap.",
+  "duration": [2.2, 3.0],
+  "prompt": "Pair a row of nav-style tabs with a two-part layout: a short headline and caption on one side, a window-chrome product screenshot on the other. Move the active-tab indicator to each new tab in turn and swap the headline, caption and screenshot together on that same beat, so the whole card updates as one coordinated move per feature.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "kmasiff-cc72cb", "url": "https://prompt-motion.com/kmasiff-cc72cb", "creator": "@KmAsiff", "start": 10.0, "end": 15.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["introduce-feature", "show-ease"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface"],
+    "complexity": "medium"
+  }
+}

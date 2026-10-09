@@ -1,0 +1,51 @@
+{
+  "id": "marklaunches-3b9492-s02",
+  "kind": "scene",
+  "name": "Countdown clock races a row of ranked chips",
+  "looks": "A large race-clock counts down over a checkered-flag strip, a row of competitor chips ranked beneath it, the viewer's own chip glowing with an outline and a small rising marker. As the clock ticks down across a few cuts, the chips swap position and a status banner beneath updates the gap to first place, first widening, then narrowing.",
+  "build": "Clock ticks in real, unequal steps (not smoothly tweened); chips tween their x-position to their new rank on each cut (power2.inOut, 300-400ms). The viewer's chip keeps a persistent glow outline and a gently pulsing marker throughout. Status banner's colour flips red/green with its text on each cut.",
+  "sound": "A tense ticking pulse under the countdown, a whoosh on each chip reorder.",
+  "duration": [
+    2.0,
+    2.8
+  ],
+  "prompt": "Count a race clock down over a row of ranked competitor chips, the viewer's own entry glowing and marked, letting the chips visibly swap position across a few cuts as a status banner beneath updates the live gap to first place, so the standings feel like a real contest closing in.",
+  "techniques": [
+    "leaderboard-bar-race"
+  ],
+  "source": {
+    "film": "marklaunches-3b9492",
+    "url": "https://prompt-motion.com/marklaunches-3b9492",
+    "creator": "@marklaunches",
+    "start": 10.0,
+    "end": 20.0
+  },
+  "tags": {
+    "role": [
+      "demo",
+      "proof"
+    ],
+    "purpose": [
+      "build-tension",
+      "show-data"
+    ],
+    "content": [
+      "data",
+      "character"
+    ],
+    "energy": [
+      "build"
+    ],
+    "format": [
+      "9:16",
+      "16:9",
+      "1:1",
+      "4:5"
+    ],
+    "family": [
+      "data",
+      "structure"
+    ],
+    "complexity": "high"
+  }
+}

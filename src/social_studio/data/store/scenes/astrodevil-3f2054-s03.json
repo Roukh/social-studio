@@ -1,0 +1,21 @@
+{
+  "id": "astrodevil-3f2054-s03",
+  "kind": "scene",
+  "name": "a star stat pops over a faint contribution heatmap",
+  "looks": "A star icon pops in beside a big rolling number and its caption, while a faint grid of small coloured squares (a contribution heatmap) sits dim in the far background, and two small supporting stat chips key in beneath.",
+  "build": "data-infographic: the star does a quick scale-snap on back.out as the number starts its digit roll-up; the heatmap grid is a static low-opacity DOM grid behind everything; the chips fade in staggered beneath.",
+  "sound": "A soft pop on the star, a rising tone under the roll-up, a tick per chip.",
+  "duration": [2.0, 2.4],
+  "prompt": "Pop a small icon beside a big rolling stat and its caption, with a faint grid of tiny coloured squares dimmed in the far background suggesting ongoing activity. Key in one or two smaller supporting stat chips beneath a beat later, to back the headline number with context.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "astrodevil-3f2054", "url": "https://prompt-motion.com/astrodevil-3f2054", "creator": "@Astrodevil_", "start": 5.633, "end": 8.45},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "texture"],
+    "complexity": "low"
+  }
+}

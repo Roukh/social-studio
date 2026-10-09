@@ -1,0 +1,21 @@
+{
+  "id": "l3d1c-0e35a3-s03",
+  "kind": "scene",
+  "name": "Source photos orbit into a training portrait",
+  "looks": "A dozen small source photo thumbnails hang in a loose ring around a central portrait card; a thin progress arc sweeps around the portrait's edge as a percentage climbs, and the thumbnails drift slightly inward on their orbit as if feeding the model. A status chip under the portrait reads \"training in progress\" and ticks up to \"ready\" when the arc completes.",
+  "build": "Thumbnails sit at seeded angles around the centre card, each with a slow independent drift/rotation; the progress arc is an SVG stroke animating `strokeDashoffset` tied to the same percentage driving the status chip's counter. On completion, the arc's colour shifts and the status chip cross-fades to its ready state.",
+  "sound": "A soft granular hum under the orbiting thumbnails, a rising tone under the percentage, a clean chime on completion.",
+  "duration": [2.5, 3.5],
+  "prompt": "Show a model or process training on a set of inputs: ring a handful of small source thumbnails loosely around a central subject card, sweep a thin progress arc around its edge as a percentage climbs, and resolve a status chip underneath from in-progress to ready exactly as the arc completes.",
+  "techniques": ["radial-progress-anticipation"],
+  "source": {"film": "l3d1c-0e35a3", "url": "https://prompt-motion.com/l3d1c-0e35a3", "creator": "@l3d1c", "start": 10.0, "end": 15.0},
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["photo", "character"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "interface"],
+    "complexity": "medium"
+  }
+}

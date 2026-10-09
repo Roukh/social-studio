@@ -1,0 +1,21 @@
+{
+  "id": "marklaunches-3b9492-s01",
+  "kind": "scene",
+  "name": "A quiet clock opens before dawn",
+  "looks": "A plain digital clock reading an early morning hour sits alone with a single faint glowing dot above it; a quiet line of type fades in underneath naming the stillness of the hour, the whole frame calm and almost empty.",
+  "build": "The clock and dot are static; the caption line fades in alone (`opacity 0 -> 1`, ~400ms, slow) well after the clock settles, with no other motion in the frame to compete with it.",
+  "sound": "Near silence, a single soft ambient tone under the caption's fade.",
+  "duration": [2.0, 2.5],
+  "prompt": "Open on a plain early-morning clock reading alone in an empty, dark frame, with a single faint glowing accent dot above it, and let one quiet line of type fade in beneath it well after the clock settles, establishing a calm, private moment before anything happens.",
+  "techniques": ["kinetic-word-run"],
+  "source": {"film": "marklaunches-3b9492", "url": "https://prompt-motion.com/marklaunches-3b9492", "creator": "@marklaunches", "start": 0.0, "end": 5.0},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["set-mood", "tease"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["4:5", "9:16", "16:9", "1:1"],
+    "family": ["open", "type"],
+    "complexity": "low"
+  }
+}

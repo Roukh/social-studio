@@ -1,0 +1,21 @@
+{
+  "id": "thilina-a-891c09-s04",
+  "kind": "scene",
+  "name": "a dashed streak line with a live count",
+  "looks": "A headline sets up an optional habit. Below it a dashed horizontal line stretches across the frame with a small label naming its length, and a round counter beneath it reads a fraction that could still grow.",
+  "build": "The dashed line is an SVG path with a strokeDasharray tuned for the dash pattern, its total length tweening in on power2.out; the counter text is set directly from a value with no easing, same mechanic as live-readout-hud.",
+  "sound": "A soft tick as the line extends and a light chime on the counter.",
+  "duration": [2.0, 2.5],
+  "prompt": "Set up a small optional habit in a headline, then draw a dashed horizontal streak line across the frame with a label naming its length, and show a round counter underneath reading a fraction that still has room to grow.",
+  "techniques": ["data-infographic", "live-readout-hud"],
+  "source": {"film": "thilina-a-891c09", "url": "https://prompt-motion.com/thilina-a-891c09", "creator": "@thilina_a", "start": 7.5, "end": 10.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "introduce-feature"],
+    "content": ["data", "product-ui"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

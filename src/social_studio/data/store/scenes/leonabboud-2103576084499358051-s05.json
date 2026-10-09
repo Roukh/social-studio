@@ -1,0 +1,21 @@
+{
+  "id": "leonabboud-2103576084499358051-s05",
+  "kind": "scene",
+  "name": "a tangled burst of coloured streaks fills the frame",
+  "looks": "Hundreds of short coloured streaks (mostly white, a few in the accent colours) radiate outward in every direction from a dense centre, tapering and fading toward their tips, reading as a single chaotic burst rather than a path.",
+  "build": "particle-flow-comet, scaled up to a full-frame burst: many short strokes drawn from a seeded radial velocity field, each a trail of its last few positions, with no single dominant head, so the eye reads density and direction rather than one object.",
+  "sound": "A dense rising whoosh, like static resolving into wind.",
+  "duration": [1.5, 1.8],
+  "prompt": "Fill the frame with hundreds of short coloured streaks radiating outward from the centre in every direction, mostly neutral with a few in the accent colour, each tapering and fading toward its tip. Use it as a pure-energy beat between calmer scenes, with no single focal object to track.",
+  "techniques": ["particle-flow-comet"],
+  "source": {"film": "leonabboud-2103576084499358051", "url": "https://x.com/leonabboud/status/2103576084499358051", "creator": "@leonabboud", "start": 8.167, "end": 9.9},
+  "tags": {
+    "role": ["transition"],
+    "purpose": ["build-tension", "set-mood"],
+    "content": ["abstract"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["particles", "generative"],
+    "complexity": "high"
+  }
+}

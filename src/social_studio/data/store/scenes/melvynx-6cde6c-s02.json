@@ -1,0 +1,21 @@
+{
+  "id": "melvynx-6cde6c-s02",
+  "kind": "scene",
+  "name": "A dot matrix fills, then marks a fraction",
+  "looks": "A dense grid of small hollow dots fills in solid, row by row, under a caption naming the total it represents; a beat later, a scattered subset of the same dots stay hollow while the rest go solid, and a new caption names the fraction that subset represents.",
+  "build": "Dots fill solid on a loose row-by-row stagger (20-30ms per row) rather than all at once. For the fraction beat, the hollow subset is chosen by seeded random indices, not a tidy block, so the proportion reads as organic sampling rather than a clean diagram.",
+  "sound": "A fast, soft patter as the grid fills, a single lower tone marking the fraction callout.",
+  "duration": [2.0, 2.8],
+  "prompt": "Fill a dense grid of small hollow dots solid row by row under a caption naming the total they represent, then mark a scattered, randomly distributed subset of them as still hollow a beat later with a new caption naming the fraction they stand for.",
+  "techniques": ["dot-population-count"],
+  "source": {"film": "melvynx-6cde6c", "url": "https://prompt-motion.com/melvynx-6cde6c", "creator": "@melvynx", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["problem", "proof"],
+    "purpose": ["show-data", "build-tension"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data", "particles"],
+    "complexity": "low"
+  }
+}

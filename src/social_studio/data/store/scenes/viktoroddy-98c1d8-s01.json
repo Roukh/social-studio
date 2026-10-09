@@ -1,0 +1,21 @@
+{
+  "id": "viktoroddy-98c1d8-s01",
+  "kind": "scene",
+  "name": "a dense mosaic of generated output opens the film",
+  "looks": "A tight grid of small tiles fills the whole frame, each a different generated site or app screenshot, product photos, illustrations, 3D renders, dashboards, packed edge to edge with no gaps, establishing scale before a single word is said.",
+  "build": "Tiles are absolutely positioned DOM cards in one large grid container, sized and cropped to a consistent aspect so the mosaic reads as dense and even; a very slow drift or scale (1 -> 1.02) over the shot keeps it from feeling static.",
+  "sound": "A low ambient bed, no individual hits, letting the density speak.",
+  "duration": [2.0, 2.5],
+  "prompt": "Open on a tight, edge-to-edge grid of small generated-output tiles, different styles and subjects packed together with no gaps, drifting almost imperceptibly, to establish scale and variety before any words land.",
+  "techniques": ["gallery-zoom-tour"],
+  "source": {"film": "viktoroddy-98c1d8", "url": "https://prompt-motion.com/viktoroddy-98c1d8", "creator": "@viktoroddy", "start": 0.0, "end": 2.5},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["show-scale", "reveal-product"],
+    "content": ["product-ui", "illustration", "photo"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["collage", "structure"],
+    "complexity": "medium"
+  }
+}

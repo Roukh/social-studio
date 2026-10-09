@@ -1,0 +1,21 @@
+{
+  "id": "allforbigfire-86ff3c-s03",
+  "kind": "scene",
+  "name": "hero reveal with radiating rays and a completion title",
+  "looks": "The combined figure stands held in frame as fine rays radiate out from behind it, brightening, with a final bold title stamping \"complete\" over the glow.",
+  "build": "wordmark-assemble's settle stage over a radial ray burst (thin lines rotating slowly from the centre, ramping opacity); the title slams in on back.out with a flash frame just before it lands.",
+  "sound": "A swelling riser into a final big hit as the title lands.",
+  "duration": [3.0, 3.5],
+  "prompt": "Hold the finished result in frame as fine rays radiate out from behind it and brighten, then slam a short completion title over the glow as the payoff beat. Use it as the victory moment after a build or transformation sequence.",
+  "techniques": ["wordmark-assemble"],
+  "source": {"film": "allforbigfire-86ff3c", "url": "https://prompt-motion.com/allforbigfire-86ff3c", "creator": "@allforbigfire", "start": 19.267, "end": 24.9},
+  "tags": {
+    "role": ["cta", "proof"],
+    "purpose": ["land-cta", "build-tension"],
+    "content": ["3d-object", "type"],
+    "energy": ["punch"],
+    "format": ["9:16"],
+    "family": ["close", "identity"],
+    "complexity": "medium"
+  }
+}

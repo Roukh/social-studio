@@ -1,0 +1,21 @@
+{
+  "id": "anilraok-eff262-s02",
+  "kind": "scene",
+  "name": "a row of character tiles lines up at the edge",
+  "looks": "Several small block characters, each with simple expressive eyes, stand shoulder to shoulder along the border of the grid, looking inward at the gap together, lit by the same warm overhead light.",
+  "build": "variant-stack-reveal: each tile character settles into its spot on a short spring with a tiny seeded offset in position and lean, staggered so the row fills in rather than popping at once.",
+  "sound": "A soft shuffle and settle per character.",
+  "duration": [2.0, 2.4],
+  "prompt": "Line up several simple characters shoulder to shoulder along one edge of a shared surface, each with a small expressive face, settling into place a beat apart so the group reads as gathering together rather than appearing at once. Have them all look toward the same point of interest.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "anilraok-eff262", "url": "https://prompt-motion.com/anilraok-eff262", "creator": "@Anilraok", "start": 10.967, "end": 13.833},
+  "tags": {
+    "role": ["intro"],
+    "purpose": ["set-mood", "establish-brand"],
+    "content": ["character"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["collage"],
+    "complexity": "medium"
+  }
+}

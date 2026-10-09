@@ -1,0 +1,21 @@
+{
+  "id": "kmasiff-cc72cb-s05",
+  "kind": "scene",
+  "name": "Value line settles into the lockup",
+  "looks": "A short value statement with a small checkmark bullet holds on a dark ground, then cuts to the closing lockup: the mark and wordmark settle together, a one-line tagline fades in underneath, and the card holds still as the film ends.",
+  "build": "The value line's checkmark circle pops in a beat before the text fades up beside it. Hard cut to the lockup card; mark and wordmark arrive together (`y:10px -> 0`, power2.out, ~350ms), tagline fading in 180ms after.",
+  "sound": "A soft confirm tick on the checkmark, a low swell fading out under the final lockup hold.",
+  "duration": [2.0, 3.0],
+  "prompt": "Hold a short value statement with a small checkmark bullet on a dark ground, then cut to a closing lockup where the mark and wordmark settle together and a one-line tagline fades in underneath, ending the film on a calm, static card.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "kmasiff-cc72cb", "url": "https://prompt-motion.com/kmasiff-cc72cb", "creator": "@KmAsiff", "start": 15.0, "end": 20.0},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["land-cta", "establish-brand"],
+    "content": ["type", "logo"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

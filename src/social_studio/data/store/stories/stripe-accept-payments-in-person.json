@@ -1,0 +1,27 @@
+{
+  "id": "stripe-accept-payments-in-person",
+  "kind": "story",
+  "name": "Your phone is already a card reader",
+  "brand": "Stripe",
+  "source": {"url": "https://www.youtube.com/watch?v=lL39Tr2gAGU", "platform": "youtube", "posted": "2024-03-12", "duration": 87.5},
+  "object": "the Stripe Dashboard app's in-person payment options: Tap to Pay, manual card entry, and QR code payment links, with no extra hardware required",
+  "audience": "small business owners and solo merchants who want to take in-person card payments without buying a terminal",
+  "message": "This video tells small business owners that their own phone is already a card reader: open the Stripe Dashboard app and start taking payments in minutes.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 9.0, "what": "a vertical, phone-screen walkthrough opens on the Stripe wordmark and an \"Accept payments in-person\" title card, then a tap-to-pay animation showing a $100.00 charge", "copy": "A walkthrough of how to accept payments in person with just a mobile phone or tablet and the Stripe Dashboard app, no extra hardware required.", "voice": "narration"},
+    {"role": "solution", "start": 9.0, "end": 34.0, "what": "steps through setup on screen: open and activate a Stripe account, download the Dashboard app, sign in, tap + on the home screen, then tap \"Charge a card or send an invoice\"", "copy": "You can collect payments using Tap to Pay with Stripe Terminal, manually entering card details, or sharing a QR code.", "voice": "narration"},
+    {"role": "demo", "start": 34.0, "end": 56.0, "what": "enters an amount, then shows the tap-to-pay path: a card or digital wallet held to the back of the phone, confirmed with a green checkmark animation", "copy": "The customer will tap their form of payment to your compatible iPhone or Android device.", "voice": "narration"},
+    {"role": "demo", "start": 56.0, "end": 72.0, "what": "shows the two alternative paths: typing card details directly into the app, or generating a QR code / payment link for the customer to pay on their own phone", "copy": "You can also share a QR code for any payment link; once the customer scans it, they can complete payment on their phone.", "voice": "narration"},
+    {"role": "cta", "start": 72.0, "end": 87.5, "what": "closes on the Stripe wordmark with stripe.com/register and iOS/Android app-store QR codes", "copy": "Create an account or log in, then visit the Apple App Store or Google Play Store to get started.", "voice": "narration"}
+  ],
+  "cta": "create or log into a Stripe account, then download the Dashboard app from the App Store or Google Play, staged as a closing title card with store QR codes",
+  "why": "Because every step is shown on the exact phone screen a viewer would use, the walkthrough collapses the distance between watching a feature and doing it, and the closing install QR codes turn that confidence into action immediately.",
+  "tags": {
+    "goal": ["how-to"],
+    "product": ["payments", "commerce"],
+    "structure": ["list-cta"],
+    "voice": ["narration"],
+    "energy": ["calm"],
+    "format": ["9:16"]
+  }
+}

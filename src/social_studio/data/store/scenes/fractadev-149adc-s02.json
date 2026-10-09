@@ -1,0 +1,21 @@
+{
+  "id": "fractadev-149adc-s02",
+  "kind": "scene",
+  "name": "AI answers, two voices in one transcript",
+  "looks": "A live call card shows a waveform while a caller's question types into one bubble style, and the AI agent's reply types into a second, visually distinct bubble beneath it, offering a specific booking and asking to confirm.",
+  "build": "dual-voice-type for the two bubbles: the caller's line in one face, the agent's offer in the brand's clean sans, each typed at a steady rate with its own blinking cursor, the agent's bubble arriving after a short thinking pause.",
+  "sound": "A light ring-to-pickup tone, then a soft typing clack under each bubble, slightly different in pitch between the two voices.",
+  "duration": [2.0, 3.0],
+  "prompt": "Prove the product can hold a real conversation: a live call transcript types on in two distinct voices, the caller's question in one style and the AI's specific, useful answer in another, ending on the AI offering a concrete next step rather than a vague reply.",
+  "techniques": ["dual-voice-type"],
+  "source": {"film": "fractadev-149adc", "url": "https://prompt-motion.com/fractadev-149adc", "creator": "@FractaDev", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["reveal-product", "show-ease", "explain-mechanism"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "interface"],
+    "complexity": "medium"
+  }
+}

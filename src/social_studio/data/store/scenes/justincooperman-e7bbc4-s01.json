@@ -1,0 +1,21 @@
+{
+  "id": "justincooperman-e7bbc4-s01",
+  "kind": "scene",
+  "name": "Typed request resolves into a generated image",
+  "looks": "A chat input in a product panel receives a typed request for an on-brand hero image, the send button taps, and the agent panel opens to a soft placeholder rectangle with a small pulse. The placeholder cross-fades in place into a finished product photo, warm and styled, exactly filling the space the placeholder held.",
+  "build": "Chat text types on, cursor blinking; the send action is a 0.9x button click-scale. Placeholder rect pulses opacity 0.85-1 for ~1s, then cross-fades to the pre-sized final image over 300-500ms, no reflow. A small 'working on it' label with a spinner glyph sits above the placeholder until the swap.",
+  "sound": "Soft typewriter patter under the typed request, a low pulse during the wait, a brighter chime as the image resolves in.",
+  "duration": [2.5, 4.0],
+  "prompt": "Show someone typing a plain-language request into a chat panel for an on-brand image; after it sends, hold on a soft pulsing placeholder in an agent panel, then resolve that placeholder in place into the finished, styled image, so the generation reads as happening exactly where the result will live.",
+  "techniques": ["skeleton-to-result-reveal"],
+  "source": {"film": "justincooperman-e7bbc4", "url": "https://prompt-motion.com/justincooperman-e7bbc4", "creator": "@justincooperman", "start": 0.0, "end": 9.0},
+  "tags": {
+    "role": ["hook", "intro", "demo"],
+    "purpose": ["introduce-feature", "show-ease"],
+    "content": ["product-ui", "photo"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["interface", "reveal"],
+    "complexity": "low"
+  }
+}

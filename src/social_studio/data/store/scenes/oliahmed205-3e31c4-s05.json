@@ -1,0 +1,21 @@
+{
+  "id": "oliahmed205-3e31c4-s05",
+  "kind": "scene",
+  "name": "one photo card pulls back into a full batch grid",
+  "looks": "A single small photo card sits centred. The camera pulls back and the card turns out to be one tile among dozens, all tilted slightly in a dense mosaic of portraits, food, streets and products, every tile already carrying its own finished edit. A kinetic two-word line cuts across the middle of the grid as it settles.",
+  "build": "Absolutely positioned DOM tiles in one large world; a pseudo-camera move (focus + log scale) pulls back from one tile's full-bleed framing to the whole grid, each tile's corner radius and rotation settling as it reaches its slot. The headline is a single hard-cut DOM block layered over the grid, no per-letter stagger.",
+  "sound": "A rising whoosh through the pull-back, a soft cluster of ticks as the grid resolves, a hit under the headline.",
+  "duration": [2.2, 2.8],
+  "prompt": "Pull the camera back from one finished result until it turns out to be a single tile in a dense grid of many, each already carrying its own result. Land a short, bold two-word claim across the middle of the grid as the pull-back settles, to sell scale rather than one example.",
+  "techniques": ["gallery-zoom-tour", "kinetic-word-run"],
+  "source": {"film": "oliahmed205-3e31c4", "url": "https://prompt-motion.com/oliahmed205-3e31c4", "creator": "@oliahmed205", "start": 9.5, "end": 12.0},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-scale", "show-craft"],
+    "content": ["photo", "type"],
+    "energy": ["punch"],
+    "format": ["16:9"],
+    "family": ["structure", "collage", "type"],
+    "complexity": "medium"
+  }
+}

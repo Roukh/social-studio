@@ -1,0 +1,21 @@
+{
+  "id": "agonaliu-466a8f-s02",
+  "kind": "scene",
+  "name": "headline beside a fanned stack of saved-item cards",
+  "looks": "On a light field, a bold word and an italic serif word beneath it state the feature, with a row of three small key-glyph chips and a caption underneath. Beside it, two or three browser-style content cards fan out with a slight offset, and one more card streaks past, motion-blurred, as if just captured.",
+  "build": "variant-stack-reveal for the fanned cards (small seeded offset in x/y/rotation, staggered spring-in); the streaking card is a motion-blurred duplicate translated fast across the frame in under 0.15 s. Headline types/fades in a beat ahead of the cards.",
+  "sound": "A soft key-press blip under the key-glyph row, a paper-flutter whoosh as the cards fan in.",
+  "duration": [2.3, 2.7],
+  "prompt": "State a capability as a short bold line with an italic accent word, beside a small key-combo row and caption. Fan two or three sample content cards in beside it with a small offset each, and let one more card streak past motion-blurred to sell instant capture.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "agonaliu-466a8f", "url": "https://prompt-motion.com/agonaliu-466a8f", "creator": "@agonaliu_", "start": 2.5, "end": 5.0},
+  "tags": {
+    "role": ["intro", "demo"],
+    "purpose": ["introduce-feature", "show-speed"],
+    "content": ["type", "product-ui"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["type", "interface"],
+    "complexity": "medium"
+  }
+}

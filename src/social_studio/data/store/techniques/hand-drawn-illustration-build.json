@@ -1,0 +1,20 @@
+{
+  "id": "hand-drawn-illustration-build",
+  "kind": "technique",
+  "name": "Hand-drawn illustration build",
+  "looks": "A whiteboard-style illustration draws itself stroke by stroke, growing a piece at a time as a caption line beneath it highlights word by word in sync, as if the narration itself is drawing the picture.",
+  "build": "Each illustration part is its own SVG path revealed with strokeDashoffset then a flat fill fading up behind the stroke, timed from the caption's word timings rather than a fixed offset; the caption plays karaoke-style (spoken words solid, current word accented, unspoken dimmed).",
+  "sound": "A soft marker-on-whiteboard scratch under each stroke, synced to the voice track.",
+  "duration": [4.0, 8.0],
+  "prompt": "Let a simple illustration draw itself stroke by stroke, one piece at a time, timed to a caption line beneath it whose words highlight in sync as if spoken. Use it to explain a process or concept by drawing it live rather than showing it finished.",
+  "source": "prompt-motion.com's gallery (ajith-io-c52e09), studied 2026-10-09",
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["illustration", "type"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["reveal", "annotation"],
+    "complexity": "medium"
+  }
+}

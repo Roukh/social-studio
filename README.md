@@ -4,13 +4,30 @@ A local command-line tool that makes short motion-graphics videos with an LLM ag
 in a library with its full post text, and hands each new video to [Buffer](https://buffer.com) as a
 draft, where you approve, edit or delete it.
 
-- **One isolated session per video.** Each try runs your harness (Claude Code, OpenCode or Codex)
-  headless, in a fresh throwaway home, inside a bubblewrap sandbox that cannot see your library,
-  your database or your keys.
-- **A library of techniques.** Every film picks its shots from a shipped technique library (a 3D voxel
-  field, a particle flow, a kinetic word run, a morph, wipes and more, each with a proven implementation)
-  and applies shared principles; the maker records which set it used, so the next film differs. Every
-  composition has GSAP, three.js and a small motion kit. The library grows from reference films.
+- **One isolated sandbox per video, story first.** Each try runs your harness (Claude Code, OpenCode or
+  Codex) headless, in a fresh throwaway home, inside a bubblewrap sandbox that cannot see your library,
+  your database or your keys. Two sessions run there back to back: a storyteller writes the film's idea
+  and its beats (no motion), learning from analysed brand posts; then a designer builds the motion from
+  that story. Set `story.enabled = false` in a preset to skip the storyteller.
+- **A pitch round when you give no brief.** Without `--title`, `--subject`, `--topic` or `--notes`, the
+  story stage opens with five concepts pitched on five different paths (the product's world, the emotion,
+  the audience, the usual video inverted, an unusual format), each resting on a concrete fact about the
+  product. A judge in its own fresh session, seeing only the pitches and the brief, scores them on one
+  rubric; code checks the verdict, picks the winner and hands it to the storyteller. The pitches, the
+  verdict and the typical direction left behind stay with the video. `story.pitch = false` skips it.
+- **Keyframe boards, when you want to see the film first.** `sclstdio build --boards` runs the story stage,
+  then has the designer lay out each shot's key pose as a still at the final layout (real fonts, colours
+  and copy, no motion). Code snapshots the poses and tiles them into one board sheet, labelled shot by shot,
+  with the platform safe zone drawn at 9:16, and the build stops there. You decide the board at your
+  terminal (`sclstdio board approve|revise|drop ID`); `sclstdio build --from-board ID` then animates the
+  approved poses into the video. Approving a board never approves a video. Without `--boards`, a build
+  runs to the end on its own.
+- **A tagged store of techniques.** A shipped SQLite store holds atomic techniques (a 3D voxel field, a
+  particle flow, a kinetic word run, a morph, wipes, each with a proven recipe) and scenes extracted shot
+  by shot from reference films, each tagged by story role, purpose, content and energy with a general
+  prompt. Code retrieves the best few for each story beat and hands them to the designer, who records
+  the set it used, so the next film differs. Every composition has GSAP (with SplitText, MorphSVG and
+  DrawSVG), three.js and a small motion kit; every session has the engine's block registry, pinned.
 - **Presets make it consistent.** One TOML file pins the brand (colours, fonts, assets, easing),
   the content rules, the agent (backend, model, MCP servers, skills, plugins), the render engine
   version and the encode settings. Override any value per run with `--set key=value`.
@@ -59,6 +76,11 @@ sclstdio library 4 post                     # what Buffer does to a post, from h
 sclstdio post list                          # drafts, queued and sent posts, with post URLs
 sclstdio review walk                        # watch here; reject or send back with notes (takes the drafts out)
 sclstdio review rescore 4 --times 2         # re-run the independent reviewer to see how much its scores move
+sclstdio build --boards                     # stop at a keyframe board: the poses on one sheet, no motion yet
+sclstdio board                              # the boards waiting for you, with their sheet paths
+sclstdio board approve 3                    # (or: revise 3 --notes '...', drop 3) at your terminal only
+sclstdio build --from-board 3               # animate the approved board into the video
+sclstdio build --boards --from-board 3      # lay out again a board you sent back with notes
 ```
 
 ## Concepts
@@ -86,6 +108,10 @@ when approved at the terminal, with `rejected`, `revision` (a human's notes, the
 `make --revise <id>`), `superseded` and `failed`. The database enforces the legal transitions,
 refuses `approved` without an approval for the exact file, allows `review → posted` only for a video
 that went to Buffer as drafts, and keeps an append-only event log.
+
+Board statuses: `review → approved`, `revision` (your notes, then `build --boards --from-board <id>` lays
+it out again and the old board is replaced) or `dropped`. Boards live in their own table: deciding one
+needs your terminal and signs nothing, and a video made from a board still needs its own approval.
 
 ## LLM backends
 
@@ -144,7 +170,8 @@ reply to comments.
   are human-only.
 - Network inside the sandbox is open (the harness needs its API). Domain allowlisting is planned.
 - Human-only commands (approve, reject, revise, schedule, list or cancel posts, reveal scheduled
-  videos, connect accounts) need an interactive terminal, and approval also needs the passphrase.
+  videos, connect accounts, decide boards) need an interactive terminal, and approval also needs the
+  passphrase.
   Never add the approval key to ssh-agent.
 - `post` re-verifies the signature, re-hashes the file and checks the signed post text before every
   upload. The `publish.buffer` and `publish.media` settings are human-only, and no agent command
@@ -155,5 +182,5 @@ reply to comments.
 ## For agents
 
 `sclstdio skill install --target claude` (or `opencode`, `codex`, a folder) installs the agent
-guide. Agents use `sclstdio --json agent status|videos|topics|calendar` and `build`; posting
-stays with the human.
+guide. Agents use `sclstdio --json agent status|videos|topics|calendar|boards` and `build`; posting
+and deciding boards stay with the human.

@@ -1,0 +1,20 @@
+{
+  "id": "bounce-path-draw",
+  "kind": "technique",
+  "name": "Bounce path draw",
+  "looks": "A thin accent line draws itself behind a moving or bouncing object, segment by segment, leaving a persistent record of where the object has been. The object itself sits drawn on top of its own trail.",
+  "build": "Run one 2D canvas from the master clock. Sample the object's motion function at fine steps from its start time up to the current time t, and stroke the growing polyline as a progressive reveal with a thin glowing accent stroke.",
+  "sound": "A soft tick on each bounce.",
+  "duration": [2, 3],
+  "prompt": "As an object moves or bounces across the frame, have a thin glowing line trace its path behind it in real time, so the journey stays visible as a record rather than disappearing once travelled. Use this to show a trend, a journey from one state to another, or a through-line mark leaving its trail across a scene.",
+  "source": "prompt-motion.com's gallery, studied 2026-10-07.",
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "show-transformation"],
+    "content": ["data", "abstract"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "physics"],
+    "complexity": "medium"
+  }
+}

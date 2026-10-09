@@ -1,0 +1,21 @@
+{
+  "id": "macrohou-33959d-s03",
+  "kind": "scene",
+  "name": "Result card confirms the change with a sparkline",
+  "looks": "A phone card reveals a confidence badge (\"WORKED\", \"99% likely this helped\") above a bold stat stating the measured change, with a small jagged sparkline trending downward underneath and one point on the line marked where the change began.",
+  "build": "Badge pops in first with a small overshoot, the stat number counting from 0 or from a neutral baseline to its final value as the sparkline draws on (`strokeDashoffset`) beneath it; the marked point fades in last, after the line finishes drawing.",
+  "sound": "A confirming chime on the badge, a soft rising tick under the stat count and the line draw.",
+  "duration": [2.0, 2.8],
+  "prompt": "Reveal a result card with a confidence badge, a bold stat stating the measured change, and a small sparkline trending to match it, with one point marked where the change began, the badge, the number and the line all landing in that order so the proof builds rather than dumps all at once.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "macrohou-33959d", "url": "https://prompt-motion.com/macrohou-33959d", "creator": "@macrohou", "start": 12.5, "end": 17.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-transformation"],
+    "content": ["data", "device"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

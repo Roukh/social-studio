@@ -438,7 +438,7 @@ def test_post_schema_v2_upgrades_a_v1_library(tmp_path):
     class Ctx:
         studio_dir, db_path = tmp_path, path
     con = db.connect(Ctx())
-    assert con.execute("PRAGMA user_version").fetchone()[0] == len(db.SCHEMA) == 4
+    assert con.execute("PRAGMA user_version").fetchone()[0] == len(db.SCHEMA) == 5
     assert dict(con.execute("SELECT via, channel_id, text FROM post_targets").fetchone()) == {
         "via": "direct", "channel_id": None, "text": None}
 
@@ -458,7 +458,7 @@ def test_post_schema_v4_keeps_targets_and_keys_them_by_channel(tmp_path):
     class Ctx:
         studio_dir, db_path = tmp_path, path
     con = db.connect(Ctx())
-    assert con.execute("PRAGMA user_version").fetchone()[0] == 4
+    assert con.execute("PRAGMA user_version").fetchone()[0] == len(db.SCHEMA) == 5
     assert dict(con.execute("SELECT platform, status, channel_id, platform_post_id, text FROM post_targets"
                             ).fetchone()) == {"platform": "instagram", "status": "draft", "channel_id": "ig1",
                                               "platform_post_id": "b-1", "text": "words"}

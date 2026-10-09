@@ -1,0 +1,21 @@
+{
+  "id": "oliahmed205-3e31c4-s01",
+  "kind": "scene",
+  "name": "a point of light blooms into the opening headline",
+  "looks": "In a near-black frame, a single faint point of light sits alone. It blooms outward and a two-line headline is already sharp around it, no letters dropping in one at a time, with its one round glyph picked out in a warm gradient. A soft tagline fades in beneath a beat later.",
+  "build": "A radial bloom sprite scales up with a blur falloff in under 0.3s; the headline is one DOM block that resolves with a blur-to-sharp pass timed to the bloom's peak, not staggered per letter; the chosen glyph sits in its own span filled with the brand gradient and a soft glow; the tagline follows on its own short delay with a small y-slide. A corner HUD (mono label, timecode, scene counter) runs the whole film.",
+  "sound": "A soft rising shimmer resolving into a quiet hit as the headline comes into focus, then quiet under the tagline.",
+  "duration": [1.3, 1.9],
+  "prompt": "Open a product film on a single point of soft light alone in near-dark. Let it bloom in well under a second into a short two-line promise, already in focus, with one glyph carrying the brand's gradient as a first sighting of the mark. Fade a one-line payoff in beneath a beat later.",
+  "techniques": ["bloom-point-type-open", "hud-frame"],
+  "source": {"film": "oliahmed205-3e31c4", "url": "https://prompt-motion.com/oliahmed205-3e31c4", "creator": "@oliahmed205", "start": 0.0, "end": 1.88},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["tease", "establish-brand"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["open", "type", "frame"],
+    "complexity": "low"
+  }
+}

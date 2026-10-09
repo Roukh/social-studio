@@ -1,0 +1,21 @@
+{
+  "id": "jesscaroline7-1ff7cb-s01",
+  "kind": "scene",
+  "name": "Logo draws from a point",
+  "looks": "On a near-black field, a single accent dot sits alone, then a thick geometric stroke draws outward from it into an arrow shape; the arrow completes and the wordmark types in beside it in a heavy grotesk. A hard cut flashes the last word alone, oversized, on a flat accent-colour card with a faint ghost watermark of itself behind it.",
+  "build": "SVG path draw-on for the arrow stroke (strokeDashoffset to 0 on power2.out, ~0.6s), the dot holding as a static anchor at the stroke's start point with a soft radial glow. Wordmark letters fade/rise in as one block once the stroke lands, not letter by letter. Hard cut (no cross-fade) into the single-word card; the ghost watermark is the same glyph at 8-10% opacity, scaled up and offset.",
+  "sound": "A soft low swell under the draw, a single clean hit on the stroke's completion, a sharper hit on the hard cut to the word card.",
+  "duration": [2.0, 3.2],
+  "prompt": "Open on a lone accent dot in a dark field, then draw a simple geometric mark outward from it in one continuous stroke; once it lands, type the wordmark in beside it. Hard-cut to a flat accent-colour card holding just the brand's own word, oversized, with a faint ghost echo of itself behind it.",
+  "techniques": ["mark-stroke-reveal"],
+  "source": {"film": "jesscaroline7-1ff7cb", "url": "https://prompt-motion.com/jesscaroline7-1ff7cb", "creator": "@jesscaroline7", "start": 0.0, "end": 4.9},
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["establish-brand", "tease"],
+    "content": ["logo", "type"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["identity", "open"],
+    "complexity": "low"
+  }
+}

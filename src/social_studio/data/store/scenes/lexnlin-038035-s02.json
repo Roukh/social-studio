@@ -1,0 +1,21 @@
+{
+  "id": "lexnlin-038035-s02",
+  "kind": "scene",
+  "name": "Calligraphic flourish fills the pause",
+  "looks": "A single pen line draws itself across the cream ground in dense, looping calligraphic flourishes, never resolving into legible words, filling the space between two quieter type beats with a sense of a hand at work.",
+  "build": "One long SVG path with many control points, `strokeDashoffset` drawn from full length to 0 over roughly 2s as one continuous gesture; thin monochrome stroke matching the body type colour.",
+  "sound": "A very soft pen-on-paper scratch, rising and falling with the line's speed.",
+  "duration": [1.8, 2.5],
+  "prompt": "Between two quiet type beats, draw a single continuous pen line in dense looping flourishes across the frame, never resolving into legible words, as a textural pause that feels handmade.",
+  "techniques": ["flourish-line-draw"],
+  "source": {"film": "lexnlin-038035", "url": "https://prompt-motion.com/lexnlin-038035", "creator": "@LexnLin", "start": 4.4, "end": 6.0},
+  "tags": {
+    "role": ["transition"],
+    "purpose": ["set-mood"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type", "texture"],
+    "complexity": "low"
+  }
+}

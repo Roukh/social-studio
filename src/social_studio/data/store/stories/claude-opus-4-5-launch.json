@@ -1,0 +1,26 @@
+{
+  "id": "claude-opus-4-5-launch",
+  "kind": "story",
+  "name": "An Anthropic researcher on why Opus 4.5 earns more trust",
+  "brand": "Claude",
+  "source": {"url": "https://www.youtube.com/watch?v=56kq0VTkU4k", "platform": "youtube", "posted": "2025-11-24", "duration": 49.0},
+  "object": "Claude Opus 4.5, Anthropic's flagship model release, pitched on coding, agentic and everyday-work strength and on growing trust over time",
+  "audience": "developers and technical teams deciding which frontier model to build on",
+  "message": "This video tells developers that Opus 4.5 is not just benchmark-best, it earns trust over time: fewer interventions, and bugs other models miss.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 6.0, "what": "an Anthropic researcher introduces himself direct to camera in a library setting, burned-in captions under him", "copy": "I'm an engineer and researcher here at Anthropic. Claude Opus 4.5 is our best model yet.", "voice": "narration"},
+    {"role": "proof", "start": 6.0, "end": 21.0, "what": "he lists category wins, then pivots from benchmarks to a harder-to-show claim about trust and fewer manual interventions", "copy": "My time between interventions keeps getting longer, and I keep seeing colleagues say it solved the bug that Sonnet never could.", "voice": "narration"},
+    {"role": "proof", "start": 21.0, "end": 37.0, "what": "he cites a two-hour take-home engineering task the model scored higher on than any human ever has, plus gains in front-end work and vision", "copy": "In that time, the model scored higher than any human ever has. It's also much better at front end and vision.", "voice": "narration"},
+    {"role": "cta", "start": 37.0, "end": 49.0, "what": "closes on the availability line while he's still talking, then cuts to the Claude wordmark", "copy": "Opus 4.5 is available today, for the first time on every major cloud platform. Let us know what you think.", "voice": "narration"}
+  ],
+  "cta": "Opus 4.5 is available today on every major cloud platform, delivered as a direct statement to camera and closing on the Claude logo",
+  "why": "A single credible voice narrating his own growing trust in the model, instead of a montage of UI, makes an abstract claim like \"it just gets it\" feel earned and personal rather than marketed.",
+  "tags": {
+    "goal": ["launch"],
+    "product": ["ai-model"],
+    "structure": ["intro-body-cta"],
+    "voice": ["narration"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

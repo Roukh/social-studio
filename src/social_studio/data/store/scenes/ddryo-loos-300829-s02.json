@@ -1,0 +1,21 @@
+{
+  "id": "ddryo-loos-300829-s02",
+  "kind": "scene",
+  "name": "Annotated type-scale ramp with highlighted leading",
+  "looks": "A row of the same glyph grows step by step across a scale, each step's size label ticking up beneath it, ending on one large instance. A second beat highlights a paragraph and a headline with teal measurement bands across every line, then a one-line code snippet typing on in a dark pill names the rule that produced them.",
+  "build": "The glyph row scales each instance up from the last on a stagger (annotated-diagram-overlay's label pattern, applied to a size ramp instead of an arrow). The measurement bands are absolutely positioned rules that fade/scale in per line of text, synced to the text's own reveal; the code pill types on with terminal-type-on.",
+  "sound": "A tick per glyph step, then a soft tick per measurement band, and a key tick under the code line.",
+  "duration": [2.5, 3.5],
+  "prompt": "Prove an invisible design rule with two linked beats: first a scale of the same element growing step by step with its values labelled, then a block of real text with its measurement called out line by line in an accent colour, finishing on the one line of code that defines the rule.",
+  "techniques": ["annotated-diagram-overlay", "terminal-type-on"],
+  "source": {"film": "ddryo-loos-300829", "url": "https://prompt-motion.com/ddryo-loos-300829", "creator": "@ddryo_loos", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["solution", "demo"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["type", "code"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["annotation", "type"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "reflex-cloud-72ffe5-s01",
+  "kind": "scene",
+  "name": "iris scan hook with locking reticle",
+  "looks": "A close macro of an eye fills the frame, grain and dot texture over the iris. A thin white bracket targets a point on it and tightens as the camera pushes in; a small HUD panel beside it starts as garbled characters, then the bracket turns violet and the panel resolves into a real status word with a latency number and a measurement.",
+  "build": "A macro texture plate under a DOM bracket reticle pinned to the target, its corner gap narrowing on power2.out as the plate scales up for the push-in. The label text scrambles per frame then locks letter by letter (the end-card-decode mechanic); the readout ticks with no easing (the live-readout-hud mechanic). The bracket's stroke colour shifts from white to violet across the push-in.",
+  "sound": "A low tonal hum under the push-in, a soft electronic chirp as the bracket locks, a couple of data ticks as the readout updates.",
+  "duration": [2.5, 3.0],
+  "prompt": "Open tight on a macro, textured close-up of a living or organic subject with a thin bracket reticle that locks onto one point and tightens as the camera pushes in. Run a small status label beside it through a quick character scramble before it locks to a real word, with a live measurement ticking under it, so the opening feels like the brand is actively sensing its subject rather than just showing it.",
+  "techniques": ["reticle-lock-decode"],
+  "source": {"film": "reflex-cloud-72ffe5", "url": "https://prompt-motion.com/reflex-cloud-72ffe5", "creator": "@reflex_cloud", "start": 0.0, "end": 2.817},
+  "tags": {
+    "role": ["hook"],
+    "purpose": ["tease", "establish-brand", "show-craft"],
+    "content": ["photo", "abstract"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16"],
+    "family": ["frame", "annotation"],
+    "complexity": "medium"
+  }
+}

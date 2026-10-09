@@ -1,0 +1,20 @@
+{
+  "id": "dual-voice-type",
+  "kind": "technique",
+  "name": "Dual-voice type",
+  "looks": "Two kinds of words appear in two faces that never mix: a human note (a request, an aside, a question), typed in a marker or handwritten face with a cursor that blinks on the beat, and a separate line in the brand's clean sans for its own voice answering or stating something. The change of face alone tells the viewer who is speaking.",
+  "build": "Reveal each line as DOM text per character at a steady typing rate, loading the second, handwritten face only for the note layer (falling back to the brand's italic or serif if no handwritten face exists). Blink the cursor on the beat rather than on a timer.",
+  "sound": "A light typing clack per character, softer than a kinetic word run's ticks.",
+  "duration": [1.5, 2.5],
+  "prompt": "Type on two short lines of text in two distinct faces that never mix: a human note, request or question in a handwritten or italic voice, and the brand's own answer or statement in its clean sans. Let the change of typeface alone carry who is speaking, with a blinking cursor that lands on the beat.",
+  "source": "Framer's \"skills\" ad (instagram.com/p/DdtwW_Ws0Xx), studied 2026-10-07.",
+  "tags": {
+    "role": ["intro", "problem", "solution"],
+    "purpose": ["establish-brand", "show-contrast"],
+    "content": ["type"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type"],
+    "complexity": "low"
+  }
+}

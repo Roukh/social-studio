@@ -1,0 +1,20 @@
+{
+  "id": "category-tile-grid",
+  "kind": "technique",
+  "name": "Category tile grid",
+  "looks": "Dozens of small, differently coloured tiles fill in behind a bold headline, each carrying a short label, arriving on a loose stagger until the grid is dense, deliberately too many to read individually, so the shot sells breadth before the product narrows it down.",
+  "build": "A CSS/DOM grid of fixed-size cards, each with a random accent fill from a small palette and a short label; cards scale and fade in (0 -> 1, power2.out) on a per-card seeded delay so the build feels organic. The headline stays layered above at full contrast.",
+  "sound": "A fast, granular patter of soft ticks as the tiles land, overlapping into a wash by the time the grid is full.",
+  "duration": [1.5, 2.5],
+  "prompt": "Behind a short, confident headline, fill the frame with a dense, loosely staggered grid of small coloured tiles, each labelled with a different option or category, deliberately too many to read one by one, so the shot says there is a lot to sort through before the product does the sorting.",
+  "source": "reyzostyle-b55864 (prompt-motion.com/reyzostyle-b55864), studied 2026-10-09",
+  "tags": {
+    "role": ["hook", "problem"],
+    "purpose": ["show-scale", "build-tension", "tease"],
+    "content": ["abstract", "type"],
+    "energy": ["build"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["data", "interface"],
+    "complexity": "medium"
+  }
+}

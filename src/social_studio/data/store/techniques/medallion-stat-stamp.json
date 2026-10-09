@@ -1,0 +1,20 @@
+{
+  "id": "medallion-stat-stamp",
+  "kind": "technique",
+  "name": "Medallion stat stamp",
+  "looks": "The brand's flat mark tips into 3D and thickens into a glossy chrome coin, tilted three-quarter and slowly turning. A bold word or number is stamped in front of it, filling most of the frame, and hard-cuts straight to the next one with no crossfade, so a run of stats or claims reads as the same coin struck again and again.",
+  "build": "A continuously rotating extruded/chrome coin (three.js torus or lathe, or a swapped faux-3D sprite) driven by the master clock so it never restarts across cuts; each word or number is its own layer, heavy weight, cut exactly on the beat with a drop shadow over the chrome, plus an optional mono unit kicker.",
+  "sound": "A metallic stamp or clang on each cut, pitched slightly differently per hit, over a low rumble from the continuous spin.",
+  "duration": [2.5, 4.0],
+  "prompt": "Turn the brand's own mark into a slowly rotating chrome coin, and hard-cut a run of 4-6 bold stats or claims in front of it, one per beat, with no crossfade, so each one lands like the coin being struck and the proof feels stamped rather than typed.",
+  "source": "prompt-motion.com's gallery (micheleharmonic-77628e), studied 2026-10-09",
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-data", "show-scale", "build-tension"],
+    "content": ["data", "logo", "type"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["identity", "data", "type"],
+    "complexity": "medium"
+  }
+}

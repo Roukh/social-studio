@@ -1,0 +1,21 @@
+{
+  "id": "llmjunky-2106411941497389342-s07",
+  "kind": "scene",
+  "name": "a carnival strength-game becomes a two-metric comparison",
+  "looks": "A silhouetted carnival scene holds two strongman bell-towers side by side, labelled for two different measures. A puck races up each tower to strike its bell, one tower lit a feeble colour for a small measure, the other blazing for a large one, an equation settling between them once both have struck.",
+  "build": "Each tower's puck travels up its track on power3.out, triggering its bell and a labelled readout (value and short description) the instant it lands, same mechanic as data-infographic's bar build but vertical and single-shot per tower; the shared equation fades in centred once both towers have resolved.",
+  "sound": "A mechanical ratchet as each puck rises, a bell strike on landing, pitched differently for the feeble and the mighty swing.",
+  "duration": [10.0, 15.0],
+  "prompt": "Reframe a carnival strongman game as a two-metric comparison: two labelled towers each send a puck racing up to strike a bell, one a feeble result, one a mighty one, with a short readout naming each value the instant it lands, and a shared equation settling between them once both have resolved, to make an abstract relationship physically legible.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "llmjunky-2106411941497389342", "url": "https://x.com/LLMJunky/status/2106411941497389342", "creator": "@LLMJunky", "start": 1500.0, "end": 1530.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["explain-mechanism", "show-contrast"],
+    "content": ["character", "data"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "high"
+  }
+}

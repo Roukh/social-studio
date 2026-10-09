@@ -1,0 +1,20 @@
+{
+  "id": "ui-tilt-card",
+  "kind": "technique",
+  "name": "UI tilt card",
+  "looks": "An interface panel or screen is held at a fixed, shallow three-dimensional tilt over a near-black field with a soft shadow beneath it, its content sliding or swapping in place while the tilt itself stays steady. It gives flat interface content real depth without it reading as a plain screenshot.",
+  "build": "Place a DOM panel inside a parent with CSS perspective and small rotateX/rotateY values, drifting a degree or two on the clock, with a blurred offset shadow tinted toward the field; for a true light sweep across the glass, render the interface to a texture on a three.js plane under a moving specular highlight instead.",
+  "sound": "A soft slide or whoosh as it enters.",
+  "duration": [2, 2.5],
+  "prompt": "Hold any interface panel, product screen or document at a shallow, steady 3D tilt over a dark field with a soft shadow beneath it, letting its content slide or swap in place while the tilt itself never moves. Use it for any shot that needs to show a flat interface with real depth, keeping to one tilt per shot.",
+  "source": "Framer's \"skills\" ad (instagram.com/p/DdtwW_Ws0Xx), studied 2026-10-07.",
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["show-craft", "introduce-feature"],
+    "content": ["product-ui", "device"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["interface", "3d"],
+    "complexity": "medium"
+  }
+}

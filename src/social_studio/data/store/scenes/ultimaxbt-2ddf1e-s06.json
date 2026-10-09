@@ -1,0 +1,21 @@
+{
+  "id": "ultimaxbt-2ddf1e-s06",
+  "kind": "scene",
+  "name": "wordmark arrives small then settles large",
+  "looks": "The brand name fades in small off to one side, then cuts to the same wordmark centred and much larger, filling more of the frame before the shot fades to black.",
+  "build": "First instance fades in small (0.9 -> 1, power2.out); hard cut to the larger centred instance scaling in the same way; the whole frame fades to black over the last 0.3-0.4s.",
+  "sound": "A soft confirm tone on the larger wordmark's landing, the bed fading out into the black.",
+  "duration": [2.5, 3.0],
+  "prompt": "Fade the wordmark in small off to one side, then hard-cut to the same wordmark centred and much larger, before the whole frame fades to black, as a quiet, confident two-step close.",
+  "techniques": ["end-card-decode"],
+  "source": {"film": "ultimaxbt-2ddf1e", "url": "https://prompt-motion.com/ultimaxbt-2ddf1e", "creator": "@ultimaxbt", "start": 12.5, "end": 16.256},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["logo", "type"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

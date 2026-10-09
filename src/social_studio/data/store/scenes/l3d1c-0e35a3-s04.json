@@ -1,0 +1,21 @@
+{
+  "id": "l3d1c-0e35a3-s04",
+  "kind": "scene",
+  "name": "Result grid resolves with confidence scores",
+  "looks": "A grid of result tiles sits inside a product window, each tile labelled \"generating...\"; one by one the tiles resolve from a soft blur into a sharp finished photo, each landing with a small confidence percentage in the corner, while a prompt bar below shows the request that produced them.",
+  "build": "Each tile is independently timed: a blurred placeholder (`filter: blur(12px)`) cross-fades to the sharp final image over 300-400ms, staggered so tiles resolve in a different order each time, not row by row. The percentage badge counts up to its final value in the same window the blur clears.",
+  "sound": "A soft whoosh per tile as it sharpens, a light tick as each percentage settles.",
+  "duration": [2.0, 3.0],
+  "prompt": "Fill a grid of result tiles inside a product window, each starting as a soft blur labelled as still working, then resolve each one to a sharp finished image on its own independent timing with a small confidence score counting up in its corner, so the grid never clears in a predictable row-by-row order.",
+  "techniques": ["skeleton-to-result-reveal"],
+  "source": {"film": "l3d1c-0e35a3", "url": "https://prompt-motion.com/l3d1c-0e35a3", "creator": "@l3d1c", "start": 17.5, "end": 22.5},
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-ease", "reveal-product"],
+    "content": ["product-ui", "photo"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["interface", "reveal"],
+    "complexity": "medium"
+  }
+}

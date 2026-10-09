@@ -1,0 +1,21 @@
+{
+  "id": "macrohou-33959d-s05",
+  "kind": "scene",
+  "name": "A short equation closes into the mark",
+  "looks": "A terse formula-like statement (\"n = 1\") holds alone on a black field, then cuts to the brand's arch-shaped mark with its wordmark and URL settling beneath it, calm and still.",
+  "build": "The statement holds with no motion beyond its initial fade-in; hard cut to the lockup, mark and wordmark arriving together (`y:10px -> 0`, power2.out, ~300ms), the URL fading in last at reduced size.",
+  "sound": "Near silence under the statement, a single soft low tone under the cut to the lockup.",
+  "duration": [1.8, 2.5],
+  "prompt": "Hold a terse, formula-like statement alone on a black field, then cut to the brand's mark and wordmark settling together with the site URL fading in beneath at reduced size, closing the film on something quiet and exact rather than loud.",
+  "techniques": ["lockup-close-card"],
+  "source": {"film": "macrohou-33959d", "url": "https://prompt-motion.com/macrohou-33959d", "creator": "@macrohou", "start": 27.5, "end": 29.76},
+  "tags": {
+    "role": ["cta"],
+    "purpose": ["establish-brand", "land-cta"],
+    "content": ["type", "logo"],
+    "energy": ["calm"],
+    "format": ["16:9", "9:16", "1:1", "4:5"],
+    "family": ["close", "identity"],
+    "complexity": "low"
+  }
+}

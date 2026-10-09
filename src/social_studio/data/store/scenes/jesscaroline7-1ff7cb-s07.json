@@ -1,0 +1,21 @@
+{
+  "id": "jesscaroline7-1ff7cb-s07",
+  "kind": "scene",
+  "name": "Badges climb from bronze to diamond",
+  "looks": "A short vertical list of badge icons, each with a name and a tier word underneath, steps up in material and colour through a tier ladder from a dull bronze to a glowing cool blue, rows climbing out of sync with each other. Once a badge lands on its top tier, a one-line stat clips in beside its label, and the shot holds on all badges glowing at full tier.",
+  "build": "Same icon silhouette per row; only the fill gradient and rim-light colour tween through tier-colour stops (lerpColor on power2.inOut, under 0.3s per step). Row 2 starts 0.15-0.25s after row 1, row 3 after row 2. The stat clips in under the label via a width-mask once that row reaches its last tier, digits rolling up in the final 0.2s.",
+  "sound": "A light chime per tier step, pitching upward with each tier, a slightly longer chime on each badge's final top-tier landing.",
+  "duration": [2.5, 4.0],
+  "prompt": "List a few status badges stacked vertically, each labelled with a name, and step every badge's icon up through a material and colour tier ladder (dull to precious) on its own offset timing so the rows climb out of sync. Once a badge reaches its top tier, clip in a one-line stat beside it, and hold the final frame with every badge glowing at full tier.",
+  "techniques": ["badge-tier-cascade"],
+  "source": {"film": "jesscaroline7-1ff7cb", "url": "https://prompt-motion.com/jesscaroline7-1ff7cb", "creator": "@jesscaroline7", "start": 44.5, "end": 50.0},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-data", "show-transformation"],
+    "content": ["data", "illustration"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "reveal"],
+    "complexity": "medium"
+  }
+}

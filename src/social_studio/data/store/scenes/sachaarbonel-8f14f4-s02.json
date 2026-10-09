@@ -1,0 +1,21 @@
+{
+  "id": "sachaarbonel-8f14f4-s02",
+  "kind": "scene",
+  "name": "logo and promise, line by line",
+  "looks": "A small mark and wordmark sit still above the centre. A plain promise line fades up under them, then a second, italic line lands a beat later to complete the pitch, both over the same soft gradient field used throughout.",
+  "build": "Logo static throughout; first line fades/rises 6-8px on power2.out; second italic line follows after a pause; background is the flat gradient with a very soft blurred echo, no screenshot this time.",
+  "sound": "A light rise under each line landing, held quiet under the logo.",
+  "duration": [2.0, 2.5],
+  "prompt": "Hold a small mark and wordmark still above centre while a plain promise line fades up beneath them, then a second, italic line completes the pitch a beat later, over the same soft gradient field as the rest of the film.",
+  "techniques": ["blur-echo-statement-card"],
+  "source": {"film": "sachaarbonel-8f14f4", "url": "https://prompt-motion.com/sachaarbonel-8f14f4", "creator": "@sachaarbonel", "start": 5.0, "end": 10.0},
+  "tags": {
+    "role": ["intro", "solution"],
+    "purpose": ["establish-brand", "reveal-product"],
+    "content": ["type", "logo"],
+    "energy": ["calm"],
+    "format": ["16:9", "1:1", "4:5"],
+    "family": ["type", "identity"],
+    "complexity": "low"
+  }
+}

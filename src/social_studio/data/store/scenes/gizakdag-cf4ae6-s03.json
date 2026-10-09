@@ -1,0 +1,21 @@
+{
+  "id": "gizakdag-cf4ae6-s03",
+  "kind": "scene",
+  "name": "Glitch wall punctuates the spiral",
+  "looks": "A single word repeats full-bleed in torn horizontal bands, the colour channels split and fringing, the whole frame juddering out of alignment for less than a second before it cuts hard to black.",
+  "build": "chroma-split-glitch-wall: three colour copies of the repeated word offset per frame, the frame sliced into bands each with its own re-rolled jitter; cut out hard, no fade.",
+  "sound": "A harsh digital stutter that cuts off sharply on the hard cut to black.",
+  "duration": [0.6, 1.0],
+  "prompt": "Punctuate a build-up of tension with one short, harsh beat: repeat a single word full-bleed in torn, colour-split bands for under a second, then cut hard to black, so the overload reads as a system breaking rather than a style choice.",
+  "techniques": ["chroma-split-glitch-wall"],
+  "source": {"film": "gizakdag-cf4ae6", "url": "https://prompt-motion.com/gizakdag-cf4ae6", "creator": "@gizakdag", "start": 9.9, "end": 11.1},
+  "tags": {
+    "role": ["transition", "problem"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["type"],
+    "energy": ["punch"],
+    "format": ["9:16"],
+    "family": ["texture", "type"],
+    "complexity": "low"
+  }
+}

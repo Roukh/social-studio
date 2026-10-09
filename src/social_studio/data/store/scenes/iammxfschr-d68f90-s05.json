@@ -1,0 +1,21 @@
+{
+  "id": "iammxfschr-d68f90-s05",
+  "kind": "scene",
+  "name": "A guardrail modal blocks a risky write",
+  "looks": "A headline fades in with its key word in a warning colour. Beside it a modal pops up over a highlighted write statement, warning that it targets a live connection, with a cancel button and a bold red confirm button as the only way past it.",
+  "build": "list-stack-reveal for the headline; the modal scales in from 0.9 with a soft shadow (glass-ui-flow's card arrival), the dangerous statement's background tinted red from the moment it appears rather than animated in separately, since the danger should read instantly.",
+  "sound": "A tick on the headline, a sharper alert tone as the modal pops up.",
+  "duration": [1.5, 2.0],
+  "prompt": "Prove a safety feature by staging the moment it fires: a headline names the guardrail, and beside it a modal interrupts a risky action with a clearly highlighted warning and a deliberately awkward confirm button, so stopping and thinking is the easy choice.",
+  "techniques": ["list-stack-reveal", "glass-ui-flow"],
+  "source": {"film": "iammxfschr-d68f90", "url": "https://prompt-motion.com/iammxfschr-d68f90", "creator": "@iamMXFSCHR", "start": 23.817, "end": 26.45},
+  "tags": {
+    "role": ["solution", "proof"],
+    "purpose": ["build-tension", "explain-mechanism"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "type"],
+    "complexity": "low"
+  }
+}

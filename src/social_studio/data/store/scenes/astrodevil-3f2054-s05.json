@@ -1,0 +1,21 @@
+{
+  "id": "astrodevil-3f2054-s05",
+  "kind": "scene",
+  "name": "a name cloud of clients fades up with uneven emphasis",
+  "looks": "A dense cluster of client or partner names fills the frame, most dimmed to low contrast, a few bold and in the accent colour as if highlighted, with a stat and caption settling beneath the cloud.",
+  "build": "variant-stack-reveal, applied to inline text runs: each name fades in with a small seeded delay and a seeded opacity/weight target (most dim, a few full-bright), rather than a uniform reveal.",
+  "sound": "A soft overlapping cluster of quiet pops.",
+  "duration": [2.5, 3.0],
+  "prompt": "Fill the frame with a dense cluster of names (clients, partners, tools), most dimmed low and a few bold in the accent colour as if singled out, all fading in with a small per-name stagger. Settle a supporting stat and caption beneath the cloud once it fills, to turn a name-drop into a credibility beat.",
+  "techniques": ["variant-stack-reveal"],
+  "source": {"film": "astrodevil-3f2054", "url": "https://prompt-motion.com/astrodevil-3f2054", "creator": "@Astrodevil_", "start": 10.55, "end": 13.6},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-scale", "establish-brand"],
+    "content": ["type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["collage", "type"],
+    "complexity": "medium"
+  }
+}

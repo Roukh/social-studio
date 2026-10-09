@@ -1,0 +1,21 @@
+{
+  "id": "quickdesignio-dd93d0-s03",
+  "kind": "scene",
+  "name": "launch-measure-scale proof dashboard",
+  "looks": "A three-word headline stacked in three weights (bold, grey, italic) sits beside a dark analytics card: a 'live' status badge, a big multiplier number, and a green line climbing left to right with a value pill and a small caption line below it.",
+  "build": "The stacked headline lines reveal with a short stagger. The card is a DOM panel with a live-glow badge (box-shadow pulse); the spline draws across with strokeDashoffset, a dot following the line's end point, and a value pill springing up near the peak (response ~0.38, damping ~0.8).",
+  "sound": "A soft whoosh as the card lands, a rising tone under the line draw, a chime as the value pill pops.",
+  "duration": [1.3, 1.8],
+  "prompt": "Pair a three-line stacked headline (each line in a different weight) with a dark result card: a live badge, a big payoff number, and a line chart drawing upward across the card with a value pill springing up at its peak. This is the film's proof beat, make the climb feel earned.",
+  "techniques": ["data-infographic"],
+  "source": {"film": "quickdesignio-dd93d0", "url": "https://prompt-motion.com/quickdesignio-dd93d0", "creator": "@quickdesignio", "start": 10.3, "end": 11.7},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["show-data", "show-scale"],
+    "content": ["data", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data"],
+    "complexity": "low"
+  }
+}

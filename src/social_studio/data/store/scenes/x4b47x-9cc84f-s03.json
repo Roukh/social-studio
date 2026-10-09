@@ -1,0 +1,21 @@
+{
+  "id": "x4b47x-9cc84f-s03",
+  "kind": "scene",
+  "name": "a silent held night shot closes the curtain",
+  "looks": "The last caption fades away and the house sits alone under a full starlit sky, every window lit warm, nothing else moving but the faint twinkle of stars, before the stage curtain's rope draws back in to close the shot.",
+  "build": "No caption, no new motion beyond the existing parallax and a slow star-twinkle (opacity flicker on a handful of star sprites); the curtain rope tweens back into frame on power2.in to close, same mechanic as its opening move reversed.",
+  "sound": "The ambient bed thins to near silence, a final soft fabric rustle as the curtain closes.",
+  "duration": [5.0, 7.0],
+  "prompt": "Let the last caption fade away and hold on the house alone under a full starlit sky, every window lit warm and nothing else moving, before closing the stage curtain's rope back into frame, as the quiet, wordless resolution to a short story.",
+  "techniques": ["shadow-theatre-frame", "cinematic-atmosphere-hold"],
+  "source": {"film": "x4b47x-9cc84f", "url": "https://prompt-motion.com/x4b47x-9cc84f", "creator": "@x4b47x", "start": 45.0, "end": 57.045},
+  "tags": {
+    "role": ["cta", "whole-film"],
+    "purpose": ["set-mood", "land-cta"],
+    "content": ["illustration"],
+    "energy": ["calm"],
+    "format": ["9:16"],
+    "family": ["frame", "close"],
+    "complexity": "medium"
+  }
+}

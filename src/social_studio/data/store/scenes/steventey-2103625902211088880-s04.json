@@ -1,0 +1,21 @@
+{
+  "id": "steventey-2103625902211088880-s04",
+  "kind": "scene",
+  "name": "Partner halo grows a revenue counter",
+  "looks": "A headline names a claim about growth through others. A loose scatter of small round avatar bubbles fills the frame around a single glowing hub mark at the centre, no lines between them, just proximity and glow. A dollar figure beneath climbs from one value to a noticeably larger one.",
+  "build": "avatar-network-halo: the bubbles populate on a loose overlapping stagger around the hub; the dollar value uses data-infographic's roll-up, timed to land just after the bubbles settle, then ticks up again to a second, larger figure.",
+  "sound": "A soft shimmer as the bubbles populate, and a rising tone under each counter climb.",
+  "duration": [2.0, 2.5],
+  "prompt": "Prove a network effect pays off: scatter a loose cloud of small avatar bubbles around one glowing central hub, no connecting lines needed, and grow a dollar or count value beneath it from one figure to a clearly larger one, so the claim is seen compounding.",
+  "techniques": ["avatar-network-halo"],
+  "source": {"film": "steventey-2103625902211088880", "url": "https://x.com/steventey/status/2103625902211088880", "creator": "@steventey", "start": 7.5, "end": 10.5},
+  "tags": {
+    "role": ["proof", "solution"],
+    "purpose": ["show-scale", "show-data"],
+    "content": ["data", "character"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["data", "particles"],
+    "complexity": "medium"
+  }
+}

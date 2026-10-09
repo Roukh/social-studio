@@ -1,0 +1,21 @@
+{
+  "id": "ndhabarde11-f155b4-s04",
+  "kind": "scene",
+  "name": "a wave of change sweeps a grid of shapes while a label scrolls behind it",
+  "looks": "A looping marquee of a repeated short label scrolls sideways across a dark field. In front of it, a tidy grid of rounded diamonds sits on a bright colour field; a wave of change ripples across the grid from one corner, each shape easing from a sharp diamond into a soft square a beat after its neighbour, with a small mono caption naming the function and the shape count.",
+  "build": "grid-wave-morph: shapes on a regular grid, each one's rotation/corner-radius progress offset by ease(t - k * distanceFromOrigin); a ticker-tape-marquee strip of the repeated label loops behind on a steady linear translateX; the caption text is set once from the same constants driving the grid.",
+  "sound": "A soft granular patter as the wave crosses the grid, with a faint tick as each shape settles, under a low, steady bed.",
+  "duration": [1.8, 2.5],
+  "prompt": "Scroll a short looping label sideways across the background, then show a tidy grid of simple shapes where a wave of transformation ripples from one corner to the other, each shape settling into its new form a beat after its neighbour, with a small caption naming the rule or function behind it.",
+  "techniques": ["grid-wave-morph", "ticker-tape-marquee"],
+  "source": {"film": "ndhabarde11-f155b4", "url": "https://prompt-motion.com/ndhabarde11-f155b4", "creator": "@ndhabarde11", "start": 3.5, "end": 6.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-craft", "show-scale"],
+    "content": ["abstract", "data"],
+    "energy": ["build"],
+    "format": ["9:16"],
+    "family": ["generative", "shape", "build-pattern"],
+    "complexity": "medium"
+  }
+}

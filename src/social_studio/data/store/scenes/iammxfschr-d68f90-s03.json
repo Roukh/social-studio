@@ -1,0 +1,21 @@
+{
+  "id": "iammxfschr-d68f90-s03",
+  "kind": "scene",
+  "name": "Preference list stacks beside the settings panel",
+  "looks": "Three short lines stack in, each naming one personal setting with its key word in italic colour, while a real preferences panel slides in beside them, showing the matching controls (time zone, date format, keyboard shortcuts) stacked in sections.",
+  "build": "list-stack-reveal for the three headline lines; the panel's sections stagger in on the same beat grid as the headline lines, each section landing just as its matching line does.",
+  "sound": "A tick per line, synced with a lighter tick per settings section landing beside it.",
+  "duration": [2.5, 3.5],
+  "prompt": "Pair a short list of personal settings with a real settings panel: stack three lines naming individual preferences, each landing in sync with the matching section of a real preferences UI sliding in beside it, so the claim and the proof arrive together.",
+  "techniques": ["list-stack-reveal"],
+  "source": {"film": "iammxfschr-d68f90", "url": "https://prompt-motion.com/iammxfschr-d68f90", "creator": "@iamMXFSCHR", "start": 14.983, "end": 18.517},
+  "tags": {
+    "role": ["solution"],
+    "purpose": ["introduce-feature", "show-craft"],
+    "content": ["product-ui", "type"],
+    "energy": ["build"],
+    "format": ["16:9"],
+    "family": ["interface", "type"],
+    "complexity": "low"
+  }
+}

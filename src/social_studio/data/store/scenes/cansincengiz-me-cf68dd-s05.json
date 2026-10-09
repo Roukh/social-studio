@@ -1,0 +1,21 @@
+{
+  "id": "cansincengiz-me-cf68dd-s05",
+  "kind": "scene",
+  "name": "a status toast confirms the job finished safely",
+  "looks": "Beneath the closed device, a small rounded toast card slides up with an icon, a short status line, and a reassuring caption underneath, under a headline about the work finishing on its own schedule.",
+  "build": "glass-ui-flow's toast pattern: the card slides up and fades in on power3.out, the icon doing a small settle pulse as it lands.",
+  "sound": "A soft confirming chime as the toast lands.",
+  "duration": [1.8, 2.2],
+  "prompt": "Slide up a small rounded status toast beneath a hero product shot, with an icon, a short confident status line, and a one-line reassurance underneath. Use it as the final proof beat that the product's promise held, right before the close.",
+  "techniques": ["glass-ui-flow"],
+  "source": {"film": "cansincengiz-me-cf68dd", "url": "https://prompt-motion.com/cansincengiz-me-cf68dd", "creator": "@cansincengiz_me", "start": 10.0, "end": 12.5},
+  "tags": {
+    "role": ["proof"],
+    "purpose": ["build-tension", "show-ease"],
+    "content": ["product-ui"],
+    "energy": ["calm"],
+    "format": ["1:1"],
+    "family": ["interface"],
+    "complexity": "low"
+  }
+}

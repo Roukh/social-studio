@@ -1,0 +1,21 @@
+{
+  "id": "ik-builds-b8bdcf-s03",
+  "kind": "scene",
+  "name": "Hard switch to a glowing mark alone in the dark",
+  "looks": "The light paper field cuts hard to a near-black, finely dotted ground. The same small mark that was rolling now sits alone at the centre, glowing softly, the only object in the frame.",
+  "build": "A hard field swap (no crossfade) from the light to the dark palette; cinematic-atmosphere-hold's single bloom sprite pinned centre-frame, pulsing slowly, with the fine dot grid as the static background layer.",
+  "sound": "The roll tone cuts to silence on the hard switch, replaced by a low ambient hum.",
+  "duration": [1.0, 1.5],
+  "prompt": "Mark a turn in the story with a hard light-to-dark switch: cut the whole field from a light, busy ground to a near-black one, holding on the one recurring mark alone and glowing at the centre, with nothing else in frame.",
+  "techniques": ["cinematic-atmosphere-hold"],
+  "source": {"film": "ik-builds-b8bdcf", "url": "https://prompt-motion.com/ik-builds-b8bdcf", "creator": "@ik_builds", "start": 5.0, "end": 6.5},
+  "tags": {
+    "role": ["transition"],
+    "purpose": ["build-tension", "show-contrast"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["16:9"],
+    "family": ["transition", "texture"],
+    "complexity": "low"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "marklaunches-3b9492-s04",
+  "kind": "scene",
+  "name": "A team climbs a mountain toward a shared total",
+  "looks": "A dotted path winds up a stylised mountain illustration; a glowing marker travels along it as a team step-total climbs in the corner, from a base camp through a high camp to a summit ridge, each waypoint lighting up and naming itself as the marker reaches it. On the final cut, several small avatar markers cluster at the peak under a glowing \"SUMMIT\" title as the total completes.",
+  "build": "Pre-drawn SVG path; marker position via `getPointAtLength` tied to the same value driving the cumulative counter. Waypoint pills cross-fade dim to lit the instant the marker passes, each with a short pulse. The payoff title fades/scales in over the illustration once the total reaches its target, holding longer than the other waypoints did.",
+  "sound": "A soft ambient wind bed under the climb, a chime on each waypoint unlocking, a fuller resolving chord on the summit payoff.",
+  "duration": [2.2, 2.8],
+  "prompt": "Wind a dotted path up a stylised landscape illustration and travel a glowing marker along it as a shared cumulative total climbs, lighting up named waypoints in turn as the marker passes each one, and close on a glowing payoff title once several small markers converge at the final point together.",
+  "techniques": ["progress-path-climb"],
+  "source": {"film": "marklaunches-3b9492", "url": "https://prompt-motion.com/marklaunches-3b9492", "creator": "@marklaunches", "start": 25.0, "end": 35.0},
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "show-transformation"],
+    "content": ["illustration", "data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "establishing"],
+    "complexity": "medium"
+  }
+}
