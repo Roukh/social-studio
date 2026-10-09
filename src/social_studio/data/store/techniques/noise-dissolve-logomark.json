@@ -1,0 +1,20 @@
+{
+  "id": "noise-dissolve-logomark",
+  "kind": "technique",
+  "name": "Noise dissolve logomark",
+  "looks": "A mark or name condenses into being from a scatter of loose points rather than dropping or wiping in, with the points arriving at different times so the shape visibly fills in as the last ones land.",
+  "build": "Sample the mark into seeded points by drawing it to an offscreen canvas and reading its filled pixels on a grid; ease each point from a seeded start position to its target with a seeded delay, ramping its opacity up as it nears the target, and crossfade to the crisp vector mark in the final moment.",
+  "sound": "A shimmer that resolves into a soft hit as the mark completes.",
+  "duration": [1, 1.5],
+  "prompt": "Condense a mark or name into solid form out of a loose scatter of points drifting in from different directions and times, rather than having it drop or wipe on. Use this as a brand's opening identity beat or its closing signature, sitting between a harder assemble and a full end-card reveal.",
+  "source": "a brand reveal in prompt-motion.com's gallery, studied 2026-10-07.",
+  "tags": {
+    "role": ["hook", "intro", "cta"],
+    "purpose": ["establish-brand", "reveal-product"],
+    "content": ["logo", "abstract"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["identity", "particles"],
+    "complexity": "medium"
+  }
+}

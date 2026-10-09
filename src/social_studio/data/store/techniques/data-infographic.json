@@ -1,0 +1,20 @@
+{
+  "id": "data-infographic",
+  "kind": "technique",
+  "name": "Data infographic build",
+  "looks": "On a light ground, shutters rise and an infographic assembles: a big percentage rolls up through blurred digits, a donut draws its track and fills to a value, a row of bars grows from a baseline on an uneven stagger with the last bar in the accent colour, and a spline draws across with a travelling dot and a value pill that springs up at the end. Mono labels clip in beside each element, with a sample tag marking the numbers as illustrative.",
+  "build": "Draw the donut as an SVG circle animating strokeDashoffset on a power3 ease; grow the bars with scaleY from a bottom origin on an uneven stagger (about 0.042 s times 1 plus 0.3 times a sine wobble); draw the spline as a Catmull-Rom curve converted to cubic Béziers with a dot following its length from the clock; and slide the rolling digits under a vertical blur whose strength follows their speed.",
+  "sound": "Blips on each bar on a sixteenth grid, a rising tone under the roll-up, and a pop on the value pill.",
+  "duration": [2, 3.3],
+  "prompt": "Build a small data story on screen: a headline number rolling up, a ring or donut filling to a value, a row of bars growing on an uneven stagger, and a line drawing across with a travelling marker. Label every element and mark the numbers as illustrative samples unless real figures are given. Let the shot hold at least a beat after it finishes building so the numbers can be read.",
+  "source": "the 2026 Opus showreels; built in examples/reel-2026-10-06.html, S5.",
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data"],
+    "content": ["data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data"],
+    "complexity": "high"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "particle-flow-comet",
+  "kind": "technique",
+  "name": "Particle flow comet",
+  "looks": "Over a dark, dotted field with a faint flowing vector pattern, a comet of coloured dots traces a looping path, such as a figure-eight, its tail tapering away in size and opacity as it carries a labelled idea through the frame.",
+  "build": "Drive the comet's head along a parametric loop (for example, sines at different frequencies on each axis) from the master clock, trailing a tail of its last few positions at falling size and opacity, over a faint field of short seeded flow-vector strokes.",
+  "sound": "A riser under the loop.",
+  "duration": [2, 2.5],
+  "prompt": "Trace a looping comet of small coloured dots across a dark, faintly flowing field, its tail fading away behind it, to carry a single idea through a transition or a quieter connecting beat without needing a large particle set piece.",
+  "source": "Himanshu's 15 s showreel (x.com/himanshutwtxs/status/2103495232637882858), studied 2026-10-07.",
+  "tags": {
+    "role": ["transition", "intro"],
+    "purpose": ["set-mood", "tease"],
+    "content": ["abstract"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["particles", "generative"],
+    "complexity": "medium"
+  }
+}

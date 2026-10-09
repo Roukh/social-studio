@@ -1,0 +1,20 @@
+{
+  "id": "metaball-morph",
+  "kind": "technique",
+  "name": "Metaball morph",
+  "looks": "A blob splits into about eight smaller blobs drifting inside a thin outline that morphs through several shapes in turn, such as a circle, a triangle, a star and an organic form. The blobs then merge back into a single dot that grows into a wipe to the next scene.",
+  "build": "Resample every target shape to the same number of perimeter points and interpolate point by point between them on a power3 in-out ease, one morph per beat, writing the result into one SVG path's d attribute every frame from the clock; render the blobs as circles under a gooey blur-and-threshold filter sitting at points along the morphing outline.",
+  "sound": "A soft wobble under the split, a tick on each outline change, a swell into the merge, and a whoosh on the wipe.",
+  "duration": [2, 2.5],
+  "prompt": "Split a shape into a cluster of small blobs drifting inside a thin outline that morphs through several silhouettes in sequence, then merge the blobs back into one point that grows into a wipe to the next scene. Let the shapes carry real meaning, such as an icon, a mark or a letter, rather than being arbitrary geometry.",
+  "source": "the 2026 Opus showreels; built in examples/reel-2026-10-06.html, S8.",
+  "tags": {
+    "role": ["solution", "transition"],
+    "purpose": ["show-transformation"],
+    "content": ["abstract", "logo"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["morph", "shape"],
+    "complexity": "high"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "voxel-ripple-3d",
+  "kind": "technique",
+  "name": "Voxel ripple 3D",
+  "looks": "A large field of blocks sits on a tilted, studio-lit camera. A glossy chrome sphere with an orbiting ring and a small satellite falls and bounces across it three times, each impact sending a ripple ring outward that lifts the blocks and shifts their colour toward the accent at its peak, before the camera orbits slowly and pushes into the sphere with a growing blur to leave.",
+  "build": "Build the field as one three.js InstancedMesh of boxes with heights and colours set per frame from the clock, seeded once for the base heights; drive the sphere along piecewise parabolic arcs between impact times with a damped squash on contact, and compute each ripple's height from a decaying, travelling wave function of radius and time since impact.",
+  "sound": "Three thumps on the impacts, a low drone under the orbit, and a whoosh on the push.",
+  "duration": [2, 2.5],
+  "prompt": "Build a tilted 3D field of blocks lit like a studio product shot; drop a glossy sphere onto it so it bounces several times, each impact sending a ripple outward that lifts the blocks and shifts their colour toward an accent at its peak, then orbit the camera slowly and push into the sphere to leave the scene. Take the block and accent colours from the brand's own palette.",
+  "source": "the 2026 Opus showreels; built in examples/reel-2026-10-06.html, S3 (the <script type=\"module\"> at the end).",
+  "tags": {
+    "role": ["hook", "demo"],
+    "purpose": ["show-craft", "tease"],
+    "content": ["3d-object", "abstract"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["3d"],
+    "complexity": "high"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "variant-stack-reveal",
+  "kind": "technique",
+  "name": "Variant stack reveal",
+  "looks": "Three or four near-identical panels fan out behind a main panel, each offset slightly in position and rotation, then settle into place. The shot shows at a glance that many were made, where cutting between single variants one at a time would not.",
+  "build": "Position each panel's offset (x, y, rotation, small scale) from a seeded random function, staggering their entrances unevenly by 10-30 percent on spring eases, and give each variant a small, clearly visible difference such as a colour, a headline or a layout.",
+  "sound": "A soft cluster of hits, one per panel.",
+  "duration": [2, 2.5],
+  "prompt": "Fan three or four near-identical panels out behind a main one, each nudged slightly in position and rotation before settling, to show at a glance that many variants, designs or options exist rather than cutting between them one at a time. Give each panel one small, visible difference so the variety actually reads.",
+  "source": "Framer's \"skills\" ad (instagram.com/p/DdtwW_Ws0Xx), studied 2026-10-07.",
+  "tags": {
+    "role": ["proof", "demo"],
+    "purpose": ["show-scale"],
+    "content": ["product-ui", "data"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "interface"],
+    "complexity": "medium"
+  }
+}

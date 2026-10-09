@@ -1,0 +1,20 @@
+{
+  "id": "provenance-glow-stroke",
+  "kind": "technique",
+  "name": "Provenance glow stroke",
+  "looks": "One accent-coloured soft glow marks whatever is currently live, be it an active chip, a panel's border or a typing cursor, while everything else stays flat and neutral. The glow moves from element to element as the action moves, so the eye always knows where to look.",
+  "build": "Apply a shared live class with a box-shadow glow or a blurred duplicate layer behind whichever element is active, driving its intensity and colour as a pure function of the clock and crossfading it from one element to the next on the beat, never showing more than one live element at a time.",
+  "sound": "",
+  "duration": [5, 30],
+  "prompt": "Run one soft, saturated glow through the whole film that marks only whatever is currently active, be it a button, a panel edge or a cursor, and nothing else. Let it hand off from element to element in time with the action so it reads as a single thread of attention tying every scene together, and never let more than one thing glow at once.",
+  "source": "Framer's \"skills\" ad (instagram.com/p/DdtwW_Ws0Xx), studied 2026-10-07.",
+  "tags": {
+    "role": ["whole-film"],
+    "purpose": ["show-craft", "connect-scenes"],
+    "content": ["abstract"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["texture", "through-line"],
+    "complexity": "medium"
+  }
+}

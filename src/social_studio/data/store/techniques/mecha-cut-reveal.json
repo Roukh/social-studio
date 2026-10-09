@@ -1,0 +1,20 @@
+{
+  "id": "mecha-cut-reveal",
+  "kind": "technique",
+  "name": "Mecha cut reveal",
+  "looks": "A hard cut lands on each unit, every one on its own full-bleed card carrying a colour-coded label chip that holds for a beat, with no crossfades between them. The sequence ends in a flash and a burst title that brings all the units together into one whole.",
+  "build": "Swap one flat-shaded illustration per card on a stepped index with hard cuts only, reusing the HUD's mono label style for each chip and the wordmark-assemble slam for the closing burst title, set against a radial flash and speed lines.",
+  "sound": "A hit on each cut, a riser through the last unit, and a big hit on the burst.",
+  "duration": [1.5, 2.5],
+  "prompt": "Cut hard from one labelled unit to the next, each getting its own full-bleed card and a short label chip, building toward a flash and a combined title that brings every unit together as one whole. Use it for anything made of distinct parts: the steps of a process, the members of a team, or the features that add up to a product.",
+  "source": "an anime mecha-combine film in prompt-motion.com's gallery, studied 2026-10-07.",
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["build-tension", "show-scale"],
+    "content": ["illustration", "type"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["type", "reveal"],
+    "complexity": "medium"
+  }
+}

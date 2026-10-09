@@ -1,0 +1,20 @@
+{
+  "id": "live-readout-hud",
+  "kind": "technique",
+  "name": "Live readout HUD",
+  "looks": "A small monospace readout in a corner keeps changing through a story beat, independent of whatever words are landing over it, such as a counter or a running pair of values. It makes the scene feel measured and alive rather than static.",
+  "build": "Render the readout as a monospace DOM text block whose value is a pure function of time, such as a simple rate multiplied by elapsed time, set with no easing, and keep its contrast low enough that it never fights the main words on screen.",
+  "sound": "",
+  "duration": [1.5, 4],
+  "prompt": "Under any scene built around a quantity, such as visitors, time saved or steps completed, add a small, quietly moving readout in a corner that keeps counting or updating on its own clock, independent of whatever headline copy sits over it. Keep real numbers only when they are genuinely known; otherwise mark them as illustrative samples.",
+  "source": "a science explainer (\"photon journey from the Sun\") in prompt-motion.com's gallery, studied 2026-10-07.",
+  "tags": {
+    "role": ["demo", "proof"],
+    "purpose": ["show-data", "show-craft"],
+    "content": ["data"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["data", "texture"],
+    "complexity": "low"
+  }
+}

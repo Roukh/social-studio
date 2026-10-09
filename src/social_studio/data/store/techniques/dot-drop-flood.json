@@ -1,0 +1,20 @@
+{
+  "id": "dot-drop-flood",
+  "kind": "technique",
+  "name": "Dot drop flood",
+  "looks": "A field of dots in perspective sits on a dark ground. One accent dot falls under real gravity with a readout of its speed, hits on the downbeat, squashes hard and sends a ring shockwave through the floor, then stretches into a line that carries a travelling wave before thickening into a band that floods the whole frame on the next downbeat.",
+  "build": "Draw the floor dots and the shockwave ring on one 2D canvas from the master clock, with the fall following true projectile physics (y = y0 + v0t + gt^2/2) until impact and a damped spring for the squash. Grow the flood band's height to the full frame on a power3-in ease, timed to the beat.",
+  "sound": "A sub thump on impact, a soft tick per readout update, a riser under the wave, and a hit on the flood.",
+  "duration": [1.5, 2.5],
+  "prompt": "Open on a field of dots in perspective; drop one accent dot into it under real gravity so it falls, hits hard on a downbeat, squashes and sends a ring shockwave outward, then stretches into a travelling line that thickens into a band flooding the whole frame on the next downbeat. Use the falling dot as a mark that can recur through the film, changing meaning at each return.",
+  "source": "the 2026 Opus showreels (reference studied 2026-10-06); built in examples/reel-2026-10-06.html, S1.",
+  "tags": {
+    "role": ["hook", "intro"],
+    "purpose": ["build-tension", "tease"],
+    "content": ["abstract"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["open", "physics"],
+    "complexity": "high"
+  }
+}

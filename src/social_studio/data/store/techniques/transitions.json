@@ -1,0 +1,20 @@
+{
+  "id": "transitions",
+  "kind": "technique",
+  "name": "Spatial scene transitions",
+  "looks": "Every scene change uses a spatial move rather than a crossfade: a circle or soft circle wipe growing from a point, a diagonal pixel staircase filling the frame, a line thickening into a flooding band, vertical shutters rising, the through-line dot growing into the next ground, a motion-blurred whip sideways, or a camera push diving into an object. Each one lands squarely on a beat.",
+  "build": "Drive each wipe from a clip-path or mask variable tweened on an easing curve matched to the move (power2-in for a hard wipe, power3-in for a flood), or from a canvas drawing staggered blocks with seeded jitter for the staircase; grow the blur and skew together for a whip, and the field-of-view and canvas blur together for a push.",
+  "sound": "A whoosh into each wipe, a glitch on the pixel wipe, and a hit on the flood.",
+  "duration": [0.2, 0.5],
+  "prompt": "Change scenes with a spatial move rather than a crossfade: a wipe growing from a point, a staircase of blocks filling diagonally, a line thickening into a flood, rising shutters, a mark growing into the next scene's ground, or a motion-blurred whip or push, each landing exactly on a beat. Reserve a true hard cut only for a rapid one-word-per-beat sequence.",
+  "source": "the 2026 Opus showreels; built in examples/reel-2026-10-06.html.",
+  "tags": {
+    "role": ["transition"],
+    "purpose": ["connect-scenes"],
+    "content": ["abstract"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["transition"],
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "about": "The tag vocabulary of the reference store (store.py), the one place a facet value is defined. A value not listed here is refused by `python -m social_studio.store check`; add it here first, on purpose.",
+  "technique": {
+    "role": ["hook", "intro", "problem", "solution", "demo", "proof", "cta", "transition", "whole-film"],
+    "purpose": ["reveal-product", "introduce-feature", "explain-mechanism", "show-ease", "show-speed", "show-scale",
+                "show-data", "show-contrast", "show-transformation", "build-tension", "tease", "establish-brand",
+                "set-mood", "show-craft", "connect-scenes", "land-cta"],
+    "content": ["product-ui", "device", "data", "logo", "type", "code", "abstract", "3d-object", "character",
+                "photo", "illustration", "map", "footage"],
+    "energy": ["calm", "build", "punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["open", "close", "identity", "type", "3d", "data", "particles", "generative", "interface", "morph",
+               "shape", "physics", "transition", "structure", "frame", "texture", "annotation", "reveal",
+               "establishing", "through-line", "camera", "collage", "build-pattern"],
+    "complexity": ["low", "medium", "high"]
+  },
+  "story": {
+    "goal": ["launch", "feature", "brand", "how-to", "proof", "announcement", "event", "recap", "manifesto"],
+    "product": ["ai-model", "ai-audio", "ai-app", "developer-tool", "api", "payments", "commerce", "music",
+                "design-tool", "website-builder", "link-management", "agency", "saas", "hardware"],
+    "structure": ["intro-problem-solution-cta", "intro-body-cta", "hook-demo-cta", "before-after-cta",
+                  "montage-cta", "list-cta", "story-arc", "manifesto"],
+    "voice": ["none", "narration", "dialogue", "song"],
+    "energy": ["calm", "build", "punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"]
+  },
+  "single": ["complexity"],
+  "required": {
+    "technique": ["role", "purpose", "content", "energy", "format", "family", "complexity"],
+    "scene": ["role", "purpose", "content", "energy", "format", "family", "complexity"],
+    "story": ["goal", "product", "structure", "voice", "format"]
+  }
+}

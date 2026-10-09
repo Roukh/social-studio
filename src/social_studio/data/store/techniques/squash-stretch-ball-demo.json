@@ -1,0 +1,20 @@
+{
+  "id": "squash-stretch-ball-demo",
+  "kind": "technique",
+  "name": "Squash and stretch ball demo",
+  "looks": "A ball falls and leaves a trail of ghost copies behind it, spaced wide while it moves fast and tight as it slows near the top, so the spacing itself shows the motion. It squashes flat on landing and stretches on the rebound, with each phase labelled by hand.",
+  "build": "Draw several trailing copies of the ball on one 2D canvas from the master clock, each sampled from the same motion function at an earlier time with falling opacity, and scale the ball along its direction of travel on squash and stretch while preserving its apparent area.",
+  "sound": "A thump on the squash.",
+  "duration": [1.5, 2],
+  "prompt": "Drop an object and leave a trail of fading ghost copies behind it so the varying spacing between frames tells the story of its speed, with a squash on landing and a stretch on the rebound, each phase hand-labelled. Use it to teach or demonstrate a motion principle on any object the film already features, such as a mark, a product or a logo.",
+  "source": "Himanshu's 15 s showreel (x.com/himanshutwtxs/status/2103495232637882858), studied 2026-10-07.",
+  "tags": {
+    "role": ["demo", "solution"],
+    "purpose": ["explain-mechanism", "show-craft"],
+    "content": ["abstract"],
+    "energy": ["build"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["physics", "annotation"],
+    "complexity": "medium"
+  }
+}

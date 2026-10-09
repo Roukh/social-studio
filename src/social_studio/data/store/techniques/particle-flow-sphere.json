@@ -1,0 +1,20 @@
+{
+  "id": "particle-flow-sphere",
+  "kind": "technique",
+  "name": "Particle flow sphere",
+  "looks": "Around a thousand or more streaks in the brand's colours ride a flowing field across the frame, converge into a sphere of sticks, collapse into concentric dotted rings carrying small readouts, then burst outward around a single dot before the scene leaves on a staircase pixel-block wipe.",
+  "build": "Draw everything on one 2D canvas from the master clock, precomputing each particle's flow path, its target point on a Fibonacci sphere, its ring position and its start delay once from a seed, then each frame interpolate every particle between its flow, sphere, ring and burst phases with eased progress, drawing short streaked strokes from its previous position.",
+  "sound": "A whoosh as the streaks converge, a rising shimmer into the sphere, ticks on the rings, a burst hit, and a glitch on the pixel wipe.",
+  "duration": [1.5, 2.5],
+  "prompt": "Build a large particle set piece: streaks in the brand's colours flow across the frame, converge into a sphere, collapse into concentric rings with small readouts, then burst outward around a single point before leaving on a staircase wipe. Use it as a striking hook or centrepiece demo that only code can produce.",
+  "source": "the 2026 Opus showreels; built in examples/reel-2026-10-06.html, S6.",
+  "tags": {
+    "role": ["hook", "demo", "transition"],
+    "purpose": ["show-scale", "tease"],
+    "content": ["abstract", "data"],
+    "energy": ["punch"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["particles", "generative"],
+    "complexity": "high"
+  }
+}

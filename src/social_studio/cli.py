@@ -17,7 +17,7 @@ import textwrap
 from datetime import timedelta
 from pathlib import Path
 
-from . import __version__, approval, db, engine, platforms, posting, review
+from . import __version__, approval, db, engine, platforms, posting, review, store
 from .core import (EFFORTS, FORMATS, GUARDED_CONFIG, PKG_DIR, PROJECT_FILE, SOUNDS, ConfigError, Ctx, DataError,
                    StudioError, UsageError, dget, dset, emit, format_sets, guarded, is_human, is_tty, iso, list_presets, load_preset,
                    load_toml, log, make_ctx, now_utc, parse_sets, parse_value, require_human, save_env,
@@ -131,6 +131,11 @@ def _checks(ctx: Ctx) -> list[dict]:
         shutil.which("bwrap") or "missing", "install bubblewrap, or set sandbox.enabled = false")
     for b in ("claude", "opencode", "codex"):
         add(f"backend {b}", shutil.which(b), shutil.which(b) or "not installed", "", required=(b == ctx.cfg("backend.default", "claude")))
+    try:
+        counts = store.stats(store.open_store())["items"]
+        add("reference store", True, ", ".join(f"{n} {k}s" for k, n in sorted(counts.items())))
+    except store.StoreError as e:
+        add("reference store", False, str(e)[:300], "python -m social_studio.store check")
     add("project", ctx.project is not None, str(ctx.project or "none found"),
         "run `sclstdio init <dir>`, pass --project, or cd into the project")
     if ctx.project is None:

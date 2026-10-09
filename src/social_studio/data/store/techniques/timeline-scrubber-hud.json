@@ -1,0 +1,20 @@
+{
+  "id": "timeline-scrubber-hud",
+  "kind": "technique",
+  "name": "Timeline scrubber HUD",
+  "looks": "A bar along the bottom of the frame behaves like an editor's timeline: a track, a playhead sliding across it, and a diamond marker at each scene's start, filled once the playhead passes it and hollow ahead of it. It quietly shows the film's structure while it plays.",
+  "build": "Render one DOM or SVG bar whose playhead position is simply elapsed time divided by total duration, set from the master clock with no easing, and plot one marker per scene start pulled from the shot list, filling each marker once the playhead passes it.",
+  "sound": "",
+  "duration": [5, 30],
+  "prompt": "Run a thin timeline bar along the bottom or top of the frame for the whole film, with a playhead sliding across it in real time and a small marker at each scene change that fills in as it is passed. Use it as an alternative to corner HUD brackets, never both, and keep it clear of any platform interface zone in a vertical frame.",
+  "source": "Himanshu's 15 s showreel (x.com/himanshutwtxs/status/2103495232637882858), studied 2026-10-07.",
+  "tags": {
+    "role": ["whole-film"],
+    "purpose": ["show-craft", "connect-scenes"],
+    "content": ["data", "type"],
+    "energy": ["calm"],
+    "format": ["9:16", "16:9", "1:1", "4:5"],
+    "family": ["frame", "structure"],
+    "complexity": "medium"
+  }
+}
