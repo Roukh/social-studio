@@ -45,7 +45,7 @@ Part of [[index]]. Feature F15 (operator spec M40, decisions M42): a build runs 
 - A revision skips the storyteller; `story.enabled = false` skips it everywhere. The storyteller uses the designer's backend and model unless `story.backend` or `story.model` is set; the pitcher and the judge use the storyteller's.
 - The pitch round is part of the story stage: no story, no pitch round. An operator brief or `story.pitch = false` skips it.
 - The designer never sees a story that failed its check, and the storyteller never sees pitches or a verdict that failed theirs: the build fails with every problem listed.
-- No operator step anywhere in the story stage (memory M42).
+- No operator step anywhere in the story stage (memory M42). The only stop is opt-in and comes after it: `build --boards` ([[runner]]) lays out the key poses from this story and waits for a human.
 - A tag value exists only in `facets.json`; `python -m social_studio.store check` lists every problem by file.
 
 ## Rules and open work

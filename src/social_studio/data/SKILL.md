@@ -25,6 +25,10 @@ everything is.
 | Pick the format for this batch | `make --aspect 16:9 --fps 60 --duration 15 --sound bed+sfx` (aspect 9:16, 4:5, 1:1 or 16:9; sound none, sfx, bed+sfx, sfx+voice or bed+sfx+voice) |
 | Make a showreel in the house reel look | `sclstdio --json build --preset reel` (16:9, 60 fps, 20-25 s, synthesized bed and effects) |
 | Remake a video a human sent back | `sclstdio --json build --revise <id>` (the new version replaces the old one's files) |
+| Show the operator the film's key poses before any motion (only when asked: it stops the build) | `sclstdio --json build --boards`: a board sheet, filed as a board, no video. Then tell the operator its `sheet` path and that they decide it in a terminal |
+| Boards waiting, approved or sent back | `sclstdio --json board` (with sheet paths), `sclstdio --json board show <id>`, `sclstdio --json agent boards` |
+| Animate a board the operator approved | `sclstdio --json build --from-board <id>` (the video records the board; it still needs its own approval) |
+| Lay out again a board the operator sent back | `sclstdio --json build --boards --from-board <id>` (their notes are in it; the old board is replaced) |
 | Every video file on this disk, with its path | `sclstdio --json library` (`library <id>` shows one) |
 | Find a video's file to show the operator | `sclstdio --json library <id> path` |
 | Put a video waiting for review into Buffer as drafts | `sclstdio --json library <id> draft` (a make already does this) |
@@ -44,6 +48,8 @@ shows `ready_to_post` above zero, tell the operator to run it.
 - Approve, reject or mark videos for revision. Only the human can: in Buffer for drafts, or in
   their own terminal (`sclstdio review walk`), where approval is a passphrase signature that cannot
   be done for them.
+- Approve, revise or drop a keyframe board (`sclstdio board approve|revise|drop`): human-only, at a
+  terminal. An approved board is not an approved video.
 - Schedule, post, list or cancel posts (`sclstdio post`, `library <id> post|schedule|cancel`), delete
   videos (`library <id> delete`), or pick which video goes out or when.
   A scheduled video disappears from everything you can list. (`post draft ID` only puts a video that

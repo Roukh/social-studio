@@ -16,13 +16,13 @@ Part of [[index]]. The prompts, skills and tools that decide how a made video lo
 | Field | Value |
 |---|---|
 | Purpose | Tell the maker how to work (house rules, task) and give it skills and tools inside the session |
-| Owned paths | `data/house.md` (house rules template), `data/session_prompt.md` (TASK.md template with the `brief.json` and `video.json` schemas), `data/SKILL.md` (agent guide to the CLI), `data/skills/motion-doctrine/` (13 blueprints, Apache-2.0 NOTICE), `data/skills/motion-canon/` (non-AI canon), `data/skills/technique-library/` (principles, one entry per technique, the reel's composition as the worked example), `data/kit/motion-kit.js` (helpers in every composition as `window.kit`), `data/skills/vendor/` (20 packs, 43 skills, `skills.lock.json`, `NOTICE.md`), `data/tools/sound.mjs` |
+| Owned paths | `data/house.md` (house rules template), `data/session_prompt.md` (TASK.md template with the `brief.json` and `video.json` schemas), `data/board_prompt.md` (TASK.md in boards mode: key poses, `brief.json`, `board.json`), `data/skills/key-poses/` (the board method, Apache-2.0 NOTICE), `data/SKILL.md` (agent guide to the CLI), `data/skills/motion-doctrine/` (13 blueprints, Apache-2.0 NOTICE), `data/skills/motion-canon/` (non-AI canon), `data/skills/technique-library/` (principles, one entry per technique, the reel's composition as the worked example), `data/kit/motion-kit.js` (helpers in every composition as `window.kit`), `data/skills/vendor/` (20 packs, 43 skills, `skills.lock.json`, `NOTICE.md`), `data/tools/sound.mjs` |
 | In | preset values filled into `{{...}}` by [[runner]] (`min_text_px`, `width`, `height`, `format_note`, `motion_rule`, `end_card_pct`, `rules`, `skill_list`, `brief_block`, `revision_block`); `agent.engine_skills`, `agent.package_skills`, `agent.skills` |
 | Out | `home/house.md` (system channel), `work/TASK.md`, `work/skills/*`, `work/tools/*` in each session |
 
 ## Mounting order (`runner._skills`)
 
-1. Shipped: `motion-doctrine`, `motion-canon`, `technique-library` (names reserved, with `storyteller` and `pitch-round`, which only the storyteller and the pitcher mount; see [[story]]).
+1. Shipped: `motion-doctrine`, `motion-canon`, `technique-library` (names reserved, with `storyteller`, `pitch-round` and `key-poses`, which only the storyteller, the pitcher and the designer in boards mode mount; see [[story]] and [[runner]]).
 2. Vendored skills named in `agent.package_skills`, then the kit's `KIT_VENDOR_SKILLS` (launch-video, product-demo-video, short-form-video, explainer-video), from `skills.lock.json`.
 3. Engine skills from the pinned tag: `agent.engine_skills` (default `hyperframes-core`, `hyperframes-cli`, `hyperframes-animation`, `hyperframes-audio`, `media-use`), then the kit's `KIT_ENGINE_SKILLS` (hyperframes-creative, motion-graphics, product-launch-video, hyperframes-registry; the registry is the engine's pinned copy at `work/registry`).
 4. Preset skills in `agent.skills` (inline text or a folder inside the repo; never `.env` files).

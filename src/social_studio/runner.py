@@ -22,8 +22,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from . import db, engine, store
-from .core import (FORMATS, MCP_FILE, PKG_DIR, SLUG, ConfigError, Ctx, DataError, Preset, StudioError, Unavailable, iso,
-                   load_preset, log, mcp_registry, new_id, require_human, slugify, validate_preset)
+from .core import (FORMATS, MCP_FILE, PKG_DIR, SLUG, ConfigError, Ctx, DataError, Preset, StudioError, Unavailable,
+                   UsageError, iso, load_preset, log, mcp_registry, new_id, require_human, slugify, validate_preset)
 
 DEFAULT_SKILLS = ["hyperframes-core", "hyperframes-cli", "hyperframes-animation", "hyperframes-audio", "media-use"]
 # Mounted in every designer session on top of the preset's own lists, as the kit's libraries are (F15, J45): the
@@ -38,8 +38,9 @@ KIT_VENDOR_SKILLS = ["launch-video", "product-demo-video", "short-form-video", "
 PACKAGE_SKILLS = ["motion-doctrine", "motion-canon", "technique-library"]
 STORY_SKILL = "storyteller"  # shipped too, mounted for the storyteller session only (story.py)
 PITCH_SKILL = "pitch-round"  # shipped, mounted for the pitch session only (pitch.py)
+BOARD_SKILL = "key-poses"    # shipped, mounted for the designer in boards mode only (boards.py)
 # Shipped skills only one session role mounts; a preset may not take their names.
-ROLE_SKILLS = (STORY_SKILL, PITCH_SKILL)
+ROLE_SKILLS = (STORY_SKILL, PITCH_SKILL, BOARD_SKILL)
 # The motion kit every composition gets (`window.kit`), next to GSAP and three.js (engine.KIT_*).
 KIT_JS = PKG_DIR / "data" / "kit" / "motion-kit.js"
 # Third-party skills vendored at pinned commits (data/skills/vendor/skills.lock.json); a preset mounts them by name
@@ -90,6 +91,8 @@ class MakeOpts:
     sandbox: bool | None = None
     revise: int | None = None
     review: bool | None = None
+    boards: bool = False              # stop at a keyframe board instead of a video (boards.py)
+    from_board: int | None = None     # animate this approved board; with `boards`, lay out one sent back again
 
 
 @dataclass
@@ -365,13 +368,18 @@ def _pillar_plan(p: Preset, history: list[dict], count: int) -> list[str | None]
 
 
 def prepare(ctx: Ctx, p: Preset, s: Session, version: str, eng_root: Path, pillar: str | None,
-            history: list[dict], revise: dict | None) -> list[str]:
+            history: list[dict], revise: dict | None, board: dict | None = None) -> list[str]:
+    """The session folder, ready for the designer. With `board` (an approved keyframe board), its composition and
+    files replace the scaffold and its designer brief is the video's brief (boards.stage)."""
     for d in (s.home, s.work, s.render, s.logs):
         d.mkdir(parents=True, exist_ok=True)
     (s.work / "preset.json").write_text(json.dumps(p.data, indent=2))
     (s.work / "history.json").write_text(json.dumps(history, indent=2))
     _scaffold(p, s, eng_root)
-    revision_block = ""
+    revision_block, designer_brief = "", None
+    if board:
+        from . import boards
+        revision_block, designer_brief = boards.stage(ctx, s, board), boards.designer_brief(ctx, board)
     if revise:
         old_comp = ctx.abs(revise["dir"]) / "composition"
         # Outside composition/: a second root HTML there fails the strict render (multiple_root_compositions).
@@ -408,7 +416,7 @@ def prepare(ctx: Ctx, p: Preset, s: Session, version: str, eng_root: Path, pilla
     registry = engine.registry_root(ctx, version)
     if registry.is_dir():  # read-only in the jail with the rest of the engine; the trim unlinks the link
         (s.work / "registry").symlink_to(registry, target_is_directory=True)
-    write_task(p, s, skills, pillar, revise, revision_block)
+    write_task(p, s, skills, pillar, revise, revision_block, designer_brief)
     return skills
 
 
@@ -846,15 +854,16 @@ def _qa(ctx: Ctx, p: Preset, s: Session, video: Path, version: str, sandbox: boo
 
 
 def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pillar: str | None,
-            history: list[dict], revise: dict | None, sb: Backend | None = None) -> dict:
+            history: list[dict], revise: dict | None, sb: Backend | None = None, board: dict | None = None) -> dict:
     """One build: the storyteller session (when `sb`, the storyteller's backend, is given), then the designer
-    session in the same sandbox and session folder, then render, encode, file."""
+    session in the same sandbox and session folder, then render, encode, file. With `board`, the designer
+    animates that approved keyframe board instead, and the video records it."""
     sid = new_id()
     s = Session(sid, ctx.sessions_dir / sid)
     _session_row(ctx, s, "make", p, b)
     try:
         eng_root = engine.engine_root(ctx, version)
-        skills = prepare(ctx, p, s, version, eng_root, pillar, history, revise)
+        skills = prepare(ctx, p, s, version, eng_root, pillar, history, revise, board)
         told = None
         if sb:
             from . import story
@@ -907,6 +916,9 @@ def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pilla
                     "effort": p.get("agent.effort") or "default", "qa": qa_report.get("gates"), "preset_hash": p.hash}
         if told:
             meta_all["story"] = told["meta"]
+        if board:  # the story the board was laid out from
+            meta_all["story"], meta_all["board"] = json.loads(board["meta"]).get("story"), board["id"]
+        board_id = board["id"] if board else (revise or {}).get("board_id")  # a revision keeps its board
         if revise:  # the version this replaces leaves Buffer before it is superseded
             from . import posting
             try:
@@ -918,12 +930,12 @@ def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pilla
             with db.tx(con):
                 cur = con.execute(
                     "INSERT INTO videos (session_id, parent_id, slug, title, description, topic, angle, pillar, meta,"
-                    " preset, dir, file, sha256, bytes, duration, width, height, created_at, updated_at)"
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    " preset, dir, file, sha256, bytes, duration, width, height, created_at, updated_at, board_id)"
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                     (s.id, revise["id"] if revise else None, slugify(title), title, str(meta.get("description", "")),
                      str(meta.get("topic", "")), str(meta.get("angle", "")), str(meta.get("pillar", pillar or "")),
                      json.dumps(meta_all), p.name, ctx.rel(dest), ctx.rel(dest / "video.mp4"), info["sha256"], info["bytes"],
-                     info["duration"], info["width"], info["height"], iso(), iso()))
+                     info["duration"], info["width"], info["height"], iso(), iso(), board_id))
                 vid = cur.lastrowid
                 if revise:
                     db.set_status(con, revise["id"], "superseded", f"superseded by {vid}")
@@ -955,6 +967,13 @@ def run_one(ctx: Ctx, p: Preset, opts: MakeOpts, b: Backend, version: str, pilla
 
 
 def make(ctx: Ctx, opts: MakeOpts) -> list[dict]:
+    """Every try of one `build`: a video each, or with `opts.boards` a keyframe board each (boards.run_board)."""
+    from . import boards
+    if opts.revise is not None and (opts.boards or opts.from_board is not None):
+        raise UsageError("--revise makes a new version of a video; it takes neither --boards nor --from-board")
+    board = boards.for_build(ctx, opts.from_board, opts.boards) if opts.from_board is not None else None
+    if board:  # the frame the board was laid out in, unless this run sets its own
+        opts.sets = {**boards.format_of(board), **opts.sets}
     p = load_preset(ctx, opts.preset, opts.sets)
     problems = validate_preset(p, ctx)
     if problems:
@@ -973,17 +992,21 @@ def make(ctx: Ctx, opts: MakeOpts) -> list[dict]:
         if revise["status"] not in ("revision", "review", "rejected"):
             raise DataError(f"video {opts.revise} is {revise['status']}; only review, revision or rejected videos can be revised")
         opts.count = 1
+    if board:  # one board, one film from it
+        opts.count = 1
     history = _history(ctx)
     if revise:  # the version being revised is not a repeat of itself
         history = [h for h in history if not (h["topic"] == revise["topic"] and h["angle"] == revise["angle"])]
-    plan = [revise["pillar"] or None] if revise else _pillar_plan(p, history, max(1, opts.count))
-    sb = None  # a build tells its story first (F15); a revision keeps the story it has
-    if p.get("story.enabled", True) and not revise:
+    kept = revise or board
+    plan = [kept["pillar"] or None] if kept else _pillar_plan(p, history, max(1, opts.count))
+    sb = None  # a build tells its story first (F15); a revision, or a film from a board, keeps the story it has
+    if p.get("story.enabled", True) and not kept:
         own = p.get("story.backend") or p.get("story.model")
         sb = resolve_backend(ctx, p, p.get("story.backend"), p.get("story.model"), opts.sandbox, role="story") \
             if own else b
+    work = boards.run_board if opts.boards else run_one
     workers = max(1, min(opts.parallel, opts.count))
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        futures = [pool.submit(run_one, ctx, p, opts, b, version, plan[i], history, revise, sb)
+        futures = [pool.submit(work, ctx, p, opts, b, version, plan[i], history, revise, sb, board=board)
                    for i in range(opts.count)]
         return [f.result() for f in futures]

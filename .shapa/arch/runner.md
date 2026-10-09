@@ -4,7 +4,7 @@ type: reference
 created: "2026-10-06T23:59:00Z"
 consequence: 9
 locus: output
-summary: Box runner - one jailed harness session per video - session folder, backends and logins, prepare, rounds, render, QA, review, filing, trim and revision purge.
+summary: Box runner - one jailed harness session per video (or per keyframe board) - session folder, backends and logins, prepare, rounds, render, QA, review, filing, trim and revision purge.
 scope: repo
 status: active
 ---
@@ -16,7 +16,7 @@ Part of [[index]]. Turns `make` into videos: one isolated harness session per tr
 | Field | Value |
 |---|---|
 | Purpose | Prepare a session, run claude, opencode or codex headless in bubblewrap, then render, encode, QA, review and file the video |
-| Owned paths | `src/social_studio/runner.py` (894 lines; split planned as `backends.py` and `prepare.py`, job J2); `<project>/.studio/sessions/<id>/` |
+| Owned paths | `src/social_studio/runner.py` (about 1000 lines; split planned as `backends.py` and `prepare.py`, job J2), `src/social_studio/boards.py` (keyframe boards, the `board` command); `<project>/.studio/sessions/<id>/` |
 | In | `MakeOpts` from [[cli]]; a frozen `Preset` and `format_sets` from [[core]]; templates, skills and tools from [[maker-kit]] |
 | Out | `sessions` and `videos` rows in [[library]] (status `review`); library folder with `video.mp4`, poster, contact sheet, `qa.json`; calls to [[engine]], [[qa]], [[review]] |
 
@@ -32,6 +32,15 @@ Part of [[index]]. Turns `make` into videos: one isolated harness session per tr
 | `<id>-review/` | the reviewer's sibling: `frames/`, `contact.jpg`, `verdict.json` |
 
 Agent outputs: `brief.json` = `film`, `pillar`, `topic`, `angle`, `hook`, `bpm`, `shots[{start, end, start_state, change, end_state, text[], technique}]`, `cues[{t, kind (hit, whoosh, riser, tick, blip, voice), note}]`, `on_screen_text[]`, `cta` (schema in `data/session_prompt.md`). `video.json` = `title` (required), `description`, `pillar`, `topic`, `angle`, `captions{platform}`, `alt_text`, `hashtags[]`, `poster_at`, `rounds`, `scores{}` (the maker's own, never fed back). `revision.json` = `previous` (old `video.json` without scores or rounds), `reviewer` (issues, summary), `notes`.
+
+## Keyframe boards (`boards.py`, J7, opt-in)
+
+- `build --boards` (`boards.run_board`): the story stage as usual (pitch round, storyteller, retrieval), then the designer (role `agent`, its own limits) in boards mode: TASK.md from `data/board_prompt.md` plus the `key-poses` skill; it writes `brief.json`, lays out each shot's key pose static at the final layout in `composition/index.html` (one clip per shot, no tweens, ids kept across shots), and finishes with `board.json` (title, note).
+- Code checks the shots (1 to 16, in order, no overlap, technique and text each, inside the runtime), snapshots each pose at its shot's midpoint with `hyperframes snapshot --at ... --no-end` inside bubblewrap with no network, and tiles them: an HTML sheet (`sheet_layout`, `sheet_html`) the engine's Chrome snapshots once into `sheet.png`, no wider or taller than 2000 px, each tile labelled with shot, beat, time, technique and on-screen text (type scaled with the tile, 15-28 px), the safe zone dashed over each tile at 9:16.
+- Filing: `library/<id8>-board-<slug>-<id4>/` (`sheet.png`, `poses/NN.png`, `composition/`, `brief.json`, `story.json`, `techniques.json`, `story-references.json`, pitch files, `board.json`, `designer-brief.md`) and a `boards` row in review; no video, nothing to Buffer. The build stops.
+- `build --from-board ID` (approved only; `--count` becomes 1): `prepare(board=...)` copies the board's composition over the scaffold, its story, techniques, shot list and `board.png`, and TASK.md says to keep every pose, id and line and animate between them (layout first, then motion); the story stage is skipped and the board's `designer-brief.md` is the brief; the board's frame (`meta.format`) applies unless the run sets its own; render, encode, QA, review and filing as usual, with `videos.board_id` and `meta.board`. A revision of that video keeps its `board_id`.
+- `build --boards --from-board ID` (a board sent back for revision): the board session again with the old board staged and the operator's notes in TASK.md; the old board becomes superseded and its files and session are purged.
+- `--revise` takes neither flag. Without `--boards` a build never stops (memory M42).
 
 ## Backends
 
@@ -56,7 +65,7 @@ Agent outputs: `brief.json` = `film`, `pillar`, `topic`, `angle`, `hook`, `bpm`,
 
 ## Rules and gotchas
 
-- Rules: R1 (drive harnesses), R2 (isolation, keys), R5 (boundary), R6 (story built by F15; boards not built).
+- Rules: R1 (drive harnesses), R2 (isolation, keys), R5 (boundary), R6 (story and boards, both built by F15).
 - Issues: I1 (preset overrides), I2 (makes start from a terminal, not an agent session), I6 (one root HTML).
-- Ledger: J2 (split), F2 (story and board stages), F3 (network allowlist, log redaction), F5 (own API loop).
+- Ledger: J2 (split), F15 (J6 pitch round, J7 boards), F3 (network allowlist, log redaction), F5 (own API loop).
 - Research: [[motion-quality-diagnosis]], [[harnesses-and-providers]].

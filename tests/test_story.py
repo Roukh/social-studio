@@ -159,7 +159,7 @@ def test_a_build_tells_its_story_first_unless_it_is_a_revision_or_turned_off(ctx
     monkeypatch.setattr(engine, "ensure_skills", lambda *a: None)
     monkeypatch.setattr(runner, "resolve_backend", lambda ctx, p, name, model, sandbox, role="agent":
                         runner.Backend(name or "claude", model or role, Path("/bin/true"), True))
-    monkeypatch.setattr(runner, "run_one", lambda *a: seen.append(a[-1]) or {"ok": True})
+    monkeypatch.setattr(runner, "run_one", lambda *a, **k: seen.append(a[-1]) or {"ok": True})
     runner.make(ctx, runner.MakeOpts(preset="example"))
     assert seen[-1].model == "agent"                                      # the designer's backend and model
     runner.make(ctx, runner.MakeOpts(preset="example", sets={"story.model": "opus"}))

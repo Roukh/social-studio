@@ -17,7 +17,7 @@ import textwrap
 from datetime import timedelta
 from pathlib import Path
 
-from . import __version__, approval, db, engine, platforms, posting, review, store
+from . import __version__, approval, boards, db, engine, platforms, posting, review, store
 from .core import (EFFORTS, FORMATS, GUARDED_CONFIG, PKG_DIR, PROJECT_FILE, SOUNDS, ConfigError, Ctx, DataError,
                    StudioError, UsageError, dget, dset, emit, format_sets, guarded, is_human, is_tty, iso, list_presets, load_preset,
                    load_toml, log, make_ctx, now_utc, parse_sets, parse_value, require_human, save_env,
@@ -291,14 +291,19 @@ def cmd_make(ctx: Ctx, a) -> int:
         if getattr(a, flag):
             sets[key] = getattr(a, flag)
     sets.update(format_sets(a.aspect, a.fps, a.duration, a.sound, a.rounds))
-    opts = MakeOpts(preset=pick_preset(ctx, a.preset), count=a.count, parallel=a.parallel, backend=a.backend,
+    preset = a.preset or (boards.preset_of(ctx, a.from_board) if a.from_board is not None else None)
+    opts = MakeOpts(preset=pick_preset(ctx, preset), count=a.count, parallel=a.parallel, backend=a.backend,
                     model=a.model, sets=sets, sandbox=False if a.no_sandbox else None, revise=a.revise,
-                    review=a.review)
+                    review=a.review, boards=a.boards, from_board=a.from_board)
     results = make(ctx, opts)
+    human = "\n".join(_made(r) for r in results)
     ok = [r for r in results if r["ok"]]
-    human = "\n".join(
-        (f"video {r['video_id']}: {r['title']}  ({r['bytes'] / 1e6:.1f} MB, {r['duration']:.1f}s)  -> {r['file']}"
-         if r["ok"] else f"FAILED session {r['session']}: {r['error']}") for r in results)
+    if a.boards:  # a board stops here, for a human; nothing goes to Buffer
+        if ok:
+            human += ("\n\nNext: look at each sheet, then decide it yourself in a terminal: sclstdio board approve "
+                      "ID (or revise ID --notes '...', or drop ID). Then sclstdio build --from-board ID animates it.")
+        emit(ctx, {"boards": len(ok), "failed": len(results) - len(ok), "results": results}, human)
+        return 0 if ok else 1
     if ok and posting.drafts_on(ctx):  # approval happens in Buffer: each new video goes there as drafts
         for r in ok:
             try:
@@ -315,6 +320,14 @@ def cmd_make(ctx: Ctx, a) -> int:
                   "then schedules approved ones with `sclstdio post pick`.")
     emit(ctx, {"made": len(ok), "failed": len(results) - len(ok), "results": results}, human)
     return 0 if ok else 1
+
+
+def _made(r: dict) -> str:
+    if not r["ok"]:
+        return f"FAILED session {r['session']}: {r['error']}"
+    if "board_id" in r:
+        return f"board {r['board_id']}: {r['title']}  ({r['shots']} shots)  -> {r['sheet']}"
+    return f"video {r['video_id']}: {r['title']}  ({r['bytes'] / 1e6:.1f} MB, {r['duration']:.1f}s)  -> {r['file']}"
 
 
 def _drafted(res: dict) -> str:
@@ -341,6 +354,14 @@ def move_library(ctx: Ctx, new: Path) -> int:
                     moved += 1
                 con.execute("UPDATE videos SET dir = ?, file = ? WHERE id = ?",
                             (ctx.rel(dst), ctx.rel(dst / Path(v["file"]).name), v["id"]))
+            for bd in db.rows(con.execute("SELECT id, dir, sheet FROM boards WHERE dir <> ''")):  # keyframe boards
+                src = ctx.abs(bd["dir"])
+                dst = new / src.name
+                if src.exists() and src != dst:
+                    shutil.move(str(src), str(dst))
+                    moved += 1
+                con.execute("UPDATE boards SET dir = ?, sheet = ? WHERE id = ?",
+                            (ctx.rel(dst), ctx.rel(dst / Path(bd["sheet"]).name), bd["id"]))
     finally:
         con.close()
     d, project = old, ctx.need().resolve()
@@ -698,6 +719,10 @@ def cmd_agent(ctx: Ctx, a) -> int:
             rows = db.rows(con.execute("SELECT day, pillar, topic, angle FROM agent_topics ORDER BY day DESC LIMIT ?",
                                        (a.limit,)))
             emit(ctx, rows, table(rows, ["day", "pillar", "topic", "angle"]))
+        elif a.action == "boards":  # keyframe boards still in play: waiting for a human, approved, or sent back
+            rows = db.rows(con.execute("SELECT id, status, title, pillar, shots, created_at FROM agent_boards "
+                                       "ORDER BY id DESC LIMIT ?", (a.limit,)))
+            emit(ctx, rows, table(rows, ["id", "status", "title", "pillar", "shots", "created_at"]))
         else:  # calendar: when posts go out and where, never which video
             rows = db.rows(con.execute("SELECT id AS post_id, at, status, platforms FROM agent_calendar "
                                        "WHERE at >= ? ORDER BY at LIMIT ?",
@@ -919,6 +944,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--sound", choices=SOUNDS, help="what the soundtrack carries (video.sound)")
     p.add_argument("--rounds", type=int, choices=range(1, 6), metavar="1-5", help="draft-look-fix rounds (agent.rounds)")
     p.add_argument("--revise", type=int, metavar="ID", help="make a new version of a video marked for revision")
+    p.add_argument("--boards", action="store_true", help="stop at a keyframe board sheet (key poses, no motion) "
+                   "for a human to approve with `sclstdio board`; no video")
+    p.add_argument("--from-board", type=int, metavar="ID", help="animate an approved board; with --boards, lay "
+                   "out again a board sent back for revision")
     p.add_argument("--no-sandbox", action="store_true", help="run without bubblewrap (human only)")
     p.add_argument("--review", dest="review", action="store_true", default=None, help="force the independent reviewer")
     p.add_argument("--no-review", dest="review", action="store_false", help="skip the independent reviewer")
@@ -932,6 +961,16 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--notes")
     p.add_argument("--times", type=int, default=2, help="rescore: reviewer runs on the same video (default 2)")
     p.add_argument("--effort", choices=EFFORTS, help="rescore: the reviewer's effort (review.effort)")
+
+    p = cmd("board", boards.cmd_board, "keyframe boards: list, show, or approve, revise, drop one by id",
+            about="keyframe boards from `build --boards`: bare, the boards in play with their sheets; show ID; "
+            "approve, revise --notes or drop ID decide one, only at a terminal (approving a board never approves a "
+            "video). Then `build --from-board ID` animates an approved board, and `build --boards --from-board ID` "
+            "lays out again one sent back")
+    p.add_argument("action", nargs="?", choices=["list", "show", "approve", "revise", "drop"], default="list")
+    p.add_argument("id", nargs="?", type=int)
+    p.add_argument("--notes", help="revise: what should change; approve, drop: why")
+    p.add_argument("--all", action="store_true", help="list: also dropped and replaced boards")
 
     p = cmd("library", cmd_library, "the videos on this disk; act on one: post, schedule, cancel, delete...",
             about="the library. Bare, every video whose file is on this disk, with its path. `library ID ACTION` "
@@ -1011,9 +1050,10 @@ def build_parser() -> argparse.ArgumentParser:
     cmd("doctor", cmd_doctor, "check everything a run needs; exit 1 if a required check fails")
 
     # Agents and the shell
-    p = cmd("agent", cmd_agent, "the read-only agent surface: status, videos, topics, calendar",
-            about="the agent surface (read-only): status, unassigned videos, topics, calendar")
-    p.add_argument("action", nargs="?", choices=["status", "videos", "topics", "calendar"], default="status")
+    p = cmd("agent", cmd_agent, "the read-only agent surface: status, videos, topics, calendar, boards",
+            about="the agent surface (read-only): status, unassigned videos, topics, calendar, boards in play")
+    p.add_argument("action", nargs="?", choices=["status", "videos", "topics", "calendar", "boards"],
+                   default="status")
     p.add_argument("--limit", type=int, default=50)
 
     p = cmd("skill", cmd_skill, "install the agent skill into a harness (claude, opencode, codex, or a folder)")

@@ -33,8 +33,8 @@ A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos fo
 |---|---|---|
 | [[cli]] | `cli.py`, `__main__.py`, `data/SKILL.md` | argparse noun-verb tree, `--json`, exit codes, human gates, doctor, timer, completion |
 | [[core]] | `core.py`, `mcp.toml` contract | project discovery, config, `.env`, write boundary, presets and `--set`, validation, formats, MCP registry |
-| [[library]] | `db.py`, `approval.py` | SQLite schema, trigger-enforced statuses, append-only events, signed approval |
-| [[runner]] | `runner.py` | one jailed sandbox per video: prepare, storyteller then designer session, render, encode, QA, review, file, trim, purge |
+| [[library]] | `db.py`, `approval.py` | SQLite schema (v5: keyframe boards), trigger-enforced statuses, append-only events, signed approval |
+| [[runner]] | `runner.py`, `boards.py` | one jailed sandbox per video: prepare, storyteller then designer session, render, encode, QA, review, file, trim, purge; opt-in keyframe boards (`--boards`, `board`, `--from-board`) |
 | [[story]] | `story.py`, `pitch.py`, `store.py`, `data/store/`, `data/skills/storyteller/`, `data/skills/pitch-round/` | the pitch round (no operator brief), the storyteller session and the tagged SQLite reference store (techniques, film scenes, brand story posts) with per-beat retrieval |
 | [[engine]] | `engine.py` | pinned HyperFrames and Chrome, bubblewrap argv, master render, delivery encode, loudness, poster and sheet |
 | [[maker-kit]] | `data/house.md`, `data/session_prompt.md`, `data/skills/`, `data/tools/` | what the maker reads and runs: house rules, task, skills, sound synth |
@@ -49,7 +49,7 @@ A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos fo
 |---|---|---|
 | cli | core | `Ctx` (project, config, `.env`, boundary), presets, `require_human` |
 | cli | runner | `make` options (`MakeOpts`: count, parallel, preset, `--set`, format flags, effort, revise) |
-| cli | library | review walk, approve (signs), reject, revise, `library dir` |
+| cli | library | review walk, approve (signs), reject, revise, `library dir`; `board approve|revise|drop` (a TTY, actor `human`, no signature) |
 | cli | schedule-publish | drafts after `make`; `post` (draft, pick, schedule, list, sync, cancel), withdraw on reject or revise, `channel connect|test buffer|media`, `timer` (runs `post sync`) |
 | core | runner | frozen `Preset`, `format_sets`, vetted `mcp_registry` |
 | runner | maker-kit | fills `house.md` and `TASK.md`; mounts skills and `tools/` into the session |
@@ -57,13 +57,14 @@ A local, stdlib-only Python 3.11+ CLI that makes short motion-graphics videos fo
 | runner | engine | `bwrap_argv`, `render_master`, `encode`, `poster_and_sheet` |
 | runner | qa | rendered video, composition, `brief.json` -> `qa.json` and `videos.meta.qa` |
 | runner | review | maker session plus video -> `verdict.json` |
-| runner | library | `sessions` rows, video row as `review`, parent `superseded` |
+| runner | library | `sessions` rows, video row as `review` (with `board_id` from `--from-board`), parent `superseded`; a `boards` row in review from `--boards` |
 | library | schedule-publish | approved videos with verifiable signatures; post and target rows |
 | schedule-publish | Buffer, Railway bucket and media proxy (external) | GraphQL createPost/post/deletePost; signed S3 PUT to the bucket; public HEAD/GET through the proxy (`deploy/media-proxy`) |
 
 ## Flows
 
 - **make:** cli -> core (load, validate) -> engine (ensure engine, skills, registry) -> runner per try: prepare session -> with no operator brief, the pitch round (pitcher, then a judge in its own folder; code checks both and picks the winner) -> storyteller in bubblewrap -> `story.json` checked -> store retrieval per beat -> designer in the same sandbox -> `video.json` -> master render -> encode -> poster and sheet -> qa -> optional reviewer -> library row `review` -> trim sessions; a revision purges its parent's files.
+- **boards (opt-in, J7):** `build --boards` -> the story stage -> the designer lays out static key poses -> code snapshots them in the jail and tiles a sheet (2000 px max, labels, 9:16 safe zone) -> a `boards` row in review, files under the library -> stop. A human at a terminal: `board approve|revise|drop ID`. `build --from-board ID` -> a new designer session animates the approved poses -> render, encode, QA, file with `videos.board_id`; `build --boards --from-board ID` lays out again a board sent back.
 - **approve in Buffer (default, rule R14):** `make` ends -> the CLI uploads each new video -> a `drafts` post and one draft per connected channel -> GraphQL createPost with `saveToDraft` -> the operator schedules, edits or deletes the drafts in Buffer.
 - **approve at the terminal:** `review` walk at a TTY shows each network's full post text -> `ssh-keygen -Y sign` over id, sha256 and post-text hash (one passphrase per batch) -> approvals row -> `approved`.
 - **post a terminal-approved video:** `post` at a TTY -> pick an approved video, channels, a time -> re-verify signature, file and post text -> check text limits -> upload to the Railway bucket under its sha256 (read publicly through the media proxy) -> post and targets (`via buffer`) -> GraphQL createPost per channel -> Buffer publishes.

@@ -9,7 +9,9 @@ Invariants the schema enforces (not just the code):
   only this tool registers, so raw edits from the sqlite3 shell fail instead of slipping through;
 - a video is used by at most one post, a post has one target per Buffer channel (several accounts on one
   network are several channels, v4), and a channel has at most one live post per second;
-- a platform post id (the Buffer post id) is stored once per platform, never twice.
+- a platform post id (the Buffer post id) is stored once per platform, never twice;
+- a keyframe board (v5) is filed by a build in `review`, only a human decides it, and it has no approvals row, so
+  approving a board never approves a video.
 Earlier schema entries are never edited; v1 still carries the removed calendar's statuses (open, missed,
 draft), which nothing writes any more.
 """
@@ -240,6 +242,80 @@ SCHEMA = [
     """,
 ]
 
+# v5 (2026-10-09, F15 J7): keyframe boards. `build --boards` files a board (a sheet of a film's key poses) instead of
+# a video; a human approves it at a terminal; `build --from-board ID` animates it, and the video records its board.
+# A board has its own table and statuses and never an approvals row, so approving a board can never count as
+# approving a video (rule R6, ruling 7). Board decisions need the actor `human` (the CLI's terminal gate opens that
+# connection), and every status change stamps who made it through ss_actor(), so a raw sqlite3 edit fails as it does
+# for videos. Every statement is safe to apply twice (rule R49): the column is added only when missing, because
+# SQLite has no ADD COLUMN IF NOT EXISTS.
+V5 = """
+    CREATE TABLE IF NOT EXISTS boards (
+      id INTEGER PRIMARY KEY,
+      session_id TEXT REFERENCES sessions(id),
+      parent_id INTEGER REFERENCES boards(id),
+      title TEXT NOT NULL,
+      idea TEXT NOT NULL DEFAULT '',
+      pillar TEXT NOT NULL DEFAULT '',
+      preset TEXT NOT NULL,
+      dir TEXT NOT NULL,
+      sheet TEXT NOT NULL,
+      shots INTEGER NOT NULL,
+      width INTEGER NOT NULL,
+      height INTEGER NOT NULL,
+      meta TEXT NOT NULL DEFAULT '{}',
+      status TEXT NOT NULL DEFAULT 'review' CHECK (status IN
+        ('review', 'approved', 'revision', 'dropped', 'superseded')),
+      notes TEXT NOT NULL DEFAULT '',
+      decided_by TEXT,
+      decided_at TEXT,
+      created_at TEXT NOT NULL,
+      updated_at TEXT NOT NULL
+    );
+
+    CREATE TRIGGER IF NOT EXISTS boards_born BEFORE INSERT ON boards
+    WHEN NEW.status <> 'review' OR ss_actor() = 'human'
+    BEGIN
+      SELECT RAISE(ABORT, 'a board is filed by a build, in review');
+    END;
+
+    CREATE TRIGGER IF NOT EXISTS boards_transition BEFORE UPDATE OF status ON boards
+    WHEN NEW.status <> OLD.status AND NOT (
+         (OLD.status = 'review'   AND NEW.status IN ('approved', 'revision', 'dropped'))
+      OR (OLD.status = 'revision' AND NEW.status IN ('approved', 'dropped', 'superseded'))
+      OR (OLD.status = 'approved' AND NEW.status IN ('revision', 'dropped'))
+    )
+    BEGIN
+      SELECT RAISE(ABORT, 'invalid board status transition');
+    END;
+
+    CREATE TRIGGER IF NOT EXISTS boards_need_human BEFORE UPDATE OF status ON boards
+    WHEN NEW.status <> OLD.status AND NEW.status IN ('approved', 'revision', 'dropped') AND ss_actor() <> 'human'
+    BEGIN
+      SELECT RAISE(ABORT, 'only a human at a terminal decides a board');
+    END;
+
+    CREATE TRIGGER IF NOT EXISTS boards_decided AFTER UPDATE OF status ON boards
+    WHEN NEW.status <> OLD.status
+    BEGIN
+      UPDATE boards SET decided_by = ss_actor(), decided_at = strftime('%Y-%m-%dT%H:%M:%SZ', 'now')
+      WHERE id = NEW.id;
+    END;
+
+    -- What the agent surface may read: boards still in play, never dropped or replaced ones.
+    CREATE VIEW IF NOT EXISTS agent_boards AS
+      SELECT id, title, idea, pillar, preset, status, shots, width, height, created_at
+      FROM boards WHERE status IN ('review', 'approved', 'revision');
+"""
+
+
+def _v5(con: sqlite3.Connection) -> str:
+    cols = {r[1] for r in con.execute("PRAGMA table_info(videos)")}
+    return V5 + ("" if "board_id" in cols else "ALTER TABLE videos ADD COLUMN board_id INTEGER REFERENCES boards(id);")
+
+
+SCHEMA.append(_v5)  # an entry is SQL, or a function of the connection that returns it
+
 
 def connect(ctx: Ctx, actor: str = "cli") -> sqlite3.Connection:
     ctx.studio_dir.mkdir(parents=True, exist_ok=True)
@@ -250,7 +326,8 @@ def connect(ctx: Ctx, actor: str = "cli") -> sqlite3.Connection:
     con.execute("PRAGMA busy_timeout=30000")
     con.create_function("ss_actor", 0, lambda: actor)
     version = con.execute("PRAGMA user_version").fetchone()[0]
-    for i, script in enumerate(SCHEMA[version:], start=version + 1):
+    for i, step in enumerate(SCHEMA[version:], start=version + 1):
+        script = step(con) if callable(step) else step
         con.executescript(f"BEGIN; {script} PRAGMA user_version = {i}; COMMIT;")
     return con
 
