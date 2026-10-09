@@ -1,0 +1,26 @@
+{
+  "id": "claude-interactive-tools",
+  "kind": "story",
+  "name": "A rollout plan becomes a live flowchart inside the chat",
+  "brand": "Claude",
+  "source": {"url": "https://www.youtube.com/watch?v=bluAmTHoEow", "platform": "youtube", "posted": "2026-01-26", "duration": 54.0},
+  "object": "interactive tools in Claude: connected apps like Figma, Amplitude, Asana and Slack rendering as live, clickable widgets directly inside a conversation instead of plain text replies",
+  "audience": "product managers and operators coordinating a cross-tool rollout, design, data, tasks and comms, who live in chat",
+  "message": "This video tells operators that Claude's connected tools stop being text summaries and become things you can click, edit and ship without leaving the chat.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 8.0, "what": "a user asks Claude to help map out a rollout plan for a meeting later that day", "copy": "I'm meeting with Conor today about the dashboard redesign, can you help me map out the rollout plan?", "voice": "none"},
+    {"role": "solution", "start": 8.0, "end": 24.0, "what": "Claude pulls up Figma and renders an interactive rollout flowchart with decision gates, deploy 25%, monitor, deploy 50%, announce, directly inside the thread", "copy": "Here's your rollout flow with decision gates at each stage.", "voice": "none"},
+    {"role": "demo", "start": 24.0, "end": 39.0, "what": "pulls Amplitude engagement data into a live, clickable line chart comparing the new design against control, then creates an Asana checklist for the rollout tasks", "copy": "Here's the engagement trend. The staging group is up about 40% compared to control.", "voice": "none"},
+    {"role": "proof", "start": 39.0, "end": 54.0, "what": "drafts and sends a Slack message to Conor summarizing the rollout plan and the engagement lift, with a message-sent confirmation, closing on the Claude wordmark", "copy": "Dashboard redesign is ready to ship. Engagement in the staging group is up ~40% vs control. Rollout plan for Thursday: 25% -> monitor 2hrs -> 50% -> monitor 2hrs -> 100%.", "voice": "none"}
+  ],
+  "cta": "no spoken call to action; the film ends on the sent Slack confirmation and the Claude logo, the finished send itself standing in as proof",
+  "why": "Chaining four different connected tools into one scroll, each one interactive rather than a static summary, demonstrates that Claude can actually operate across a stack instead of just describing it.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["ai-app", "saas"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["none"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

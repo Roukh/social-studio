@@ -1,0 +1,27 @@
+{
+  "id": "spotify-ai-dj-launch",
+  "kind": "story",
+  "name": "AI DJ: your own personal DJ, even solo",
+  "brand": "Spotify",
+  "source": {"url": "https://www.youtube.com/watch?v=KAxCjFpeuTA", "platform": "youtube", "posted": "2026-04-10", "duration": 29.0},
+  "object": "AI DJ, Spotify Premium's personalised AI host that picks and introduces tracks for you",
+  "audience": "young Premium listeners who want the fun of a DJ at a party without needing an actual party",
+  "message": "This video tells young Premium listeners that even home alone, nursing a rough night, they can have their own personal AI DJ throw them a one-person party.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 9.3, "what": "A guy lies dazed in a neck brace on a plaid-covered bed, clearly recovering from a wild night; the shot holds on his groggy, confused face.", "copy": "Can't understand this party, bro... sorry.", "voice": "dialogue"},
+    {"role": "intro", "start": 9.3, "end": 14.1, "what": "His phone on the nightstand shows the AI DJ onboarding screen, a pulsing green ring reading 'Welcome DJ'; a new voice introduces itself as the camera cuts back to his face.", "copy": "Hey, what's going on, Krish? I'm DJ X, your own personal AI DJ on Spotify.", "voice": "narration"},
+    {"role": "solution", "start": 14.1, "end": 18.6, "what": "He admits he's alone but still wants to party; the phone screen switches to a 'Listening...' state as DJ X agrees to get things going.", "copy": "I'm home alone, but I want to party. Party time, solo style. Let's get this going.", "voice": "dialogue"},
+    {"role": "demo", "start": 18.6, "end": 24.0, "what": "The phone on the table now plays a track with cover art visible on the now-playing screen; music kicks in and his mood visibly lifts.", "copy": "", "voice": "none"},
+    {"role": "cta", "start": 24.0, "end": 29.0, "what": "Wide shot of his room glowing green; bold 'AI DJ' title card appears with a line about Premium Platinum access.", "copy": "Your personal DJ, AI DJ, only on Spotify Premium. AI DJ available only on Spotify Premium Platinum — check available Premium plans to learn more.", "voice": "narration"}
+  ],
+  "cta": "A title card reading 'AI DJ' with a line directing viewers to check Premium Platinum plans, paired with a closing voice-over line that the AI DJ is exclusive to Premium.",
+  "why": "The comic cold open (dazed, post-party, alone) sets up a real problem — wanting a party vibe with no one around — before the product solves it in character, as a voice rather than a UI feature. Hearing DJ X talk, then watching the mood visibly shift once music starts, makes the payoff feel earned rather than demonstrated in the abstract, and the Premium-only line at the end turns that feeling straight into a subscription pitch.",
+  "tags": {
+    "goal": ["launch", "feature"],
+    "product": ["music", "ai-app"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["dialogue", "narration"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

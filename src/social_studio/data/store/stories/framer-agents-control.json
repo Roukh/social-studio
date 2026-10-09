@@ -1,0 +1,26 @@
+{
+  "id": "framer-agents-control",
+  "kind": "story",
+  "name": "The Agent builds the page, the designer still nudges the pixels",
+  "brand": "Framer",
+  "source": {"url": "https://www.youtube.com/watch?v=ueQv69QSsgI", "platform": "youtube", "posted": "2026-07-22", "duration": 36.0},
+  "object": "Framer Agents, shown building a full homepage from a one-line prompt while the designer keeps hand-level control over layout, position and custom code",
+  "audience": "designers who want AI speed for the first draft but still want to hand-tune spacing, components and code themselves",
+  "message": "This video tells designers that the Framer Agent gets you to a real homepage in one prompt, then gets out of the way so you can still adjust every pixel by hand.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 8.0, "what": "a New Chat panel takes a single prompt for a homepage for an AI well-being research lab called Bloom, typed live", "copy": "Create a sleek black homepage for an AI well-being research lab called Bloom.", "voice": "none"},
+    {"role": "demo", "start": 8.0, "end": 18.0, "what": "the Agent narrates its own plan in the chat, then builds the page structure live on canvas; the designer switches to the Style tab and nudges a block's Position values by hand", "copy": "I'll now build the page structure from scratch on the target page, keeping it editable and matching the reference's spacing, typography and surfaces.", "voice": "none"},
+    {"role": "demo", "start": 18.0, "end": 28.0, "what": "cuts to a custom code component, ImageWheel.tsx, open in an editor beside its live draggable preview, and a CMS table of team member rows with photos and status", "copy": "", "voice": "none"},
+    {"role": "cta", "start": 28.0, "end": 36.0, "what": "a finished brand page is shown across desktop, tablet and mobile previews side by side, then closes on framer.com and the Framer glyph", "copy": "We build the tools that make intelligence feel creative.", "voice": "none"}
+  ],
+  "cta": "no explicit spoken call to action; closes on the framer.com wordmark beside the Framer glyph after the responsive preview",
+  "why": "Cutting from a one-line prompt straight to the designer manually nudging a position value proves the promise in the title, design with AI, keep control, instead of just asserting it.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["design-tool", "website-builder"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["none"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "dub-conversions",
+  "kind": "story",
+  "name": "Introducing Dub Conversions",
+  "brand": "dub.co",
+  "source": {
+    "url": "https://x.com/dubdotco/status/1879220015540699498",
+    "platform": "x",
+    "posted": "2025-01-14",
+    "duration": 60
+  },
+  "object": "Dub Conversions, Dub's attribution feature that connects short-link clicks to downstream signups and sales",
+  "audience": "Marketers and growth teams running paid, affiliate, or content campaigns through short links who need to prove ROI past the click",
+  "message": "This video tells growth marketers that Dub turns every short link into a full attribution engine, tracking clicks all the way to revenue.",
+  "moments": [
+    {
+      "role": "hook",
+      "start": 0.0,
+      "end": 7.5,
+      "what": "a one-line reframe appears over an animated three-stage funnel icon (blue, purple, teal)",
+      "copy": "turn your URLs into attribution engines",
+      "voice": "none"
+    },
+    {
+      "role": "demo",
+      "start": 7.5,
+      "end": 30.0,
+      "what": "the funnel fills in with real figures narrowing from clicks to sales, then a link filter panel opens with an 'Ask AI' option that types out a natural-language query and runs it",
+      "copy": "3,712 clicks (9%) narrow down to 3,091 sales (7.27%); ask AI to 'show me North America sales' and it filters live",
+      "voice": "none"
+    },
+    {
+      "role": "proof",
+      "start": 30.0,
+      "end": 37.5,
+      "what": "the filtered query returns a regional sales chart, then drills into one customer's activity timeline",
+      "copy": "a $4,711 North America sales chart, then one customer's journey: plan purchase, account created, link click",
+      "voice": "none"
+    },
+    {
+      "role": "solution",
+      "start": 37.5,
+      "end": 52.5,
+      "what": "a constellation of integration logos (Stripe, Shopify, Twilio, Perplexity, and others) appears, then the view lands on a raw events table of clicks, leads, and sales broken out by country and device",
+      "copy": "seamlessly integrate with your existing auth and payment processors; see every event, filtered any way",
+      "voice": "none"
+    },
+    {
+      "role": "cta",
+      "start": 52.5,
+      "end": 60.0,
+      "what": "the screen resolves to the Dub wordmark and brand line, then into a URL",
+      "copy": "it all starts with a link — dub.co/analytics",
+      "voice": "none"
+    }
+  ],
+  "cta": "Ends on the brand line 'it all starts with a link,' which resolves directly into the URL dub.co/analytics as the destination to try the feature.",
+  "why": "It hooks with a one-line reframe — short links become 'attribution engines' — then proves it immediately with specific numbers (3,712 clicks narrowing to 3,091 sales) instead of a vague claim, so the pitch reads as measured rather than hyped. Showing the AI filter typed live and one customer's journey drilled down to three concrete events makes the analytics feel usable rather than just another dashboard full of charts, which earns the direct 'try it' close at dub.co/analytics.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["link-management"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["none"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

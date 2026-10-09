@@ -1,0 +1,22 @@
+{
+  "id": "shopify-pos-v11-speed",
+  "kind": "story",
+  "name": "POS v11: checkout over a minute faster",
+  "brand": "Shopify",
+  "source": {"url": "https://www.youtube.com/watch?v=37zOjqRl-3Q", "platform": "youtube", "posted": "2026-06-17", "duration": 83.0},
+  "object": "Shopify POS version 11, the rebuilt point-of-sale app, and the time it shaves off every in-store checkout",
+  "audience": "retail merchants and the store staff who ring up busy, in-person sales lines all day",
+  "message": "This video tells retail merchants that Shopify rebuilt POS from the ground up so staff can ring up a full cart over a minute faster, and lets a real merchant back that claim up.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 7.9, "what": "a voiceover opens over shots of a tablet POS stand in a boutique, calling POS v11 a ground-up rebuild of the selling engine staff run hundreds of times a day", "copy": "POS v11 is a ground-up rebuild of the engine your staff run hundreds of times a day", "voice": "narration"},
+    {"role": "demo", "start": 7.9, "end": 28.6, "what": "close-ups of the new checkout UI as the narrator lists specific speed-ups: adding a customer in a few taps with pre-filled details, tapping a saved discount code, and ringing a full cart through with fewer steps, landing on the claim that it's over a minute faster for heavy POS users; an on-screen label reads 'POS v11 in action'", "copy": "adding customers in a few taps, discounts ready to tap, a streamlined checkout that's over a minute faster", "voice": "narration"},
+    {"role": "proof", "start": 28.6, "end": 66.5, "what": "cut to a real staff member at Province of Canada talking to camera in the store, saying the new POS is night-and-day faster than before, that product search is much improved, and that one person can now roam the floor with an iPad while checkout still moves quickly", "copy": "it's so much faster, night and day from when I started using the POS; search is really improved, which creates a better experience in store", "voice": "dialogue"},
+    {"role": "cta", "start": 66.5, "end": 82.7, "what": "a closing montage of staff helping customers, wrapping a purchase and handing over a bag, ends on the Shopify bag logo with no further text", "copy": "", "voice": "none"}
+  ],
+  "cta": "there is no spoken line at the end; the video closes on the Shopify logo and lets the speed claim plus the merchant's on-camera praise make the case for upgrading to POS v11",
+  "why": "Pairing a crisp, numbers-led claim (over a minute faster) with unscripted praise from a staffer who uses the product daily turns a software update into something a retailer can feel: shorter lines, happier customers. The UI close-ups make the speed concrete rather than abstract, and ending on the merchant's voice rather than a sales pitch makes the claim more credible.",
+  "tags": {
+    "goal": ["feature"], "product": ["commerce"], "structure": ["montage-cta"],
+    "voice": ["narration"], "energy": ["build"], "format": ["16:9"]
+  }
+}

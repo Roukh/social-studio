@@ -1,0 +1,31 @@
+{
+  "id": "elevenlabs-creative-transform",
+  "kind": "story",
+  "name": "He changes when he's nervous",
+  "brand": "ElevenLabs",
+  "source": {
+    "url": "https://www.youtube.com/shorts/ZoJgrmflhg0",
+    "platform": "youtube",
+    "posted": "2026-09-16",
+    "duration": 25.1
+  },
+  "object": "ElevenCreative's style-transform feature, which turns a real photo or video of a person into a chosen illustrated art style",
+  "audience": "Casual creators and social users curious what ElevenCreative can do to their own photos and videos",
+  "message": "This video tells casual creators that ElevenCreative can turn any photo or video into a completely different art style convincingly enough to build an entire joke around it.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 4.79, "what": "A couple sits in what reads as a therapy or interview setting; the wife says her husband changes when he's nervous, he protests, and she recalls he was rendered as anime through their entire wedding.", "copy": "\"He changes when he's nervous.\" / \"I don't change.\" / \"He was anime for our entire wedding.\"", "voice": "dialogue"},
+    {"role": "demo", "start": 4.79, "end": 11.71, "what": "Cut to the literal proof: their wedding photo, fully reimagined as a flat anime illustration, confetti and all.", "copy": "No dialogue; the illustrated photo is the punchline.", "voice": "none"},
+    {"role": "proof", "start": 11.71, "end": 19.92, "what": "A hand swipes across a family dinner photo, toggling it live between the real photo and a faceted low-poly portrait style, while she lists more incidents — meeting her father as an oil painting, his voice changing too.", "copy": "\"He met my father as an oil painting, thought he was foreign. The voice goes too.\"", "voice": "dialogue"},
+    {"role": "cta", "start": 19.92, "end": 25.1, "what": "Cuts back to the couple finishing the bit, then closes on a plain end card naming the product.", "copy": "Eleven Creative.", "voice": "none"}
+  ],
+  "cta": "No spoken offer; a plain wordmark end card (\"Eleven Creative\") closes the joke, trusting the transformed photos themselves to be the pitch.",
+  "why": "It works because the feature is never explained, only lived in as a running joke — the \"he changes when he's nervous\" premise gives the viewer a reason to want to see the next transformation, so each style swap lands as a punchline instead of a feature callout. Swiping live between the real and transformed photo mid-scene is the one beat that proves it's really the same person, not a separate generated image.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["ai-app"],
+    "structure": ["story-arc"],
+    "voice": ["dialogue"],
+    "energy": ["punch"],
+    "format": ["9:16"]
+  }
+}

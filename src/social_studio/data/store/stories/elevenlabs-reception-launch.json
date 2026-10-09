@@ -1,0 +1,31 @@
+{
+  "id": "elevenlabs-reception-launch",
+  "kind": "story",
+  "name": "Stop missing calls: Reception by ElevenAgents",
+  "brand": "ElevenLabs",
+  "source": {
+    "url": "https://www.youtube.com/watch?v=3RojrjVVFSg",
+    "platform": "youtube",
+    "posted": "2026-09-16",
+    "duration": 32.9
+  },
+  "object": "Reception, an AI phone receptionist agent built on ElevenAgents that answers calls and books appointments automatically",
+  "audience": "Small and service businesses (tradespeople, clinics, salons) who lose jobs when no one is free to pick up the phone",
+  "message": "This video tells small-business owners that every unanswered call is a lost job or client, and Reception answers instantly, in a natural-sounding voice, so nothing falls through.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 4.15, "what": "Fast-cut flat icon animation: a phone ringing, a thumbs-down, icons of a call coming in.", "copy": "Someone's calling to make an appointment.", "voice": "narration"},
+    {"role": "problem", "start": 4.15, "end": 15.3, "what": "More icons stack up over ringing desk phones and a buzzing mobile — a job to book, a meeting to schedule — until the line lands on an empty office.", "copy": "To book a job. To schedule a meeting. But nobody's around to pick up.", "voice": "narration"},
+    {"role": "demo", "start": 15.3, "end": 23.1, "what": "Cut to a real call in progress: a calm, natural AI voice answers and starts booking a slot for the caller.", "copy": "\"Hi there, how can I help you today?\" / \"I'm looking to book an appointment for next week.\"", "voice": "dialogue"},
+    {"role": "cta", "start": 23.1, "end": 32.9, "what": "Voiceover pitches the product by name while the booking call keeps running underneath it.", "copy": "Stop missing calls and losing clients with the most natural-sounding AI receptionist — Reception, by ElevenAgents.", "voice": "narration"}
+  ],
+  "cta": "A direct spoken CTA names the product outright — \"stop missing calls and losing clients ... with Reception, by ElevenAgents\" — delivered as voiceover over the still-running demo call, so the pitch and the proof land in the same beat instead of a separate end card.",
+  "why": "It opens on the viewer's own pain (a call nobody answers) before it shows a single feature, so by the time the AI voice picks up, the viewer already wants that outcome. Keeping the demo call audible under the CTA line is what sells it — the voice doing the selling is the exact voice doing the selling job described.",
+  "tags": {
+    "goal": ["launch", "feature"],
+    "product": ["ai-app"],
+    "structure": ["intro-problem-solution-cta"],
+    "voice": ["narration", "dialogue"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

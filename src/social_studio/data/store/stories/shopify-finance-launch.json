@@ -1,0 +1,22 @@
+{
+  "id": "shopify-finance-launch",
+  "kind": "story",
+  "name": "Shopify Finance: money, where you make it",
+  "brand": "Shopify",
+  "source": {"url": "https://www.youtube.com/watch?v=-2hAZ69thPM", "platform": "youtube", "posted": "2024-10-29", "duration": 48.0},
+  "object": "Shopify Finance, a single dashboard inside Shopify for deposits, credit, accounts and spend",
+  "audience": "Shopify merchants juggling scattered money tools to run their business",
+  "message": "This video tells merchants that money scattered across separate credit lines, deposits and vendors costs them time and trust, and that Shopify Finance brings it all into one dashboard built from merchant feedback.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 3.2, "what": "the video opens on the Shopify Finance wordmark, then cuts to a merchant on camera, identified by name and her business, beginning to describe her situation", "copy": "shopify finance", "voice": "none"},
+    {"role": "problem", "start": 3.2, "end": 25.0, "what": "the merchant describes her finances being scattered: a credit line in one place, deposits in another, waiting on approval, vendors who don't care whether she makes money; text overlays punctuate the complaint, and a second pair of merchants echo the same frustration with 'money challenges'", "copy": "my finances were all over the place; you have a credit line over here, deposits over here, waiting to see if I get approval, and vendors who don't care whether you make money or not", "voice": "dialogue"},
+    {"role": "solution", "start": 25.0, "end": 42.4, "what": "cut to bold text reading 'inspired by merchants' and 'all the tools you need', landing on a screen capture of the Shopify Finance dashboard showing accounts, recent transactions and spend tracking all in one view", "copy": "inspired by merchants, all the tools you need", "voice": "none"},
+    {"role": "cta", "start": 42.4, "end": 48.3, "what": "the video closes on the Shopify bag icon with the URL shopify.com/finance and small-print disclosure naming Shopify's banking partners", "copy": "shopify.com/finance", "voice": "none"}
+  ],
+  "cta": "closes on the Shopify logo with the URL shopify.com/finance, inviting merchants to go set it up themselves, backed by small-print naming the banking partners behind the product",
+  "why": "Opening with merchants naming the exact pain (money spread across disconnected tools, vendors who don't care about their cash flow) earns the right to show the dashboard as the direct answer to what was just said. Crediting the product to merchant feedback ('inspired by merchants') reframes a finance feature as something built for them specifically, not a generic banking pitch.",
+  "tags": {
+    "goal": ["launch"], "product": ["payments"], "structure": ["intro-problem-solution-cta"],
+    "voice": ["dialogue"], "energy": ["build"], "format": ["16:9"]
+  }
+}

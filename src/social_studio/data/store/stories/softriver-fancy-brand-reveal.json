@@ -1,0 +1,26 @@
+{
+  "id": "softriver-fancy-brand-reveal",
+  "kind": "story",
+  "name": "Fancy AI brand system walkthrough",
+  "brand": "Softriver.co",
+  "source": {"url": "https://www.instagram.com/softriver.co/reel/DeHiacKo_Ow/", "platform": "instagram", "posted": "2026-10-05", "duration": 45.18},
+  "object": "A full brand-identity package Softriver delivered for a client, 'Fancy' (an AI-branded startup): logo, clearspace rules, type hierarchy, graphic pattern, social creatives, business card, billboard mockup and badge design",
+  "audience": "tech founders sizing up branding agencies who want to see real finished deliverables, not just a pitch",
+  "message": "This video tells tech founders vetting branding agencies that a client who'd been burned by low-quality work elsewhere got a full, polished, multi-piece brand system from Softriver in weeks, not months.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 10.0, "what": "The creative director sits at his desk with the client's branded monitor behind him and talks straight to camera, recapping why the client came to Softriver: they'd shopped around and hadn't bought because the quality elsewhere wasn't there.", "copy": "A client came to our office. They hadn't bought anywhere else — the quality just wasn't there.", "voice": "narration"},
+    {"role": "demo", "start": 10.0, "end": 30.0, "what": "He narrates while a stream of deliverable cards cut in over the desk shot: the primary logo mark in four colourways, a clearspace diagram, a type-hierarchy sheet, a graphic pattern tile, and social-media creative templates — one card per beat.", "copy": "Here's the answer we delivered weeks ago: primary logo, clearspace, type hierarchy, brand imagery, social creatives.", "voice": "narration"},
+    {"role": "proof", "start": 30.0, "end": 40.0, "what": "More applied pieces follow in the same card format — a business-card mockup, a brand billboard mockup, a badge design — showing the identity carried across real-world formats, not just a logo file.", "copy": "Business cards, a brand billboard, badge design — the full package.", "voice": "narration"},
+    {"role": "cta", "start": 40.0, "end": 45.18, "what": "He closes back on camera with a confident, one-line claim about how the finished brand reads, implicitly selling the outcome rather than asking for anything directly; the caption underneath carries the actual ask to DM or visit the site.", "copy": "Hyper professional — like a multi-million dollar brand.", "voice": "narration"}
+  ],
+  "cta": "No on-screen button; the caption below the video carries the ask ('what do you think of it?' inviting comments, plus the standing bio link to softriver.co / DM), while the video itself closes on the claim that the finished brand reads as 'hyper professional'.",
+  "why": "Naming the client's bad experience elsewhere up front gives the deliverable montage a reason to matter — each card isn't just 'here's a nice logo', it's 'here's what fixed the problem'. Walking every applied piece (card, billboard, badge) in the same visual rhythm makes the package feel complete, and landing on a confident one-line claim rather than a hard CTA keeps the tone aspirational.",
+  "tags": {
+    "goal": ["proof"],
+    "product": ["agency"],
+    "structure": ["intro-body-cta"],
+    "voice": ["narration"],
+    "energy": ["build"],
+    "format": ["9:16"]
+  }
+}

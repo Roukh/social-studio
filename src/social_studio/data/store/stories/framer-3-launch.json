@@ -1,0 +1,27 @@
+{
+  "id": "framer-3-launch",
+  "kind": "story",
+  "name": "A whole site, branched, agent-built and shipped in one take",
+  "brand": "Framer",
+  "source": {"url": "https://www.youtube.com/watch?v=6aioEoCdBJw", "platform": "youtube", "posted": "2026-06-16", "duration": 75.0},
+  "object": "Framer 3.0: Agents that build and edit a real site from a prompt, Git-style Branching for safe parallel changes, and a new Community of shared templates and components",
+  "audience": "designers and small teams who build and ship whole websites in Framer",
+  "message": "This video tells Framer users that version 3.0 turns the editor into something you can prompt, branch, and ship from, not just click around in.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 12.0, "what": "a glowing blue Framer glyph resolves on black, then a branch picker (main, home-2026, july-update) and a Publish and Invite bar introduce the new project chrome", "copy": "", "voice": "none"},
+    {"role": "demo", "start": 12.0, "end": 35.0, "what": "an Agent chat panel sits beside a live site for a brand called HAVS; the user asks the Agent to update text styles and layout settings across the whole site, and the page rebuilds itself in place", "copy": "Use these new text styles and layout settings and update the rest of the site.", "voice": "none"},
+    {"role": "demo", "start": 35.0, "end": 55.0, "what": "a more technical prompt asks for a custom code component, a draggable rotating ring of images that speeds up on scroll, and the Agent generates it live, shown working on a gallery of portrait images", "copy": "Build a Framer code component that displays uploaded images in a draggable rotating ring that speeds up on scroll.", "voice": "none"},
+    {"role": "proof", "start": 55.0, "end": 64.0, "what": "a quick cut to a CMS table and a \"Works everywhere\" title card shows the same project scaling across many pages and breakpoints", "copy": "Works everywhere.", "voice": "none"},
+    {"role": "cta", "start": 64.0, "end": 75.0, "what": "kinetic title fragments, \"Welcome to a whole new Framer,\" \"Refine on,\" \"Ship with your\" resolve into glowing 3D glyphs and the Framer 3 logo mark", "copy": "Welcome to a whole new Framer.", "voice": "none"}
+  ],
+  "cta": "\"Welcome to a whole new Framer\", staged as a kinetic-type closer resolving into the Framer 3 logo mark",
+  "why": "Moving from a plain layout prompt to a genuinely technical one, a custom scroll-reactive code component, in the same unbroken agent session proves the pitch that this agent can handle real production work, not just starter templates.",
+  "tags": {
+    "goal": ["launch"],
+    "product": ["design-tool", "website-builder"],
+    "structure": ["montage-cta"],
+    "voice": ["none"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

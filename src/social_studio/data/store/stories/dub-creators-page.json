@@ -1,0 +1,59 @@
+{
+  "id": "dub-creators-page",
+  "kind": "story",
+  "name": "Dub for Creators page launch",
+  "brand": "dub.co",
+  "source": {
+    "url": "https://x.com/steventey/status/1906781594196885835",
+    "platform": "x",
+    "posted": "2025-03-31",
+    "duration": 33
+  },
+  "object": "Dub's Creators solutions page: branded short links, QR codes, and real-time analytics built for content creators",
+  "audience": "YouTube and content creators who need to prove to sponsoring brands exactly how their links and promo codes perform",
+  "message": "This video tells creators that Dub gives them the same enterprise-grade link analytics brands use, so they can show sponsors exactly what their content delivers.",
+  "moments": [
+    {
+      "role": "hook",
+      "start": 0.0,
+      "end": 7.5,
+      "what": "a scrolling tour of the live page opens on a hero headline next to a real creator's branded short link and a strip of live stats",
+      "copy": "an essential pairing for your content creation — shown with a real branded link (go.hubermanlab.com) pulling 7.2K clicks, 165 leads, 12 sales",
+      "voice": "none"
+    },
+    {
+      "role": "intro",
+      "start": 7.5,
+      "end": 15.0,
+      "what": "copy explains the workflow benefit next to 'Start for free' and 'Get a demo' buttons and logos of creators already using it, then a customer quote appears",
+      "copy": "creators use Dub to streamline their workflow and gain deeper audience insights; one customer calls it hands-down better than Bitly",
+      "voice": "none"
+    },
+    {
+      "role": "demo",
+      "start": 15.0,
+      "end": 27.5,
+      "what": "the page scrolls into the real analytics dashboard, showing click/lead/sale totals and a chart broken down by country and device",
+      "copy": "gain deeper audience insights — 5,030 clicks, 2,215 leads, $6,589 in sales, broken down live",
+      "voice": "none"
+    },
+    {
+      "role": "proof",
+      "start": 27.5,
+      "end": 33.0,
+      "what": "the page closes on a row of named case-study cards, each linking out to a full success story",
+      "copy": "case studies from Fenitas, Efficient App, Craylor Media, and Code with Guillaume, each with a result to read",
+      "voice": "none"
+    }
+  ],
+  "cta": "The page offers 'Start for free' and 'Get a demo' buttons early on, then lets the named case studies (Fenitas, Efficient App, Craylor Media) carry the close instead of repeating the button.",
+  "why": "It leads with a named real creator's branded link and live numbers instead of an abstract pitch, so a creator immediately pictures their own channel in the frame. Backing that with a specific outside quote and four named case studies, not just generic praise, gives a skeptical creator audience concrete proof before it asks them to start for free.",
+  "tags": {
+    "goal": ["announcement"],
+    "product": ["link-management"],
+    "structure": ["list-cta"],
+    "voice": ["none"],
+    "energy": ["calm"],
+    "format": ["16:9"]
+  }
+}

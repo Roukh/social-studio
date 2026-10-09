@@ -1,0 +1,26 @@
+{
+  "id": "openai-chatgpt-word",
+  "kind": "story",
+  "name": "Redlining a contract without leaving Word",
+  "brand": "OpenAI",
+  "source": {"url": "https://www.youtube.com/watch?v=lxVMdEpe0RQ", "platform": "youtube", "posted": "2026-09-17", "duration": 42.0},
+  "object": "ChatGPT for Microsoft Word, a side panel inside Word that formats, revises and flags risk in a document in place, with Skills like Contract Review",
+  "audience": "office workers and legal/ops teams who draft and redline documents in Word all day",
+  "message": "This video tells Word users that ChatGPT now sits in the same window as the document, so formatting, redlining and risk review happen without switching apps.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 6.0, "what": "a plain title card reads the announcement", "copy": "Introducing ChatGPT for Microsoft Word.", "voice": "none"},
+    {"role": "demo", "start": 6.0, "end": 20.0, "what": "a ChatGPT side panel sits next to a Client Services Agreement in Word; the user attaches a template and asks ChatGPT to format the agreement to match it, and the document reflows with tracked changes", "copy": "Format this agreement to match the attached template.", "voice": "none"},
+    {"role": "demo", "start": 20.0, "end": 33.0, "what": "the user attaches negotiation notes and asks ChatGPT to revise payment terms, then runs a Contract Review Skill that flags unresolved risks and decisions before the document is shared, with tracked changes and a summary of the dollar terms appearing in the chat", "copy": "Use the Contract Review Skill to flag unresolved risks and decisions before I share this.", "voice": "none"},
+    {"role": "cta", "start": 33.0, "end": 42.0, "what": "kinetic type lists what ChatGPT can do in Word, formatting, planning, summarizing, editing, charting, redlining, work, then a closing card reads get started for free with the Word and Excel icons and the OpenAI mark", "copy": "Use ChatGPT for formatting, planning, summarizing, editing, charting, redlining, work. Get started for free today.", "voice": "none"}
+  ],
+  "cta": "\"Get started for free today\", staged as a closing title card with the Word and Excel icons beside the OpenAI mark",
+  "why": "Showing the tracked-change redline land directly inside the real document, not in a separate chat window, proves the pitch that this replaces app-switching rather than adding another tool to check.",
+  "tags": {
+    "goal": ["launch"],
+    "product": ["ai-app", "saas"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["none"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

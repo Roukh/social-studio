@@ -1,0 +1,59 @@
+{
+  "id": "elevenlabs-music-v25",
+  "kind": "story",
+  "name": "Introducing Music v2.5",
+  "brand": "ElevenLabs",
+  "source": {
+    "url": "https://www.youtube.com/watch?v=zXlVQ8rMJM0",
+    "platform": "youtube",
+    "posted": "2026-09-11",
+    "duration": 39
+  },
+  "object": "Eleven Music v2.5, an update to ElevenLabs' AI song-generation tool with fuller arrangement and more natural, personal-sounding vocals",
+  "audience": "musicians, creators, and marketers who want a finished, emotionally convincing song made from a prompt",
+  "message": "This video tells creators that Music v2.5 can turn a simple idea into a song that sounds full and genuinely 'theirs,' not generic AI output, by letting the generated song's own lyrics carry the pitch as it plays.",
+  "moments": [
+    {
+      "role": "hook",
+      "start": 0.0,
+      "end": 6.75,
+      "what": "A glossy blue-and-white sphere fills the frame beneath a repeating 'Introducing Music V2.5' title card as a vocal track begins mid-verse",
+      "copy": "Opening lyric asks the listener to wait and listen to 'this bit', describing the track starting as a hum and gaining a heartbeat",
+      "voice": "song"
+    },
+    {
+      "role": "proof",
+      "start": 6.75,
+      "end": 19.1,
+      "what": "The same looping orb visual continues as the song layers in more instrumentation",
+      "copy": "Lyrics describe playing the song in the car and at a wedding, declaring 'that's mine' and 'made it out of nothing'",
+      "voice": "song"
+    },
+    {
+      "role": "proof",
+      "start": 19.1,
+      "end": 34.35,
+      "what": "The orb visual keeps looping under the title card while the song builds toward its bridge",
+      "copy": "Lyrics describe showing the song to her mom, who doesn't believe it's AI-made, as the track gains strings and a choir — 'no caps, no cages, no small print, made it on Eleven and it's mine'",
+      "voice": "song"
+    },
+    {
+      "role": "cta",
+      "start": 34.35,
+      "end": 39.4,
+      "what": "Cuts to a dark card with the Eleven glyph, then the 'Eleven Music' wordmark and the elevenmusic.io URL",
+      "copy": "Brand end card names the product and gives the site to try it",
+      "voice": "none"
+    }
+  ],
+  "cta": "Closes on the Eleven Music wordmark and the elevenmusic.io URL, with no spoken call to action beyond the brand card",
+  "why": "Rather than narrating the feature, the ad lets the generated song's own lyrics do the pitching — a track that describes becoming fuller and more personal as it plays mirrors exactly what v2.5 claims to deliver, so the output doubles as the demo and the proof in one unbroken take before the brand card closes it.",
+  "tags": {
+    "goal": ["launch", "proof"],
+    "product": ["music"],
+    "structure": ["montage-cta"],
+    "voice": ["song"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

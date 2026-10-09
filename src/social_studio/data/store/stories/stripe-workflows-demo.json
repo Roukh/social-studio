@@ -1,0 +1,26 @@
+{
+  "id": "stripe-workflows-demo",
+  "kind": "story",
+  "name": "A billing alert auto-fires a subscription workflow",
+  "brand": "Stripe",
+  "source": {"url": "https://www.youtube.com/watch?v=sH9I_4tuhnI", "platform": "youtube", "posted": "2025-05-08", "duration": 45.4},
+  "object": "Stripe Workflows, a no-code automation builder that watches for a billing event and runs a chain of actions without custom scripts",
+  "audience": "platform and finance teams running usage-based billing who are tired of hand-rolling scripts for billing edge cases",
+  "message": "This video tells platform teams that Stripe Workflows can catch a billing alert and resolve it end to end with zero custom code and zero disruption to the customer.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 8.0, "what": "a presenter on the Stripe Sessions stage walks a pre-built automation canvas: a trigger node for a billing alert, a retrieve-customer step, then a branch on whether a payment method is on file", "copy": "Here's a workflow I've pre-built. It fires the moment a billing alert triggers.", "voice": "narration"},
+    {"role": "solution", "start": 8.0, "end": 21.0, "what": "the canvas opens both branches of the condition: if a payment method exists, auto-create a subscription and charge the customer; if not, update the customer record first", "copy": "If a payment method is already active, it automatically generates the invoice, charges the customer, and starts a subscription.", "voice": "narration"},
+    {"role": "demo", "start": 21.0, "end": 34.0, "what": "cut to a terminal; the presenter runs a live load test against a fictional customer account to push its usage over the free limit, with a requests-per-second chart climbing on screen", "copy": "Let's hit some usage from Heroki to see it all come together live.", "voice": "narration"},
+    {"role": "proof", "start": 34.0, "end": 45.4, "what": "cut to the Stripe dashboard on the customer's record: a new paid subscription now shows as active with no manual steps taken", "copy": "The usage alert fired, the workflow triggered, and we automatically created a subscription with a charge. No disruption, no delays.", "voice": "narration"}
+  ],
+  "cta": "no spoken call to action; the demo is staged as self-proof, closing on the dashboard showing the automation already resolved the billing event end to end",
+  "why": "Watching the same canvas fire for real, under a live load test, turns an abstract automation diagram into something the viewer trusts: the trigger, the branch, and the dashboard proof all happen in one unbroken take, which is more convincing than any claim about reliability.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["saas", "api", "payments"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["narration"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "spotify-blend-howto",
+  "kind": "story",
+  "name": "Blend, in three taps",
+  "brand": "Spotify",
+  "source": {"url": "https://www.youtube.com/watch?v=0KX2p7USY1w", "platform": "youtube", "posted": "2022-10-26", "duration": 27.8},
+  "object": "Blend, the Spotify feature that merges one listener's taste with friends into a single shared, auto-updating playlist",
+  "audience": "existing Spotify users who haven't tried Blend yet and want a fast how-to",
+  "message": "This video tells existing users that turning their taste and a friend's taste into one shared playlist takes three taps, no setup required.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 2.5, "what": "A 'Spotify Tips and Tricks' bumper opens on an abstract graphic of intertwined hands, rendered in Spotify's green-on-blue brand palette.", "copy": "Spotify Tips and Tricks.", "voice": "none"},
+    {"role": "intro", "start": 2.5, "end": 10.0, "what": "Bold type over big overlapping green circles states the benefit: seeing what the whole group listens to, in a playlist shared with up to ten friends that refreshes daily.", "copy": "See what the whole squad is listening to. Share a curated playlist with up to 10 friends, updated daily based on everyone's taste.", "voice": "none"},
+    {"role": "demo", "start": 10.0, "end": 22.5, "what": "Three phone-screenshot steps follow in sequence: searching 'Blend' and tapping the top result, selecting 'Create a Blend', then tapping Invite and sending it to a friend.", "copy": "Search 'Blend' and tap the first result. Select Create a Blend. Tap Invite and send it to friends.", "voice": "none"},
+    {"role": "cta", "start": 22.5, "end": 27.8, "what": "A radiating green play-button icon fills the screen, then the video closes on the plain Spotify wordmark.", "copy": "", "voice": "none"}
+  ],
+  "cta": "No spoken or typed 'try it' line — the three demoed steps are the call to action, and the video simply closes on a play icon and the Spotify logo once the Blend has been sent.",
+  "why": "Framing the whole thing as a 'Tips and Tricks' explainer rather than an ad sets different expectations: it promises to be useful rather than persuasive, which makes the single benefit line up front and the literal three-step demo that follows feel like a favour, not a pitch. Ending on the finished invite rather than a slogan reinforces that the feature itself is the reward.",
+  "tags": {
+    "goal": ["how-to", "feature"],
+    "product": ["music"],
+    "structure": ["list-cta"],
+    "voice": ["none"],
+    "energy": ["calm"],
+    "format": ["16:9"]
+  }
+}

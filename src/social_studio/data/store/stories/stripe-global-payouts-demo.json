@@ -1,0 +1,26 @@
+{
+  "id": "stripe-global-payouts-demo",
+  "kind": "story",
+  "name": "Sending a global payout with nothing but an email",
+  "brand": "Stripe",
+  "source": {"url": "https://www.youtube.com/watch?v=ZSLx-lJGXeE", "platform": "youtube", "posted": "2025-05-08", "duration": 71.6},
+  "object": "Stripe's global payouts, sending money to any recipient worldwide by email from the Balances dashboard, one at a time or in bulk by CSV",
+  "audience": "finance and operations teams at platforms who pay out to contractors, vendors, or customers internationally",
+  "message": "This video tells platform operators that Stripe can send money to anyone in the world with nothing but an email address, one at a time or by the hundreds.",
+  "moments": [
+    {"role": "problem", "start": 0.0, "end": 9.0, "what": "a presenter stands in front of the Balances dashboard on the Stripe Sessions stage and explains that paying someone normally means collecting and storing their bank details by hand", "copy": "Normally paying someone involves collecting and storing their bank account details, which is manual and prone to error.", "voice": "narration"},
+    {"role": "demo", "start": 9.0, "end": 38.0, "what": "clicks Send from the top bar, enters only a recipient's email address, adds an amount and a memo, and sends a one-time payout live on screen", "copy": "I'm also able to send a one-time payout to basically anyone in the world with just an email.", "voice": "narration"},
+    {"role": "proof", "start": 38.0, "end": 51.0, "what": "shows the email the recipient receives, and notes that a recipient who already has Link saved can claim the funds in a few clicks", "copy": "Your recipient will get an email that looks like this, and if they already have their bank details stored with Link, they can receive money in just a few clicks.", "voice": "narration"},
+    {"role": "demo", "start": 51.0, "end": 71.6, "what": "switches to bulk mode, uploads a CSV of recipients; the dashboard parses the total amount and every recipient's email, with an option to schedule the send for later", "copy": "If you wanted to send payouts to a larger group of people, you can simply upload a CSV with all the details.", "voice": "narration"}
+  ],
+  "cta": "no spoken call to action; the feature demo itself, from one recipient to a bulk CSV, is staged as the pitch",
+  "why": "Showing the same mental model scale from a single email-only payout to a bulk CSV send in one unbroken take proves the feature works at both ends of a platform's payout volume without the viewer having to imagine it.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["payments", "api"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["narration"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

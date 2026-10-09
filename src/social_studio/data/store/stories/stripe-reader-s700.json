@@ -1,0 +1,26 @@
+{
+  "id": "stripe-reader-s700",
+  "kind": "story",
+  "name": "A coffee shop runs its counter on the Stripe Reader S700",
+  "brand": "Stripe",
+  "source": {"url": "https://www.youtube.com/watch?v=9oieNo53aNY", "platform": "youtube", "posted": "2023-05-02", "duration": 74.1},
+  "object": "the Stripe Reader S700, a handheld card-payment terminal, shown through Dripos (an all-in-one POS software built on Stripe) and its customer, a coffee and juice shop",
+  "audience": "hospitality and retail owners choosing point-of-sale hardware for a counter, a table, or a pop-up",
+  "message": "This video tells coffee-shop and retail owners that the Stripe Reader S700 is sleek enough to match their brand and mobile enough to follow the order wherever it happens.",
+  "moments": [
+    {"role": "intro", "start": 0.0, "end": 19.0, "what": "texture shots of an espresso pull and a latte pour lead into the Dripos founders introducing their all-in-one POS software for coffee shops: point of sale, online and mobile ordering, payroll", "copy": "It's an all-in-one software for coffee shops: point of sale, online ordering, mobile ordering, payroll, you name it.", "voice": "dialogue"},
+    {"role": "problem", "start": 19.0, "end": 30.0, "what": "a map transition from Austin to New York introduces the customer, Revolución Coffee + Juice; its cofounder explains wanting a seamless, frictionless experience for customers", "copy": "For us it's very important to have a seamless, frictionless experience for the customers.", "voice": "dialogue"},
+    {"role": "solution", "start": 30.0, "end": 57.0, "what": "close-ups of the S700 on the counter while staff take an order; the owner describes it as sleek and modernist, and explains pulling it off the counter to open a second register at the table or a pop-up", "copy": "The new Stripe S700 device, very sleek, minimal modernist design which fits really well with our brand.", "voice": "dialogue"},
+    {"role": "proof", "start": 57.0, "end": 74.1, "what": "the owner holds the reader while talking about loyalty, receipts and tipping living on one device; the film closes on a Revolución x Dripos x Stripe logo lockup", "copy": "It enables us to not have to worry about some of the painful parts of doing payments.", "voice": "dialogue"}
+  ],
+  "cta": "no spoken call to action; the film closes on a co-branded Revolución x Dripos x Stripe logo lockup as an implicit endorsement",
+  "why": "Pairing tactile close-ups of the device with two real operators vouching for it in their own words lets the hardware's design and flexibility feel proven by daily use, not just claimed in a spec sheet.",
+  "tags": {
+    "goal": ["launch", "proof"],
+    "product": ["hardware", "commerce"],
+    "structure": ["story-arc"],
+    "voice": ["dialogue"],
+    "energy": ["build"],
+    "format": ["16:9"]
+  }
+}

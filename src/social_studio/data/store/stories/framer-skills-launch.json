@@ -1,0 +1,26 @@
+{
+  "id": "framer-skills-launch",
+  "kind": "story",
+  "name": "A slash command teaches the Agent your design system",
+  "brand": "Framer",
+  "source": {"url": "https://www.youtube.com/watch?v=ibUWeTP2tzc", "platform": "youtube", "posted": "2026-09-22", "duration": 30.0},
+  "object": "Skills in Framer: saved, reusable instructions (a design-system skill, a motion-system skill) that a team can invoke with a slash command to keep the Agent's output consistent",
+  "audience": "design teams who use the Framer Agent often and are tired of repeating the same style rules in every prompt",
+  "message": "This video tells design teams that a skill, written once, keeps the Agent on-brand every time you invoke it, instead of you re-explaining your rules in every chat.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 8.0, "what": "a chat panel shows a typed house rule, \"use curly quotes,\" then kinetic type completes a second style rule mid-sentence, \"...um, never light,\" implying a saved tone-of-voice or type rule", "copy": "Use curly quotes... um, never light.", "voice": "none"},
+    {"role": "solution", "start": 8.0, "end": 18.0, "what": "a live site for a research-assistant brand, \"helping teams do better research,\" shows its principles section being built out, matching the house style established a moment earlier", "copy": "Helping teams do better research.", "voice": "none"},
+    {"role": "demo", "start": 18.0, "end": 26.0, "what": "a prompt to create a new About page is typed with a slash command, /design-system, appended at the end, then a second clip shows /motion-system and /skills typed the same way", "copy": "Create a new About page for the site, use /design-system.", "voice": "none"},
+    {"role": "cta", "start": 26.0, "end": 30.0, "what": "closes on the plain Framer glyph", "copy": "", "voice": "none"}
+  ],
+  "cta": "no spoken call to action; the film ends on the plain Framer logo mark right after the /skills command is typed",
+  "why": "Showing the same slash command invoked across three different asks, quotes, a new page, motion, proves a skill is not a one-off trick but a rule the Agent will keep honoring every time it's called.",
+  "tags": {
+    "goal": ["feature"],
+    "product": ["design-tool", "website-builder"],
+    "structure": ["hook-demo-cta"],
+    "voice": ["none"],
+    "energy": ["punch"],
+    "format": ["16:9"]
+  }
+}

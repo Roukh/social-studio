@@ -1,0 +1,32 @@
+{
+  "id": "softriver-fathum-ai-slop",
+  "kind": "story",
+  "name": "AI slop vs. a real brand system, for a swim-goggle label",
+  "brand": "Softriver.co",
+  "source": {
+    "url": "https://www.instagram.com/softriver.co/reel/DeKPQP_Iiv3/",
+    "platform": "instagram",
+    "posted": "2026-10-06",
+    "duration": 21.55
+  },
+  "object": "A full applied brand system (logo, signage, goggle packaging, billboard, retail touchpoints, landing page, stationery) built for a fictional swim-goggle brand called Fathum",
+  "audience": "Founders tempted to generate their branding with AI instead of hiring a studio",
+  "message": "This video tells founders that AI-generated branding reads as generic and hollow the moment it meets the real world, while a studio-built system holds together across every surface a brand actually touches.",
+  "moments": [
+    {"role": "hook", "start": 0.0, "end": 2.7, "what": "A woman holds a phone up to camera, mouthing a dismissive line about not needing to pay for branding.", "copy": "\"You're too expensive, I'll just use AI for my brand, no one will notice.\"", "voice": "dialogue"},
+    {"role": "problem", "start": 2.7, "end": 9.567, "what": "Quick-cut flashes of generic, sticker-labelled \"Ai slop\" mockups: a glowing building render, a wrinkled poster, a business card, all carrying a bland manta-ray mark.", "copy": "Each frame is stamped \"Ai slop\" over the generic result.", "voice": "none"},
+    {"role": "solution", "start": 9.567, "end": 15.5, "what": "Cut to Softriver's real Fathum identity: a cleaner manta mark on a tote bag and a billboard, then a swimmer wearing branded goggles and a storefront sign.", "copy": "No text; the contrast in craft carries the beat.", "voice": "none"},
+    {"role": "proof", "start": 15.5, "end": 19.767, "what": "The system keeps holding up across touchpoints — an app icon, underwater packaging shots, a brand lookbook spread, a landing page, a business card with a named founder.", "copy": "No text; a montage proving the system scales to real products.", "voice": "none"},
+    {"role": "cta", "start": 19.767, "end": 21.547, "what": "Closes on two finished ad-style panels for the goggles, ending on the applied logo lockup.", "copy": "\"Swim Smooth with Unsurpassed Comfort\" / \"Better looking goggles for real swimmers.\"", "voice": "none"}
+  ],
+  "cta": "No spoken CTA; the caption ends on \"what do you think of the logo?\" — an engagement question, with the implicit pitch being the 20-second proof that a real system survives contact with real products and AI output does not.",
+  "why": "The before/after structure does the argument for you: it never states that AI branding is bad, it just lets a 2-second generic render sit next to a minute-long montage of the real system working everywhere a brand actually has to show up. Splitting the win into both a system beat (how it's built) and a proof beat (where it's used) makes the craft argument concrete instead of just prettier.",
+  "tags": {
+    "goal": ["proof", "brand"],
+    "product": ["agency"],
+    "structure": ["before-after-cta"],
+    "voice": ["none"],
+    "energy": ["punch"],
+    "format": ["9:16"]
+  }
+}
